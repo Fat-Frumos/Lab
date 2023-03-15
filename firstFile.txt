@@ -1,5 +1,5 @@
-1. The new line
-2. The new line
+1 git format-patch
+2 git apply
 3. The new line
 4. The new line
 5. The new line
