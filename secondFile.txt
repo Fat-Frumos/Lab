@@ -1,6 +1,5 @@
-1. The new line
-2. The new line
-3. The new line
+git log --all --graph --oneline
+git merge git#1 --no-ff
 4. The new line
 5. The new line
 6. The new line
