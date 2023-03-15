@@ -1,6 +1,7 @@
 1 git format-patch
 2 git apply
-3. The new line
+3 git checkout git#2
+4 git cherry-pick
 4. The new line
 5. The new line
 6. The new line
