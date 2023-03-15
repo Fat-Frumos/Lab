@@ -2,9 +2,9 @@ name: Shadow Jar Utils Java
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "gradle" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "gradle" ]
 
 permissions:
   contents: read
@@ -41,7 +41,7 @@ jobs:
       run: ls -ltr utils/build/libs
 
     - name: Copy to core/libs with Gradle
-      run: ./gradlew copyJar
+      run: ./gradlew :utils:copyJar
 
     - name: View core libs
       run: ls -ltr core/libs
@@ -64,7 +64,7 @@ jobs:
     - name: Build with Gradle
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
-        arguments: build
+        arguments: ./gradlew publishToMavenLocal
 
     - name: Run tests with Gradle
       run: ./gradlew test

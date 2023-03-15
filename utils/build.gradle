@@ -1,14 +1,15 @@
 plugins {
     id 'java'
+    id 'maven-publish'
     id 'com.github.johnrengelman.shadow' version '7.0.0'
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-    implementation files('libs/utils-1.3.5.jar')
     implementation 'org.apache.commons:commons-lang3:3.10'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
@@ -32,4 +33,18 @@ test {
 compileJava {
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'
+}
+
+group = 'ua.com.numbers'
+version = '1.3.5'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
 }
