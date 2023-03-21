@@ -1,0 +1,11 @@
+1 git format-patch
+2 git apply
+3 git checkout git#2
+4 git cherry-pick
+5 git stash
+6 git pull
+6. The new line
+7. The new line
+8. The new line
+9 git reset --hard
+10 git revert HEAD
