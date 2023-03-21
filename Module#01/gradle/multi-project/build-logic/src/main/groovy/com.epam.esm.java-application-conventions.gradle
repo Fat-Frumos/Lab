@@ -1,0 +1,4 @@
+plugins {
+    id 'application'
+    id 'com.epam.esm.java-common-conventions'
+}

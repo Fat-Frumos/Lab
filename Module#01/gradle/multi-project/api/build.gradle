@@ -1,0 +1,35 @@
+plugins {
+    id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+    id 'com.epam.esm.java-application-conventions'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':core')
+}
+
+application {
+    mainClass = 'com.epam.esm.api.App'
+}
+
+shadowJar {
+    manifest {
+        attributes 'Main-Class': 'com.epam.esm.api.App'
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
