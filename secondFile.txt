@@ -1,3 +1,5 @@
+git log --all --graph --oneline
+git merge git#1 --no-ff
 1 for i in {1..10}; do echo "$i. The new line" >> firstFile.txt; done
 2 for i in {1..10}; do echo "$i. The new line" >> secondFile.txt; done
 3. The new line
