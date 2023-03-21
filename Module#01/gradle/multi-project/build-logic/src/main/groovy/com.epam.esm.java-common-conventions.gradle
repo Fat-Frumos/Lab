@@ -9,7 +9,7 @@ repositories {
 testing {
     suites {
         test {
-            useJUnitJupiter('5.9.1')
+            useJUnitJupiter('5.9.2')
         }
     }
 }

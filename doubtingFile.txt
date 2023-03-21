@@ -1,5 +1,0 @@
-for i in {1..5}; do
-  echo "Line $i" >> doubtingFile.txt
-    git add doubtingFile.txt
-      git commit -m "Added line $i to doubtingFile.txt"
-      done

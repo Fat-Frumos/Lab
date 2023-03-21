@@ -46,3 +46,8 @@ publishing {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+task run(type: JavaExec) {
+    main = 'com.epam.esm.StringUtils'
+    classpath = sourceSets.main.runtimeClasspath
+}
