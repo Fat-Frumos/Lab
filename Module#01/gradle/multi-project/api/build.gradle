@@ -1,0 +1,11 @@
+plugins {
+    id 'com.epam.esm.java-application-conventions'
+}
+
+dependencies {
+    implementation project(':core')
+}
+
+application {
+    mainClass = 'com.epam.esm.api.App'
+}
