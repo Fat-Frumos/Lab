@@ -1,0 +1,47 @@
+name: Java install openjdk-8-jdk
+
+on:
+  push:
+    branches: [ module#2 ]
+  pull_request:
+    branches: [ module#2 ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 18
+        uses: actions/setup-java@v2
+        with:
+          java-version: '18'
+          distribution: 'adopt'
+          cache: maven
+
+      - name: sudo apt-get update
+        run: sudo apt-get update
+
+      - name: sudo apt-get install openjdk-8-jdk
+        run: sudo apt-get install openjdk-8-jdk -y
+
+      - name: openjdk-8-jre
+        run: sudo apt-get install openjdk-8-jre -y
+
+      - name: java -version
+        run: mvn -B package --file pom.xml
+
+      - name: gift.war
+        run: ls -la && pwd
+
+      - name: gift.war
+        run: cd api
+
+      - name: gift.war
+        run: ls -la && pwd
+
+#      - name: gift.war
+#        run: jar -xvf gift.war
+#
+#      - name: exec:java
+#        run: cd WEB-INF
