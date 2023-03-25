@@ -10,8 +10,8 @@ import java.util.HashSet;
 
 @Component
 public class TagRowMapper implements RowMapper<Tag> {
-    private final String TAG_ID = "t_id";
-    private final String TAG_NAME = "t_name";
+    private static final String TAG_ID = "t_id";
+    private static final String TAG_NAME = "t_name";
 
     @Override
     public Tag mapRow(final ResultSet resultSet, final int i)

@@ -9,12 +9,12 @@ import java.sql.SQLException;
 
 @Component
 public class CertificateRowMapper implements RowMapper<Certificate> {
-    private final String GIFT_ID = "id";
-    private final String GIFT_NAME = "name";
-    private final String DESCRIPTION = "description";
-    private final String DURATION = "duration";
-    private final String CREATE_DATE = "create_date";
-    private final String LAST_UPDATE_DATE = "last_update_date";
+    private static final String GIFT_ID = "id";
+    private static final String GIFT_NAME = "name";
+    private static final String DESCRIPTION = "description";
+    private static final String DURATION = "duration";
+    private static final String CREATE_DATE = "create_date";
+    private static final String LAST_UPDATE_DATE = "last_update_date";
 
     @Override
     public Certificate mapRow(final ResultSet resultSet, final int i) throws SQLException {

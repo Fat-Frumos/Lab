@@ -39,19 +39,17 @@ public class AppConfig implements TransactionManagementConfigurer {
 
     @Bean
     public PlatformTransactionManager txManager() {
-
         return new DataSourceTransactionManager(dataSource());
     }
 
+    @Bean
     @Override
     public PlatformTransactionManager annotationDrivenTransactionManager() {
-
         return txManager();
     }
 
     @Bean
     public JdbcTemplate getJdbcTemplate() {
-
         return new JdbcTemplate(dataSource());
     }
 }

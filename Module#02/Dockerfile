@@ -2,10 +2,11 @@
 FROM maven:3.8.2-jdk-11 AS build
 COPY . /app
 WORKDIR /app
-RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests -Dmaven.compiler.target=11
 
 # Run stage
-FROM tomcat:9-jdk11
-COPY --from=build /api/target/gift.war $CATALINA_HOME/webapps/
+FROM openjdk:11-jdk-slim
+COPY --from=build /api/target/gift.war certificate.war
+#COPY --from=build /api/target/dependency/webapp-runner.jar webapp-runner.jar
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+ENTRYPOINT ["java","-jar","certificate.war"]

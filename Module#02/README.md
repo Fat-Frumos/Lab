@@ -57,12 +57,12 @@
 - Convenient error/exception handling mechanism should be implemented: all errors should be meaningful and localized on backend side. 
   Example: handle 404 error: where *errorCode” is your custom code (it can be based on http status and requested resource - certificate or tag)
 ```
-• HTTP Status: 404
-• response body    
-• {
-• “errorMessage”: “Requested resource not found (id = 55)”,
-• “errorCode”: 40401
-• }
+HTTP Status: 404
+response body    
+{
+“errorMessage”: “Requested resource not found (id = 55)”,
+“errorCode”: 40401
+}
 ```
 - Abstraction should be used everywhere to avoid code duplication.
 - Several configurations should be implemented (at least two - dev and prod).

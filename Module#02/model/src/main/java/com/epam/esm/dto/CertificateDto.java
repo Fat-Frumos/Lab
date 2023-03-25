@@ -1,5 +1,6 @@
 package com.epam.esm.dto;
 
+import com.epam.esm.domain.Certificate;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -31,4 +32,13 @@ public class CertificateDto {
     private int duration;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<TagDto> tags;
+
+    public CertificateDto(Certificate certificate) {
+        this.id = certificate.getId();
+        this.name = certificate.getName();
+        this.description = certificate.getDescription();
+        this.createDate = certificate.getCreateDate();
+        this.lastUpdateDate = Instant.now();
+        this.duration = certificate.getDuration();
+    }
 }

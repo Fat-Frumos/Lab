@@ -1,13 +1,14 @@
 package com.epam.esm;
 
 import com.epam.esm.dto.TagDto;
+import com.epam.esm.exception.ServiceException;
 
 import java.util.List;
 
 public interface TagService {
 
-    TagDto getBy(Long id);
+    TagDto getById(Long id) throws ServiceException;
 
-    List<TagDto> getAll();
+    List<TagDto> getAll() throws ServiceException;
 
 }
