@@ -1,7 +1,6 @@
 # Build stage
 FROM maven:3.8.2-jdk-11 AS build
-COPY . /app
-WORKDIR /app
+COPY . .
 RUN mvn clean package -DskipTests -Dmaven.compiler.target=11
 
 # Run stage

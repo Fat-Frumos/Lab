@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.epam.esm")
-public class RootConfig implements WebMvcConfigurer {
+public class RestConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(
             final ViewControllerRegistry registry) {

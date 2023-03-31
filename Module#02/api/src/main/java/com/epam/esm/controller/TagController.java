@@ -1,11 +1,10 @@
 package com.epam.esm.controller;
 
-import com.epam.esm.TagService;
-import com.epam.esm.controller.exception.ErrorResponse;
-import com.epam.esm.exception.ServiceException;
+import com.epam.esm.handler.ErrorResponse;
+import com.epam.esm.service.TagService;
 import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/tags")
 public class TagController {
     private final TagService tagService;
-    private static final Logger LOGGER = LogManager.getLogger();
 
     @ResponseBody
     @GetMapping(value = "/{id}")
@@ -32,8 +30,8 @@ public class TagController {
                     tagService.getById(id),
                     new HttpHeaders(),
                     HttpStatus.OK);
-        } catch (ServiceException e) {
-            LOGGER.error(e.getMessage());
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return new ResponseEntity<>(
                     new ErrorResponse(e.getMessage(), 40401),
                     HttpStatus.NOT_FOUND);
@@ -48,8 +46,8 @@ public class TagController {
                     tagService.getAll(),
                     new HttpHeaders(),
                     HttpStatus.OK);
-        } catch (ServiceException e) {
-            LOGGER.debug(e.getMessage());
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return new ResponseEntity<>(
                     new ErrorResponse(e.getMessage(), 40401),
                     HttpStatus.NOT_FOUND);

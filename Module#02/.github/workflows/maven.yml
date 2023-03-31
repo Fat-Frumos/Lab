@@ -24,3 +24,6 @@ jobs:
 
       - name: Ip
         run: ip address
+
+      - name: find file
+        run: find . -name gift.war

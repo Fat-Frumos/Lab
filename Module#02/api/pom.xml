@@ -17,6 +17,7 @@
     <url>https://www.esm.epam.com</url>
 
     <properties>
+        <java.version>11</java.version>
         <spring.version>5.2.19.RELEASE</spring.version>
         <servlet.api.version>4.0.1</servlet.api.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

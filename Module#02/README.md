@@ -2,6 +2,32 @@
 ## REST API:
 #### Web service for Gift Certificates system
 
+#### Commands:
+
+Clean, install, and generate report
+
+`mvn clean install site -P test`
+
+Test report
+
+`mvn surefire-report:report`
+
+Compile the code v.11 and package in file, skip the tests
+
+`mvn clean package -DskipTests -Dmaven.compiler.target=11`
+
+Build the project with Maven Tool
+
+`mvn -B package --file pom.xm`
+
+Show dependency tree
+
+`mvn dependency:tree`
+
+Build and run Tomcat server, show debug information
+
+`mvn clean package -X;  mvn tomcat7:run -X`
+
 ### Business requirements
 
 #### Develop web service for Gift Certificates system with the following entities (many-to-many):
