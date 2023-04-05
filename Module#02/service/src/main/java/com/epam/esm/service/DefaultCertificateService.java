@@ -2,6 +2,8 @@ package com.epam.esm.service;
 
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dto.CertificateDto;
+import com.epam.esm.criteria.Criteria;
+import com.epam.esm.dto.CertificateWithoutTagDto;
 import com.epam.esm.mapper.CertificateMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
@@ -51,7 +53,6 @@ public class DefaultCertificateService implements CertificateService {
                 certificateDao.getByName(name));
     }
 
-
     @Override
     @Transactional
     @CacheEvict(allEntries = true)
@@ -62,6 +63,16 @@ public class DefaultCertificateService implements CertificateService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<CertificateDto> getAllBy(Criteria criteria)
+            throws RuntimeException {
+        return certificateDao
+                .getAllBy(criteria).stream()
+                .map(mapper::toDto)
+                .collect(toList());
+    }
+
+    @Override
     @Transactional
     @CacheEvict(allEntries = true)
     public boolean update(
@@ -69,6 +80,14 @@ public class DefaultCertificateService implements CertificateService {
             throws RuntimeException {
         return certificateDao.update(
                 mapper.toEntity(certificateDto));
+    }
+
+    @Override
+    public List<CertificateWithoutTagDto> getAllWithoutTags()
+           throws RuntimeException {
+            return certificateDao.getAll().stream()
+                    .map(mapper::toDtoWithoutTags)
+                    .collect(toList());
     }
 
     @Override

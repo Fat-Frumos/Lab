@@ -2,6 +2,7 @@ package com.epam.esm;
 
 import com.epam.esm.controller.CertificateController;
 import com.epam.esm.dto.CertificateDto;
+import com.epam.esm.dto.CertificateWithoutTagDto;
 import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.handler.ErrorHandlerController;
 import com.epam.esm.service.DefaultCertificateService;
@@ -37,9 +38,7 @@ class MockCertificateControllerTest {
     private MockMvc mockMvc;
     private ObjectMapper objectMapper;
     private CertificateDto certificateDto;
-    private CertificateDto certificateDto2;
-    List<CertificateDto> certificateDtoList = new ArrayList<>();
-
+    List<CertificateWithoutTagDto> certificateDtoList = new ArrayList<>();
 
     @BeforeEach
     void setUp() {
@@ -56,14 +55,21 @@ class MockCertificateControllerTest {
                 .description("Certificate")
                 .price(new BigDecimal(100))
                 .build();
-        certificateDto2 = CertificateDto.builder()
+
+        CertificateWithoutTagDto certificateDto2 = CertificateWithoutTagDto.builder()
                 .id(2L)
                 .name("Gift 2")
                 .description("Certificate 2")
                 .price(new BigDecimal(200))
                 .build();
+        CertificateWithoutTagDto certificateDto3 = CertificateWithoutTagDto.builder()
+                .id(3L)
+                .name("Gift 3")
+                .description("Certificate 3")
+                .price(new BigDecimal(300))
+                .build();
 
-        certificateDtoList.add(certificateDto);
+        certificateDtoList.add(certificateDto3);
         certificateDtoList.add(certificateDto2);
     }
 
@@ -95,15 +101,15 @@ class MockCertificateControllerTest {
 
     @Test
     void shouldReturnListOfCertificate() throws Exception {
-        given(service.getAll()).willReturn(certificateDtoList);
+        given(service.getAllWithoutTags()).willReturn(certificateDtoList);
         mockMvc.perform(MockMvcRequestBuilders.get("/certificates")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$[0].id").value(1L))
-                .andExpect(jsonPath("$[0].name").value("Gift"))
-                .andExpect(jsonPath("$[0].description").value("Certificate"))
-                .andExpect(jsonPath("$[0].price").value(100))
+                .andExpect(jsonPath("$[0].id").value(3L))
+                .andExpect(jsonPath("$[0].name").value("Gift 3"))
+                .andExpect(jsonPath("$[0].description").value("Certificate 3"))
+                .andExpect(jsonPath("$[0].price").value(300))
                 .andExpect(jsonPath("$[1].id").value(2L))
                 .andExpect(jsonPath("$[1].name").value("Gift 2"))
                 .andExpect(jsonPath("$[1].description").value("Certificate 2"))

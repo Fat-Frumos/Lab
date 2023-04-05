@@ -8,7 +8,13 @@ INSERT INTO tag (id, name)
 VALUES (4, 'Spa');
 INSERT INTO tag (id, name)
 VALUES (5, 'Birthday');
-
-
-INSERT INTO gift_certificate_tag (gift_certificate_id, tag_id)
-VALUES (1, 3), (2, 4), (3, 5), (4, 1), (5, 3), (6, 2);
+INSERT INTO tag (id, name)
+VALUES (115, 'Independence');
+INSERT INTO tag (id, name)
+VALUES (113, 'Spring');
+INSERT INTO tag (id, name)
+VALUES (114, 'Summer');
+INSERT INTO tag (id, name)
+VALUES (111, 'Weekend');
+INSERT INTO tag (id, name)
+VALUES (112, 'Holiday');

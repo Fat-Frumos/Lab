@@ -2,7 +2,11 @@ package com.epam.esm.mapper;
 
 import com.epam.esm.domain.Tag;
 import com.epam.esm.dto.TagDto;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
+@Slf4j
+@Component
 public class TagMapper implements EntityMapper<Tag, TagDto> {
     public static final TagMapper mapper = new TagMapper();
 

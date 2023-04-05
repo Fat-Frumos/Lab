@@ -2,14 +2,13 @@ package com.epam.esm.dto;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
+import lombok.EqualsAndHashCode;
 
-@Getter
-@Builder
 @Data
-public class TagDto {
+@Builder
+@EqualsAndHashCode(callSuper=false)
+public class TagDto extends BaseDto {
 
     private Long id;
     private String name;
-
 }

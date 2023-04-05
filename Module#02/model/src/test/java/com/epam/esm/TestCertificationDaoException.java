@@ -2,6 +2,7 @@ package com.epam.esm;
 
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dao.DefaultCertificateDao;
+import com.epam.esm.mapper.CertificateListExtractor;
 import com.epam.esm.mapper.CertificateRowMapper;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,9 +20,12 @@ import static com.epam.esm.mapper.QueriesContext.GET_CERTIFICATE_BY_ID;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-class TestCertificationRuntimeException {
+class TestCertificationDaoException {
     @Mock
     private static final CertificateRowMapper rowMapper = mock(CertificateRowMapper.class);
     @Mock
@@ -34,7 +38,9 @@ class TestCertificationRuntimeException {
     private static final JdbcTemplate jdbcTemplate = mock(JdbcTemplate.class);
     @Mock
     private static final DataSource dataSource = mock(DataSource.class);
-    private static final CertificateDao certificateDao = new DefaultCertificateDao(jdbcTemplate, rowMapper);
+    @Mock
+    private static final CertificateListExtractor listExtractor = mock(CertificateListExtractor.class);
+    private static final CertificateDao certificateDao = new DefaultCertificateDao(jdbcTemplate, rowMapper, listExtractor);
     private final Long CERTIFICATE_ID = 1L;
 
     @SneakyThrows
@@ -51,10 +57,10 @@ class TestCertificationRuntimeException {
     @Test
     @DisplayName("Should throw RuntimeException when getById() method catches RuntimeException")
     void shouldThrowRuntimeExceptionWhenQueryForObjectThrowsException() {
-        when(jdbcTemplate.queryForObject(
+        when(jdbcTemplate.query(
                 GET_CERTIFICATE_BY_ID,
                 new Object[]{CERTIFICATE_ID},
-                rowMapper))
+                listExtractor))
                 .thenThrow(new RuntimeException("error"));
         assertThrows(RuntimeException.class,
                 () -> certificateDao.getById(CERTIFICATE_ID));
@@ -62,20 +68,8 @@ class TestCertificationRuntimeException {
 
     @Test
     @DisplayName("Should throw RuntimeException when getAll() method catches RuntimeException")
-    void shouldThrowRuntimeExceptionWhenGetAllMethodCatchesException()
-            throws RuntimeException {
-        when(jdbcTemplate.query(anyString(),
-                any(CertificateRowMapper.class)))
-                .thenThrow(new RuntimeException("test"));
-        assertThrows(RuntimeException.class, certificateDao::getAll);
-    }
-
-    @Test
-    @DisplayName("Should throw RuntimeException when getAll() method catches RuntimeException")
-    void shouldThrowDaoSQLExceptionWhenGetAllMethodCatchesSQLException()
-            throws RuntimeException {
-        when(jdbcTemplate.query(anyString(),
-                any(CertificateRowMapper.class)))
+    void shouldThrowDaoSQLExceptionWhenGetAllMethodCatchesSQLException() {
+        when(jdbcTemplate.query(anyString(), any(CertificateRowMapper.class)))
                 .thenThrow(new RuntimeException("test"));
         assertThrows(RuntimeException.class, certificateDao::getAll);
     }

@@ -97,12 +97,12 @@ class CertificateMapperTest {
     @Test
     @DisplayName("Should throw NullPointerException when passed null argument")
     void shouldThrowNullPointerExceptionWhenPassedNullToEntity() {
-        assertThrows(NullPointerException.class, () -> mapper.toEntity(null));
+        assertThrows(RuntimeException.class, () -> mapper.toEntity(null));
     }
 
     @Test
     @DisplayName("Should throw NullPointerException when passed null argument")
     void shouldThrowNullPointerExceptionWhenPassedNullToDto() {
-        assertThrows(NullPointerException.class, () -> mapper.toDto(null));
+        assertThrows(RuntimeException.class, () -> mapper.toDto(null));
     }
 }

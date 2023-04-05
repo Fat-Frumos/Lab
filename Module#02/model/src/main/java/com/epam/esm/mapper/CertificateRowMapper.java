@@ -9,6 +9,7 @@ import java.sql.SQLException;
 
 @Component
 public class CertificateRowMapper implements RowMapper<Certificate> {
+
     private static final String GIFT_ID = "id";
     private static final String GIFT_NAME = "name";
     private static final String DESCRIPTION = "description";
@@ -18,7 +19,11 @@ public class CertificateRowMapper implements RowMapper<Certificate> {
     private static final String LAST_UPDATE_DATE = "last_update_date";
 
     @Override
-    public Certificate mapRow(final ResultSet resultSet, final int i) throws SQLException {
+    public Certificate mapRow(
+            final ResultSet resultSet,
+            final int i)
+            throws SQLException {
+
         return Certificate.builder()
                 .id(resultSet.getLong(GIFT_ID))
                 .name(resultSet.getString(GIFT_NAME))

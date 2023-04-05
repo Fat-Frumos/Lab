@@ -1,6 +1,9 @@
 package com.epam.esm.dao;
 
+import com.epam.esm.criteria.QueryBuilder;
 import com.epam.esm.domain.Certificate;
+import com.epam.esm.criteria.Criteria;
+import com.epam.esm.mapper.CertificateListExtractor;
 import com.epam.esm.mapper.CertificateRowMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,9 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static com.epam.esm.mapper.QueriesContext.*;
 
@@ -22,15 +23,21 @@ public class DefaultCertificateDao implements CertificateDao {
 
     private final JdbcTemplate jdbcTemplate;
     private final CertificateRowMapper certificateRowMapper;
+    private final CertificateListExtractor listExtractor;
 
     @Override
-    public final Certificate getById(final Long id)
-            throws RuntimeException {
-        return jdbcTemplate.queryForObject(
+    public final Certificate getById(final Long id) throws RuntimeException {
+        List<Certificate> result = jdbcTemplate.query(
                 GET_CERTIFICATE_BY_ID,
                 new Object[]{id},
-                certificateRowMapper);
+                listExtractor);
+        if (result == null || result.isEmpty()) {
+            throw new RuntimeException(
+                    String.format("Certificate not found with id: %d", id));
+        }
+        return result.get(0);
     }
+
 
     @Override
     public final Certificate getByName(
@@ -51,6 +58,15 @@ public class DefaultCertificateDao implements CertificateDao {
     }
 
     @Override
+    public final List<Certificate> getAllBy(Criteria criteria)
+            throws RuntimeException { // TODO test with criteria
+        log.info(criteria.toString());
+        return jdbcTemplate.query(
+                GET_ALL_WITH_TAG_ID,
+                listExtractor);
+    }
+
+    @Override
     public final boolean save(
             final Certificate certificate)
             throws RuntimeException {
@@ -58,45 +74,31 @@ public class DefaultCertificateDao implements CertificateDao {
                 System.currentTimeMillis() >> 48 & 0x0FFF,
                 certificate.getName(),
                 certificate.getDescription(),
-                Timestamp.from(certificate.getCreateDate()),
-                Timestamp.from(certificate.getLastUpdateDate()),
+                Timestamp.from(Instant.now()),
+                Timestamp.from(Instant.now()),
                 certificate.getDuration()) == 1;
     }
 
     @Override
     public final boolean delete(final Long id)
             throws RuntimeException {
-        return jdbcTemplate.update(
-                DELETE_CERTIFICATE, id) == 1;
+        if (getById(id) != null) {
+            return jdbcTemplate.update(
+                    DELETE_CERTIFICATE, id) == 1;
+        } else {
+            throw new RuntimeException(
+                    String.format("Certificate not found with id: %d", id));
+        }
     }
 
     @Override
     public final boolean update(
             final Certificate certificate)
             throws RuntimeException {
-        Map<String, Object> params = new HashMap<>();
-        StringBuilder sql = new StringBuilder(UPDATE_CERTIFICATE);
-        if (certificate.getName() != null) {
-            sql.append(" SET name = ?, ");
-            params.put("name", certificate.getName());
-        }
-        if (certificate.getDescription() != null) {
-            sql.append(" SET description = ?, ");
-            params.put("description", certificate.getDescription());
-        }
-        if (certificate.getPrice() != null) {
-            sql.append(" SET price = ?, ");
-            params.put("price", certificate.getPrice());
-        }
-        if (certificate.getDuration() != null) {
-            sql.append(" SET duration = ?, ");
-            params.put("duration", certificate.getDuration());
-        }
-
-        sql.append("lastUpdateDate = ? WHERE id = ?");
-        params.put("lastUpdateDate", Instant.now());
-        params.put("id", certificate.getId());
         return jdbcTemplate.update(
-                sql.toString(), params) == 1;
+                QueryBuilder.builder().updateQuery(
+                        certificate,
+                        UPDATE_CERTIFICATE)
+                        .toString()) == 1;
     }
 }

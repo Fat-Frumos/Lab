@@ -1,8 +1,10 @@
 package com.epam.esm.service;
 
+import com.epam.esm.dto.BaseDto;
+
 import java.util.List;
 
-public interface BaseService<T> {
+public interface BaseService<T extends BaseDto> {
 
     T getById(Long id);
 

@@ -12,21 +12,22 @@ Test report
 
 `mvn surefire-report:report`
 
+Show dependency tree
+
+`mvn dependency:tree`
+
 Compile the code v.11 and package in file, skip the tests
 
 `mvn clean package -DskipTests -Dmaven.compiler.target=11`
 
 Build the project with Maven Tool
 
-`mvn -B package --file pom.xm`
+`mvn -B package --file pom.xml`
 
-Show dependency tree
+Run Tomcat server, show debug information
 
-`mvn dependency:tree`
+`mvn tomcat7:run -X`
 
-Build and run Tomcat server, show debug information
-
-`mvn clean package -X;  mvn tomcat7:run -X`
 
 ### Business requirements
 

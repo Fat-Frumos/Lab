@@ -20,7 +20,7 @@ import static java.util.stream.Collectors.toList;
 public class DefaultTagService implements TagService {
 
     private final TagDao tagDao;
-    private final TagMapper tagMapper = TagMapper.getInstance();
+    private final TagMapper tagMapper;
 
     @Override
     @Cacheable
@@ -51,7 +51,6 @@ public class DefaultTagService implements TagService {
                 .stream()
                 .map(tagMapper::toDto)
                 .collect(toList());
-
     }
 
     @Override
