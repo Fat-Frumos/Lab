@@ -10,18 +10,23 @@ import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Slf4j
 @Component
 @AllArgsConstructor
 public class CertificateListExtractor implements ResultSetExtractor<List<Certificate>> {
     private static final String GIFT_ID = "id";
-    public final TagRowMapper tagRowMapper;
+    private final TagRowMapper tagRowMapper;
     private final CertificateRowMapper rowMapper;
 
     @Override
-    public List<Certificate> extractData(ResultSet resultSet)
+    public List<Certificate> extractData(final ResultSet resultSet)
             throws SQLException, DataAccessException {
         Map<Long, Certificate> map = new LinkedHashMap<>();
         while (resultSet.next()) {
@@ -29,7 +34,7 @@ public class CertificateListExtractor implements ResultSetExtractor<List<Certifi
             Certificate certificate = map.get(certificateId);
             if (certificate == null) {
                 certificate = rowMapper.mapRow(resultSet, 0);
-                certificate.setTags(new HashSet<>());
+                Objects.requireNonNull(certificate).setTags(new HashSet<>());
                 map.put(certificateId, certificate);
             }
             Tag tag = tagRowMapper.mapRow(resultSet, resultSet.getMetaData().getColumnCount());

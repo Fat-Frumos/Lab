@@ -1,7 +1,7 @@
 package com.epam.esm.dao;
 
-import com.epam.esm.mapper.TagRowMapper;
 import com.epam.esm.domain.Tag;
+import com.epam.esm.mapper.TagRowMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -52,7 +52,9 @@ public class DefaultTagDao implements TagDao {
     public final boolean save(
             final Tag tag)
             throws RuntimeException {
-        return false; //TODO
+        return jdbcTemplate.update(INSERT_TAG,
+                System.currentTimeMillis() >> 48 & 0x0FFF,
+                tag.getName()) == 1;
     }
 
     @Override

@@ -22,7 +22,7 @@ class ServiceExceptionTest {
     @Mock
     private CertificateDao certificateDao;
     @Mock
-    private CertificateMapper mapper = CertificateMapper.mapper;
+    private CertificateMapper mapper = CertificateMapper.MAPPER;
     @InjectMocks
     private DefaultCertificateService service;
     private static final String message = "Service Exception";

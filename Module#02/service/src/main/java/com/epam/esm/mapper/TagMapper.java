@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class TagMapper implements EntityMapper<Tag, TagDto> {
-    public static final TagMapper mapper = new TagMapper();
+public final class TagMapper implements EntityMapper<Tag, TagDto> {
+    public static final TagMapper MAPPER = new TagMapper();
 
     public static TagMapper getInstance() {
-        return mapper;
+        return MAPPER;
     }
 
     private TagMapper() {
@@ -29,8 +29,8 @@ public class TagMapper implements EntityMapper<Tag, TagDto> {
     }
 
     @Override
-    public Tag toEntity(TagDto tagDto) {
-        if (tagDto == null) { // TODO Tests
+    public Tag toEntity(final TagDto tagDto) {
+        if (tagDto == null) {
             throw new NullPointerException("Tag must not be null");
         }
         return Tag.builder()

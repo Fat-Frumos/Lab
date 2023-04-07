@@ -64,7 +64,7 @@ public class DefaultCertificateService implements CertificateService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<CertificateDto> getAllBy(Criteria criteria)
+    public List<CertificateDto> getAllBy(final Criteria criteria)
             throws RuntimeException {
         return certificateDao
                 .getAllBy(criteria).stream()

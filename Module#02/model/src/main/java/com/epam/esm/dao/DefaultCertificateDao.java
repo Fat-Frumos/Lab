@@ -58,11 +58,11 @@ public class DefaultCertificateDao implements CertificateDao {
     }
 
     @Override
-    public final List<Certificate> getAllBy(Criteria criteria)
-            throws RuntimeException { // TODO test with criteria
-        log.info(criteria.toString());
+    public final List<Certificate> getAllBy(
+            final Criteria criteria)
+            throws RuntimeException {
         return jdbcTemplate.query(
-                GET_ALL_WITH_TAG_ID,
+                QueryBuilder.builder().searchBy(criteria).build(),
                 listExtractor);
     }
 
@@ -97,8 +97,8 @@ public class DefaultCertificateDao implements CertificateDao {
             throws RuntimeException {
         return jdbcTemplate.update(
                 QueryBuilder.builder().updateQuery(
-                        certificate,
-                        UPDATE_CERTIFICATE)
+                                certificate,
+                                UPDATE_CERTIFICATE)
                         .toString()) == 1;
     }
 }

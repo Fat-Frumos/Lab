@@ -15,16 +15,16 @@ import static java.lang.String.format;
 
 @Data
 @Builder
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 public class CertificateDto extends BaseDto {
 
     private Long id;
     private String name;
     private String description;
     private BigDecimal price;
-    @JsonFormat(timezone = "GMT+03:00")
+    @JsonFormat(timezone = "GMT+03:00", pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Instant createDate;
-    @JsonFormat(timezone = "GMT+03:00")
+    @JsonFormat(timezone = "GMT+03:00", pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Instant lastUpdateDate;
     private int duration;
     private Set<TagDto> tags;
@@ -35,15 +35,17 @@ public class CertificateDto extends BaseDto {
                 "{id=%d, name='%s', description='%s', price=%s, duration=%d, tags=%s}",
                 id, name, description, price, duration, tags);
     }
+
     @JsonCreator
-    public CertificateDto(@JsonProperty("id") Long id,
-                          @JsonProperty("name") String name,
-                          @JsonProperty("description") String description,
-                          @JsonProperty("price") BigDecimal price,
-                          @JsonProperty("createDate") Instant createDate,
-                          @JsonProperty("lastUpdateDate") Instant lastUpdateDate,
-                          @JsonProperty("duration") int duration,
-                          @JsonProperty("tags") Set<TagDto> tags) {
+    public CertificateDto(
+            @JsonProperty("id") final Long id,
+            @JsonProperty("name") final String name,
+            @JsonProperty("description") final String description,
+            @JsonProperty("price") final BigDecimal price,
+            @JsonProperty("createDate") final Instant createDate,
+            @JsonProperty("lastUpdateDate") final Instant lastUpdateDate,
+            @JsonProperty("duration") final int duration,
+            @JsonProperty("tags") final Set<TagDto> tags) {
         this.id = id;
         this.name = name;
         this.description = description;

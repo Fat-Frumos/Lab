@@ -6,9 +6,8 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @Builder
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 public class TagDto extends BaseDto {
-
     private Long id;
     private String name;
 }

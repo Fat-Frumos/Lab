@@ -18,3 +18,5 @@ INSERT INTO tag (id, name)
 VALUES (111, 'Weekend');
 INSERT INTO tag (id, name)
 VALUES (112, 'Holiday');
+INSERT INTO tag (id, name)
+VALUES (116, 'Anniversary');

@@ -82,7 +82,7 @@ Run Tomcat server, show debug information
 - Clear layered structure should be used with responsibilities of each application layer defined.
 - JSON should be used as a format of client-server communication messages.
 - Convenient error/exception handling mechanism should be implemented: all errors should be meaningful and localized on backend side. 
-  Example: handle 404 error: where *errorCode” is your custom code (it can be based on http status and requested resource - certificate or tag)
+  Example: handle 404 error: where *errorCode is your custom code (it can be based on http status and requested resource - certificate or tag)
 ```
 HTTP Status: 404
 response body    

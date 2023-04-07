@@ -17,11 +17,11 @@ import static java.util.stream.Collectors.toSet;
 @Slf4j
 @Component
 public final class CertificateMapper implements EntityMapper<Certificate, CertificateDto> {
-    public static final CertificateMapper mapper = new CertificateMapper();
-    public static final TagMapper tagMapper = TagMapper.getInstance();
+    public static final CertificateMapper MAPPER = new CertificateMapper();
+    public static final TagMapper TAG_MAPPER = TagMapper.getInstance();
 
     public static CertificateMapper getInstance() {
-        return mapper;
+        return MAPPER;
     }
 
     private CertificateMapper() {
@@ -34,7 +34,7 @@ public final class CertificateMapper implements EntityMapper<Certificate, Certif
             Set<TagDto> tagsDto = new HashSet<>();
             if (tags != null) {
                 tagsDto = tags.stream()
-                        .map(tagMapper::toDto)
+                        .map(TAG_MAPPER::toDto)
                         .collect(toSet());
             }
             return CertificateDto.builder()
@@ -59,7 +59,7 @@ public final class CertificateMapper implements EntityMapper<Certificate, Certif
             Set<Tag> tags = new HashSet<>();
             if (tagsDto != null) {
                 tags = tagsDto.stream()
-                        .map(tagMapper::toEntity)
+                        .map(TAG_MAPPER::toEntity)
                         .collect(toSet());
             }
             return Certificate.builder()
@@ -77,7 +77,7 @@ public final class CertificateMapper implements EntityMapper<Certificate, Certif
         }
     }
 
-    public CertificateWithoutTagDto toDtoWithoutTags(Certificate certificate) {
+    public CertificateWithoutTagDto toDtoWithoutTags(final Certificate certificate) {
         return CertificateWithoutTagDto.builder()
                 .id(certificate.getId())
                 .name(certificate.getName())

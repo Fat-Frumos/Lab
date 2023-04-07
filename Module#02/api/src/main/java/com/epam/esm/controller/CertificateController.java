@@ -1,15 +1,16 @@
 package com.epam.esm.controller;
 
 import com.epam.esm.criteria.Criteria;
-import com.epam.esm.criteria.SortDirection;
+import com.epam.esm.criteria.SortOrder;
 import com.epam.esm.exception.CertificateIsExistsException;
-import com.epam.esm.exception.CertificateNotFoundException;
+import com.epam.esm.exception.NotFoundException;
 import com.epam.esm.handler.ErrorResponse;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.service.CertificateService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Instant;
@@ -67,14 +69,17 @@ public class CertificateController {
 
     @GetMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> search(
-            @RequestParam(value = "tagName", required = false) String tagName,
-            @RequestParam(value = "name", required = false) String name,
-            @RequestParam(value = "description", required = false) String description,
-            @RequestParam(value = "date", required = false) Instant date,
-            @RequestParam(value = "sortDirection", required = false, defaultValue = "ASC")
-            SortDirection direction) {
+            @RequestParam(value = "name", required = false) final String name,
+            @RequestParam(value = "date", required = false) final Instant date,
+            @RequestParam(value = "tagName", required = false) final String tagName,
+            @RequestParam(value = "description", required = false) final String description,
+            @RequestParam(value = "order", required = false, defaultValue = "UNSORTED") final SortOrder order) {
         try {
-            Criteria criteria = Criteria.builder().tagName(tagName).name(name).date(date).description(description).sortDirection(direction).build();
+            Criteria criteria = Criteria.builder()
+                    .tagName(tagName)
+                    .name(name).date(date)
+                    .description(description)
+                    .sortOrder(order).build();
             return new ResponseEntity<>(
                     certificateService.getAllBy(criteria),
                     new HttpHeaders(), OK);
@@ -96,7 +101,7 @@ public class CertificateController {
                         certificateService.update(certificateDto),
                         new HttpHeaders(), OK);
             }
-            throw new CertificateNotFoundException(String.valueOf(id));
+            throw new NotFoundException("update", "/certificates/" + id, new HttpHeaders());
         } catch (Exception e) {
             log.error(e.getMessage());
             return new ResponseEntity<>(NOT_FOUND);
@@ -105,6 +110,7 @@ public class CertificateController {
 
     @ResponseBody
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public final ResponseEntity<Object> create(
             @RequestBody final CertificateDto certificateDto) {
         try {
