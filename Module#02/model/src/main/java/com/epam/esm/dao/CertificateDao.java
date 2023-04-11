@@ -1,6 +1,6 @@
 package com.epam.esm.dao;
 
-import com.epam.esm.domain.Certificate;
+import com.epam.esm.entity.Certificate;
 import com.epam.esm.criteria.Criteria;
 
 import java.util.List;

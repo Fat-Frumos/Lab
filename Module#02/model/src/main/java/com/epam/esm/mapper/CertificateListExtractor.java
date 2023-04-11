@@ -1,7 +1,7 @@
 package com.epam.esm.mapper;
 
-import com.epam.esm.domain.Certificate;
-import com.epam.esm.domain.Tag;
+import com.epam.esm.entity.Certificate;
+import com.epam.esm.entity.Tag;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataAccessException;

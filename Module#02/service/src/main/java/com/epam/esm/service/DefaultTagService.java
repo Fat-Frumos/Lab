@@ -2,51 +2,41 @@ package com.epam.esm.service;
 
 import com.epam.esm.dao.TagDao;
 import com.epam.esm.dto.TagDto;
-import com.epam.esm.mapper.TagMapper;
+import com.epam.esm.exception.TagIsExistsException;
+import com.epam.esm.exception.TagNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+import static com.epam.esm.mapper.TagMapper.tagMapper;
 import static java.util.stream.Collectors.toList;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
-@CacheConfig(cacheNames = "tags")
 public class DefaultTagService implements TagService {
 
     private final TagDao tagDao;
-    private final TagMapper tagMapper;
 
     @Override
-    @Cacheable
     @Transactional(readOnly = true)
-    public TagDto getById(
-            final Long id)
-            throws RuntimeException {
-        return tagMapper.toDto(
-                tagDao.getById(id));
+    public TagDto getById(final Long id) {
+        return tagMapper.toDto(tagDao.getById(id));
     }
 
     @Override
-    @Cacheable
     @Transactional(readOnly = true)
-    public TagDto getByName(
-            final String name)
-            throws RuntimeException {
-        return tagMapper.toDto(
-                tagDao.getByName(name));
+    public TagDto getByName(final String name) {
+
+        return tagMapper.toDto(tagDao.getByName(name));
     }
 
     @Override
-    @Cacheable
     @Transactional(readOnly = true)
-    public List<TagDto> getAll()
-            throws RuntimeException {
+    public List<TagDto> getAll() {
         return tagDao.getAll()
                 .stream()
                 .map(tagMapper::toDto)
@@ -55,20 +45,21 @@ public class DefaultTagService implements TagService {
 
     @Override
     @Transactional
-    @CacheEvict(allEntries = true)
-    public boolean save(
-            final TagDto tagDto)
-            throws RuntimeException {
-        return tagDao.save(
-                tagMapper.toEntity(tagDto));
+    public boolean save(final TagDto tagDto) {
+        if (tagDao.getByName(tagDto.getName()) == null) {
+            return tagDao.save(tagMapper.toEntity(tagDto));
+        } else {
+            throw new TagIsExistsException(tagDto.getName());
+        }
     }
 
     @Override
     @Transactional
-    @CacheEvict(allEntries = true)
-    public boolean delete(
-            final Long id)
-            throws RuntimeException {
-        return tagDao.delete(id);
+    public boolean delete(final Long id) {
+        if (tagDao.getById(id) != null) {
+            return tagDao.delete(id);
+        } else {
+            throw new TagNotFoundException(id.toString());
+        }
     }
 }

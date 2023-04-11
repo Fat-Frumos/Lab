@@ -14,7 +14,6 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class H2JdbcConfig {
 
-    @Bean
     @Profile("test")
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()

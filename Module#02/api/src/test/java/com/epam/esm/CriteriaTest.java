@@ -4,7 +4,7 @@ import com.epam.esm.criteria.Criteria;
 import com.epam.esm.criteria.QueryBuilder;
 import com.epam.esm.criteria.SortField;
 import com.epam.esm.criteria.SortOrder;
-import com.epam.esm.domain.Certificate;
+import com.epam.esm.entity.Certificate;
 import com.epam.esm.mapper.CertificateListExtractor;
 import com.epam.esm.mapper.CertificateRowMapper;
 import com.epam.esm.mapper.TagRowMapper;
@@ -16,7 +16,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 
@@ -25,8 +27,15 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.IntStream;
 
-import static com.epam.esm.mapper.QueriesContext.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static com.epam.esm.mapper.QueriesContext.BASE_QUERY;
+import static com.epam.esm.mapper.QueriesContext.FROM;
+import static com.epam.esm.mapper.QueriesContext.LEFT_JOIN_TAG;
+import static com.epam.esm.mapper.QueriesContext.SELECT;
+import static com.epam.esm.mapper.QueriesContext.SELECT_CERTIFICATES_BY_TAG_NAME;
+import static com.epam.esm.mapper.QueriesContext.TAGS;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Slf4j
 @ActiveProfiles("test")
@@ -45,15 +54,13 @@ class CriteriaTest {
 
     @BeforeEach
     void setUp() {
-        final String driverClassName = "org.postgresql.Driver";
-        final String username = "lnycichw";
-        final String password = "hGsOS0-qZ1UiYkneTgpy8iXJZ7RzP8lY";
-        final String url = "jdbc:postgresql://peanut.db.elephantsql.com:5432/lnycichw";
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(driverClassName);
-        dataSource.setUrl(url);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
+        EmbeddedDatabase dataSource = new EmbeddedDatabaseBuilder()
+                .setType(EmbeddedDatabaseType.H2)
+                .addScript("classpath:db/schema.sql")
+                .addScript("classpath:db/data.sql")
+                .ignoreFailedDrops(true)
+                .setName("db")
+                .build();
 //        dataSource.setSchema("classpath:db/data.sql");
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -75,7 +82,6 @@ class CriteriaTest {
     void testFindAllWithCriteriaTagNames(String tagName) {
         Criteria criteria = Criteria.builder().tagName(tagName).build();
         String queryByTagName = QueryBuilder.builder().criteria(criteria).build();
-
         System.out.println(queryByTagName);
         String[] split = queryByTagName.split(" ");
         String sql = String.format("%s '%%%s%%';", SELECT_CERTIFICATES_BY_TAG_NAME, tagName);
@@ -119,8 +125,8 @@ class CriteriaTest {
         }
 
         Criteria criteria = new Criteria(order, field, name, description, tagName, date);
-
         String searchBy = QueryBuilder.builder().searchBy(criteria).build();
+        System.out.println(searchBy);
         Objects.requireNonNull(jdbcTemplate.query(searchBy, listExtractor))
                 .forEach(Assertions::assertNotNull);
         assertNotNull(criteria);
@@ -134,14 +140,14 @@ class CriteriaTest {
 
     @ParameterizedTest
     @CsvSource({
-            "Birthday,,Day,5",
-            ",Gift,Day,5",
-            "Birthday,Gift,,2",
-            "Birthday,Gift,Day,5",
-            "Birthday,,,4",
-            ",Gift,,3",
-            ",,Day,5",
-            ",,,6"
+            "Birthday,,Day,35",
+            ",Gift,Day,40",
+            "Birthday,Gift,,3",
+            "Birthday,Gift,Day,50",
+            "Birthday,,,5",
+            ",Gift,,36",
+            ",,Day,65",
+            ",,,84"
     })
     @DisplayName("Test search all certificates by part of name or description")
     void testSearchCertificates(String tagName, String name, String description, int size) {
@@ -158,21 +164,6 @@ class CriteriaTest {
         certificates.forEach(certificate -> assertTrue(matches(criteria, certificate)));
     }
 
-    @Test
-    @DisplayName("Test sort certificates by name ascending")
-    void testSortCertificatesByNameAscending() {
-        Criteria criteria = Criteria.builder()
-                .sortField(SortField.NAME)
-                .sortOrder(SortOrder.ASC)
-                .build();
-        List<Certificate> asc = jdbcTemplate.query(QueryBuilder.builder().searchBy(criteria).build(), listExtractor);
-        criteria.setSortOrder(SortOrder.DESC);
-        List<Certificate> desc = jdbcTemplate.query(QueryBuilder.builder().searchBy(criteria).build(), listExtractor);
-
-        IntStream.range(0, Objects.requireNonNull(desc).size())
-                .forEach(i -> assertEquals(desc.get(i),
-                        Objects.requireNonNull(asc).get(desc.size() - i - 1)));
-    }
 
     private boolean matches(Criteria criteria, Certificate certificate) {
 

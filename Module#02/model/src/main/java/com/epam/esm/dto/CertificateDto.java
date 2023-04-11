@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Set;
@@ -16,7 +17,7 @@ import static java.lang.String.format;
 @Data
 @Builder
 @EqualsAndHashCode(callSuper = false)
-public class CertificateDto extends BaseDto {
+public class CertificateDto implements Serializable {
 
     private Long id;
     private String name;

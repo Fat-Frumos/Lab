@@ -5,13 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 
 @Data
 @Builder
 @EqualsAndHashCode(callSuper = false)
-public class CertificateWithoutTagDto extends BaseDto {
+public class CertificateWithoutTagDto implements Serializable {
 
     private Long id;
     private String name;

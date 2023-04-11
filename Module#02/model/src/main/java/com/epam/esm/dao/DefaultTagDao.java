@@ -1,6 +1,7 @@
 package com.epam.esm.dao;
 
-import com.epam.esm.domain.Tag;
+import com.epam.esm.entity.Tag;
+import com.epam.esm.exception.TagNotFoundException;
 import com.epam.esm.mapper.TagRowMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,48 +21,35 @@ public class DefaultTagDao implements TagDao {
     private final TagRowMapper tagRowMapper;
 
     @Override
-    public final Tag getById(
-            final Long id)
-            throws RuntimeException {
-        return jdbcTemplate.queryForObject(
-                GET_TAG_BY_ID,
-                new Object[]{id},
-                tagRowMapper);
-
+    public final Tag getById(final Long id) {
+        return jdbcTemplate.queryForObject(GET_TAG_BY_ID, new Object[]{id}, tagRowMapper);
     }
 
     @Override
-    public final Tag getByName(
-            final String name)
-            throws RuntimeException {
-        return jdbcTemplate.queryForObject(
-                GET_BY_NAME,
-                new Object[]{name},
-                tagRowMapper);
+    public final Tag getByName(final String name) {
+        String sql = String.format("%s'%s'", GET_BY_TAG_NAME, name);
+        List<Tag> tags = jdbcTemplate.query(sql, tagRowMapper);
+        return tags.isEmpty() ? null : tags.get(0);
     }
 
     @Override
-    public final List<Tag> getAll()
-            throws RuntimeException {
-        return jdbcTemplate.query(
-                GET_ALL_TAGS,
-                tagRowMapper);
+    public final List<Tag> getAll() {
+        return jdbcTemplate.query(GET_ALL_TAGS, tagRowMapper);
     }
 
     @Override
-    public final boolean save(
-            final Tag tag)
-            throws RuntimeException {
-        return jdbcTemplate.update(INSERT_TAG,
-                System.currentTimeMillis() >> 48 & 0x0FFF,
-                tag.getName()) == 1;
+    public final boolean save(final Tag tag) {
+        return jdbcTemplate.update(INSERT_TAG, tag.getName()) == 1;
     }
 
     @Override
-    public final boolean delete(
-            final Long id)
-            throws RuntimeException {
-        return jdbcTemplate.update(
-                DELETE_TAG, id) > 0;
+    public final boolean delete(final Long id) {
+        if (getById(id) != null) {
+            jdbcTemplate.update(DELETE_TAG_REF, id);
+            return jdbcTemplate.update(DELETE_TAG, id) == 1;
+        } else {
+            throw new TagNotFoundException(
+                    String.format("Tag not found with id: %d", id));
+        }
     }
 }

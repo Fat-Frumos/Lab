@@ -5,7 +5,6 @@ import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.CertificateWithoutTagDto;
 
 import java.util.List;
-
 public interface CertificateService extends BaseService<CertificateDto> {
 
     List<CertificateDto> getAllBy(Criteria criteria);

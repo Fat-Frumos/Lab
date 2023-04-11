@@ -1,6 +1,6 @@
 package com.epam.esm.criteria;
 
-import com.epam.esm.domain.Certificate;
+import com.epam.esm.entity.Certificate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -94,6 +94,7 @@ public final class QueryBuilder {
         }
 
         public String build() {
+            log.info(query.toString());
             return query.append(';').toString();
         }
 
@@ -131,7 +132,6 @@ public final class QueryBuilder {
             if (criteria.getSortField() != null) {
                 orderBy(criteria.getSortField(), criteria.getSortOrder());
             }
-
             return this;
         }
 

@@ -1,6 +1,6 @@
 package com.epam.esm.dao;
 
-import com.epam.esm.domain.Tag;
+import com.epam.esm.entity.Tag;
 
 public interface TagDao extends Dao<Tag> {
 }

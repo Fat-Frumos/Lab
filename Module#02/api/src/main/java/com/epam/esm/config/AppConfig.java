@@ -3,18 +3,15 @@ package com.epam.esm.config;
 import com.epam.esm.handler.ErrorHandlerController;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.lang.NonNull;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -22,10 +19,8 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.sql.DataSource;
-import java.util.List;
 
 @EnableWebMvc
-@EnableCaching
 @Configuration
 @RequiredArgsConstructor
 @EnableTransactionManagement
@@ -46,36 +41,20 @@ public class AppConfig implements TransactionManagementConfigurer {
     private String url;
 
     private DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(driverClassName);
-        dataSource.setUrl(url);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
-        return dataSource;
-    }
 
-    @Bean
-    @Profile("prod")
-    public DataSource dataSourceProd() {
-        return dataSource();
-    }
+        return new EmbeddedDatabaseBuilder()
+                .setType(EmbeddedDatabaseType.H2)
+                .addScript("classpath:db/schema.sql")
+                .addScript("classpath:db/data.sql")
+                .ignoreFailedDrops(true)
+                .setName("db")
+                .build();
 
-    @Bean
-    @Profile("prod")
-    public JdbcTemplate jdbcTemplateProd() {
-        return new JdbcTemplate(dataSourceProd());
-    }
 
-    @Bean
-    @Profile("dev")
-    public DataSource dataSourceDev() {
-        return dataSource();
     }
-
     @Bean
-    @Profile("dev")
-    public JdbcTemplate jdbcTemplateDev() {
-        return new JdbcTemplate(dataSourceDev());
+    public JdbcTemplate jdbcTemplate() {
+        return new JdbcTemplate(dataSource());
     }
 
     @Bean
@@ -96,15 +75,8 @@ public class AppConfig implements TransactionManagementConfigurer {
     }
 
     @Bean
-    public CacheManager cacheManager() {
-        ConcurrentMapCacheManager cacheManager =
-                new ConcurrentMapCacheManager("certificates", "tags");
-        cacheManager.setCacheNames(List.of("certificates", "tags"));
-        return cacheManager;
-    }
-
-    @Bean
     public ErrorHandlerController errorHandlerController() {
         return new ErrorHandlerController();
     }
+
 }

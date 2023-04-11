@@ -1,8 +1,9 @@
 package com.epam.esm.dao;
 
 import com.epam.esm.criteria.QueryBuilder;
-import com.epam.esm.domain.Certificate;
+import com.epam.esm.entity.Certificate;
 import com.epam.esm.criteria.Criteria;
+import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.mapper.CertificateListExtractor;
 import com.epam.esm.mapper.CertificateRowMapper;
 import lombok.RequiredArgsConstructor;
@@ -26,32 +27,28 @@ public class DefaultCertificateDao implements CertificateDao {
     private final CertificateListExtractor listExtractor;
 
     @Override
-    public final Certificate getById(final Long id) throws RuntimeException {
+    public final Certificate getById(final Long id) {
         List<Certificate> result = jdbcTemplate.query(
                 GET_CERTIFICATE_BY_ID,
                 new Object[]{id},
                 listExtractor);
         if (result == null || result.isEmpty()) {
-            throw new RuntimeException(
+            throw new CertificateNotFoundException(
                     String.format("Certificate not found with id: %d", id));
         }
         return result.get(0);
     }
 
-
     @Override
-    public final Certificate getByName(
-            final String name)
-            throws RuntimeException {
-        return jdbcTemplate.queryForObject(
-                GET_CERTIFICATE_BY_NAME,
-                new Object[]{name},
+    public final Certificate getByName(final String name) {
+        List<Certificate> certificates = jdbcTemplate.query(
+                String.format("%s'%s'", GET_CERTIFICATE_BY_NAME, name),
                 certificateRowMapper);
+        return certificates.isEmpty() ? null : certificates.get(0);
     }
 
     @Override
-    public final List<Certificate> getAll()
-            throws RuntimeException {
+    public final List<Certificate> getAll() {
         return jdbcTemplate.query(
                 GET_ALL_CERTIFICATE,
                 certificateRowMapper);
@@ -59,8 +56,7 @@ public class DefaultCertificateDao implements CertificateDao {
 
     @Override
     public final List<Certificate> getAllBy(
-            final Criteria criteria)
-            throws RuntimeException {
+            final Criteria criteria) {
         return jdbcTemplate.query(
                 QueryBuilder.builder().searchBy(criteria).build(),
                 listExtractor);
@@ -68,37 +64,33 @@ public class DefaultCertificateDao implements CertificateDao {
 
     @Override
     public final boolean save(
-            final Certificate certificate)
-            throws RuntimeException {
+            final Certificate certificate) {
         return jdbcTemplate.update(INSERT_CERTIFICATE,
-                System.currentTimeMillis() >> 48 & 0x0FFF,
                 certificate.getName(),
                 certificate.getDescription(),
+                certificate.getPrice(),
+                certificate.getDuration(),
                 Timestamp.from(Instant.now()),
-                Timestamp.from(Instant.now()),
-                certificate.getDuration()) == 1;
+                Timestamp.from(Instant.now())) == 1;
     }
 
     @Override
-    public final boolean delete(final Long id)
-            throws RuntimeException {
+    public final boolean delete(final Long id) {
         if (getById(id) != null) {
-            return jdbcTemplate.update(
-                    DELETE_CERTIFICATE, id) == 1;
+            jdbcTemplate.update(DELETE_REF, id);
+            return jdbcTemplate.update(DELETE_CERTIFICATE, id) == 1;
         } else {
-            throw new RuntimeException(
+            throw new CertificateNotFoundException(
                     String.format("Certificate not found with id: %d", id));
         }
     }
 
     @Override
     public final boolean update(
-            final Certificate certificate)
-            throws RuntimeException {
-        return jdbcTemplate.update(
-                QueryBuilder.builder().updateQuery(
-                                certificate,
-                                UPDATE_CERTIFICATE)
-                        .toString()) == 1;
+            final Certificate certificate) {
+        String sql = QueryBuilder.builder().updateQuery(certificate, UPDATE_CERTIFICATE).build();
+
+        log.info(sql);
+        return jdbcTemplate.update(sql) == 1;
     }
 }

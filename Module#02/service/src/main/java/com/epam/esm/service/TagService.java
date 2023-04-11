@@ -7,17 +7,17 @@ import java.util.List;
 public interface TagService extends BaseService<TagDto> {
 
     @Override
-    TagDto getById(Long id) throws RuntimeException;
+    TagDto getById(Long id);
 
     @Override
-    TagDto getByName(String name) throws RuntimeException;
+    TagDto getByName(String name);
 
     @Override
-    List<TagDto> getAll() throws RuntimeException;
+    List<TagDto> getAll();
 
     @Override
-    boolean save(TagDto tag) throws RuntimeException;
+    boolean save(TagDto tag);
 
     @Override
-    boolean delete(Long id) throws RuntimeException;
+    boolean delete(Long id);
 }

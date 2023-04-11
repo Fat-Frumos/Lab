@@ -1,6 +1,6 @@
 package com.epam.esm.mapper;
 
-import com.epam.esm.domain.Certificate;
+import com.epam.esm.entity.Certificate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

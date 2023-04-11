@@ -1,10 +1,9 @@
 package com.epam.esm.dao;
 
-import com.epam.esm.domain.BaseEntity;
-
+import java.io.Serializable;
 import java.util.List;
 
-public interface Dao<T extends BaseEntity> {
+public interface Dao<T extends Serializable> {
     List<T> getAll();
 
     T getById(Long id);

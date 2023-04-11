@@ -1,18 +1,22 @@
 package com.epam.esm.controller;
 
-import com.epam.esm.handler.ErrorResponse;
+import com.epam.esm.dto.TagDto;
 import com.epam.esm.service.TagService;
 import lombok.RequiredArgsConstructor;
-
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+import static org.springframework.http.HttpStatus.CREATED;
 
 @Slf4j
 @RestController
@@ -21,36 +25,27 @@ import org.springframework.web.bind.annotation.RestController;
 public class TagController {
     private final TagService tagService;
 
-    @ResponseBody
-    @GetMapping(value = "/{id}")
-    public final ResponseEntity<Object> getTag(
-            @PathVariable("id") final Long id) {
-        try {
-            return new ResponseEntity<>(
-                    tagService.getById(id),
-                    new HttpHeaders(),
-                    HttpStatus.OK);
-        } catch (Exception e) {
-            log.error(e.getMessage());
-            return new ResponseEntity<>(
-                    new ErrorResponse(e.getMessage(), 40401),
-                    HttpStatus.NOT_FOUND);
-        }
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public final TagDto getTag(
+            @PathVariable final Long id) {
+        return tagService.getById(id);
     }
 
-    @ResponseBody
-    @GetMapping
-    public final ResponseEntity<Object> getAllTag() {
-        try {
-            return new ResponseEntity<>(
-                    tagService.getAll(),
-                    new HttpHeaders(),
-                    HttpStatus.OK);
-        } catch (Exception e) {
-            log.error(e.getMessage());
-            return new ResponseEntity<>(
-                    new ErrorResponse(e.getMessage(), 40401),
-                    HttpStatus.NOT_FOUND);
-        }
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public final List<TagDto> getAllTag() {
+        return tagService.getAll();
+    }
+
+    @ResponseStatus(CREATED)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public final Boolean saveTag(
+            @RequestBody final TagDto tagDto) {
+        return tagService.save(tagDto);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public final Boolean removeTags(
+            @PathVariable("id") final Long id) {
+        return tagService.delete(id);
     }
 }

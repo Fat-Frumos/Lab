@@ -1,6 +1,6 @@
 package com.epam.esm.dao.mapper;
 
-import com.epam.esm.domain.Certificate;
+import com.epam.esm.entity.Certificate;
 import com.epam.esm.mapper.CertificateRowMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,41 +1,17 @@
 package com.epam.esm.mapper;
 
-import com.epam.esm.domain.Tag;
 import com.epam.esm.dto.TagDto;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
+import com.epam.esm.entity.Tag;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.factory.Mappers;
 
-@Slf4j
-@Component
-public final class TagMapper implements EntityMapper<Tag, TagDto> {
-    public static final TagMapper MAPPER = new TagMapper();
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
+public interface TagMapper {
 
-    public static TagMapper getInstance() {
-        return MAPPER;
-    }
+    TagMapper tagMapper = Mappers.getMapper(TagMapper.class);
 
-    private TagMapper() {
-    }
+    TagDto toDto(Tag tag);
 
-    @Override
-    public TagDto toDto(final Tag tag) {
-        if (tag == null) {
-            throw new NullPointerException("Tag must not be null");
-        }
-        return TagDto.builder()
-                .id(tag.getId())
-                .name(tag.getName())
-                .build();
-    }
-
-    @Override
-    public Tag toEntity(final TagDto tagDto) {
-        if (tagDto == null) {
-            throw new NullPointerException("Tag must not be null");
-        }
-        return Tag.builder()
-                .id(tagDto.getId())
-                .name(tagDto.getName())
-                .build();
-    }
+    Tag toEntity(TagDto dto);
 }
