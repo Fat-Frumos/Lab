@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS gift_certificates;
 
 CREATE TABLE IF NOT EXISTS gift_certificates
 (
-    id               SERIAL PRIMARY KEY,
+    id               BIGINT PRIMARY KEY,
     name             VARCHAR(55),
     description      TEXT,
     price            DECIMAL(10, 2),

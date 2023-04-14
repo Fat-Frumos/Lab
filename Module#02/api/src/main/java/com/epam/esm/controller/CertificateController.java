@@ -6,7 +6,6 @@ import com.epam.esm.dto.CertificateWithoutTagDto;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.service.CertificateService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +22,8 @@ import java.time.Instant;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.OK;
 
-@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/certificates")
@@ -43,13 +42,14 @@ public class CertificateController {
 
     @GetMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CertificateDto> search(
-            @RequestParam(value = "name", required = false) final String name,
-            @RequestParam(value = "date", required = false) final Instant date,
-            @RequestParam(value = "tagName", required = false) final String tagName,
-            @RequestParam(value = "description", required = false) final String description,
-            @RequestParam(value = "order", required = false, defaultValue = "UNSORTED") final SortOrder order) {
+            @RequestParam(required = false) final String name,
+            @RequestParam(required = false) final Instant date,
+            @RequestParam(required = false) final String tagName,
+            @RequestParam(required = false) final String description,
+            @RequestParam(required = false, defaultValue = "UNSORTED") final SortOrder order) {
 
-        Criteria criteria = Criteria.builder()
+        Criteria criteria = Criteria
+                .builder()
                 .tagName(tagName)
                 .name(name).date(date)
                 .description(description)
@@ -58,22 +58,20 @@ public class CertificateController {
         return certificateService.getAllBy(criteria);
     }
 
-    @PatchMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public final Boolean update(@PathVariable final Long id,
-            @RequestBody final CertificateDto certificateDto) {
-        certificateDto.setId(id);
+    @PatchMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public final CertificateDto update(@RequestBody final CertificateDto certificateDto) {
         return certificateService.update(certificateDto);
     }
 
     @ResponseStatus(CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public final Boolean create(
-            @RequestBody final CertificateDto certificateDto) {
+    public final CertificateDto create(@RequestBody final CertificateDto certificateDto) {
         return certificateService.save(certificateDto);
     }
 
+    @ResponseStatus(OK)
     @DeleteMapping(value = "/{id}")
-    public final Boolean delete(@PathVariable final Long id) {
-        return certificateService.delete(id);
+    public void delete(@PathVariable final Long id) {
+        certificateService.delete(id);
     }
 }

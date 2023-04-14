@@ -1,9 +1,9 @@
 package com.epam.esm;
 
-import com.epam.esm.exception.CertificateIsExistsException;
+import com.epam.esm.exception.CertificateAlreadyExistsException;
 import com.epam.esm.exception.CertificateNotFoundException;
-import com.epam.esm.exception.NotFoundException;
-import com.epam.esm.exception.TagIsExistsException;
+import com.epam.esm.exception.TagAlreadyExistsException;
+import com.epam.esm.exception.TagNotFoundException;
 import com.epam.esm.handler.ErrorHandlerController;
 import com.epam.esm.handler.ErrorResponse;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,16 +16,12 @@ import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.when;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.METHOD_NOT_ALLOWED;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 class ExceptionHandlerTest {
-
-    @Mock
-    private NotFoundException notFoundException;
 
     @InjectMocks
     private ErrorHandlerController exceptionHandler;
@@ -36,19 +32,9 @@ class ExceptionHandlerTest {
     }
 
     @Test
-    @DisplayName("Test handle Not Found Exception")
-    void testHandleNotFoundException() {
-        when(notFoundException.getMessage()).thenReturn("Requested resource not found");
-        ResponseEntity<Object> responseEntity = exceptionHandler.handleNotFoundException(notFoundException);
-        ErrorResponse expectedErrorResponse = new ErrorResponse("Requested resource not found", 40401);
-        assertEquals(NOT_FOUND, responseEntity.getStatusCode());
-        assertEquals(expectedErrorResponse, responseEntity.getBody());
-    }
-
-    @Test
     @DisplayName("Test handle Certificate Is Exists Exception method")
     void testHandleCertificateIsExistsException() {
-        CertificateIsExistsException exception = new CertificateIsExistsException("Tag already exists");
+        CertificateAlreadyExistsException exception = new CertificateAlreadyExistsException("Tag already exists");
         ResponseEntity<Object> response = exceptionHandler.handleCertificateIsExistsException(exception);
         assertEquals(BAD_REQUEST, response.getStatusCode());
         ErrorResponse errorResponse = (ErrorResponse) response.getBody();
@@ -59,7 +45,7 @@ class ExceptionHandlerTest {
     @Test
     @DisplayName("Handle Tag Is Exists Exception")
     void handleTagIsExistsException() {
-        TagIsExistsException exception = new TagIsExistsException("Tag already exists");
+        TagAlreadyExistsException exception = new TagAlreadyExistsException("Tag already exists");
         ResponseEntity<Object> response = exceptionHandler.handleTagIsExistsException(exception);
         assertEquals(BAD_REQUEST, response.getStatusCode());
         ErrorResponse errorResponse = (ErrorResponse) response.getBody();
@@ -96,12 +82,22 @@ class ExceptionHandlerTest {
     void testHandleNotAllowedException() {
         String errorMessage = "Method Not Allowed";
         RuntimeException e = new RuntimeException(errorMessage);
-
         ResponseEntity<Object> response = exceptionHandler.handleNotAllowedException(e);
-
         assertEquals(METHOD_NOT_ALLOWED, response.getStatusCode());
         ErrorResponse errorResponse = (ErrorResponse) response.getBody();
         assertEquals(METHOD_NOT_ALLOWED.value(), errorResponse.getErrorCode());
         assertEquals(errorMessage, errorResponse.getErrorMessage());
+    }
+
+    @Test
+    @DisplayName("Should handle TagNotFoundException and return 404 response")
+    void testHandleTagNotFoundException() {
+        TagNotFoundException exception = new TagNotFoundException("Tag not found with id 1");
+        ResponseEntity<Object> response = exceptionHandler.handleTagNotFoundException(exception);
+        assertEquals(NOT_FOUND, response.getStatusCode());
+        assertNotNull(response.getBody());
+        ErrorResponse errorResponse = (ErrorResponse) response.getBody();
+        assertEquals("Tag not found with id 1", errorResponse.getErrorMessage());
+        assertEquals(40401, errorResponse.getErrorCode());
     }
 }

@@ -1,14 +1,19 @@
 package com.epam.esm.mapper;
 
+import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Certificate;
-import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.entity.Tag;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.mapstruct.factory.Mappers;
+import org.mockito.InjectMocks;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -16,12 +21,21 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.epam.esm.mapper.CertificateMapper.mapper;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@DisplayName("CertificateMapper tests")
+@ExtendWith(MockitoExtension.class)
 class TestCertificateMapper {
+
+    @InjectMocks
+    private TagMapper tagMapper = Mappers.getMapper(TagMapper.class);
+
+    private final CertificateMapper mapper = new CertificateMapperImpl(tagMapper);
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
 
     @DisplayName("toEntity should map DTO to entity")
     @ParameterizedTest(name = "Map {1} to entity")
@@ -30,8 +44,9 @@ class TestCertificateMapper {
             "2, cert2, desc2, 20.0, 60, 2022-06-01T00:00:00Z, 2022-06-01T01:00:00Z",
             "3, cert3, desc3, 30.0, 90, 2022-07-01T00:00:00Z, 2022-07-01T01:00:00Z"
     })
-    void toEntity_shouldMapDtoToEntity(Long id, String name, String description, BigDecimal price,
-                                       Integer duration, Instant createDate, Instant lastUpdateDate) {
+    void toEntityShouldMapDtoToEntity(
+            Long id, String name, String description, BigDecimal price,
+            Integer duration, Instant createDate, Instant lastUpdateDate) {
         CertificateDto dto = CertificateDto.builder()
                 .id(id)
                 .name(name)
@@ -114,7 +129,7 @@ class TestCertificateMapper {
                 .name(name)
                 .build();
         Set<Tag> expected = Collections.singleton(Tag.builder().id(id).name(name).build());
-        Set<Tag> actual = mapper.toTagSet(Collections.singleton(tagDto));
+        Set<Tag> actual = tagMapper.toTagSet(Collections.singleton(tagDto));
         assertEquals(expected, actual);
     }
 
@@ -122,7 +137,7 @@ class TestCertificateMapper {
     @DisplayName("map null or empty set of tag DTOs to null")
     void testToTagSetWithNullOrEmptyInput() {
         Set<Tag> expected = new HashSet<>();
-        Set<Tag> actual = mapper.toTagSet(Collections.emptySet());
+        Set<Tag> actual = tagMapper.toTagSet(Collections.emptySet());
         assertEquals(expected, actual);
     }
 }

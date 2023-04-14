@@ -8,7 +8,6 @@ import com.epam.esm.entity.Certificate;
 import com.epam.esm.mapper.CertificateListExtractor;
 import com.epam.esm.mapper.CertificateRowMapper;
 import com.epam.esm.mapper.TagRowMapper;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -37,7 +36,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Slf4j
 @ActiveProfiles("test")
 @TestPropertySource("classpath:application-test.properties")
 class CriteriaTest {
@@ -61,7 +59,6 @@ class CriteriaTest {
                 .ignoreFailedDrops(true)
                 .setName("db")
                 .build();
-//        dataSource.setSchema("classpath:db/data.sql");
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
@@ -70,10 +67,9 @@ class CriteriaTest {
     void testFindAllWithEmptyCriteria() {
         Criteria emptyCriteria = Criteria.builder().build();
         String queryGetAllWithTags = QueryBuilder.builder().criteria(emptyCriteria).build();
-        System.out.println(queryGetAllWithTags);
         assertEquals(GET_ALL_WITH_TAGS, queryGetAllWithTags);
         List<Certificate> certificateList = jdbcTemplate.query(queryGetAllWithTags, listExtractor);
-        log.info(String.valueOf(Objects.requireNonNull(certificateList).size()));
+        assertEquals(6, Objects.requireNonNull(certificateList).size());
     }
 
     @ParameterizedTest(name = "{0}")
@@ -82,12 +78,10 @@ class CriteriaTest {
     void testFindAllWithCriteriaTagNames(String tagName) {
         Criteria criteria = Criteria.builder().tagName(tagName).build();
         String queryByTagName = QueryBuilder.builder().criteria(criteria).build();
-        System.out.println(queryByTagName);
         String[] split = queryByTagName.split(" ");
         String sql = String.format("%s '%%%s%%';", SELECT_CERTIFICATES_BY_TAG_NAME, tagName);
         String[] splits = SELECT_CERTIFICATES_BY_TAG_NAME.split(" ");
         IntStream.range(0, splits.length).forEach(i -> assertEquals(split[i], splits[i]));
-
         List<Certificate> listTags = jdbcTemplate.query(queryByTagName, listExtractor);
         List<Certificate> list = jdbcTemplate.query(sql, listExtractor);
         assertEquals(Objects.requireNonNull(list).size(), Objects.requireNonNull(listTags).size());
@@ -126,7 +120,6 @@ class CriteriaTest {
 
         Criteria criteria = new Criteria(order, field, name, description, tagName, date);
         String searchBy = QueryBuilder.builder().searchBy(criteria).build();
-        System.out.println(searchBy);
         Objects.requireNonNull(jdbcTemplate.query(searchBy, listExtractor))
                 .forEach(Assertions::assertNotNull);
         assertNotNull(criteria);
@@ -140,14 +133,14 @@ class CriteriaTest {
 
     @ParameterizedTest
     @CsvSource({
-            "Birthday,,Day,35",
-            ",Gift,Day,40",
+            "Birthday,,Day,5",
+            ",Gift,Day,5",
             "Birthday,Gift,,3",
-            "Birthday,Gift,Day,50",
+            "Birthday,Gift,Day,5",
             "Birthday,,,5",
-            ",Gift,,36",
-            ",,Day,65",
-            ",,,84"
+            ",Gift,,3",
+            ",,Day,5",
+            ",,,6"
     })
     @DisplayName("Test search all certificates by part of name or description")
     void testSearchCertificates(String tagName, String name, String description, int size) {
@@ -157,10 +150,11 @@ class CriteriaTest {
                 .description(description)
                 .build();
 
-        List<Certificate> certificates = Objects.requireNonNull(jdbcTemplate.query(QueryBuilder.builder().searchBy(criteria).build(), listExtractor));
-
+        List<Certificate> certificates = Objects.requireNonNull(
+                jdbcTemplate.query(
+                        QueryBuilder.builder().searchBy(criteria).build(),
+                        listExtractor));
         assertEquals(size, certificates.size());
-
         certificates.forEach(certificate -> assertTrue(matches(criteria, certificate)));
     }
 

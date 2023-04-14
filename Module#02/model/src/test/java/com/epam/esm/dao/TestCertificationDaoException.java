@@ -38,7 +38,7 @@ class TestCertificationDaoException {
     private static final DataSource dataSource = mock(DataSource.class);
     @Mock
     private static final CertificateListExtractor listExtractor = mock(CertificateListExtractor.class);
-    private static final CertificateDao certificateDao = new DefaultCertificateDao(jdbcTemplate, rowMapper, listExtractor);
+    private static final CertificateDao certificateDao = new CertificateDaoImpl(jdbcTemplate, rowMapper, listExtractor);
     private final Long CERTIFICATE_ID = 1L;
 
     @SneakyThrows

@@ -6,36 +6,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Set;
 
-import static java.lang.String.format;
-
 @Data
 @Builder
-@EqualsAndHashCode(callSuper = false)
 public class CertificateDto implements Serializable {
 
     private Long id;
+    @NotBlank(message = "Name cannot be blank")
     private String name;
+    @NotBlank(message = "Description cannot be blank")
     private String description;
+    @NotNull(message = "Price cannot be null")
     private BigDecimal price;
     @JsonFormat(timezone = "GMT+03:00", pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Instant createDate;
     @JsonFormat(timezone = "GMT+03:00", pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Instant lastUpdateDate;
+    @NotNull(message = "Duration cannot be null")
     private int duration;
+    @EqualsAndHashCode.Exclude
     private Set<TagDto> tags;
-
-    @Override
-    public String toString() {
-        return format(
-                "{id=%d, name='%s', description='%s', price=%s, duration=%d, tags=%s}",
-                id, name, description, price, duration, tags);
-    }
 
     @JsonCreator
     public CertificateDto(

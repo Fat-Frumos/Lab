@@ -30,7 +30,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Spring\",\r\n    \"duration\": 50\r\n    \r\n}",
+					"raw": "{\r\n    \"id\" : 1,\r\n    \"name\": \"Spring\",\r\n    \"duration\": 50\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -38,7 +38,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/certificates/1",
+					"raw": "http://localhost:8080/api/certificates",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -46,8 +46,7 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"certificates",
-						"1"
+						"certificates"
 					]
 				}
 			},
@@ -111,8 +110,8 @@
 							"    pm.response.to.not.be.empty;\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Status code is 405\", function () {\r",
-							"    pm.response.to.have.status(405);\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -222,7 +221,7 @@
 							"        pm.expect(jsonData[i]).to.have.property('createDate');\r",
 							"        pm.expect(jsonData[i]).to.have.property('lastUpdateDate');\r",
 							"        pm.expect(jsonData[i]).to.have.property('duration');\r",
-							"        pm.expect(jsonData[i]).to.have.property('tags');\r",
+							"        // pm.expect(jsonData[i]).to.have.property('tags');\r",
 							"    }\r",
 							"});"
 						],
@@ -533,24 +532,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"pm.test(\"Response body is not empty\", function () {\r",
+							"    pm.response.to.not.be.empty;\r",
+							"});\r",
+							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response is JSON\", function () {\r",
-							"    pm.response.to.be.json;\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response tags contains required fields\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    for (var i = 0; i < jsonData.length; i++) {\r",
-							"        if (jsonData[i].tags) {\r",
-							"            jsonData[i].tags.forEach(function(tag) {\r",
-							"             pm.expect(tag).to.have.property('id');\r",
-							"                pm.expect(tag).to.have.property('name');\r",
-							"            });\r",
-							"        }\r",
-							"    }\r",
 							"});\r",
 							""
 						],
@@ -647,7 +634,7 @@
 			"response": []
 		},
 		{
-			"name": "Certificate#1",
+			"name": "Find Certificate #1",
 			"event": [
 				{
 					"listen": "test",

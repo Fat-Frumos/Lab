@@ -1,23 +1,19 @@
 package com.epam.esm.service;
 
 import com.epam.esm.dto.TagDto;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
+@Validated
+public interface TagService {
 
-public interface TagService extends BaseService<TagDto> {
-
-    @Override
     TagDto getById(Long id);
 
-    @Override
     TagDto getByName(String name);
 
-    @Override
     List<TagDto> getAll();
 
-    @Override
-    boolean save(TagDto tag);
+    TagDto save(TagDto tag);
 
-    @Override
-    boolean delete(Long id);
+    void delete(Long id);
 }

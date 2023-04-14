@@ -10,7 +10,7 @@ public final class QueriesContext {
             String.format("%s %s;", SELECT, FROM);
     public static final String GET_CERTIFICATE_BY_NAME = String.format("%s %s WHERE c.name=", SELECT, FROM);
     public static final String INSERT_CERTIFICATE =
-            "INSERT INTO gift_certificates (name, description, price, duration, create_date, last_update_date) VALUES (?, ?, ?, ?, ?, ?)";
+            "INSERT INTO gift_certificates (id, name, description, price, duration, create_date, last_update_date) VALUES (?, ?, ?, ?, ?, ?, ?)";
     public static final String UPDATE_CERTIFICATE = "UPDATE gift_certificates c SET";
     public static final String DELETE_CERTIFICATE = String.format("DELETE %s WHERE c.id=?;", FROM);
     public static final String DELETE_REF = "DELETE FROM gift_certificate_tag WHERE gift_certificate_id = ?";
@@ -18,7 +18,7 @@ public final class QueriesContext {
     public static final String GET_TAG_BY_ID = String.format("%s WHERE t.id=?;", GET_ALL_TAGS);
     public static final String GET_BY_TAG_NAME = String.format("%s WHERE t.name =", GET_ALL_TAGS);
     public static final String DELETE_TAG = "DELETE FROM tag WHERE tag.id=?";
-    public static final String INSERT_TAG = "INSERT INTO tag (name) VALUES (?)";
+    public static final String INSERT_TAG = "INSERT INTO tag (id, name) VALUES (?, ?)";
     public static final String DELETE_TAG_REF = "DELETE FROM gift_certificate_tag WHERE tag_id = ?";
     public static final String TAGS = ", t.id AS tag_id, t.name AS tag_name";
     public static final String LEFT_JOIN = " LEFT JOIN gift_certificate_tag ct ON c.id = ct.gift_certificate_id";

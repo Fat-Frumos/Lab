@@ -2,7 +2,7 @@
 
 CREATE TABLE IF NOT EXISTS tag
 (
-    id   SERIAL PRIMARY KEY,
+    id   BIGINT PRIMARY KEY,
     name VARCHAR(255) NOT NULL
 );
 

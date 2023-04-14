@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Data
@@ -13,6 +14,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 public class TagDto implements Serializable {
     private Long id;
+    @NotBlank(message = "Name cannot be blank")
     private String name;
 
     @JsonCreator

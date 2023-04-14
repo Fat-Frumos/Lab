@@ -134,7 +134,6 @@
                         <compilerArguments>
                             <endorseddirs>${endorsed.dir}</endorseddirs>
                         </compilerArguments>
-
                     </configuration>
                 </plugin>
                 <plugin>

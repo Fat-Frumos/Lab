@@ -14,13 +14,14 @@ import org.springframework.stereotype.Repository;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
+import java.util.UUID;
 
 import static com.epam.esm.mapper.QueriesContext.*;
 
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public class DefaultCertificateDao implements CertificateDao {
+public class CertificateDaoImpl implements CertificateDao {
 
     private final JdbcTemplate jdbcTemplate;
     private final CertificateRowMapper certificateRowMapper;
@@ -44,7 +45,9 @@ public class DefaultCertificateDao implements CertificateDao {
         List<Certificate> certificates = jdbcTemplate.query(
                 String.format("%s'%s'", GET_CERTIFICATE_BY_NAME, name),
                 certificateRowMapper);
-        return certificates.isEmpty() ? null : certificates.get(0);
+        return certificates.isEmpty()
+                ? null
+                : certificates.get(0);
     }
 
     @Override
@@ -55,42 +58,40 @@ public class DefaultCertificateDao implements CertificateDao {
     }
 
     @Override
-    public final List<Certificate> getAllBy(
-            final Criteria criteria) {
+    public final List<Certificate> getAllBy(final Criteria criteria) {
         return jdbcTemplate.query(
-                QueryBuilder.builder().searchBy(criteria).build(),
+                QueryBuilder
+                        .builder()
+                        .searchBy(criteria)
+                        .build(),
                 listExtractor);
     }
 
     @Override
-    public final boolean save(
-            final Certificate certificate) {
-        return jdbcTemplate.update(INSERT_CERTIFICATE,
+    public final Long save(final Certificate certificate) {
+        long id = UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
+        jdbcTemplate.update(INSERT_CERTIFICATE,
+                id,
                 certificate.getName(),
                 certificate.getDescription(),
                 certificate.getPrice(),
                 certificate.getDuration(),
                 Timestamp.from(Instant.now()),
-                Timestamp.from(Instant.now())) == 1;
+                Timestamp.from(Instant.now()));
+        return id;
     }
 
     @Override
-    public final boolean delete(final Long id) {
-        if (getById(id) != null) {
-            jdbcTemplate.update(DELETE_REF, id);
-            return jdbcTemplate.update(DELETE_CERTIFICATE, id) == 1;
-        } else {
-            throw new CertificateNotFoundException(
-                    String.format("Certificate not found with id: %d", id));
-        }
+    public final void delete(final Long id) {
+        jdbcTemplate.update(DELETE_REF, id);
+        jdbcTemplate.update(DELETE_CERTIFICATE, id);
     }
 
     @Override
-    public final boolean update(
-            final Certificate certificate) {
-        String sql = QueryBuilder.builder().updateQuery(certificate, UPDATE_CERTIFICATE).build();
-
-        log.info(sql);
-        return jdbcTemplate.update(sql) == 1;
+    public final boolean update(final Certificate certificate) {
+        return jdbcTemplate.update(
+                QueryBuilder.builder()
+                        .updateQuery(certificate, UPDATE_CERTIFICATE)
+                        .build()) == 1;
     }
 }

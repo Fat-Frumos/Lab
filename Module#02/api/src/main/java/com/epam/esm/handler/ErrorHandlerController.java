@@ -1,11 +1,9 @@
 package com.epam.esm.handler;
 
-import com.epam.esm.exception.CertificateIsExistsException;
+import com.epam.esm.exception.CertificateAlreadyExistsException;
 import com.epam.esm.exception.CertificateNotFoundException;
-import com.epam.esm.exception.NotFoundException;
-import com.epam.esm.exception.TagIsExistsException;
+import com.epam.esm.exception.TagAlreadyExistsException;
 import com.epam.esm.exception.TagNotFoundException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -38,25 +36,17 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
                 NOT_FOUND);
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<Object> handleNotFoundException(final NotFoundException ex) {
-        return new ResponseEntity<>(
-                new ErrorResponse(ex.getMessage(), 40401),
-                NOT_FOUND);
-    }
-
-    @ExceptionHandler(CertificateIsExistsException.class)
+    @ExceptionHandler(CertificateAlreadyExistsException.class)
     public ResponseEntity<Object> handleCertificateIsExistsException(
-            final CertificateIsExistsException e) {
+            final CertificateAlreadyExistsException e) {
         return new ResponseEntity<>(
                 new ErrorResponse(e.getMessage(), BAD_REQUEST.value()),
                 BAD_REQUEST);
     }
 
-    @ExceptionHandler(TagIsExistsException.class)
+    @ExceptionHandler(TagAlreadyExistsException.class)
     public ResponseEntity<Object> handleTagIsExistsException(
-            final TagIsExistsException e) {
+            final TagAlreadyExistsException e) {
         return new ResponseEntity<>(
                 new ErrorResponse(e.getMessage(), BAD_REQUEST.value()),
                 BAD_REQUEST);

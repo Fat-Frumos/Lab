@@ -4,27 +4,27 @@ import com.epam.esm.criteria.Criteria;
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.CertificateWithoutTagDto;
-import com.epam.esm.exception.CertificateIsExistsException;
+import com.epam.esm.exception.CertificateAlreadyExistsException;
 import com.epam.esm.exception.CertificateNotFoundException;
+import com.epam.esm.mapper.CertificateMapper;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 
-import static com.epam.esm.mapper.CertificateMapper.mapper;
-
-@Slf4j
 @Service
 @RequiredArgsConstructor
-public class DefaultCertificateService implements CertificateService {
+public class CertificateServiceImpl implements CertificateService {
 
     private final CertificateDao certificateDao;
+    private final CertificateMapper mapper;
 
     @Override
     @Transactional(readOnly = true)
     public CertificateDto getById(final Long id) {
+        Objects.requireNonNull(id, "Id should be not null");
         return mapper.toDto(certificateDao.getById(id));
     }
 
@@ -42,8 +42,13 @@ public class DefaultCertificateService implements CertificateService {
 
     @Override
     @Transactional
-    public boolean delete(final Long id) {
-        return certificateDao.delete(id);
+    public void delete(final Long id) {
+        if (getById(id) != null) {
+            certificateDao.delete(id);
+        } else {
+            throw new CertificateNotFoundException(
+                    String.format("Certificate not found with id: %d", id));
+        }
     }
 
     @Override
@@ -54,12 +59,14 @@ public class DefaultCertificateService implements CertificateService {
 
     @Override
     @Transactional
-    public boolean update(final CertificateDto certificateDto) {
+    public CertificateDto update(final CertificateDto certificateDto) {
         if (getById(certificateDto.getId()) != null) {
-            throw new CertificateNotFoundException(
-                    String.format("Certificate# %d not found", certificateDto.getId()));
+             certificateDao.update(mapper.toEntity(certificateDto));
+             return getById(certificateDto.getId());
         } else {
-            return certificateDao.update(mapper.toEntity(certificateDto));
+            throw new CertificateNotFoundException(
+                    String.format("Certificate# %d not found",
+                            certificateDto.getId()));
         }
     }
 
@@ -71,11 +78,12 @@ public class DefaultCertificateService implements CertificateService {
 
     @Override
     @Transactional
-    public boolean save(final CertificateDto certificateDto) {
+    public CertificateDto save(final CertificateDto certificateDto) {
         if (certificateDao.getByName(certificateDto.getName()) != null) {
-            throw new CertificateIsExistsException(certificateDto.getName());
+            throw new CertificateAlreadyExistsException(certificateDto.getName());
         } else {
-            return certificateDao.save(mapper.toEntity(certificateDto));
+            Long saved = certificateDao.save(mapper.toEntity(certificateDto));
+            return getById(saved);
         }
     }
 }

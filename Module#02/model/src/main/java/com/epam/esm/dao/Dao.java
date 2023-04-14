@@ -10,7 +10,7 @@ public interface Dao<T extends Serializable> {
 
     T getByName(String name);
 
-    boolean save(T entity);
+    Long save(T entity);
 
-    boolean delete(Long id);
+    void delete(Long id);
 }

@@ -1,6 +1,7 @@
 package com.epam.esm.dao;
 
 import com.epam.esm.entity.Tag;
+import com.epam.esm.exception.TagNotFoundException;
 import com.epam.esm.mapper.TagRowMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,16 +18,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Stream;
 
-import static com.epam.esm.mapper.QueriesContext.GET_BY_TAG_NAME;
-import static com.epam.esm.mapper.QueriesContext.INSERT_TAG;
+import static com.epam.esm.mapper.QueriesContext.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
@@ -35,19 +39,18 @@ import static org.mockito.Mockito.when;
 
 @DisplayName("DefaultTagDao Unit Tests")
 @ExtendWith(MockitoExtension.class)
-class DefaultTagDaoTest {
+class TestTagDao {
 
     @Mock
     private JdbcTemplate jdbcTemplate;
-
     @Mock
     private TagRowMapper tagRowMapper;
-    private DefaultTagDao tagDao;
+    private TagDao tagDao;
     private final static String name = "winter";
 
     @BeforeEach
     void setup() {
-        tagDao = new DefaultTagDao(jdbcTemplate, tagRowMapper);
+        tagDao = new TagDaoImpl(jdbcTemplate, tagRowMapper);
     }
 
     @DisplayName("Test getById method with different inputs")
@@ -104,7 +107,7 @@ class DefaultTagDaoTest {
         if (expectedId == null) {
             assertNull(tag);
         } else {
-            assertEquals(expectedId, tag.getId());
+            assertEquals(expectedId, Objects.requireNonNull(tag).getId());
             assertEquals(name, tag.getName());
         }
         verify(jdbcTemplate).query(sql, tagRowMapper);
@@ -129,14 +132,22 @@ class DefaultTagDaoTest {
     @ParameterizedTest
     @MethodSource("tagProvider")
     void testSave(Tag tag, boolean expectedResult) {
-        when(jdbcTemplate.update(INSERT_TAG, tag.getName())).thenReturn(expectedResult ? 1 : 0);
-        assertEquals(expectedResult, tagDao.save(tag));
+        when(jdbcTemplate.update(eq(INSERT_TAG), anyLong(), eq(tag.getName()))).thenReturn(expectedResult ? 1 : 0);
+        assertTrue(tagDao.save(tag) > 0);
     }
-    private static Collection<Arguments> tagProvider() {
-        return Arrays.asList(
+
+    private static Stream<Arguments> tagProvider() {
+        return Stream.of(
                 Arguments.of(Tag.builder().name("tag1").build(), true),
                 Arguments.of(Tag.builder().name(null).build(), false),
                 Arguments.of(Tag.builder().name("").build(), false)
         );
+    }
+    @Test
+    @DisplayName("Should throw exception if tag with specified id not found")
+    void testGetByIdShouldThrowExceptionIfTagNotFound() {
+        when(jdbcTemplate.queryForObject(GET_TAG_BY_ID, new Object[]{1L}, tagRowMapper))
+                .thenThrow(TagNotFoundException.class);
+        assertThrows(TagNotFoundException.class, () -> tagDao.getById(1L));
     }
 }

@@ -10,7 +10,6 @@ import java.time.Instant;
 @Builder
 @AllArgsConstructor
 public class Criteria {
-
     private SortOrder sortOrder;
     private SortField sortField;
     private String name;

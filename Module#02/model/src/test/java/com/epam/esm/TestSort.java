@@ -8,7 +8,6 @@ import org.junit.jupiter.params.provider.EnumSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestSort {
-
     @ParameterizedTest
     @EnumSource(SortField.class)
     @DisplayName("Test SortField values")
@@ -27,4 +26,3 @@ class TestSort {
         assertEquals(expectedField, sortField.getField());
     }
 }
-
