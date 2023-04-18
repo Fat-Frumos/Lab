@@ -16,6 +16,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -96,7 +97,7 @@ class CertificateServiceExceptionTest {
         Certificate existingCertificate = Certificate.builder().build();
 
         when(mapper.toEntity(certificateDto)).thenReturn(existingCertificate);
-        when(dao.getByName("Existing Certificate")).thenReturn(existingCertificate);
+        when(dao.getByName("Existing Certificate")).thenReturn(Optional.of(existingCertificate));
 
         assertThrows(CertificateAlreadyExistsException.class, () -> service.save(certificateDto));
         verify(dao, never()).save(existingCertificate);

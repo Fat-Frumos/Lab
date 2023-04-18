@@ -3,22 +3,20 @@ package com.epam.esm.dao;
 import com.epam.esm.criteria.QueryBuilder;
 import com.epam.esm.entity.Certificate;
 import com.epam.esm.criteria.Criteria;
-import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.mapper.CertificateListExtractor;
 import com.epam.esm.mapper.CertificateRowMapper;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import static com.epam.esm.mapper.QueriesContext.*;
 
-@Slf4j
 @Repository
 @RequiredArgsConstructor
 public class CertificateDaoImpl implements CertificateDao {
@@ -28,26 +26,25 @@ public class CertificateDaoImpl implements CertificateDao {
     private final CertificateListExtractor listExtractor;
 
     @Override
-    public final Certificate getById(final Long id) {
-        List<Certificate> result = jdbcTemplate.query(
+    public final Optional<Certificate> getById(final Long id) {
+        List<Certificate> certificates = jdbcTemplate.query(
                 GET_CERTIFICATE_BY_ID,
                 new Object[]{id},
                 listExtractor);
-        if (result == null || result.isEmpty()) {
-            throw new CertificateNotFoundException(
-                    String.format("Certificate not found with id: %d", id));
-        }
-        return result.get(0);
+        return certificates == null
+                || certificates.isEmpty()
+                ? Optional.empty()
+                : Optional.of(certificates.get(0));
     }
 
     @Override
-    public final Certificate getByName(final String name) {
+    public final Optional<Certificate> getByName(final String name) {
         List<Certificate> certificates = jdbcTemplate.query(
                 String.format("%s'%s'", GET_CERTIFICATE_BY_NAME, name),
                 certificateRowMapper);
         return certificates.isEmpty()
-                ? null
-                : certificates.get(0);
+                ? Optional.empty()
+                : Optional.of(certificates.get(0));
     }
 
     @Override
@@ -60,10 +57,7 @@ public class CertificateDaoImpl implements CertificateDao {
     @Override
     public final List<Certificate> getAllBy(final Criteria criteria) {
         return jdbcTemplate.query(
-                QueryBuilder
-                        .builder()
-                        .searchBy(criteria)
-                        .build(),
+                QueryBuilder.builder().searchBy(criteria).build(),
                 listExtractor);
     }
 

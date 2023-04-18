@@ -19,9 +19,11 @@ import org.mockito.Mock;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
@@ -65,28 +67,13 @@ class TagServiceTest {
     void testSaveTagWhenTagWithNameAlreadyExists() {
         TagDto tagDto = TagDto.builder().id(1L).name("test_tag").build();
         Tag tag = Tag.builder().id(1L).name("test_tag").build();
-        when(tagDao.getByName(tagDto.getName())).thenReturn(tag);
+        when(tagDao.getByName(tagDto.getName())).thenReturn(Optional.of(tag));
 
         assertThrows(TagAlreadyExistsException.class, () -> tagService.save(tagDto));
 
         verify(tagDao).getByName(tagDto.getName());
     }
 
-    @Test
-    @DisplayName("Should save tag when tag with specified name does not exist")
-    void testSaveTagWhenTagWithNameDoesNotExist() {
-        TagDto tagDto = TagDto.builder().id(id).name("test_tag").build();
-        Tag tag = Tag.builder().id(id).name("test_tag").build();
-        when(tagDao.getByName(tagDto.getName())).thenReturn(null);
-        when(tagMapper.toEntity(tagDto)).thenReturn(tag);
-        when(tagService.getById(id)).thenReturn(tagDto);
-        when(tagDao.save(tag)).thenReturn(id);
-        TagDto result = tagService.save(tagDto);
-        verify(tagDao).getByName(tagDto.getName());
-        verify(tagMapper).toEntity(tagDto);
-        verify(tagDao).save(tag);
-        assertEquals(tagDto, result);
-    }
 
     @ParameterizedTest
     @DisplayName("Should throw TagAlreadyExistsException when saving tag with existing name")
@@ -94,7 +81,7 @@ class TagServiceTest {
     void testSaveTagWithExistingName(String tagName) {
         TagDto tagDto = TagDto.builder().name(tagName).build();
         Tag tag = Tag.builder().name(tagName).build();
-        when(tagDao.getByName(tagName)).thenReturn(tag);
+        when(tagDao.getByName(tagName)).thenReturn(Optional.of(tag));
         when(tagMapper.toEntity(tagDto)).thenReturn(tag);
         assertThrows(TagAlreadyExistsException.class, () -> tagService.save(tagDto));
         verify(tagDao, times(1)).getByName(tagName);
@@ -116,7 +103,7 @@ class TagServiceTest {
     @MethodSource("existingTagNamesProvider")
     @DisplayName("Should throw TagAlreadyExistsException when tag with specified name already exists")
     void testSaveShouldThrowTagAlreadyExistsException(String tagName) {
-        when(tagDao.getByName(tagName)).thenReturn(Tag.builder().name(tagName).build());
+        when(tagDao.getByName(tagName)).thenReturn(Optional.of(Tag.builder().name(tagName).build()));
         assertThrows(TagAlreadyExistsException.class, () -> tagService.save(TagDto.builder().name(tagName).build()));
         verify(tagDao, times(1)).getByName(tagName);
     }
@@ -190,7 +177,7 @@ class TagServiceTest {
     @Test
     @DisplayName("Should return tag with specified id")
     void testGetByIdShouldReturnTag() {
-        when(tagDao.getById(id)).thenReturn(tag);
+        when(tagDao.getById(id)).thenReturn(Optional.of(tag));
         when(tagMapper.toDto(tag)).thenReturn(tagDto);
         TagDto actualTag = tagService.getById(id);
         assertEquals(tagDto, actualTag);
@@ -199,8 +186,7 @@ class TagServiceTest {
     @Test
     @DisplayName("Should return tag with specified id")
     void testGetByIdShouldReturnTags() {
-        long id = 1L;
-        when(tagDao.getById(id)).thenReturn(tag);
+        when(tagDao.getById(id)).thenReturn(Optional.of(tag));
         when(tagMapper.toDto(tag)).thenReturn(tagDto);
         TagDto expected = tagDto;
         TagDto actual = tagService.getById(id);
@@ -220,7 +206,7 @@ class TagServiceTest {
                 .id(id)
                 .name(name)
                 .build();
-        when(tagDao.getByName(name)).thenReturn(tag);
+        when(tagDao.getByName(name)).thenReturn(Optional.of(tag));
         when(tagMapper.toDto(tag)).thenReturn(tagDto);
         assertEquals(tagDto, tagService.getByName(name));
         verify(tagDao, times(1)).getByName(name);
@@ -229,21 +215,11 @@ class TagServiceTest {
     @Test
     @DisplayName("Delete tag by id")
     void testDelete() {
-        when(tagDao.getById(id)).thenReturn(tag);
+        when(tagDao.getById(id)).thenReturn(Optional.of(tag));
         tagService.delete(id);
         verify(tagDao).getById(id);
         verify(tagDao).delete(id);
         verify(tagDao, times(1)).delete(id);
-    }
-
-    @Test
-    @DisplayName("Delete tag by id when not found")
-    void deleteNotFound() {
-        when(tagDao.getById(id)).thenReturn(null);
-        assertThrows(TagNotFoundException.class,
-                () -> tagService.delete(id),
-                "throw TagNotFoundException");
-        verify(tagDao).getById(id);
     }
 
     @ParameterizedTest
@@ -252,10 +228,80 @@ class TagServiceTest {
     void saveTagWithNameExist(Long id, String tagName) {
         TagDto tagDto = new TagDto(null, tagName);
         Tag tag = Tag.builder().id(id).name(tagName).build();
-        when(tagDao.getByName(tagDto.getName())).thenReturn(tag);
+        when(tagDao.getByName(tagDto.getName())).thenReturn(Optional.of(tag));
         Exception ex = assertThrows(TagAlreadyExistsException.class, () -> tagService.save(tagDto));
         assertEquals(tagDto.getName(), ex.getMessage());
         verify(tagDao).getByName(tagDto.getName());
         verifyNoMoreInteractions(tagDao);
+    }
+
+    @Test
+    @DisplayName("test getById returns TagDto when tag exists")
+    void testGetByIdReturnsTagDtoWhenTagExists() {
+        Tag tag = Tag.builder().id(id).name("test_tag").build();
+        TagDto expectedTagDto = TagDto.builder().id(id).name("test_tag").build();
+        when(tagDao.getById(id)).thenReturn(Optional.of(tag));
+        when(tagMapper.toDto(tag)).thenReturn(expectedTagDto);
+        TagDto actualTagDto = tagService.getById(id);
+        assertNotNull(actualTagDto);
+        assertEquals(expectedTagDto, actualTagDto);
+        verify(tagDao).getById(id);
+        verify(tagMapper).toDto(tag);
+    }
+
+    @Test
+    void testGetById_throwsTagNotFoundException_whenTagDoesNotExist() {
+        when(tagDao.getById(id)).thenReturn(Optional.empty());
+        assertThrows(TagNotFoundException.class, () -> tagService.getById(id));
+        verify(tagDao).getById(id);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1, tag1",
+            "2, tag2",
+            "3, tag3"
+    })
+    @DisplayName("Should throw TagAlreadyExistsException if tag with the same name already exists")
+    void shouldThrowTagAlreadyExistsException(long id, String name) {
+        TagDto tagDto = TagDto.builder().name(name).build();
+        Tag tag = Tag.builder().id(id).name(name).build();
+        when(tagDao.getByName(tagDto.getName())).thenReturn(Optional.of(tag));
+        assertThrows(TagAlreadyExistsException.class, () -> tagService.save(tagDto));
+        verify(tagDao).getByName(name);
+    }
+
+    @DisplayName("getByName() method should return the tag with the given name")
+    @CsvSource({"1, Winter", "2, Summer", "3, Spring", "4, Autumn"})
+
+    @ParameterizedTest
+    void getByNameShouldReturnTag(final Long tagId, final String name) {
+        final Tag tag = Tag.builder().id(tagId).name(name).build();
+        final TagDto tagDto = TagDto.builder().id(tagId).name(name).build();
+
+        when(tagDao.getByName(name)).thenReturn(Optional.of(tag));
+        when(tagMapper.toDto(tag)).thenReturn(tagDto);
+
+        final TagDto result = tagService.getByName(name);
+
+        assertNotNull(result);
+        assertEquals(tagDto.getId(), result.getId());
+        assertEquals(tagDto.getName(), result.getName());
+
+        verify(tagDao).getByName(name);
+        verify(tagMapper).toDto(tag);
+    }
+
+    @DisplayName("getByName() method should throw TagNotFoundException if tag with the given name not found")
+    @CsvSource({"1, Winter", "2, Summer", "3, Spring", "4, Autumn"})
+    @ParameterizedTest
+    void getByNameShouldThrowTagNotFoundException(final long id, final String name) {
+        when(tagDao.getByName(name)).thenReturn(Optional.empty());
+        assertThrows(TagNotFoundException.class, () -> tagService.getByName(name));
+        verify(tagDao).getByName(name);
+
+        when(tagDao.getById(id)).thenReturn(Optional.empty());
+        assertThrows(TagNotFoundException.class, () -> tagService.getById(id));
+        verify(tagDao).getById(id);
     }
 }

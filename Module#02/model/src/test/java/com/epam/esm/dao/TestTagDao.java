@@ -20,13 +20,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import static com.epam.esm.mapper.QueriesContext.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
@@ -47,6 +47,7 @@ class TestTagDao {
     private TagRowMapper tagRowMapper;
     private TagDao tagDao;
     private final static String name = "winter";
+    Long id = 1L;
 
     @BeforeEach
     void setup() {
@@ -63,7 +64,7 @@ class TestTagDao {
     void testGetById(Long id, Long expectedId, String expectedName) {
         Tag expectedTag = Tag.builder().id(expectedId).name(expectedName).build();
         when(jdbcTemplate.queryForObject(anyString(), any(Object[].class), eq(tagRowMapper))).thenReturn(expectedTag);
-        assertEquals(expectedTag, tagDao.getById(id));
+        assertEquals(expectedTag, tagDao.getById(id).orElseThrow());
     }
 
     @Test
@@ -73,10 +74,11 @@ class TestTagDao {
         String sql = String.format("%s'%s'", GET_BY_TAG_NAME, name);
         List<Tag> tags = Collections.singletonList(expectedTag);
         when(jdbcTemplate.query(sql, tagRowMapper)).thenReturn(tags);
-
-        Tag tag = tagDao.getByName(name);
-        assertNotNull(tag);
-        assertEquals(expectedTag, tag);
+        Optional<Tag> optionalTag = tagDao.getByName(name);
+        if (optionalTag.isPresent()) {
+            assertNotNull(optionalTag);
+            assertEquals(expectedTag, optionalTag.get());
+        }
         verify(jdbcTemplate).query(sql, tagRowMapper);
     }
 
@@ -85,7 +87,7 @@ class TestTagDao {
     void testGetByNameUnknown() {
         String sql = String.format("%s'%s'", GET_BY_TAG_NAME, name);
         given(jdbcTemplate.query(sql, tagRowMapper)).willReturn(Collections.emptyList());
-        assertNull(tagDao.getByName(name));
+        assertTrue(tagDao.getByName(name).isEmpty());
     }
 
     @ParameterizedTest(name = "{index} - name: {0}, expected: {1}")
@@ -102,13 +104,10 @@ class TestTagDao {
         }
         String sql = String.format("%s'%s'", GET_BY_TAG_NAME, name);
         when(jdbcTemplate.query(sql, tagRowMapper)).thenReturn(tags);
-        Tag tag = tagDao.getByName(name);
-
-        if (expectedId == null) {
-            assertNull(tag);
-        } else {
-            assertEquals(expectedId, Objects.requireNonNull(tag).getId());
-            assertEquals(name, tag.getName());
+        Optional<Tag> tag = tagDao.getByName(name);
+        if (tag.isPresent()) {
+            assertEquals(expectedId, tag.get().getId());
+            assertEquals(name, tag.get().getName());
         }
         verify(jdbcTemplate).query(sql, tagRowMapper);
     }
@@ -143,11 +142,69 @@ class TestTagDao {
                 Arguments.of(Tag.builder().name("").build(), false)
         );
     }
+
     @Test
     @DisplayName("Should throw exception if tag with specified id not found")
     void testGetByIdShouldThrowExceptionIfTagNotFound() {
-        when(jdbcTemplate.queryForObject(GET_TAG_BY_ID, new Object[]{1L}, tagRowMapper))
+        when(jdbcTemplate.queryForObject(GET_TAG_BY_ID, new Object[]{id}, tagRowMapper))
                 .thenThrow(TagNotFoundException.class);
-        assertThrows(TagNotFoundException.class, () -> tagDao.getById(1L));
+        assertThrows(TagNotFoundException.class, () -> tagDao.getById(id));
+    }
+
+    @ParameterizedTest
+    @DisplayName("Should return tag when tag exists")
+    @CsvSource({"1,test_tag"})
+    void getByIdShouldReturnTagWhenTagExists(long id, String tagName) {
+        Tag expectedTag = Tag.builder().id(id).name(tagName).build();
+        when(jdbcTemplate.queryForObject(eq(GET_TAG_BY_ID), any(Object[].class), eq(tagRowMapper)))
+                .thenReturn(expectedTag);
+        Optional<Tag> actualTag = tagDao.getById(id);
+
+        assertTrue(actualTag.isPresent());
+        assertEquals(expectedTag, actualTag.get());
+        verify(jdbcTemplate).queryForObject(eq(GET_TAG_BY_ID), any(Object[].class), eq(tagRowMapper));
+    }
+
+    @ParameterizedTest
+    @DisplayName("Should return empty optional when tag does not exist")
+    @CsvSource({"1"})
+    void getByIdShouldReturnEmptyOptionalWhenTagDoesNotExist(long id) {
+        when(jdbcTemplate.queryForObject(eq(GET_TAG_BY_ID), any(Object[].class), eq(tagRowMapper)))
+                .thenReturn(null);
+        Optional<Tag> actualTag = tagDao.getById(id);
+
+        assertFalse(actualTag.isPresent());
+        verify(jdbcTemplate).queryForObject(eq(GET_TAG_BY_ID), any(Object[].class), eq(tagRowMapper));
+    }
+
+    @ParameterizedTest
+    @DisplayName("Given existing tag ID, when getById() called, then return Optional containing tag")
+    @CsvSource({"1,Test Tag"})
+    void getById_givenExistingTagId_thenReturnsOptionalContainingTag(Long tagId, String tagName) {
+        Tag expectedTag = Tag.builder().id(tagId).name(tagName).build();
+        Object[] args = new Object[]{tagId};
+        when(jdbcTemplate.queryForObject(GET_TAG_BY_ID, args, tagRowMapper)).thenReturn(expectedTag);
+        Optional<Tag> result = tagDao.getById(tagId);
+        assertTrue(result.isPresent());
+        assertEquals(expectedTag, result.get());
+    }
+
+    @ParameterizedTest
+    @DisplayName("Given non-existing tag ID, when getById() called, then return empty Optional")
+    @CsvSource({"100", "999"})
+    void getById_givenNonExistingTagId_thenReturnsEmptyOptional(Long tagId) {
+        Object[] args = new Object[]{tagId};
+        when(jdbcTemplate.queryForObject(GET_TAG_BY_ID, args, tagRowMapper)).thenReturn(null);
+        Optional<Tag> result = tagDao.getById(tagId);
+        assertFalse(result.isPresent());
+    }
+
+    @ParameterizedTest
+    @DisplayName("Should delete tag with given id")
+    @CsvSource({"1", "2", "3"})
+    void deleteShouldRemoveTagWithGivenId(Long id) {
+        tagDao.delete(id);
+        verify(jdbcTemplate).update(DELETE_TAG_REF, id);
+        verify(jdbcTemplate).update(DELETE_TAG, id);
     }
 }

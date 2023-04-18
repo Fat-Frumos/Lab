@@ -10,10 +10,20 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
+/**
+ * Configuration class for setting up an H2 in-memory database.
+ * <p>
+ * Enables transaction management and sets up a data source and JdbcTemplate for use in tests.
+ */
 @Configuration
 @EnableTransactionManagement
 public class H2JdbcConfig {
-
+    /**
+     * Provides a data source for use in tests. Uses an embedded H2 in-memory database and runs
+     * SQL scripts to set up schema, data, and create a user.
+     *
+     * @return the data source
+     */
     @Profile("test")
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
@@ -27,6 +37,12 @@ public class H2JdbcConfig {
                 .build();
     }
 
+    /**
+     * Provides a JdbcTemplate for use in tests.
+     * Uses the data source created by {@link #dataSource()}.
+     *
+     * @return the JdbcTemplate
+     */
     @Bean
     @Profile("test")
     public JdbcTemplate jdbcTemplate() {

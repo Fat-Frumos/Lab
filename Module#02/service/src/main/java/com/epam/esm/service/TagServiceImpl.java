@@ -2,7 +2,6 @@ package com.epam.esm.service;
 
 import com.epam.esm.dao.TagDao;
 import com.epam.esm.dto.TagDto;
-import com.epam.esm.entity.Tag;
 import com.epam.esm.exception.TagAlreadyExistsException;
 import com.epam.esm.exception.TagNotFoundException;
 import com.epam.esm.mapper.TagMapper;
@@ -22,18 +21,24 @@ public class TagServiceImpl implements TagService {
     private final TagDao tagDao;
 
     private final TagMapper tagMapper;
+    private static final String MESSAGE = "Tag not found with";
 
     @Override
     @Transactional(readOnly = true)
     public TagDto getById(final Long id) {
         Objects.requireNonNull(id, "Id should be not null");
-        return tagMapper.toDto(tagDao.getById(id));
+        return tagMapper.toDto(tagDao.getById(id)
+                .orElseThrow(() -> new TagNotFoundException(
+                        String.format("%s id: %s", MESSAGE, id))));
     }
 
     @Override
     @Transactional(readOnly = true)
     public TagDto getByName(final String name) {
-        return tagMapper.toDto(tagDao.getByName(name));
+        Objects.requireNonNull(name, "Name should be not null");
+        return tagMapper.toDto(tagDao.getByName(name)
+                .orElseThrow(() -> new TagNotFoundException(
+                        String.format("%s name: %s", MESSAGE, name))));
     }
 
     @Override
@@ -48,22 +53,20 @@ public class TagServiceImpl implements TagService {
     @Override
     @Transactional
     public TagDto save(final TagDto tagDto) {
-        if (tagDao.getByName(tagDto.getName()) == null) {
-            Long saved = tagDao.save(tagMapper.toEntity(tagDto));
-            return getById(saved);
-        } else {
+        if (tagDao.getByName(tagDto.getName()).isPresent()) {
             throw new TagAlreadyExistsException(tagDto.getName());
         }
+        return getById(tagDao.save(tagMapper.toEntity(tagDto)));
     }
 
     @Override
     @Transactional
     public void delete(final Long id) {
-        if (tagDao.getById(id) == null) {
+        Objects.requireNonNull(id, "Id should be not null");
+        if (tagDao.getById(id).isEmpty()) {
             throw new TagNotFoundException(
-                    String.format("Tag not found with id: %d", id));
-        } else {
-            tagDao.delete(id);
+                    String.format("%s id: %d", MESSAGE, id));
         }
+        tagDao.delete(id);
     }
 }

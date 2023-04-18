@@ -8,10 +8,7 @@ import com.epam.esm.entity.Certificate;
 import com.epam.esm.mapper.CertificateListExtractor;
 import com.epam.esm.mapper.CertificateRowMapper;
 import com.epam.esm.mapper.TagRowMapper;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -107,18 +104,20 @@ class CriteriaTest {
             ",Certificate,,ASC,,,ASC,DATE,",
             ",Certificate,,UNSORTED,,,UNSORTED,DATE,",
     })
-    void testCriteria_withRequiredFields(String name, String description, String tagName, String sortOrder, String sortField, Instant date, String expectedOrder, String expectedField, String expectedTagName) {
+    void testCriteria_withRequiredFields(
+            String name, String description, String tagName,
+            String sortOrder, String sortField,
+            Instant date, String expectedOrder,
+            String expectedField, String expectedTagName) {
 
         SortOrder order = sortOrder != null ? SortOrder.valueOf(sortOrder) : null;
         SortField field = sortField != null ? SortField.valueOf(sortField) : null;
-        if (date == null) {
-            date = Instant.now();
-        }
-        if (order == null) {
-            order = SortOrder.UNSORTED;
-        }
-
-        Criteria criteria = new Criteria(order, field, name, description, tagName, date);
+        date = date == null ? Instant.now() : date;
+        order = order == null ? SortOrder.UNSORTED : order;
+        Criteria criteria = Criteria.builder()
+                .sortOrder(order).sortField(field)
+                .name(name).description(description)
+                .tagName(tagName).date(date).build();
         String searchBy = QueryBuilder.builder().searchBy(criteria).build();
         Objects.requireNonNull(jdbcTemplate.query(searchBy, listExtractor))
                 .forEach(Assertions::assertNotNull);
@@ -155,22 +154,29 @@ class CriteriaTest {
                         QueryBuilder.builder().searchBy(criteria).build(),
                         listExtractor));
         assertEquals(size, certificates.size());
-        certificates.forEach(certificate -> assertTrue(matches(criteria, certificate)));
+        certificates.forEach(certificate ->
+                assertTrue(matches(criteria, certificate)));
     }
 
-
     private boolean matches(Criteria criteria, Certificate certificate) {
-
-        if (criteria.getName() != null && certificate.getName().toLowerCase().contains(criteria.getName().toLowerCase())) {
+        if (criteria.getName() != null
+                && certificate.getName().toLowerCase()
+                .contains(criteria.getName().toLowerCase())) {
             return true;
         }
-        if (criteria.getDescription() != null && certificate.getDescription().toLowerCase().contains(criteria.getDescription().toLowerCase())) {
+        if (criteria.getDescription() != null
+                && certificate.getDescription().toLowerCase()
+                .contains(criteria.getDescription().toLowerCase())) {
             return true;
         }
-        if (criteria.getTagName() != null && certificate.getTags().stream()
-                .anyMatch(tag -> tag.getName().toLowerCase().contains(criteria.getTagName().toLowerCase()))) {
+        if (criteria.getTagName() != null
+                && certificate.getTags()
+                .stream().anyMatch(tag -> tag.getName().toLowerCase()
+                        .contains(criteria.getTagName().toLowerCase()))) {
             return true;
         }
-        return criteria.getName() == null && criteria.getDescription() == null && criteria.getTagName() == null;
+        return criteria.getName() == null
+                && criteria.getDescription() == null
+                && criteria.getTagName() == null;
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import static com.epam.esm.mapper.QueriesContext.*;
@@ -19,19 +20,24 @@ public class TagDaoImpl implements TagDao {
     private final TagRowMapper tagRowMapper;
 
     @Override
-    public final Tag getById(final Long id) {
-        return jdbcTemplate.queryForObject(
+    public final Optional<Tag> getById(final Long id) {
+        Tag tag = jdbcTemplate.queryForObject(
                 GET_TAG_BY_ID,
                 new Object[]{id},
                 tagRowMapper);
+        return tag == null
+                ? Optional.empty()
+                : Optional.of(tag);
     }
 
     @Override
-    public final Tag getByName(final String name) {
+    public final Optional<Tag> getByName(final String name) {
         List<Tag> tags = jdbcTemplate.query(
                 String.format("%s'%s'", GET_BY_TAG_NAME, name),
                 tagRowMapper);
-        return tags.isEmpty() ? null : tags.get(0);
+        return tags.isEmpty()
+                ? Optional.empty()
+                : Optional.of(tags.get(0));
     }
 
     @Override

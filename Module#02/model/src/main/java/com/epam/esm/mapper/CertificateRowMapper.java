@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * This class implements the RowMapper interface to map a ResultSet to a Certificate object.
+ * <p>
+ * It provides a mapRow method to map the ResultSet columns to Certificate fields.
+ */
 @Component
 public class CertificateRowMapper implements RowMapper<Certificate> {
 
@@ -18,10 +23,17 @@ public class CertificateRowMapper implements RowMapper<Certificate> {
     private static final String CREATE_DATE = "create_date";
     private static final String LAST_UPDATE_DATE = "last_update_date";
 
+    /**
+     * Maps the ResultSet columns to Certificate fields and returns the resulting Certificate object.
+     *
+     * @param resultSet the ResultSet to map to a Certificate object
+     * @param number         the current row number
+     * @return a Certificate object with the mapped ResultSet columns
+     * @throws SQLException if there is an error accessing the ResultSet columns
+     */
     @Override
     public Certificate mapRow(
-            final ResultSet resultSet,
-            final int i)
+            final ResultSet resultSet, final int number)
             throws SQLException {
 
         return Certificate.builder()

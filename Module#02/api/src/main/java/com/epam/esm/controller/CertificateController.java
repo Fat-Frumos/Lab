@@ -6,7 +6,6 @@ import com.epam.esm.dto.CertificateWithoutTagDto;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.service.CertificateService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -23,6 +22,7 @@ import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequiredArgsConstructor
@@ -30,24 +30,23 @@ import static org.springframework.http.HttpStatus.OK;
 public class CertificateController {
     private final CertificateService certificateService;
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
     public CertificateDto getCertificateById(@PathVariable final Long id) {
         return certificateService.getById(id);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
     public List<CertificateWithoutTagDto> getAll() {
         return certificateService.getAllWithoutTags();
     }
 
-    @GetMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/search", produces = APPLICATION_JSON_VALUE)
     public List<CertificateDto> search(
             @RequestParam(required = false) final String name,
             @RequestParam(required = false) final Instant date,
             @RequestParam(required = false) final String tagName,
             @RequestParam(required = false) final String description,
             @RequestParam(required = false, defaultValue = "UNSORTED") final SortOrder order) {
-
         Criteria criteria = Criteria
                 .builder()
                 .tagName(tagName)
@@ -58,15 +57,17 @@ public class CertificateController {
         return certificateService.getAllBy(criteria);
     }
 
-    @PatchMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public final CertificateDto update(@RequestBody final CertificateDto certificateDto) {
-        return certificateService.update(certificateDto);
+    @PatchMapping(consumes = APPLICATION_JSON_VALUE)
+    public final CertificateDto update(
+            @RequestBody final CertificateDto dto) {
+        return certificateService.update(dto);
     }
 
     @ResponseStatus(CREATED)
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public final CertificateDto create(@RequestBody final CertificateDto certificateDto) {
-        return certificateService.save(certificateDto);
+    @PostMapping(consumes = APPLICATION_JSON_VALUE)
+    public final CertificateDto create(
+            @RequestBody final CertificateDto dto) {
+        return certificateService.save(dto);
     }
 
     @ResponseStatus(OK)

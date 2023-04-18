@@ -1,24 +1,42 @@
 package com.epam.esm.criteria;
 
 import com.epam.esm.entity.Certificate;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 
 import static com.epam.esm.mapper.QueriesContext.*;
 
-@Slf4j
+/**
+ * This class provides a builder for SQL queries with variable number of conditions and parameters.
+ * <p>
+ * It uses the StringBuilder to construct the query string and a List to store the parameters.
+ * <p>
+ * Once all conditions have been added, the build method can be called to obtain the final query string
+ * and a List of parameters, which can be used to execute the query using a PreparedStatement.
+ * <p>
+ * This class is thread-safe and can be used to construct queries in a multi-threaded environment.
+ */
 @Component
 public final class QueryBuilder {
-
+    /**
+     * Private constructor to prevent instantiation.
+     */
     private QueryBuilder() {
     }
 
+    /**
+     * Returns a new instance of the Builder class to start building a query.
+     *
+     * @return A new Builder instance.
+     */
     public static Builder builder() {
         return new Builder();
     }
 
+    /**
+     * This inner class is used to build the query.
+     */
     public static final class Builder {
         private Criteria criteria;
         private StringBuilder query = new StringBuilder();
@@ -26,14 +44,35 @@ public final class QueryBuilder {
         private Builder() {
         }
 
+        /**
+         * Sets the search criteria for the builder.
+         *
+         * @param criteria the search criteria to set
+         * @return the builder with the updated criteria
+         */
         public Builder criteria(final Criteria criteria) {
             this.criteria = criteria;
             return this.selectAll().searchByTag();
         }
 
+        /**
+         * Adds a new search term to the query.
+         *
+         * @param sql The search query to add.
+         * @return This Builder instance.
+         */
         public Builder sql(final String sql) {
             this.query = new StringBuilder(sql);
             return this;
+        }
+
+        /**
+         * Builds the final query.
+         *
+         * @return The final query as a string.
+         */
+        public String build() {
+            return query.append(';').toString();
         }
 
         public Builder updateQuery(final Certificate certificate, final String sql) {
@@ -91,11 +130,6 @@ public final class QueryBuilder {
         public Builder leftJoinTags() {
             query.append(LEFT_JOIN_TAG);
             return this;
-        }
-
-        public String build() {
-            log.info(query.toString());
-            return query.append(';').toString();
         }
 
         public Builder searchByTag() {

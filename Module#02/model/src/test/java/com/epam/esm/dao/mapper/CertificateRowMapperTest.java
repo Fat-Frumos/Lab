@@ -2,7 +2,6 @@ package com.epam.esm.dao.mapper;
 
 import com.epam.esm.entity.Certificate;
 import com.epam.esm.mapper.CertificateRowMapper;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,7 +22,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-@Slf4j
 class CertificateRowMapperTest {
     private static final String GIFT_ID = "id";
     private static final String GIFT_NAME = "name";
@@ -77,7 +75,7 @@ class CertificateRowMapperTest {
             verify(resultSet).getTimestamp(LAST_UPDATE_DATE);
             verifyNoMoreInteractions(resultSet);
         } catch (Exception e) {
-            log.error(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 

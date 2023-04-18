@@ -24,7 +24,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -42,7 +41,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(MockitoExtension.class)
 class CertificateControllerTest {
-
     @InjectMocks
     public CertificateController controller;
     @Mock
@@ -51,7 +49,6 @@ class CertificateControllerTest {
     private ObjectMapper objectMapper;
     private CertificateDto certificateDto;
     private CertificateDto createdDto;
-    List<CertificateWithoutTagDto> DtoList = new ArrayList<>();
 
     @BeforeEach
     void setUp() {
@@ -70,15 +67,6 @@ class CertificateControllerTest {
                 .description("This is a test certificate")
                 .price(BigDecimal.valueOf(10))
                 .build();
-        DtoList = List.of(
-                CertificateWithoutTagDto.builder().id(2L).name("Gift 2")
-                        .description("Certificate 2")
-                        .price(new BigDecimal(200))
-                        .build(),
-                CertificateWithoutTagDto.builder().id(3L).name("Gift 3")
-                        .description("Certificate 3")
-                        .price(new BigDecimal(300))
-                        .build());
     }
 
     @Test
@@ -112,7 +100,8 @@ class CertificateControllerTest {
             "2, Gift 2, Certificate 2, 200"
     })
     void shouldReturnListOfCertificate(
-            long id, String name, String description, BigDecimal price) throws Exception {
+            long id, String name, String description, BigDecimal price)
+            throws Exception {
         List<CertificateWithoutTagDto> certificateDtoList = Arrays.asList(
                 CertificateWithoutTagDto.builder().id(id).name(name)
                         .description(description).price(price).build(),
@@ -137,7 +126,8 @@ class CertificateControllerTest {
     })
     @DisplayName("Should return a certificate with the specified values")
     void shouldReturnCertificateById(
-            long id, String name, String description, BigDecimal price) throws Exception {
+            long id, String name, String description, BigDecimal price)
+            throws Exception {
         CertificateDto certificateDto = CertificateDto.builder()
                 .id(id).name(name)
                 .description(description).price(price)

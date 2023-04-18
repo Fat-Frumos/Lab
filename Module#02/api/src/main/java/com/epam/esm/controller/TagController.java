@@ -3,7 +3,6 @@ package com.epam.esm.controller;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.service.TagService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +16,7 @@ import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,26 +24,28 @@ import static org.springframework.http.HttpStatus.OK;
 public class TagController {
     private final TagService tagService;
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
     public final TagDto getById(
             @PathVariable final Long id) {
         return tagService.getById(id);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
     public final List<TagDto> getAll() {
         return tagService.getAll();
     }
 
     @ResponseStatus(CREATED)
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public final TagDto create(@RequestBody final TagDto tagDto) {
+    @PostMapping(consumes = APPLICATION_JSON_VALUE)
+    public final TagDto create(
+            @RequestBody final TagDto tagDto) {
         return tagService.save(tagDto);
     }
 
     @ResponseStatus(OK)
     @DeleteMapping(value = "/{id}")
-    public final void delete(@PathVariable("id") final Long id) {
+    public final void delete(
+            @PathVariable("id") final Long id) {
         tagService.delete(id);
     }
 }

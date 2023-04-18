@@ -1,34 +1,32 @@
 package com.epam.esm.dao;
 
+import com.epam.esm.criteria.Criteria;
 import com.epam.esm.criteria.QueryBuilder;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.entity.Certificate;
-import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.mapper.CertificateListExtractor;
 import com.epam.esm.mapper.CertificateRowMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mock;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 import static com.epam.esm.mapper.QueriesContext.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -75,18 +73,23 @@ class CertificateDaoTest {
     }
 
     @Test
-    @DisplayName("Test delete certificate")
-    void testDeleteCertificate() {
-        long certificateId = 1L;
-        doThrow(new RuntimeException("Certificate not found with id: " + certificateId))
-                .when(jdbcTemplate).update(anyString(), anyLong());
-        try {
-            certificateDao.delete(certificateId);
-            fail("Certificate not found with id: " + certificateId);
-        } catch (RuntimeException e) {
-            assertThat(e.getMessage(), containsString(
-                    "Certificate not found with id: " + certificateId));
-        }
+    @DisplayName("Test Save certificate")
+    void testSave() {
+        when(jdbcTemplate.update(anyString(), anyLong(), anyString(),
+                anyString(), anyDouble(), anyInt(),
+                any(Instant.class), any(Instant.class)))
+                .thenReturn(1);
+        Long savedId = certificateDao.save(certificate);
+        assertNotNull(savedId);
+        verify(jdbcTemplate, times(1)).update(
+                eq(INSERT_CERTIFICATE),
+                eq(savedId),
+                eq(certificate.getName()),
+                eq(certificate.getDescription()),
+                eq(certificate.getPrice()),
+                eq(certificate.getDuration()),
+                any(Timestamp.class),
+                any(Timestamp.class));
     }
 
     @DisplayName("Test Certificate Update SQL Generation")
@@ -117,37 +120,105 @@ class CertificateDaoTest {
     }
 
     @Test
-    void testSave() {
-        when(jdbcTemplate.update(anyString(), anyLong(), anyString(), anyString(), anyDouble(), anyInt(), any(Instant.class), any(Instant.class)))
-                .thenReturn(1);
-        Long savedId = certificateDao.save(certificate);
-        assertNotNull(savedId);
-        verify(jdbcTemplate, times(1)).update(
-                eq(INSERT_CERTIFICATE),
-                eq(savedId),
-                eq(certificate.getName()),
-                eq(certificate.getDescription()),
-                eq(certificate.getPrice()),
-                eq(certificate.getDuration()),
-                any(Timestamp.class),
-                any(Timestamp.class));
-    }
-
-    @Test
     @DisplayName("Should return certificate with specified id")
     void testGetById() {
-        when(jdbcTemplate.query(GET_CERTIFICATE_BY_ID, new Object[]{id}, listExtractor)).thenReturn(List.of(certificate));
-        assertEquals(certificate, certificateDao.getById(id));
-        verify(jdbcTemplate, times(1)).query(GET_CERTIFICATE_BY_ID, new Object[]{id}, listExtractor);
+        when(jdbcTemplate.query(GET_CERTIFICATE_BY_ID, new Object[]{id}, listExtractor))
+                .thenReturn(List.of(certificate));
+        assertEquals(certificate, certificateDao.getById(id).orElseThrow());
+        verify(jdbcTemplate, times(1))
+                .query(GET_CERTIFICATE_BY_ID, new Object[]{id}, listExtractor);
     }
 
     @ParameterizedTest
-    @DisplayName("Should throw IllegalArgumentException for invalid id")
-    @MethodSource("provideInvalidIds")
-    void testGetById_InvalidId(Long id) {
-        assertThrows(CertificateNotFoundException.class, () -> certificateDao.getById(id));
+    @DisplayName("Should return certificate by name")
+    @CsvSource({"test_certificate, 1"})
+    void getByName_ShouldReturnCertificateByName(String name, Long id) {
+        Certificate expectedCertificate = Certificate.builder().id(id).name(name).build();
+        List<Certificate> certificates = Collections.singletonList(expectedCertificate);
+        when(jdbcTemplate.query(String.format("%s'%s'", GET_CERTIFICATE_BY_NAME, name),
+                rowMapper)).thenReturn(certificates);
+        Optional<Certificate> actualCertificate = certificateDao.getByName(name);
+        assertTrue(actualCertificate.isPresent());
+        assertEquals(expectedCertificate, actualCertificate.get());
     }
-    static Stream<Arguments> provideInvalidIds() {
-        return Stream.of(Arguments.of(-1L));
+
+    @Test
+    @DisplayName("Get Certificate By Id with empty result")
+    void getByIdReturnsEmptyOptional() {
+        when(jdbcTemplate.query(anyString(), any(Object[].class), eq(listExtractor)))
+                .thenReturn(Collections.emptyList());
+        Optional<Certificate> certificate = certificateDao.getById(id);
+        assertTrue(certificate.isEmpty(), "Expected empty Optional");
+    }
+
+    @Test
+    @DisplayName("Get Certificate By Name with empty result")
+    void getByNameReturnsEmptyOptional() {
+        String name = "test";
+        when(jdbcTemplate.query(anyString(), eq(rowMapper)))
+                .thenReturn(Collections.emptyList());
+        Optional<Certificate> certificate = certificateDao.getByName(name);
+        assertTrue(certificate.isEmpty());
+    }
+
+    @CsvSource({
+            "name:test,description:test-desc,10,20,2023-04-01T00:00:00Z,2023-04-30T23:59:59Z",
+            "name:test2,description:test-desc2,20,30,2023-05-01T00:00:00Z,2023-05-31T23:59:59Z"
+    })
+    @ParameterizedTest
+    @DisplayName("should return a list of certificates matching the given criteria")
+    void getAllByShouldReturnListOfCertificates(
+            String name, String description, BigDecimal price, int duration,
+            String createDateStr, String lastUpdateDateStr) {
+        Criteria criteria = Criteria.builder()
+                .name(name)
+                .description(description)
+                .date(Instant.parse(createDateStr))
+                .build();
+
+        Certificate certificate = Certificate.builder()
+                .name(name)
+                .description(description)
+                .price(price)
+                .duration(duration)
+                .createDate(Instant.parse(createDateStr))
+                .lastUpdateDate(Instant.parse(lastUpdateDateStr))
+                .build();
+        List<Certificate> certificates = Collections.singletonList(certificate);
+        String query = QueryBuilder.builder().searchBy(criteria).build();
+        when(jdbcTemplate.query(query, listExtractor)).thenReturn(certificates);
+        List<Certificate> actualCertificate = certificateDao.getAllBy(criteria);
+        assertFalse(actualCertificate.isEmpty());
+        assertEquals(certificate, actualCertificate.get(0));
+        assertEquals(certificates, actualCertificate);
+        verify(jdbcTemplate, times(1)).query(query, listExtractor);
+    }
+
+    @Test
+    @DisplayName("Test delete certificate")
+    void testDeleteCertificate() {
+        long certificateId = 1L;
+        doThrow(new RuntimeException("Certificate not found with id: " + certificateId))
+                .when(jdbcTemplate).update(anyString(), anyLong());
+        try {
+            certificateDao.delete(certificateId);
+            fail("Certificate not found with id: " + certificateId);
+        } catch (RuntimeException e) {
+            assertEquals(e.getMessage(),
+                    "Certificate not found with id: " + certificateId);
+        }
+    }
+
+    @DisplayName("delete() method should delete certificate and all references by id")
+    @CsvSource({
+            "1",
+            "2",
+            "3"
+    })
+    @ParameterizedTest
+    void deleteShouldDeleteCertificateAndAllReferencesById(String id) {
+        certificateDao.delete(Long.valueOf(id));
+        verify(jdbcTemplate, times(1)).update(DELETE_REF, Long.valueOf(id));
+        verify(jdbcTemplate, times(1)).update(DELETE_CERTIFICATE, Long.valueOf(id));
     }
 }

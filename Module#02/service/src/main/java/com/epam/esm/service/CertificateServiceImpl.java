@@ -17,6 +17,7 @@ import java.util.Objects;
 @Service
 @RequiredArgsConstructor
 public class CertificateServiceImpl implements CertificateService {
+    private static final String MESSAGE = "Certificate not found with";
 
     private final CertificateDao certificateDao;
     private final CertificateMapper mapper;
@@ -25,49 +26,54 @@ public class CertificateServiceImpl implements CertificateService {
     @Transactional(readOnly = true)
     public CertificateDto getById(final Long id) {
         Objects.requireNonNull(id, "Id should be not null");
-        return mapper.toDto(certificateDao.getById(id));
+        return mapper.toDto(certificateDao.getById(id)
+                .orElseThrow(() -> new CertificateNotFoundException(
+                        String.format("%s id: %d", MESSAGE, id))));
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<CertificateDto> getAll() {
-        return mapper.toDtoList(certificateDao.getAll());
+        return mapper.toDtoList(
+                certificateDao.getAll());
     }
 
     @Override
     @Transactional(readOnly = true)
     public CertificateDto getByName(final String name) {
-        return mapper.toDto(certificateDao.getByName(name));
+        Objects.requireNonNull(name, "Name should be not null");
+        return mapper.toDto(certificateDao.getByName(name)
+                .orElseThrow(() -> new CertificateNotFoundException(
+                        String.format("%s name: %s", MESSAGE, name))));
     }
 
     @Override
     @Transactional
     public void delete(final Long id) {
-        if (getById(id) != null) {
-            certificateDao.delete(id);
-        } else {
+        Objects.requireNonNull(id, "Id should be not null");
+        if (getById(id) == null) {
             throw new CertificateNotFoundException(
-                    String.format("Certificate not found with id: %d", id));
+                    String.format("%s id: %d", MESSAGE, id));
         }
+        certificateDao.delete(id);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<CertificateDto> getAllBy(final Criteria criteria) {
-        return mapper.toDtoList(certificateDao.getAllBy(criteria));
+        return mapper.toDtoList(
+                certificateDao.getAllBy(criteria));
     }
 
     @Override
     @Transactional
-    public CertificateDto update(final CertificateDto certificateDto) {
-        if (getById(certificateDto.getId()) != null) {
-             certificateDao.update(mapper.toEntity(certificateDto));
-             return getById(certificateDto.getId());
-        } else {
+    public CertificateDto update(final CertificateDto dto) {
+        if (certificateDao.getById(dto.getId()).isEmpty()) {
             throw new CertificateNotFoundException(
-                    String.format("Certificate# %d not found",
-                            certificateDto.getId()));
+                    String.format("%s id: %d", MESSAGE, dto.getId()));
         }
+        certificateDao.update(mapper.toEntity(dto));
+        return getById(dto.getId());
     }
 
     @Override
@@ -78,12 +84,10 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     @Transactional
-    public CertificateDto save(final CertificateDto certificateDto) {
-        if (certificateDao.getByName(certificateDto.getName()) != null) {
-            throw new CertificateAlreadyExistsException(certificateDto.getName());
-        } else {
-            Long saved = certificateDao.save(mapper.toEntity(certificateDto));
-            return getById(saved);
+    public CertificateDto save(final CertificateDto dto) {
+        if (certificateDao.getByName(dto.getName()).isPresent()) {
+            throw new CertificateAlreadyExistsException(dto.getName());
         }
+        return getById(certificateDao.save(mapper.toEntity(dto)));
     }
 }

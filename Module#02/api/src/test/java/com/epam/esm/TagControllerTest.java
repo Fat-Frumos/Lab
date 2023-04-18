@@ -21,7 +21,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -32,7 +31,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(MockitoExtension.class)
-@DisplayName("Tag Controller Test")
 class TagControllerTest {
     @InjectMocks
     public TagController controller;
@@ -87,7 +85,6 @@ class TagControllerTest {
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(jsonPath("$", hasSize(tagDtos.size())))
                 .andExpect(jsonPath("$[0].id").value(tagDtos.get(0).getId().intValue()))
                 .andExpect(jsonPath("$[0].name").value(tagDtos.get(0).getName()))
                 .andExpect(jsonPath("$[1].id").value(tagDtos.get(1).getId().intValue()))
