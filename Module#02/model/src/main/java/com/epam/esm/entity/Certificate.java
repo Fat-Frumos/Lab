@@ -2,6 +2,8 @@ package com.epam.esm.entity;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -49,5 +51,7 @@ public class Certificate implements Serializable {
     /**
      * The set of tags associated with the certificate.
      */
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<Tag> tags;
 }
