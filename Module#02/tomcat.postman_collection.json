@@ -1,0 +1,704 @@
+{
+	"info": {
+		"_postman_id": "401e891c-86b9-4be2-b5d3-e7c02ba21bf3",
+		"name": "tomcat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10796869"
+	},
+	"item": [
+		{
+			"name": "Update certificate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response body is not empty\", function () {\r",
+							"    pm.response.to.not.be.empty;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 1,\r\n    \"name\": \"Spring\",\r\n    \"duration\": 50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/certificates",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"certificates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save certificate 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response body is not empty\", function () {\r",
+							"    pm.response.to.not.be.empty;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Spring Certificate Gift\",\r\n    \"description\": \"A day of at our spa!\",\r\n    \"price\": 100.00,\r\n    \"duration\": 120\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/certificates/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"certificates",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save certificate 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response body is not empty\", function () {\r",
+							"    pm.response.to.not.be.empty;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Spring Gift Certificate\",\r\n    \"description\": \"A day of at our spa!\",\r\n    \"price\": 100.00,\r\n    \"duration\": 120\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/certificates/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"certificates",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete certificate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response body is not empty\", function () {\r",
+							"    pm.response.to.not.be.empty;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Spring\",\r\n    \"duration\": 50\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/certificates/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"certificates",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find certificates",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains required fields for certificates\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).not.to.be.null;\r",
+							"    pm.expect(jsonData).not.to.be.undefined;\r",
+							"    pm.expect(jsonData).to.be.an('array').that.is.not.empty;\r",
+							"    for (var i = 0; i < jsonData.length; i++) {\r",
+							"        pm.expect(jsonData[i]).to.have.property('id');\r",
+							"        pm.expect(jsonData[i]).to.have.property('name');\r",
+							"        pm.expect(jsonData[i]).to.have.property('description');\r",
+							"        pm.expect(jsonData[i]).to.have.property('price');\r",
+							"        pm.expect(jsonData[i]).to.have.property('createDate');\r",
+							"        pm.expect(jsonData[i]).to.have.property('lastUpdateDate');\r",
+							"        pm.expect(jsonData[i]).to.have.property('duration');\r",
+							"        // pm.expect(jsonData[i]).to.have.property('tags');\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/certificates",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"certificates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find certificates with params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains required fields for certificates\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.length; i++) {\r",
+							"        pm.expect(jsonData[i]).to.have.property('id');\r",
+							"        pm.expect(jsonData[i]).to.have.property('name');\r",
+							"        pm.expect(jsonData[i]).to.have.property('description');\r",
+							"        pm.expect(jsonData[i]).to.have.property('price');\r",
+							"        pm.expect(jsonData[i]).to.have.property('createDate');\r",
+							"        pm.expect(jsonData[i]).to.have.property('lastUpdateDate');\r",
+							"        pm.expect(jsonData[i]).to.have.property('duration');\r",
+							"        pm.expect(jsonData[i]).to.have.property('tags');\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/certificates/search?name=Christmas&description=Celebrate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"certificates",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Christmas"
+						},
+						{
+							"key": "description",
+							"value": "Celebrate"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find certificates with tags",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains required fields for certificates\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.length; i++) {\r",
+							"        pm.expect(jsonData[i]).to.have.property('id');\r",
+							"        pm.expect(jsonData[i]).to.have.property('name');\r",
+							"        pm.expect(jsonData[i]).to.have.property('description');\r",
+							"        pm.expect(jsonData[i]).to.have.property('price');\r",
+							"        pm.expect(jsonData[i]).to.have.property('createDate');\r",
+							"        pm.expect(jsonData[i]).to.have.property('lastUpdateDate');\r",
+							"        pm.expect(jsonData[i]).to.have.property('duration');\r",
+							"        pm.expect(jsonData[i]).to.have.property('tags');\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/certificates/search/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"certificates",
+						"search",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find tags",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response tags contains required fields\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.length; i++) {\r",
+							"        if (jsonData[i].tags) {\r",
+							"            jsonData[i].tags.forEach(function(tag) {\r",
+							"             pm.expect(tag).to.have.property('id');\r",
+							"                pm.expect(tag).to.have.property('name');\r",
+							"            });\r",
+							"        }\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find tags#1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response tags contains required fields\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.length; i++) {\r",
+							"        if (jsonData[i].tags) {\r",
+							"            jsonData[i].tags.forEach(function(tag) {\r",
+							"             pm.expect(tag).to.have.property('id');\r",
+							"                pm.expect(tag).to.have.property('name');\r",
+							"            });\r",
+							"        }\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tags/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tags",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete tags#1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response body is not empty\", function () {\r",
+							"    pm.response.to.not.be.empty;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tags/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tags",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save tag",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response tags contains required fields\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.length; i++) {\r",
+							"        if (jsonData[i].tags) {\r",
+							"            jsonData[i].tags.forEach(function(tag) {\r",
+							"             pm.expect(tag).to.have.property('id');\r",
+							"                pm.expect(tag).to.have.property('name');\r",
+							"            });\r",
+							"        }\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Winter\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tags/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tags",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Certificate #1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains required fields for certificates\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).not.to.be.null;\r",
+							"    pm.expect(jsonData).not.to.be.undefined;\r",
+							"    pm.expect(jsonData).to.be.an('object');\r",
+							"    pm.expect(jsonData).to.have.property('id');\r",
+							"    pm.expect(jsonData).to.have.property('name');\r",
+							"    pm.expect(jsonData).to.have.property('description');\r",
+							"    pm.expect(jsonData).to.have.property('price');\r",
+							"    pm.expect(jsonData).to.have.property('createDate');\r",
+							"    pm.expect(jsonData).to.have.property('lastUpdateDate');\r",
+							"    pm.expect(jsonData).to.have.property('duration');\r",
+							"    pm.expect(jsonData).to.have.property('tags');\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/certificates/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"certificates",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
