@@ -20,31 +20,31 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/tags")
+@RequestMapping(value = "/api/tags")
 public class TagController {
     private final TagService tagService;
 
     @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
-    public final TagDto getById(
+    public TagDto getById(
             @PathVariable final Long id) {
         return tagService.getById(id);
     }
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
-    public final List<TagDto> getAll() {
+    public List<TagDto> getAll() {
         return tagService.getAll();
     }
 
     @ResponseStatus(CREATED)
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    public final TagDto create(
+    public TagDto create(
             @RequestBody final TagDto tagDto) {
         return tagService.save(tagDto);
     }
 
     @ResponseStatus(OK)
     @DeleteMapping(value = "/{id}")
-    public final void delete(
+    public void delete(
             @PathVariable("id") final Long id) {
         tagService.delete(id);
     }

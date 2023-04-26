@@ -12,9 +12,9 @@ import java.util.Set;
 @Builder
 public class Tag implements Serializable {
 
-        private Long id;
-        private String name;
-        @ToString.Exclude
+    private Long id;
+    private String name;
+    @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Certificate> certificates;
 }

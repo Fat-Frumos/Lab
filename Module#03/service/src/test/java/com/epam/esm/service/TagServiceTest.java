@@ -17,6 +17,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -50,16 +51,14 @@ class TagServiceTest {
     @BeforeEach
     void setup() {
 
-        tags = List.of(
-                Tag.builder().id(1L).name("Tag1").build(),
-                Tag.builder().id(2L).name("Tag2").build(),
-                Tag.builder().id(3L).name("Tag3").build()
-        );
-        tagDtos = List.of(
-                TagDto.builder().id(1L).name("Tag1").build(),
-                TagDto.builder().id(2L).name("Tag2").build(),
-                TagDto.builder().id(3L).name("Tag3").build()
-        );
+        tags = new ArrayList<>();
+        tags.add(Tag.builder().id(1L).name("Tag1").build());
+        tags.add(Tag.builder().id(2L).name("Tag2").build());
+        tags.add(Tag.builder().id(3L).name("Tag3").build());
+        tagDtos = new ArrayList<>();
+        tagDtos.add(TagDto.builder().id(1L).name("Tag1").build());
+        tagDtos.add(TagDto.builder().id(2L).name("Tag2").build());
+        tagDtos.add(TagDto.builder().id(3L).name("Tag3").build());
     }
 
     @Test

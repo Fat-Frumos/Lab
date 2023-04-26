@@ -14,14 +14,14 @@ import java.util.Set;
 @Builder
 public class Certificate implements Serializable {
 
-        private Long id;
-        private String name;
-        private String description;
-        private BigDecimal price;
-        private Instant createDate;
-        private Instant lastUpdateDate;
-        private Integer duration;
-        @ToString.Exclude
+    private Long id;
+    private String name;
+    private String description;
+    private BigDecimal price;
+    private Instant createDate;
+    private Instant lastUpdateDate;
+    private Integer duration;
+    @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Tag> tags;
 }

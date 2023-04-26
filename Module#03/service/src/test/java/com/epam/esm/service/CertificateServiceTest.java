@@ -20,6 +20,7 @@ import org.mockito.Mock;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -63,37 +64,32 @@ class CertificateServiceTest {
                 .lastUpdateDate(Instant.now())
                 .build();
 
-        certificateWithoutTagDtos = List.of(
-                CertificateWithoutTagDto.builder().id(1L).name("Gift1")
-                        .description("Certificate1").duration(10)
-                        .price(BigDecimal.valueOf(100)).build(),
-                CertificateWithoutTagDto.builder().id(2L).name("Gift2")
-                        .description("Certificate2").duration(10)
-                        .price(BigDecimal.valueOf(100)).build(),
-                CertificateWithoutTagDto.builder().id(3L).name("Gift3")
-                        .description("Certificate3").duration(10)
-                        .price(BigDecimal.valueOf(100)).build()
-        );
+        certificateWithoutTagDtos = new ArrayList<>();
+        certificateWithoutTagDtos.add(CertificateWithoutTagDto.builder().id(1L).name("Gift1")
+                .description("Certificate1").duration(10)
+                .price(BigDecimal.valueOf(100)).build());
+        certificateWithoutTagDtos.add(CertificateWithoutTagDto.builder().id(2L).name("Gift2")
+                .description("Certificate2").duration(10)
+                .price(BigDecimal.valueOf(100)).build());
+        certificateWithoutTagDtos.add(CertificateWithoutTagDto.builder().id(3L).name("Gift3")
+                .description("Certificate3").duration(10)
+                .price(BigDecimal.valueOf(100)).build());
 
-        certificateDtos = List.of(
-                CertificateDto.builder().id(1L).name("Gift1").description("Certificate1").build(),
-                CertificateDto.builder().id(2L).name("Gift2").description("Certificate1").build(),
-                CertificateDto.builder().id(3L).name("Gift3").description("Certificate1").build()
-        );
+        certificateDtos = new ArrayList<>();
+        certificateDtos.add(CertificateDto.builder().id(1L).name("Gift1").description("Certificate1").build());
+        certificateDtos.add(CertificateDto.builder().id(2L).name("Gift2").description("Certificate1").build());
+        certificateDtos.add(CertificateDto.builder().id(3L).name("Gift3").description("Certificate1").build());
 
-        certificates = List.of(
-                Certificate.builder().id(1L).name("Gift1").duration(10)
-                        .description("Certificate1").price(new BigDecimal(100))
-                        .tags(new HashSet<>()).build(),
-
-                Certificate.builder().id(2L).name("Gift2").duration(20)
-                        .description("Certificate2").price(new BigDecimal(200))
-                        .tags(new HashSet<>()).build(),
-
-                Certificate.builder().id(3L).name("Gift3")
-                        .description("Certificate3").duration(30).price(new BigDecimal(300))
-                        .tags(new HashSet<>()).build()
-        );
+        certificates = new ArrayList<>();
+        certificates.add(Certificate.builder().id(1L).name("Gift1").duration(10)
+                .description("Certificate1").price(new BigDecimal(100))
+                .tags(new HashSet<>()).build());
+        certificates.add(Certificate.builder().id(2L).name("Gift2").duration(20)
+                .description("Certificate2").price(new BigDecimal(200))
+                .tags(new HashSet<>()).build());
+        certificates.add(Certificate.builder().id(3L).name("Gift3")
+                .description("Certificate3").duration(30).price(new BigDecimal(300))
+                .tags(new HashSet<>()).build());
     }
 
 

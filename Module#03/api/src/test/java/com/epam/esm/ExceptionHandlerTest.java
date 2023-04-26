@@ -5,7 +5,7 @@ import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.exception.TagAlreadyExistsException;
 import com.epam.esm.exception.TagNotFoundException;
 import com.epam.esm.handler.ErrorHandlerController;
-import com.epam.esm.handler.ErrorResponse;
+import com.epam.esm.handler.ResponseMessage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -44,9 +44,9 @@ class ExceptionHandlerTest {
         CertificateAlreadyExistsException exception = new CertificateAlreadyExistsException(messages[0]);
         ResponseEntity<Object> response = exceptionHandler.handleCertificateIsExistsException(exception);
         assertEquals(BAD_REQUEST, response.getStatusCode());
-        ErrorResponse errorResponse = (ErrorResponse) response.getBody();
-        assertEquals(messages[0], Objects.requireNonNull(errorResponse).getErrorMessage());
-        assertEquals(BAD_REQUEST.value(), errorResponse.getErrorCode());
+        ResponseMessage responseMessage = (ResponseMessage) response.getBody();
+        assertEquals(messages[0], Objects.requireNonNull(responseMessage).getErrorMessage());
+        assertEquals(BAD_REQUEST.value(), responseMessage.getStatusCode());
     }
 
     @Test
@@ -55,10 +55,10 @@ class ExceptionHandlerTest {
         TagAlreadyExistsException exception = new TagAlreadyExistsException(messages[0]);
         ResponseEntity<Object> response = exceptionHandler.handleTagIsExistsException(exception);
         assertEquals(BAD_REQUEST, response.getStatusCode());
-        ErrorResponse errorResponse = (ErrorResponse) response.getBody();
-        assertNotNull(errorResponse);
-        assertEquals(messages[0], errorResponse.getErrorMessage());
-        assertEquals(BAD_REQUEST.value(), errorResponse.getErrorCode());
+        ResponseMessage responseMessage = (ResponseMessage) response.getBody();
+        assertNotNull(responseMessage);
+        assertEquals(messages[0], responseMessage.getErrorMessage());
+        assertEquals(BAD_REQUEST.value(), responseMessage.getStatusCode());
     }
 
     @Test
@@ -67,7 +67,7 @@ class ExceptionHandlerTest {
         CertificateNotFoundException exception = new CertificateNotFoundException(messages[1]);
         ResponseEntity<Object> response = exceptionHandler.handleCertificateNotFoundException(exception);
         assertEquals(NOT_FOUND, response.getStatusCode());
-        assertEquals(new ErrorResponse(messages[1], 40401), response.getBody());
+        assertEquals(new ResponseMessage(messages[1], 40401), response.getBody());
     }
 
     @Test
@@ -76,20 +76,20 @@ class ExceptionHandlerTest {
         Exception exception = new Exception(messages[2]);
         ResponseEntity<Object> response = exceptionHandler.handleException(exception);
         assertEquals(INTERNAL_SERVER_ERROR, response.getStatusCode());
-        ErrorResponse errorResponse = (ErrorResponse) response.getBody();
-        assertEquals(INTERNAL_SERVER_ERROR.value(), Objects.requireNonNull(errorResponse).getErrorCode());
-        assertEquals(messages[2], errorResponse.getErrorMessage());
+        ResponseMessage responseMessage = (ResponseMessage) response.getBody();
+        assertEquals(INTERNAL_SERVER_ERROR.value(), Objects.requireNonNull(responseMessage).getStatusCode());
+        assertEquals(messages[2], responseMessage.getErrorMessage());
     }
 
     @Test
     @DisplayName("Test handleNotAllowedException method")
     void testHandleNotAllowedException() {
         RuntimeException exception = new RuntimeException(messages[3]);
-        ResponseEntity<Object> response = exceptionHandler.handleNotAllowedException(exception);
-        assertEquals(METHOD_NOT_ALLOWED, response.getStatusCode());
-        ErrorResponse errorResponse = (ErrorResponse) response.getBody();
-        assertEquals(METHOD_NOT_ALLOWED.value(), Objects.requireNonNull(errorResponse).getErrorCode());
-        assertEquals(messages[3], errorResponse.getErrorMessage());
+        ResponseEntity<Object> response = exceptionHandler.handleException(exception);
+        assertEquals(INTERNAL_SERVER_ERROR, response.getStatusCode());
+        ResponseMessage responseMessage = (ResponseMessage) response.getBody();
+        assertEquals(INTERNAL_SERVER_ERROR.value(), Objects.requireNonNull(responseMessage).getStatusCode());
+        assertEquals(messages[3], responseMessage.getErrorMessage());
     }
 
     @Test
@@ -99,8 +99,8 @@ class ExceptionHandlerTest {
         ResponseEntity<Object> response = exceptionHandler.handleTagNotFoundException(exception);
         assertEquals(NOT_FOUND, response.getStatusCode());
         assertNotNull(response.getBody());
-        ErrorResponse errorResponse = (ErrorResponse) response.getBody();
-        assertEquals(messages[4], errorResponse.getErrorMessage());
-        assertEquals(40401, errorResponse.getErrorCode());
+        ResponseMessage responseMessage = (ResponseMessage) response.getBody();
+        assertEquals(messages[4], responseMessage.getErrorMessage());
+        assertEquals(40401, responseMessage.getStatusCode());
     }
 }

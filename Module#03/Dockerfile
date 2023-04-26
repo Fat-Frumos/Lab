@@ -5,6 +5,6 @@ RUN mvn clean package -DskipTests -Dmaven
 
 # Run stage
 FROM openjdk:11-jdk-slim
-COPY --from=build /api/target/gift.war certificate.war
+COPY --from=build /api/target/api-1.0.0.jar certificate.war
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","certificate.war"]

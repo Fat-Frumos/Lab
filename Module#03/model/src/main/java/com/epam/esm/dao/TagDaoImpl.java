@@ -20,7 +20,7 @@ public class TagDaoImpl implements TagDao {
     private final TagRowMapper tagRowMapper;
 
     @Override
-    public final Optional<Tag> getById(final Long id) {
+    public Optional<Tag> getById(final Long id) {
         Tag tag = jdbcTemplate.queryForObject(
                 GET_TAG_BY_ID,
                 new Object[]{id},
@@ -31,7 +31,7 @@ public class TagDaoImpl implements TagDao {
     }
 
     @Override
-    public final Optional<Tag> getByName(final String name) {
+    public Optional<Tag> getByName(final String name) {
         List<Tag> tags = jdbcTemplate.query(
                 String.format("%s'%s'", GET_BY_TAG_NAME, name),
                 tagRowMapper);
@@ -41,19 +41,19 @@ public class TagDaoImpl implements TagDao {
     }
 
     @Override
-    public final List<Tag> getAll() {
+    public List<Tag> getAll() {
         return jdbcTemplate.query(GET_ALL_TAGS, tagRowMapper);
     }
 
     @Override
-    public final Long save(final Tag tag) {
+    public Long save(final Tag tag) {
         long id = UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
         jdbcTemplate.update(INSERT_TAG, id, tag.getName());
         return id;
     }
 
     @Override
-    public final void delete(final Long id) {
+    public void delete(final Long id) {
         jdbcTemplate.update(DELETE_TAG_REF, id);
         jdbcTemplate.update(DELETE_TAG, id);
     }

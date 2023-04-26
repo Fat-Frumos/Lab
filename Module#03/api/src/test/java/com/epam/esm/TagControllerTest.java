@@ -61,7 +61,7 @@ class TagControllerTest {
 
         when(service.getById(id)).thenReturn(tagDto);
 
-        mockMvc.perform(get("/tags/" + id)
+        mockMvc.perform(get("/api/tags/" + id)
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
@@ -81,7 +81,7 @@ class TagControllerTest {
 
         when(service.getAll()).thenReturn(tagDtos);
 
-        mockMvc.perform(get("/tags")
+        mockMvc.perform(get("/api/tags")
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
@@ -103,7 +103,7 @@ class TagControllerTest {
         when(service.save(tagDto)).thenReturn(expectedTagDto);
         String requestBody = objectMapper.writeValueAsString(tagDto);
 
-        mockMvc.perform(post("/tags").contentType(MediaType.APPLICATION_JSON_VALUE).content(requestBody))
+        mockMvc.perform(post("/api/tags").contentType(MediaType.APPLICATION_JSON_VALUE).content(requestBody))
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(jsonPath("$.id").value(1L))

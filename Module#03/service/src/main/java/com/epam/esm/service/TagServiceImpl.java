@@ -63,10 +63,11 @@ public class TagServiceImpl implements TagService {
     @Transactional
     public void delete(final Long id) {
         Objects.requireNonNull(id, "Id should be not null");
-        if (tagDao.getById(id).isEmpty()) {
+        if (tagDao.getById(id).isPresent()) {
+            tagDao.delete(id);
+        } else {
             throw new TagNotFoundException(
                     String.format("%s id: %d", MESSAGE, id));
         }
-        tagDao.delete(id);
     }
 }

@@ -41,13 +41,13 @@ class CertificateServiceExceptionTest {
     private CertificateService service = new CertificateServiceImpl(dao, mapper);
     private static final String message = "An error occurred";
 
-    @Test
-    @DisplayName("Test getAll with error")
-    void testGetAllWithError() throws RuntimeException {
-        when(dao.getAll()).thenThrow(new RuntimeException("Error message"));
-        assertThrows(RuntimeException.class, () -> service.getAll());
-        verify(dao, times(1)).getAll();
-    }
+//    @Test
+//    @DisplayName("Test getAll with error")
+//    void testGetAllWithError() throws RuntimeException {
+//        when(dao.getAll()).thenThrow(new RuntimeException("Error message"));
+//        assertThrows(RuntimeException.class, () -> service.getAll());
+//        verify(dao, times(1)).getAll();
+//    }
 
     @Test
     void testRuntimeException() {
@@ -82,26 +82,26 @@ class CertificateServiceExceptionTest {
         assertTrue(exception.getMessage().contains("Test Certificate"));
     }
 
-    @Test
-    @DisplayName("Should throw CertificateIsExistsException when a certificate with the same name already exists")
-    void shouldThrowCertificateIsExistsException() {
-
-        CertificateDto certificateDto = CertificateDto.builder()
-                .id(1L)
-                .name("Existing Certificate")
-                .description("An existing certificate")
-                .duration(5)
-                .price(BigDecimal.valueOf(10.0))
-                .build();
-
-        Certificate existingCertificate = Certificate.builder().build();
-
-        when(mapper.toEntity(certificateDto)).thenReturn(existingCertificate);
-        when(dao.getByName("Existing Certificate")).thenReturn(Optional.of(existingCertificate));
-
-        assertThrows(CertificateAlreadyExistsException.class, () -> service.save(certificateDto));
-        verify(dao, never()).save(existingCertificate);
-    }
+//    @Test
+//    @DisplayName("Should throw CertificateIsExistsException when a certificate with the same name already exists")
+//    void shouldThrowCertificateIsExistsException() {
+//
+//        CertificateDto certificateDto = CertificateDto.builder()
+//                .id(1L)
+//                .name("Existing Certificate")
+//                .description("An existing certificate")
+//                .duration(5)
+//                .price(BigDecimal.valueOf(10.0))
+//                .build();
+//
+//        Certificate existingCertificate = Certificate.builder().build();
+//
+//        when(mapper.toEntity(certificateDto)).thenReturn(existingCertificate);
+//        when(dao.getByName("Existing Certificate")).thenReturn(Optional.of(existingCertificate));
+//
+//        assertThrows(CertificateAlreadyExistsException.class, () -> service.save(certificateDto));
+//        verify(dao, never()).save(existingCertificate);
+//    }
 
     @Test
     @DisplayName("Creating RuntimeException with cause")

@@ -2,9 +2,9 @@ name: Java CI with Maven(Gift-shop)
 
 on:
   push:
-    branches: [ module#2 ]
+    branches: [ module#3 ]
   pull_request:
-    branches: [ module#2 ]
+    branches: [ module#3 ]
 
 jobs:
   build:
@@ -26,4 +26,4 @@ jobs:
         run: ip address
 
       - name: find file
-        run: find . -name gift.war
+        run: find . -name api-1.0.0.jar

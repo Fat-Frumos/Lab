@@ -26,7 +26,7 @@ public class PostgreSQLConfig {
     @Value("${spring.datasource.url}")
     private String url;
 
-        private DataSource dataSource() {
+    private DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(driverClassName);
         dataSource.setUrl(url);
@@ -35,25 +35,25 @@ public class PostgreSQLConfig {
         return dataSource;
     }
 
-        @Profile("prod")
+    @Profile("prod")
     public DataSource dataSourceProd() {
         return dataSource();
     }
 
-        @Bean
+    @Bean
     @Profile("prod")
     public JdbcTemplate jdbcTemplateProd() {
         return new JdbcTemplate(dataSourceProd());
     }
 
-        @Profile("dev")
+    @Profile("dev")
     public DataSource dataSourceDev() {
         return dataSource();
     }
 
-        @Bean
+    @Bean
     @Profile("dev")
-    public JdbcTemplate jdbcTemplateDev() {
+    public JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(dataSourceDev());
     }
 }

@@ -68,12 +68,13 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     @Transactional
     public CertificateDto update(final CertificateDto dto) {
-        if (certificateDao.getById(dto.getId()).isEmpty()) {
+        if (certificateDao.getById(dto.getId()).isPresent()) {
+            certificateDao.update(mapper.toEntity(dto));
+            return getById(dto.getId());
+        } else {
             throw new CertificateNotFoundException(
                     String.format("%s id: %d", MESSAGE, dto.getId()));
         }
-        certificateDao.update(mapper.toEntity(dto));
-        return getById(dto.getId());
     }
 
     @Override

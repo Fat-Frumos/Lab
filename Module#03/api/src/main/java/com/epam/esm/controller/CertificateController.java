@@ -26,7 +26,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/certificates")
+@RequestMapping(value = "/api/certificates")
 public class CertificateController {
     private final CertificateService certificateService;
 
@@ -58,14 +58,14 @@ public class CertificateController {
     }
 
     @PatchMapping(consumes = APPLICATION_JSON_VALUE)
-    public final CertificateDto update(
+    public CertificateDto update(
             @RequestBody final CertificateDto dto) {
         return certificateService.update(dto);
     }
 
     @ResponseStatus(CREATED)
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    public final CertificateDto create(
+    public CertificateDto create(
             @RequestBody final CertificateDto dto) {
         return certificateService.save(dto);
     }

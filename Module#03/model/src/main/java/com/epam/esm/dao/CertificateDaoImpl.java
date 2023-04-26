@@ -26,7 +26,7 @@ public class CertificateDaoImpl implements CertificateDao {
     private final CertificateListExtractor listExtractor;
 
     @Override
-    public final Optional<Certificate> getById(final Long id) {
+    public Optional<Certificate> getById(final Long id) {
         List<Certificate> certificates = jdbcTemplate.query(
                 GET_CERTIFICATE_BY_ID,
                 new Object[]{id},
@@ -38,7 +38,7 @@ public class CertificateDaoImpl implements CertificateDao {
     }
 
     @Override
-    public final Optional<Certificate> getByName(final String name) {
+    public Optional<Certificate> getByName(final String name) {
         List<Certificate> certificates = jdbcTemplate.query(
                 String.format("%s'%s'", GET_CERTIFICATE_BY_NAME, name),
                 certificateRowMapper);
@@ -48,21 +48,21 @@ public class CertificateDaoImpl implements CertificateDao {
     }
 
     @Override
-    public final List<Certificate> getAll() {
+    public List<Certificate> getAll() {
         return jdbcTemplate.query(
                 GET_ALL_CERTIFICATE,
                 certificateRowMapper);
     }
 
     @Override
-    public final List<Certificate> getAllBy(final Criteria criteria) {
+    public List<Certificate> getAllBy(final Criteria criteria) {
         return jdbcTemplate.query(
                 QueryBuilder.builder().searchBy(criteria).build(),
                 listExtractor);
     }
 
     @Override
-    public final Long save(final Certificate certificate) {
+    public Long save(final Certificate certificate) {
         long id = UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
         jdbcTemplate.update(INSERT_CERTIFICATE,
                 id,
@@ -76,13 +76,13 @@ public class CertificateDaoImpl implements CertificateDao {
     }
 
     @Override
-    public final void delete(final Long id) {
+    public void delete(final Long id) {
         jdbcTemplate.update(DELETE_REF, id);
         jdbcTemplate.update(DELETE_CERTIFICATE, id);
     }
 
     @Override
-    public final boolean update(final Certificate certificate) {
+    public boolean update(final Certificate certificate) {
         return jdbcTemplate.update(
                 QueryBuilder.builder()
                         .updateQuery(certificate, UPDATE_CERTIFICATE)
