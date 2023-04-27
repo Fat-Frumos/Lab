@@ -7,13 +7,13 @@ import java.util.List;
 
 @Validated
 public interface TagService {
-        TagDto getById(Long id);
+    TagDto getById(Long id);
 
-        TagDto getByName(String name);
+    TagDto getByName(String name);
 
-        List<TagDto> getAll();
+    List<TagDto> getAll();
 
-        TagDto save(TagDto tag);
+    TagDto save(TagDto tag);
 
-        void delete(Long id);
+    void delete(Long id);
 }

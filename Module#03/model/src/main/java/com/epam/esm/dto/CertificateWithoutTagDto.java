@@ -5,14 +5,14 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.Instant;
+import java.sql.Timestamp;
 
 @Data
 @Builder
-public class CertificateWithoutTagDto implements Serializable {
+public class CertificateWithoutTagDto implements Dto {
 
+    @NotNull(message = "Id cannot be blank")
     private Long id;
     @NotNull(message = "Name cannot be blank")
     private String name;
@@ -21,9 +21,9 @@ public class CertificateWithoutTagDto implements Serializable {
     @NotNull(message = "Price cannot be null")
     private BigDecimal price;
     @JsonFormat(timezone = "GMT+03:00", pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
-    private Instant createDate;
+    private Timestamp createDate;
     @JsonFormat(timezone = "GMT+03:00", pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
-    private Instant lastUpdateDate;
+    private Timestamp lastUpdateDate;
     @NotNull(message = "Duration cannot be null")
     private int duration;
 }

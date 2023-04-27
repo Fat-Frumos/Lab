@@ -18,19 +18,19 @@ VALUES (5, 'Independence', 'A gift certificate for Independence Day', 29.99, NOW
 INSERT INTO gift_certificates (id, name, description, price, create_date, last_update_date, duration)
 VALUES (6, 'Easter', 'A gift certificate for Easter', 39.99, NOW(), NOW(), 30);
 
-DELETE FROM tag;
+DELETE FROM tags;
 
-INSERT INTO tag (id, name) VALUES (1, 'Valentine');
-INSERT INTO tag (id, name) VALUES (2, 'Easter');
-INSERT INTO tag (id, name) VALUES (3, 'Christmas');
-INSERT INTO tag (id, name) VALUES (4, 'Spa');
-INSERT INTO tag (id, name) VALUES (5, 'Birthday');
-INSERT INTO tag (id, name) VALUES (115, 'Independence');
-INSERT INTO tag (id, name) VALUES (113, 'Spring');
-INSERT INTO tag (id, name) VALUES (114, 'Summer');
-INSERT INTO tag (id, name) VALUES (111, 'Weekend');
-INSERT INTO tag (id, name) VALUES (112, 'Holiday');
-INSERT INTO tag (id, name) VALUES (116, 'Anniversary');
+INSERT INTO tags (tag_id, name) VALUES (1, 'Valentine');
+INSERT INTO tags (tag_id, name) VALUES (2, 'Easter');
+INSERT INTO tags (tag_id, name) VALUES (3, 'Christmas');
+INSERT INTO tags (tag_id, name) VALUES (4, 'Spa');
+INSERT INTO tags (tag_id, name) VALUES (5, 'Birthday');
+INSERT INTO tags (tag_id, name) VALUES (115, 'Independence');
+INSERT INTO tags (tag_id, name) VALUES (113, 'Spring');
+INSERT INTO tags (tag_id, name) VALUES (114, 'Summer');
+INSERT INTO tags (tag_id, name) VALUES (111, 'Weekend');
+INSERT INTO tags (tag_id, name) VALUES (112, 'Holiday');
+INSERT INTO tags (tag_id, name) VALUES (116, 'Anniversary');
 
 MERGE INTO gift_certificate_tag (gift_certificate_id, tag_id)
 KEY (gift_certificate_id, tag_id)

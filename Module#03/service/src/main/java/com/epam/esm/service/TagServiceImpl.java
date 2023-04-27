@@ -15,13 +15,12 @@ import java.util.Objects;
 import static java.util.stream.Collectors.toList;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class TagServiceImpl implements TagService {
-
     private final TagDao tagDao;
-
     private final TagMapper tagMapper;
-    private static final String MESSAGE = "Tag not found with";
+    private static final String MESSAGE = "Tag not found by";
 
     @Override
     @Transactional(readOnly = true)
@@ -43,7 +42,7 @@ public class TagServiceImpl implements TagService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<TagDto> getAll() {
+    public List<TagDto> getAll() { //TODO:
         return tagDao.getAll()
                 .stream()
                 .map(tagMapper::toDto)
@@ -51,16 +50,18 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public TagDto save(final TagDto tagDto) {
         if (tagDao.getByName(tagDto.getName()).isPresent()) {
             throw new TagAlreadyExistsException(tagDto.getName());
         }
-        return getById(tagDao.save(tagMapper.toEntity(tagDto)));
+        return tagMapper.toDto(
+                tagDao.save(
+                        tagMapper.toEntity(tagDto)));
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void delete(final Long id) {
         Objects.requireNonNull(id, "Id should be not null");
         if (tagDao.getById(id).isPresent()) {

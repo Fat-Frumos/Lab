@@ -18,7 +18,7 @@ import java.util.Properties;
 @Configuration
 @RequiredArgsConstructor
 @EnableTransactionManagement
-@PropertySource("classpath:application-test.properties")
+@PropertySource("classpath:application.properties")
 public class PersistenceConfig {
     @Value("${spring.jpa.show-sql}")
     private String showSql;
@@ -30,7 +30,7 @@ public class PersistenceConfig {
     private String password;
     @Value("${spring.jpa.hibernate.ddl-auto}")
     private String hibernateDdlAuto;
-    @Value("${spring.datasource.driver-class-name}")
+    @Value("${spring.datasource.driverClassName}")
     private String driverClassName;
     @Value("${spring.jpa.properties.hibernate.dialect}")
     private String dialect;
@@ -54,7 +54,7 @@ public class PersistenceConfig {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setJpaProperties(properties);
         factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan("com.epam.esm.model.entity");
+        factoryBean.setPackagesToScan("com.epam.esm.entity");
         factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         return factoryBean;
     }

@@ -17,7 +17,7 @@ public class PostgreSQLConfig {
     @Value("${spring.datasource.username}")
     private String username;
 
-    @Value("${spring.datasource.driverClassName}")
+    @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
 
     @Value("${spring.datasource.password}")

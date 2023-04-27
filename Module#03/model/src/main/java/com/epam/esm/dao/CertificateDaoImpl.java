@@ -1,47 +1,51 @@
 package com.epam.esm.dao;
 
-import com.epam.esm.criteria.QueryBuilder;
-import com.epam.esm.entity.Certificate;
 import com.epam.esm.criteria.Criteria;
-import com.epam.esm.mapper.CertificateListExtractor;
-import com.epam.esm.mapper.CertificateRowMapper;
+import com.epam.esm.dto.TagDto;
+import com.epam.esm.entity.Certificate;
+import com.epam.esm.exception.CertificateNotFoundException;
+import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.JoinType;
+import jakarta.persistence.criteria.Path;
+import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.hibernate.query.sqm.SortOrder;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
-import static com.epam.esm.mapper.QueriesContext.*;
+import static com.epam.esm.criteria.CertificateQueries.SELECT_ALL_WITH_TAGS;
+import static com.epam.esm.criteria.CertificateQueries.SELECT_BY_NAME;
+import static com.epam.esm.criteria.CertificateQueries.SELECT_TAGS_BY_ID;
 
 @Repository
 @RequiredArgsConstructor
 public class CertificateDaoImpl implements CertificateDao {
 
-    private final JdbcTemplate jdbcTemplate;
-    private final CertificateRowMapper certificateRowMapper;
-    private final CertificateListExtractor listExtractor;
+    @PersistenceContext
+    private final EntityManager entityManager;
 
     @Override
     public Optional<Certificate> getById(final Long id) {
-        List<Certificate> certificates = jdbcTemplate.query(
-                GET_CERTIFICATE_BY_ID,
-                new Object[]{id},
-                listExtractor);
-        return certificates == null
-                || certificates.isEmpty()
-                ? Optional.empty()
-                : Optional.of(certificates.get(0));
+        return Optional.ofNullable(findById(id));
     }
 
     @Override
-    public Optional<Certificate> getByName(final String name) {
-        List<Certificate> certificates = jdbcTemplate.query(
-                String.format("%s'%s'", GET_CERTIFICATE_BY_NAME, name),
-                certificateRowMapper);
+    public Optional<Certificate> getByName(
+            final String name) {
+        List<Certificate> certificates = entityManager
+                .createQuery(
+                        SELECT_BY_NAME,
+                        Certificate.class)
+                .setParameter("name", name)
+                .getResultList();
         return certificates.isEmpty()
                 ? Optional.empty()
                 : Optional.of(certificates.get(0));
@@ -49,43 +53,97 @@ public class CertificateDaoImpl implements CertificateDao {
 
     @Override
     public List<Certificate> getAll() {
-        return jdbcTemplate.query(
-                GET_ALL_CERTIFICATE,
-                certificateRowMapper);
+        return entityManager
+                .createQuery(SELECT_ALL_WITH_TAGS, Certificate.class)
+                .getResultList();
+    }
+
+
+    @Override
+    public List<Certificate> getAllBy(
+            final Criteria criteria) {
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Certificate> query = builder.createQuery(Certificate.class);
+        Root<Certificate> root = query.from(Certificate.class);
+        root.fetch("tags", JoinType.LEFT);
+        query.select(root);
+
+        if (criteria.getSortBy() != null) {
+            Path<Object> sortField = root.get(criteria.getSortBy());
+            query.orderBy(criteria.getSortOrder() == SortOrder.ASCENDING
+                    ? builder.asc(sortField)
+                    : builder.desc(sortField));
+        }
+
+        TypedQuery<Certificate> typedQuery = entityManager.createQuery(query);
+
+        if (criteria.getOffset() != null) {
+            typedQuery.setFirstResult(criteria.getOffset().intValue());
+        }
+        if (criteria.getSize() != null) {
+            typedQuery.setMaxResults(criteria.getSize().intValue());
+        }
+
+        return typedQuery.getResultList();
+    }
+
+
+    @Override
+    public Certificate findById(final Long id) {
+        return entityManager
+                .find(Certificate.class, id);
+
     }
 
     @Override
-    public List<Certificate> getAllBy(final Criteria criteria) {
-        return jdbcTemplate.query(
-                QueryBuilder.builder().searchBy(criteria).build(),
-                listExtractor);
-    }
-
-    @Override
-    public Long save(final Certificate certificate) {
-        long id = UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
-        jdbcTemplate.update(INSERT_CERTIFICATE,
-                id,
-                certificate.getName(),
-                certificate.getDescription(),
-                certificate.getPrice(),
-                certificate.getDuration(),
-                Timestamp.from(Instant.now()),
-                Timestamp.from(Instant.now()));
-        return id;
+    public Certificate save(
+            final Certificate certificate) {
+        try {
+            return entityManager.merge(certificate);
+        } catch (Exception e) {
+            throw new EntityExistsException(e.getMessage());
+        }
     }
 
     @Override
     public void delete(final Long id) {
-        jdbcTemplate.update(DELETE_REF, id);
-        jdbcTemplate.update(DELETE_CERTIFICATE, id);
+        entityManager.remove(findById(id));
     }
 
     @Override
-    public boolean update(final Certificate certificate) {
-        return jdbcTemplate.update(
-                QueryBuilder.builder()
-                        .updateQuery(certificate, UPDATE_CERTIFICATE)
-                        .build()) == 1;
+    public Certificate update(
+            final Certificate certificate,
+            final Long id) {
+        Certificate existed = entityManager
+                .find(Certificate.class, id);
+
+        if (existed == null) {
+            throw new CertificateNotFoundException(
+                    "Certificate not found with id " + id);
+        }
+
+        if (certificate.getName() != null) {
+            existed.setName(certificate.getName());
+        }
+        if (certificate.getDescription() != null) {
+            existed.setDescription(certificate.getDescription());
+        }
+        if (certificate.getPrice() != null) {
+            existed.setPrice(certificate.getPrice());
+        }
+        if (certificate.getDuration() != null) {
+            existed.setDuration(certificate.getDuration());
+        }
+        entityManager.merge(existed);
+        return existed;
+    }
+
+    @Override
+    public List<TagDto> findTagsByCertificateId(
+            final Long id) {
+        return entityManager
+                .createQuery(SELECT_TAGS_BY_ID, TagDto.class)
+                .setParameter("id", id)
+                .getResultList();
     }
 }

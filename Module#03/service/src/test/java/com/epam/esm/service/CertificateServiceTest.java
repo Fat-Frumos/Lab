@@ -1,15 +1,17 @@
 package com.epam.esm.service;
 
 import com.epam.esm.criteria.Criteria;
-import com.epam.esm.criteria.SortOrder;
+import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dao.CertificateDaoImpl;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.CertificateWithoutTagDto;
 import com.epam.esm.entity.Certificate;
+import com.epam.esm.entity.Tag;
 import com.epam.esm.exception.CertificateAlreadyExistsException;
 import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.mapper.CertificateMapper;
+import org.hibernate.query.sqm.SortOrder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,8 +21,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -28,9 +32,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
@@ -60,8 +62,8 @@ class CertificateServiceTest {
                 .description("Test description")
                 .duration(10)
                 .price(BigDecimal.valueOf(100))
-                .createDate(Instant.now())
-                .lastUpdateDate(Instant.now())
+                .createDate(Timestamp.from(Instant.now()))
+                .lastUpdateDate(Timestamp.from(Instant.now()))
                 .build();
 
         certificateWithoutTagDtos = new ArrayList<>();
@@ -146,11 +148,10 @@ class CertificateServiceTest {
     @DisplayName("Get all certificates by criteria")
     void getAllBy() {
         Criteria criteria = Criteria.builder()
-                .name("Gift")
-                .date(Instant.now())
-                .tagName("Criteria")
-                .description("Certificate")
-                .sortOrder(SortOrder.ASC)
+                .field(FilterParams.NAME)
+                .tags(new HashSet<>(Arrays.asList(Tag.builder().build(), Tag.builder().build())))
+                .field(FilterParams.ID)
+                .sortOrder(SortOrder.ASCENDING)
                 .build();
         when(certificateDao.getAllBy(criteria)).thenReturn(certificates);
         when(certificateMapper.toDtoList(certificates)).thenReturn(certificateDtos);
@@ -166,7 +167,7 @@ class CertificateServiceTest {
         CertificateDto certificateDto = CertificateDto.builder().id(id).name(name).build();
         when(certificateDao.getById(id)).thenReturn(Optional.empty());
         assertThrows(CertificateNotFoundException.class,
-                () -> service.update(certificateDto),
+                () -> service.update(certificateDto, id),
                 "CertificateNotFoundException"
         );
     }
@@ -201,20 +202,10 @@ class CertificateServiceTest {
     void testUpdateShouldUpdateCertificate() {
         when(certificateDao.getById(certificateDtos.get(0).getId())).thenReturn(Optional.of(certificates.get(0)));
         when(certificateMapper.toEntity(certificateDtos.get(0))).thenReturn(certificates.get(0));
-        when(certificateDao.update(certificates.get(0))).thenReturn(true);
-        assertTrue(certificateDao.update(certificateMapper.toEntity(certificateDtos.get(0))));
+        when(certificateDao.update(certificates.get(0), 1L)).thenReturn(certificate);
+        assertNotNull(certificateDao.update(certificateMapper.toEntity(certificateDtos.get(0)), 1L));
         verify(certificateMapper, times(1)).toEntity(certificateDtos.get(0));
-        verify(certificateDao, times(1)).update(certificates.get(0));
-    }
-
-    @Test
-    @DisplayName("Should throw CertificateNotFoundException when certificate doesn't exist")
-    void testUpdateShouldThrowCertificateNotFoundException() {
-        when(certificateDao.getById(certificateDtos.get(0).getId())).thenReturn(Optional.empty());
-        assertThrows(CertificateNotFoundException.class, () -> service.update(certificateDtos.get(0)));
-        verify(certificateDao, times(1)).getById(certificateDtos.get(0).getId());
-        verify(certificateMapper, never()).toEntity(certificateDtos.get(0));
-        verify(certificateDao, never()).update(any(Certificate.class));
+        verify(certificateDao, times(1)).update(certificates.get(0), 1L);
     }
 
     @Test

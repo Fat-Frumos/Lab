@@ -24,7 +24,8 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class TagController {
     private final TagService tagService;
 
-    @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}",
+            produces = APPLICATION_JSON_VALUE)
     public TagDto getById(
             @PathVariable final Long id) {
         return tagService.getById(id);
@@ -45,7 +46,7 @@ public class TagController {
     @ResponseStatus(OK)
     @DeleteMapping(value = "/{id}")
     public void delete(
-            @PathVariable("id") final Long id) {
+            @PathVariable final Long id) {
         tagService.delete(id);
     }
 }
