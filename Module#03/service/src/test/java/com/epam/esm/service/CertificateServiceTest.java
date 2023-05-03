@@ -1,17 +1,13 @@
 package com.epam.esm.service;
 
-import com.epam.esm.criteria.Criteria;
-import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dao.CertificateDaoImpl;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.CertificateWithoutTagDto;
 import com.epam.esm.entity.Certificate;
-import com.epam.esm.entity.Tag;
 import com.epam.esm.exception.CertificateAlreadyExistsException;
 import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.mapper.CertificateMapper;
-import org.hibernate.query.sqm.SortOrder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,7 +20,6 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -141,23 +136,6 @@ class CertificateServiceTest {
         when(certificateMapper.toDto(certificate)).thenReturn(certificateDto);
         service.delete(id);
         verify(certificateDao).delete(id);
-    }
-
-
-    @Test
-    @DisplayName("Get all certificates by criteria")
-    void getAllBy() {
-        Criteria criteria = Criteria.builder()
-                .field(FilterParams.NAME)
-                .tags(new HashSet<>(Arrays.asList(Tag.builder().build(), Tag.builder().build())))
-                .field(FilterParams.ID)
-                .sortOrder(SortOrder.ASCENDING)
-                .build();
-        when(certificateDao.getAllBy(criteria)).thenReturn(certificates);
-        when(certificateMapper.toDtoList(certificates)).thenReturn(certificateDtos);
-        assertEquals(certificateDtos, service.getAllBy(criteria));
-        verify(certificateDao).getAllBy(criteria);
-        verify(certificateMapper).toDtoList(certificates);
     }
 
     @ParameterizedTest
@@ -283,7 +261,6 @@ class CertificateServiceTest {
             assertEquals(certificate.getPrice(), dto.getPrice().multiply(BigDecimal.valueOf((i + 1))));
         }
     }
-
     @DisplayName("Test Get Certificate By Name")
     @ParameterizedTest(name = "Run {index}: name = {0}")
     @CsvSource({

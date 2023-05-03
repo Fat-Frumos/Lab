@@ -3,12 +3,14 @@ package com.epam.esm.controller;
 import com.epam.esm.assembler.CertificateAssembler;
 import com.epam.esm.criteria.Criteria;
 import com.epam.esm.dto.CertificateDto;
-import com.epam.esm.dto.Dto;
+import com.epam.esm.dto.Linkable;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.service.CertificateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -27,7 +29,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/api/certificates")
+@RequestMapping(value = "/certificates")
 public class CertificateController {
 
     private final CertificateAssembler assembler;
@@ -35,32 +37,32 @@ public class CertificateController {
 
     @GetMapping(value = "/{id}",
             produces = APPLICATION_JSON_VALUE)
-    public EntityModel<Dto> getCertificateById(
+    public EntityModel<Linkable> getCertificateById(
             @PathVariable final Long id) {
         return assembler.toModel(
                 certificateService.getById(id));
     }
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
-    public CollectionModel<EntityModel<Dto>> getAll() {
+    public CollectionModel<EntityModel<Linkable>> getAll() {
         return assembler.toCollectionModel(
                 certificateService.getAllWithoutTags());
     }
 
     @GetMapping(value = "/",
             produces = APPLICATION_JSON_VALUE)
-    public List<CertificateDto> search(
-            @RequestBody final Criteria criteria) {
-        return criteria != null
-                ? certificateService.getAllBy(criteria)
-                : certificateService.getAllBy(
-                        Criteria.builder().offset(0L).size(25L).build());
+    public CollectionModel<EntityModel<Linkable>> search(
+            @RequestBody(required = false) Criteria criteria) {
+        criteria = criteria != null ? criteria
+                : Criteria.builder().offset(0L).size(25L).build();
+        return assembler.toCollectionModel(
+                certificateService.getAllBy(criteria));
     }
 
     @PatchMapping(value = "/{id}",
             consumes = APPLICATION_JSON_VALUE,
             produces = APPLICATION_JSON_VALUE)
-    public EntityModel<Dto> update(
+    public EntityModel<Linkable> update(
             @RequestBody final CertificateDto dto,
             @PathVariable final Long id) {
         return assembler.toModel(
@@ -69,16 +71,17 @@ public class CertificateController {
 
     @ResponseStatus(CREATED)
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    public CertificateDto create(
+    public EntityModel<Linkable> create(
             @RequestBody final CertificateDto dto) {
-        return certificateService.save(dto);
+        return assembler.toModel(
+                certificateService.save(dto));
     }
 
-    @ResponseStatus(NO_CONTENT)
     @DeleteMapping(value = "/{id}")
-    public void delete(
+    public ResponseEntity<HttpStatus> delete(
             @PathVariable final Long id) {
         certificateService.delete(id);
+        return new ResponseEntity<>(NO_CONTENT);
     }
 
     @GetMapping(value = "/{id}/tags",

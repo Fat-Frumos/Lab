@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS gift_certificates;
+-- DROP TABLE IF EXISTS gift_certificates;
 
 CREATE TABLE IF NOT EXISTS gift_certificates
 (
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS gift_certificates
     duration         INTEGER
 );
 
-DROP TABLE IF EXISTS tag;
+-- DROP TABLE IF EXISTS tag;
 
 CREATE TABLE IF NOT EXISTS tag
 (

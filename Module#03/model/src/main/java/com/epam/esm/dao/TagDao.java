@@ -2,7 +2,6 @@ package com.epam.esm.dao;
 
 import com.epam.esm.entity.Tag;
 
-import java.util.List;
 import java.util.Set;
 
 public interface TagDao extends Dao<Tag> {

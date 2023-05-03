@@ -26,14 +26,15 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tags")
+@Table(name = "tag")
 public class Tag implements Serializable {
     @Id
-    @Column(name = "tag_id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long tagId;
     @Column(name = "name", nullable = false, unique = true)
     private String name;
+
 
     @Builder.Default
     @ToString.Exclude

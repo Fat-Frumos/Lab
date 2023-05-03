@@ -1,7 +1,7 @@
 package com.epam.esm.assembler;
 
 import com.epam.esm.controller.CertificateController;
-import com.epam.esm.dto.Dto;
+import com.epam.esm.dto.Linkable;
 import lombok.NonNull;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -16,24 +16,25 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Component
 public class CertificateAssembler
-        implements RepresentationModelAssembler<Dto, EntityModel<Dto>> {
+        implements RepresentationModelAssembler<Linkable, EntityModel<Linkable>> {
 
     @NonNull
     @Override
-    public EntityModel<Dto> toModel(@NonNull final Dto dto) {
+    public EntityModel<Linkable> toModel(@NonNull final Linkable dto) {
         return EntityModel.of(dto,
+                linkTo(methodOn(CertificateController.class).getTagsByCertificateId(dto.getId())).withRel("tags"),
                 linkTo(methodOn(CertificateController.class).getCertificateById(dto.getId())).withSelfRel(),
-                linkTo(methodOn(CertificateController.class).getTagsByCertificateId(dto.getId())).withRel("tags")
-//                linkTo(methodOn(OrderController.class).getAllOrdersByCertificateId(dto.getId())).withRel("orders"),
+                linkTo(methodOn(CertificateController.class).delete(dto.getId())).withRel("delete")
 //                linkTo(methodOn(CertificateController.class).create(dto)).withRel("create"),
-//                linkTo(methodOn(CertificateController.class).update(dto, dto.getId())).withRel("update")
+//                linkTo(methodOn(CertificateController.class).update(dto, dto.getId())).withRel("update"),
+//                linkTo(methodOn(OrderController.class).getAllOrdersByCertificateId(dto.getId())).withRel("orders")
         );
     }
 
     @NonNull
     @Override
-    public CollectionModel<EntityModel<Dto>> toCollectionModel(
-            final Iterable<? extends Dto> entities) {
+    public CollectionModel<EntityModel<Linkable>> toCollectionModel(
+            final Iterable<? extends Linkable> entities) {
         return CollectionModel.of(StreamSupport
                         .stream(entities.spliterator(), false)
                         .map(this::toModel)
@@ -41,6 +42,6 @@ public class CertificateAssembler
                 linkTo(methodOn(CertificateController.class)
                         .getAll())
                         .withSelfRel());
-//                        .search(Criteria.builder().page(PAGES).offset(0L).sortBy("id").build()))
+//                        .search(Criteria.builder().page(25L).offset(0L).sortBy("id").build()))
     }
 }

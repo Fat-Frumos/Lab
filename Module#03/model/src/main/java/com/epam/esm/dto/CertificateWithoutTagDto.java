@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 
 @Data
 @Builder
-public class CertificateWithoutTagDto implements Dto {
+public class CertificateWithoutTagDto implements Linkable {
 
     @NotNull(message = "Id cannot be blank")
     private Long id;

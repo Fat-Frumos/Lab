@@ -1,8 +1,10 @@
 package com.epam.esm.dao;
 
 import com.epam.esm.criteria.Criteria;
+import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Certificate;
+import com.epam.esm.entity.Tag;
 import com.epam.esm.exception.CertificateNotFoundException;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
@@ -10,20 +12,18 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Expression;
+import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
-import jakarta.persistence.criteria.Path;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.query.sqm.SortOrder;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
 
-import static com.epam.esm.criteria.CertificateQueries.SELECT_ALL_WITH_TAGS;
-import static com.epam.esm.criteria.CertificateQueries.SELECT_BY_NAME;
-import static com.epam.esm.criteria.CertificateQueries.SELECT_TAGS_BY_ID;
+import static com.epam.esm.criteria.CertificateQueries.*;
 
 @Repository
 @RequiredArgsConstructor
@@ -60,39 +60,38 @@ public class CertificateDaoImpl implements CertificateDao {
 
 
     @Override
-    public List<Certificate> getAllBy(
-            final Criteria criteria) {
+    public List<Certificate> getAllBy(final Criteria criteria) {
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Certificate> query = builder.createQuery(Certificate.class);
         Root<Certificate> root = query.from(Certificate.class);
-        root.fetch("tags", JoinType.LEFT);
-        query.select(root);
+        if (criteria.getTags() != null && !criteria.getTags().isEmpty()) {
+            Join<Certificate, Tag> join = root.join("tags", JoinType.INNER);
+            query.where(join.in(criteria.getTags()));
+        }
 
-        if (criteria.getSortBy() != null) {
-            Path<Object> sortField = root.get(criteria.getSortBy());
+        if (criteria.getSortOrder() != null && criteria.getFilterParams() != null) {
+            String sortBy = criteria.getFilterParams().name().toLowerCase();
+            Expression<?> sortByExpression = root.get(sortBy);
             query.orderBy(criteria.getSortOrder() == SortOrder.ASCENDING
-                    ? builder.asc(sortField)
-                    : builder.desc(sortField));
+                    ? builder.asc(sortByExpression)
+                    : builder.desc(sortByExpression));
         }
 
         TypedQuery<Certificate> typedQuery = entityManager.createQuery(query);
-
-        if (criteria.getOffset() != null) {
-            typedQuery.setFirstResult(criteria.getOffset().intValue());
+        if (criteria.getParamsMap().containsKey(FilterParams.PAGE)
+                && criteria.getParamsMap().containsKey(FilterParams.SIZE)) {
+            Long page = (Long) criteria.getParamsMap().get(FilterParams.PAGE);
+            Long size = (Long) criteria.getParamsMap().get(FilterParams.SIZE);
+            typedQuery.setFirstResult((page.intValue() - 1) * size.intValue());
+            typedQuery.setMaxResults(size.intValue());
         }
-        if (criteria.getSize() != null) {
-            typedQuery.setMaxResults(criteria.getSize().intValue());
-        }
-
         return typedQuery.getResultList();
     }
-
 
     @Override
     public Certificate findById(final Long id) {
         return entityManager
                 .find(Certificate.class, id);
-
     }
 
     @Override
@@ -139,7 +138,7 @@ public class CertificateDaoImpl implements CertificateDao {
     }
 
     @Override
-    public List<TagDto> findTagsByCertificateId(
+    public List<TagDto> findTagsByCertificateId ( //TODO
             final Long id) {
         return entityManager
                 .createQuery(SELECT_TAGS_BY_ID, TagDto.class)

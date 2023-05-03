@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Data
 @Builder
-public class CertificateDto implements Dto {
+public class CertificateDto implements Linkable {
     @NotNull(message = "Id cannot be blank")
     private Long id;
     @NotNull(message = "Name cannot be blank")

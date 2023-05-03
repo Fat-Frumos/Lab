@@ -1,11 +1,16 @@
 package com.epam.esm.config;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.init.DataSourceInitializer;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -13,12 +18,12 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.Optional;
 import java.util.Properties;
 
 @Configuration
 @RequiredArgsConstructor
 @EnableTransactionManagement
-@PropertySource("classpath:application.properties")
 public class PersistenceConfig {
     @Value("${spring.jpa.show-sql}")
     private String showSql;
@@ -36,6 +41,27 @@ public class PersistenceConfig {
     private String dialect;
 
     @Bean
+    public EntityManager entityManager(
+            final LocalContainerEntityManagerFactoryBean factoryBean) {
+        return Optional.ofNullable(factoryBean.getObject())
+                .map(EntityManagerFactory::createEntityManager)
+                .orElseThrow(() -> new IllegalStateException("Entity manager factory is not initialized"));
+    }
+
+    @Bean
+    public DataSourceInitializer dataSourceInitializer(
+            final DataSource dataSource) {
+        ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
+        resourceDatabasePopulator.addScript(new ClassPathResource("db/schema.sql"));
+        resourceDatabasePopulator.addScript(new ClassPathResource("db/data.sql"));
+
+        DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
+        dataSourceInitializer.setDataSource(dataSource);
+        dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
+        return dataSourceInitializer;
+    }
+
+    @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(driverClassName);
@@ -46,23 +72,25 @@ public class PersistenceConfig {
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(
+            final DataSource dataSource) {
         Properties properties = new Properties();
         properties.setProperty("hibernate.show_sql", showSql);
         properties.setProperty("hibernate.hbm2ddl.auto", hibernateDdlAuto);
         properties.setProperty("hibernate.dialect", dialect);
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setJpaProperties(properties);
-        factoryBean.setDataSource(dataSource());
+        factoryBean.setDataSource(dataSource);
         factoryBean.setPackagesToScan("com.epam.esm.entity");
         factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         return factoryBean;
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager() {
+    public PlatformTransactionManager transactionManager(
+            final LocalContainerEntityManagerFactoryBean factoryBean) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+        transactionManager.setEntityManagerFactory(factoryBean.getObject());
         return transactionManager;
     }
 }

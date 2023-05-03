@@ -28,6 +28,10 @@ Run Tomcat server, show debug information
 
 `mvn tomcat7:run -X`
 
+Run Tomcat server, show debug information
+
+`java -jar ./api/target/api-1.0.0.jar --thin.dryrun`
+
 
 ### Business requirements
 

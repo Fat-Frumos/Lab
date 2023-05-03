@@ -97,7 +97,8 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<TagDto> findTagsByCertificateId(Long id) {
+    public List<TagDto> findTagsByCertificateId(
+            final Long id) {
         return certificateDao.findTagsByCertificateId(id);
     }
 }

@@ -20,14 +20,6 @@ import java.util.Arrays;
 public final class EnumConverterFactory
         implements ConverterFactory<String, Enum<?>> {
 
-    /**
-     * Returns a new {@link Converter} instance that can convert a string
-     * to the specified enum type.
-     *
-     * @param targetType,<T> the enum type that needs to be converted to
-     * @return a new {@link Converter} instance that can convert
-     * a string to the specified enum type
-     */
     @Override
     public <T extends Enum<?>>
     @NotNull Converter<String, T> getConverter(
