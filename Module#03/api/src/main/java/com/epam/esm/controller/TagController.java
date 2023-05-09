@@ -29,9 +29,10 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class TagController {
     private final TagService tagService;
     private final TagAssembler tagAssembler;
+
     @GetMapping(value = "/{id}",
             produces = APPLICATION_JSON_VALUE)
-    public EntityModel<Linkable> getById ( //TODO href
+    public EntityModel<Linkable> getById(
             @PathVariable final Long id) {
         return tagAssembler.toModel(
                 tagService.getById(id));

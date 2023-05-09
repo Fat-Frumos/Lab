@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface CertificateDao extends Dao<Certificate> {
 
+    List<Certificate> getAll(Criteria criteria);
+
     List<Certificate> getAllBy(Criteria criteria);
 
     Certificate findById(Long id);

@@ -1,6 +1,7 @@
 package com.epam.esm.dao;
 
 import com.epam.esm.entity.Tag;
+import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaQuery;
@@ -23,9 +24,8 @@ public class TagDaoImpl implements TagDao {
     @Override
     public Optional<Tag> getById(final Long id) {
         try {
-            return Optional.ofNullable(
-                    entityManager.find(Tag.class, id));
-        } catch (RuntimeException e) {
+            return Optional.ofNullable(findById(id));
+        } catch (Exception e) {
             return Optional.empty();
         }
     }
@@ -33,12 +33,12 @@ public class TagDaoImpl implements TagDao {
     @Override
     public Optional<Tag> getByName(
             final String name) {
-        try {
-            return Optional.ofNullable(
-                    entityManager.find(Tag.class, name));
-        } catch (RuntimeException e) {
-            return Optional.empty();
-        }
+        return entityManager
+                .createQuery("SELECT t FROM Tag t WHERE t.name = :name", Tag.class)
+                .setParameter("name", name)
+                .getResultList()
+                .stream()
+                .findFirst();
     }
 
     @Override
@@ -54,20 +54,22 @@ public class TagDaoImpl implements TagDao {
 
     @Override
     public Tag save(final Tag tag) {
-        entityManager.persist(tag);
-        return tag;
+        try {
+            entityManager.merge(tag);
+            return tag;
+        } catch (Exception e) {
+            throw new EntityExistsException(e.getMessage());
+        }
     }
 
     @Override
     public Tag findById(final Long id) {
-        return entityManager
-                .find(Tag.class, id);
+        return entityManager.find(Tag.class, id);
     }
 
     @Override
     public void delete(final Long id) {
-        entityManager
-                .remove(findById(id));
+        entityManager.remove(findById(id));
     }
 
     @Override

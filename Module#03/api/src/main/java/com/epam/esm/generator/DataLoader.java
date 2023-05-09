@@ -4,34 +4,40 @@ package com.epam.esm.generator;
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.entity.Certificate;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.epam.esm.generator.EntityBuilder.generateCertificates;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
+@Slf4j
 @Component
 @AllArgsConstructor
 public class DataLoader implements CommandLineRunner {
 
-//    private UserDao userRepository;
-
-    private CertificateDao certificateRepository;
+    private CertificateDao certificateDao;
 
     @Override
+    @Transactional
     public void run(String... args) {
-//        List<User> users = generateUsers(10);
-//        assertFalse(users.isEmpty());
-        List<Certificate> certificates = generateCertificates(10);
-        assertFalse(certificates.isEmpty());
+        List<Certificate> list = new ArrayList<>();
+
+        List<Certificate> certificates = generateCertificates(500);
+        log.info(certificates.size() + " certificates prepared");
         for (Certificate certificate : certificates) {
-            System.out.println(certificate);
-//            Certificate save = certificateRepository.save(certificate);
+            try {
+                list.add(certificateDao.save(certificate));
+            } catch (Exception e) {
+                log.error("Data integrity violation: " + e.getMessage());
+            }
         }
-//        Iterable<Certificate> saveAll = certificateRepository.saveAll(certificates);
-//        System.out.println(saveAll);
+        log.info(list.size() + " certificates generated successfully");
+    }
+}
 
 //        Iterable<User> users1 = userRepository.saveAll(users);
 //        System.out.println(users1);
@@ -44,5 +50,3 @@ public class DataLoader implements CommandLineRunner {
 //            Iterable<User> users1 = userRepository.saveAll(users);
 //            System.out.println(users1);
 //        }
-    }
-}

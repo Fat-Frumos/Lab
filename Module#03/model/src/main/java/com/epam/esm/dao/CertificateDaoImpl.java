@@ -6,7 +6,6 @@ import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Certificate;
 import com.epam.esm.entity.Tag;
 import com.epam.esm.exception.CertificateNotFoundException;
-import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -15,15 +14,20 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
+import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.query.sqm.SortOrder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-import static com.epam.esm.criteria.CertificateQueries.*;
+import static com.epam.esm.criteria.CertificateQueries.SELECT_ALL_WITH_TAGS;
+import static com.epam.esm.criteria.CertificateQueries.SELECT_BY_NAME;
+import static com.epam.esm.criteria.CertificateQueries.SELECT_TAGS_BY_ID;
+import static org.hibernate.query.sqm.SortOrder.ASCENDING;
 
 @Repository
 @RequiredArgsConstructor
@@ -52,6 +56,31 @@ public class CertificateDaoImpl implements CertificateDao {
     }
 
     @Override
+    public List<Certificate> getAll(Criteria criteria) {
+        try {
+            CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+            CriteriaQuery<Certificate> query = builder.createQuery(Certificate.class);
+            Root<Certificate> root = query.from(Certificate.class);
+            Predicate predicate = builder.conjunction();
+
+            Set<Tag> tags = criteria.getTags();
+            if (tags != null) {
+                for (Tag tag : criteria.getTags()) {
+                    predicate = builder.and(predicate, builder.equal(root
+                            .joinList("tags", JoinType.INNER).get("name"), tag.getName()));
+                }
+            }
+            TypedQuery<Certificate> typedQuery = entityManager.createQuery(query);
+            typedQuery.setFirstResult((criteria.getPage()) * criteria.getSize());
+            typedQuery.setMaxResults(criteria.getSize());
+            return typedQuery.getResultList();
+        } catch (Exception e) {
+            throw new CertificateNotFoundException("Could not find certificate");
+        }
+    }
+
+
+    @Override
     public List<Certificate> getAll() {
         return entityManager
                 .createQuery(SELECT_ALL_WITH_TAGS, Certificate.class)
@@ -60,7 +89,9 @@ public class CertificateDaoImpl implements CertificateDao {
 
 
     @Override
-    public List<Certificate> getAllBy(final Criteria criteria) {
+    public List<Certificate> getAllBy(
+            final Criteria criteria) {
+
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Certificate> query = builder.createQuery(Certificate.class);
         Root<Certificate> root = query.from(Certificate.class);
@@ -72,7 +103,7 @@ public class CertificateDaoImpl implements CertificateDao {
         if (criteria.getSortOrder() != null && criteria.getFilterParams() != null) {
             String sortBy = criteria.getFilterParams().name().toLowerCase();
             Expression<?> sortByExpression = root.get(sortBy);
-            query.orderBy(criteria.getSortOrder() == SortOrder.ASCENDING
+            query.orderBy(criteria.getSortOrder() == ASCENDING
                     ? builder.asc(sortByExpression)
                     : builder.desc(sortByExpression));
         }
@@ -98,11 +129,22 @@ public class CertificateDaoImpl implements CertificateDao {
     public Certificate save(
             final Certificate certificate) {
         try {
+            certificate.setTags(certificate.getTags()
+                    .stream().map(tag -> entityManager
+                            .createQuery("SELECT t FROM Tag t WHERE t.name = :name", Tag.class)
+                            .setParameter("name", tag.getName())
+                            .getResultList()
+                            .stream()
+                            .findFirst().orElse(tag)).collect(Collectors.toSet()));
             return entityManager.merge(certificate);
         } catch (Exception e) {
-            throw new EntityExistsException(e.getMessage());
+            if (!getByName(certificate.getName()).isPresent()) {
+                entityManager.persist(certificate);
+            }
+            return certificate;
         }
     }
+
 
     @Override
     public void delete(final Long id) {
@@ -138,7 +180,7 @@ public class CertificateDaoImpl implements CertificateDao {
     }
 
     @Override
-    public List<TagDto> findTagsByCertificateId ( //TODO
+    public List<TagDto> findTagsByCertificateId(
             final Long id) {
         return entityManager
                 .createQuery(SELECT_TAGS_BY_ID, TagDto.class)

@@ -16,13 +16,12 @@ public class Criteria {
     private final Set<Tag> tags;
     private final SortOrder sortOrder;
     private final FilterParams filterParams;
-    private final Long size;
-    private final Long page;
-    private final Long offset;
+    private final Integer size;
+    private final Integer page;
     private final EnumMap<FilterParams, Object> paramsMap = new EnumMap<>(FilterParams.class);
 
-    public void addParam(Object... params) {
-        for (int i = 0; i < params.length; i += 2) {
+    public void addParam(final Object... params) {
+        for (int i = 0; i < params.length; i++) {
             if (params[i] instanceof FilterParams) {
                 paramsMap.put((FilterParams) params[i], params[i + 1]);
             }

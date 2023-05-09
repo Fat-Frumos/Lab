@@ -46,7 +46,7 @@ public final class EnumConverterFactory
          * @throws RuntimeException if the input string does not match any of the enum constants
          */
         @Override
-        public T convert(String source) {
+        public T convert(final String source) {
             return source != null && !source.trim().isEmpty()
                     ? Arrays.stream(enumType.getEnumConstants())
                     .filter(constant -> constant.name().equalsIgnoreCase(source.trim()))

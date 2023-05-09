@@ -36,6 +36,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @Transactional
+@SuppressWarnings("unchecked")
 @ExtendWith(MockitoExtension.class)
 class CertificateDaoTest {
 
@@ -64,10 +65,9 @@ class CertificateDaoTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     @DisplayName("Get all certificates")
     void testGetAllCertificate() {
-
-
         TypedQuery<Certificate> query = mock(TypedQuery.class);
         when(entityManager.createQuery(anyString(), eq(Certificate.class))).thenReturn(query);
         when(query.getResultList()).thenReturn(certificates);
@@ -141,7 +141,6 @@ class CertificateDaoTest {
                         .price(BigDecimal.valueOf(100.0))
                         .tags(singleton(
                                 Tag.builder()
-                                        .tagId(1L)
                                         .name("Tag 1")
                                         .build()
                         ))

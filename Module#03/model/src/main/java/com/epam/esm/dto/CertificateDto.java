@@ -22,12 +22,12 @@ public class CertificateDto implements Linkable {
     private String description;
     @NotNull(message = "Price cannot be null")
     private BigDecimal price;
+    @NotNull(message = "Duration cannot be null")
+    private int duration;
     @JsonFormat(timezone = "GMT+03:00", pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Timestamp createDate;
     @JsonFormat(timezone = "GMT+03:00", pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Timestamp lastUpdateDate;
-    @NotNull(message = "Duration cannot be null")
-    private int duration;
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<TagDto> tags;

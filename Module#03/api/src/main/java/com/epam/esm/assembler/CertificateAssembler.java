@@ -1,6 +1,7 @@
 package com.epam.esm.assembler;
 
 import com.epam.esm.controller.CertificateController;
+import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.dto.Linkable;
 import lombok.NonNull;
 import org.springframework.hateoas.CollectionModel;
@@ -40,7 +41,7 @@ public class CertificateAssembler
                         .map(this::toModel)
                         .collect(toList()),
                 linkTo(methodOn(CertificateController.class)
-                        .getAll())
+                        .getAll(FilterParams.ID, 0, 25))
                         .withSelfRel());
 //                        .search(Criteria.builder().page(25L).offset(0L).sortBy("id").build()))
     }

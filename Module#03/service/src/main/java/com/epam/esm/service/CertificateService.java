@@ -22,7 +22,7 @@ public interface CertificateService {
 
     CertificateDto update(CertificateDto dto, Long id);
 
-    List<CertificateWithoutTagDto> getAllWithoutTags();
+    List<CertificateWithoutTagDto> getAllWithoutTags(Criteria criteria);
 
     CertificateDto save(CertificateDto dto);
 

@@ -16,7 +16,6 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -123,10 +122,10 @@ class TestCertificateMapper {
     @DisplayName("map set of tag DTOs to set of tag entities")
     void testToTagSet(long id, String name) {
         TagDto tagDto = TagDto.builder()
-                .tagId(id)
+                .id(id)
                 .name(name)
                 .build();
-        Set<Tag> expected = Collections.singleton(Tag.builder().tagId(id).name(name).build());
+        Set<Tag> expected = Collections.singleton(Tag.builder().id(id).name(name).build());
         Set<Tag> actual = tagMapper.toTagSet(Collections.singleton(tagDto));
         assertEquals(expected, actual);
     }

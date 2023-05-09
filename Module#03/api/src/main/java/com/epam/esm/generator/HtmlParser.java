@@ -18,26 +18,28 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static com.epam.esm.generator.IOFile.saveToFile;
 import static java.util.regex.Pattern.compile;
 
 @Slf4j
 public class HtmlParser {
+    private  HtmlParser(){
+
+    }
 
     private static final Pattern DESC_PATTERN = compile("<div class=\"dek\">([^<]+)</div>");
     private static final Pattern NAME_PATTERN = compile("<h3 class=\"hed\"><a[^>]+>([^<]+)</a></h3>");
-    private static final List<Certificate> certificates = new ArrayList<>();
-    private static final List<String> links = new ArrayList<>();
-    private static final Set<String> names = new HashSet<>();
+    private static final List<Certificate> CERTIFICATES = new ArrayList<>();
+    private static final Set<String> NAMES = new HashSet<>();
     private static final Set<String> descriptions = new HashSet<>();
+    public static List<String> links = new ArrayList<>();
     private static final List<Tag> tags = new ArrayList<>();
     private static final Set<String> tagNames = new HashSet<>();
     private static final List<String> stringSet = new ArrayList<>();
 
-    public static void generate() {
+    public static void generate(String link, String pattern, String matches) {
 
-//        links.add("https://hbr.org/topics");
-        getTopic("https://hbr.org");
+        links.add(link);
+        getTopic(link, pattern, matches);
 
 //        parseFromUrls();
 
@@ -94,19 +96,19 @@ public class HtmlParser {
         links.add("<p>(.*?)</p>");
 
         for (int i = 0; i < links.size(); i += 4) {
-            HtmlParser.getFromHtml(i);
+            getFromHtml(i);
         }
 
         log.info(tags.stream().map(Tag::toString).collect(Collectors.joining(", ")));
         log.info(String.join(", ", tagNames));
-        log.info(String.join(", ", names));
+        log.info(String.join(", ", NAMES));
         log.info(String.join(", ", descriptions));
         log.info(String.valueOf(tagNames.size()));
-        log.info(String.valueOf(names.size()));
+        log.info(String.valueOf(NAMES.size()));
         log.info(String.valueOf(descriptions.size()));
 
         stringSet.addAll(tagNames);
-        stringSet.addAll(names);
+        stringSet.addAll(NAMES);
         stringSet.addAll(descriptions);
         stringSet.removeIf(String::isEmpty);
 
@@ -122,7 +124,7 @@ public class HtmlParser {
     private static void getFromHtml(int i) {
         String input = getString(i);
         addToList(compile(links.get(1 + i)).matcher(input), tagNames);
-        addToList(compile(links.get(2 + i)).matcher(input), names);
+        addToList(compile(links.get(2 + i)).matcher(input), NAMES);
         addToList(compile(links.get(3 + i)).matcher(input), descriptions);
     }
 
@@ -155,23 +157,33 @@ public class HtmlParser {
         return "";
     }
 
-    private static void getTopic(String link) {
-
-        Pattern aPattern = compile("<li><a\\s+href=\"([^\"]+)\">([^<]+)</a></li>");
+    public static void getTopic(String link, String pattern, String match) {
+        Pattern aPattern = compile(pattern);
         Matcher liMatcher = aPattern.matcher(getString(0));
 
         while (liMatcher.find()) {
-            tags.add(Tag.builder().name(liMatcher.group(2)).build());
-            links.add(link + liMatcher.group(1));
+//            tags.add(Tag.builder().name(liMatcher.group(2)).build());
+            links.add(liMatcher.group(1));
+        }
+        log.info("" + links.size());
+
+        links = links.stream()
+                .filter(l -> l.contains(match))
+                .collect(Collectors.toList());
+
+        Set<String> holiday = new HashSet<>();
+        for (int i = 1; i < links.size(); i++) {
+            Matcher matcher = Pattern.compile("<a class=\"country-listing\".*?>(.*?)<\\/a>").matcher(getString(i));
+            while (matcher.find()) {
+                holiday.add(matcher.group(1));
+            }
         }
 
-        log.info(links.get(links.size() - 1));
-        log.info(String.valueOf(tags.size()));
-        IntStream.range(1, tags.size()).parallel()
-                .filter(i -> String.valueOf(links.get(i))
-                        .matches(".*topic/subject/.*"))
-                .forEach(i -> getCertificate(getString(i), tags.get(i)));
-        log.info(String.valueOf(certificates.size()));
+//        IntStream.range(1, tags.size()).parallel()
+//                .filter(i -> String.valueOf(links.get(i))
+//                        .matches(match))
+//                .forEach(i -> getCertificate(getString(i), tags.get(i)));
+//        log.info(String.valueOf(certificates.size()));
     }
 
     private static void getCertificate(String input, Tag tag) {
@@ -182,7 +194,7 @@ public class HtmlParser {
                     .name(nameMatcher.group(1))
                     .description(descMatcher.group(1))
                     .build().addTag(tag);
-            certificates.add(build);
+            CERTIFICATES.add(build);
             log.info(String.valueOf(build));
         }
     }

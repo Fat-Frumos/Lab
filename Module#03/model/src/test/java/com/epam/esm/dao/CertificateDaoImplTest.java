@@ -69,9 +69,8 @@ class CertificateDaoImplTest {
         summer = Tag.builder().name("summer").build();
 
         criteria = Criteria.builder()
-                .offset(0L)
-                .page(0L)
-                .size(25L)
+                .page(0)
+                .size(25)
                 .sortOrder(SortOrder.ASCENDING)
                 .filterParams(FilterParams.ID)
                 .build();

@@ -1,6 +1,7 @@
 package com.epam.esm.assembler;
 
 import com.epam.esm.controller.CertificateController;
+import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.Linkable;
 import com.epam.esm.dto.TagDto;
@@ -110,12 +111,12 @@ class CertificateAssemblerTest {
                 .build();
 
         Iterable<CertificateDto> certificateDtos = () -> singletonList(certificateDto).iterator();
-        when(certificateController.getAll()).thenReturn(CollectionModel.of(
+        when(certificateController.getAll(FilterParams.ID, 0,25)).thenReturn(CollectionModel.of(
                 certificateAssembler.toCollectionModel(certificateDtos),
-                linkTo(methodOn(CertificateController.class).getAll()).withSelfRel()
+                linkTo(methodOn(CertificateController.class).getAll(FilterParams.ID, 0,25)).withSelfRel()
         ));
 
-        CollectionModel<EntityModel<Linkable>> result = certificateController.getAll();
+        CollectionModel<EntityModel<Linkable>> result = certificateController.getAll(FilterParams.ID, 0,25);
 
         assertEquals(1, result.getContent().size());
         assertNotNull(result.getLink("self"));
@@ -158,8 +159,8 @@ class CertificateAssemblerTest {
                 .createDate(createDate)
                 .lastUpdateDate(lastUpdateDate)
                 .tags(new HashSet<>(Arrays.asList(
-                        TagDto.builder().tagId(tagId1).name(tagName1).build(),
-                        TagDto.builder().tagId(tagId2).name(tagName2).build()
+                        TagDto.builder().id(tagId1).name(tagName1).build(),
+                        TagDto.builder().id(tagId2).name(tagName2).build()
                 )))
                 .build();
 

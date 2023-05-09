@@ -30,7 +30,11 @@ Run Tomcat server, show debug information
 
 Run Tomcat server, show debug information
 
-`java -jar ./api/target/api-1.0.0.jar --thin.dryrun`
+`java -jar ./web/target/web-0.0.1-SNAPSHOT.jar --thin.dryrun`
+
+Build the project with Maven Tool skip Tests
+`mvn clean install -e -DskipTests`
+
 
 
 ### Business requirements

@@ -2,9 +2,9 @@
 
 CREATE TABLE IF NOT EXISTS gift_certificates
 (
-    id               BIGINT PRIMARY KEY,
+    id               SERIAL PRIMARY KEY,
     name             VARCHAR(55) NOT NULL,
-    description      TEXT,
+    description      VARCHAR(1024) NOT NULL,
     price            DECIMAL(10, 2),
     create_date      TIMESTAMP,
     last_update_date TIMESTAMP,
@@ -15,12 +15,12 @@ CREATE TABLE IF NOT EXISTS gift_certificates
 
 CREATE TABLE IF NOT EXISTS tag
 (
-    id BIGINT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(64) NOT NULL
 );
 
 
-DROP TABLE IF EXISTS gift_certificate_tag;
+-- DROP TABLE IF EXISTS gift_certificate_tag;
 
 CREATE TABLE IF NOT EXISTS gift_certificate_tag
 (

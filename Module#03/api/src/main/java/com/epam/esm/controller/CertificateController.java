@@ -2,6 +2,7 @@ package com.epam.esm.controller;
 
 import com.epam.esm.assembler.CertificateAssembler;
 import com.epam.esm.criteria.Criteria;
+import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.Linkable;
 import com.epam.esm.dto.TagDto;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,9 +46,17 @@ public class CertificateController {
     }
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
-    public CollectionModel<EntityModel<Linkable>> getAll() {
+    public CollectionModel<EntityModel<Linkable>> getAll(
+            @RequestParam(defaultValue = "ID") FilterParams params,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "25") int size) {
         return assembler.toCollectionModel(
-                certificateService.getAllWithoutTags());
+                certificateService.getAllWithoutTags(
+                        Criteria.builder()
+                                .filterParams(params)
+                                .page(page)
+                                .size(size)
+                                .build()));
     }
 
     @GetMapping(value = "/",
@@ -54,7 +64,7 @@ public class CertificateController {
     public CollectionModel<EntityModel<Linkable>> search(
             @RequestBody(required = false) Criteria criteria) {
         criteria = criteria != null ? criteria
-                : Criteria.builder().offset(0L).size(25L).build();
+                : Criteria.builder().page(0).size(25).build();
         return assembler.toCollectionModel(
                 certificateService.getAllBy(criteria));
     }

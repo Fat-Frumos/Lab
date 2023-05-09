@@ -29,12 +29,10 @@ import java.util.Set;
 @Table(name = "tag")
 public class Tag implements Serializable {
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long tagId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(name = "name", nullable = false, unique = true)
     private String name;
-
 
     @Builder.Default
     @ToString.Exclude

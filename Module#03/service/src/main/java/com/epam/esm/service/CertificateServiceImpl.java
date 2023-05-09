@@ -1,17 +1,20 @@
 package com.epam.esm.service;
 
 import com.epam.esm.criteria.Criteria;
+import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.CertificateWithoutTagDto;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.exception.CertificateAlreadyExistsException;
 import com.epam.esm.exception.CertificateNotFoundException;
+import com.epam.esm.exception.InvalidNumberException;
 import com.epam.esm.mapper.CertificateMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -82,8 +85,11 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<CertificateWithoutTagDto> getAllWithoutTags() {
-        return mapper.toDtoWithoutTagsList(certificateDao.getAll());
+    public List<CertificateWithoutTagDto> getAllWithoutTags(
+            final Criteria criteria) {
+        validate(criteria);
+        return mapper.toDtoWithoutTagsList(
+                certificateDao.getAll(criteria));
     }
 
     @Override
@@ -100,5 +106,21 @@ public class CertificateServiceImpl implements CertificateService {
     public List<TagDto> findTagsByCertificateId(
             final Long id) {
         return certificateDao.findTagsByCertificateId(id);
+    }
+
+    private void validate(Criteria criteria) {
+        if (criteria.getFilterParams() != null && criteria.getFilterParams().equals(FilterParams.PAGE)
+                && criteria.getPage() <= 0) {
+            throw new InvalidNumberException("Invalid page number");
+        }
+        if (criteria.getFilterParams() != null && criteria.getFilterParams().equals(FilterParams.SIZE)
+                && (criteria.getSize() <= 0 || criteria.getSize() > 100)) {
+            throw new InvalidNumberException("Invalid page size");
+        }
+        if (criteria.getFilterParams() != null && criteria.getFilterParams().equals(FilterParams.SORT_BY)
+                && !Arrays.asList("name", "create_date", "last_update_date")
+                .contains(criteria.getParamsMap().get(FilterParams.SORT_BY))) {
+            throw new InvalidNumberException("Invalid sort by parameter");
+        }
     }
 }

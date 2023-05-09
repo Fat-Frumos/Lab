@@ -19,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
-import static org.springframework.http.HttpStatus.METHOD_NOT_ALLOWED;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 class ExceptionHandlerTest {
@@ -46,7 +45,7 @@ class ExceptionHandlerTest {
         assertEquals(BAD_REQUEST, response.getStatusCode());
         ResponseMessage responseMessage = (ResponseMessage) response.getBody();
         assertEquals(messages[0], Objects.requireNonNull(responseMessage).getErrorMessage());
-        assertEquals(BAD_REQUEST.value(), responseMessage.getStatusCode());
+        assertEquals(BAD_REQUEST, responseMessage.getStatusCode());
     }
 
     @Test
@@ -58,7 +57,7 @@ class ExceptionHandlerTest {
         ResponseMessage responseMessage = (ResponseMessage) response.getBody();
         assertNotNull(responseMessage);
         assertEquals(messages[0], responseMessage.getErrorMessage());
-        assertEquals(BAD_REQUEST.value(), responseMessage.getStatusCode());
+        assertEquals(BAD_REQUEST, responseMessage.getStatusCode());
     }
 
     @Test
@@ -67,7 +66,7 @@ class ExceptionHandlerTest {
         CertificateNotFoundException exception = new CertificateNotFoundException(messages[1]);
         ResponseEntity<Object> response = exceptionHandler.handleCertificateNotFoundException(exception);
         assertEquals(NOT_FOUND, response.getStatusCode());
-        assertEquals(new ResponseMessage(messages[1], 40401), response.getBody());
+        assertEquals(ResponseMessage.builder().errorMessage(messages[1]).statusCode(NOT_FOUND).build(), response.getBody());
     }
 
     @Test
@@ -77,7 +76,7 @@ class ExceptionHandlerTest {
         ResponseEntity<Object> response = exceptionHandler.handleException(exception);
         assertEquals(INTERNAL_SERVER_ERROR, response.getStatusCode());
         ResponseMessage responseMessage = (ResponseMessage) response.getBody();
-        assertEquals(INTERNAL_SERVER_ERROR.value(), Objects.requireNonNull(responseMessage).getStatusCode());
+        assertEquals(INTERNAL_SERVER_ERROR, Objects.requireNonNull(responseMessage).getStatusCode());
         assertEquals(messages[2], responseMessage.getErrorMessage());
     }
 
@@ -88,7 +87,7 @@ class ExceptionHandlerTest {
         ResponseEntity<Object> response = exceptionHandler.handleException(exception);
         assertEquals(INTERNAL_SERVER_ERROR, response.getStatusCode());
         ResponseMessage responseMessage = (ResponseMessage) response.getBody();
-        assertEquals(INTERNAL_SERVER_ERROR.value(), Objects.requireNonNull(responseMessage).getStatusCode());
+        assertEquals(INTERNAL_SERVER_ERROR, Objects.requireNonNull(responseMessage).getStatusCode());
         assertEquals(messages[3], responseMessage.getErrorMessage());
     }
 
@@ -101,6 +100,6 @@ class ExceptionHandlerTest {
         assertNotNull(response.getBody());
         ResponseMessage responseMessage = (ResponseMessage) response.getBody();
         assertEquals(messages[4], responseMessage.getErrorMessage());
-        assertEquals(40401, responseMessage.getStatusCode());
+        assertEquals(NOT_FOUND, responseMessage.getStatusCode());
     }
 }
