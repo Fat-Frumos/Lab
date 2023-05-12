@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface Dao<T extends Serializable> {
-        List<T> getAll();
+    List<T> getAll();
 
-        Optional<T> getById(Long id);
+    Optional<T> getById(Long id);
 
-        Optional<T> getByName(String name);
+    Optional<T> getByName(String name);
 
-        Long save(T entity);
+    T save(T entity);
 
-        void delete(Long id);
+    void delete(Long id);
 }

@@ -4,7 +4,11 @@ COPY . .
 RUN mvn clean package -DskipTests -Dmaven
 
 # Run stage
-FROM openjdk:11-jdk-slim
-COPY --from=build /api/target/gift.war certificate.war
+FROM openjdk:8-jdk-alpine
+# VOLUME /tmp
+ADD m2 m2
+# ADD api-1.0.0.jar app.jar
+
+COPY --from=build ./api/target/api-1.0.0.jar certificate.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","certificate.war"]
+ENTRYPOINT ["java","-jar","certificate.jar"]

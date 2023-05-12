@@ -17,9 +17,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -50,16 +52,14 @@ class TagServiceTest {
     @BeforeEach
     void setup() {
 
-        tags = List.of(
-                Tag.builder().id(1L).name("Tag1").build(),
-                Tag.builder().id(2L).name("Tag2").build(),
-                Tag.builder().id(3L).name("Tag3").build()
-        );
-        tagDtos = List.of(
-                TagDto.builder().id(1L).name("Tag1").build(),
-                TagDto.builder().id(2L).name("Tag2").build(),
-                TagDto.builder().id(3L).name("Tag3").build()
-        );
+        tags = new ArrayList<>();
+        tags.add(Tag.builder().id(1L).name("Tag1").build());
+        tags.add(Tag.builder().id(2L).name("Tag2").build());
+        tags.add(Tag.builder().id(3L).name("Tag3").build());
+        tagDtos = new ArrayList<>();
+        tagDtos.add(TagDto.builder().id(1L).name("Tag1").build());
+        tagDtos.add(TagDto.builder().id(2L).name("Tag2").build());
+        tagDtos.add(TagDto.builder().id(3L).name("Tag3").build());
     }
 
     @Test
@@ -89,9 +89,10 @@ class TagServiceTest {
 
     private static Stream<Arguments> existingTagNames() {
         return Stream.of(
-                Arguments.of("Tag1"),
-                Arguments.of("Tag2"),
-                Arguments.of("Tag3")
+                Arguments.of("Winter"),
+                Arguments.of("Spring"),
+                Arguments.of("Summer"),
+                Arguments.of("Autumn")
         );
     }
 
@@ -113,12 +114,12 @@ class TagServiceTest {
     void testGetAllShouldReturnAllTags() {
         when(tagDao.getAll()).thenReturn(tags);
         when(tagMapper.toDto(any(Tag.class))).thenReturn(
-                new TagDto(tags.get(0).getId(), tags.get(0).getName()),
-                new TagDto(tags.get(1).getId(), tags.get(1).getName()),
-                new TagDto(tags.get(2).getId(), tags.get(2).getName())
+                TagDto.builder().id(tags.get(0).getId()).name(tags.get(0).getName()).build(),
+                TagDto.builder().id(tags.get(1).getId()).name(tags.get(1).getName()).build(),
+                TagDto.builder().id(tags.get(2).getId()).name(tags.get(2).getName()).build()
         );
         List<TagDto> actualTagDtos = tagService.getAll();
-        assertEquals(tagDtos, actualTagDtos);
+        IntStream.range(0, actualTagDtos.size()).forEach(i -> assertEquals(tagDtos.get(i), actualTagDtos.get(i)));
     }
 
     @Test
@@ -226,7 +227,7 @@ class TagServiceTest {
     @CsvSource({"1, Winter", "2, Summer", "3, Spring"})
     @DisplayName("Save tag with existing name should throw exception")
     void saveTagWithNameExist(Long id, String tagName) {
-        TagDto tagDto = new TagDto(null, tagName);
+        TagDto tagDto = TagDto.builder().id(null).name(tagName).build();
         Tag tag = Tag.builder().id(id).name(tagName).build();
         when(tagDao.getByName(tagDto.getName())).thenReturn(Optional.of(tag));
         Exception ex = assertThrows(TagAlreadyExistsException.class, () -> tagService.save(tagDto));

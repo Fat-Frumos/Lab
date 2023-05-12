@@ -1,60 +1,82 @@
 package com.epam.esm.dao;
 
 import com.epam.esm.entity.Tag;
-import com.epam.esm.mapper.TagRowMapper;
+import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.criteria.CriteriaQuery;
 import lombok.RequiredArgsConstructor;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
+import java.util.Set;
 
-import static com.epam.esm.mapper.QueriesContext.*;
+import static java.util.stream.Collectors.toSet;
 
 @Repository
 @RequiredArgsConstructor
 public class TagDaoImpl implements TagDao {
 
-    private final JdbcTemplate jdbcTemplate;
-    private final TagRowMapper tagRowMapper;
+    @PersistenceContext
+    private final EntityManager entityManager;
 
     @Override
-    public final Optional<Tag> getById(final Long id) {
-        Tag tag = jdbcTemplate.queryForObject(
-                GET_TAG_BY_ID,
-                new Object[]{id},
-                tagRowMapper);
-        return tag == null
-                ? Optional.empty()
-                : Optional.of(tag);
+    public Optional<Tag> getById(final Long id) {
+        try {
+            return Optional.ofNullable(findById(id));
+        } catch (Exception e) {
+            return Optional.empty();
+        }
     }
 
     @Override
-    public final Optional<Tag> getByName(final String name) {
-        List<Tag> tags = jdbcTemplate.query(
-                String.format("%s'%s'", GET_BY_TAG_NAME, name),
-                tagRowMapper);
-        return tags.isEmpty()
-                ? Optional.empty()
-                : Optional.of(tags.get(0));
+    public Optional<Tag> getByName(
+            final String name) {
+        return entityManager
+                .createQuery("SELECT t FROM Tag t WHERE t.name = :name", Tag.class)
+                .setParameter("name", name)
+                .getResultList()
+                .stream()
+                .findFirst();
     }
 
     @Override
-    public final List<Tag> getAll() {
-        return jdbcTemplate.query(GET_ALL_TAGS, tagRowMapper);
+    public List<Tag> getAll() {
+        CriteriaQuery<Tag> query = entityManager
+                .getCriteriaBuilder()
+                .createQuery(Tag.class);
+        query.select(query.from(Tag.class));
+        return entityManager
+                .createQuery(query)
+                .getResultList();
     }
 
     @Override
-    public final Long save(final Tag tag) {
-        long id = UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
-        jdbcTemplate.update(INSERT_TAG, id, tag.getName());
-        return id;
+    public Tag save(final Tag tag) {
+        try {
+            entityManager.merge(tag);
+            return tag;
+        } catch (Exception e) {
+            throw new EntityExistsException(e.getMessage());
+        }
     }
 
     @Override
-    public final void delete(final Long id) {
-        jdbcTemplate.update(DELETE_TAG_REF, id);
-        jdbcTemplate.update(DELETE_TAG, id);
+    public Tag findById(final Long id) {
+        return entityManager.find(Tag.class, id);
+    }
+
+    @Override
+    public void delete(final Long id) {
+        entityManager.remove(findById(id));
+    }
+
+    @Override
+    public Set<Tag> saveAll(
+            final Set<Tag> tags) {
+        return tags.stream()
+                .map(this::save)
+                .collect(toSet());
     }
 }

@@ -104,7 +104,9 @@ class TagMapperTest {
     @Test
     void shouldMapSetOfTagDtoToSetOfTag() {
 
-        Set<TagDto> tagDtoSet = Set.of(tagDto1, tagDto2);
+        Set<TagDto> tagDtoSet = new HashSet<>();
+        tagDtoSet.add(tagDto1);
+        tagDtoSet.add(tagDto2);
         Set<Tag> tagSet = tagMapper.toTagSet(tagDtoSet);
 
         assertEquals(tagDtoSet.size(), tagSet.size());
@@ -113,7 +115,7 @@ class TagMapperTest {
                 .anyMatch(tag -> tag.getId().equals(tagDto1.getId())
                         && tag.getName().equals(tagDto1.getName())));
 
-        assertTrue(tagSet.stream()
+        assertEquals(true, tagSet.stream()
                 .anyMatch(tag -> tag.getId().equals(tagDto2.getId())
                         && tag.getName().equals(tagDto2.getName())));
     }
