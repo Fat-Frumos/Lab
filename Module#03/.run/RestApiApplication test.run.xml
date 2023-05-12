@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="RestApiApplication test" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <option name="ACTIVE_PROFILES" value="test" />
-    <module name="api" />
+    <module name="web-app" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="com.epam.esm.RestApiApplication" />
     <option name="VM_PARAMETERS" value="-Dspring.datasource.username=user -Dspring.datasource.password=password" />
     <extension name="coverage">

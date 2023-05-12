@@ -15,7 +15,7 @@ public enum FilterParams {
     NAME("name", 0),
     ORDER("ASC", 0),
     PRICE("price", 0),
-    SORT_BY("sort_by", 0),
+    SORT("sort", 0),
     DURATION("duration", 1),
     DESCRIPTION("description", 0),
     UPDATED_DATE("updated_date", 0),
