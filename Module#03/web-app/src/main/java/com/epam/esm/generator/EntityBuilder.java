@@ -2,6 +2,7 @@ package com.epam.esm.generator;
 
 import com.epam.esm.entity.Certificate;
 import com.epam.esm.entity.Tag;
+import com.epam.esm.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -89,14 +90,14 @@ public class EntityBuilder {
                 .collect(toSet());
     }
 
-//    public static List<User> generateUsers(
-//            final int max) {
-//        return IntStream.range(0, max)
-//                .mapToObj(i -> User.builder()
-//                        .username(getRandomElement(USERNAMES))
-//                        .email(getRandomElement(USERNAMES) + "@i.ua")
-//                        .build())
-//                .collect(toList());
-//    }
+    public static List<User> generateUsers(
+            final int max) {
+        return IntStream.range(0, max)
+                .mapToObj(i -> User.builder()
+                        .username(getRandomElement(USERNAMES))
+                        .email(getRandomElement(USERNAMES) + "@i.ua")
+                        .build())
+                .collect(toList());
+    }
 }
 

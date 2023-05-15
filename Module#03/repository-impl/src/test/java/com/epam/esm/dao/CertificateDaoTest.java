@@ -7,8 +7,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -43,11 +41,7 @@ class CertificateDaoTest {
     @Mock
     private EntityTransaction transaction;
     @Mock
-    private SessionFactory sessionFactory;
-    @Mock
     private EntityManager entityManager;
-    @Mock
-    private Session session;
     @Mock
     private TypedQuery<Tag> typedQuery;
 
@@ -64,29 +58,15 @@ class CertificateDaoTest {
     @BeforeEach
     @SuppressWarnings("unchecked")
     void setUp() {
-        sessionFactory = mock(SessionFactory.class);
-        session = mock(Session.class);
         entityManager = mock(EntityManager.class);
         transaction = mock(EntityTransaction.class);
 
         typedQuery = mock(TypedQuery.class);
         query = mock(Query.class);
 
-        Certificate certificate = Certificate.builder()
-                .id(1L)
-                .name("Winter")
-                .description("Season 1")
-                .price(BigDecimal.valueOf(10.0))
-                .duration(30)
-                .build();
+        Certificate certificate = Certificate.builder().id(1L).name("Winter").description("Season 1").price(BigDecimal.valueOf(10.0)).duration(30).build();
 
-        Certificate certificate2 = Certificate.builder()
-                .id(2L)
-                .name("Summer")
-                .description("Season 2")
-                .price(BigDecimal.valueOf(20.0))
-                .duration(45)
-                .build();
+        Certificate certificate2 = Certificate.builder().id(2L).name("Summer").description("Season 2").price(BigDecimal.valueOf(20.0)).duration(45).build();
 
         certificates = Arrays.asList(certificate, certificate2);
 
@@ -96,29 +76,15 @@ class CertificateDaoTest {
         tag2 = Tag.builder().build();
     }
 
-    @CsvSource({
-            "1, Winter, Season 1, 10.0, 30",
-            "2, Summer, Season 2, 20.0, 45",
-            "3, Spring, Season 3, 30.0, 60",
-            "4, Autumn, Season 4, 40.0, 75"})
+    @CsvSource({"1, Winter, Season 1, 10.0, 30", "2, Summer, Season 2, 20.0, 45", "3, Spring, Season 3, 30.0, 60", "4, Autumn, Season 4, 40.0, 75"})
     @DisplayName("Test find certificate by ID")
     @ParameterizedTest(name = "Test #{index} - ID: {0}, Name: {1}, Description: {2}")
     void testFindById(Long id, String name, String description, BigDecimal price, int duration) {
 
-        Certificate certificate = Certificate.builder()
-                .id(id)
-                .name(name)
-                .description(description)
-                .price(price)
-                .tags(new HashSet<>(Arrays.asList(tag1, tag2)))
-                .duration(duration)
-                .build();
+        Certificate certificate = Certificate.builder().id(id).name(name).description(description).price(price).tags(new HashSet<>(Arrays.asList(tag1, tag2))).duration(duration).build();
 
-        SessionFactory sessionFactory = mock(SessionFactory.class);
-        Session session = mock(Session.class);
-        when(entityManagerFactory.unwrap(SessionFactory.class)).thenReturn(sessionFactory);
-        when(sessionFactory.openSession()).thenReturn(session);
-        when(session.get(Certificate.class, id)).thenReturn(certificate);
+        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(entityManager.find(Certificate.class, id)).thenReturn(certificate);
 
         Certificate actual = certificateDao.findById(id);
 
@@ -130,82 +96,56 @@ class CertificateDaoTest {
         assertEquals(duration, actual.getDuration());
         assertEquals(certificate, actual);
 
-        verify(session).get(Certificate.class, id);
+        verify(entityManager).find(Certificate.class, id);
     }
+
 
     @Test
     void testGetAll() {
-        SessionFactory sessionFactory = mock(SessionFactory.class);
-        Session session = mock(Session.class);
-        when(entityManagerFactory.unwrap(SessionFactory.class)).thenReturn(sessionFactory);
-        when(sessionFactory.openSession()).thenReturn(session);
 
-        when(session.createQuery(CertificateQueries.SELECT_ALL_WITH_TAGS, Certificate.class)).thenReturn(query);
+        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(entityManager.createQuery(CertificateQueries.SELECT_ALL_WITH_TAGS, Certificate.class)).thenReturn(query);
         when(query.getResultList()).thenReturn(certificates);
 
         List<Certificate> actualCertificates = certificateDao.getAll();
 
         assertEquals(certificates, actualCertificates);
+
+        verify(entityManagerFactory).createEntityManager();
+        verify(entityManager).createQuery(CertificateQueries.SELECT_ALL_WITH_TAGS, Certificate.class);
     }
 
     @DisplayName("Test getAll method")
     @ParameterizedTest
-    @CsvSource({
-            "1, Winter, Season 1, 10.0, 30",
-            "2, Summer, Season 2, 20.0, 45",
-            "3, Spring, Season 3, 30.0, 60",
-            "4, Autumn, Season 4, 40.0, 75"})
-    void testGetAll(Long id, String name, String description,
-                    BigDecimal price, Integer duration) {
-        Certificate certificate = Certificate.builder()
-                .id(id)
-                .name(name)
-                .description(description)
-                .price(price)
-                .duration(duration)
-                .build();
+    @CsvSource({"1, Winter, Season 1, 10.0, 30", "2, Summer, Season 2, 20.0, 45", "3, Spring, Season 3, 30.0, 60", "4, Autumn, Season 4, 40.0, 75"})
+    void testGetAll(Long id, String name, String description, BigDecimal price, Integer duration) {
+        Certificate certificate = Certificate.builder().id(id).name(name).description(description).price(price).duration(duration).build();
         List<Certificate> certificates = new ArrayList<>();
 
         certificates.add(certificate);
 
-        when(entityManagerFactory.unwrap(SessionFactory.class)).thenReturn(sessionFactory);
-        when(sessionFactory.openSession()).thenReturn(session);
-        when(session.createQuery(CertificateQueries.SELECT_ALL_WITH_TAGS, Certificate.class)).thenReturn(query);
+        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(entityManager.createQuery(CertificateQueries.SELECT_ALL_WITH_TAGS, Certificate.class)).thenReturn(query);
         when(query.getResultList()).thenReturn(certificates);
 
         List<Certificate> actualCertificates = certificateDao.getAll();
 
         assertEquals(certificates.size(), actualCertificates.size());
 
-        IntStream.range(0, certificates.size()).forEach(i ->
-                assertEquals(certificates.get(i),
-                        actualCertificates.get(i)));
+        IntStream.range(0, certificates.size()).forEach(i -> assertEquals(certificates.get(i), actualCertificates.get(i)));
 
-        verify(entityManagerFactory).unwrap(SessionFactory.class);
-        verify(sessionFactory).openSession();
-        verify(session).createQuery(
-                CertificateQueries.SELECT_ALL_WITH_TAGS,
-                Certificate.class);
+        verify(entityManagerFactory).createEntityManager();
+        verify(entityManager).createQuery(CertificateQueries.SELECT_ALL_WITH_TAGS, Certificate.class);
 
     }
 
+
     @DisplayName("Save certificate")
     @ParameterizedTest(name = "Test #{index} - ID: {0}, Name: {1}, Description: {2}")
-    @CsvSource({
-            "1, Winter, Season 1, 10.0, 30",
-            "2, Summer, Season 2, 20.0, 45",
-            "3, Spring, Season 3, 30.0, 60",
-            "4, Autumn, Season 4, 40.0, 75"})
-    void testSave(Long id, String name, String description,
-                  BigDecimal price, int duration) {
+    @CsvSource({"1, Winter, Season 1, 10.0, 30", "2, Summer, Season 2, 20.0, 45", "3, Spring, Season 3, 30.0, 60", "4, Autumn, Season 4, 40.0, 75"})
+    void testSave(Long id, String name, String description, BigDecimal price, int duration) {
 
-        Certificate certificate = Certificate.builder()
-                .id(id)
-                .name(name)
-                .description(description)
-                .price(price)
-                .duration(duration)
-                .build();
+        Certificate certificate = Certificate.builder().id(id).name(name).description(description).price(price).duration(duration).build();
 
         Tag tag = new Tag();
         tag.setName("Seasonal");

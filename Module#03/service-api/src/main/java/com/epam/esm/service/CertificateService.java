@@ -18,8 +18,6 @@ public interface CertificateService {
 
     void delete(Long id);
 
-    List<CertificateDto> getAllBy(Criteria criteria);
-
     CertificateDto update(CertificateDto dto, Long id);
 
     List<CertificateWithoutTagDto> getAllWithoutTags(Criteria criteria);
@@ -27,4 +25,8 @@ public interface CertificateService {
     CertificateDto save(CertificateDto dto);
 
     List<TagDto> findTagsByCertificateId(Long id);
+
+    List<CertificateDto> findCertificatesByTags(List<String> tagNames);
+
+    List<CertificateDto> getCertificatesByUserId(Long userId);
 }

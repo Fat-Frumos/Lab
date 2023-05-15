@@ -62,8 +62,6 @@ class TestCertificateMapper {
         assertEquals(description, entity.getDescription());
         assertEquals(price, entity.getPrice());
         assertEquals(duration, entity.getDuration());
-//        assertEquals(createDate, entity.getCreateDate());
-//        assertEquals(lastUpdateDate, entity.getLastUpdateDate());
     }
 
     @DisplayName("Should map CertificateDto to Certificate entity")

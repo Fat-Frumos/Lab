@@ -16,6 +16,7 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
 
+import javax.swing.SortOrder;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Arrays;
@@ -111,12 +112,13 @@ class CertificateAssemblerTest {
                 .build();
 
         Iterable<CertificateDto> certificateDtos = () -> singletonList(certificateDto).iterator();
-        when(certificateController.getAll(FilterParams.ID, 0,25)).thenReturn(CollectionModel.of(
+        when(certificateController.getAll(SortOrder.UNSORTED, FilterParams.ID, 0,25)).thenReturn(CollectionModel.of(
                 certificateAssembler.toCollectionModel(certificateDtos),
-                linkTo(methodOn(CertificateController.class).getAll(FilterParams.ID, 0,25)).withSelfRel()
+                linkTo(methodOn(CertificateController.class).getAll(SortOrder.UNSORTED, FilterParams.ID, 0,25)).withSelfRel()
         ));
 
-        CollectionModel<EntityModel<Linkable>> result = certificateController.getAll(FilterParams.ID, 0,25);
+        CollectionModel<EntityModel<Linkable>> result =
+                certificateController.getAll(SortOrder.UNSORTED, FilterParams.ID, 0,25);
 
         assertEquals(1, result.getContent().size());
         assertNotNull(result.getLink("self"));
@@ -180,7 +182,5 @@ class CertificateAssemblerTest {
         Link tagsLink = model.getLink("tags").orElse(null);
         assertNotNull(tagsLink);
         assertEquals("/certificates/" + dto.getId() + "/tags", tagsLink.getHref());
-//        Link deleteLink = model.getLink("delete").orElse(null);
-//        assertEquals("/certificates/" + dto.getId(), deleteLink.getHref());
     }
 }

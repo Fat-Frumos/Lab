@@ -12,7 +12,4 @@ public class ResponseMessage {
 
         private String errorMessage;
         private HttpStatus statusCode;
-
-//        private String stackTrace;
-//        private List<ValidationError> errors;
 }

@@ -6,7 +6,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.init.DataSourceInitializer;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -49,8 +52,7 @@ public class PersistenceConfig {
 //            final DataSource dataSource) {
 //        ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
 //        resourceDatabasePopulator.addScript(new ClassPathResource("db/schema.sql"));
-////        resourceDatabasePopulator.addScript(new ClassPathResource("db/data.sql"));
-//
+//        resourceDatabasePopulator.addScript(new ClassPathResource("db/data.sql"));
 //        DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
 //        dataSourceInitializer.setDataSource(dataSource);
 //        dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
@@ -84,11 +86,9 @@ public class PersistenceConfig {
 
     @Bean
     public PlatformTransactionManager transactionManager(
-            final LocalContainerEntityManagerFactoryBean factoryBean,
-            final DataSource dataSource) {
+            final LocalContainerEntityManagerFactoryBean factoryBean) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(factoryBean.getObject());
-        transactionManager.setDataSource(dataSource);
         return transactionManager;
     }
 }

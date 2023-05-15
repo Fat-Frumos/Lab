@@ -96,21 +96,9 @@ class CertificateServiceTest {
                 .tags(new HashSet<>()).build());
     }
 
-    @ParameterizedTest
-    @CsvSource({"ID,1", "PAGE,1", "SIZE,25"})
-    @DisplayName("Get all certificates by criteria")
-    void getAllBy(FilterParams filterParams, int value) {
-        Criteria criteria = Criteria.builder().build();
-        criteria.addParam(filterParams, value);
-        when(certificateDao.getAllBy(criteria)).thenReturn(emptyList());
-        service.getAllBy(criteria);
-        verify(certificateDao).getAllBy(criteria);
-    }
-
     @Test
     @DisplayName("Throw CertificateNotFoundException when updating non-existent certificate")
     void testUpdateNonExistentCertificate() {
-        // given
         Long id = 1L;
         CertificateDto dto = CertificateDto.builder()
                 .id(id)

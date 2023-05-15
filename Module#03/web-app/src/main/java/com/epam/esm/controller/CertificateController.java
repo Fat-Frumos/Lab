@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.swing.SortOrder;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -47,6 +48,7 @@ public class CertificateController {
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     public CollectionModel<EntityModel<Linkable>> getAll(
+            @RequestParam(defaultValue = "UNSORTED") SortOrder sort,
             @RequestParam(defaultValue = "ID") FilterParams params,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "25") int size) {
@@ -54,19 +56,17 @@ public class CertificateController {
                 certificateService.getAllWithoutTags(
                         Criteria.builder()
                                 .filterParams(params)
+                                .sortOrder(sort)
                                 .page(page)
                                 .size(size)
                                 .build()));
     }
 
-    @GetMapping(value = "/",
-            produces = APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/", produces = APPLICATION_JSON_VALUE)
     public CollectionModel<EntityModel<Linkable>> search(
-            @RequestBody(required = false) Criteria criteria) {
-        criteria = criteria != null ? criteria
-                : Criteria.builder().page(0).size(25).build();
+            @RequestParam(required = false) List<String> tagNames) {
         return assembler.toCollectionModel(
-                certificateService.getAllBy(criteria));
+                certificateService.findCertificatesByTags(tagNames));
     }
 
     @PatchMapping(value = "/{id}",

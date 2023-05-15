@@ -78,14 +78,13 @@ public class Certificate implements Serializable {
     @JsonManagedReference
     private Set<Tag> tags = new HashSet<>();
 
-
-//    @Builder.Default
-//    @ToString.Exclude
-//    @EqualsAndHashCode.Exclude
-//    @ManyToMany(
-//            mappedBy = "certificates",
-//            cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-//    private Set<Order> orders = new HashSet<>();
+    @Builder.Default
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @ManyToMany(
+            mappedBy = "certificates",
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<Order> orders = new HashSet<>();
 
     public Certificate addTag(
             final Tag tag) {

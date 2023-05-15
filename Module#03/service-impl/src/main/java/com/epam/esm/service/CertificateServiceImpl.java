@@ -12,10 +12,13 @@ import com.epam.esm.exception.InvalidNumberException;
 import com.epam.esm.mapper.CertificateMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 @Transactional
@@ -62,13 +65,6 @@ public class CertificateServiceImpl implements CertificateService {
     }
 
     @Override
-    @Transactional(readOnly = true)
-    public List<CertificateDto> getAllBy(final Criteria criteria) {
-        return mapper.toDtoList(
-                certificateDao.getAllBy(criteria));
-    }
-
-    @Override
     @Transactional(rollbackFor = Exception.class)
     public CertificateDto update(
             final CertificateDto dto,
@@ -86,13 +82,12 @@ public class CertificateServiceImpl implements CertificateService {
     @Transactional(readOnly = true)
     public List<CertificateWithoutTagDto> getAllWithoutTags(
             final Criteria criteria) {
-        validate(criteria);
         return mapper.toDtoWithoutTagsList(
                 certificateDao.getAll(criteria));
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class, isolation = Isolation.SERIALIZABLE)
     public CertificateDto save(final CertificateDto dto) {
         if (certificateDao.getByName(dto.getName()).isPresent()) {
             throw new CertificateAlreadyExistsException(dto.getName());
@@ -107,7 +102,26 @@ public class CertificateServiceImpl implements CertificateService {
         return certificateDao.findTagsByCertificateId(id);
     }
 
-    private void validate(Criteria criteria) {
+    @Override
+    @Transactional(readOnly = true)
+    public List<CertificateDto> findCertificatesByTags(List<String> tagNames) {
+        return tagNames != null
+                ? mapper.toDtoList(certificateDao.findByTagNames(tagNames))
+                : mapper.toDtoList(certificateDao.getAll(Criteria.builder().page(0).size(25).build()));
+    }
+
+    @Override
+    public List<CertificateDto> getCertificatesByUserId(Long id) {
+        return certificateDao.getCertificatesByUserId(id)
+                .stream()
+                .map(mapper::toDto)
+                .collect(toList());
+    }
+
+    private void validate(Criteria criteria) { //TODO
+
+        Objects.requireNonNull(criteria);
+
         if (criteria.getFilterParams() != null && criteria.getFilterParams().equals(FilterParams.PAGE)
                 && criteria.getPage() <= 0) {
             throw new InvalidNumberException("Invalid page number");

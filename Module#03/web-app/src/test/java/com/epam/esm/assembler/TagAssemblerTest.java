@@ -21,22 +21,17 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-//@SpringBootTest
 @ExtendWith(MockitoExtension.class)
 class TagAssemblerTest {
-    @MockBean
-    private TagService tagService;
+
     @Mock
     private TagController tagController = mock(TagController.class);
     private final TagAssembler tagAssembler = new TagAssembler();
-    private MockMvc mockMvc;
 
     @ParameterizedTest
     @DisplayName("Test toModel method of TagAssembler")
@@ -95,33 +90,4 @@ class TagAssemblerTest {
         assertEquals(expectedModels.get(1).getContent(), actualModels.get(1).getContent());
         assertEquals(expectedModels.get(2).getContent(), actualModels.get(2).getContent());
     }
-
-//    @ParameterizedTest(name = "Tag id={0} name={1}")
-//    @CsvSource({
-//            "1, Winter",
-//            "2, Summer",
-//            "3, Spring",
-//            "4, Autumn"
-//    })
-//    @DisplayName("Should create correct links for Tag with given id")
-//    void shouldCreateCorrectLinksForTag(Long id, String name) {
-//        TagDto tagDto = TagDto.builder().id(id).name(name).build();
-//        Mockito.when(tagService.getById(id)).thenReturn(tagDto);
-//        TagAssembler assembler = new TagAssembler();
-//        TagController tagController = new TagController(tagService, assembler);
-//        EntityModel<Linkable> model = tagController.getById(id);
-//        Link selfLink = linkTo(methodOn(TagController.class).getById(id)).withSelfRel();
-//        Link deleteLink = linkTo(methodOn(TagController.class).delete(id)).withRel("delete");
-//        EntityModel<Linkable> actualModel = tagAssembler.toModel(tagDto);
-//        CollectionModel<EntityModel<Linkable>> entityModels = tagController.getAll();
-//
-//        assertNotNull(model);
-//        assertNotNull(entityModels);
-//        assertEquals(model, actualModel);
-//        assertNotNull(model.getLink("self"));
-//        assertNotNull(model.getLink("all-tags"));
-//        assertEquals(selfLink, model.getLink("self").get());
-//        assertEquals(deleteLink, model.getLink("delete").get());
-//        verify(tagService, times(1)).getById(id);
-//    }
 }
