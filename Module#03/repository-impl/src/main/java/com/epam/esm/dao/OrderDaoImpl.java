@@ -1,10 +1,12 @@
 package com.epam.esm.dao;
 
 import com.epam.esm.criteria.Criteria;
+import com.epam.esm.entity.Certificate;
 import com.epam.esm.entity.Order;
 import com.epam.esm.entity.Tag;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.OrderNotFoundException;
+import jakarta.persistence.EntityGraph;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityNotFoundException;
@@ -15,28 +17,42 @@ import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Join;
-import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
+
+import static com.epam.esm.criteria.CertificateQueries.SELECT_ORDER_BY_NAME;
 
 @Repository
 @RequiredArgsConstructor
 public class OrderDaoImpl implements OrderDao {
 
     @PersistenceUnit
-    private final EntityManagerFactory entityManagerFactory;
+    private final EntityManagerFactory factory;
 
     @Override
-    public List<Order> getAll() {
-        try (EntityManager entityManager =
-                     entityManagerFactory.createEntityManager()) {
-            return entityManager
-                    .createQuery("SELECT o FROM Order o", Order.class)
+    public List<Order> getAll(Criteria criteria) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
+            CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+            CriteriaQuery<Order> query = builder.createQuery(Order.class);
+            Root<Order> root = query.from(Order.class);
+            query.select(root);
+
+            EntityGraph<Order> entityGraph = entityManager.createEntityGraph(Order.class);
+            entityGraph.addAttributeNodes("user");
+            entityGraph.addAttributeNodes("certificates");
+            entityGraph.addSubgraph("certificates").addAttributeNodes("tags");
+
+            return entityManager.createQuery(query)
+                    .setHint("jakarta.persistence.fetchgraph", entityGraph)
+                    .setFirstResult(criteria.getSize() * criteria.getPage())
+                    .setMaxResults(criteria.getSize())
                     .getResultList();
         }
     }
@@ -44,7 +60,7 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public Optional<Order> getById(final Long id) {
         try (EntityManager entityManager =
-                     entityManagerFactory.createEntityManager()) {
+                     factory.createEntityManager()) {
             return Optional.of(entityManager.find(Order.class, id));
         }
     }
@@ -52,9 +68,9 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public Optional<Order> getByName(final String name) {
         try (EntityManager entityManager =
-                     entityManagerFactory.createEntityManager()) {
+                     factory.createEntityManager()) {
             TypedQuery<Order> query = entityManager.createQuery(
-                    "SELECT o FROM Order o WHERE o.user.username = :username",
+                    SELECT_ORDER_BY_NAME,
                     Order.class);
             query.setParameter("username", name);
             List<Order> orders = query.getResultList();
@@ -64,10 +80,27 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public Order save(final Order order) {
-        try (EntityManager entityManager =
-                     entityManagerFactory.createEntityManager()) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
             EntityTransaction transaction = entityManager.getTransaction();
             transaction.begin();
+
+            User managedUser = entityManager.find(User.class, order.getUser().getId());
+
+            if (managedUser == null) {
+                throw new EntityNotFoundException("User not found");
+            }
+            order.setUser(managedUser);
+
+            Set<Certificate> managedCertificates = new HashSet<>();
+
+            for (Certificate certificate : order.getCertificates()) {
+                Certificate managedCertificate = entityManager.find(Certificate.class, certificate.getId());
+                if (managedCertificate == null) {
+                    throw new EntityNotFoundException("Certificate not found: " + certificate.getId());
+                }
+                managedCertificates.add(managedCertificate);
+            }
+            order.setCertificates(managedCertificates);
             entityManager.persist(order);
             complete(transaction);
         }
@@ -77,7 +110,7 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public void delete(final Long id) {
         try (EntityManager entityManager =
-                     entityManagerFactory.createEntityManager()) {
+                     factory.createEntityManager()) {
             EntityTransaction transaction = entityManager.getTransaction();
             transaction.begin();
             Order order = entityManager.find(Order.class, id);
@@ -94,25 +127,22 @@ public class OrderDaoImpl implements OrderDao {
             final User user,
             final Criteria criteria) {
         try (EntityManager entityManager =
-                     entityManagerFactory.createEntityManager()) {
+                     factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Order> query = builder.createQuery(Order.class);
             Root<Order> root = query.from(Order.class);
-            Predicate predicate = builder.conjunction();
-            predicate = builder.and(predicate, builder.equal(root.get("user"), user));
 
-            if (criteria.getTags() != null && !criteria.getTags().isEmpty()) {
-                predicate = builder.and(predicate, root.join("tags").in(criteria.getTags()));
-            }
-            query.select(root).where(predicate);
-            TypedQuery<Order> typedQuery = entityManager.createQuery(query);
-            if (criteria.getSize() != null) {
-                typedQuery.setMaxResults(criteria.getSize());
-            }
-            if (criteria.getPage() != null && criteria.getSize() != null) {
-                typedQuery.setFirstResult(criteria.getPage() * criteria.getSize());
-            }
-            return typedQuery.getResultList();
+            EntityGraph<Order> graph = entityManager.createEntityGraph(Order.class);
+            graph.addAttributeNodes("user");
+            graph.addSubgraph("certificate").addAttributeNodes("tags");
+
+            query.where(builder.equal(root.get("user"), user));
+
+            return entityManager.createQuery(query)
+                    .setHint("jakarta.persistence.fetchgraph", graph)
+                    .setMaxResults(criteria.getSize())
+                    .setFirstResult(criteria.getPage() * criteria.getSize())
+                    .getResultList();
         }
     }
 
@@ -120,7 +150,7 @@ public class OrderDaoImpl implements OrderDao {
             final User user,
             final Long orderId) {
         try (EntityManager entityManager =
-                     entityManagerFactory.createEntityManager()) {
+                     factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Order> query = builder.createQuery(Order.class);
             Root<Order> root = query.from(Order.class);
@@ -133,7 +163,7 @@ public class OrderDaoImpl implements OrderDao {
     public Optional<Tag> getMostUsedTagBy(
             final Long userId) {
         try (EntityManager entityManager =
-                     entityManagerFactory.createEntityManager()) {
+                     factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Tuple> query = builder.createTupleQuery();
             Root<Order> root = query.from(Order.class);
@@ -149,7 +179,7 @@ public class OrderDaoImpl implements OrderDao {
     public List<Order> findOrdersByUserId(
             final Long userId) {
         try (EntityManager entityManager =
-                     entityManagerFactory.createEntityManager()) {
+                     factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Order> query = builder.createQuery(Order.class);
             Root<Order> root = query.from(Order.class);

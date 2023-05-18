@@ -5,6 +5,7 @@ import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Certificate;
 
 import java.util.List;
+import java.util.Set;
 
 public interface CertificateDao extends Dao<Certificate> {
 
@@ -20,5 +21,5 @@ public interface CertificateDao extends Dao<Certificate> {
 
     List<Certificate> getCertificatesByUserId(Long userId);
 
-    List<Certificate> findAllByIds(List<Long> certificateIds);
+    Set<Certificate> findAllByIds(Set<Long> certificateIds);
 }

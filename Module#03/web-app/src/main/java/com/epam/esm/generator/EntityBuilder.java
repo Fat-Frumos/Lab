@@ -1,6 +1,7 @@
 package com.epam.esm.generator;
 
 import com.epam.esm.entity.Certificate;
+import com.epam.esm.entity.Order;
 import com.epam.esm.entity.Tag;
 import com.epam.esm.entity.User;
 import lombok.extern.slf4j.Slf4j;
@@ -40,6 +41,7 @@ public class EntityBuilder {
         return list.get(getRandomInt(0, RANDOM.nextInt(list.size())));
 //        return list.remove(getRandomInt(0, RANDOM.nextInt(list.size())));
     }
+
     public static List<String> extractFromUrl(
             final String url) {
         List<String> lines = new ArrayList<>();
@@ -94,7 +96,7 @@ public class EntityBuilder {
             final int max) {
         return IntStream.range(0, max)
                 .mapToObj(i -> User.builder()
-                        .username(getRandomElement(USERNAMES))
+                        .username(getRandomElement(USERNAMES) + " " + getRandomElement(USERNAMES))
                         .email(getRandomElement(USERNAMES) + "@i.ua")
                         .build())
                 .collect(toList());

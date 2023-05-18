@@ -1,5 +1,6 @@
 package com.epam.esm.dao;
 
+import com.epam.esm.criteria.Criteria;
 import com.epam.esm.entity.Tag;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
@@ -7,7 +8,6 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.PersistenceUnit;
-import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import lombok.RequiredArgsConstructor;
@@ -41,23 +41,26 @@ public class TagDaoImpl implements TagDao {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Tag> query = builder.createQuery(Tag.class);
             query.where(builder.equal(query.from(Tag.class).get("name"), name));
-            TypedQuery<Tag> typedQuery = entityManager.createQuery(query);
-            typedQuery.setMaxResults(1);
-            List<Tag> tags = typedQuery.getResultList();
-            return tags.isEmpty() ? Optional.empty() : Optional.of(tags.get(0));
+            List<Tag> tags = entityManager
+                    .createQuery(query)
+                    .setMaxResults(1)
+                    .getResultList();
+            return tags.isEmpty()
+                    ? Optional.empty()
+                    : Optional.of(tags.get(0));
         }
     }
 
     @Override
-    public List<Tag> getAll() {
+    public List<Tag> getAll(Criteria criteria) {
         try (EntityManager entityManager
                      = entityManagerFactory.createEntityManager()) {
             CriteriaQuery<Tag> query = entityManager
                     .getCriteriaBuilder()
                     .createQuery(Tag.class);
             query.select(query.from(Tag.class));
-            return entityManager.createQuery(query)
-                    .getResultList();
+            return entityManager.createQuery(query).setMaxResults(criteria.getSize())
+                    .setFirstResult(criteria.getPage() * criteria.getSize()).getResultList();
         }
     }
 

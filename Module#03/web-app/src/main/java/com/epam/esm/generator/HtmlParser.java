@@ -165,8 +165,7 @@ public class HtmlParser {
 //            tags.add(Tag.builder().name(liMatcher.group(2)).build());
             links.add(liMatcher.group(1));
         }
-        log.info("" + links.size());
-
+        log.info("Total holidays: " + links.size());
         links = links.stream()
                 .filter(l -> l.contains(match))
                 .collect(Collectors.toList());
@@ -176,8 +175,10 @@ public class HtmlParser {
             Matcher matcher = Pattern.compile("<a class=\"country-listing\".*?>(.*?)<\\/a>").matcher(getString(i));
             while (matcher.find()) {
                 holiday.add(matcher.group(1));
+                log.info(matcher.group(1));
             }
         }
+
 
 //        IntStream.range(1, tags.size()).parallel()
 //                .filter(i -> String.valueOf(links.get(i))

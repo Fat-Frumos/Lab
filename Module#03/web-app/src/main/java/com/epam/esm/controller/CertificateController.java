@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.swing.SortOrder;
 import java.util.List;
+import java.util.Set;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
@@ -99,5 +100,13 @@ public class CertificateController {
     public List<TagDto> getTagsByCertificateId(
             @PathVariable final Long id) {
         return certificateService.findTagsByCertificateId(id);
+    }
+
+    @GetMapping(value = "/{ids}")
+    public CollectionModel<EntityModel<Linkable>>
+    getCertificatesByIds(
+            @PathVariable final Set<Long> ids) {
+        return assembler.toCollectionModel(
+                certificateService.getByIds(ids));
     }
 }

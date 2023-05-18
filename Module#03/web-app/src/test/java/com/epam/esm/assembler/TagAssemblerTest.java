@@ -1,6 +1,7 @@
 package com.epam.esm.assembler;
 
 import com.epam.esm.controller.TagController;
+import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.dto.Linkable;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.service.TagService;
@@ -13,8 +14,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.test.web.servlet.MockMvc;
 
+import javax.swing.SortOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -45,7 +46,7 @@ class TagAssemblerTest {
         TagDto tagDto = TagDto.builder().id(id).name(name).build();
 
         EntityModel<TagDto> expectedModel = EntityModel.of(tagDto,
-                linkTo(methodOn(TagController.class).getAll()).withRel("tags"),
+                linkTo(methodOn(TagController.class).getAll(SortOrder.UNSORTED, FilterParams.ID, 0, 25)).withRel("tags"),
                 linkTo(methodOn(TagController.class).getById(tagDto.getId())).withSelfRel(),
                 linkTo(methodOn(TagController.class).delete(tagDto.getId())).withRel("delete"));
 
@@ -76,7 +77,7 @@ class TagAssemblerTest {
         List<EntityModel<TagDto>> expectedModels = tagDtos.stream()
                 .map(tagDto -> EntityModel.of(tagDto,
                         linkTo(methodOn(TagController.class).getById(tagDto.getId())).withSelfRel(),
-                        linkTo(methodOn(TagController.class).getAll()).withRel("tags"),
+                        linkTo(methodOn(TagController.class).getAll(SortOrder.UNSORTED, FilterParams.ID, 0, 25)).withRel("tags"),
                         linkTo(methodOn(TagController.class).delete(tagDto.getId())).withRel("delete")))
                 .collect(toList());
 

@@ -26,6 +26,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 import static java.util.stream.Collectors.toList;
 
@@ -58,12 +59,12 @@ public class OrderServiceImpl implements OrderService {
     @Transactional(readOnly = true)
     public OrderDto createOrder(
             final Long userId,
-            final List<Long> certificateIds) {
+            final Set<Long> certificateIds) {
         User user = userDao.getById(userId)
                 .orElseThrow(() -> new UserNotFoundException(
                         String.format("User with id %d not found", userId)));
 
-        List<Certificate> certificates = certificateDao.findAllByIds(certificateIds);
+        Set<Certificate> certificates = certificateDao.findAllByIds(certificateIds);
 
         if (certificates.size() != certificateIds.size()) {
             throw new CertificateNotFoundException("One or more certificates not found");
@@ -88,18 +89,16 @@ public class OrderServiceImpl implements OrderService {
     public List<OrderDto> getUserOrders(
             final User user,
             final Criteria criteria) {
-        return orderDao.getUserOrders(user, criteria)
-                .stream()
-                .map(orderMapper::toDto)
-                .collect(toList());
+        return orderMapper.toDtoList(
+                orderDao.getUserOrders(user, criteria));
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<OrderDto> getAll() {
-        return orderDao.getAll().stream()
-                .map(orderMapper::toDto)
-                .collect(toList());
+    public List<OrderDto> getAll(
+            final Criteria criteria) {
+        return orderMapper.toDtoList(
+                orderDao.getAll(criteria));
     }
 
     @Override
@@ -125,9 +124,9 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional(readOnly = true)
     public List<CertificateDto> getCertificatesByTags(
-            final Criteria criteria) {
+            final List<String> tagNames) {
         return certificateDao
-                .getAll(criteria)
+                .findByTagNames(tagNames)
                 .stream()
                 .map(certificateMapper::toDto)
                 .collect(toList());

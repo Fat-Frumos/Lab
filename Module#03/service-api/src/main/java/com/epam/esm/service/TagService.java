@@ -1,5 +1,6 @@
 package com.epam.esm.service;
 
+import com.epam.esm.criteria.Criteria;
 import com.epam.esm.dto.TagDto;
 import org.springframework.validation.annotation.Validated;
 
@@ -11,7 +12,7 @@ public interface TagService {
 
     TagDto getByName(String name);
 
-    List<TagDto> getAll();
+    List<TagDto> getAll(Criteria criteria);
 
     TagDto save(TagDto tag);
 

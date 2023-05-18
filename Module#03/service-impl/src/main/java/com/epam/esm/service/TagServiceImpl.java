@@ -1,5 +1,6 @@
 package com.epam.esm.service;
 
+import com.epam.esm.criteria.Criteria;
 import com.epam.esm.dao.TagDao;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.exception.TagAlreadyExistsException;
@@ -42,8 +43,8 @@ public class TagServiceImpl implements TagService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<TagDto> getAll() { //TODO:
-        return tagDao.getAll()
+    public List<TagDto> getAll(Criteria criteria) { //TODO: criteria
+        return tagDao.getAll(criteria)
                 .stream()
                 .map(tagMapper::toDto)
                 .collect(toList());

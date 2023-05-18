@@ -7,12 +7,13 @@ import com.epam.esm.dto.TagDto;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
+import java.util.Set;
 
 @Validated
 public interface CertificateService {
     CertificateDto getById(Long id);
 
-    List<CertificateDto> getAll();
+    List<CertificateDto> getAll(Criteria criteria);
 
     CertificateDto getByName(String name);
 
@@ -29,4 +30,6 @@ public interface CertificateService {
     List<CertificateDto> findCertificatesByTags(List<String> tagNames);
 
     List<CertificateDto> getCertificatesByUserId(Long userId);
+
+    Set<CertificateDto> getByIds(Set<Long> ids);
 }

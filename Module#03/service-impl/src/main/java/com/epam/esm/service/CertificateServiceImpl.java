@@ -1,22 +1,23 @@
 package com.epam.esm.service;
 
 import com.epam.esm.criteria.Criteria;
-import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.CertificateWithoutTagDto;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.exception.CertificateAlreadyExistsException;
 import com.epam.esm.exception.CertificateNotFoundException;
-import com.epam.esm.exception.InvalidNumberException;
 import com.epam.esm.mapper.CertificateMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import static java.util.stream.Collectors.toList;
 
@@ -39,9 +40,10 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<CertificateDto> getAll() {
+    public List<CertificateDto> getAll(
+            final Criteria criteria) {
         return mapper.toDtoList(
-                certificateDao.getAll());
+                certificateDao.getAll(criteria));
     }
 
     @Override
@@ -104,35 +106,26 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<CertificateDto> findCertificatesByTags(List<String> tagNames) {
+    public List<CertificateDto> findCertificatesByTags(
+            final List<String> tagNames) {
         return tagNames != null
                 ? mapper.toDtoList(certificateDao.findByTagNames(tagNames))
                 : mapper.toDtoList(certificateDao.getAll(Criteria.builder().page(0).size(25).build()));
     }
 
     @Override
-    public List<CertificateDto> getCertificatesByUserId(Long id) {
+    public List<CertificateDto> getCertificatesByUserId(
+            final Long id) {
         return certificateDao.getCertificatesByUserId(id)
                 .stream()
                 .map(mapper::toDto)
                 .collect(toList());
     }
 
-    private void validate(Criteria criteria) { //TODO
-
-        Objects.requireNonNull(criteria);
-
-        if (criteria.getFilterParams() != null && criteria.getFilterParams().equals(FilterParams.PAGE)
-                && criteria.getPage() <= 0) {
-            throw new InvalidNumberException("Invalid page number");
-        }
-        if (criteria.getFilterParams() != null && criteria.getFilterParams().equals(FilterParams.SIZE)
-                && (criteria.getSize() <= 0 || criteria.getSize() > 100)) {
-            throw new InvalidNumberException("Invalid page size");
-        }
-        if (criteria.getFilterParams() != null && criteria.getFilterParams().equals(FilterParams.DATE)
-                && !"create_date".equalsIgnoreCase(criteria.getParamsMap().get(FilterParams.DATE).toString())) {
-            throw new InvalidNumberException("Invalid date by parameter");
-        }
+    @Override
+    public Set<CertificateDto> getByIds(
+            final Set<Long> ids) {
+        return new HashSet<>(mapper.toDtoList(
+                new ArrayList<>(certificateDao.findAllByIds(ids))));
     }
 }

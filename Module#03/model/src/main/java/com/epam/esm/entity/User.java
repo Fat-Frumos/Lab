@@ -3,6 +3,7 @@ package com.epam.esm.entity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -39,6 +40,18 @@ public class User implements Serializable {
     @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER,
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
     private Set<Order> orders = new HashSet<>();
+
+    public void addOrder(Order order) {
+        if (orders == null) {
+            this.orders = new HashSet<>();
+        }
+        if (order != null) {
+            this.orders.add(order);
+        }
+    }
 }

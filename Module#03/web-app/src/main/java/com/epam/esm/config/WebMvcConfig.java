@@ -85,19 +85,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 });
     }
 
-//    @Bean
-//    public ServletRegistrationBean<DispatcherServlet> dispatcherServletRegistration() {
-//        DispatcherServlet dispatcherServlet = new DispatcherServlet();
-//        ServletRegistrationBean<DispatcherServlet> registration = new ServletRegistrationBean<>(dispatcherServlet, contextPath);
-//        registration.setName(DispatcherServletAutoConfiguration.DEFAULT_DISPATCHER_SERVLET_BEAN_NAME);
-//        return registration;
-//    }
-
-//    @Bean
-//    public DispatcherServletPath dispatcherServletPath() {
-//        return () -> "";
-//    }
-
     @Bean
     public SimpleUrlHandlerMapping faviconHandlerMapping() {
         SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();

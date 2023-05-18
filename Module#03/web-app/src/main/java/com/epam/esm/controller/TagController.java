@@ -1,6 +1,8 @@
 package com.epam.esm.controller;
 
 import com.epam.esm.assembler.TagAssembler;
+import com.epam.esm.criteria.Criteria;
+import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.dto.Linkable;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.service.TagService;
@@ -15,9 +17,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+
+import javax.swing.SortOrder;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
@@ -39,9 +44,19 @@ public class TagController {
     }
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
-    public CollectionModel<EntityModel<Linkable>> getAll() {
+    public CollectionModel<EntityModel<Linkable>> getAll(
+            @RequestParam(defaultValue = "UNSORTED") SortOrder sort,
+            @RequestParam(defaultValue = "ID") FilterParams params,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "25") int size) {
         return tagAssembler.toCollectionModel(
-                tagService.getAll());
+                tagService.getAll(Criteria
+                        .builder()
+                        .filterParams(params)
+                        .sortOrder(sort)
+                        .page(page)
+                        .size(size)
+                        .build()));
     }
 
     @ResponseStatus(CREATED)

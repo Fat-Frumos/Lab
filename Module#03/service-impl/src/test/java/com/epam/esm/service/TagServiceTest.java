@@ -1,5 +1,7 @@
 package com.epam.esm.service;
 
+import com.epam.esm.criteria.Criteria;
+import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.dao.TagDao;
 import com.epam.esm.dao.TagDaoImpl;
 import com.epam.esm.dto.TagDto;
@@ -17,6 +19,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import javax.swing.SortOrder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -48,6 +51,12 @@ class TagServiceTest {
     TagDto tagDto = TagDto.builder().name(tagName).build();
     Long id = 1L;
     Tag tag = Tag.builder().id(id).name(tagName).build();
+
+    Criteria criteria = Criteria.builder()
+            .page(25)
+            .size(0)
+            .sortOrder(SortOrder.ASCENDING)
+            .build();
 
     @BeforeEach
     void setup() {
@@ -112,23 +121,23 @@ class TagServiceTest {
     @Test
     @DisplayName("Should return all tags")
     void testGetAllShouldReturnAllTags() {
-        when(tagDao.getAll()).thenReturn(tags);
+        when(tagDao.getAll(criteria)).thenReturn(tags);
         when(tagMapper.toDto(any(Tag.class))).thenReturn(
                 TagDto.builder().id(tags.get(0).getId()).name(tags.get(0).getName()).build(),
                 TagDto.builder().id(tags.get(1).getId()).name(tags.get(1).getName()).build(),
                 TagDto.builder().id(tags.get(2).getId()).name(tags.get(2).getName()).build()
         );
-        List<TagDto> actualTagDtos = tagService.getAll();
+        List<TagDto> actualTagDtos = tagService.getAll(criteria);
         IntStream.range(0, actualTagDtos.size()).forEach(i -> assertEquals(tagDtos.get(i), actualTagDtos.get(i)));
     }
 
     @Test
     @DisplayName("Should return all tags")
     void testGetAllShouldReturnAllTag() {
-        when(tagDao.getAll()).thenReturn(tags);
+        when(tagDao.getAll(criteria)).thenReturn(tags);
         when(tagMapper.toDto(any())).thenReturn(tagDtos.get(0), tagDtos.get(1), tagDtos.get(2));
-        assertEquals(tagDtos, tagService.getAll());
-        verify(tagDao, times(1)).getAll();
+        assertEquals(tagDtos, tagService.getAll(criteria));
+        verify(tagDao, times(1)).getAll(criteria);
         verify(tagMapper, times(3)).toDto(any());
     }
 
@@ -137,12 +146,12 @@ class TagServiceTest {
     void testGetAllWhenNoTags() {
         List<Tag> tags = Collections.emptyList();
         List<TagDto> tagDtos = Collections.emptyList();
-        when(tagDao.getAll()).thenReturn(tags);
+        when(tagDao.getAll(criteria)).thenReturn(tags);
 
-        List<TagDto> result = tagService.getAll();
+        List<TagDto> result = tagService.getAll(criteria);
 
         assertEquals(tagDtos, result);
-        verify(tagDao, times(1)).getAll();
+        verify(tagDao, times(1)).getAll(criteria);
         verify(tagMapper, times(0)).toDto(any());
     }
 
@@ -150,8 +159,8 @@ class TagServiceTest {
     @DisplayName("Should return empty list when no tags are found")
     @MethodSource("provideEmptyTagLists")
     void testGetAllShouldReturnEmptyList(List<Tag> emptyTagList) {
-        when(tagDao.getAll()).thenReturn(emptyTagList);
-        List<TagDto> actualTagDtos = tagService.getAll();
+        when(tagDao.getAll(criteria)).thenReturn(emptyTagList);
+        List<TagDto> actualTagDtos = tagService.getAll(criteria);
         assertTrue(actualTagDtos.isEmpty());
     }
 
@@ -167,11 +176,11 @@ class TagServiceTest {
     void testGetAllWhenNoTag() {
         List<Tag> tags = Collections.emptyList();
         List<TagDto> tagDtos = Collections.emptyList();
-        when(tagDao.getAll()).thenReturn(tags);
-        List<TagDto> result = tagService.getAll();
+        when(tagDao.getAll(criteria)).thenReturn(tags);
+        List<TagDto> result = tagService.getAll(criteria);
 
         assertEquals(tagDtos, result);
-        verify(tagDao, times(1)).getAll();
+        verify(tagDao, times(1)).getAll(criteria);
         verify(tagMapper, times(0)).toDto(any());
     }
 

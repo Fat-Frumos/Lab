@@ -31,7 +31,6 @@ public class CertificateAssembler
                 linkTo(methodOn(CertificateController.class).delete(dto.getId())).withRel("delete")
 //                linkTo(methodOn(CertificateController.class).create(dto)).withRel("create"),
 //                linkTo(methodOn(CertificateController.class).update(dto, dto.getId())).withRel("update"),
-
         );
     }
 
@@ -46,6 +45,5 @@ public class CertificateAssembler
                 linkTo(methodOn(CertificateController.class)
                         .getAll(SortOrder.UNSORTED, FilterParams.ID, 0, 25))
                         .withSelfRel());
-//                        .search(Criteria.builder().page(25L).offset(0L).sortBy("id").build()))
     }
 }

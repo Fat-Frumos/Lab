@@ -20,12 +20,11 @@ class CriteriaTest {
         FilterParams filterParams = FilterParams.NAME;
         Integer size = 10;
         Integer page = 1;
-        Criteria criteria = new Criteria(tags, sortOrder, filterParams, size, page);
+        Criteria criteria = new Criteria(sortOrder, filterParams, size, page);
 
         criteria.addParam(FilterParams.NAME, "value");
 
         assertEquals(criteria.getParamsMap().get(FilterParams.NAME), "value");
-        assertEquals(tags, criteria.getTags());
         assertEquals(sortOrder, criteria.getSortOrder());
         assertEquals(filterParams, criteria.getFilterParams());
         assertEquals(size, criteria.getSize());

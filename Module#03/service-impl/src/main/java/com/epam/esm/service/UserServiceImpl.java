@@ -1,7 +1,9 @@
 package com.epam.esm.service;
 
+import com.epam.esm.criteria.Criteria;
 import com.epam.esm.dao.UserDao;
 import com.epam.esm.dto.UserDto;
+import com.epam.esm.dto.UserWithoutOrderDto;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.UserNotFoundException;
 import com.epam.esm.mapper.UserMapper;
@@ -12,8 +14,6 @@ import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
-
 @Service
 @Validated
 @RequiredArgsConstructor
@@ -23,13 +23,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDto getById(Long id) {
+    public UserDto getById(
+            final Long id) {
         return mapper.toDto(findById(id));
     }
 
     @Override
     @Transactional(readOnly = true)
-    public User findById(Long id) {
+    public User findById(
+            final Long id) {
         return userDao.getById(id)
                 .orElseThrow(() -> new UserNotFoundException(
                         String.format("User not found with id %d", id)));
@@ -37,9 +39,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<UserDto> getAll() {
-        return userDao.getAll().stream()
-                .map(mapper::toDto)
-                .collect(toList());
+    public List<UserWithoutOrderDto> getAll(
+            final Criteria criteria) {
+        return mapper.toDtoWithoutOrderList(
+                userDao.getAll(criteria));
     }
 }

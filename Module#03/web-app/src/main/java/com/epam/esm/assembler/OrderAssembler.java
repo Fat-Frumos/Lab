@@ -1,39 +1,69 @@
+
 package com.epam.esm.assembler;
 
+import com.epam.esm.controller.CertificateController;
 import com.epam.esm.controller.OrderController;
+import com.epam.esm.criteria.FilterParams;
+import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.OrderDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
+import javax.swing.SortOrder;
+import java.util.stream.StreamSupport;
+
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Component
-public class OrderAssembler implements RepresentationModelAssembler<OrderDto, EntityModel<OrderDto>> {
+@RequiredArgsConstructor
+public class OrderAssembler
+        implements RepresentationModelAssembler<OrderDto, EntityModel<OrderDto>> {
+
     /**
-     * Converts the given entity into a {@code D}, which extends {@link RepresentationModelAssembler}.
+     * Converts the given entity into a {@code D},
+     * which extends {@link RepresentationModelAssembler}.
      *
-     * @param orderDto
-     * @return
+     * @param orderDto must not be {@literal null}.
+     * @return EntityModel<OrderDto>
      */
+    @NonNull
     @Override
-    public EntityModel<OrderDto> toModel(OrderDto orderDto) {
+    public EntityModel<OrderDto> toModel(@NonNull OrderDto orderDto) {
         return EntityModel.of(orderDto,
                 linkTo(methodOn(OrderController.class).getOrderById(orderDto.getId())).withSelfRel(),
-                linkTo(methodOn(OrderController.class).getAllOrders()).withRel("orders"));
+                linkTo(methodOn(CertificateController.class)
+                        .getCertificatesByIds(orderDto
+                                .getCertificateDtos()
+                                .stream()
+                                .map(CertificateDto::getId)
+                                .collect(toSet()))).withRel("certificates"));
     }
 
     /**
-     * Converts an {@link Iterable} or {@code T}s into an {@link Iterable} of {@link RepresentationModelAssembler} and wraps them
-     * in a {@link CollectionModel} instance.
+     * Converts an {@link Iterable} or {@code T}s into
+     * an {@link Iterable} of {@link RepresentationModelAssembler}
+     * and wraps them in a {@link CollectionModel} instance.
      *
      * @param entities must not be {@literal null}.
      * @return {@link CollectionModel} containing {@code D}.
      */
+    @NonNull
     @Override
-    public CollectionModel<EntityModel<OrderDto>> toCollectionModel(Iterable<? extends OrderDto> entities) {
-        return RepresentationModelAssembler.super.toCollectionModel(entities);
+    public CollectionModel<EntityModel<OrderDto>> toCollectionModel(
+            Iterable<? extends OrderDto> entities) {
+        return CollectionModel.of(StreamSupport
+                        .stream(entities.spliterator(), false)
+                        .map(this::toModel)
+                        .collect(toList()),
+                linkTo(methodOn(OrderController.class)
+                        .getAllOrders(SortOrder.UNSORTED, FilterParams.ID, 0, 25))
+                        .withSelfRel());
     }
 }

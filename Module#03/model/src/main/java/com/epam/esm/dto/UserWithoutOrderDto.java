@@ -6,9 +6,11 @@ import lombok.Data;
 
 @Data
 @Builder
-public class TagDto implements Linkable {
+public class UserWithoutOrderDto implements Linkable {
     @NotNull(message = "Id cannot be blank")
     private Long id;
     @NotNull(message = "Name cannot be blank")
-    private String name;
+    private String username;
+    @NotNull(message = "Email cannot be blank")
+    private String email;
 }

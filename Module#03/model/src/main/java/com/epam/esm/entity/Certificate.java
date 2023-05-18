@@ -33,11 +33,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "gift_certificates")
-//@NamedEntityGraph(
-//        name = "certificate.tags.user",
-//        attributeNodes = {
-//                @NamedAttributeNode("tags"),
-//                @NamedAttributeNode("orders")})
 public class Certificate implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -58,7 +53,7 @@ public class Certificate implements Serializable {
     @PrePersist
     public void prePersist() {
         createDate = new Timestamp(System.currentTimeMillis());
-        lastUpdateDate = createDate;
+        lastUpdateDate = new Timestamp(System.currentTimeMillis());
     }
 
     @PreUpdate

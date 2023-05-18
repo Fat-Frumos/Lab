@@ -14,23 +14,22 @@ import java.util.List;
         uses = {TagMapper.class},
         injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface CertificateMapper {
-        @Mapping(target = "tags", source = "tags",
-                qualifiedByName = "toTagSet")
+    @Mapping(target = "tags", source = "tags",
+            qualifiedByName = "toTagSet")
     Certificate toEntity(CertificateDto certificateDto);
 
-        @Mapping(target = "tags", source = "tags",
-                qualifiedByName = "toTagDtoSet")
+    @Mapping(target = "tags", source = "tags",
+            qualifiedByName = "toTagDtoSet")
     CertificateDto toDto(Certificate certificate);
 
-        @Mapping(target = "tags", source = "tags",
-                qualifiedByName = "toTagDtoSet")
+    @Mapping(target = "tags", source = "tags",
+            qualifiedByName = "toTagDtoSet")
     List<CertificateDto> toDtoList(List<Certificate> certificates);
 
-        @Mapping(target = "tags", source = "tags",
-                qualifiedByName = "toTagSet")
+    @Mapping(target = "tags", source = "tags",
+            qualifiedByName = "toTagSet")
     List<Certificate> toListEntity(List<CertificateDto> certificateDtos);
 
-        @Mapping(target = "tags", source = "tags",
-                qualifiedByName = "toTagDtoSet")
+    @Mapping(target = "tags", source = "tags")
     List<CertificateWithoutTagDto> toDtoWithoutTagsList(List<Certificate> certificateList);
 }

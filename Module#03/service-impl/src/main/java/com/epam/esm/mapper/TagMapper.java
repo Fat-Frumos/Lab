@@ -20,7 +20,6 @@ public interface TagMapper {
 
         @Named("toTagSet")
     default Set<Tag> toTagSet(Set<TagDto> tagDtos) {
-
         return tagDtos == null ? null
                 : tagDtos.stream()
                 .map(this::toEntity)

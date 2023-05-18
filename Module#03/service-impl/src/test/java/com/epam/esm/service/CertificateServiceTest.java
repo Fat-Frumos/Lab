@@ -28,7 +28,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
-import static java.util.Collections.emptyList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -143,10 +142,10 @@ class CertificateServiceTest {
     @Test
     @DisplayName("Get all certificates")
     void getAll() {
-        when(certificateDao.getAll()).thenReturn(certificates);
+        when(certificateDao.getAll(criteria)).thenReturn(certificates);
         when(certificateMapper.toDtoList(certificates)).thenReturn(certificateDtos);
-        assertEquals(certificateDtos, service.getAll());
-        verify(certificateDao).getAll();
+        assertEquals(certificateDtos, service.getAll(criteria));
+        verify(certificateDao).getAll(criteria);
         verify(certificateMapper).toDtoList(certificates);
     }
 
@@ -217,7 +216,7 @@ class CertificateServiceTest {
         when(certificateDao.getAll(criteria)).thenReturn(certificates);
         when(certificateMapper.toDtoWithoutTagsList(certificates)).thenReturn(certificateWithoutTagDtos);
         List<CertificateWithoutTagDto> result = service.getAllWithoutTags(criteria);
-        when(certificateDao.getAll()).thenReturn(certificates);
+        when(certificateDao.getAll(criteria)).thenReturn(certificates);
         when(certificateMapper.toDtoWithoutTagsList(certificates)).thenReturn(certificateWithoutTagDtos);
         verify(certificateDao).getAll(criteria);
         verify(certificateMapper).toDtoWithoutTagsList(certificates);
@@ -315,7 +314,7 @@ class CertificateServiceTest {
     @Test
     @DisplayName("getAllWithoutTags() method should return a list of certificates without tags")
     void testGetAllWithoutTags() {
-        when(certificateDao.getAll()).thenReturn(certificates);
+        when(certificateDao.getAll(criteria)).thenReturn(certificates);
         when(service.getAllWithoutTags(criteria))
                 .thenReturn(certificateWithoutTagDtos);
         List<CertificateWithoutTagDto> dtos = service.getAllWithoutTags(criteria);

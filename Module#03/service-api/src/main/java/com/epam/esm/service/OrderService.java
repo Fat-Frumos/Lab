@@ -9,7 +9,7 @@ import com.epam.esm.entity.Tag;
 import com.epam.esm.entity.User;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 
 public interface OrderService {
     OrderDto getUserOrder(
@@ -19,22 +19,21 @@ public interface OrderService {
     Tag getMostUsedTags(
             Long userId);
 
-    List<CertificateDto> getCertificatesByTags(Criteria criteria);
+    List<CertificateDto> getCertificatesByTags(List<String> tagNames);
 
-    public List<OrderDto> getAllByUserId(Long userId);
+    List<OrderDto> getAllByUserId(Long userId);
 
     OrderDto createOrder(
             Long userId,
-            List<Long> certificateIds);
+            Set<Long> certificateIds);
 
     List<OrderDto> getUserOrders(User user, Criteria criteria);
 
-    List<OrderDto> getAll();
+    List<OrderDto> getAll(Criteria criteria);
 
     Certificate findCertificateById(Long certificateId);
 
     OrderDto save(Order order);
 
     OrderDto getById(Long id);
-
 }

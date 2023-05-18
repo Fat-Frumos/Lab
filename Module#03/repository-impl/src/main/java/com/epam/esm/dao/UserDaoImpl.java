@@ -1,71 +1,74 @@
 package com.epam.esm.dao;
 
 import com.epam.esm.criteria.Criteria;
-import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.entity.User;
+import com.epam.esm.exception.UserAlreadyExistsException;
 import com.epam.esm.exception.UserNotFoundException;
+import jakarta.persistence.EntityGraph;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.PersistenceUnit;
-import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import static com.epam.esm.criteria.CertificateQueries.SELECT_USER_BY_NAME;
+
 @Repository
 @RequiredArgsConstructor
 public class UserDaoImpl implements UserDao {
-
     @PersistenceUnit
-    private final EntityManagerFactory entityManagerFactory;
+    private final EntityManagerFactory factory;
 
     @Override
-    public List<User> getAll() {
-        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
-            CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-            CriteriaQuery<User> query = criteriaBuilder.createQuery(User.class);
+    public List<User> getAll(final Criteria criteria) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
+
+            CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+            CriteriaQuery<User> query = builder.createQuery(User.class);
             Root<User> root = query.from(User.class);
+
+            EntityGraph<User> graph = entityManager.createEntityGraph(User.class);
+            graph.addAttributeNodes("orders");
+
             query.select(root);
 
-            Criteria criteria = Criteria.builder().size(25).page(0).filterParams(FilterParams.ID).build();
-            TypedQuery<User> typedQuery = entityManager.createQuery(query);
-            if (criteria != null) {
-                int page = criteria.getPage();
-                int size = criteria.getSize();
-                if (page >= 0 && size > 0) {
-                    typedQuery.setFirstResult(page * size);
-                    typedQuery.setMaxResults(size);
-                }
-            }
-            return typedQuery.getResultList();
+            return entityManager.createQuery(query)
+                    .setHint("jakarta.persistence.fetchgraph", graph)
+                    .setFirstResult(criteria.getPage() * criteria.getSize())
+                    .setMaxResults(criteria.getSize())
+                    .getResultList();
         }
     }
 
 
     @Override
-    public Optional<User> getById(Long id) {
-        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+    public Optional<User> getById(
+            final Long id) {
+        try (EntityManager entityManager =
+                     factory.createEntityManager()) {
             return Optional.of(entityManager.find(User.class, id));
         }
     }
 
     @Override
     public Optional<User> getByName(String name) {
-        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
-            TypedQuery<User> query = entityManager
-                    .createQuery("SELECT u FROM User u WHERE u.username = :name", User.class);
-            query.setParameter("name", name);
-            List<User> users = query.getResultList();
+        try (EntityManager entityManager =
+                     factory.createEntityManager()) {
+
+            List<User> users = entityManager
+                    .createQuery(SELECT_USER_BY_NAME, User.class)
+                    .setParameter("name", name)
+                    .getResultList();
+
             return users.isEmpty()
                     ? Optional.empty()
                     : Optional.of(users.get(0));
@@ -74,18 +77,27 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User save(User user) {
-        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
             EntityTransaction transaction = entityManager.getTransaction();
             transaction.begin();
-            User saved = entityManager.merge(user);
-            complete(transaction);
-            return saved;
+            boolean empty = entityManager
+                    .createQuery(SELECT_USER_BY_NAME, User.class)
+                    .setParameter("name", user.getUsername())
+                    .getResultList().isEmpty();
+            if (empty) {
+                entityManager.persist(user);
+                complete(transaction);
+                return user;
+            } else {
+                throw new UserAlreadyExistsException("User is Already Exists");
+            }
+
         }
     }
 
     @Override
     public void delete(Long id) {
-        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
             EntityTransaction transaction = entityManager.getTransaction();
             transaction.begin();
             User user = entityManager.find(User.class, id);

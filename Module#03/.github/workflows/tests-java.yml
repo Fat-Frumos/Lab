@@ -34,7 +34,7 @@ jobs:
         run: ls -la && pwd
 
       - name: find Tomcat
-        run: find . -name api-1.0.0.jar
+        run: find . -name web-app-1.0.0.jar
 
       - name: run java
-        run: java -jar ./api/target/api-1.0.0.jar
+        run: java -jar ./web-app/target/web-app-1.0.0.jar

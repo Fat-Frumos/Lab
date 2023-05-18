@@ -1,5 +1,6 @@
 package com.epam.esm.dao;
 
+import com.epam.esm.criteria.Criteria;
 import com.epam.esm.entity.Tag;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
@@ -205,7 +206,7 @@ class TagEntityTest {
         when(typedQuery.getResultList()).thenReturn(tags);
         when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
 
-        List<Tag> result = tagDao.getAll();
+        List<Tag> result = tagDao.getAll(Criteria.builder().build());
 
         assertEquals(tags, result);
 
