@@ -87,3 +87,117 @@ GET http://localhost:8080/api/orders/{{userId}}
 
 ###
 POST http://localhost:8080/api/orders/{{userId}}
+
+###
+GET http://localhost:8080/api/certificates
+
+###
+POST http://localhost:8080/api/certificates
+
+###
+GET http://localhost:8080/api/certificates/
+
+###
+GET http://localhost:8080/api/certificates/{{ids}}
+
+###
+GET http://localhost:8080/api/certificates/{{id}}
+
+###
+PATCH http://localhost:8080/api/certificates/{{id}}
+
+###
+DELETE http://localhost:8080/api/certificates/{{id}}
+
+###
+GET http://localhost:8080/api/certificates/{{id}}/tags
+
+###
+GET http://localhost:8080/api/tags
+
+###
+POST http://localhost:8080/api/tags
+
+###
+GET http://localhost:8080/api/tags/{{id}}
+
+###
+DELETE http://localhost:8080/api/tags/{{id}}
+
+###
+GET http://localhost:8080/api/users
+
+###
+GET http://localhost:8080/api/users/{{id}}
+
+###
+GET http://localhost:8080/api/users/{{id}}/certificates
+
+###
+GET http://localhost:8080/api/orders/
+
+###
+GET http://localhost:8080/api/orders/users/{{userId}}
+
+###
+GET http://localhost:8080/api/orders/{{id}}
+
+###
+POST http://localhost:8080/api/orders/{{userId}}
+
+###
+GET http://localhost:8080/api/certificates
+
+###
+POST http://localhost:8080/api/certificates
+
+###
+GET http://localhost:8080/api/certificates/
+
+###
+PATCH http://localhost:8080/api/certificates/
+
+###
+GET http://localhost:8080/api/certificates/orders/{{ids}}
+
+###
+GET http://localhost:8080/api/certificates/users/{{id}}
+
+###
+GET http://localhost:8080/api/certificates/{{id}}
+
+###
+DELETE http://localhost:8080/api/certificates/{{id}}
+
+###
+GET http://localhost:8080/api/certificates/{{id}}/tags
+
+###
+GET http://localhost:8080/api/tags
+
+###
+POST http://localhost:8080/api/tags
+
+###
+GET http://localhost:8080/api/tags/{{id}}
+
+###
+DELETE http://localhost:8080/api/tags/{{id}}
+
+###
+GET http://localhost:8080/api/users
+
+###
+GET http://localhost:8080/api/users/{{id}}
+
+###
+GET http://localhost:8080/api/orders
+
+###
+GET http://localhost:8080/api/orders/users/{{userId}}
+
+###
+GET http://localhost:8080/api/orders/{{id}}
+
+###
+POST http://localhost:8080/api/orders/{{userId}}

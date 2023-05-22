@@ -1,6 +1,5 @@
 package com.epam.esm.dao;
 
-import com.epam.esm.criteria.Criteria;
 import com.epam.esm.entity.Certificate;
 import com.epam.esm.entity.Order;
 import com.epam.esm.entity.Tag;
@@ -11,23 +10,26 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.PersistenceException;
 import jakarta.persistence.PersistenceUnit;
 import jakarta.persistence.Tuple;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Fetch;
 import jakarta.persistence.criteria.Join;
+import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
-import static com.epam.esm.criteria.CertificateQueries.SELECT_ORDER_BY_NAME;
+import static com.epam.esm.dao.Queries.SELECT_ORDER_BY_NAME;
 
 @Repository
 @RequiredArgsConstructor
@@ -37,22 +39,23 @@ public class OrderDaoImpl implements OrderDao {
     private final EntityManagerFactory factory;
 
     @Override
-    public List<Order> getAll(Criteria criteria) {
+    public List<Order> getAll(final Pageable pageable) {
         try (EntityManager entityManager = factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Order> query = builder.createQuery(Order.class);
+
             Root<Order> root = query.from(Order.class);
+            root.fetch("certificates", JoinType.LEFT)
+                    .fetch("tags", JoinType.LEFT);
+
+            Fetch<Order, User> userFetch = root.fetch("user", JoinType.LEFT);
+            userFetch.fetch("orders", JoinType.LEFT);
+
             query.select(root);
 
-            EntityGraph<Order> entityGraph = entityManager.createEntityGraph(Order.class);
-            entityGraph.addAttributeNodes("user");
-            entityGraph.addAttributeNodes("certificates");
-            entityGraph.addSubgraph("certificates").addAttributeNodes("tags");
-
             return entityManager.createQuery(query)
-                    .setHint("jakarta.persistence.fetchgraph", entityGraph)
-                    .setFirstResult(criteria.getSize() * criteria.getPage())
-                    .setMaxResults(criteria.getSize())
+                    .setFirstResult(pageable.getPageNumber() * pageable.getPageSize())
+                    .setMaxResults(pageable.getPageSize())
                     .getResultList();
         }
     }
@@ -82,50 +85,58 @@ public class OrderDaoImpl implements OrderDao {
     public Order save(final Order order) {
         try (EntityManager entityManager = factory.createEntityManager()) {
             EntityTransaction transaction = entityManager.getTransaction();
-            transaction.begin();
-
-            User managedUser = entityManager.find(User.class, order.getUser().getId());
-
-            if (managedUser == null) {
-                throw new EntityNotFoundException("User not found");
-            }
-            order.setUser(managedUser);
-
-            Set<Certificate> managedCertificates = new HashSet<>();
-
-            for (Certificate certificate : order.getCertificates()) {
-                Certificate managedCertificate = entityManager.find(Certificate.class, certificate.getId());
-                if (managedCertificate == null) {
-                    throw new EntityNotFoundException("Certificate not found: " + certificate.getId());
+            try {
+                transaction.begin();
+                User managedUser = entityManager.find(User.class, order.getUser().getId());
+                if (managedUser == null) {
+                    throw new EntityNotFoundException("User not found");
                 }
-                managedCertificates.add(managedCertificate);
+                order.setUser(managedUser);
+
+                Set<Certificate> managedCertificates = new HashSet<>();
+
+                for (Certificate certificate : order.getCertificates()) {
+                    Certificate managedCertificate = entityManager.find(Certificate.class, certificate.getId());
+                    if (managedCertificate == null) {
+                        throw new EntityNotFoundException("Certificate not found: " + certificate.getId());
+                    }
+                    managedCertificates.add(managedCertificate);
+                }
+                order.setCertificates(managedCertificates);
+                entityManager.persist(order);
+                transaction.commit();
+                return order;
+            } catch (Exception e) {
+                if (transaction.isActive()) {
+                    transaction.rollback();
+                }
+                throw new PersistenceException(e);
             }
-            order.setCertificates(managedCertificates);
-            entityManager.persist(order);
-            complete(transaction);
         }
-        return order;
     }
 
     @Override
     public void delete(final Long id) {
-        try (EntityManager entityManager =
-                     factory.createEntityManager()) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
             EntityTransaction transaction = entityManager.getTransaction();
-            transaction.begin();
-            Order order = entityManager.find(Order.class, id);
-            if (order != null) {
+            try {
+                transaction.begin();
+                Order order = entityManager.getReference(Order.class, id);
+                if (order == null) {
+                    throw new OrderNotFoundException("Order Not Found" + id);
+                }
                 entityManager.remove(order);
-                complete(transaction);
-            } else {
-                throw new OrderNotFoundException("Order Not Found" + id);
+                transaction.commit();
+            } catch (Exception e) {
+                transaction.rollback();
+                throw new EntityNotFoundException(e.getMessage(), e);
             }
         }
     }
 
     public List<Order> getUserOrders(
             final User user,
-            final Criteria criteria) {
+            final Pageable pageable) {
         try (EntityManager entityManager =
                      factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -140,8 +151,8 @@ public class OrderDaoImpl implements OrderDao {
 
             return entityManager.createQuery(query)
                     .setHint("jakarta.persistence.fetchgraph", graph)
-                    .setMaxResults(criteria.getSize())
-                    .setFirstResult(criteria.getPage() * criteria.getSize())
+                    .setMaxResults(pageable.getPageSize())
+                    .setFirstResult(pageable.getPageNumber() * pageable.getPageSize())
                     .getResultList();
         }
     }
@@ -160,8 +171,7 @@ public class OrderDaoImpl implements OrderDao {
         }
     }
 
-    public Optional<Tag> getMostUsedTagBy(
-            final Long userId) {
+    public Optional<Tag> getMostUsedTagBy(final Long userId) {
         try (EntityManager entityManager =
                      factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -176,8 +186,7 @@ public class OrderDaoImpl implements OrderDao {
         }
     }
 
-    public List<Order> findOrdersByUserId(
-            final Long userId) {
+    public List<Order> findOrdersByUserId(final Long userId) {
         try (EntityManager entityManager =
                      factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -185,16 +194,6 @@ public class OrderDaoImpl implements OrderDao {
             Root<Order> root = query.from(Order.class);
             query.select(root).where(builder.equal(root.get("user").get("id"), userId));
             return entityManager.createQuery(query).getResultList();
-        }
-    }
-
-    private static void complete(EntityTransaction transaction) {
-        Objects.requireNonNull(transaction);
-        try {
-            transaction.commit();
-        } catch (Exception e) {
-            transaction.rollback();
-            throw new EntityNotFoundException(e.getMessage(), e);
         }
     }
 }

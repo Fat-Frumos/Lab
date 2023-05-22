@@ -2,7 +2,6 @@ package com.epam.esm.mapper;
 
 import com.epam.esm.dto.OrderDto;
 import com.epam.esm.dto.UserDto;
-import com.epam.esm.dto.UserWithoutOrderDto;
 import com.epam.esm.entity.Order;
 import com.epam.esm.entity.User;
 import org.mapstruct.Mapper;
@@ -22,7 +21,7 @@ public interface UserMapper {
     UserDto toDto(User user);
 
     @Mapping(target = "orderDtos", source = "orders")
-    List<UserWithoutOrderDto> toDtoWithoutOrderList(List<User> user);
+    List<UserDto> toDtoList(List<User> user);
 
     @Named("toOrderSet")
     Set<Order> toOrderSet(Set<OrderDto> orderDtos);

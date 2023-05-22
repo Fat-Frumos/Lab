@@ -1,6 +1,5 @@
 package com.epam.esm.service;
 
-import com.epam.esm.criteria.Criteria;
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dao.OrderDao;
 import com.epam.esm.dao.UserDao;
@@ -17,10 +16,12 @@ import com.epam.esm.exception.UserNotFoundException;
 import com.epam.esm.mapper.CertificateMapper;
 import com.epam.esm.mapper.OrderMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.annotation.Validated;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -28,10 +29,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
-import static java.util.stream.Collectors.toList;
-
 @Service
-@Validated
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
@@ -42,7 +40,7 @@ public class OrderServiceImpl implements OrderService {
     private final CertificateMapper certificateMapper;
 
     @Override
-    @Transactional(rollbackFor = Exception.class, isolation = Isolation.REPEATABLE_READ)
+    @Transactional(rollbackFor = Exception.class, isolation = Isolation.READ_COMMITTED)
     public OrderDto save(final Order order) {
         return orderMapper.toDto(orderDao.save(order));
     }
@@ -50,8 +48,9 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional(readOnly = true)
     public OrderDto getById(Long id) {
-        Order order = orderDao.getById(id).orElseThrow(() -> new OrderNotFoundException(
-                String.format("Order with id %d not found", id)));
+        Order order = orderDao.getById(id)
+                .orElseThrow(() -> new OrderNotFoundException(
+                        String.format("Order with id %d not found", id)));
         return orderMapper.toDto(order);
     }
 
@@ -60,25 +59,20 @@ public class OrderServiceImpl implements OrderService {
     public OrderDto createOrder(
             final Long userId,
             final Set<Long> certificateIds) {
-        User user = userDao.getById(userId)
+        User user = userDao.getById(userId) // TODO
                 .orElseThrow(() -> new UserNotFoundException(
                         String.format("User with id %d not found", userId)));
-
-        Set<Certificate> certificates = certificateDao.findAllByIds(certificateIds);
-
+        Set<Certificate> certificates = certificateDao.findAllByIds(certificateIds); // TODO
         if (certificates.size() != certificateIds.size()) {
             throw new CertificateNotFoundException("One or more certificates not found");
         }
-
-        BigDecimal cost = certificates.stream()
-                .map(Certificate::getPrice)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-
         Order order = Order.builder()
                 .user(user)
                 .certificates(certificates)
                 .orderDate(Timestamp.valueOf(LocalDateTime.now()))
-                .cost(cost)
+                .cost(certificates.stream()
+                        .map(Certificate::getPrice)
+                        .reduce(BigDecimal.ZERO, BigDecimal::add))
                 .build();
         Order saved = orderDao.save(order);
         return orderMapper.toDto(saved);
@@ -86,19 +80,21 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<OrderDto> getUserOrders(
+    public Page<OrderDto> getUserOrders(
             final User user,
-            final Criteria criteria) {
-        return orderMapper.toDtoList(
-                orderDao.getUserOrders(user, criteria));
+            final Pageable pageable) {
+        List<OrderDto> dtos = orderMapper.toDtoList(
+                orderDao.getUserOrders(user, pageable));
+        return new PageImpl<>(dtos, pageable, dtos.size());
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<OrderDto> getAll(
-            final Criteria criteria) {
-        return orderMapper.toDtoList(
-                orderDao.getAll(criteria));
+    public Page<OrderDto> getAll(
+            final Pageable pageable) {
+        List<OrderDto> dtos = orderMapper.toDtoList(
+                orderDao.getAll(pageable));
+        return new PageImpl<>(dtos, pageable, dtos.size());
     }
 
     @Override
@@ -123,31 +119,27 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<CertificateDto> getCertificatesByTags(
+    public Page<CertificateDto> getCertificatesByTags(
             final List<String> tagNames) {
-        return certificateDao
-                .findByTagNames(tagNames)
-                .stream()
-                .map(certificateMapper::toDto)
-                .collect(toList());
+        List<CertificateDto> dtos = certificateMapper.toDtoList(
+                certificateDao.findByTagNames(tagNames));
+        return new PageImpl<>(dtos, Pageable.unpaged(), dtos.size());
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<OrderDto> getAllByUserId(
-            final Long userId) {
-        return orderDao.findOrdersByUserId(userId)
-                .stream()
-                .map(orderMapper::toDto)
-                .collect(toList());
+    public Page<OrderDto> getAllByUserId(final Long userId) {
+        List<OrderDto> dtos = orderMapper.toDtoList(
+                orderDao.findOrdersByUserId(userId));
+        return new PageImpl<>(dtos, Pageable.unpaged(), dtos.size());
     }
 
     @Override
     @Transactional(readOnly = true)
     public Certificate findCertificateById(
             final Long id) {
-        return certificateDao.getById(id).orElseThrow(
-                () -> new CertificateNotFoundException(
+        return certificateDao.getById(id)
+                .orElseThrow(() -> new CertificateNotFoundException(
                         "Certificate not found"));
     }
 }

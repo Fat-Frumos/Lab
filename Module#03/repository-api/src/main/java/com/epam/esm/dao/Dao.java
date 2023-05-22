@@ -1,13 +1,13 @@
 package com.epam.esm.dao;
 
-import com.epam.esm.criteria.Criteria;
+import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
 public interface Dao<T extends Serializable> {
-    List<T> getAll(Criteria criteria);
+    List<T> getAll(Pageable pageable);
 
     Optional<T> getById(Long id);
 

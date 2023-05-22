@@ -1,19 +1,19 @@
 package com.epam.esm.dao;
 
-import com.epam.esm.criteria.Criteria;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Certificate;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Set;
 
 public interface CertificateDao extends Dao<Certificate> {
 
-    List<Certificate> getAll(Criteria criteria);
+    List<Certificate> getAll(Pageable pageable);
 
     Certificate findById(Long id);
 
-    Certificate update(Certificate certificate, Long id);
+    Certificate update(Certificate certificate);
 
     List<TagDto> findTagsByCertificateId(Long id);
 

@@ -1,16 +1,16 @@
 package com.epam.esm.dao;
 
-import com.epam.esm.criteria.Criteria;
 import com.epam.esm.entity.Tag;
-import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.PersistenceException;
 import jakarta.persistence.PersistenceUnit;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,7 +24,7 @@ import static java.util.stream.Collectors.toSet;
 public class TagDaoImpl implements TagDao {
 
     @PersistenceUnit
-    private final EntityManagerFactory entityManagerFactory;
+    private final EntityManagerFactory factory;
 
     @Override
     public Optional<Tag> getById(final Long id) {
@@ -37,7 +37,7 @@ public class TagDaoImpl implements TagDao {
 
     @Override
     public Optional<Tag> getByName(String name) {
-        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Tag> query = builder.createQuery(Tag.class);
             query.where(builder.equal(query.from(Tag.class).get("name"), name));
@@ -52,64 +52,59 @@ public class TagDaoImpl implements TagDao {
     }
 
     @Override
-    public List<Tag> getAll(Criteria criteria) {
+    public List<Tag> getAll(final Pageable pageable) {
         try (EntityManager entityManager
-                     = entityManagerFactory.createEntityManager()) {
+                     = factory.createEntityManager()) {
             CriteriaQuery<Tag> query = entityManager
                     .getCriteriaBuilder()
                     .createQuery(Tag.class);
             query.select(query.from(Tag.class));
-            return entityManager.createQuery(query).setMaxResults(criteria.getSize())
-                    .setFirstResult(criteria.getPage() * criteria.getSize()).getResultList();
+            return entityManager.createQuery(query).setMaxResults(pageable.getPageSize())
+                    .setFirstResult(pageable.getPageNumber() * pageable.getPageSize()).getResultList();
         }
     }
 
     @Override
     public Tag save(final Tag tag) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        EntityTransaction transaction = entityManager.getTransaction();
-        try {
-            transaction.begin();
-            entityManager.persist(tag);
-            transaction.commit();
-            return tag;
-        } catch (Exception e) {
-            if (transaction.isActive()) {
-                transaction.rollback();
+        try (EntityManager entityManager = factory.createEntityManager()) {
+            EntityTransaction transaction = entityManager.getTransaction();
+            try {
+                transaction.begin();
+                entityManager.persist(tag);
+                transaction.commit();
+                return tag;
+            } catch (Exception e) {
+                if (transaction.isActive()) {
+                    transaction.rollback();
+                }
+                throw new PersistenceException(e.getMessage());
             }
-            throw new EntityExistsException(e.getMessage());
-        } finally {
-            entityManager.close();
         }
     }
 
     @Override
     public Tag findById(final Long id) {
         try (EntityManager entityManager =
-                     entityManagerFactory.createEntityManager()) {
+                     factory.createEntityManager()) {
             return entityManager.find(Tag.class, id);
         }
     }
 
     @Override
     public void delete(final Long id) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        EntityTransaction transaction = entityManager.getTransaction();
-        try {
-            transaction.begin();
-            Tag tag = entityManager.find(Tag.class, id);
-            if (tag == null) {
-                throw new EntityNotFoundException(String.format("Tag with id %d not found", id));
+        try (EntityManager entityManager = factory.createEntityManager()) {
+            EntityTransaction transaction = entityManager.getTransaction();
+            try {
+                transaction.begin();
+                Tag entity = entityManager.getReference(Tag.class, id);
+                entityManager.remove(entity);
+                transaction.commit();
+            } catch (Exception e) {
+                if (transaction.isActive()) {
+                    transaction.rollback();
+                }
+                throw new EntityNotFoundException(e.getMessage());
             }
-            entityManager.remove(tag);
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction.isActive()) {
-                transaction.rollback();
-            }
-            throw new EntityNotFoundException(e.getMessage());
-        } finally {
-            entityManager.close();
         }
     }
 

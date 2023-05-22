@@ -1,19 +1,18 @@
-
-package com.epam.esm.assembler;
+package com.epam.esm.controller.assembler;
 
 import com.epam.esm.controller.CertificateController;
 import com.epam.esm.controller.OrderController;
-import com.epam.esm.criteria.FilterParams;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.OrderDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
-import javax.swing.SortOrder;
 import java.util.stream.StreamSupport;
 
 import static java.util.stream.Collectors.toList;
@@ -35,7 +34,7 @@ public class OrderAssembler
      */
     @NonNull
     @Override
-    public EntityModel<OrderDto> toModel(@NonNull OrderDto orderDto) {
+    public EntityModel<OrderDto> toModel(@NonNull final OrderDto orderDto) {
         return EntityModel.of(orderDto,
                 linkTo(methodOn(OrderController.class).getOrderById(orderDto.getId())).withSelfRel(),
                 linkTo(methodOn(CertificateController.class)
@@ -57,13 +56,13 @@ public class OrderAssembler
     @NonNull
     @Override
     public CollectionModel<EntityModel<OrderDto>> toCollectionModel(
-            Iterable<? extends OrderDto> entities) {
+            final Iterable<? extends OrderDto> entities) {
         return CollectionModel.of(StreamSupport
                         .stream(entities.spliterator(), false)
                         .map(this::toModel)
                         .collect(toList()),
                 linkTo(methodOn(OrderController.class)
-                        .getAllOrders(SortOrder.UNSORTED, FilterParams.ID, 0, 25))
+                        .getAllOrders(PageRequest.of(0, 25, Sort.by("name").ascending())))
                         .withSelfRel());
     }
 }

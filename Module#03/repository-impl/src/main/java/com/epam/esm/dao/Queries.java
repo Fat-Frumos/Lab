@@ -1,7 +1,7 @@
-package com.epam.esm.criteria;
+package com.epam.esm.dao;
 
-public final class CertificateQueries {
-    private CertificateQueries() {
+public final class Queries {
+    private Queries() {
     }
     public static final String SELECT_ALL = "SELECT c FROM Certificate c";
     public static final String SELECT_BY_NAME = SELECT_ALL + " WHERE c.name = :name";

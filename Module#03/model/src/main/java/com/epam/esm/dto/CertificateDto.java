@@ -15,7 +15,7 @@ import java.util.Set;
 
 @Data
 @Builder
-public class CertificateDto implements Linkable {
+public class CertificateDto {
     @NotNull(message = "Id cannot be blank")
     private Long id;
     @Size(min = 1, max = 512)

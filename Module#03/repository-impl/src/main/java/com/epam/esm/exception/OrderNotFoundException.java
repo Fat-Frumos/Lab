@@ -1,7 +1,7 @@
 package com.epam.esm.exception;
 
 public class OrderNotFoundException extends RuntimeException {
-    public OrderNotFoundException(String message) {
+    public OrderNotFoundException(final String message) {
         super(message);
     }
 }

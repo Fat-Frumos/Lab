@@ -14,7 +14,7 @@ import java.util.Set;
 
 @Data
 @Builder
-public class OrderDto implements Linkable {
+public class OrderDto {
     @NotNull(message = "Id cannot be blank")
     private Long id;
     @NotNull(message = "User cannot be null")

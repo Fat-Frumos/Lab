@@ -47,17 +47,18 @@ public class PersistenceConfig {
                 .orElseThrow(() -> new IllegalStateException("Entity manager factory is not initialized"));
     }
 
-//    @Bean
-//    public DataSourceInitializer dataSourceScriptInitializer(
-//            final DataSource dataSource) {
-//        ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
-//        resourceDatabasePopulator.addScript(new ClassPathResource("db/schema.sql"));
-//        resourceDatabasePopulator.addScript(new ClassPathResource("db/data.sql"));
-//        DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
-//        dataSourceInitializer.setDataSource(dataSource);
-//        dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
-//        return dataSourceInitializer;
-//    }
+    @Bean
+    public DataSourceInitializer dataSourceScriptInitializer(
+            final DataSource dataSource) {
+        ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
+        resourceDatabasePopulator.addScript(new ClassPathResource("db/gift.sql"));
+        resourceDatabasePopulator.addScript(new ClassPathResource("db/tags.sql"));
+        resourceDatabasePopulator.addScript(new ClassPathResource("db/user.sql"));
+        DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
+        dataSourceInitializer.setDataSource(dataSource);
+        dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
+        return dataSourceInitializer;
+    }
 
     @Bean
     public DataSource dataSource() {

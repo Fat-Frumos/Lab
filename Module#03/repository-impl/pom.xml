@@ -7,7 +7,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>repository-impl</artifactId>
-    <packaging>jar</packaging>
+<!--    <packaging>jar</packaging>-->
     <name>repository-impl</name>
 
     <dependencies>

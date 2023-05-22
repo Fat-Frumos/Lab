@@ -1,35 +1,33 @@
 package com.epam.esm.service;
 
-import com.epam.esm.criteria.Criteria;
 import com.epam.esm.dto.CertificateDto;
-import com.epam.esm.dto.CertificateWithoutTagDto;
 import com.epam.esm.dto.TagDto;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Set;
 
-@Validated
 public interface CertificateService {
     CertificateDto getById(Long id);
 
-    List<CertificateDto> getAll(Criteria criteria);
+    Page<CertificateDto> getAll(Pageable pageable);
 
     CertificateDto getByName(String name);
 
     void delete(Long id);
 
-    CertificateDto update(CertificateDto dto, Long id);
+    CertificateDto update(CertificateDto dto);
 
-    List<CertificateWithoutTagDto> getAllWithoutTags(Criteria criteria);
+    Page<CertificateDto> getAllWithoutTags(Pageable pageable);
 
     CertificateDto save(CertificateDto dto);
 
     List<TagDto> findTagsByCertificateId(Long id);
 
-    List<CertificateDto> findCertificatesByTags(List<String> tagNames);
+    Page<CertificateDto> findCertificatesByTags(List<String> tagNames);
 
-    List<CertificateDto> getCertificatesByUserId(Long userId);
+    Page<CertificateDto> getCertificatesByUserId(Long userId);
 
-    Set<CertificateDto> getByIds(Set<Long> ids);
+    Page<CertificateDto> getByIds(Set<Long> ids);
 }

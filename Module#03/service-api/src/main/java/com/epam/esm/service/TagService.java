@@ -1,18 +1,15 @@
 package com.epam.esm.service;
-
-import com.epam.esm.criteria.Criteria;
+import org.springframework.data.domain.Pageable;
 import com.epam.esm.dto.TagDto;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
-@Validated
 public interface TagService {
     TagDto getById(Long id);
 
     TagDto getByName(String name);
 
-    List<TagDto> getAll(Criteria criteria);
+    List<TagDto> getAll(Pageable pageable);
 
     TagDto save(TagDto tag);
 

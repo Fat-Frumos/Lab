@@ -20,8 +20,7 @@ import static org.springframework.http.HttpStatus.METHOD_NOT_ALLOWED;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @RestControllerAdvice
-public class ErrorHandlerController
-        extends ResponseEntityExceptionHandler {
+public class ErrorHandlerController extends ResponseEntityExceptionHandler {
 
     @ResponseStatus(value = CONFLICT, reason = "Data integrity violation")
     @ExceptionHandler(DataIntegrityViolationException.class)
@@ -44,19 +43,10 @@ public class ErrorHandlerController
     }
 
     @ResponseStatus(NOT_FOUND)
-    @ExceptionHandler(CertificateNotFoundException.class)
-    public ResponseEntity<Object> handleCertificateNotFoundException(
-            final CertificateNotFoundException exception) {
-        return buildErrorResponse(
-                exception.getMessage(),
-                NOT_FOUND
-        );
-    }
-
-    @ResponseStatus(NOT_FOUND)
-    @ExceptionHandler(TagNotFoundException.class)
-    public ResponseEntity<Object> handleTagNotFoundException(
-            final TagNotFoundException exception) {
+    @ExceptionHandler({CertificateNotFoundException.class,
+            TagNotFoundException.class})
+    public ResponseEntity<Object> handleEntityNotFoundException(
+            final RuntimeException exception) {
         return buildErrorResponse(
                 exception.getMessage(),
                 NOT_FOUND
@@ -64,27 +54,18 @@ public class ErrorHandlerController
     }
 
     @ResponseStatus(BAD_REQUEST)
-    @ExceptionHandler(CertificateAlreadyExistsException.class)
-    public ResponseEntity<Object> handleCertificateIsExistsException(
-            final CertificateAlreadyExistsException exception) {
+    @ExceptionHandler({CertificateAlreadyExistsException.class,
+            TagAlreadyExistsException.class})
+    public ResponseEntity<Object> handleEntityIsExistsException(
+            final RuntimeException exception) {
         return buildErrorResponse(
                 exception.getMessage(),
                 BAD_REQUEST
         );
     }
 
-    @ResponseStatus(BAD_REQUEST)
-    @ExceptionHandler(TagAlreadyExistsException.class)
-    public ResponseEntity<Object> handleTagIsExistsException(
-            final TagAlreadyExistsException exception) {
-        return buildErrorResponse(
-                exception.getMessage(),
-                BAD_REQUEST
-        );
-    }
-
-    @ExceptionHandler(Exception.class)
     @ResponseStatus(INTERNAL_SERVER_ERROR)
+    @ExceptionHandler({Exception.class, IllegalStateException.class})
     public ResponseEntity<Object> handleException(
             final Exception exception) {
         return buildErrorResponse(

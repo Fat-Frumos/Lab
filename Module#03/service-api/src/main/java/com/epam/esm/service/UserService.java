@@ -1,16 +1,14 @@
 package com.epam.esm.service;
 
-import com.epam.esm.criteria.Criteria;
 import com.epam.esm.dto.UserDto;
-import com.epam.esm.dto.UserWithoutOrderDto;
 import com.epam.esm.entity.User;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface UserService {
     User findById(Long id);
 
     UserDto getById(Long id);
 
-    List<UserWithoutOrderDto> getAll(Criteria criteria);
+    Page<UserDto> getAll(Pageable pageable);
 }

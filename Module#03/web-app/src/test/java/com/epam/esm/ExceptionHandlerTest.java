@@ -41,7 +41,7 @@ class ExceptionHandlerTest {
     @DisplayName("Test handle Certificate Is Exists Exception method")
     void testHandleCertificateIsExistsException() {
         CertificateAlreadyExistsException exception = new CertificateAlreadyExistsException(messages[0]);
-        ResponseEntity<Object> response = exceptionHandler.handleCertificateIsExistsException(exception);
+        ResponseEntity<Object> response = exceptionHandler.handleEntityIsExistsException(exception);
         assertEquals(BAD_REQUEST, response.getStatusCode());
         ResponseMessage responseMessage = (ResponseMessage) response.getBody();
         assertEquals(messages[0], Objects.requireNonNull(responseMessage).getErrorMessage());
@@ -52,7 +52,7 @@ class ExceptionHandlerTest {
     @DisplayName("Handle Tag Is Exists Exception")
     void handleTagIsExistsException() {
         TagAlreadyExistsException exception = new TagAlreadyExistsException(messages[0]);
-        ResponseEntity<Object> response = exceptionHandler.handleTagIsExistsException(exception);
+        ResponseEntity<Object> response = exceptionHandler.handleEntityIsExistsException(exception);
         assertEquals(BAD_REQUEST, response.getStatusCode());
         ResponseMessage responseMessage = (ResponseMessage) response.getBody();
         assertNotNull(responseMessage);
@@ -64,7 +64,7 @@ class ExceptionHandlerTest {
     @DisplayName("Handle Certificate Not Found Exception")
     void testHandleCertificateNotFoundException() {
         CertificateNotFoundException exception = new CertificateNotFoundException(messages[1]);
-        ResponseEntity<Object> response = exceptionHandler.handleCertificateNotFoundException(exception);
+        ResponseEntity<Object> response = exceptionHandler.handleEntityNotFoundException(exception);
         assertEquals(NOT_FOUND, response.getStatusCode());
         assertEquals(ResponseMessage.builder().errorMessage(messages[1]).statusCode(NOT_FOUND).build(), response.getBody());
     }
@@ -95,7 +95,7 @@ class ExceptionHandlerTest {
     @DisplayName("Should handle TagNotFoundException and return 404 response")
     void testHandleTagNotFoundException() {
         TagNotFoundException exception = new TagNotFoundException(messages[4]);
-        ResponseEntity<Object> response = exceptionHandler.handleTagNotFoundException(exception);
+        ResponseEntity<Object> response = exceptionHandler.handleEntityNotFoundException(exception);
         assertEquals(NOT_FOUND, response.getStatusCode());
         assertNotNull(response.getBody());
         ResponseMessage responseMessage = (ResponseMessage) response.getBody();

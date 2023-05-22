@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 
 @Data
 @Builder
-public class CertificateWithoutTagDto implements Linkable {
+public class CertificateWithoutTagDto {
     @NotNull(message = "Id cannot be blank")
     private Long id;
     @Size(min = 1, max = 512)

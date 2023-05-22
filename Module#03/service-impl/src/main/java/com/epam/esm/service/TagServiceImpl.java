@@ -1,12 +1,12 @@
 package com.epam.esm.service;
 
-import com.epam.esm.criteria.Criteria;
 import com.epam.esm.dao.TagDao;
 import com.epam.esm.dto.TagDto;
-import com.epam.esm.exception.TagAlreadyExistsException;
+import com.epam.esm.entity.Tag;
 import com.epam.esm.exception.TagNotFoundException;
 import com.epam.esm.mapper.TagMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,49 +27,42 @@ public class TagServiceImpl implements TagService {
     @Transactional(readOnly = true)
     public TagDto getById(final Long id) {
         Objects.requireNonNull(id, "Id should be not null");
-        return tagMapper.toDto(tagDao.getById(id)
+        Tag tag = tagDao.getById(id)
                 .orElseThrow(() -> new TagNotFoundException(
-                        String.format("%s id: %s", MESSAGE, id))));
+                        String.format("%s id: %s", MESSAGE, id)));
+        return tagMapper.toDto(tag);
     }
 
     @Override
     @Transactional(readOnly = true)
     public TagDto getByName(final String name) {
         Objects.requireNonNull(name, "Name should be not null");
-        return tagMapper.toDto(tagDao.getByName(name)
+        Tag tag = tagDao.getByName(name)
                 .orElseThrow(() -> new TagNotFoundException(
-                        String.format("%s name: %s", MESSAGE, name))));
+                        String.format("%s name: %s", MESSAGE, name)));
+        return tagMapper.toDto(tag);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<TagDto> getAll(Criteria criteria) { //TODO: criteria
-        return tagDao.getAll(criteria)
+    public List<TagDto> getAll(Pageable pageable) {
+        return tagDao.getAll(pageable)
                 .stream()
                 .map(tagMapper::toDto)
-                .collect(toList());
+                .collect(toList());  //TODO
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public TagDto save(final TagDto tagDto) {
-        if (tagDao.getByName(tagDto.getName()).isPresent()) {
-            throw new TagAlreadyExistsException(tagDto.getName());
-        }
-        return tagMapper.toDto(
-                tagDao.save(
-                        tagMapper.toEntity(tagDto)));
+        Tag saved = tagDao.save(tagMapper.toEntity(tagDto));
+        return tagMapper.toDto(saved);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void delete(final Long id) {
         Objects.requireNonNull(id, "Id should be not null");
-        if (tagDao.getById(id).isPresent()) {
-            tagDao.delete(id);
-        } else {
-            throw new TagNotFoundException(
-                    String.format("%s id: %d", MESSAGE, id));
-        }
+        tagDao.delete(id);
     }
 }
