@@ -1,7 +1,6 @@
 package com.epam.esm.assembler;
 
 import com.epam.esm.controller.TagController;
-import com.epam.esm.controller.assembler.TagAssembler;
 import com.epam.esm.dto.TagDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,20 +39,23 @@ class TagAssemblerTest {
                 TagDto.builder().name(name).build(),
                 TagDto.builder().id(id).name(name).build()
         );
-
         List<EntityModel<TagDto>> expectedModels = tagDtos.stream()
                 .map(tagDto -> EntityModel.of(tagDto,
-                        linkTo(methodOn(TagController.class).getById(tagDto.getId())).withSelfRel(),
-                        linkTo(methodOn(TagController.class).getAll(PageRequest.of(0, 25, Sort.by("id").ascending()))).withRel("tags"),
-                        linkTo(methodOn(TagController.class).delete(tagDto.getId())).withRel("delete")))
+                        linkTo(methodOn(TagController.class)
+                                .getById(tagDto.getId())).withSelfRel(),
+                        linkTo(methodOn(TagController.class)
+                                .getAll(PageRequest.of(
+                                        0, 25,
+                                        Sort.by("id").ascending())))
+                                .withRel("tags"),
+                        linkTo(methodOn(TagController.class)
+                                .delete(tagDto.getId()))
+                                .withRel("delete")))
                 .collect(toList());
 
         CollectionModel<EntityModel<TagDto>> actualCollectionModel = tagAssembler.toCollectionModel(tagDtos);
-
         assertEquals(expectedModels.size(), actualCollectionModel.getContent().size());
-
         List<EntityModel<TagDto>> actualModels = new ArrayList<>(actualCollectionModel.getContent());
-
         assertEquals(expectedModels.get(0).getContent(), actualModels.get(0).getContent());
         assertEquals(expectedModels.get(1).getContent(), actualModels.get(1).getContent());
         assertEquals(expectedModels.get(2).getContent(), actualModels.get(2).getContent());

@@ -3,9 +3,9 @@ package com.epam.esm.service;
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dao.OrderDao;
 import com.epam.esm.dao.UserDao;
-import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.OrderDto;
-import com.epam.esm.dto.UserWithoutOrderDto;
+import com.epam.esm.dto.PostCertificateDto;
+import com.epam.esm.dto.UserSlimDto;
 import com.epam.esm.entity.Certificate;
 import com.epam.esm.entity.Order;
 import com.epam.esm.entity.Tag;
@@ -13,7 +13,6 @@ import com.epam.esm.entity.User;
 import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.exception.OrderNotFoundException;
 import com.epam.esm.exception.UserNotFoundException;
-import com.epam.esm.mapper.CertificateMapper;
 import com.epam.esm.mapper.OrderMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -56,8 +55,7 @@ class OrderServiceImplTest {
     private CertificateDao certificateDao;
     @Mock
     private OrderMapper orderMapper;
-    @Mock
-    private CertificateMapper certificateMapper;
+
     @InjectMocks
     private OrderServiceImpl orderService;
     private final Long orderId = 1L;
@@ -76,12 +74,12 @@ class OrderServiceImplTest {
             .email("Emma-Liam@gmail.com")
             .build();
 
-    private final UserWithoutOrderDto userDto2 = UserWithoutOrderDto.builder()
+    private final UserSlimDto userDto2 = UserSlimDto.builder()
             .id(2L)
             .username("Emma-Liam")
             .email("Emma-Liam@gmail.com")
             .build();
-    private final UserWithoutOrderDto userDto = UserWithoutOrderDto.builder()
+    private final UserSlimDto userDto = UserSlimDto.builder()
             .id(userId)
             .username("Olivia-Noah")
             .email("Olivia-Noah@gmail.com")
@@ -93,7 +91,7 @@ class OrderServiceImplTest {
             .price(BigDecimal.valueOf(100))
             .duration(50)
             .build();
-    private final CertificateDto certificateDto = CertificateDto.builder()
+    private final PostCertificateDto certificateDto = PostCertificateDto.builder()
             .id(id)
             .name("Java")
             .description("Core")
@@ -109,19 +107,22 @@ class OrderServiceImplTest {
             .duration(45)
             .build();
 
-    private final CertificateDto certificateDto2 = CertificateDto.builder()
+    private final PostCertificateDto certificateDto2 = PostCertificateDto.builder()
             .id(id2)
             .name("Spring")
             .description("Boot")
             .price(BigDecimal.valueOf(20))
             .duration(45)
             .build();
-    private final List<Certificate> certificates = Arrays.asList(certificate, certificate2);
-    private final List<CertificateDto> certificateDtos = Arrays.asList(certificateDto, certificateDto2);
-    private final Order order = Order.builder().id(1L).user(user).certificates(Collections.singleton(certificate)).build();
-    private final Order order2 = Order.builder().id(2L).user(user2).certificates(Collections.singleton(certificate2)).build();
-    private final OrderDto orderDto = OrderDto.builder().id(id).user(userDto).certificateDtos(Collections.singleton(certificateDto)).build();
-    private final OrderDto orderDto2 = OrderDto.builder().id(id2).user(userDto2).certificateDtos(Collections.singleton(certificateDto2)).build();
+
+    private final Order order = Order.builder().id(1L).user(user)
+            .certificates(Collections.singleton(certificate)).build();
+    private final Order order2 = Order.builder().id(2L).user(user2)
+            .certificates(Collections.singleton(certificate2)).build();
+    private final OrderDto orderDto = OrderDto.builder().id(id).user(userDto)
+            .certificateDtos(Collections.singleton(certificateDto)).build();
+    private final OrderDto orderDto2 = OrderDto.builder().id(id2).user(userDto2)
+            .certificateDtos(Collections.singleton(certificateDto2)).build();
     private final List<OrderDto> orderDtos = Arrays.asList(orderDto, orderDto2);
     private final List<Order> orders = Arrays.asList(order, order2);
     private final Pageable pageable = PageRequest.of(0, 25, Sort.by("name").ascending());
@@ -233,11 +234,11 @@ class OrderServiceImplTest {
         List<Order> expectedOrders = Collections.singletonList(order);
         List<OrderDto> expectedOrderDtos = Collections.singletonList(OrderDto.builder()
                 .id(orderId)
-                .user(UserWithoutOrderDto.builder()
+                .user(UserSlimDto.builder()
                         .username(firstName + "-" + lastName)
                         .email(email)
                         .build())
-                .certificateDtos(Collections.singleton(CertificateDto.builder()
+                .certificateDtos(Collections.singleton(PostCertificateDto.builder()
                         .id(certificateId)
                         .name(name)
                         .description(description)
@@ -312,11 +313,11 @@ class OrderServiceImplTest {
         List<Order> expectedOrders = Collections.singletonList(order);
         List<OrderDto> expectedOrderDtos = Collections.singletonList(OrderDto.builder()
                 .id(id)
-                .user(UserWithoutOrderDto.builder()
+                .user(UserSlimDto.builder()
                         .username(firstName + "-" + lastName)
                         .email(email)
                         .build())
-                .certificateDtos(Collections.singleton(CertificateDto.builder()
+                .certificateDtos(Collections.singleton(PostCertificateDto.builder()
                         .id(certificateId)
                         .name(name)
                         .description(description)
@@ -325,7 +326,7 @@ class OrderServiceImplTest {
                         .build()))
                 .build());
 
-        when(orderDao.getAll(pageable)).thenReturn(expectedOrders);
+        when(orderDao.getAllBy(pageable)).thenReturn(expectedOrders);
         when(orderMapper.toDtoList(expectedOrders)).thenReturn(expectedOrderDtos);
         Page<OrderDto> result = orderService.getAll(pageable);
 
@@ -348,11 +349,11 @@ class OrderServiceImplTest {
         List<Order> expectedOrders = Collections.singletonList(order);
         List<OrderDto> expectedOrderDtos = Collections.singletonList(OrderDto.builder()
                 .id(id)
-                .user(UserWithoutOrderDto.builder()
+                .user(UserSlimDto.builder()
                         .username(firstName + "-" + lastName)
                         .email(email)
                         .build())
-                .certificateDtos(Collections.singleton(CertificateDto.builder()
+                .certificateDtos(Collections.singleton(PostCertificateDto.builder()
                         .id(certificateId)
                         .name(name)
                         .description(description)
@@ -395,7 +396,7 @@ class OrderServiceImplTest {
     @DisplayName("Get All Orders")
     void getAllOrdersTest() {
 
-        when(orderDao.getAll(pageable)).thenReturn(orders);
+        when(orderDao.getAllBy(pageable)).thenReturn(orders);
         when(orderMapper.toDtoList(orders)).thenReturn(orderDtos);
 
         Page<OrderDto> result = orderService.getAll(pageable);
@@ -412,16 +413,16 @@ class OrderServiceImplTest {
             assertEquals(order.getUser().getEmail(), orderDto.getUser().getEmail());
 
             Set<Certificate> certificates = order.getCertificates();
-            Set<CertificateDto> certificateDtos = orderDto.getCertificateDtos();
+            Set<PostCertificateDto> certificateDtos = orderDto.getCertificateDtos();
 
             assertEquals(certificates.size(), certificateDtos.size());
 
             Iterator<Certificate> certificateIterator = certificates.iterator();
-            Iterator<CertificateDto> certificateDtoIterator = certificateDtos.iterator();
+            Iterator<PostCertificateDto> certificateDtoIterator = certificateDtos.iterator();
 
             while (certificateIterator.hasNext() && certificateDtoIterator.hasNext()) {
                 Certificate certificate = certificateIterator.next();
-                CertificateDto certificateDto = certificateDtoIterator.next();
+                PostCertificateDto certificateDto = certificateDtoIterator.next();
                 assertEquals(certificate.getId(), certificateDto.getId());
                 assertEquals(certificate.getName(), certificateDto.getName());
                 assertEquals(certificate.getDescription(), certificateDto.getDescription());
@@ -429,7 +430,7 @@ class OrderServiceImplTest {
                 assertEquals(certificate.getDuration(), certificateDto.getDuration());
             }
         }
-        verify(orderDao).getAll(pageable);
+        verify(orderDao).getAllBy(pageable);
         verifyNoMoreInteractions(orderDao, orderMapper);
     }
 
@@ -453,32 +454,6 @@ class OrderServiceImplTest {
         verifyNoMoreInteractions(orderDao);
     }
 
-    @Test
-    @DisplayName("Get Certificates by Tags")
-    void getCertificatesByTagsTest() {
-        List<String> tagNames = Arrays.asList("Java", "Spring");
-
-        when(certificateDao.findByTagNames(tagNames)).thenReturn(certificates);
-        when(certificateMapper.toDtoList(certificates)).thenReturn(certificateDtos);
-
-        Page<CertificateDto> result = orderService.getCertificatesByTags(tagNames);
-
-        assertNotNull(result);
-        assertEquals(certificates.size(), result.getContent().size());
-
-        for (int i = 0; i < certificates.size(); i++) {
-            Certificate certificate = certificates.get(i);
-            CertificateDto certificateDto = result.getContent().get(i);
-            assertEquals(certificate.getId(), certificateDto.getId());
-            assertEquals(certificate.getName(), certificateDto.getName());
-            assertEquals(certificate.getDescription(), certificateDto.getDescription());
-            assertEquals(certificate.getPrice(), certificateDto.getPrice());
-            assertEquals(certificate.getDuration(), certificateDto.getDuration());
-        }
-
-        verify(certificateDao).findByTagNames(tagNames);
-        verifyNoMoreInteractions(certificateDao, orderMapper);
-    }
 
     @Test
     @DisplayName("Save Order")

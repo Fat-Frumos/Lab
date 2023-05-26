@@ -1,6 +1,6 @@
 package com.epam.esm.controller;
 
-import com.epam.esm.controller.assembler.OrderAssembler;
+import com.epam.esm.assembler.OrderAssembler;
 import com.epam.esm.dto.OrderDto;
 import com.epam.esm.entity.Certificate;
 import com.epam.esm.entity.Order;
@@ -24,18 +24,41 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Collections;
 
+/**
+ * Controller class for handling order-related operations.
+ * <p>
+ * This class is annotated with {@link RestController} to indicate that it is a Spring MVC controller,
+ * and {@link RequestMapping} with a value of "/orders" to map requests to this controller.
+ */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/orders")
 public class OrderController {
+    /**
+     * The tag service for performing tag-related operations.
+     */
     private final OrderService orderService;
+
+    /**
+     * The Order assembler for converting tag entities to DTOs.
+     */
     private final OrderAssembler assembler;
+    /**
+     * The User Service for performing tag-related operations.
+     */
     private final UserService userService;
 
+    /**
+     * Creates a new order for the specified user and certificate.
+     *
+     * @param userId        the ID of the user
+     * @param certificateId the ID of the certificate
+     * @return the created order DTO
+     */
     @PostMapping("/{userId}")
     public OrderDto create(
             @PathVariable final Long userId,
-            @RequestParam final Long certificateId) {  // TODO list certificates Ids
+            @RequestParam final Long certificateId) {
         User user = userService.findById(userId);
         Certificate certificate = orderService
                 .findCertificateById(certificateId);
@@ -48,6 +71,12 @@ public class OrderController {
         return orderService.save(order);
     }
 
+    /**
+     * Retrieves all orders for a specific user by user ID.
+     *
+     * @param userId the ID of the user.
+     * @return a collection of order resources.
+     */
     @GetMapping("/users/{userId}")
     public CollectionModel<EntityModel<OrderDto>> getAllOrdersByUserId(
             @PathVariable final Long userId) {
@@ -55,15 +84,26 @@ public class OrderController {
                 orderService.getAllByUserId(userId));
     }
 
+    /**
+     * Retrieves all orders with pagination.
+     *
+     * @param pageable the pagination information.
+     * @return a collection of order resources.
+     */
     @GetMapping
     public CollectionModel<EntityModel<OrderDto>> getAllOrders(
             @PageableDefault(size = 25, sort = {"id"},
-                    direction = Sort.Direction.ASC)
-            final Pageable pageable) {
+                    direction = Sort.Direction.ASC) final Pageable pageable) {
         return assembler.toCollectionModel(
                 orderService.getAll(pageable));
     }
 
+    /**
+     * Retrieves an order by its ID.
+     *
+     * @param id the ID of the order.
+     * @return the order resource.
+     */
     @GetMapping("/{id}")
     public EntityModel<OrderDto> getOrderById(
             @PathVariable final Long id) {

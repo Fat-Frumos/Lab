@@ -19,9 +19,20 @@ import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.METHOD_NOT_ALLOWED;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
+/**
+ * Controller advice for handling exceptions
+ * and generating appropriate error responses.
+ */
 @RestControllerAdvice
 public class ErrorHandlerController extends ResponseEntityExceptionHandler {
 
+    /**
+     * Handles DataIntegrityViolationException
+     * and generates a conflict response.
+     *
+     * @param exception the DataIntegrityViolationException to handle
+     * @return the ResponseEntity with the conflict response
+     */
     @ResponseStatus(value = CONFLICT, reason = "Data integrity violation")
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<Object> conflict(
@@ -32,6 +43,13 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
         );
     }
 
+    /**
+     * Handles ResourceNotFoundException
+     * and generates a not found response.
+     *
+     * @param exception the ResourceNotFoundException to handle
+     * @return the ResponseEntity with the not found response
+     */
     @ResponseStatus(NOT_FOUND)
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<Object> handleNoSuchElementFoundException(
@@ -42,6 +60,13 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
         );
     }
 
+    /**
+     * Handles CertificateNotFoundException
+     * and TagNotFoundException and generates a not found response.
+     *
+     * @param exception the RuntimeException to handle
+     * @return the ResponseEntity with the not found response
+     */
     @ResponseStatus(NOT_FOUND)
     @ExceptionHandler({CertificateNotFoundException.class,
             TagNotFoundException.class})
@@ -53,6 +78,14 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
         );
     }
 
+    /**
+     * Handles CertificateAlreadyExistsException
+     * and TagAlreadyExistsException
+     * and generates a bad request response.
+     *
+     * @param exception the RuntimeException to handle
+     * @return the ResponseEntity with the bad request response
+     */
     @ResponseStatus(BAD_REQUEST)
     @ExceptionHandler({CertificateAlreadyExistsException.class,
             TagAlreadyExistsException.class})
@@ -64,6 +97,13 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
         );
     }
 
+    /**
+     * Handles general exceptions
+     * and generates an internal server error response.
+     *
+     * @param exception the Exception to handle
+     * @return the ResponseEntity with the internal server error response
+     */
     @ResponseStatus(INTERNAL_SERVER_ERROR)
     @ExceptionHandler({Exception.class, IllegalStateException.class})
     public ResponseEntity<Object> handleException(
@@ -74,6 +114,14 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
         );
     }
 
+    /**
+     * Handles uncaught RuntimeExceptions
+     * and generates a method not allowed response.
+     *
+     * @param exception the RuntimeException to handle
+     * @return the ResponseEntity
+     * with the method not allowed response
+     */
     @ResponseStatus(METHOD_NOT_ALLOWED)
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<Object> handleAllUncaughtException(
@@ -84,6 +132,14 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
         );
     }
 
+    /**
+     * Builds a response entity for error responses.
+     *
+     * @param messageError the error message
+     * @param httpStatus   the HTTP status
+     * @return the ResponseEntity object
+     * containing the error response
+     */
     private ResponseEntity<Object> buildErrorResponse(
             final String messageError,
             final HttpStatus httpStatus) {

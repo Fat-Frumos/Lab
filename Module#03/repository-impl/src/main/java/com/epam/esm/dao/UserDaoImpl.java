@@ -20,14 +20,34 @@ import java.util.Optional;
 
 import static com.epam.esm.dao.Queries.SELECT_USER_BY_NAME;
 
+/**
+ * The implementation of the UserDao interface.
+ * <p>
+ * This class provides the concrete implementation
+ * for accessing and manipulating users in the database.
+ * <p>
+ * It utilizes the EntityManagerFactory and EntityManager
+ * to interact with the database.
+ */
 @Repository
 @RequiredArgsConstructor
 public class UserDaoImpl implements UserDao {
+    /**
+     * The entity manager factory used for obtaining the entity manager.
+     */
     @PersistenceUnit
     private final EntityManagerFactory factory;
 
+    /**
+     * {@inheritDoc}
+     * <p>
+     * Retrieves all users with pagination.
+     *
+     * @param pageable the pagination information
+     * @return a list of user entities
+     */
     @Override
-    public List<User> getAll(final Pageable pageable) {
+    public List<User> getAllBy(final Pageable pageable) {
         try (EntityManager entityManager = factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
             CriteriaQuery<User> query = builder.createQuery(User.class);
@@ -46,6 +66,15 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     * <p>
+     * Retrieves a user by its ID.
+     *
+     * @param id the ID of the user
+     * @return an {@link Optional} containing the user entity,
+     * or empty if not found
+     */
     @Override
     public Optional<User> getById(final Long id) {
         try (EntityManager entityManager =
@@ -54,6 +83,15 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     * <p>
+     * Retrieves a user by its name.
+     *
+     * @param name the name of the user
+     * @return an {@link Optional} containing the user entity,
+     * or empty if not found
+     */
     @Override
     public Optional<User> getByName(final String name) {
         try (EntityManager entityManager =
@@ -70,13 +108,22 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     * <p>
+     * Saves a user.
+     *
+     * @param user the user to save
+     * @return the saved user entity
+     * @throws UserAlreadyExistsException if the user already exists
+     */
     @Override
     public User save(final User user) {
         try (EntityManager entityManager = factory.createEntityManager()) {
             EntityTransaction transaction = entityManager.getTransaction();
             try {
                 transaction.begin();
-                boolean empty = entityManager// TODO to service
+                boolean empty = entityManager
                         .createQuery(SELECT_USER_BY_NAME, User.class)
                         .setParameter("name", user.getUsername())
                         .getResultList().isEmpty();
@@ -95,6 +142,14 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     * <p>
+     * Deletes a user by its ID.
+     *
+     * @param id the ID of the user to delete
+     * @throws PersistenceException if an error occurs during the deletion
+     */
     @Override
     public void delete(final Long id) {
         try (EntityManager entityManager = factory.createEntityManager()) {

@@ -215,7 +215,7 @@ class TagDaoTest {
         when(typedQuery.setFirstResult(pageable.getPageNumber() * pageable.getPageSize())).thenReturn(typedQuery);
         when(typedQuery.setMaxResults(pageable.getPageSize())).thenReturn(typedQuery);
 
-        List<Tag> result = tagDao.getAll(pageable);
+        List<Tag> result = tagDao.getAllBy(pageable);
 
         assertEquals(tags, result);
 

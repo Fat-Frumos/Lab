@@ -4,6 +4,7 @@ import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dao.CertificateDaoImpl;
 import com.epam.esm.exception.CertificateAlreadyExistsException;
 import com.epam.esm.mapper.CertificateMapper;
+import com.epam.esm.mapper.TagMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,8 +28,10 @@ class CertificateServiceExceptionTest {
     private final CertificateDao dao = mock(CertificateDaoImpl.class);
     @Mock
     private CertificateMapper mapper = mock(CertificateMapper.class);
+    @Mock
+    private TagMapper tagMapper = mock(TagMapper.class);
     @InjectMocks
-    private CertificateService service = new CertificateServiceImpl(dao, mapper);
+    private CertificateService service = new CertificateServiceImpl(dao, mapper, tagMapper);
     private static final String message = "An error occurred";
 
     @Test

@@ -153,7 +153,7 @@ class UserDaoImplTest {
         when(typedQuery.setMaxResults(anyInt())).thenReturn(typedQuery);
         when(typedQuery.getResultList()).thenReturn(users);
 
-        List<User> result = userDao.getAll(pageable);
+        List<User> result = userDao.getAllBy(pageable);
         assertEquals(users, result);
 
         verify(entityManagerFactory).createEntityManager();

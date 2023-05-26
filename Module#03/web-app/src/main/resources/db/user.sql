@@ -941,9 +941,8 @@ VALUES (832, 'Winston@i.ua', 'Pheng Shaquanda'),
        (932, 'Katheryn@i.ua', 'Clancy Tanzania'),
        (933, 'Grady@i.ua', 'Shanicka Kendahl'),
        (934, 'Khanh@i.ua', 'Jeffery Nena'),
-       (935, 'Khristian@i.ua', 'Landis Lubna');
-INSERT INTO "PUBLIC"."USERS"
-VALUES (936, 'Correy@i.ua', 'Kurt Niccole'),
+       (935, 'Khristian@i.ua', 'Landis Lubna'),
+       (936, 'Correy@i.ua', 'Kurt Niccole'),
        (937, 'Shonna@i.ua', 'Montell Ann'),
        (938, 'Taralynn@i.ua', 'Canon Starlyn'),
        (939, 'Tifanie@i.ua', 'Pa Roel'),
@@ -4491,3 +4490,8 @@ VALUES (903, 6970),
        (1000, 6923),
        (1000, 6229),
        (1000, 8516);
+
+ALTER SEQUENCE gift_certificate_id_seq RESTART WITH 11000;
+ALTER SEQUENCE order_id_seq RESTART WITH 11000;
+ALTER SEQUENCE tag_id_seq RESTART WITH 1100;
+ALTER SEQUENCE user_id_seq RESTART WITH 1100;

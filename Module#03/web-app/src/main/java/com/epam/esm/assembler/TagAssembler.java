@@ -1,4 +1,4 @@
-package com.epam.esm.controller.assembler;
+package com.epam.esm.assembler;
 
 import com.epam.esm.controller.TagController;
 import com.epam.esm.dto.TagDto;
@@ -16,15 +16,19 @@ import static java.util.stream.Collectors.toList;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+/**
+ * Assembles TagDto entities into EntityModels.
+ * This class converts entities
+ * of type {@link TagDto} into {@link EntityModel<TagDto>}.
+ */
 @Component
-public class TagAssembler
-        implements RepresentationModelAssembler<TagDto, EntityModel<TagDto>> {
+public class TagAssembler implements
+        RepresentationModelAssembler<TagDto, EntityModel<TagDto>> {
     /**
-     * Converts the given entity into a {@code Dto},
-     * which extends {@link RepresentationModelAssembler}.
+     * Converts the given {@link TagDto} entity into an {@link EntityModel<TagDto>}.
      *
-     * @param dto must not be {@literal null}.
-     * @return {@code EntityModel<Dto>}
+     * @param dto the {@link TagDto} entity to be converted
+     * @return the {@link EntityModel<TagDto>} representing the converted entity
      */
     @NonNull
     @Override
@@ -36,12 +40,12 @@ public class TagAssembler
     }
 
     /**
-     * Converts an {@link Iterable} or {@code Dto}s into an {@link Iterable}
-     * of {@link RepresentationModelAssembler} and wraps them
-     * in a {@link CollectionModel} instance.
+     * Converts an {@link Iterable} of {@link TagDto} entities
+     * into a {@link CollectionModel} of {@link EntityModel}.
      *
-     * @param entities must not be {@literal null}.
-     * @return {@link CollectionModel} containing {@code EntityModel<Dto>}.
+     * @param entities the {@link TagDto} entities to be converted
+     * @return the {@link CollectionModel}
+     * of {@link EntityModel<TagDto>} representing the converted entities
      */
     @NonNull
     @Override
@@ -52,6 +56,9 @@ public class TagAssembler
                         .map(this::toModel)
                         .collect(toList()),
                 linkTo(methodOn(TagController.class)
-                        .getAll(PageRequest.of(0, 25, Sort.by("id").ascending()))).withSelfRel());
+                        .getAll(PageRequest.of(
+                                0, 25,
+                                Sort.by("id").ascending())))
+                        .withSelfRel());
     }
 }

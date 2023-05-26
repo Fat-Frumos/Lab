@@ -24,11 +24,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(MockitoExtension.class)
-class TestCertificateMapper {
+class TestCertificateMapper {//TODO
 
     @InjectMocks
     private TagMapper tagMapper = Mappers.getMapper(TagMapper.class);
-
+    @InjectMocks
+    private OrderMapper orderMapper = Mappers.getMapper(OrderMapper.class);
+    @InjectMocks
     private final CertificateMapper mapper = new CertificateMapperImpl(tagMapper);
 
     @BeforeEach

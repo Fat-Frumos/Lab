@@ -82,7 +82,7 @@ class TagMapperTest {
     void testToTagDtoSet(Long id, String Name) {
         Tag entity = Tag.builder().id(id).name(Name).build();
         Set<Tag> entitySet = new HashSet<>(Collections.singletonList(entity));
-        Set<TagDto> dtoSet = tagMapper.toTagDtoSet(entitySet);
+        Set<TagDto> dtoSet = tagMapper.toDtoSet(entitySet);
         assertEquals(1, dtoSet.size());
         TagDto dto = dtoSet.iterator().next();
         assertEquals(id, dto.getId());

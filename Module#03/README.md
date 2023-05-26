@@ -30,7 +30,7 @@ Run Tomcat server, show debug information
 
 Run Tomcat server, show debug information
 
-`java -jar ./web/target/web-1.0.0.jar --thin.dryrun`
+`java -jar ./web-app/target/web-app-1.0.0.jar --thin.dryrun`
 
 Build the project with Maven Tool without Tests
 `mvn clean install -e -DskipTests`

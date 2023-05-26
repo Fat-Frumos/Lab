@@ -19,7 +19,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -92,7 +91,7 @@ class TagServiceTest {
     @Test
     @DisplayName("Should return all tags")
     void testGetAllShouldReturnAllTags() {
-        when(tagDao.getAll(pageable)).thenReturn(tags);
+        when(tagDao.getAllBy(pageable)).thenReturn(tags);
         when(tagMapper.toDto(any(Tag.class))).thenReturn(
                 TagDto.builder().id(tags.get(0).getId()).name(tags.get(0).getName()).build(),
                 TagDto.builder().id(tags.get(1).getId()).name(tags.get(1).getName()).build(),
@@ -105,10 +104,10 @@ class TagServiceTest {
     @Test
     @DisplayName("Should return all tags")
     void testGetAllShouldReturnAllTag() {
-        when(tagDao.getAll(pageable)).thenReturn(tags);
+        when(tagDao.getAllBy(pageable)).thenReturn(tags);
         when(tagMapper.toDto(any())).thenReturn(tagDtos.get(0), tagDtos.get(1), tagDtos.get(2));
         assertEquals(tagDtos, tagService.getAll(pageable));
-        verify(tagDao, times(1)).getAll(pageable);
+        verify(tagDao, times(1)).getAllBy(pageable);
         verify(tagMapper, times(3)).toDto(any());
     }
 
@@ -117,12 +116,12 @@ class TagServiceTest {
     void testGetAllWhenNoTags() {
         List<Tag> tags = Collections.emptyList();
         List<TagDto> tagDtos = Collections.emptyList();
-        when(tagDao.getAll(pageable)).thenReturn(tags);
+        when(tagDao.getAllBy(pageable)).thenReturn(tags);
 
         List<TagDto> result = tagService.getAll(pageable);
 
         assertEquals(tagDtos, result);
-        verify(tagDao, times(1)).getAll(pageable);
+        verify(tagDao, times(1)).getAllBy(pageable);
         verify(tagMapper, times(0)).toDto(any());
     }
 
@@ -130,7 +129,7 @@ class TagServiceTest {
     @DisplayName("Should return empty list when no tags are found")
     @MethodSource("provideEmptyTagLists")
     void testGetAllShouldReturnEmptyList(List<Tag> emptyTagList) {
-        when(tagDao.getAll(pageable)).thenReturn(emptyTagList);
+        when(tagDao.getAllBy(pageable)).thenReturn(emptyTagList);
         List<TagDto> actualTagDtos = tagService.getAll(pageable);
         assertTrue(actualTagDtos.isEmpty());
     }
@@ -147,11 +146,11 @@ class TagServiceTest {
     void testGetAllWhenNoTag() {
         List<Tag> tags = Collections.emptyList();
         List<TagDto> tagDtos = Collections.emptyList();
-        when(tagDao.getAll(pageable)).thenReturn(tags);
+        when(tagDao.getAllBy(pageable)).thenReturn(tags);
         List<TagDto> result = tagService.getAll(pageable);
 
         assertEquals(tagDtos, result);
-        verify(tagDao, times(1)).getAll(pageable);
+        verify(tagDao, times(1)).getAllBy(pageable);
         verify(tagMapper, times(0)).toDto(any());
     }
 

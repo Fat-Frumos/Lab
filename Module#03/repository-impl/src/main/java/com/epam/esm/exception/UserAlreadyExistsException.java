@@ -1,7 +1,16 @@
 package com.epam.esm.exception;
-
+/**
+ * Exception thrown when a user already exists.
+ */
 public class UserAlreadyExistsException extends RuntimeException {
-    public UserAlreadyExistsException(String message) {
+    /**
+     * Constructs a new UserAlreadyExistsException
+     * with the specified error message.
+     *
+     * @param message the error message
+     */
+    public UserAlreadyExistsException(
+            final String message) {
         super(message);
     }
 }

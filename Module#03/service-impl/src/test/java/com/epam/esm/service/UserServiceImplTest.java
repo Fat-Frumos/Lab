@@ -72,12 +72,12 @@ class UserServiceImplTest {
                 UserDto.builder().id(id1 + 1).username(username2).email(email2).build()
         );
 
-        when(userDao.getAll(pageable)).thenReturn(users);
+        when(userDao.getAllBy(pageable)).thenReturn(users);
         when(mapper.toDtoList(users)).thenReturn(expectedDtos);
 
         assertEquals(expectedDtos, userService.getAll(pageable).getContent());
 
-        verify(userDao).getAll(pageable);
+        verify(userDao).getAllBy(pageable);
         verify(mapper).toDtoList(users);
         verifyNoMoreInteractions(userDao, mapper);
     }

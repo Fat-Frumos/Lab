@@ -14,18 +14,38 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Implementation of the UserService interface.
+ * <p>
+ * Provides methods for managing user data.
+ */
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
+
     private final UserDao userDao;
     private final UserMapper mapper;
 
+    /**
+     * Get a user DTO by ID.
+     *
+     * @param id the user ID
+     * @return the user DTO
+     * @throws UserNotFoundException if the user is not found
+     */
     @Override
     @Transactional(readOnly = true)
     public UserDto getById(final Long id) {
         return mapper.toDto(findById(id));
     }
 
+    /**
+     * Get a user entity by ID.
+     *
+     * @param id the user ID
+     * @return the user entity
+     * @throws UserNotFoundException if the user is not found
+     */
     @Override
     @Transactional(readOnly = true)
     public User findById(final Long id) {
@@ -34,10 +54,16 @@ public class UserServiceImpl implements UserService {
                         String.format("User not found with id %d", id)));
     }
 
+    /**
+     * Get all users with pagination.
+     *
+     * @param pageable the pageable information
+     * @return the page of user DTOs
+     */
     @Override
     @Transactional(readOnly = true)
     public Page<UserDto> getAll(final Pageable pageable) {
-        List<UserDto> dtos = mapper.toDtoList(userDao.getAll(pageable));
+        List<UserDto> dtos = mapper.toDtoList(userDao.getAllBy(pageable));
         return new PageImpl<>(dtos, pageable, dtos.size());
     }
 }

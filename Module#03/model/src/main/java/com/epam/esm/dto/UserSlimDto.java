@@ -7,21 +7,18 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.hateoas.RepresentationModel;
 
-import java.util.Set;
-
-
 /**
- * Data Transfer Object (DTO) for User.
+ * Data transfer object for representing a slim version of a user.
+ * Inherits from the RepresentationModel class for HATEOAS support.
  */
 @Data
 @Builder
 @EqualsAndHashCode(callSuper = false)
-public class UserDto extends RepresentationModel<UserDto> {
+public class UserSlimDto extends RepresentationModel<UserSlimDto> {
     /**
-     * The unique identifier of the user.
+     * The ID of the user.
      */
     private Long id;
-
     /**
      * The username of the user.
      */
@@ -33,11 +30,5 @@ public class UserDto extends RepresentationModel<UserDto> {
      * The email of the user.
      */
     @Size(min = 1, max = 128)
-    @NotNull(message = "Email cannot be blank")
     private String email;
-
-    /**
-     * The set of order DTOs associated with the user.
-     */
-    private Set<OrderDto> orderDtos;
 }

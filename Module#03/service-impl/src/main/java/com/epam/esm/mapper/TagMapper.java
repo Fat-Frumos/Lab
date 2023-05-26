@@ -4,31 +4,59 @@ import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Tag;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
 import org.mapstruct.Named;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import static java.util.stream.Collectors.toSet;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
+/**
+ * Mapper interface for mapping between {@link Tag} and {@link TagDto}.
+ */
+@Mapper(componentModel = "spring",
         injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface TagMapper {
-        TagDto toDto(Tag tag);
 
-        Tag toEntity(TagDto dto);
+    /**
+     * Maps a {@link Tag} entity to a {@link TagDto}.
+     *
+     * @param tag the {@link Tag} entity.
+     * @return the mapped {@link TagDto}.
+     */
+    TagDto toDto(Tag tag);
 
-        @Named("toTagSet")
+    /**
+     * Maps a {@link TagDto} to a {@link Tag} entity.
+     *
+     * @param dto the {@link TagDto}.
+     * @return the mapped {@link Tag} entity.
+     */
+    Tag toEntity(TagDto dto);
+
+    /**
+     * Maps a set of {@link TagDto} to a set of {@link Tag} entities.
+     *
+     * @param tagDtos the set of {@link TagDto}.
+     * @return the mapped set of {@link Tag} entities.
+     */
+    @Named("toTagSet")
     default Set<Tag> toTagSet(Set<TagDto> tagDtos) {
-        return tagDtos == null ? null
+        return tagDtos == null ? new HashSet<>()
                 : tagDtos.stream()
                 .map(this::toEntity)
                 .collect(toSet());
     }
 
-        @Named("toTagDtoSet")
-    default Set<TagDto> toTagDtoSet(Set<Tag> tags) {
-        return tags == null ? null
+    /**
+     * Maps a set of {@link Tag} entities to a set of {@link TagDto}.
+     *
+     * @param tags the set of {@link Tag} entities.
+     * @return the mapped set of {@link TagDto}.
+     */
+    @Named("toTagDtoSet")
+    default Set<TagDto> toDtoSet(Set<Tag> tags) {
+        return tags == null ? new HashSet<>()
                 : tags.stream()
                 .map(this::toDto)
                 .collect(toSet());

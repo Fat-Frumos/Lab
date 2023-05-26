@@ -3,7 +3,6 @@ package com.epam.esm.config;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -25,17 +24,29 @@ import java.util.concurrent.TimeUnit;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
+/**
+ * Configuration class for Spring Web MVC.
+ */
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = {"com.epam.esm"})
 public class WebMvcConfig implements WebMvcConfigurer {
+    /**
+     * The context path of the server servlet.
+     */
     @Value("${server.servlet.context-path}")
     private String contextPath;
-
+    /**
+     * The classpath resource locations for static resources.
+     */
     private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
             "classpath:/META-INF/resources/", "classpath:/resources/",
             "classpath:/static/", "classpath:/public/", "/favicon.ico"};
 
+    /**
+     * Configures cross-origin resource sharing (CORS) mappings.
+     *
+     * @param registry the CORS registry
+     */
     @Override
     public void addCorsMappings(
             final CorsRegistry registry) {
@@ -45,6 +56,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .allowedOrigins("*");
     }
 
+    /**
+     * Adds view controllers for specific paths.
+     *
+     * @param registry the view controller registry
+     */
     @Override
     public void addViewControllers(
             final ViewControllerRegistry registry) {
@@ -52,18 +68,33 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .setViewName("forward:/index.html");
     }
 
+    /**
+     * Configures default servlet handling.
+     *
+     * @param configurer the default servlet handler configurer
+     */
     @Override
     public void configureDefaultServletHandling(
             final DefaultServletHandlerConfigurer configurer) {
         configurer.enable("default");
     }
 
+    /**
+     * Configures content negotiation.
+     *
+     * @param configurer the content negotiation configurer
+     */
     @Override
     public void configureContentNegotiation(
             final ContentNegotiationConfigurer configurer) {
         configurer.defaultContentType(APPLICATION_JSON);
     }
 
+    /**
+     * Adds resource handlers for serving static resources.
+     *
+     * @param registry the resource handler registry
+     */
     @Override
     public void addResourceHandlers(
             final ResourceHandlerRegistry registry) {
@@ -74,8 +105,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addResolver(new PathResourceResolver() {
                     @Override
                     protected Resource getResource(
-                            @NonNull String resourcePath,
-                            @NonNull Resource location) throws IOException {
+                            @NonNull final String resourcePath,
+                            @NonNull final Resource location) throws IOException {
                         Resource resource = location.createRelative(resourcePath);
                         return resource.exists()
                                 && resource.isReadable()
@@ -85,6 +116,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 });
     }
 
+    /**
+     * Creates a handler mapping for serving the favicon.ico file.
+     *
+     * @return the favicon handler mapping
+     */
     @Bean
     public SimpleUrlHandlerMapping faviconHandlerMapping() {
         SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
@@ -93,6 +129,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return mapping;
     }
 
+    /**
+     * Creates a request handler for serving the favicon.ico file.
+     *
+     * @return the favicon request handler
+     */
     @Bean
     public ResourceHttpRequestHandler faviconRequestHandler() {
         ResourceHttpRequestHandler requestHandler = new ResourceHttpRequestHandler();
