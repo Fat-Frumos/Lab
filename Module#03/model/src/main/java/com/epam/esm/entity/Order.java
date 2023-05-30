@@ -40,12 +40,19 @@ import java.util.Set;
 @AllArgsConstructor
 @Table(name = "orders")
 @NamedEntityGraph(
-        name = "Order.certificates",
-        attributeNodes = {@NamedAttributeNode(
-                value = "certificates", subgraph = "certificates")
-        }, subgraphs = {@NamedSubgraph(name = "certificates",
-        attributeNodes = {@NamedAttributeNode("tags")}
-)})
+        name = "Order.certificates.tags",
+        attributeNodes = {
+                @NamedAttributeNode(value = "certificates", subgraph = "certificateGraph")
+        },
+        subgraphs = {
+                @NamedSubgraph(
+                        name = "certificateGraph",
+                        attributeNodes = {
+                                @NamedAttributeNode("tags")
+                        }
+                )
+        }
+)
 public class Order implements Serializable {
     /**
      * The unique identifier of the order.

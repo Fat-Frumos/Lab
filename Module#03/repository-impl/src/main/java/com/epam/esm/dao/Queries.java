@@ -7,6 +7,12 @@ public final class Queries {
     private Queries() {
     }
 
+    public static final String CERTIFICATES = "certificates";
+    public static final String TAGS = "tags";
+    /**
+     * Constant for the fetch graph hint used in entity manager queries.
+     */
+    public static final String FETCH_GRAPH = "jakarta.persistence.fetchgraph";
     /**
      * SQL query to select all certificates.
      */
@@ -59,10 +65,18 @@ public final class Queries {
      */
     public static final String SELECT_ORDER_BY_NAME = "SELECT o FROM Order o WHERE o.user.username = :username";
     public static final String SELECT_ORDER_BY_ID = "SELECT DISTINCT o FROM Order o "
-            + "LEFT JOIN FETCH o.certificates c LEFT JOIN FETCH c.tags LEFT JOIN FETCH o.user WHERE o.id = :id";
+            + "LEFT JOIN FETCH o.certificates c "
+            + "LEFT JOIN FETCH c.tags "
+            + "LEFT JOIN FETCH o.user "
+            + "WHERE o.id = :id";
 
     /**
      * SQL query to select a user by name.
      */
     public static final String SELECT_USER_BY_NAME = "SELECT u FROM User u WHERE u.username = :name";
+
+    public static final String SELECT_ALL_ORDERS = "SELECT DISTINCT o FROM Order o JOIN FETCH o.certificates fetch first ? rows only";
+
+    public static final String SELECT_TAG_BY_MANE = "SELECT t FROM Tag t WHERE t.name = :name";;
+
 }

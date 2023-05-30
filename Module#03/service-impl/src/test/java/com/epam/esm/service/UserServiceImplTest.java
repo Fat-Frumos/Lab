@@ -7,7 +7,6 @@ import com.epam.esm.entity.Order;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.UserNotFoundException;
 import com.epam.esm.mapper.UserMapper;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -35,22 +34,13 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {
-
     @Mock
     private UserDao userDao;
-
     @Mock
     private UserMapper mapper;
-
     @InjectMocks
     private UserServiceImpl userService;
-
-    private Pageable pageable;
-
-    @BeforeEach
-    public void setUp() {
-        pageable = PageRequest.of(0, 25, Sort.by("name").ascending());
-    }
+    private final Pageable pageable = PageRequest.of(0, 25, Sort.by("name").ascending());
 
     @ParameterizedTest
     @DisplayName("Get all users")

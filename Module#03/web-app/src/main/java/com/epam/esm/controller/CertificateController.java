@@ -79,8 +79,7 @@ public class CertificateController {
     @GetMapping("/")
     public CollectionModel<EntityModel<CertificateDto>> getAllBy(
             @PageableDefault(size = 25, sort = {"id"},
-                    direction = Sort.Direction.ASC)
-            final Pageable pageable) {
+                    direction = Sort.Direction.ASC) final Pageable pageable) {
         return assembler.toCollectionModel(
                 certificateService.getAll(pageable));
     }
@@ -91,11 +90,10 @@ public class CertificateController {
      * @param pageable the pageable information for pagination and sorting
      * @return the CollectionModel representation of all slim certificates
      */
-    @GetMapping()
+    @GetMapping
     public CollectionModel<EntityModel<CertificateDto>> getAll(
             @PageableDefault(size = 25, sort = {"id"},
-                    direction = Sort.Direction.ASC)
-            final Pageable pageable) {
+                    direction = Sort.Direction.ASC) final Pageable pageable) {
         return assembler.toCollectionModel(
                 certificateService.getSlimCertificates(pageable));
     }
@@ -106,7 +104,7 @@ public class CertificateController {
      * @param tagNames the list of tag names to search for
      * @return the CollectionModel representation of the search results
      */
-    @GetMapping(value = "/search")
+    @GetMapping(value = "/tags")
     public CollectionModel<EntityModel<CertificateDto>> search(
             @RequestParam(required = false) final List<String> tagNames) {
         return assembler.toCollectionModel(

@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+import static com.epam.esm.dao.Queries.FETCH_GRAPH;
 import static com.epam.esm.dao.Queries.SELECT_ALL_BY_IDS;
 import static com.epam.esm.dao.Queries.SELECT_ALL_CERTIFICATES;
 import static com.epam.esm.dao.Queries.SELECT_BY_NAME;
@@ -34,6 +35,8 @@ import static com.epam.esm.dao.Queries.SELECT_CERTIFICATES_BY_ORDER_ID;
 import static com.epam.esm.dao.Queries.SELECT_CERTIFICATES_BY_USER_ID;
 import static com.epam.esm.dao.Queries.SELECT_TAGS_BY_ID;
 import static com.epam.esm.dao.Queries.SELECT_TAGS_BY_NAME;
+import static com.epam.esm.dao.Queries.SELECT_TAG_BY_MANE;
+import static com.epam.esm.dao.Queries.TAGS;
 import static java.util.stream.Collectors.toSet;
 
 /**
@@ -49,12 +52,6 @@ import static java.util.stream.Collectors.toSet;
 @Repository
 @RequiredArgsConstructor
 public class CertificateDaoImpl implements CertificateDao {
-
-    /**
-     * Constant for the fetch graph hint used in entity manager queries.
-     */
-    private static final String FETCH_GRAPH =
-            "jakarta.persistence.fetchgraph";
 
     /**
      * The entity manager factory used for obtaining the entity manager.
@@ -260,18 +257,15 @@ public class CertificateDaoImpl implements CertificateDao {
      *                                      during the update process
      */
     @Override
-    public Certificate update(final Certificate certificate) {
+    public Certificate update(Certificate certificate) {
         try (EntityManager entityManager = factory.createEntityManager()) {
             EntityTransaction transaction = entityManager.getTransaction();
             try {
                 transaction.begin();
-                Certificate existed = entityManager.getReference(
-                        Certificate.class, certificate.getId());
+                Certificate existed = entityManager.getReference(Certificate.class, certificate.getId());
 
                 if (existed == null) {
-                    throw new CertificateNotFoundException(String.format(
-                            "Certificate not found with id %d",
-                            certificate.getId()));
+                    throw new CertificateNotFoundException("Certificate not found with id " + certificate.getId());
                 }
                 if (certificate.getName() != null) {
                     existed.setName(certificate.getName());
@@ -286,8 +280,9 @@ public class CertificateDaoImpl implements CertificateDao {
                     existed.setDuration(certificate.getDuration());
                 }
                 if (certificate.getTags() != null) {
-                    setCertificateTags(entityManager, certificate);
+                    setCertificateTags(entityManager, certificate, existed);
                 }
+                log.info(existed.toString());
                 transaction.commit();
                 return existed;
             } catch (Exception e) {
@@ -336,25 +331,28 @@ public class CertificateDaoImpl implements CertificateDao {
      * with any of the specified tag names
      */
     @Override
-    public List<Certificate> findByTagNames(
-            final List<String> tagNames) {
-        try (EntityManager entityManager =
-                     factory.createEntityManager()) {
-            CriteriaBuilder builder =
-                    entityManager.getCriteriaBuilder();
-            CriteriaQuery<Certificate> query =
-                    builder.createQuery(Certificate.class);
+    public List<Certificate> findByTagNames(final List<String> tagNames) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
+            CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+            CriteriaQuery<Certificate> query = builder.createQuery(Certificate.class);
             Root<Certificate> root = query.from(Certificate.class);
             query.select(root).where(builder.and(tagNames.stream()
                     .map(tagName -> builder.equal(root
                             .join("tags", JoinType.INNER)
                             .get("name"), tagName))
                     .toArray(Predicate[]::new)));
+
+            EntityGraph<Certificate> graph = entityManager
+                    .createEntityGraph(Certificate.class);
+            graph.addAttributeNodes("tags");
+
             return entityManager
                     .createQuery(query)
+                    .setHint(FETCH_GRAPH, graph)
                     .getResultList();
         }
     }
+
 
     /**
      * Retrieves the certificates associated with a user by their ID.
@@ -366,14 +364,15 @@ public class CertificateDaoImpl implements CertificateDao {
      * @return a list of certificates associated with the user
      */
     @Override
-    public List<Certificate> getCertificatesByUserId(
-            final Long id) {
-        try (EntityManager entityManager =
-                     factory.createEntityManager()) {
+    public List<Certificate> getCertificatesByUserId(Long id) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
+            EntityGraph<Certificate> graph = entityManager
+                    .createEntityGraph(Certificate.class);
+            graph.addAttributeNodes(TAGS);
             return entityManager.createQuery(
-                            SELECT_CERTIFICATES_BY_USER_ID,
-                            Certificate.class)
+                            SELECT_CERTIFICATES_BY_USER_ID, Certificate.class)
                     .setParameter("id", id)
+                    .setHint(FETCH_GRAPH, graph)
                     .getResultList();
         }
     }
@@ -390,18 +389,17 @@ public class CertificateDaoImpl implements CertificateDao {
      * @param certificateIds the set of certificate IDs
      * @return a set of certificates matching the specified IDs
      */
-    public Set<Certificate> findAllByIds(
-            final Set<Long> certificateIds) {
-        try (EntityManager entityManager =
-                     factory.createEntityManager()) {
+    public Set<Certificate> findAllByIds(Set<Long> certificateIds) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
             EntityGraph<Certificate> graph = entityManager
                     .createEntityGraph(Certificate.class);
-            graph.addAttributeNodes("tags");
-            return new HashSet<>(entityManager.createQuery(
-                            SELECT_ALL_BY_IDS, Certificate.class)
+            graph.addAttributeNodes(TAGS);
+            List<Certificate> certificates = entityManager
+                    .createQuery(SELECT_ALL_BY_IDS, Certificate.class)
                     .setParameter("ids", certificateIds)
                     .setHint(FETCH_GRAPH, graph)
-                    .getResultList());
+                    .getResultList();
+            return new HashSet<>(certificates);
         }
     }
 
@@ -429,7 +427,6 @@ public class CertificateDaoImpl implements CertificateDao {
                             SELECT_CERTIFICATES_BY_ORDER_ID, Certificate.class)
                     .setParameter("orderId", orderId)
                     .setHint(FETCH_GRAPH, graph).getResultList();
-
             return new HashSet<>(list);
         }
     }
@@ -456,5 +453,26 @@ public class CertificateDaoImpl implements CertificateDao {
                         .orElse(tag))
                 .collect(toSet());
         certificate.setTags(tagSet);
+    }
+
+    private void setCertificateTags(
+            EntityManager entityManager,
+            Certificate certificate,
+            Certificate existed) {
+
+        Set<Tag> updatedTags = new HashSet<>();
+        for (Tag tag : certificate.getTags()) {
+
+            Tag existingTag = entityManager
+                    .createQuery(SELECT_TAG_BY_MANE, Tag.class)
+                    .setParameter("name", tag.getName())
+                    .getResultList()
+                    .stream()
+                    .findFirst()
+                    .orElse(null);
+
+            updatedTags.add(existingTag != null ? existingTag : tag);
+        }
+        existed.setTags(updatedTags);
     }
 }

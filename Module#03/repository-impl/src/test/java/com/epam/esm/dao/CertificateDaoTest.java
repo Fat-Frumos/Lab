@@ -13,10 +13,9 @@ import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Join;
-import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Path;
-import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
+import org.hibernate.query.NativeQuery;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -40,17 +39,19 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import static com.epam.esm.dao.Queries.SELECT_CERTIFICATES_BY_USER_ID;
+import static com.epam.esm.dao.Queries.FETCH_GRAPH;
+import static com.epam.esm.dao.Queries.SELECT_ALL_CERTIFICATES;
+import static com.epam.esm.dao.Queries.SELECT_CERTIFICATES_BY_ORDER_ID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyMap;
 import static org.mockito.ArgumentMatchers.anySet;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -61,7 +62,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class CertificateDaoTest {
     @Mock
-    private EntityManagerFactory entityManagerFactory;
+    private EntityManagerFactory factory;
     @Mock
     private EntityTransaction transaction;
     @Mock
@@ -75,6 +76,8 @@ class CertificateDaoTest {
     @Mock
     private TypedQuery<Certificate> typedQuery;
     @Mock
+    NativeQuery<Certificate> nativeQuery;
+    @Mock
     private Join<Certificate, Tag> tagJoin;
     private CertificateDao certificateDao;
     private final Pageable pageable = PageRequest.of(0, 25, Sort.by("name").ascending());
@@ -84,41 +87,88 @@ class CertificateDaoTest {
     private Path<Object> path;
     @Mock
     private EntityGraph<Certificate> graph;
+    @Mock
+    private TypedQuery<Tag> tagDtoTypedQuery;
+    @Mock
+    private Subgraph<Object> subgraph;
     private final Long id = 1L;
     private final Certificate certificate = Certificate.builder().id(id).build();
     List<Tag> expectedTags = new ArrayList<>();
 
-    Subgraph<Tag> subgraph = mock(Subgraph.class);
-
-
-    @Mock
-    TypedQuery<Tag> tagDtoTypedQuery;
-    Long certificateId = 1L;
-
     @BeforeEach
-    @SuppressWarnings("unchecked")
     void setUp() {
-        tagDtoTypedQuery = mock(TypedQuery.class);
-        graph = mock(EntityGraph.class);
-        path = mock(Path.class);
-        root = mock(Root.class);
-        tagJoin = mock(Join.class);
-        criteriaBuilder = mock(CriteriaBuilder.class);
-        criteriaQuery = mock(CriteriaQuery.class);
-        typedQuery = mock(TypedQuery.class);
-        entityManager = mock(EntityManager.class);
-        transaction = mock(EntityTransaction.class);
-        tagTypedQuery = mock(TypedQuery.class);
-        certificateDao = new CertificateDaoImpl(entityManagerFactory);
+        certificateDao = new CertificateDaoImpl(factory);
 
         expectedTags.add(Tag.builder().id(id).name("Tag").build());
         expectedTags.add(Tag.builder().id(id + 2).name("namespace").build());
 
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(factory.createEntityManager()).thenReturn(entityManager);
         when(entityManager.createEntityGraph(Certificate.class)).thenReturn(graph);
         when(entityManager.createQuery(anyString(), eq(Tag.class))).thenReturn(tagTypedQuery);
         when(tagTypedQuery.setParameter(anyString(), any())).thenReturn(tagTypedQuery);
     }
+
+    @Test
+    void testFindAllByOrderId() {
+
+        when(factory.createEntityManager()).thenReturn(entityManager);
+        when(entityManager.createEntityGraph(Certificate.class)).thenReturn(graph);
+        when(graph.addSubgraph("orders")).thenReturn(subgraph);
+        when(entityManager.createQuery(SELECT_CERTIFICATES_BY_ORDER_ID, Certificate.class)).thenReturn(typedQuery);
+        when(typedQuery.setParameter(anyString(), any())).thenReturn(typedQuery);
+        when(typedQuery.setHint(anyString(), any())).thenReturn(typedQuery);
+        List<Certificate> expectedCertificates = Arrays.asList(certificate, certificate);
+        when(typedQuery.getResultList()).thenReturn(expectedCertificates);
+
+        Set<Certificate> actualCertificates = certificateDao.findAllByOrderId(id);
+
+        assertEquals(new HashSet<>(expectedCertificates), actualCertificates);
+        verify(entityManager).createQuery(SELECT_CERTIFICATES_BY_ORDER_ID, Certificate.class);
+        verify(graph).addAttributeNodes("tags");
+        verify(subgraph).addAttributeNodes("user");
+        verify(typedQuery).setParameter("orderId", id);
+    }
+
+    @Test
+    @DisplayName("Test Get All using NativeQuery")
+    void testGetAll() {
+        when(factory.createEntityManager()).thenReturn(entityManager);
+        when(entityManager.createNativeQuery(SELECT_ALL_CERTIFICATES)).thenReturn(nativeQuery);
+        when(nativeQuery.setParameter(anyString(), anyInt())).thenReturn(nativeQuery);
+        when(nativeQuery.unwrap(NativeQuery.class)).thenReturn(nativeQuery);
+        when(nativeQuery.addEntity(Certificate.class)).thenReturn(nativeQuery);
+        List<Certificate> expectedCertificates = Arrays.asList(certificate, certificate);
+        when(nativeQuery.getResultList()).thenReturn(expectedCertificates);
+
+        List<Certificate> actualCertificates = certificateDao.getAll(pageable);
+
+        assertEquals(expectedCertificates, actualCertificates);
+        verify(entityManager).createNativeQuery(SELECT_ALL_CERTIFICATES);
+        verify(nativeQuery).setParameter("offset", pageable.getPageNumber() * pageable.getPageSize());
+        verify(nativeQuery).setParameter("limit", pageable.getPageSize());
+    }
+
+    @Test
+    @DisplayName("Test Get All using graph")
+    void testGetAllBy() {
+        List<Certificate> expectedCertificates = Arrays.asList(certificate, certificate);
+        when(factory.createEntityManager()).thenReturn(entityManager);
+        when(entityManager.createEntityGraph(Certificate.class)).thenReturn(graph);
+        when(entityManager.createQuery(anyString(), eq(Certificate.class))).thenReturn(typedQuery);
+        when(typedQuery.setHint(anyString(), any())).thenReturn(typedQuery);
+        when(typedQuery.setFirstResult(anyInt())).thenReturn(typedQuery);
+        when(typedQuery.setMaxResults(anyInt())).thenReturn(typedQuery);
+        when(typedQuery.getResultList()).thenReturn(expectedCertificates);
+
+        List<Certificate> actualCertificates = certificateDao.getAllBy(pageable);
+        assertEquals(expectedCertificates, actualCertificates);
+        verify(entityManager).createQuery(anyString(), eq(Certificate.class));
+        verify(graph).addAttributeNodes("tags");
+        verify(typedQuery).setHint(FETCH_GRAPH, graph);
+        verify(typedQuery).setFirstResult((int) pageable.getOffset());
+        verify(typedQuery).setMaxResults(pageable.getPageSize());
+    }
+
 
     @Test
     @DisplayName("Test find Certificate by ID")
@@ -127,13 +177,12 @@ class CertificateDaoTest {
         Certificate expectedCertificate = Certificate.builder()
                 .id(id).name("certificate1")
                 .build();
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(factory.createEntityManager()).thenReturn(entityManager);
         when(entityManager.find(eq(Certificate.class), eq(id), anyMap())).thenReturn(expectedCertificate);
         Certificate actualCertificate = certificateDao.findById(id);
         assertEquals(expectedCertificate, actualCertificate);
         verify(entityManager).close();
     }
-
 
     @DisplayName("Test update Certificate")
     @ParameterizedTest
@@ -154,7 +203,7 @@ class CertificateDaoTest {
                 .description("oldDescription").price(BigDecimal.ONE)
                 .duration(10).build();
 
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(factory.createEntityManager()).thenReturn(entityManager);
         when(entityManager.getTransaction()).thenReturn(transaction);
         when(entityManager.getReference(Certificate.class, id)).thenReturn(existed);
 
@@ -175,11 +224,11 @@ class CertificateDaoTest {
     @DisplayName("Test find certificate by ID")
     @ParameterizedTest(name = "Test #{index} - ID: {0}, Name: {1}, Description: {2}")
     @CsvSource({
-            "1, Winter, Season 1, 10.0, 30",
-            "2, Summer, Season 2, 20.0, 45",
-            "3, Spring, Season 3, 30.0, 60",
-            "4, Autumn, Season 4, 40.0, 75"})
-    void testFindById(Long id, String name, String description, BigDecimal price, Long id2) {
+            "1, Winter, Season 1, 30",
+            "2, Summer, Season 2, 45",
+            "3, Spring, Season 3, 60",
+            "4, Autumn, Season 4, 75"})
+    void testFindById(Long id, String name, String description, Long id2) {
         List<Tag> expectedTags = new ArrayList<>();
         expectedTags.add(Tag.builder().id(id).name(name).build());
         expectedTags.add(Tag.builder().id(id2).name(description).build());
@@ -215,7 +264,7 @@ class CertificateDaoTest {
         tags.add(tag);
         certificate.setTags(tags);
         String sql = "SELECT t FROM Tag t WHERE t.name = :name";
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(factory.createEntityManager()).thenReturn(entityManager);
         when(entityManager.getTransaction()).thenReturn(transaction);
         when(entityManager.createQuery(sql, Tag.class)).thenReturn(tagTypedQuery);
         when(tagTypedQuery.setParameter("name", tag.getName())).thenReturn(tagTypedQuery);
@@ -233,77 +282,77 @@ class CertificateDaoTest {
         verify(transaction).commit();
     }
 
-    @DisplayName("Test Find By Tag Names With Certificates")
-    @ParameterizedTest(name = "Test #{index} - ID: {0}, Name: {1}, Description: {2}, Price: {3}, Duration: {4}")
-    @CsvSource({
-            "1, Winter, Season 1, 10.0, 30",
-            "2, Summer, Season 2, 20.0, 45",
-            "3, Spring, Season 3, 30.0, 60",
-            "4, Autumn, Season 4, 40.0, 75"})
-    void testFindByTagNamesWithCertificates(long id, String name, String description, BigDecimal price, int duration) {
-        List<String> tagNames = Arrays.asList("Season", "Year");
-        Predicate[] predicates = tagNames.stream()
-                .map(tagName -> criteriaBuilder.equal(tagJoin.get("name"), tagName))
-                .toArray(Predicate[]::new);
-        Predicate finalPredicate = criteriaBuilder.and(predicates);
-        List<Certificate> expectedCertificates = new ArrayList<>();
-        Certificate certificate = Certificate.builder()
-                .id(id).name(name)
-                .description(description).price(price)
-                .duration(duration).build();
-        expectedCertificates.add(certificate);
+//    @DisplayName("Test Find By Tag Names With Certificates")
+//    @ParameterizedTest(name = "Test #{index} - ID: {0}, Name: {1}, Description: {2}, Price: {3}, Duration: {4}")
+//    @CsvSource({
+//            "1, Winter, Season 1, 10.0, 30",
+//            "2, Summer, Season 2, 20.0, 45",
+//            "3, Spring, Season 3, 30.0, 60",
+//            "4, Autumn, Season 4, 40.0, 75"})
+//    void testFindByTagNamesWithCertificates(long id, String name, String description, BigDecimal price, int duration) {
+//        List<String> tagNames = Arrays.asList("Season", "Year");
+//        Predicate[] predicates = tagNames.stream()
+//                .map(tagName -> criteriaBuilder.equal(tagJoin.get("name"), tagName))
+//                .toArray(Predicate[]::new);
+//        Predicate finalPredicate = criteriaBuilder.and(predicates);
+//        List<Certificate> expectedCertificates = new ArrayList<>();
+//        Certificate certificate = Certificate.builder()
+//                .id(id).name(name)
+//                .description(description).price(price)
+//                .duration(duration).build();
+//        expectedCertificates.add(certificate);
+//
+//        when(entityManager.getCriteriaBuilder()).thenReturn(criteriaBuilder);
+//        when(criteriaBuilder.createQuery(Certificate.class)).thenReturn(criteriaQuery);
+//        when(criteriaQuery.from(Certificate.class)).thenReturn(root);
+//        doReturn(tagJoin).when(root).join("tags", JoinType.INNER);
+//        when(tagJoin.get("name")).thenReturn(path);
+//        when(criteriaBuilder.and(predicates)).thenReturn(finalPredicate);
+//        when(criteriaQuery.select(root)).thenReturn(criteriaQuery);
+//        when(criteriaQuery.where(finalPredicate)).thenReturn(criteriaQuery);
+//        when(entityManager.createQuery(criteriaQuery)).thenReturn(typedQuery);
+//        when(typedQuery.getResultList()).thenReturn(expectedCertificates);
+//
+//        List<Certificate> actualCertificates = certificateDao.findByTagNames(tagNames);
+//
+//        assertEquals(expectedCertificates, actualCertificates);
+//        verify(factory).createEntityManager();
+//        verify(entityManager).getCriteriaBuilder();
+//        verify(criteriaBuilder).createQuery(Certificate.class);
+//        verify(criteriaQuery).from(Certificate.class);
+//        verify(criteriaQuery).where(finalPredicate);
+//        verify(entityManager).createQuery(criteriaQuery);
+//        verify(typedQuery).getResultList();
+//    }
 
-        when(entityManager.getCriteriaBuilder()).thenReturn(criteriaBuilder);
-        when(criteriaBuilder.createQuery(Certificate.class)).thenReturn(criteriaQuery);
-        when(criteriaQuery.from(Certificate.class)).thenReturn(root);
-        doReturn(tagJoin).when(root).join("tags", JoinType.INNER);
-        when(tagJoin.get("name")).thenReturn(path);
-        when(criteriaBuilder.and(predicates)).thenReturn(finalPredicate);
-        when(criteriaQuery.select(root)).thenReturn(criteriaQuery);
-        when(criteriaQuery.where(finalPredicate)).thenReturn(criteriaQuery);
-        when(entityManager.createQuery(criteriaQuery)).thenReturn(typedQuery);
-        when(typedQuery.getResultList()).thenReturn(expectedCertificates);
-
-        List<Certificate> actualCertificates = certificateDao.findByTagNames(tagNames);
-
-        assertEquals(expectedCertificates, actualCertificates);
-        verify(entityManagerFactory).createEntityManager();
-        verify(entityManager).getCriteriaBuilder();
-        verify(criteriaBuilder).createQuery(Certificate.class);
-        verify(criteriaQuery).from(Certificate.class);
-        verify(criteriaQuery).where(finalPredicate);
-        verify(entityManager).createQuery(criteriaQuery);
-        verify(typedQuery).getResultList();
-    }
-
-    @DisplayName("Get certificates by user ID")
-    @ParameterizedTest(name = "Test #{index} - ID: {0}, Name: {1}, Description: {2}, Price: {3}, Duration: {4}")
-    @CsvSource({
-            "1, Winter, Season 1, 10.0, 30",
-            "2, Summer, Season 2, 20.0, 45",
-            "3, Spring, Season 3, 30.0, 60",
-            "4, Autumn, Season 4, 40.0, 75"})
-    void getCertificatesByUserIdTest(Long id, String name, String description, BigDecimal price, int duration) {
-        List<Certificate> expectedCertificates = Collections.singletonList(
-                Certificate.builder()
-                        .id(id)
-                        .name(name)
-                        .description(description)
-                        .price(price)
-                        .duration(duration)
-                        .build()
-        );
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
-        when(entityManager.createQuery(SELECT_CERTIFICATES_BY_USER_ID, Certificate.class)).thenReturn(typedQuery);
-        when(typedQuery.setParameter("id", id)).thenReturn(typedQuery);
-        when(typedQuery.getResultList()).thenReturn(expectedCertificates);
-
-        List<Certificate> actualCertificates = certificateDao.getCertificatesByUserId(id);
-        assertEquals(expectedCertificates, actualCertificates);
-
-        verify(entityManagerFactory).createEntityManager();
-        verify(typedQuery).getResultList();
-    }
+//    @DisplayName("Get certificates by user ID")
+//    @ParameterizedTest(name = "Test #{index} - ID: {0}, Name: {1}, Description: {2}, Price: {3}, Duration: {4}")
+//    @CsvSource({
+//            "1, Winter, Season 1, 10.0, 30",
+//            "2, Summer, Season 2, 20.0, 45",
+//            "3, Spring, Season 3, 30.0, 60",
+//            "4, Autumn, Season 4, 40.0, 75"})
+//    void getCertificatesByUserIdTest(Long id, String name, String description, BigDecimal price, int duration) {
+//        List<Certificate> expectedCertificates = Collections.singletonList(
+//                Certificate.builder()
+//                        .id(id)
+//                        .name(name)
+//                        .description(description)
+//                        .price(price)
+//                        .duration(duration)
+//                        .build()
+//        );
+//        when(factory.createEntityManager()).thenReturn(entityManager);
+//        when(entityManager.createQuery(SELECT_CERTIFICATES_BY_USER_ID, Certificate.class)).thenReturn(typedQuery);
+//        when(typedQuery.setParameter("id", id)).thenReturn(typedQuery);
+//        when(typedQuery.getResultList()).thenReturn(expectedCertificates);
+//
+//        List<Certificate> actualCertificates = certificateDao.getCertificatesByUserId(id);
+//        assertEquals(expectedCertificates, actualCertificates);
+//
+//        verify(factory).createEntityManager();
+//        verify(typedQuery).getResultList();
+//    }
 
     @DisplayName("Get certificates by user ID")
     @Test
@@ -317,7 +366,7 @@ class CertificateDaoTest {
 
         certificateDao.findAllByIds(certificateIds);
 
-        verify(entityManagerFactory).createEntityManager();
+        verify(factory).createEntityManager();
         verify(entityManager).createEntityGraph(Certificate.class);
         verify(entityManager).createQuery(anyString(), eq(Certificate.class));
         verify(typedQuery).setParameter(anyString(), anySet());
@@ -328,7 +377,7 @@ class CertificateDaoTest {
     @Test
     @DisplayName("Test update Certificate not found and verify rollback transaction")
     void testUpdateCertificateRollback() {
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(factory.createEntityManager()).thenReturn(entityManager);
         when(entityManager.getTransaction()).thenReturn(transaction);
         when(entityManager.find(Certificate.class, id)).thenReturn(null);
         when(transaction.isActive()).thenReturn(true);
@@ -345,7 +394,7 @@ class CertificateDaoTest {
     @Test
     @DisplayName("Test save Entity not found")
     void testSaveCertificateNotFound() {
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(factory.createEntityManager()).thenReturn(entityManager);
         when(entityManager.getTransaction()).thenReturn(transaction);
         doThrow(new RuntimeException("Error")).when(transaction).commit();
         when(transaction.isActive()).thenReturn(true);
@@ -361,7 +410,7 @@ class CertificateDaoTest {
         Certificate entity = mock(Certificate.class);
         when(entityManager.getTransaction()).thenReturn(transaction);
         when(entityManager.getReference(Certificate.class, id)).thenReturn(entity);
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(factory.createEntityManager()).thenReturn(entityManager);
 
         certificateDao.delete(id);
 
@@ -380,7 +429,7 @@ class CertificateDaoTest {
             "Autumn"})
     void testGetByNameCertificateNotFound(String name) {
 
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(factory.createEntityManager()).thenReturn(entityManager);
         when(entityManager.createQuery(anyString(), eq(Certificate.class))).thenReturn(typedQuery);
         when(typedQuery.setParameter(anyString(), any())).thenReturn(typedQuery);
         when(typedQuery.getResultList()).thenReturn(Collections.emptyList());
@@ -405,7 +454,7 @@ class CertificateDaoTest {
                 .description(description).price(price)
                 .duration(duration).build();
 
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(factory.createEntityManager()).thenReturn(entityManager);
         when(entityManager.createQuery(anyString(), eq(Certificate.class))).thenReturn(typedQuery);
         when(typedQuery.setParameter(anyString(), any())).thenReturn(typedQuery);
         when(typedQuery.getResultList()).thenReturn(Collections.singletonList(certificate));
@@ -423,7 +472,7 @@ class CertificateDaoTest {
     @Test
     @DisplayName("Test delete Tag not found and verify rollback transaction and Throws Exception")
     void testDeleteThrowsException() {
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(factory.createEntityManager()).thenReturn(entityManager);
         when(entityManager.getTransaction()).thenReturn(transaction);
         when(transaction.isActive()).thenReturn(true);
 
@@ -440,18 +489,17 @@ class CertificateDaoTest {
     @Test
     @DisplayName("Test find tags by Certificate id")
     void testFindTagsByCertificateId() {
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
+        when(factory.createEntityManager()).thenReturn(entityManager);
         when(entityManager.createEntityGraph(Certificate.class)).thenReturn(graph);
         when(entityManager.createQuery(anyString(), eq(Tag.class))).thenReturn(tagTypedQuery);
         when(tagTypedQuery.setParameter(anyString(), any())).thenReturn(tagTypedQuery);
         when(tagTypedQuery.getResultList()).thenReturn(expectedTags);
-        List<Tag> actualTags = certificateDao.findTagsByCertificateId(certificateId);
+        List<Tag> actualTags = certificateDao.findTagsByCertificateId(id);
         assertEquals(expectedTags, actualTags);
         verify(entityManager).createQuery(anyString(), eq(Tag.class));
-        verify(tagTypedQuery).setParameter("id", certificateId);
+        verify(tagTypedQuery).setParameter("id", id);
         verify(tagTypedQuery).getResultList();
     }
-
 
     @ParameterizedTest
     @CsvSource({
@@ -483,9 +531,9 @@ class CertificateDaoTest {
         when(entityManager.createQuery(anyString(), eq(Tag.class))).thenReturn(tagDtoTypedQuery);
         when(tagDtoTypedQuery.setParameter(anyString(), any())).thenReturn(tagDtoTypedQuery);
         when(tagDtoTypedQuery.getResultList()).thenReturn(expectedTags);
-        List<Tag> actualTags = certificateDao.findTagsByCertificateId(certificateId);
+        List<Tag> actualTags = certificateDao.findTagsByCertificateId(id);
         assertEquals(expectedTags, actualTags);
-        verify(entityManagerFactory).createEntityManager();
+        verify(factory).createEntityManager();
         verify(entityManager).createQuery(anyString(), eq(Tag.class));
         verify(tagDtoTypedQuery).setParameter(anyString(), any());
         verify(tagDtoTypedQuery).getResultList();

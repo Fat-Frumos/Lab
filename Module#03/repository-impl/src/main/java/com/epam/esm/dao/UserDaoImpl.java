@@ -1,5 +1,7 @@
 package com.epam.esm.dao;
 
+import com.epam.esm.entity.Certificate;
+import com.epam.esm.entity.Order;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.UserAlreadyExistsException;
 import jakarta.persistence.EntityGraph;
@@ -8,6 +10,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.PersistenceException;
 import jakarta.persistence.PersistenceUnit;
+import jakarta.persistence.Subgraph;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
@@ -15,9 +18,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
+import static com.epam.esm.dao.Queries.FETCH_GRAPH;
 import static com.epam.esm.dao.Queries.SELECT_USER_BY_NAME;
 
 /**
@@ -59,7 +65,7 @@ public class UserDaoImpl implements UserDao {
             query.select(root);
 
             return entityManager.createQuery(query)
-                    .setHint("jakarta.persistence.fetchgraph", graph)
+                    .setHint(FETCH_GRAPH, graph)
                     .setFirstResult(pageable.getPageNumber() * pageable.getPageSize())
                     .setMaxResults(pageable.getPageSize())
                     .getResultList();
@@ -77,9 +83,14 @@ public class UserDaoImpl implements UserDao {
      */
     @Override
     public Optional<User> getById(final Long id) {
-        try (EntityManager entityManager =
-                     factory.createEntityManager()) {
-            return Optional.of(entityManager.find(User.class, id));
+        try (EntityManager entityManager = factory.createEntityManager()) {
+            EntityGraph<User> graph = entityManager.createEntityGraph(User.class);
+            Subgraph<Order> orderGraph = graph.addSubgraph("orders");
+            Subgraph<Certificate> certificateGraph = orderGraph.addSubgraph("certificates");
+            certificateGraph.addAttributeNodes("tags");
+            Map<String, Object> hints = new HashMap<>();
+            hints.put(FETCH_GRAPH, graph);
+            return Optional.ofNullable(entityManager.find(User.class, id, hints));
         }
     }
 

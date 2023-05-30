@@ -53,7 +53,6 @@ class TagServiceTest {
 
     @BeforeEach
     void setup() {
-
         tags = new ArrayList<>();
         tags.add(Tag.builder().id(1L).name("Tag1").build());
         tags.add(Tag.builder().id(2L).name("Tag2").build());
@@ -175,9 +174,9 @@ class TagServiceTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"Test, 1", "Gift, 2", "Tag, 3"})
+    @CsvSource({"1, Winter", "2, Summer", "3, Spring", "4, Autumn"})
     @DisplayName("Get tag by name")
-    void getByName(String name, Long id) {
+    void getByName(Long id, String name) {
         TagDto tagDto = TagDto.builder()
                 .id(id)
                 .name(name)

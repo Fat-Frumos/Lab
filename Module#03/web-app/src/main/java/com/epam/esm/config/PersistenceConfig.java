@@ -137,6 +137,7 @@ public class PersistenceConfig {
         properties.setProperty("hibernate.show_sql", showSql);
         properties.setProperty("hibernate.hbm2ddl.auto", hibernateDdlAuto);
         properties.setProperty("hibernate.dialect", dialect);
+        properties.setProperty("hibernate.default_batch_fetch_size", "16");
         LocalContainerEntityManagerFactoryBean factoryBean =
                 new LocalContainerEntityManagerFactoryBean();
         factoryBean.setJpaProperties(properties);

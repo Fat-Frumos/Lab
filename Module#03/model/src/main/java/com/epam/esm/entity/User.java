@@ -7,9 +7,13 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedAttributeNode;
+import jakarta.persistence.NamedEntityGraph;
+import jakarta.persistence.NamedSubgraph;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,6 +34,29 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
+@NamedEntityGraph(
+        name = "User.orders.certificates.tags",
+        attributeNodes = {
+                @NamedAttributeNode(value = "orders", subgraph = "orderGraph")
+        },
+        subgraphs = {
+                @NamedSubgraph(
+                        name = "orderGraph",
+                        attributeNodes = {
+                                @NamedAttributeNode(
+                                        value = "certificates",
+                                        subgraph = "certificateGraph"
+                                )
+                        }
+                ),
+                @NamedSubgraph(
+                        name = "certificateGraph",
+                        attributeNodes = {
+                                @NamedAttributeNode("tags")
+                        }
+                )
+        }
+)
 public class User implements Serializable {
     /**
      * The unique identifier of the user.
@@ -50,6 +77,11 @@ public class User implements Serializable {
      * The email address of the user.
      */
     @Column(name = "email", nullable = false)
+    @Pattern(regexp = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\."
+            + "[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@"
+            + "(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9]"
+            + "(?:[a-z0-9-]*[a-z0-9])?",
+            message = "{invalid.email}")
     private String email;
 
     /**

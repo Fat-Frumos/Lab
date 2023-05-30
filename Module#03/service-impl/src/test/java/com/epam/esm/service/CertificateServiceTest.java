@@ -44,7 +44,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 class CertificateServiceTest {
-
     @Mock
     private CertificateDao certificateDao = mock(CertificateDaoImpl.class);
     @Mock
@@ -136,14 +135,90 @@ class CertificateServiceTest {
                 .tags(new HashSet<>()).build());
     }
 
+    @ParameterizedTest
+    @CsvSource({
+            "1, Java, Winter, 10, 30",
+            "2, SQL,  Summer, 10, 30",
+            "4, PorsgreSQL, Autumn, 10, 30",
+            "5, Spring, Boot, 10, 30"
+    })
+    void testGetCertificatesByTags(long id, String tag1, String tag2) {
+        List<String> tagNames = Arrays.asList(tag1, tag2);
+        when(certificateDao.findByTagNames(tagNames)).thenReturn(certificates);
+        when(certificateMapper.toDtoList(certificates)).thenReturn(certificateDtoList);
+
+        List<CertificateDto> result = service.getCertificatesByTags(tagNames);
+
+        assertEquals(certificateDtoList, result);
+        assertEquals(certificateDtoList.size(), result.size());
+        verify(certificateDao).findByTagNames(tagNames);
+        verify(certificateMapper).toDtoList(certificates);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1, Java, description, 10, 30",
+            "2, SQL, description, 10, 30",
+            "3, Programming, description, 10, 30",
+            "4, PorsgreSQL, description, 10, 30",
+            "5, Spring, description, 10, 30"
+    })
+    void testGetByOrderId(long id, String name, String description, BigDecimal price, int duration) {
+        Certificate postDto = Certificate.builder()
+                .id(id)
+                .name(name)
+                .description(description)
+                .price(price)
+                .duration(duration)
+                .build();
+        when(certificateDao.findAllByOrderId(id))
+                .thenReturn(new HashSet<>(Collections.singleton(postDto)));
+        List<CertificateDto> actualCertificates =
+                service.getByOrderId(id);
+        assertEquals(certificateMapper
+                .toDtoList(expectedCertificates), actualCertificates);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1, Java, description, 10, 30",
+            "2, SQL, description, 10, 30",
+            "3, Programming, description, 10, 30",
+            "4, PorsgreSQL, description, 10, 30",
+            "5, Spring, description, 10, 30"
+    })
+    void testSave(long id, String name, String description, BigDecimal price, int duration) {
+        CertificateDto postDto = CertificateDto.builder()
+                .id(id)
+                .name(name)
+                .description(description)
+                .price(price)
+                .duration(duration)
+                .build();
+        Certificate expectedCertificate = certificateMapper.toEntity(postDto);
+        when(certificateDao.save(expectedCertificate)).thenReturn(expectedCertificate);
+        CertificateDto actualCertificate = service.save(postDto);
+        assertEquals(certificateMapper.toDto(expectedCertificate), actualCertificate);
+    }
+
+    @ParameterizedTest
+    @CsvSource({"1, Winter", "2, Summer", "3, Spring", "4, Autumn"})
+    @DisplayName("Get certificates")
+    void testGetAll(int page, String name) {
+        Pageable pageable = PageRequest.of(page, 10);
+        when(certificateDao.getAllBy(pageable)).thenReturn(expectedCertificates);
+        List<CertificateDto> actualCertificates = service.getAll(pageable);
+        assertEquals(certificateMapper.toDtoList(expectedCertificates), actualCertificates);
+        verify(certificateDao).getAllBy(pageable);
+    }
+
     @Test
     @DisplayName("Test Get Certificates By Tag")
     void testGetCertificatesByTag() {
-        Page<CertificateDto> expectedPage = new PageImpl<>(expectedCertificateDtos);
         when(certificateDao.findByTagNames(tagNames)).thenReturn(expectedCertificates);
         when(certificateMapper.toDtoList(expectedCertificates)).thenReturn(expectedCertificateDtos);
-        Page<CertificateDto> actualPage = service.findAllByTags(tagNames);
-        assertEquals(expectedPage.getContent(), actualPage.getContent());
+        List<CertificateDto> actualPage = service.findAllByTags(tagNames);
+        assertEquals(expectedCertificateDtos, actualPage);
         verify(certificateDao).findByTagNames(tagNames);
         verify(certificateMapper).toDtoList(expectedCertificates);
     }
@@ -327,9 +402,9 @@ class CertificateServiceTest {
         when(certificateDao.findByTagNames(tagNames)).thenReturn(certificates);
         when(certificateMapper.toDtoList(certificates)).thenReturn(expectedDtos);
 
-        Page<CertificateDto> result = service.findAllByTags(tagNames);
+        List<CertificateDto> result = service.findAllByTags(tagNames);
 
-        assertEquals(expectedDtos.size(), result.getContent().size());
+        assertEquals(expectedDtos.size(), result.size());
     }
 
     @ParameterizedTest

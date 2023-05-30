@@ -60,10 +60,11 @@ class CertificateServiceExceptionTest {
         }
     }
 
-
     @Test
     void testCertificateIsExistsException() {
-        CertificateAlreadyExistsException exception = new CertificateAlreadyExistsException("Test Certificate");
+        CertificateAlreadyExistsException exception =
+                new CertificateAlreadyExistsException("Test Certificate");
+        service.getByOrderId(1L);
         assertTrue(exception.getMessage().contains("Test Certificate"));
     }
 

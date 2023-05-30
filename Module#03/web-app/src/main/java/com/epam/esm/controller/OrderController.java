@@ -2,27 +2,27 @@ package com.epam.esm.controller;
 
 import com.epam.esm.assembler.OrderAssembler;
 import com.epam.esm.dto.OrderDto;
-import com.epam.esm.entity.Certificate;
-import com.epam.esm.entity.Order;
-import com.epam.esm.entity.User;
+import com.epam.esm.entity.Tag;
 import com.epam.esm.service.OrderService;
-import com.epam.esm.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.Collections;
+import java.util.Optional;
+import java.util.Set;
+
+import static org.springframework.http.HttpStatus.CREATED;
 
 /**
  * Controller class for handling order-related operations.
@@ -43,32 +43,21 @@ public class OrderController {
      * The Order assembler for converting tag entities to DTOs.
      */
     private final OrderAssembler assembler;
-    /**
-     * The User Service for performing tag-related operations.
-     */
-    private final UserService userService;
 
     /**
      * Creates a new order for the specified user and certificate.
      *
-     * @param userId        the ID of the user
-     * @param certificateId the ID of the certificate
+     * @param userId         the ID of the user
+     * @param certificateIds the ID of the certificate
      * @return the created order DTO
      */
     @PostMapping("/{userId}")
-    public OrderDto create(
+    @ResponseStatus(CREATED)
+    public EntityModel<OrderDto> create(
             @PathVariable final Long userId,
-            @RequestParam final Long certificateId) {
-        User user = userService.findById(userId);
-        Certificate certificate = orderService
-                .findCertificateById(certificateId);
-        Order order = Order.builder()
-                .certificates(Collections.singleton(certificate))
-                .cost(certificate.getPrice())
-                .user(user)
-                .orderDate(Timestamp.valueOf(LocalDateTime.now()))
-                .build();
-        return orderService.save(order);
+            @RequestParam final Set<Long> certificateIds) {
+        return assembler.toModel(
+                orderService.save(userId, certificateIds));
     }
 
     /**
@@ -109,5 +98,22 @@ public class OrderController {
             @PathVariable final Long id) {
         return assembler.toModel(
                 orderService.getById(id));
+    }
+
+    @GetMapping("/users/{userId}/most")
+    public ResponseEntity<Tag> getMostUsedTag(
+            final @PathVariable Long userId) {
+        Optional<Tag> mostUsedTag =
+                orderService.getMostUsedTags(userId);
+        return mostUsedTag.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/{orderId}/users/{userId}")
+    public EntityModel<OrderDto> getOrderDetails(
+            final @PathVariable Long orderId,
+            final @PathVariable Long userId) {
+        return assembler.toModel(
+                orderService.getUserOrder(orderId, userId));
     }
 }

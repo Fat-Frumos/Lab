@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-
 /**
  * Implementation of the {@link CertificateService} interface.
  */
@@ -49,6 +48,22 @@ public class CertificateServiceImpl implements CertificateService {
      * Error message prefix for certificate not found.
      */
     private static final String MESSAGE = "Certificate not found with";
+
+    /**
+     * {@inheritDoc}
+     * <p>
+     * Retrieves a page of certificates based on tag names.
+     *
+     * @param tagNames the list of tag names
+     * @return a page of certificate DTOs
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public List<CertificateDto> getCertificatesByTags(
+            final List<String> tagNames) {
+        return mapper.toDtoList(
+                certificateDao.findByTagNames(tagNames));
+    }
 
     /**
      * {@inheritDoc}
@@ -78,11 +93,12 @@ public class CertificateServiceImpl implements CertificateService {
     @Transactional(readOnly = true)
     public List<CertificateDto> getSlimCertificates(
             final Pageable pageable) {
-        List<Certificate> list = certificateDao.getAll(pageable);
         List<CertificateSlimDto> certificateSlimDtos =
-                mapper.toCertificateSlimDto(list);
+                mapper.toCertificateSlimDto(
+                        certificateDao.getAll(pageable));
         return mapper.toDtoListFromSlim(certificateSlimDtos);
     }
+
     /**
      * {@inheritDoc}
      * <p>
@@ -141,7 +157,8 @@ public class CertificateServiceImpl implements CertificateService {
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public CertificateDto update(final CertificateDto dto) {
+    public CertificateDto update(
+            final CertificateDto dto) {
         Certificate updated = certificateDao
                 .update(mapper.toEntity(dto));
         return mapper.toDto(updated);
@@ -175,7 +192,8 @@ public class CertificateServiceImpl implements CertificateService {
      */
     @Override
     @Transactional(readOnly = true)
-    public Set<TagDto> findTagsByCertificateId(final Long id) {
+    public Set<TagDto> findTagsByCertificateId(
+            final Long id) {
         HashSet<Tag> dtos = new HashSet<>(
                 certificateDao.findTagsByCertificateId(id));
         return tagMapper.toDtoSet(dtos);
@@ -195,13 +213,13 @@ public class CertificateServiceImpl implements CertificateService {
      */
     @Override
     @Transactional(readOnly = true)
-    public Page<CertificateDto> findAllByTags(final List<String> tagNames) {
-        Pageable pageable = PageRequest.of(0, 25,
-                Sort.by("name").ascending());
-        List<CertificateDto> dtos = tagNames != null
+    public List<CertificateDto> findAllByTags(
+            final List<String> tagNames) {
+        return tagNames != null
                 ? mapper.toDtoList(certificateDao.findByTagNames(tagNames))
-                : mapper.toDtoList(certificateDao.getAllBy(pageable));
-        return new PageImpl<>(dtos, pageable, dtos.size());
+                : mapper.toDtoList(certificateDao.getAllBy(
+                PageRequest.of(0, 25,
+                        Sort.by("name").ascending())));
     }
 
     /**
@@ -231,7 +249,8 @@ public class CertificateServiceImpl implements CertificateService {
      * matching the specified IDs
      */
     @Override
-    public List<CertificateDto> getByIds(final Set<Long> ids) {
+    public List<CertificateDto> getByIds(
+            final Set<Long> ids) {
         return mapper.toDtoList(new ArrayList<>(
                 certificateDao.findAllByIds(ids)));
     }

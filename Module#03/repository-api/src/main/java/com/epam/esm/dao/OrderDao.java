@@ -27,12 +27,12 @@ public interface OrderDao extends Dao<Order> {
     /**
      * Retrieves an order for the specified user and order ID.
      *
-     * @param user    The user for whom to retrieve the order.
+     * @param userId    The user for whom to retrieve the order.
      * @param orderId The ID of the order to retrieve.
      * @return An optional containing the order
      * for the specified user and order ID, or empty if not found.
      */
-    Optional<Order> getUserOrder(User user, Long orderId);
+    Optional<Order> getUserOrder(Long userId, Long orderId);
 
     /**
      * Retrieves the most used tag by the user with the specified ID.

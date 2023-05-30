@@ -14,6 +14,14 @@ import java.util.Set;
 public interface CertificateService {
 
     /**
+     * Get a page of certificates based on tag names.
+     *
+     * @param tagNames the list of tag names
+     * @return the List of certificate DTOs
+     */
+    List<CertificateDto> getCertificatesByTags(List<String> tagNames);
+
+    /**
      * Retrieves a certificate by its ID.
      *
      * @param id the ID of the certificate.
@@ -23,11 +31,12 @@ public interface CertificateService {
 
     /**
      * Retrieves all certificates with pagination.
-
+     *
      * @param pageable the pagination information.
      * @return a List of certificates.
      */
     List<CertificateDto> getSlimCertificates(Pageable pageable);
+
     List<CertificateDto> getAll(Pageable pageable);
 
     /**
@@ -75,7 +84,7 @@ public interface CertificateService {
      * @param tagNames the list of tag names.
      * @return a page of certificates associated with the tags.
      */
-    Page<CertificateDto> findAllByTags(List<String> tagNames);
+    List<CertificateDto> findAllByTags(List<String> tagNames);
 
     /**
      * Retrieves all certificates associated with a user by user ID.

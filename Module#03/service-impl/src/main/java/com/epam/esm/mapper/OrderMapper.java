@@ -40,6 +40,7 @@ public interface OrderMapper {
      * @return the corresponding list of {@link OrderDto} DTOs
      */
     @Mapping(target = "certificateDtos", source = "certificates")
+    @Mapping(source = "user", target = "user")
     List<OrderDto> toDtoList(List<Order> orders);
 
     /**

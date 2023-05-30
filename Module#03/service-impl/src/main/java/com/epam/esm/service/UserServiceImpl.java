@@ -49,8 +49,8 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public User findById(final Long id) {
-        return userDao.getById(id)
-                .orElseThrow(() -> new UserNotFoundException(
+        return userDao.getById(id).orElseThrow(() ->
+                new UserNotFoundException(
                         String.format("User not found with id %d", id)));
     }
 
@@ -63,7 +63,8 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public Page<UserDto> getAll(final Pageable pageable) {
-        List<UserDto> dtos = mapper.toDtoList(userDao.getAllBy(pageable));
+        List<UserDto> dtos = mapper.toDtoList(
+                userDao.getAllBy(pageable));
         return new PageImpl<>(dtos, pageable, dtos.size());
     }
 }
