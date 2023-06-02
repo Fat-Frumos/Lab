@@ -7,6 +7,7 @@ import com.epam.esm.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -35,10 +36,11 @@ public interface OrderService {
     /**
      * Get all orders of a user.
      *
-     * @param userId the user ID
+     * @param userId   the user ID
+     * @param pageable
      * @return the page of order DTOs
      */
-    Page<OrderDto> getAllByUserId(Long userId);
+    List<OrderDto> getAllByUserId(Long userId, Pageable pageable);
 
     /**
      * Create an order for a user with the specified certificate IDs.
@@ -72,7 +74,7 @@ public interface OrderService {
      * @param ids the certificate IDs
      * @return the certificate
      */
-    Set<Certificate> findCertificateById(Set<Long> ids);
+    List<Certificate> findCertificateById(Set<Long> ids);
 
     /**
      * Save an order.

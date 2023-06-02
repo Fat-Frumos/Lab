@@ -1,6 +1,8 @@
 package com.epam.esm.dto;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Max;
@@ -10,11 +12,13 @@ import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -22,6 +26,7 @@ import java.util.Set;
  */
 @Data
 @Builder
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class CertificateDto
         extends RepresentationModel<CertificateDto> {
@@ -65,7 +70,7 @@ public class CertificateDto
      */
     @Min(value = 0, message = "Duration must be a positive number or zero.")
     @Max(value = 365, message = "Duration must be less than or equal to 365.")
-    private Integer duration;
+    private int duration;
 
     /**
      * The timestamp when the certificate was created.
@@ -91,7 +96,7 @@ public class CertificateDto
      */
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set<TagDto> tags;
+    private Set<TagDto> tags = new HashSet<>();
 
     /**
      * The set of orders associated with the certificate.
@@ -99,5 +104,27 @@ public class CertificateDto
      */
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set<OrderDto> orderDtos;
+    private Set<OrderDto> orderDtos = new HashSet<>();
+
+    @JsonCreator
+    public CertificateDto(
+            @JsonProperty("id") Long id,
+            @JsonProperty("name") String name,
+            @JsonProperty("description") String description,
+            @JsonProperty("price") BigDecimal price,
+            @JsonProperty("duration") Integer duration,
+            @JsonProperty("createDate") Timestamp createDate,
+            @JsonProperty("lastUpdateDate") Timestamp lastUpdateDate,
+            @JsonProperty("tags") Set<TagDto> tags,
+            @JsonProperty("orderDtos") Set<OrderDto> orderDtos) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.duration = duration;
+        this.createDate = createDate;
+        this.lastUpdateDate = lastUpdateDate;
+        this.tags = tags;
+        this.orderDtos = orderDtos;
+    }
 }

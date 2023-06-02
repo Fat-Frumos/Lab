@@ -2,11 +2,16 @@ package com.epam.esm.config;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import lombok.RequiredArgsConstructor;
+import lombok.NonNull;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanInitializationException;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
@@ -17,16 +22,33 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.Properties;
 
 /**
  * Configuration class for persistence-related beans.
+ * <p>
+ * This annotation indicates that the class is a configuration class that defines Spring beans.
+ * It is used to replace traditional XML-based configuration.
+ * <p>
+ * This {@link EnableTransactionManagement} annotation enables Spring's transaction management capabilities,
+ * allowing the use of declarative transactions in the application.
  */
 @Configuration
-@RequiredArgsConstructor
 @EnableTransactionManagement
-public class PersistenceConfig {
+public class PersistenceConfig implements ApplicationContextAware {
+
+    /**
+     * The application context used to obtain classpath resources.
+     * This class implements the {@link ApplicationContextAware} interface to be aware of the application context.
+     */
+    private ApplicationContext applicationContext;
+    /**
+     * An array of paths to the SQL script files for initialization.
+     */
+    @Value("${spring.sql.init.data}")
+    private String[] initDataScriptPaths;
     /**
      * The property for showing SQL statements.
      */
@@ -69,6 +91,10 @@ public class PersistenceConfig {
     @Value("${spring.jpa.properties.hibernate.dialect}")
     private String dialect;
 
+    @Bean
+    public Jackson2ObjectMapperBuilder objectMapperBuilder() {
+        return new Jackson2ObjectMapperBuilder();
+    }
     /**
      * Creates an {@link EntityManager} bean.
      *
@@ -93,18 +119,15 @@ public class PersistenceConfig {
      * @return the created {@link DataSourceInitializer} bean.
      */
     @Bean
-    public DataSourceInitializer dataSourceScriptInitializer(
-            final DataSource dataSource) {
-        ResourceDatabasePopulator resourceDatabasePopulator =
-                new ResourceDatabasePopulator();
-        resourceDatabasePopulator.addScript(new ClassPathResource("db/schema.sql"));
-        resourceDatabasePopulator.addScript(new ClassPathResource("db/gift.sql"));
-        resourceDatabasePopulator.addScript(new ClassPathResource("db/tags.sql"));
-        resourceDatabasePopulator.addScript(new ClassPathResource("db/user.sql"));
-        DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
-        dataSourceInitializer.setDataSource(dataSource);
-        dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
-        return dataSourceInitializer;
+    public DataSourceInitializer dataSourceScriptInitializer(final DataSource dataSource) {
+        ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
+        Arrays.stream(initDataScriptPaths)
+                .map(scriptPath -> applicationContext.getResource(scriptPath))
+                .forEach(populator::addScript);
+        DataSourceInitializer initializer = new DataSourceInitializer();
+        initializer.setDataSource(dataSource);
+        initializer.setDatabasePopulator(populator);
+        return initializer;
     }
 
     /**
@@ -114,8 +137,7 @@ public class PersistenceConfig {
      */
     @Bean
     public DataSource dataSource() {
-        DriverManagerDataSource dataSource =
-                new DriverManagerDataSource();
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(driverClassName);
         dataSource.setUrl(url);
         dataSource.setUsername(username);
@@ -159,5 +181,23 @@ public class PersistenceConfig {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(factoryBean.getObject());
         return transactionManager;
+    }
+
+    /**
+     * Set the ApplicationContext that this object runs in.
+     * Normally this call will be used to initialize the object.
+     * <p>
+     * Invoked after population of normal bean properties but before an init callback such
+     * as {@link InitializingBean#afterPropertiesSet()} or a custom init-method.
+     *
+     * @param applicationContext the ApplicationContext object to be used by this object
+     * @throws BeansException if thrown by application context methods
+     * @see BeanInitializationException
+     */
+    @Override
+    public void setApplicationContext(
+            @NonNull ApplicationContext applicationContext)
+            throws BeansException {
+        this.applicationContext = applicationContext;
     }
 }

@@ -24,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -64,15 +65,14 @@ public class OrderServiceImpl implements OrderService {
     public OrderDto save(final Long userId, Set<Long> ids) {
         User user = userDao.getById(userId).orElseThrow(() ->
                 new UserNotFoundException("UserNotFoundException"));
-        Set<Certificate> certificates =
+        List<Certificate> certificates =
                 certificateDao.findAllByIds(ids);
         Order order = Order.builder()
-                .certificates(certificates)
+                .certificates(new HashSet<>(certificates))
                 .cost(certificates.stream()
                         .map(Certificate::getPrice)
                         .reduce(BigDecimal.ZERO, BigDecimal::add))
                 .user(user)
-                .orderDate(Timestamp.valueOf(LocalDateTime.now()))
                 .build();
         return orderMapper.toDto(
                 orderDao.save(order));
@@ -113,7 +113,7 @@ public class OrderServiceImpl implements OrderService {
         User user = userDao.getById(userId)
                 .orElseThrow(() -> new UserNotFoundException(
                         String.format("User with id %d not found", userId)));
-        Set<Certificate> certificates = certificateDao
+        List<Certificate> certificates = certificateDao
                 .findAllByIds(certificateIds);
         if (certificates.size() != certificateIds.size()) {
             throw new CertificateNotFoundException(
@@ -121,7 +121,7 @@ public class OrderServiceImpl implements OrderService {
         }
         Order order = Order.builder()
                 .user(user)
-                .certificates(certificates)
+                .certificates(new HashSet<>(certificates))
                 .orderDate(Timestamp.valueOf(LocalDateTime.now()))
                 .cost(certificates.stream()
                         .map(Certificate::getPrice)
@@ -209,16 +209,17 @@ public class OrderServiceImpl implements OrderService {
      * <p>
      * Retrieves all orders for a specific user.
      *
-     * @param userId the ID of the user
+     * @param userId   the ID of the user
+     * @param pageable
      * @return a page of order DTOs
      */
     @Override
     @Transactional(readOnly = true)
-    public Page<OrderDto> getAllByUserId(
-            final Long userId) {
-        List<OrderDto> dtos = orderMapper.toDtoList(
-                orderDao.findOrdersByUserId(userId));
-        return new PageImpl<>(dtos, Pageable.unpaged(), dtos.size());
+    public List<OrderDto> getAllByUserId(
+            final Long userId, Pageable pageable) {
+        return  orderMapper.toDtoList(
+                orderDao.findOrdersByUserId(userId, pageable));
+
     }
 
     /**
@@ -232,7 +233,7 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     @Transactional(readOnly = true)
-    public Set<Certificate> findCertificateById(
+    public List<Certificate> findCertificateById(
             final Set<Long> ids) {
         return certificateDao.findAllByIds(ids);
     }

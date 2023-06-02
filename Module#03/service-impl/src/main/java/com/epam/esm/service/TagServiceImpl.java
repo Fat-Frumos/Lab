@@ -3,6 +3,7 @@ package com.epam.esm.service;
 import com.epam.esm.dao.TagDao;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Tag;
+import com.epam.esm.exception.TagAlreadyExistsException;
 import com.epam.esm.exception.TagNotFoundException;
 import com.epam.esm.mapper.TagMapper;
 import lombok.RequiredArgsConstructor;
@@ -97,13 +98,17 @@ public class TagServiceImpl implements TagService {
      * <p>
      * Saves a new tag.
      *
-     * @param tagDto the tag DTO to be saved
+     * @param dto the tag DTO to be saved
      * @return the saved tag DTO
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public TagDto save(final TagDto tagDto) {
-        Tag saved = tagDao.save(tagMapper.toEntity(tagDto));
+    public TagDto save(final TagDto dto) {
+        if (tagDao.getByName(dto.getName()).isPresent()) {
+            throw new TagAlreadyExistsException(String.format(
+                    "Tag already exists exception with name %s", dto.getName()));
+        }
+        Tag saved = tagDao.save(tagMapper.toEntity(dto));
         return tagMapper.toDto(saved);
     }
 

@@ -46,8 +46,9 @@ public interface OrderDao extends Dao<Order> {
     /**
      * Retrieves a list of orders for the user with the specified ID.
      *
-     * @param userId The ID of the user.
+     * @param userId   The ID of the user.
+     * @param pageable
      * @return A list of orders for the user with the specified ID.
      */
-    List<Order> findOrdersByUserId(Long userId);
+    List<Order> findOrdersByUserId(Long userId, Pageable pageable);
 }

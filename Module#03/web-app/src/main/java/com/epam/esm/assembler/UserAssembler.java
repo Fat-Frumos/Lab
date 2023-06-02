@@ -40,7 +40,8 @@ public class UserAssembler implements
                         .getUser(userDto.getId()))
                         .withSelfRel(),
                 linkTo(methodOn(OrderController.class)
-                        .getAllOrdersByUserId(userDto.getId()))
+                        .getAllOrdersByUserId(userDto.getId(),
+                                PageRequest.of(0, 25, Sort.by("name").ascending())))
                         .withRel("orders"),
                 linkTo(methodOn(CertificateController.class)
                         .getUserCertificates(userDto.getId()))

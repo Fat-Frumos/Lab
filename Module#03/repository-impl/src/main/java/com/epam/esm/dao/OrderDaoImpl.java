@@ -18,11 +18,12 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
-import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.Hibernate;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -31,9 +32,12 @@ import java.util.stream.Collectors;
 
 import static com.epam.esm.dao.Queries.CERTIFICATES;
 import static com.epam.esm.dao.Queries.FETCH_GRAPH;
+import static com.epam.esm.dao.Queries.ID;
 import static com.epam.esm.dao.Queries.SELECT_ORDER_BY_ID;
 import static com.epam.esm.dao.Queries.SELECT_ORDER_BY_NAME;
 import static com.epam.esm.dao.Queries.TAGS;
+import static com.epam.esm.dao.Queries.USER;
+import static java.util.stream.Collectors.toList;
 
 /**
  * Implementation of the {@link OrderDao} interface
@@ -58,22 +62,28 @@ public class OrderDaoImpl implements OrderDao {
      * @return a list of order entities.
      */
     public List<Order> getAllBy(final Pageable pageable) {
-        try (EntityManager entityManager = factory
-                .createEntityManager()) {
-            CriteriaQuery<Order> query = entityManager
-                    .getCriteriaBuilder()
-                    .createQuery(Order.class);
+        try (EntityManager entityManager = factory.createEntityManager()) {
+            CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+            CriteriaQuery<Long> query = builder.createQuery(Long.class);
             Root<Order> root = query.from(Order.class);
-            root.fetch(CERTIFICATES, JoinType.LEFT)
-                    .fetch(TAGS, JoinType.LEFT);
-            root.fetch("user", JoinType.LEFT);
-            query.select(root);
-            return entityManager.createQuery(query)
+            query.select(root.get("id"));
+            if (pageable.getSort().isSorted()) {
+                query.orderBy(pageable.getSort().stream()
+                        .map(order -> order.getDirection().equals(Sort.Direction.ASC)
+                                ? builder.asc(root.get(order.getProperty()))
+                                : builder.desc(root.get(order.getProperty())))
+                        .collect(toList()));
+            }
+            List<Long> orderIds = entityManager.createQuery(query)
+                    .setMaxResults(pageable.getPageSize())
+                    .setFirstResult(pageable.getPageNumber() * pageable.getPageSize())
+                    .getResultList();
+            return entityManager.createQuery("SELECT o FROM Order o WHERE o.id IN :orderIds",
+                            Order.class)
+                    .setParameter("orderIds", orderIds)
                     .setHint(FETCH_GRAPH, entityManager
                             .getEntityGraph("Order.certificates.tags"))
-                    .setFirstResult(pageable.getPageNumber()
-                            * pageable.getPageSize())
-                    .setMaxResults(pageable.getPageSize())
+
                     .getResultList();
         }
     }
@@ -91,7 +101,7 @@ public class OrderDaoImpl implements OrderDao {
                      factory.createEntityManager()) {
             return entityManager.createQuery(
                             SELECT_ORDER_BY_ID, Order.class)
-                    .setParameter("id", id)
+                    .setParameter(ID, id)
                     .setHint(FETCH_GRAPH, entityManager
                             .getEntityGraph("Order.certificates.tags"))
                     .getResultStream()
@@ -130,16 +140,18 @@ public class OrderDaoImpl implements OrderDao {
      */
     @Override
     public Order save(Order order) {
-        try (EntityManager entityManager = factory.createEntityManager()) {
-            EntityTransaction transaction = entityManager.getTransaction();
+        try (EntityManager entityManager =
+                     factory.createEntityManager()) {
+            EntityTransaction transaction =
+                    entityManager.getTransaction();
             try {
                 transaction.begin();
                 order.setUser(entityManager
                         .getReference(User.class, order.getUser().getId()));
                 order.setCertificates(order.getCertificates()
                         .stream()
-                        .map(certificate -> entityManager
-                                .getReference(Certificate.class, certificate.getId()))
+                        .map(certificate -> entityManager.getReference(
+                                Certificate.class, certificate.getId()))
                         .collect(Collectors.toSet()));
                 entityManager.persist(order);
                 transaction.commit();
@@ -203,11 +215,17 @@ public class OrderDaoImpl implements OrderDao {
             Root<Order> root = query.from(Order.class);
             EntityGraph<Order> graph = entityManager
                     .createEntityGraph(Order.class);
-            graph.addAttributeNodes("user");
+            graph.addAttributeNodes(USER);
             graph.addSubgraph("certificate")
                     .addAttributeNodes(TAGS);
-
-            query.where(builder.equal(root.get("user"), user));
+            if (pageable.getSort().isSorted()) {
+                query.orderBy(pageable.getSort().stream()
+                        .map(order -> order.getDirection().equals(Sort.Direction.ASC)
+                                ? builder.asc(root.get(order.getProperty()))
+                                : builder.desc(root.get(order.getProperty())))
+                        .collect(toList()));
+            }
+            query.where(builder.equal(root.get(USER), user));
 
             return entityManager.createQuery(query)
                     .setHint(FETCH_GRAPH, graph)
@@ -228,30 +246,30 @@ public class OrderDaoImpl implements OrderDao {
      * @return an optional containing the order entity,
      * or empty if not found.
      */
-    public Optional<Order> getUserOrder(
-            final Long userId, final Long orderId) {
-        try (EntityManager entityManager =
-                     factory.createEntityManager()) {
-            EntityGraph<Order> graph = entityManager
-                    .createEntityGraph(Order.class);
-            graph.addAttributeNodes("user", CERTIFICATES, "certificates.tags");
-
+    public Optional<Order> getUserOrder(final Long userId, final Long orderId) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-
             CriteriaQuery<Order> query = builder.createQuery(Order.class);
-
             Root<Order> root = query.from(Order.class);
-            query.select(root).where(
+            root.fetch("certificates", JoinType.LEFT)
+                    .fetch("tags", JoinType.LEFT);
+            query.select(root).distinct(true).where(
                     builder.equal(root.get("user").get("id"), userId),
-                    builder.equal(root.get("id"), orderId));
+                    builder.equal(root.get("id"), orderId)
+            );
 
             List<Order> results = entityManager
                     .createQuery(query)
-                    .setHint(FETCH_GRAPH, graph)
+                    .setHint(FETCH_GRAPH, entityManager
+                            .getEntityGraph("User.orders.certificates.tags"))
                     .getResultList();
-            return results.isEmpty()
-                    ? Optional.empty()
-                    : Optional.of(results.get(0));
+            if (!results.isEmpty()) {
+                Order order = results.get(0);
+                Hibernate.initialize(order.getCertificates());
+                return Optional.of(order);
+            } else {
+                return Optional.empty();
+            }
         }
     }
 
@@ -262,28 +280,27 @@ public class OrderDaoImpl implements OrderDao {
      * @return an optional containing
      * the most used tag entity, or empty if not found.
      */
-    public Optional<Tag> getMostUsedTagBy(
-            final Long userId) {
+    public Optional<Tag> getMostUsedTagBy(final Long userId) {
         try (EntityManager entityManager = factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Tuple> query = builder.createTupleQuery();
             Root<Order> root = query.from(Order.class);
-            Join<Order, User> userJoin = root.join("user");
-            Join<Order, Certificate> certificateJoin = root.join("certificates");
-            Join<Certificate, Tag> tagJoin = certificateJoin.join("tags");
-
-            query.multiselect(tagJoin.alias("tag"), builder.sum(root.get("cost")).alias("totalCost"))
-                    .groupBy(tagJoin)
-                    .orderBy(builder.desc(builder.sum(root.get("cost"))));
-
-            Predicate userPredicate = builder.equal(userJoin.get("id"), userId);
-            query.where(userPredicate);
-            TypedQuery<Tuple> typedQuery = entityManager.createQuery(query).setMaxResults(1);
-            List<Tuple> resultList = typedQuery.getResultList();
-
-            return resultList.isEmpty()
+            Join<Certificate, Tag> join = root.join(CERTIFICATES).join(TAGS);
+            query.multiselect(
+                            join.alias("tag"),
+                            builder.count(join),
+                            builder.sum(root.get("cost")))
+                    .where(builder.equal(root.get("user").get(ID), userId))
+                    .groupBy(join)
+                    .orderBy(builder.desc(
+                            builder.sum(root.get("cost"))));
+            List<Tuple> result = entityManager
+                    .createQuery(query)
+                    .setMaxResults(1)
+                    .getResultList();
+            return result.isEmpty()
                     ? Optional.empty()
-                    : Optional.ofNullable(resultList.get(0).get("tag", Tag.class));
+                    : Optional.of(result.get(0).get("tag", Tag.class));
         }
     }
 
@@ -292,10 +309,11 @@ public class OrderDaoImpl implements OrderDao {
      * <p>
      * Finds all orders for a specific user by user ID.
      *
-     * @param userId the ID of the user.
+     * @param userId   the ID of the user.
+     * @param pageable
      * @return a list of order entities.
      */
-    public List<Order> findOrdersByUserId(Long userId) {
+    public List<Order> findOrdersByUserId(Long userId, Pageable pageable) {
         try (EntityManager entityManager =
                      factory.createEntityManager()) {
             EntityGraph<Order> graph =
@@ -304,8 +322,15 @@ public class OrderDaoImpl implements OrderDao {
             graph.addSubgraph(CERTIFICATES).addAttributeNodes(TAGS);
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
             CriteriaQuery<Order> query = builder.createQuery(Order.class);
-            query.where(builder.equal(
-                    query.from(Order.class).get("user").get("id"), userId));
+            Root<Order> root = query.from(Order.class);
+            query.where(builder.equal(root.get(USER).get(ID), userId));
+            if (pageable.getSort().isSorted()) {
+                query.orderBy(pageable.getSort().stream()
+                        .map(order -> order.getDirection().equals(Sort.Direction.ASC)
+                                ? builder.asc(root.get(order.getProperty()))
+                                : builder.desc(root.get(order.getProperty())))
+                        .collect(toList()));
+            }
             return entityManager
                     .createQuery(query)
                     .setHint(FETCH_GRAPH, graph)

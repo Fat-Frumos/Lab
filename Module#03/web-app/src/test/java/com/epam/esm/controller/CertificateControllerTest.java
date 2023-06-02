@@ -1,9 +1,8 @@
-package com.epam.esm;
+package com.epam.esm.controller;
 
 import com.epam.esm.assembler.CertificateAssembler;
-import com.epam.esm.controller.CertificateController;
 import com.epam.esm.dto.CertificateDto;
-import com.epam.esm.entity.Certificate;
+import com.epam.esm.dto.PatchCertificateDto;
 import com.epam.esm.handler.ErrorHandlerController;
 import com.epam.esm.service.CertificateService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,8 +15,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.hateoas.EntityModel;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -28,11 +25,12 @@ import java.util.List;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.springframework.http.HttpHeaders.LOCATION;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(MockitoExtension.class)
@@ -65,7 +63,7 @@ class CertificateControllerTest {
 
 //    @Test
 //    void testUpdateCertificateDuration() throws Exception {
-//        Long certificateId = 1L;
+//        Long certificateId = 3L;
 //        int newDuration = 60;
 //
 //        CertificateDto updatedCertificate = CertificateDto.builder()
@@ -73,26 +71,22 @@ class CertificateControllerTest {
 //                .duration(newDuration)
 //                .build();
 //
-//        when(service.update(updatedCertificate)).thenReturn(updatedCertificate);
-//
 //        CertificateDto existingCertificate = CertificateDto.builder()
 //                .id(certificateId)
 //                .build();
-//
-//        when(service.getById(certificateId)).thenReturn(existingCertificate);
-//
-//        mockMvc.perform(patch("/api/certificates/{id}", certificateId)
-//                        .contentType(MediaType.APPLICATION_JSON)
+//        mockMvc.perform(patch("/api/certificates/" + certificateId)
+//                        .contentType(APPLICATION_JSON)
 //                        .content("{\"duration\": 60}"))
 //                .andExpect(status().isOk())
 //                .andExpect(jsonPath("$.id").value(certificateId))
 //                .andExpect(jsonPath("$.duration").value(newDuration));
 //
+//        controller.update(id, existingCertificate);
 //        verify(service).update(updatedCertificate);
 //    }
 
     @ParameterizedTest
-    @DisplayName("testUpdateCertificate")
+    @DisplayName("Test update certificate should return certificates")
     @CsvSource({
             "1, Olivia, Noah, Olivia-Noah@gmail.com, 10, Java, description, 10, 30",
             "2, Emma, Liam, Emma-Liam@gmail.com, 20, Certificate, description, 20, 45",
@@ -100,36 +94,33 @@ class CertificateControllerTest {
             "4, Amelia, Elijah, Amelia-Elijah@gmail.com, 40, SQL, description, 40, 75",
             "5, Ava, Leo, Ava-Leo@gmail.com, 50, Programming, description, 50, 90"
     })
-    void shouldReturnCertificate(long id,
-                                 String firstName,
-                                 String lastName,
-                                 String email,
-                                 long certificateId,
-                                 String certificateName,
-                                 String certificateDescription,
-                                 BigDecimal price,
-                                 int duration) throws Exception {
+    void testCreateAndUpdateCertificateShouldReturnCertificates(
+            long id,
+            String firstName,
+            String lastName,
+            String email,
+            long certificateId,
+            String certificateName,
+            String certificateDescription,
+            BigDecimal price,
+            int duration) throws Exception {
         List<String> tagNames = new ArrayList<>();
         tagNames.add("Java");
         tagNames.add("SQL");
-        CertificateDto expectedCertificate = CertificateDto.builder()
+        PatchCertificateDto expectedCertificate = PatchCertificateDto.builder()
                 .id(certificateId)
-                .name(certificateName)
-                .description(certificateDescription)
                 .price(price)
                 .duration(duration)
                 .build();
         mockMvc.perform(post("/certificates")
-                .contentType(MediaType.APPLICATION_JSON)
+                        .contentType(APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(dto)))
+                .andExpect(status().isCreated());
+        mockMvc.perform(patch("/certificates")
+                .contentType(APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(dto)));
-        mockMvc.perform(post("/certificates")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(dto)));
-        when(controller.update(id, dto)).thenReturn(EntityModel.of(dto));
         controller.update(id, expectedCertificate);
-
-
-        verify(service).update(dto);
+        verify(service).save(dto);
     }
 
     @Test

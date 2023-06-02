@@ -1,7 +1,9 @@
 package com.epam.esm.assembler;
 
 import com.epam.esm.controller.CertificateController;
+import com.epam.esm.controller.TagController;
 import com.epam.esm.dto.CertificateDto;
+import com.epam.esm.dto.PatchCertificateDto;
 import lombok.NonNull;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -35,13 +37,21 @@ public class CertificateAssembler
             @NonNull final CertificateDto dto) {
         return EntityModel.of(dto,
                 linkTo(methodOn(CertificateController.class)
+                        .getCertificateById(dto.getId())).withSelfRel(),
+                linkTo(methodOn(CertificateController.class)
                         .getTagsByCertificateId(dto.getId())).withRel("tags"),
                 linkTo(methodOn(CertificateController.class)
                         .delete(dto.getId())).withRel("delete"),
                 linkTo(methodOn(CertificateController.class)
                         .create(dto)).withRel("create"),
                 linkTo(methodOn(CertificateController.class)
-                        .update(dto.getId(), dto)).withRel("update")
+                        .update(dto.getId(), PatchCertificateDto
+                                .builder()
+                                .duration(dto.getDuration())
+                                .price(dto.getPrice())
+                                .id(dto.getId())
+                                .build()))
+                        .withRel("update")
         );
     }
 
@@ -63,8 +73,7 @@ public class CertificateAssembler
                         .map(this::toModel)
                         .collect(toList()),
                 linkTo(methodOn(CertificateController.class)
-                        .getAll(PageRequest.of(
-                                0, 25,
+                        .getAll(PageRequest.of(0, 25,
                                 Sort.by(Sort.Direction.ASC, "id"))))
                         .withSelfRel());
     }

@@ -3,6 +3,7 @@ package com.epam.esm.entity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +15,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedAttributeNode;
 import jakarta.persistence.NamedEntityGraph;
 import jakarta.persistence.NamedSubgraph;
-import jakarta.persistence.PrePersist;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -23,6 +23,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -39,10 +40,13 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "orders")
+@EntityListeners(AuditListener.class)
 @NamedEntityGraph(
         name = "Order.certificates.tags",
         attributeNodes = {
-                @NamedAttributeNode(value = "certificates", subgraph = "certificateGraph")
+                @NamedAttributeNode(
+                        value = "certificates",
+                        subgraph = "certificateGraph")
         },
         subgraphs = {
                 @NamedSubgraph(
@@ -71,6 +75,7 @@ public class Order implements Serializable {
     /**
      * The date of the order.
      */
+    @CreationTimestamp
     @Column(name = "order_date", nullable = false)
     private Timestamp orderDate;
 
@@ -101,14 +106,6 @@ public class Order implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "certificate_id")
     )
     private Set<Certificate> certificates = new HashSet<>();
-
-    /**
-     * Pre-persist hook to set the order date.
-     */
-    @PrePersist
-    public void prePersist() {
-        orderDate = new Timestamp(System.currentTimeMillis());
-    }
 
     /**
      * Adds a certificate to the order.

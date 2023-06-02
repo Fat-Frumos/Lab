@@ -16,15 +16,19 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import static com.epam.esm.dao.Queries.FETCH_GRAPH;
+import static com.epam.esm.dao.Queries.NAME;
 import static com.epam.esm.dao.Queries.SELECT_USER_BY_NAME;
+import static java.util.stream.Collectors.toList;
 
 /**
  * The implementation of the UserDao interface.
@@ -63,6 +67,15 @@ public class UserDaoImpl implements UserDao {
             graph.addAttributeNodes("orders");
 
             query.select(root);
+
+            if (pageable.getSort().isSorted()) {
+                List<jakarta.persistence.criteria.Order> orders = pageable.getSort().stream()
+                        .map(order -> order.getDirection().equals(Sort.Direction.ASC)
+                                ? builder.asc(root.get(order.getProperty()))
+                                : builder.desc(root.get(order.getProperty())))
+                        .collect(toList());
+                query.orderBy(orders);
+            }
 
             return entityManager.createQuery(query)
                     .setHint(FETCH_GRAPH, graph)
@@ -110,7 +123,7 @@ public class UserDaoImpl implements UserDao {
 
             List<User> users = entityManager
                     .createQuery(SELECT_USER_BY_NAME, User.class)
-                    .setParameter("name", name)
+                    .setParameter(NAME, name)
                     .getResultList();
 
             return users.isEmpty()
@@ -136,7 +149,7 @@ public class UserDaoImpl implements UserDao {
                 transaction.begin();
                 boolean empty = entityManager
                         .createQuery(SELECT_USER_BY_NAME, User.class)
-                        .setParameter("name", user.getUsername())
+                        .setParameter(NAME, user.getUsername())
                         .getResultList().isEmpty();
                 if (!empty) {
                     throw new UserAlreadyExistsException("User is Already Exists");

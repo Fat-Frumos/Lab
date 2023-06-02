@@ -1,7 +1,9 @@
 package com.epam.esm.service;
 
 import com.epam.esm.dto.CertificateDto;
+import com.epam.esm.dto.PatchCertificateDto;
 import com.epam.esm.dto.TagDto;
+import com.epam.esm.entity.Criteria;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -16,10 +18,10 @@ public interface CertificateService {
     /**
      * Get a page of certificates based on tag names.
      *
-     * @param tagNames the list of tag names
+     * @param criteria the list of tag names
      * @return the List of certificate DTOs
      */
-    List<CertificateDto> getCertificatesByTags(List<String> tagNames);
+//    List<CertificateDto> getCertificatesByTags(Criteria criteria, Pageable pageable);
 
     /**
      * Retrieves a certificate by its ID.
@@ -35,9 +37,7 @@ public interface CertificateService {
      * @param pageable the pagination information.
      * @return a List of certificates.
      */
-    List<CertificateDto> getSlimCertificates(Pageable pageable);
-
-    List<CertificateDto> getAll(Pageable pageable);
+    List<CertificateDto> getCertificates(Pageable pageable);
 
     /**
      * Retrieves a certificate by its name.
@@ -60,7 +60,7 @@ public interface CertificateService {
      * @param dto the certificate DTO containing the updated information.
      * @return the updated certificate.
      */
-    CertificateDto update(CertificateDto dto);
+    CertificateDto update(PatchCertificateDto dto);
 
     /**
      * Saves a new certificate with slim information.
@@ -81,10 +81,11 @@ public interface CertificateService {
     /**
      * Retrieves all certificates associated with a list of tag names.
      *
-     * @param tagNames the list of tag names.
+     * @param criteria the list of tag names.
+     * @param pageable the page
      * @return a page of certificates associated with the tags.
      */
-    List<CertificateDto> findAllByTags(List<String> tagNames);
+    List<CertificateDto> findAllBy(Criteria criteria, Pageable pageable);
 
     /**
      * Retrieves all certificates associated with a user by user ID.

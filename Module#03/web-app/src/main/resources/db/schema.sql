@@ -4,7 +4,7 @@
 CREATE TABLE IF NOT EXISTS gift_certificates
 (
     id               BIGSERIAL PRIMARY KEY,
-    name             VARCHAR(55) NOT NULL,
+    name             VARCHAR(256) NOT NULL,
     description      TEXT,
     price            DECIMAL(10, 2),
     create_date      TIMESTAMP,

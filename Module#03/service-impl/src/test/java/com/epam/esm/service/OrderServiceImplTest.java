@@ -30,6 +30,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -170,7 +171,7 @@ class OrderServiceImplTest {
     void createOrderTest() {
 
         Set<Long> certificateIds = Collections.singleton(id);
-        Set<Certificate> certificates = Collections.singleton(certificate);
+        List<Certificate> certificates = Collections.singletonList(certificate);
 
         when(userDao.getById(userId)).thenReturn(Optional.of(user));
         when(certificateDao.findAllByIds(certificateIds)).thenReturn(certificates);
@@ -208,7 +209,7 @@ class OrderServiceImplTest {
     void saveOrderCertificateNotFoundExceptionTest() {
 
         when(userDao.getById(userId)).thenReturn(Optional.of(user));
-        when(certificateDao.findAllByIds(certificateIds)).thenReturn(Collections.emptySet());
+        when(certificateDao.findAllByIds(certificateIds)).thenReturn(Collections.emptyList());
 
         assertThrows(CertificateNotFoundException.class,
                 () -> orderService.createOrder(userId, certificateIds));
@@ -361,13 +362,13 @@ class OrderServiceImplTest {
                         .build()))
                 .build());
 
-        when(orderDao.findOrdersByUserId(id)).thenReturn(expectedOrders);
+        when(orderDao.findOrdersByUserId(id, pageable)).thenReturn(expectedOrders);
         when(orderMapper.toDtoList(expectedOrders)).thenReturn(expectedOrderDtos);
 
-        Page<OrderDto> actualOrderDtos = orderService.getAllByUserId(id);
+        List<OrderDto> actualOrderDtos = orderService.getAllByUserId(id, pageable);
 
-        assertEquals(expectedOrderDtos, actualOrderDtos.getContent());
-        verify(orderDao).findOrdersByUserId(id);
+        assertEquals(expectedOrderDtos, actualOrderDtos);
+        verify(orderDao).findOrdersByUserId(id, pageable);
         verify(orderMapper).toDtoList(expectedOrders);
     }
 
@@ -391,10 +392,10 @@ class OrderServiceImplTest {
                 .duration(duration)
                 .build();
 
-        Set<Certificate> expectedCertificates = new HashSet<>();
+        List<Certificate> expectedCertificates = new ArrayList<>();
         expectedCertificates.add(certificate);
         when(certificateDao.findAllByIds(ids)).thenReturn(expectedCertificates);
-        Set<Certificate> result = orderService.findCertificateById(ids);
+        List<Certificate> result = orderService.findCertificateById(ids);
         assertEquals(expectedCertificates, result);
         verify(certificateDao).findAllByIds(ids);
     }

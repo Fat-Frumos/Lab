@@ -3,10 +3,13 @@ package com.epam.esm.controller;
 import com.epam.esm.assembler.CertificateAssembler;
 import com.epam.esm.assembler.TagAssembler;
 import com.epam.esm.dto.CertificateDto;
+import com.epam.esm.dto.PatchCertificateDto;
 import com.epam.esm.dto.TagDto;
+import com.epam.esm.entity.Criteria;
 import com.epam.esm.service.CertificateService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -39,6 +42,7 @@ import static org.springframework.http.HttpStatus.NO_CONTENT;
  * and allowed headers set to "GET", "POST", "PUT", and "DELETE"
  * to enable Cross-Origin Resource Sharing (CORS).
  */
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/certificates")
@@ -74,20 +78,6 @@ public class CertificateController {
      * Retrieves all certificates.
      *
      * @param pageable the pageable information for pagination and sorting
-     * @return the CollectionModel representation of all certificates
-     */
-    @GetMapping("/")
-    public CollectionModel<EntityModel<CertificateDto>> getAllBy(
-            @PageableDefault(size = 25, sort = {"id"},
-                    direction = Sort.Direction.ASC) final Pageable pageable) {
-        return assembler.toCollectionModel(
-                certificateService.getAll(pageable));
-    }
-
-    /**
-     * Retrieves all certificates.
-     *
-     * @param pageable the pageable information for pagination and sorting
      * @return the CollectionModel representation of all slim certificates
      */
     @GetMapping
@@ -95,20 +85,29 @@ public class CertificateController {
             @PageableDefault(size = 25, sort = {"id"},
                     direction = Sort.Direction.ASC) final Pageable pageable) {
         return assembler.toCollectionModel(
-                certificateService.getSlimCertificates(pageable));
+                certificateService.getCertificates(pageable));
     }
 
     /**
      * Searches for certificates by tag names.
      *
-     * @param tagNames the list of tag names to search for
+     * @param pageable the list of tag names to search for
      * @return the CollectionModel representation of the search results
      */
-    @GetMapping(value = "/tags")
+    @GetMapping(value = "/search")
     public CollectionModel<EntityModel<CertificateDto>> search(
-            @RequestParam(required = false) final List<String> tagNames) {
+            @RequestParam(required = false) final String name,
+            @RequestParam(required = false) final String description,
+            @RequestParam(required = false) final List<String> tagNames,
+            @PageableDefault(size = 25, sort = {"id"},
+                    direction = Sort.Direction.ASC) final Pageable pageable) {
         return assembler.toCollectionModel(
-                certificateService.findAllByTags(tagNames));
+                certificateService.findAllBy(
+                        Criteria.builder()
+                                .name(name)
+                                .description(description)
+                                .tagNames(tagNames).build(),
+                        pageable));
     }
 
     /**
@@ -121,10 +120,10 @@ public class CertificateController {
     @PatchMapping(value = "/{id}")
     public EntityModel<CertificateDto> update(
             @Valid @PathVariable final Long id,
-            @Valid @RequestBody final CertificateDto dto) {
+            @Valid @RequestBody final PatchCertificateDto dto) {
         dto.setId(id);
-        return assembler.toModel(
-                certificateService.update(dto));
+        log.debug(dto.toString());
+        return assembler.toModel(certificateService.update(dto));
     }
 
     /**

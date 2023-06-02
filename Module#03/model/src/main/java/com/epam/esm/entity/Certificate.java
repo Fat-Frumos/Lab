@@ -1,9 +1,9 @@
 package com.epam.esm.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,8 +13,6 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.NamedAttributeNode;
 import jakarta.persistence.NamedEntityGraph;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -23,6 +21,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -46,6 +46,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "gift_certificates")
+@EntityListeners(AuditListener.class)
 @NamedEntityGraph(name = "Certificate.tags",
         attributeNodes = @NamedAttributeNode("tags"))
 public class Certificate implements Serializable {
@@ -80,12 +81,14 @@ public class Certificate implements Serializable {
     /**
      * The creation date of the certificate.
      */
+    @CreationTimestamp
     @Column(name = "create_date", nullable = false)
     private Timestamp createDate;
 
     /**
      * The last update date of the certificate.
      */
+    @UpdateTimestamp
     @Column(name = "last_update_date", nullable = false)
     private Timestamp lastUpdateDate;
 
@@ -94,29 +97,6 @@ public class Certificate implements Serializable {
      */
     @Column(nullable = false)
     private Integer duration;
-
-    /**
-     * Callback method invoked before the entity is persisted.
-     * It sets the create and last update dates to the current timestamp.
-     */
-    @PrePersist
-    public void prePersist() {
-        createDate = new Timestamp(System.currentTimeMillis());
-        lastUpdateDate = new Timestamp(System.currentTimeMillis());
-    }
-
-    /**
-     * Callback method invoked before the entity is updated.
-     * It updates the last update date to the current timestamp
-     * and sets the create date if it is null.
-     */
-    @PreUpdate
-    public void preUpdate() {
-        lastUpdateDate = new Timestamp(System.currentTimeMillis());
-        if (createDate == null) {
-            createDate = new Timestamp(System.currentTimeMillis());
-        }
-    }
 
     /**
      * The set of tags associated with the certificate.
@@ -136,7 +116,6 @@ public class Certificate implements Serializable {
     @JoinTable(name = "gift_certificate_tag",
             joinColumns = @JoinColumn(name = "gift_certificate_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
-    @JsonManagedReference
     private Set<Tag> tags = new HashSet<>();
 
     /**

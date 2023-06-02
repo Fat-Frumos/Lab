@@ -2,6 +2,7 @@ package com.epam.esm.mapper;
 
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.CertificateSlimDto;
+import com.epam.esm.dto.PatchCertificateDto;
 import com.epam.esm.entity.Certificate;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
@@ -21,12 +22,15 @@ public interface CertificateMapper {
     /**
      * Converts a CertificateDto object to a Certificate entity.
      *
-     * @param certificateDto the CertificateDto object to convert
+     * @param dto the CertificateDto object to convert
      * @return the converted Certificate entity
      */
     @Mapping(target = "tags", source = "tags",
             qualifiedByName = "toTagSet")
-    Certificate toEntity(CertificateDto certificateDto);
+    Certificate toEntity(CertificateDto dto);
+    @Mapping(target = "tags", source = "tags",
+            qualifiedByName = "toTagSet")
+    Certificate toEntity(PatchCertificateDto dto);
 
     /**
      * Converts a Certificate entity to a CertificateDto object.

@@ -35,6 +35,9 @@ Run Tomcat server, show debug information
 Build the project with Maven Tool without Tests
 `mvn clean install -e -DskipTests`
 
+Maven will perform the necessary build tasks, such as compiling the code, 
+creating the project's artifacts, and verifying their correctness. 
+`mvn verify -e`
 
 
 ### Business requirements
@@ -122,7 +125,7 @@ That is exactly what pagination, sorting, and filtering can solve.
 The other topic is HATEOAS what stands for the phrase "Hypermedia As The Engine Of Application State". 
 When you are viewing a web page, you see data on it and can perform some actions with this data. 
 In REST when you request a resource you get the details of the resource in the response. 
-Along with it you can send the operations that you can perform on the resource. And this is what HATEOAS does.
+Along with it, you can send the operations that you can perform on the resource. And this is what HATEOAS does.
 
 The system should be extended to expose the following REST APIs:
 1. Change single field of gift certificate (e.g. implement the possibility to change only duration of a certificate or only price).
@@ -157,7 +160,7 @@ This submodule covers following topics:
 1. ORM
 2. JPA & Hibernate
 3. Transactions ORM stands for Object Relational Mapping. It’s a bit of an abstract concept – 
-   but basically it’s a technique that allows us to query and change data from the database in an object oriented way. 
+   but basically it’s a technique that allows us to query and change data from the database in an object-oriented way. 
    ORMs provide a high-level abstraction upon a relational database that allows a developer 
    to write Java code instead of SQL to create, read, update and delete data and schemas in their database. 
    Developers can use the programming language they are comfortable with to work with a database instead 

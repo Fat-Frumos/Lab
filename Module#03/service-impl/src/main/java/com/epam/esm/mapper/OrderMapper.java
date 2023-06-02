@@ -1,6 +1,7 @@
 package com.epam.esm.mapper;
 
 import com.epam.esm.dto.OrderDto;
+import com.epam.esm.dto.OrderSlimDto;
 import com.epam.esm.entity.Order;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -42,6 +43,10 @@ public interface OrderMapper {
     @Mapping(target = "certificateDtos", source = "certificates")
     @Mapping(source = "user", target = "user")
     List<OrderDto> toDtoList(List<Order> orders);
+
+    @Mapping(target = "certificateDtos", source = "certificates")
+    @Mapping(source = "user", target = "user")
+    List<OrderSlimDto> toSlimDtoList(List<Order> orders);
 
     /**
      * Converts a list of {@link OrderDto} DTOs to a list of {@link Order} entities.

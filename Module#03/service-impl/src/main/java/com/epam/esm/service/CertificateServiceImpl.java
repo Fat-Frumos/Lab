@@ -3,18 +3,20 @@ package com.epam.esm.service;
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.CertificateSlimDto;
+import com.epam.esm.dto.PatchCertificateDto;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Certificate;
+import com.epam.esm.entity.Criteria;
 import com.epam.esm.entity.Tag;
+import com.epam.esm.exception.CertificateAlreadyExistsException;
 import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.mapper.CertificateMapper;
 import com.epam.esm.mapper.TagMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +29,7 @@ import java.util.Set;
 /**
  * Implementation of the {@link CertificateService} interface.
  */
+@Slf4j
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -49,21 +52,21 @@ public class CertificateServiceImpl implements CertificateService {
      */
     private static final String MESSAGE = "Certificate not found with";
 
-    /**
-     * {@inheritDoc}
-     * <p>
-     * Retrieves a page of certificates based on tag names.
-     *
-     * @param tagNames the list of tag names
-     * @return a page of certificate DTOs
-     */
-    @Override
-    @Transactional(readOnly = true)
-    public List<CertificateDto> getCertificatesByTags(
-            final List<String> tagNames) {
-        return mapper.toDtoList(
-                certificateDao.findByTagNames(tagNames));
-    }
+//    /**
+//     * {@inheritDoc}
+//     * <p>
+//     * Retrieves a page of certificates based on tag names.
+//     *
+//     * @param criteria the list of tag names
+//     * @return a page of certificate DTOs
+//     */
+//    @Override
+//    @Transactional(readOnly = true)
+//    public List<CertificateDto> getCertificatesByTags(
+//            final Criteria criteria, Pageable pageable) {
+//        return mapper.toDtoList(
+//                certificateDao.findByCriteria(criteria, pageable));
+//    }
 
     /**
      * {@inheritDoc}
@@ -83,21 +86,25 @@ public class CertificateServiceImpl implements CertificateService {
         return mapper.toDto(certificate);
     }
 
-    /**
-     * {@inheritDoc}
-     * <p>
-     * Retrieves all certificates with pagination.
-     * Returns a {@link Page} of {@link CertificateDto}.
-     */
-    @Override
-    @Transactional(readOnly = true)
-    public List<CertificateDto> getSlimCertificates(
-            final Pageable pageable) {
-        List<CertificateSlimDto> certificateSlimDtos =
-                mapper.toCertificateSlimDto(
-                        certificateDao.getAll(pageable));
-        return mapper.toDtoListFromSlim(certificateSlimDtos);
-    }
+//    /**
+//     * {@inheritDoc}
+//     * <p>
+//     * Retrieves all certificates with pagination.
+//     * Returns a {@link Page} of {@link CertificateDto}.
+//     */
+//    @Override
+//    @Transactional(readOnly = true)
+//    public List<CertificateDto> getCertificates(
+//            final Pageable pageable) {
+//
+//        List<Certificate> all = certificateDao.getAll(pageable);
+////        for (Certificate certificate : all) {
+////            log.info(certificate.getTags().toString());
+////        }
+//        return mapper.toDtoList(all);
+//
+//
+//    }
 
     /**
      * {@inheritDoc}
@@ -106,10 +113,10 @@ public class CertificateServiceImpl implements CertificateService {
      * Returns a {@link Page} of {@link CertificateDto}.
      */
     @Override
-    public List<CertificateDto> getAll(
+    public List<CertificateDto> getCertificates(
             final Pageable pageable) {
-        return mapper.toDtoList(
-                certificateDao.getAllBy(pageable));
+        log.info("pageable " + pageable);
+        return mapper.toDtoList(certificateDao.getAllBy(pageable));
     }
 
     /**
@@ -158,7 +165,8 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public CertificateDto update(
-            final CertificateDto dto) {
+            final PatchCertificateDto dto) {
+        log.debug(dto.toString());
         Certificate updated = certificateDao
                 .update(mapper.toEntity(dto));
         return mapper.toDto(updated);
@@ -169,16 +177,21 @@ public class CertificateServiceImpl implements CertificateService {
      * <p>
      * Saves a new certificate with the provided {@link CertificateSlimDto}.
      *
-     * @param postDto the {@link CertificateSlimDto}
-     *                containing the new certificate information
+     * @param dto the {@link CertificateSlimDto}
+     *            containing the new certificate information
      * @return the saved {@link CertificateDto}
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public CertificateDto save(
-            final CertificateDto postDto) {
-        Certificate saved = certificateDao.save(
-                mapper.toEntity(postDto));
+            final CertificateDto dto) {
+        if (certificateDao.getByName(dto.getName()).isPresent()) {
+            throw new CertificateAlreadyExistsException(
+                    String.format("Certificate already exists with name %s",
+                            dto.getName()));
+        }
+        Certificate saved = certificateDao
+                .save(mapper.toEntity(dto));
         return mapper.toDto(saved);
     }
 
@@ -206,20 +219,19 @@ public class CertificateServiceImpl implements CertificateService {
      * retrieves all certificates with pagination.
      * Returns a {@link Page} of {@link CertificateDto}.
      *
-     * @param tagNames the list of tag names to filter certificates by,
+     * @param criteria the list of tag names to filter certificates by,
      *                 or null to retrieve all certificates
+     * @param pageable
      * @return the {@link Page} of {@link CertificateDto}
      * matching the specified tag names or all certificates
      */
     @Override
     @Transactional(readOnly = true)
-    public List<CertificateDto> findAllByTags(
-            final List<String> tagNames) {
-        return tagNames != null
-                ? mapper.toDtoList(certificateDao.findByTagNames(tagNames))
-                : mapper.toDtoList(certificateDao.getAllBy(
-                PageRequest.of(0, 25,
-                        Sort.by("name").ascending())));
+    public List<CertificateDto> findAllBy(
+            final Criteria criteria, Pageable pageable) {
+        log.info(criteria + " " + pageable);
+        return mapper.toDtoList(certificateDao
+                .findByCriteria(criteria, pageable));
     }
 
     /**
@@ -237,8 +249,7 @@ public class CertificateServiceImpl implements CertificateService {
             final Long id) {
         List<CertificateDto> dtos = mapper.toDtoList(
                 certificateDao.getCertificatesByUserId(id));
-        return new PageImpl<>(
-                dtos, Pageable.unpaged(), dtos.size());
+        return new PageImpl<>(dtos, Pageable.unpaged(), dtos.size());
     }
 
     /**

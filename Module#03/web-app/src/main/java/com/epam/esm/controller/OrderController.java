@@ -68,9 +68,11 @@ public class OrderController {
      */
     @GetMapping("/users/{userId}")
     public CollectionModel<EntityModel<OrderDto>> getAllOrdersByUserId(
-            @PathVariable final Long userId) {
+            @PathVariable final Long userId,
+            @PageableDefault(size = 25, sort = {"id"},
+                    direction = Sort.Direction.ASC) final Pageable pageable) {
         return assembler.toCollectionModel(
-                orderService.getAllByUserId(userId));
+                orderService.getAllByUserId(userId, pageable));
     }
 
     /**

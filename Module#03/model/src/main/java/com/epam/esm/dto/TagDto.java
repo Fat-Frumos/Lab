@@ -1,5 +1,7 @@
 package com.epam.esm.dto;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
@@ -27,4 +29,12 @@ public class TagDto extends RepresentationModel<TagDto> {
     @Size(min = 1, max = 512)
     @NotNull(message = "Name cannot be blank")
     private String name;
+
+    @JsonCreator
+    public TagDto(
+            @JsonProperty("id") Long id,
+            @JsonProperty("name") String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

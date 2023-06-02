@@ -1,8 +1,7 @@
-DELETE
-FROM gift_certificates;
+DELETE FROM gift_certificates;
 
 INSERT INTO gift_certificates (id, create_date, description, duration,  last_update_date, name, price )
-VALUES (1, NOW(), 'May the joy of this festive season light your life with love, peace and hope. Selamat Hari Raya! Kiehl''s', 26, NOW(), 'New hears for your ears! New Year''s Day', 49.00),
+VALUES (1, NOW(), 'May the joy of this festive season light your life with love, peace and hope', 26, NOW(), 'New hears for your ears! New Year''s Day', 49.00),
 (2, NOW(), 'Mazel tov on your Bar Mitzvah! [Send to a 13 year old Jewish boy] Jeopardy!', 19, NOW(), 'This is a day to remember. May Day Revolution (bridge day)', 21.00),
 (3, NOW(), 'Get yourself a double whatever with an extra shot of something. Canadian Natural Resources', 22, NOW(), 'With heartfelt condolences Janmashtami', 18.00),
 (4, NOW(), 'Congratulations on your new little someone to love. Ace Radio', 28, NOW(), 'Get whatever you want! Ullortuneq', 85.00),
