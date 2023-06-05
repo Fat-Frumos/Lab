@@ -2,7 +2,6 @@ package com.epam.esm.service;
 
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dto.CertificateDto;
-import com.epam.esm.dto.CertificateSlimDto;
 import com.epam.esm.dto.PatchCertificateDto;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Certificate;
@@ -13,7 +12,6 @@ import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.mapper.CertificateMapper;
 import com.epam.esm.mapper.TagMapper;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -29,7 +27,6 @@ import java.util.Set;
 /**
  * Implementation of the {@link CertificateService} interface.
  */
-@Slf4j
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -52,22 +49,6 @@ public class CertificateServiceImpl implements CertificateService {
      */
     private static final String MESSAGE = "Certificate not found with";
 
-//    /**
-//     * {@inheritDoc}
-//     * <p>
-//     * Retrieves a page of certificates based on tag names.
-//     *
-//     * @param criteria the list of tag names
-//     * @return a page of certificate DTOs
-//     */
-//    @Override
-//    @Transactional(readOnly = true)
-//    public List<CertificateDto> getCertificatesByTags(
-//            final Criteria criteria, Pageable pageable) {
-//        return mapper.toDtoList(
-//                certificateDao.findByCriteria(criteria, pageable));
-//    }
-
     /**
      * {@inheritDoc}
      * <p>
@@ -86,26 +67,6 @@ public class CertificateServiceImpl implements CertificateService {
         return mapper.toDto(certificate);
     }
 
-//    /**
-//     * {@inheritDoc}
-//     * <p>
-//     * Retrieves all certificates with pagination.
-//     * Returns a {@link Page} of {@link CertificateDto}.
-//     */
-//    @Override
-//    @Transactional(readOnly = true)
-//    public List<CertificateDto> getCertificates(
-//            final Pageable pageable) {
-//
-//        List<Certificate> all = certificateDao.getAll(pageable);
-////        for (Certificate certificate : all) {
-////            log.info(certificate.getTags().toString());
-////        }
-//        return mapper.toDtoList(all);
-//
-//
-//    }
-
     /**
      * {@inheritDoc}
      * <p>
@@ -115,8 +76,8 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     public List<CertificateDto> getCertificates(
             final Pageable pageable) {
-        log.info("pageable " + pageable);
-        return mapper.toDtoList(certificateDao.getAllBy(pageable));
+        return mapper.toDtoList(
+                certificateDao.getAllBy(pageable));
     }
 
     /**
@@ -166,7 +127,6 @@ public class CertificateServiceImpl implements CertificateService {
     @Transactional(rollbackFor = Exception.class)
     public CertificateDto update(
             final PatchCertificateDto dto) {
-        log.debug(dto.toString());
         Certificate updated = certificateDao
                 .update(mapper.toEntity(dto));
         return mapper.toDto(updated);
@@ -175,9 +135,9 @@ public class CertificateServiceImpl implements CertificateService {
     /**
      * {@inheritDoc}
      * <p>
-     * Saves a new certificate with the provided {@link CertificateSlimDto}.
+     * Saves a new certificate with the provided {@link CertificateDto}.
      *
-     * @param dto the {@link CertificateSlimDto}
+     * @param dto the {@link CertificateDto}
      *            containing the new certificate information
      * @return the saved {@link CertificateDto}
      */
@@ -221,15 +181,14 @@ public class CertificateServiceImpl implements CertificateService {
      *
      * @param criteria the list of tag names to filter certificates by,
      *                 or null to retrieve all certificates
-     * @param pageable
+     * @param pageable the page information
      * @return the {@link Page} of {@link CertificateDto}
      * matching the specified tag names or all certificates
      */
     @Override
     @Transactional(readOnly = true)
     public List<CertificateDto> findAllBy(
-            final Criteria criteria, Pageable pageable) {
-        log.info(criteria + " " + pageable);
+            final Criteria criteria, final Pageable pageable) {
         return mapper.toDtoList(certificateDao
                 .findByCriteria(criteria, pageable));
     }

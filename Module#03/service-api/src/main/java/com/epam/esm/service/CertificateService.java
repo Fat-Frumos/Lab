@@ -16,14 +16,6 @@ import java.util.Set;
 public interface CertificateService {
 
     /**
-     * Get a page of certificates based on tag names.
-     *
-     * @param criteria the list of tag names
-     * @return the List of certificate DTOs
-     */
-//    List<CertificateDto> getCertificatesByTags(Criteria criteria, Pageable pageable);
-
-    /**
      * Retrieves a certificate by its ID.
      *
      * @param id the ID of the certificate.

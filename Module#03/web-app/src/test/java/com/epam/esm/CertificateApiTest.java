@@ -71,7 +71,7 @@
 //        List<CertificateDto> orderList = Objects.requireNonNull(response.getBody()).get_embedded().getCertificateDtoList();
 //        assertNotNull(orderList);
 //        assertEquals(OK, response.getStatusCode());
-//        assertEquals(orderList.size(), service.getAll(PageRequest.of(0, 25, Sort.by(Sort.Direction.ASC, "id"))).size());
+//        assertEquals(orderList.size(), service.getCertificates(PageRequest.of(0, 25, Sort.by(Sort.Direction.ASC, "id"))).size());
 //        assertEquals(orderList.size(), dao.getAllBy(PageRequest.of(0, 25, Sort.by(Sort.Direction.ASC, "id"))).size());
 //    }
 //
@@ -82,7 +82,6 @@
 //        ResponseEntity<String> response = restTemplate.getForEntity(createURLWithPort(), String.class);
 //        assertEquals(OK, response.getStatusCode());
 //        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-//
 //        List<CertificateDto> certificates = objectMapper.readValue(response.getBody(), CertificateResponse.class).get_embedded().getCertificateDtoList();
 //        assertNotNull(certificates);
 //    }
@@ -124,8 +123,8 @@
 //                              BigDecimal price,
 //                              int duration) {
 //        CertificateDto original = CertificateDto.builder()
-//                .name(certificateName)
-//                .description(certificateDescription)
+////                .name(certificateName)
+////                .description(certificateDescription)
 //                .price(price)
 //                .duration(duration)
 //                .build();

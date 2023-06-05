@@ -4,8 +4,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NonNull;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanInitializationException;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -41,7 +39,8 @@ public class PersistenceConfig implements ApplicationContextAware {
 
     /**
      * The application context used to obtain classpath resources.
-     * This class implements the {@link ApplicationContextAware} interface to be aware of the application context.
+     * This class implements the {@link ApplicationContextAware} interface
+     * to be aware of the application context.
      */
     private ApplicationContext applicationContext;
     /**
@@ -91,10 +90,16 @@ public class PersistenceConfig implements ApplicationContextAware {
     @Value("${spring.jpa.properties.hibernate.dialect}")
     private String dialect;
 
+    /**
+     * Creates a bean for Jackson2ObjectMapperBuilder.
+     *
+     * @return the Jackson2ObjectMapperBuilder bean
+     */
     @Bean
     public Jackson2ObjectMapperBuilder objectMapperBuilder() {
         return new Jackson2ObjectMapperBuilder();
     }
+
     /**
      * Creates an {@link EntityManager} bean.
      *
@@ -187,16 +192,14 @@ public class PersistenceConfig implements ApplicationContextAware {
      * Set the ApplicationContext that this object runs in.
      * Normally this call will be used to initialize the object.
      * <p>
-     * Invoked after population of normal bean properties but before an init callback such
-     * as {@link InitializingBean#afterPropertiesSet()} or a custom init-method.
+     * Invoked after population of normal bean properties but before an init callback
      *
      * @param applicationContext the ApplicationContext object to be used by this object
      * @throws BeansException if thrown by application context methods
-     * @see BeanInitializationException
      */
     @Override
     public void setApplicationContext(
-            @NonNull ApplicationContext applicationContext)
+            final @NonNull ApplicationContext applicationContext)
             throws BeansException {
         this.applicationContext = applicationContext;
     }

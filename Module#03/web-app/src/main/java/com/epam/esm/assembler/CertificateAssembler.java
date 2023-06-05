@@ -1,7 +1,6 @@
 package com.epam.esm.assembler;
 
 import com.epam.esm.controller.CertificateController;
-import com.epam.esm.controller.TagController;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.PatchCertificateDto;
 import lombok.NonNull;

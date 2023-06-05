@@ -41,6 +41,7 @@ public interface CertificateDao extends Dao<Certificate> {
      * Finds certificates that have any of the specified tag names.
      *
      * @param criteria the list of tag names to search for
+     * @param pageable the page information
      * @return the list of certificates matching the tag names
      */
     List<Certificate> findByCriteria(Criteria criteria, Pageable pageable);

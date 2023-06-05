@@ -20,7 +20,6 @@ import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Hibernate;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -43,7 +42,6 @@ import static java.util.stream.Collectors.toList;
  * Implementation of the {@link OrderDao} interface
  * for managing orders in the data access layer.
  */
-@Slf4j
 @Repository
 @RequiredArgsConstructor
 public class OrderDaoImpl implements OrderDao {
@@ -310,10 +308,12 @@ public class OrderDaoImpl implements OrderDao {
      * Finds all orders for a specific user by user ID.
      *
      * @param userId   the ID of the user.
-     * @param pageable
+     * @param pageable the page of information
      * @return a list of order entities.
      */
-    public List<Order> findOrdersByUserId(Long userId, Pageable pageable) {
+    public List<Order> findOrdersByUserId(
+            final Long userId,
+            final Pageable pageable) {
         try (EntityManager entityManager =
                      factory.createEntityManager()) {
             EntityGraph<Order> graph =

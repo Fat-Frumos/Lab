@@ -19,7 +19,6 @@ import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
@@ -33,7 +32,23 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.epam.esm.dao.Queries.*;
+import static com.epam.esm.dao.Queries.DELETE_CERTIFICATE;
+import static com.epam.esm.dao.Queries.DELETE_CERTIFICATE_TAG;
+import static com.epam.esm.dao.Queries.DELETE_ORDER_CERTIFICATE;
+import static com.epam.esm.dao.Queries.DESCRIPTION;
+import static com.epam.esm.dao.Queries.FETCH_GRAPH;
+import static com.epam.esm.dao.Queries.ID;
+import static com.epam.esm.dao.Queries.NAME;
+import static com.epam.esm.dao.Queries.ORDERS;
+import static com.epam.esm.dao.Queries.SELECT_ALL_BY_IDS;
+import static com.epam.esm.dao.Queries.SELECT_BY_NAME;
+import static com.epam.esm.dao.Queries.SELECT_CERTIFICATES_BY_ORDER_ID;
+import static com.epam.esm.dao.Queries.SELECT_CERTIFICATES_BY_USER_ID;
+import static com.epam.esm.dao.Queries.SELECT_TAGS_BY_ID;
+import static com.epam.esm.dao.Queries.SELECT_TAGS_BY_NAME;
+import static com.epam.esm.dao.Queries.SELECT_TAG_BY_NAMES;
+import static com.epam.esm.dao.Queries.TAGS;
+import static com.epam.esm.dao.Queries.USER;
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.toSet;
 
@@ -47,7 +62,7 @@ import static java.util.stream.Collectors.toSet;
  * It utilizes the EntityManagerFactory and EntityManager
  * to interact with the database.
  */
-@Slf4j
+
 @Repository
 @RequiredArgsConstructor
 public class CertificateDaoImpl implements CertificateDao {
@@ -194,13 +209,13 @@ public class CertificateDaoImpl implements CertificateDao {
                     throw new CertificateNotFoundException(
                             NOT_FOUND_WITH_ID + id);
                 }
-                entityManager.createNativeQuery(DELETE_OC)
+                entityManager.createNativeQuery(DELETE_ORDER_CERTIFICATE)
                         .setParameter(ID, id)
                         .executeUpdate();
-                entityManager.createNativeQuery(DELETE_CT)
+                entityManager.createNativeQuery(DELETE_CERTIFICATE_TAG)
                         .setParameter(ID, id)
                         .executeUpdate();
-                entityManager.createNativeQuery(DELETE_C)
+                entityManager.createNativeQuery(DELETE_CERTIFICATE)
                         .setParameter(ID, id)
                         .executeUpdate();
                 transaction.commit();
@@ -233,13 +248,16 @@ public class CertificateDaoImpl implements CertificateDao {
      *                                      during the update process
      */
     @Override
-    public Certificate update(Certificate certificate) {
-        try (EntityManager entityManager = factory.createEntityManager()) {
-            EntityTransaction transaction = entityManager.getTransaction();
+    public Certificate update(
+            final Certificate certificate) {
+        try (EntityManager entityManager =
+                     factory.createEntityManager()) {
+            EntityTransaction transaction =
+                    entityManager.getTransaction();
             try {
                 transaction.begin();
-                EntityGraph<Certificate> graph =
-                        entityManager.createEntityGraph(Certificate.class);
+                EntityGraph<Certificate> graph = entityManager
+                        .createEntityGraph(Certificate.class);
                 graph.addAttributeNodes(ORDERS, TAGS);
                 Subgraph<Order> orderSubgraph = graph.addSubgraph(ORDERS);
                 orderSubgraph.addAttributeNodes(USER);
@@ -307,10 +325,13 @@ public class CertificateDaoImpl implements CertificateDao {
      * with any of the specified tag names
      */
     @Override
-    public List<Certificate> findByCriteria(Criteria criteria, Pageable pageable) {
+    public List<Certificate> findByCriteria(
+            final Criteria criteria,
+            final Pageable pageable) {
         try (EntityManager entityManager = factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-            CriteriaQuery<Certificate> query = builder.createQuery(Certificate.class);
+            CriteriaQuery<Certificate> query =
+                    builder.createQuery(Certificate.class);
             Root<Certificate> root = query.from(Certificate.class);
             List<Predicate> predicates = new ArrayList<>();
 
@@ -362,7 +383,8 @@ public class CertificateDaoImpl implements CertificateDao {
      * @return a list of certificates associated with the user
      */
     @Override
-    public List<Certificate> getCertificatesByUserId(Long id) {
+    public List<Certificate> getCertificatesByUserId(
+            final Long id) {
         try (EntityManager entityManager =
                      factory.createEntityManager()) {
             EntityGraph<Certificate> graph =
@@ -389,8 +411,10 @@ public class CertificateDaoImpl implements CertificateDao {
      * @param certificateIds the set of certificate IDs
      * @return a set of certificates matching the specified IDs
      */
-    public List<Certificate> findAllByIds(Set<Long> certificateIds) {
-        try (EntityManager entityManager = factory.createEntityManager()) {
+    public List<Certificate> findAllByIds(
+            final Set<Long> certificateIds) {
+        try (EntityManager entityManager =
+                     factory.createEntityManager()) {
             EntityGraph<Certificate> graph = entityManager
                     .createEntityGraph(Certificate.class);
             graph.addAttributeNodes(TAGS);

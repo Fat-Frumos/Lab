@@ -1,56 +1,57 @@
 package com.epam.esm.controller;
 
-import com.epam.esm.assembler.TagAssembler;
-import com.epam.esm.assembler.UserAssembler;
-import com.epam.esm.dao.TagDao;
-import com.epam.esm.dao.UserDao;
 import com.epam.esm.dto.UserDto;
-import com.epam.esm.entity.User;
-import com.epam.esm.service.TagService;
 import com.epam.esm.service.UserService;
-import lombok.RequiredArgsConstructor;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.hateoas.EntityModel;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.util.Collections;
+
+import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-//@WebMvcTest(UserController.class)
-//@ExtendWith(MockitoExtension.class)
-//class UserControllerTest {
-//
-//    @Mock
-//    private UserService service;
-////    @Mock
-////    private UserAssembler assembler;
-//
-//    @Autowired
-//    private MockMvc mockMvc;
-//
-//    @Test
-//    void getUserTest() throws Exception {
-//        UserDto userDto = UserDto.builder().build();
-//        User user = User.builder().build();
-//        when(service.findById(1L)).thenReturn(user);
-////        when(assembler.toModel(userDto)).thenReturn(EntityModel.of(userDto));
-//
-//        mockMvc.perform(get("/users/{id}", 1L))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.name").value(userDto.getUsername()))
-//                .andExpect(jsonPath("$.email").value(userDto.getEmail()));
-//    }
-//}
+@SpringJUnitConfig(classes = TestConfig.class)
+@WebMvcTest(UserController.class)
+class UserControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+    @MockBean
+    private UserService userService;
+
+    Long userId = 1L;
+    UserDto userDto = UserDto.builder().id(userId).username("Admin").build();
+
+    @Test
+    @DisplayName("Given existing user ID, when getUser, then return the user")
+    void getUser() throws Exception {
+
+        when(userService.getById(1L)).thenReturn(userDto);
+        mockMvc.perform(get("/users/1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.username").value("Admin"));
+    }
+
+    @Test
+    @DisplayName("Given pageable information, when getUsers, then return the collection of users")
+    void getUsers() throws Exception {
+        Page<UserDto> page = new PageImpl<>(Collections.singletonList(userDto));
+        when(userService.getAll(any(Pageable.class))).thenReturn(page);
+        mockMvc.perform(get("/users"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$._embedded.userDtoList[0].id").value(1))
+                .andExpect(jsonPath("$._embedded.userDtoList[0].username").value("Admin"));
+    }
+}

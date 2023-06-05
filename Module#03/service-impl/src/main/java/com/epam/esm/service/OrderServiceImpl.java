@@ -10,7 +10,6 @@ import com.epam.esm.entity.Tag;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.exception.OrderNotFoundException;
-import com.epam.esm.exception.TagNotFoundException;
 import com.epam.esm.exception.UserNotFoundException;
 import com.epam.esm.mapper.OrderMapper;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +32,7 @@ import java.util.Set;
  * Implementation of the OrderService interface.
  */
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
     /**
@@ -61,8 +61,11 @@ public class OrderServiceImpl implements OrderService {
      * @return the saved order DTO
      */
     @Override
-    @Transactional(rollbackFor = Exception.class, isolation = Isolation.READ_COMMITTED)
-    public OrderDto save(final Long userId, Set<Long> ids) {
+    @Transactional(rollbackFor = Exception.class,
+            isolation = Isolation.READ_COMMITTED)
+    public OrderDto save(
+            final Long userId,
+            final Set<Long> ids) {
         User user = userDao.getById(userId).orElseThrow(() ->
                 new UserNotFoundException("UserNotFoundException"));
         List<Certificate> certificates =
@@ -109,7 +112,9 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     @Transactional(readOnly = true)
-    public OrderDto createOrder(Long userId, Set<Long> certificateIds) {
+    public OrderDto createOrder(
+            final Long userId,
+            final Set<Long> certificateIds) {
         User user = userDao.getById(userId)
                 .orElseThrow(() -> new UserNotFoundException(
                         String.format("User with id %d not found", userId)));
@@ -195,7 +200,6 @@ public class OrderServiceImpl implements OrderService {
      *
      * @param userId the ID of the user
      * @return the most used tag
-     * @throws TagNotFoundException if the tag is not found
      */
     @Override
     @Transactional(readOnly = true)
@@ -216,8 +220,9 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional(readOnly = true)
     public List<OrderDto> getAllByUserId(
-            final Long userId, Pageable pageable) {
-        return  orderMapper.toDtoList(
+            final Long userId,
+            final Pageable pageable) {
+        return orderMapper.toDtoList(
                 orderDao.findOrdersByUserId(userId, pageable));
 
     }

@@ -19,7 +19,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,13 +62,15 @@ public class UserDaoImpl implements UserDao {
             CriteriaQuery<User> query = builder.createQuery(User.class);
             Root<User> root = query.from(User.class);
 
-            EntityGraph<User> graph = entityManager.createEntityGraph(User.class);
+            EntityGraph<User> graph =
+                    entityManager.createEntityGraph(User.class);
             graph.addAttributeNodes("orders");
 
             query.select(root);
 
             if (pageable.getSort().isSorted()) {
-                List<jakarta.persistence.criteria.Order> orders = pageable.getSort().stream()
+                List<jakarta.persistence.criteria.Order> orders = pageable.getSort()
+                        .stream()
                         .map(order -> order.getDirection().equals(Sort.Direction.ASC)
                                 ? builder.asc(root.get(order.getProperty()))
                                 : builder.desc(root.get(order.getProperty())))
@@ -79,7 +80,8 @@ public class UserDaoImpl implements UserDao {
 
             return entityManager.createQuery(query)
                     .setHint(FETCH_GRAPH, graph)
-                    .setFirstResult(pageable.getPageNumber() * pageable.getPageSize())
+                    .setFirstResult(pageable.getPageNumber()
+                            * pageable.getPageSize())
                     .setMaxResults(pageable.getPageSize())
                     .getResultList();
         }
@@ -96,14 +98,18 @@ public class UserDaoImpl implements UserDao {
      */
     @Override
     public Optional<User> getById(final Long id) {
-        try (EntityManager entityManager = factory.createEntityManager()) {
-            EntityGraph<User> graph = entityManager.createEntityGraph(User.class);
+        try (EntityManager entityManager =
+                     factory.createEntityManager()) {
+            EntityGraph<User> graph = entityManager
+                    .createEntityGraph(User.class);
             Subgraph<Order> orderGraph = graph.addSubgraph("orders");
-            Subgraph<Certificate> certificateGraph = orderGraph.addSubgraph("certificates");
+            Subgraph<Certificate> certificateGraph =
+                    orderGraph.addSubgraph("certificates");
             certificateGraph.addAttributeNodes("tags");
             Map<String, Object> hints = new HashMap<>();
             hints.put(FETCH_GRAPH, graph);
-            return Optional.ofNullable(entityManager.find(User.class, id, hints));
+            return Optional.ofNullable(entityManager
+                    .find(User.class, id, hints));
         }
     }
 
@@ -176,12 +182,14 @@ public class UserDaoImpl implements UserDao {
      */
     @Override
     public void delete(final Long id) {
-        try (EntityManager entityManager = factory.createEntityManager()) {
-            EntityTransaction transaction = entityManager.getTransaction();
+        try (EntityManager entityManager =
+                     factory.createEntityManager()) {
+            EntityTransaction transaction =
+                    entityManager.getTransaction();
             try {
                 transaction.begin();
-                User user = entityManager.getReference(User.class, id);
-                entityManager.remove(user);
+                entityManager.remove(entityManager
+                        .getReference(User.class, id));
                 transaction.commit();
             } catch (Exception e) {
                 if (transaction.isActive()) {

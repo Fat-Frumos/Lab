@@ -13,6 +13,7 @@ public class AuditListener {
      * <p>
      * Callback method invoked before the entity is persisted.
      * It sets the create and last update dates to the current timestamp.
+     * @param entity the entity being created
      */
     @PrePersist
     public void prePersist(Object entity) {
@@ -30,6 +31,7 @@ public class AuditListener {
     /**
      * Callback method invoked before the entity is updated.
      * It updates the last update date to the current timestamp
+     * @param entity the entity being updated
      */
     @PreUpdate
     public void preUpdate(Object entity) {

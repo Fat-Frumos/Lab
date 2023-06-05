@@ -4,14 +4,12 @@ import com.epam.esm.entity.Tag;
 import com.epam.esm.exception.CertificateNotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.PersistenceException;
 import jakarta.persistence.PersistenceUnit;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Order;
-import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -172,7 +170,7 @@ public class TagDaoImpl implements TagDao {
      * Deletes a tag by its ID.
      *
      * @param id the ID of the tag to delete
-     * @throws EntityNotFoundException if the tag is not found
+     * @throws PersistenceException if the tag is not found
      */
     @Override
     public void delete(final Long id) {

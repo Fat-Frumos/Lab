@@ -20,6 +20,7 @@ import java.util.List;
  * Provides methods for managing user data.
  */
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 

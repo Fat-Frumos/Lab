@@ -9,7 +9,6 @@ import com.epam.esm.entity.Criteria;
 import com.epam.esm.service.CertificateService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -17,7 +16,6 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -37,16 +35,11 @@ import static org.springframework.http.HttpStatus.NO_CONTENT;
 /**
  * Controller class for handling certificate-related operations.
  * {@link RestController} to indicate that it is a Spring MVC controller,
- * {@link RequestMapping} with a value of "/certificates" to map requests,
- * and {@link CrossOrigin} with origins set to "*"
- * and allowed headers set to "GET", "POST", "PUT", and "DELETE"
- * to enable Cross-Origin Resource Sharing (CORS).
+ * {@link RequestMapping} with a value of "/certificates" to map request
  */
-@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/certificates")
-@CrossOrigin(origins = "*", allowedHeaders = {"GET", "POST", "PUT", "DELETE"})
 public class CertificateController {
     /**
      * The Certificate assembler for converting Certificate entities to DTOs.
@@ -87,12 +80,14 @@ public class CertificateController {
         return assembler.toCollectionModel(
                 certificateService.getCertificates(pageable));
     }
-
     /**
-     * Searches for certificates by tag names.
+     * Searches for certificates based on the provided criteria.
      *
-     * @param pageable the list of tag names to search for
-     * @return the CollectionModel representation of the search results
+     * @param name        the name of the certificate (optional)
+     * @param description the description of the certificate (optional)
+     * @param tagNames    the list of tag names associated with the certificate (optional)
+     * @param pageable    the pagination information
+     * @return the collection of certificate DTOs matching the search criteria
      */
     @GetMapping(value = "/search")
     public CollectionModel<EntityModel<CertificateDto>> search(
@@ -122,7 +117,6 @@ public class CertificateController {
             @Valid @PathVariable final Long id,
             @Valid @RequestBody final PatchCertificateDto dto) {
         dto.setId(id);
-        log.debug(dto.toString());
         return assembler.toModel(certificateService.update(dto));
     }
 

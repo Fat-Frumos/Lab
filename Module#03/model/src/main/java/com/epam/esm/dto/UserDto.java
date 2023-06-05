@@ -1,5 +1,7 @@
 package com.epam.esm.dto;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
@@ -40,4 +42,16 @@ public class UserDto extends RepresentationModel<UserDto> {
      * The set of order DTOs associated with the user.
      */
     private Set<OrderDto> orderDtos;
+
+    @JsonCreator
+    public UserDto(
+            @JsonProperty("id") Long id,
+            @JsonProperty("username") String username,
+            @JsonProperty("email") String email,
+            @JsonProperty("orderDtos") Set<OrderDto> orderDtos) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.orderDtos = orderDtos;
+    }
 }

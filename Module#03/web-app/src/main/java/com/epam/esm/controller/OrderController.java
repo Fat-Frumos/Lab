@@ -64,6 +64,7 @@ public class OrderController {
      * Retrieves all orders for a specific user by user ID.
      *
      * @param userId the ID of the user.
+     * @param pageable the pagination information.
      * @return a collection of order resources.
      */
     @GetMapping("/users/{userId}")
@@ -102,6 +103,13 @@ public class OrderController {
                 orderService.getById(id));
     }
 
+    /**
+     * Retrieves the most used tag for a specific user.
+     *
+     * @param userId the ID of the user
+     * @return the ResponseEntity with the most used tag if found,
+     * or a not found response if not found
+     */
     @GetMapping("/users/{userId}/most")
     public ResponseEntity<Tag> getMostUsedTag(
             final @PathVariable Long userId) {
@@ -111,6 +119,13 @@ public class OrderController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    /**
+     * Retrieves the details of an order for a specific user.
+     *
+     * @param orderId the ID of the order
+     * @param userId  the ID of the user
+     * @return the EntityModel containing the order details
+     */
     @GetMapping("/{orderId}/users/{userId}")
     public EntityModel<OrderDto> getOrderDetails(
             final @PathVariable Long orderId,

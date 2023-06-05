@@ -1,6 +1,8 @@
 package com.epam.esm.dto;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
@@ -60,4 +62,18 @@ public class OrderDto extends RepresentationModel<OrderDto> {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<PostCertificateDto> certificateDtos;
+
+    @JsonCreator
+    public OrderDto(
+            @JsonProperty("id") Long id,
+            @JsonProperty("user") UserSlimDto user,
+            @JsonProperty("cost") BigDecimal cost,
+            @JsonProperty("cost") Timestamp orderDate,
+            @JsonProperty("certificateDtos") Set<PostCertificateDto> certificateDtos) {
+        this.id = id;
+        this.cost = cost;
+        this.user = user;
+        this.orderDate = orderDate;
+        this.certificateDtos = certificateDtos;
+    }
 }

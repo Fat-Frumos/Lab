@@ -6,12 +6,40 @@ package com.epam.esm.dao;
 public final class Queries {
     private Queries() {
     }
+
+    /**
+     * Constant representing the "certificates" resource.
+     */
     public static final String CERTIFICATES = "certificates";
+
+    /**
+     * Constant representing the "orders" resource.
+     */
     public static final String ORDERS = "orders";
+
+    /**
+     * Constant representing the "id" field.
+     */
     public static final String ID = "id";
+
+    /**
+     * Constant representing the "tags" field.
+     */
     public static final String TAGS = "tags";
+
+    /**
+     * Constant representing the "name" field.
+     */
     public static final String NAME = "name";
+
+    /**
+     * Constant representing the "description" field.
+     */
     public static final String DESCRIPTION = "description";
+
+    /**
+     * Constant representing the "user" field.
+     */
     public static final String USER = "user";
     /**
      * Constant for the fetch graph hint used in entity manager queries.
@@ -51,10 +79,10 @@ public final class Queries {
      * SQL query to select certificates by order ID.
      */
     public static final String SELECT_CERTIFICATES_BY_ORDER_ID = "SELECT DISTINCT c "
-                    + "FROM Certificate c "
-                    + "JOIN FETCH c.orders o "
-                    + "JOIN FETCH o.user "
-                    + "WHERE o.id = :orderId";
+            + "FROM Certificate c "
+            + "JOIN FETCH c.orders o "
+            + "JOIN FETCH o.user "
+            + "WHERE o.id = :orderId";
 
     /**
      * SQL query to select tags by name.
@@ -81,12 +109,9 @@ public final class Queries {
      */
     public static final String SELECT_USER_BY_NAME = "SELECT u FROM User u WHERE u.username = :name";
     public static final String SELECT_TAG_BY_NAMES = "SELECT t FROM Tag t WHERE t.name IN :names";
-    public static final String DELETE_OC = "DELETE FROM order_certificate WHERE certificate_id = :id";
-    public static final String DELETE_CT = "DELETE FROM gift_certificate_tag WHERE gift_certificate_id = :id";
+    public static final String DELETE_ORDER_CERTIFICATE = "DELETE FROM order_certificate WHERE certificate_id = :id";
+    public static final String DELETE_CERTIFICATE_TAG = "DELETE FROM gift_certificate_tag WHERE gift_certificate_id = :id";
     public static final String DELETE_CT_BY_TAG_ID = "DELETE FROM gift_certificate_tag WHERE tag_id = :id";
-    public static final String DELETE_C = "DELETE FROM gift_certificates WHERE id = :id";
+    public static final String DELETE_CERTIFICATE = "DELETE FROM gift_certificates WHERE id = :id";
     public static final String DELETE_TAG = "DELETE FROM Tag t WHERE t.id = :id";
-
-    public static final String SELECT_ALL_ORDERS = "SELECT DISTINCT o FROM Order o JOIN FETCH o.certificates fetch first ? rows only";
-    public static final String SELECT_ALL_CERTIFICATES_IDS = "SELECT c.id FROM certificates c JOIN related_table rt ON c.related_id = rt.id";
 }
