@@ -28,4 +28,4 @@ jobs:
         run: ip address
 
       - name: find file
-        run: find . -name api-1.0.0.jar
+        run: find . -name web-app-1.0.0.jar

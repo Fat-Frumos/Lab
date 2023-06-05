@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Host</title>
+    <style>
+        body {
+            margin: 0; padding:0;
+        }
+        button, input {
+            margin: 0px; padding:0px;
+            width: 110px;
+            height: 35px;
+            border-radius: 5px;
+        }
+
+        .green {
+            background-color: rgba(76, 175, 80, 0.5);
+        }
+
+        .blue {
+            background-color: rgba(33, 150, 243, 0.5);
+        }
+
+        .red {
+            background-color: rgba(250, 0, 0, 0.5);
+        }
+
+        .orange {
+            background-color: rgba(255, 165, 0, 0.5);
+        }
+
+        .gray {
+            background-color: rgba(189, 189, 189, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+<button class="gray" onclick="createButtons('orders')">Orders</button>
+<button class="gray" onclick="createButtons('certificates')">Gift</button>
+<button class="gray" onclick="createButtons('tags')">Tags</button>
+<button class="gray" onclick="createButtons('users')">Users</button>
+
+<script>
+    function getLabel(url) {
+        return url.split("/").slice(3).join("/");
+    }
+
+    function createButtons(url) {
+        let regex = /"href":\s*"([^"]+)"/g;
+        fetch("http://localhost:8080/api/" + url)
+            .then(response => response.json())
+            .then(data => {
+                let matches;
+                let urls = [];
+                let tagsUrls = [];
+                let usersUrls = [];
+                let selfUrls = [];
+                let delUrls = [];
+                let list = data._embedded
+
+                for (const key in list) {
+                    if (Object.hasOwnProperty.call(list, key)) {
+                        const element = list[key];
+                        for (const key in element) {
+                            if (Object.hasOwnProperty.call(element, key)) {
+                                const el = element[key];
+                                for (const key in el._links) {
+                                    if (key === "self") {
+                                        selfUrls.push(el._links[key]);
+                                    }
+                                    if (key === "tags") {
+                                        tagsUrls.push(el._links[key]);
+                                    }
+                                    if (key === "user") {
+                                        usersUrls.push(el._links[key]);
+                                    }
+                                    if (key === "delete") {
+                                        delUrls.push(el._links[key]);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                createButtonsWithColor(selfUrls, "green");
+                createButtonsWithColor(tagsUrls, "orange");
+                createButtonsWithColor(usersUrls, "blue");
+                createButtonsWithColor(delUrls, "red");
+            })
+            .catch(error => console.error(error));
+    }
+
+    function createButtonsWithColor(urls, color) {
+        urls.forEach(url => {
+            let idRegex = /\/(\d+)$/g;
+            let urlStr = url.href;
+            let idMatch = idRegex.exec(urlStr);
+            let id = idMatch ? idMatch[1] : "";
+            if (color === "red") {
+                let form = document.createElement("form");
+                form.setAttribute("method", "DELETE");
+                form.setAttribute("action", urlStr);
+                form.style.display = "inline";
+                let button = document.createElement("input");
+                button.setAttribute("type", "submit");
+                button.setAttribute("value", getLabel(urlStr).replaceAll("api/", "").replaceAll("certificates/", ""));
+                button.style.backgroundColor = color || "transparent";
+                form.appendChild(button);
+                document.body.appendChild(form);
+            } else {
+                createButton(urlStr, getLabel(urlStr), color, id);
+            }
+        });
+    }
+
+    function createButton(url, label, color, id) {
+        let button = document.createElement("button");
+        button.textContent = label.replaceAll("api/", "").replaceAll("certificates/", "");
+        button.className = color || "transparent";
+        button.addEventListener("click", function () {
+            window.open(url);
+        });
+        button.setAttribute("data-id", id);
+        document.body.appendChild(button);
+    }
+
+    function redirectTo(url) {
+        window.location.href = `http://${window.location.host}${url}`;
+        createButtons();
+    }
+</script>
+</body>
+</html>
