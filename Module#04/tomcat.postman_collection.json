@@ -1,0 +1,4677 @@
+{
+	"info": {
+		"_postman_id": "401e891c-86b9-4be2-b5d3-e7c02ba21bf3",
+		"name": "tomcat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10796869"
+	},
+	"item": [
+		{
+			"name": "REST-API",
+			"item": [
+				{
+					"name": "module#2",
+					"item": [
+						{
+							"name": "Get certificates By tags",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is JSON\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificates contain required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"    var embedded = jsonData._embedded;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificate contains required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    for (var i = 0; i < jsonData.length; i++) {\r",
+											"        if (jsonData[i].certificate) {\r",
+											"        pm.expect(certificate).to.have.property('id');\r",
+											"        pm.expect(certificate).to.have.property('name');\r",
+											"        pm.expect(certificate).to.have.property('description');\r",
+											"        pm.expect(certificate).to.have.property('price');\r",
+											"        pm.expect(certificate).to.have.property('createDate');\r",
+											"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+											"        pm.expect(certificate).to.have.property('duration');\r",
+											"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+											"        \r",
+											"        var tags = certificate.tags;\r",
+											"        for (var j = 0; j < tags.length; j++) {\r",
+											"            var tag = tags[j];\r",
+											"            pm.expect(tag).to.have.property('id');\r",
+											"            pm.expect(tag).to.have.property('name');\r",
+											"        }\r",
+											"    }\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var certificates = jsonData.certificates;\r",
+											"    if (certificates) {\r",
+											"        pm.expect(certificates.length).to.be.at.most(25);\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/certificates/search?tagNames=Nutrition,Mazda&size=20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"certificates",
+										"search"
+									],
+									"query": [
+										{
+											"key": "tagNames",
+											"value": "Nutrition,Mazda"
+										},
+										{
+											"key": "sort",
+											"value": "id,desc",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "6",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "20"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find certificates by name=Gift",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is JSON\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificates contain required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"    var embedded = jsonData._embedded;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificate contains required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    for (var i = 0; i < jsonData.length; i++) {\r",
+											"        if (jsonData[i].certificate) {\r",
+											"        pm.expect(certificate).to.have.property('id');\r",
+											"        pm.expect(certificate).to.have.property('name');\r",
+											"        pm.expect(certificate).to.have.property('description');\r",
+											"        pm.expect(certificate).to.have.property('price');\r",
+											"        pm.expect(certificate).to.have.property('createDate');\r",
+											"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+											"        pm.expect(certificate).to.have.property('duration');\r",
+											"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+											"        \r",
+											"        var tags = certificate.tags;\r",
+											"        for (var j = 0; j < tags.length; j++) {\r",
+											"            var tag = tags[j];\r",
+											"            pm.expect(tag).to.have.property('id');\r",
+											"            pm.expect(tag).to.have.property('name');\r",
+											"        }\r",
+											"    }\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var certificates = jsonData.certificates;\r",
+											"    if (certificates) {\r",
+											"        pm.expect(certificates.length).to.be.at.most(25);\r",
+											"    }\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/certificates/search?name=Gift",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"certificates",
+										"search"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Gift"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find certificates by sort by id DESC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is JSON\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificates contain required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"    var embedded = jsonData._embedded;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificate contains required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    for (var i = 0; i < jsonData.length; i++) {\r",
+											"        if (jsonData[i].certificate) {\r",
+											"        pm.expect(certificate).to.have.property('id');\r",
+											"        pm.expect(certificate).to.have.property('name');\r",
+											"        pm.expect(certificate).to.have.property('description');\r",
+											"        pm.expect(certificate).to.have.property('price');\r",
+											"        pm.expect(certificate).to.have.property('createDate');\r",
+											"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+											"        pm.expect(certificate).to.have.property('duration');\r",
+											"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+											"        \r",
+											"        var tags = certificate.tags;\r",
+											"        for (var j = 0; j < tags.length; j++) {\r",
+											"            var tag = tags[j];\r",
+											"            pm.expect(tag).to.have.property('id');\r",
+											"            pm.expect(tag).to.have.property('name');\r",
+											"        }\r",
+											"    }\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var certificates = jsonData.certificates;\r",
+											"    if (certificates) {\r",
+											"        pm.expect(certificates.length).to.be.at.most(25);\r",
+											"    }\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/certificates/search?sort=id,desc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"certificates",
+										"search"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "name,desc",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "id,desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find certificates by description=Spring",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is JSON\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificates contain required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"    var embedded = jsonData._embedded;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificate contains required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    for (var i = 0; i < jsonData.length; i++) {\r",
+											"        if (jsonData[i].certificate) {\r",
+											"        pm.expect(certificate).to.have.property('id');\r",
+											"        pm.expect(certificate).to.have.property('name');\r",
+											"        pm.expect(certificate).to.have.property('description');\r",
+											"        pm.expect(certificate).to.have.property('price');\r",
+											"        pm.expect(certificate).to.have.property('createDate');\r",
+											"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+											"        pm.expect(certificate).to.have.property('duration');\r",
+											"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+											"        \r",
+											"        var tags = certificate.tags;\r",
+											"        for (var j = 0; j < tags.length; j++) {\r",
+											"            var tag = tags[j];\r",
+											"            pm.expect(tag).to.have.property('id');\r",
+											"            pm.expect(tag).to.have.property('name');\r",
+											"        }\r",
+											"    }\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var certificates = jsonData.certificates;\r",
+											"    if (certificates) {\r",
+											"        pm.expect(certificates.length).to.be.at.most(25);\r",
+											"    }\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/certificates/search?description=Spring&sort=id,desc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"certificates",
+										"search"
+									],
+									"query": [
+										{
+											"key": "description",
+											"value": "Spring"
+										},
+										{
+											"key": "sort",
+											"value": "id,desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find certificates by sort by name DESC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is JSON\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificates contain required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"    var embedded = jsonData._embedded;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificate contains required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    for (var i = 0; i < jsonData.length; i++) {\r",
+											"        if (jsonData[i].certificate) {\r",
+											"        pm.expect(certificate).to.have.property('id');\r",
+											"        pm.expect(certificate).to.have.property('name');\r",
+											"        pm.expect(certificate).to.have.property('description');\r",
+											"        pm.expect(certificate).to.have.property('price');\r",
+											"        pm.expect(certificate).to.have.property('createDate');\r",
+											"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+											"        pm.expect(certificate).to.have.property('duration');\r",
+											"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+											"        \r",
+											"        var tags = certificate.tags;\r",
+											"        for (var j = 0; j < tags.length; j++) {\r",
+											"            var tag = tags[j];\r",
+											"            pm.expect(tag).to.have.property('id');\r",
+											"            pm.expect(tag).to.have.property('name');\r",
+											"        }\r",
+											"    }\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var certificates = jsonData.certificates;\r",
+											"    if (certificates) {\r",
+											"        pm.expect(certificates.length).to.be.at.most(25);\r",
+											"    }\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/certificates/search?sort=name,desc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"certificates",
+										"search"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "name,desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find certificates by sort by date DESC & name=Day",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is JSON\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificates contain required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"    var embedded = jsonData._embedded;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificate contains required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    for (var i = 0; i < jsonData.length; i++) {\r",
+											"        if (jsonData[i].certificate) {\r",
+											"        pm.expect(certificate).to.have.property('id');\r",
+											"        pm.expect(certificate).to.have.property('name');\r",
+											"        pm.expect(certificate).to.have.property('description');\r",
+											"        pm.expect(certificate).to.have.property('price');\r",
+											"        pm.expect(certificate).to.have.property('createDate');\r",
+											"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+											"        pm.expect(certificate).to.have.property('duration');\r",
+											"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+											"        \r",
+											"        var tags = certificate.tags;\r",
+											"        for (var j = 0; j < tags.length; j++) {\r",
+											"            var tag = tags[j];\r",
+											"            pm.expect(tag).to.have.property('id');\r",
+											"            pm.expect(tag).to.have.property('name');\r",
+											"        }\r",
+											"    }\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var certificates = jsonData.certificates;\r",
+											"    if (certificates) {\r",
+											"        pm.expect(certificates.length).to.be.at.most(25);\r",
+											"    }\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/certificates/search?sort=createDate,desc&name=Day",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"certificates",
+										"search"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "createDate,desc"
+										},
+										{
+											"key": "name",
+											"value": "Day"
+										},
+										{
+											"key": "page",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "id,desc",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create new certificate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is JSON\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificates contain required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"    var embedded = jsonData._embedded;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificate contains required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    for (var i = 0; i < jsonData.length; i++) {\r",
+											"        if (jsonData[i].certificate) {\r",
+											"        pm.expect(certificate).to.have.property('id');\r",
+											"        pm.expect(certificate).to.have.property('name');\r",
+											"        pm.expect(certificate).to.have.property('description');\r",
+											"        pm.expect(certificate).to.have.property('price');\r",
+											"        pm.expect(certificate).to.have.property('createDate');\r",
+											"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+											"        pm.expect(certificate).to.have.property('duration');\r",
+											"        pm.expect(certificate).to.have.property('tags').that.is.an('array');        \r",
+											"    }\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var certificates = jsonData.certificates;\r",
+											"    if (certificates) {\r",
+											"        pm.expect(certificates.length).to.be.at.most(25);\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \" Summer\",\r\n    \"description\": \"A day of at our spa!\",\r\n    \"price\": 90.00,\r\n    \"duration\": 120\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/certificates",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"certificates"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete certificate/20",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response body is not empty\", function () {\r",
+											"    pm.response.to.not.be.empty;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Status code is 204\", function () {\r",
+											"    pm.response.to.have.status(204);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Spring\",\r\n    \"duration\": 50\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/certificates/20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"certificates",
+										"20"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get tags",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is JSON\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificates contain required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response tags contains required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    for (var i = 0; i < jsonData.length; i++) {\r",
+											"        if (jsonData[i].tags) {\r",
+											"            jsonData[i].tags.forEach(function(tag) {\r",
+											"             pm.expect(tag).to.have.property('id');\r",
+											"                pm.expect(tag).to.have.property('name');\r",
+											"            });\r",
+											"        }\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var certificates = jsonData.certificates;\r",
+											"    if (certificates) {\r",
+											"        pm.expect(certificates.length).to.be.at.most(25);\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get tag#1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is JSON\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificates contain required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response tags contains required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    for (var i = 0; i < jsonData.length; i++) {\r",
+											"        if (jsonData[i].tags) {\r",
+											"            jsonData[i].tags.forEach(function(tag) {\r",
+											"             pm.expect(tag).to.have.property('id');\r",
+											"                pm.expect(tag).to.have.property('name');\r",
+											"            });\r",
+											"        }\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var certificates = jsonData.certificates;\r",
+											"    if (certificates) {\r",
+											"        pm.expect(certificates.length).to.be.at.most(25);\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/tags/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tags",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find certificates by tagName Mazda",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is JSON\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificates contain required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object');\r",
+											"    var embedded = jsonData._embedded;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response certificate contains required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    for (var i = 0; i < jsonData.length; i++) {\r",
+											"        if (jsonData[i].certificate) {\r",
+											"        pm.expect(certificate).to.have.property('id');\r",
+											"        pm.expect(certificate).to.have.property('name');\r",
+											"        pm.expect(certificate).to.have.property('description');\r",
+											"        pm.expect(certificate).to.have.property('price');\r",
+											"        pm.expect(certificate).to.have.property('createDate');\r",
+											"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+											"        pm.expect(certificate).to.have.property('duration');\r",
+											"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+											"        \r",
+											"        var tags = certificate.tags;\r",
+											"        for (var j = 0; j < tags.length; j++) {\r",
+											"            var tag = tags[j];\r",
+											"            pm.expect(tag).to.have.property('id');\r",
+											"            pm.expect(tag).to.have.property('name');\r",
+											"        }\r",
+											"    }\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var certificates = jsonData.certificates;\r",
+											"    if (certificates) {\r",
+											"        pm.expect(certificates.length).to.be.at.most(25);\r",
+											"    }\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/certificates/search?tagNames=Mazda",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"certificates",
+										"search"
+									],
+									"query": [
+										{
+											"key": "tagNames",
+											"value": "Mazda"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create new tag",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is JSON\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response tags contains required fields\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    for (var i = 0; i < jsonData.length; i++) {\r",
+											"        if (jsonData[i].tags) {\r",
+											"            jsonData[i].tags.forEach(function(tag) {\r",
+											"             pm.expect(tag).to.have.property('id');\r",
+											"                pm.expect(tag).to.have.property('name');\r",
+											"            });\r",
+											"        }\r",
+											"    }\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Winter Season\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete tags#10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response body is not empty\", function () {\r",
+											"    pm.response.to.not.be.empty;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Status code is 204\", function () {\r",
+											"    pm.response.to.have.status(204);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/tags/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tags",
+										"10"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "module#3",
+					"item": [
+						{
+							"name": "orders",
+							"item": [
+								{
+									"name": "Create order with certificateIds 1,2,3 by user#5",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "            {\r\n               \"cost\": 79.00,\r\n                \"orderDate\": \"2023-05-29T00:34:52.757\",\r\n                \"certificateDtos\": [\r\n                    {\r\n                        \"id\": 2557,\r\n                        \"name\": \"excellent last-minute gifts Whit Monday\",\r\n                        \"description\": \"Drivers, watch the road! Someone just turned 16! Domino's Pizza\",\r\n                        \"price\": 79.00,\r\n                        \"duration\": 20,\r\n                        \"createDate\": \"2023-05-29T00:34:52.137\",\r\n                        \"lastUpdateDate\": \"2023-05-29T00:34:52.137\",\r\n                        \"tags\": [\r\n                            {\r\n                                \"id\": 54,\r\n                                \"name\": \"HappyBelatedEarly Birthday!\"\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/orders/5?certificateIds=1,2,3,4,5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"orders",
+												"5"
+											],
+											"query": [
+												{
+													"key": "certificateIds",
+													"value": "1,2,3,4,5"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find order#2",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/orders/2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"orders",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get order#5 certificates",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/certificates/orders/5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"certificates",
+												"orders",
+												"5"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get user#5 orders with params",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/orders/users/5?sort=cost,desc",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"orders",
+												"users",
+												"5"
+											],
+											"query": [
+												{
+													"key": "sort",
+													"value": "cost,desc"
+												},
+												{
+													"key": "sort",
+													"value": "orderDate,DESC",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Certificates by orders#5",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/certificates/orders/5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"certificates",
+												"orders",
+												"5"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get orders",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/orders",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"orders"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get certificates/1/tags",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/certificates/1/tags",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"certificates",
+												"1",
+												"tags"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get orders/users/2",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/orders/users/5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"orders",
+												"users",
+												"5"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get most used tag orders user#5",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/orders/users/5/most",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"orders",
+												"users",
+												"5",
+												"most"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get order#5 user#5",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/orders/5/users/5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"orders",
+												"5",
+												"users",
+												"5"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "certificates",
+							"item": [
+								{
+									"name": "get",
+									"item": [
+										{
+											"name": "Find certificates",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Find certificates?size=100",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates?size=100",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates"
+													],
+													"query": [
+														{
+															"key": "size",
+															"value": "100"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Find certificates By Name",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates?name=Gabriela",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "Gabriela"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Find certificates by tagName Mazda",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/search?tagNames=Mazda",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"search"
+													],
+													"query": [
+														{
+															"key": "tagNames",
+															"value": "Mazda"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Find certificates with contain tags",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/5/tags",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"5",
+														"tags"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get certificates/5",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/5",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"5"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get Certificate/10",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/10",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"10"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get tags certificates/2",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/2/tags",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"2",
+														"tags"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get certificate#2",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/2",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"2"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get certificates By params",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/search?tagNames=Nutrition,Mazda&sort=name,desc&page=5&size=10",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"search"
+													],
+													"query": [
+														{
+															"key": "tagNames",
+															"value": "Nutrition,Mazda"
+														},
+														{
+															"key": "sort",
+															"value": "name,desc"
+														},
+														{
+															"key": "sort",
+															"value": "id,desc",
+															"disabled": true
+														},
+														{
+															"key": "name",
+															"value": "Day",
+															"disabled": true
+														},
+														{
+															"key": "page",
+															"value": "5"
+														},
+														{
+															"key": "size",
+															"value": "10"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "patch",
+									"item": [
+										{
+											"name": "Update certificate/5",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"var expectedTagCount = 1;\r",
+															"pm.test(\"Certificate has \" + expectedTagCount + \" tag(s)\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificate.tags.length).to.eql(expectedTagCount);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"price\": 1500.00,\r\n  \"duration\": 120\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/5",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"5"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update certificate#5",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"var expectedTagCount = 1;\r",
+															"pm.test(\"Certificate has \" + expectedTagCount + \" tag(s)\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificate.tags.length).to.eql(expectedTagCount);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"price\": 1500.00,\r\n  \"duration\": 360\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/5",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"5"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update certificate#5 with tags",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"var expectedTagCount = 1;\r",
+															"pm.test(\"Certificate has \" + expectedTagCount + \" tag(s)\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificate.tags.length).to.eql(expectedTagCount);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"price\": 150.00,\r\n  \"duration\": 120,\r\n   \"tags\": [\r\n        {\r\n            \"name\": \"Easter\"\r\n        },\r\n        {\r\n            \"name\": \"ChristmasDay\"\r\n        }\r\n    ]\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/5",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"5"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update certificate#5 Bad Reques(price)",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"var expectedTagCount = 1;\r",
+															"pm.test(\"Certificate has \" + expectedTagCount + \" tag(s)\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificate.tags.length).to.eql(expectedTagCount);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"price\": -1.00,\r\n  \"duration\": 360\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/5",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"5"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update certificate#5 Bad Request(fields)",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"var expectedTagCount = 1;\r",
+															"pm.test(\"Certificate has \" + expectedTagCount + \" tag(s)\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificate.tags.length).to.eql(expectedTagCount);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"name\": \"City\",\r\n  \"price\": 150.00,\r\n  \"description\": \"May the joy of this festive season\",\r\n  \"duration\": 120\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/5",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"5"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update certificate#5 Bad Reques(duration)",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"var expectedTagCount = 1;\r",
+															"pm.test(\"Certificate has \" + expectedTagCount + \" tag(s)\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificate.tags.length).to.eql(expectedTagCount);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"price\": 1500.00,\r\n  \"duration\": 366\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/5",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"5"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update with tag certificate/3",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"    var embedded = jsonData._embedded;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificate contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].certificate) {\r",
+															"        pm.expect(certificate).to.have.property('id');\r",
+															"        pm.expect(certificate).to.have.property('name');\r",
+															"        pm.expect(certificate).to.have.property('description');\r",
+															"        pm.expect(certificate).to.have.property('price');\r",
+															"        pm.expect(certificate).to.have.property('createDate');\r",
+															"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+															"        pm.expect(certificate).to.have.property('duration');\r",
+															"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+															"        \r",
+															"        var tags = certificate.tags;\r",
+															"        \r",
+															"        for (var j = 0; j < tags.length; j++) {\r",
+															"            var tag = tags[j];\r",
+															"            pm.expect(tag).to.have.property('id');\r",
+															"            pm.expect(tag).to.have.property('name');\r",
+															"        }\r",
+															"        \r",
+															"    }\r",
+															"    }\r",
+															"});\r",
+															"var expectedTagCount = 4;\r",
+															"pm.test(\"Certificate has \" + expectedTagCount + \" tag(s)\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificate.tags.length).to.eql(expectedTagCount);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"id\": 1,\r\n    \"name\": \"Summer\",\r\n    \"description\": \"A day of at our spa!\",\r\n    \"price\": 120.00,\r\n    \"tags\": [\r\n        {\r\n            \"name\": \"Easter\"\r\n        },\r\n        {\r\n            \"name\": \"ValentineDay\"\r\n        },\r\n        {\r\n            \"name\": \"ChristmasDay\"\r\n        }\r\n    ]\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/certificates/3",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"certificates",
+														"3"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Save new certificate",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');        \r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \" Summer\",\r\n    \"description\": \"A day of at our spa!\",\r\n    \"price\": 90.00,\r\n    \"duration\": 120\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/certificates",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"certificates"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Save new certificate with tags",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');        \r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \" Summer\",\r\n    \"description\": \"A day of at our spa!\",\r\n    \"price\": 90.00,\r\n    \"duration\": 120,\r\n    \"tags\": [\r\n        {\r\n            \"name\": \"Easter\"\r\n        },\r\n        {\r\n            \"name\": \"ChristmasDay\"\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/certificates",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"certificates"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete certificate/2",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response body is not empty\", function () {\r",
+													"    pm.response.to.not.be.empty;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Status code is 204\", function () {\r",
+													"    pm.response.to.have.status(204);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Spring\",\r\n    \"duration\": 50\r\n    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/certificates/2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"certificates",
+												"2"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "tags",
+							"item": [
+								{
+									"name": "get",
+									"item": [
+										{
+											"name": "Find tags",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response tags contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].tags) {\r",
+															"            jsonData[i].tags.forEach(function(tag) {\r",
+															"             pm.expect(tag).to.have.property('id');\r",
+															"                pm.expect(tag).to.have.property('name');\r",
+															"            });\r",
+															"        }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/tags",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"tags"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Find tags#1",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response tags contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].tags) {\r",
+															"            jsonData[i].tags.forEach(function(tag) {\r",
+															"             pm.expect(tag).to.have.property('id');\r",
+															"                pm.expect(tag).to.have.property('name');\r",
+															"            });\r",
+															"        }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/tags/1",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"tags",
+														"1"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Find tags with required fields test",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response certificates contain required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    pm.expect(jsonData).to.be.an('object');\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response tags contains required fields\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    for (var i = 0; i < jsonData.length; i++) {\r",
+															"        if (jsonData[i].tags) {\r",
+															"            jsonData[i].tags.forEach(function(tag) {\r",
+															"             pm.expect(tag).to.have.property('id');\r",
+															"                pm.expect(tag).to.have.property('name');\r",
+															"            });\r",
+															"        }\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+															"    var jsonData = pm.response.json();\r",
+															"    var certificates = jsonData.certificates;\r",
+															"    if (certificates) {\r",
+															"        pm.expect(certificates.length).to.be.at.most(25);\r",
+															"    }\r",
+															"});\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/tags?3,4,5",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"tags"
+													],
+													"query": [
+														{
+															"key": "3,4,5",
+															"value": null
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Save new tag",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response tags contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].tags) {\r",
+													"            jsonData[i].tags.forEach(function(tag) {\r",
+													"             pm.expect(tag).to.have.property('id');\r",
+													"                pm.expect(tag).to.have.property('name');\r",
+													"            });\r",
+													"        }\r",
+													"    }\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Winter Season\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/tags",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"tags"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update tag",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 405\", function () {\r",
+													"    pm.response.to.have.status(405);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response tags contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].tags) {\r",
+													"            jsonData[i].tags.forEach(function(tag) {\r",
+													"             pm.expect(tag).to.have.property('id');\r",
+													"                pm.expect(tag).to.have.property('name');\r",
+													"            });\r",
+													"        }\r",
+													"    }\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Winter\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/tags",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"tags"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete tags/10",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response body is not empty\", function () {\r",
+													"    pm.response.to.not.be.empty;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Status code is 204\", function () {\r",
+													"    pm.response.to.have.status(204);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/tags/10",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"tags",
+												"10"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "users",
+							"item": [
+								{
+									"name": "Find users",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/users?size=50&sort=id,desc",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users"
+											],
+											"query": [
+												{
+													"key": "size",
+													"value": "50"
+												},
+												{
+													"key": "sort",
+													"value": "id,desc"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find users/5",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/users/5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users",
+												"5"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GET users sort by name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response users contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response user contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].user) {\r",
+													"        pm.expect(user).to.have.property('id');\r",
+													"        pm.expect(user).to.have.property('name');\r",
+													"        pm.expect(user).to.have.property('description');\r",
+													"        pm.expect(user).to.have.property('price');\r",
+													"        pm.expect(user).to.have.property('createDate');\r",
+													"        pm.expect(user).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(user).to.have.property('duration');\r",
+													"        pm.expect(user).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = user.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var users = jsonData.users;\r",
+													"    if (users) {\r",
+													"        pm.expect(users.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/users?page=5&size=10&sort=username,desc",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "5"
+												},
+												{
+													"key": "size",
+													"value": "10"
+												},
+												{
+													"key": "sort",
+													"value": "username,desc"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find certificates by user#5",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/certificates/users/5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"certificates",
+												"users",
+												"5"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save users/2",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 405\", function () {\r",
+													"    pm.response.to.have.status(405);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Camila\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/users/2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update users/10",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 405\", function () {\r",
+													"    pm.response.to.have.status(405);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is JSON\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificates contain required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData).to.be.an('object');\r",
+													"    var embedded = jsonData._embedded;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response certificate contains required fields\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    for (var i = 0; i < jsonData.length; i++) {\r",
+													"        if (jsonData[i].certificate) {\r",
+													"        pm.expect(certificate).to.have.property('id');\r",
+													"        pm.expect(certificate).to.have.property('name');\r",
+													"        pm.expect(certificate).to.have.property('description');\r",
+													"        pm.expect(certificate).to.have.property('price');\r",
+													"        pm.expect(certificate).to.have.property('createDate');\r",
+													"        pm.expect(certificate).to.have.property('lastUpdateDate');\r",
+													"        pm.expect(certificate).to.have.property('duration');\r",
+													"        pm.expect(certificate).to.have.property('tags').that.is.an('array');\r",
+													"        \r",
+													"        var tags = certificate.tags;\r",
+													"        for (var j = 0; j < tags.length; j++) {\r",
+													"            var tag = tags[j];\r",
+													"            pm.expect(tag).to.have.property('id');\r",
+													"            pm.expect(tag).to.have.property('name');\r",
+													"        }\r",
+													"    }\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Size parameter should not exceed 25\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    var certificates = jsonData.certificates;\r",
+													"    if (certificates) {\r",
+													"        pm.expect(certificates.length).to.be.at.most(25);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 1,\r\n    \"name\": \"Certificate\",\r\n    \"orders\": [\r\n        {\r\n            \"id\": 2,\r\n            \"name\": \"Easter\"\r\n        },\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Valentine Day\"\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"name\": \"Christmas Day\"\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/users/10",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users",
+												"10"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete users/11",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response body is not empty\", function () {\r",
+													"    pm.response.to.not.be.empty;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Status code is 405\", function () {\r",
+													"    pm.response.to.have.status(405);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Spring\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/users/11",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users",
+												"11"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
