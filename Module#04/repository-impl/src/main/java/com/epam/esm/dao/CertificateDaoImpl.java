@@ -93,7 +93,7 @@ public class CertificateDaoImpl implements CertificateDao {
      * or an empty optional if not found
      */
     @Override
-    public Optional<Certificate> getByName(final String name) {
+    public Optional<Certificate> findByUsername(final String name) {
         try (EntityManager entityManager = factory
                 .createEntityManager()) {
             List<Certificate> certificates =

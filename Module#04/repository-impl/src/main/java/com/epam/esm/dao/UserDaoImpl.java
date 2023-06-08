@@ -123,7 +123,7 @@ public class UserDaoImpl implements UserDao {
      * or empty if not found
      */
     @Override
-    public Optional<User> getByName(final String name) {
+    public Optional<User> findByUsername(final String name) {
         try (EntityManager entityManager =
                      factory.createEntityManager()) {
 
@@ -131,7 +131,6 @@ public class UserDaoImpl implements UserDao {
                     .createQuery(SELECT_USER_BY_NAME, User.class)
                     .setParameter(NAME, name)
                     .getResultList();
-
             return users.isEmpty()
                     ? Optional.empty()
                     : Optional.of(users.get(0));

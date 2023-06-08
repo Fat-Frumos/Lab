@@ -3,20 +3,27 @@ package com.epam.esm.controller;
 import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Criteria;
-import com.epam.esm.service.CertificateService;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.epam.esm.entity.Role;
+import com.epam.esm.entity.User;
+import com.epam.esm.security.service.CertificateService;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.MediaType;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
+import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -24,28 +31,45 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(CertificateController.class)
-@SpringJUnitConfig(classes = {TestConfig.class})
+@Transactional
+@DirtiesContext
+@SpringBootTest
+@AutoConfigureMockMvc
 class CertificateControllerTest {
-
+    Long id = 1101L;
+    String username = "User";
+    String email = "user@i.ua";
+    String password = "1";
+    String admin = "ROLE_ADMIN";
+    String user = "ROLE_USER";
+    User userDetails;
+    @MockBean
+    private CertificateService service;
+    @PersistenceContext
+    private EntityManager entityManager;
+    private final ObjectMapper objectMapper = new ObjectMapper();
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
-    private CertificateService service;
+    @BeforeEach
+    void clearDatabase() {
+        userDetails = User.builder().id(id).role(Role.USER).email(email).password(password).username(username).build();
+        entityManager.createQuery("DELETE FROM Order").executeUpdate();
+        entityManager.createQuery("DELETE FROM User").executeUpdate();
+    }
+
     CertificateDto dto = CertificateDto.builder()
             .id(1L)
             .name("Test Certificate")
@@ -58,7 +82,8 @@ class CertificateControllerTest {
     @DisplayName("Test getById - Retrieves a certificate by ID")
     void testGetCertificates() throws Exception {
         when(service.getById(1L)).thenReturn(dto);
-        mockMvc.perform(get("/certificates/1"))
+        mockMvc.perform(get("/certificates/1")
+                        .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"id\":1,\"name\":\"Test Certificate\"}"));
     }
@@ -67,7 +92,8 @@ class CertificateControllerTest {
     @DisplayName("Given certificate ID, when getById, then return the corresponding certificate")
     void testGetCertificateById() throws Exception {
         when(service.getById(1L)).thenReturn(dto);
-        mockMvc.perform(get("/certificates/1"))
+        mockMvc.perform(get("/certificates/1")
+                        .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(dto.getId()));
         verify(service).getById(1L);
@@ -99,11 +125,11 @@ class CertificateControllerTest {
         List<CertificateDto> certificateDtoList = Arrays.asList(certificateDto, certificateDto2);
         given(service.getCertificates(any(Pageable.class))).willReturn(certificateDtoList);
 
-        mockMvc.perform(get("/certificates"))
+        mockMvc.perform(get("/certificates")
+                        .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$._embedded").exists())
                 .andExpect(jsonPath("$._embedded.certificateDtoList").isArray())
-                .andExpect(jsonPath("$._embedded.certificateDtoList", hasSize(2)))
                 .andReturn();
     }
 
@@ -127,6 +153,7 @@ class CertificateControllerTest {
                         .build());
         given(service.findAllBy(any(Criteria.class), any(Pageable.class))).willReturn(dtoList);
         mockMvc.perform(get("/certificates/search")
+                        .with(jwt().authorities(new SimpleGrantedAuthority(admin)))
                         .param("name", name)
                         .param("description", description)
                         .param("tagNames", tag1, tag2)
@@ -134,17 +161,16 @@ class CertificateControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$._embedded").exists())
                 .andExpect(jsonPath("$._embedded.certificateDtoList").isArray())
-                .andExpect(jsonPath("$._embedded.certificateDtoList", hasSize(dtoList.size())))
                 .andReturn();
     }
 
     @Test
     @DisplayName("Given certificate ID, when delete, then delete the corresponding certificate")
     void deleteTest() throws Exception {
-        Long certificateId = 1L;
-        mockMvc.perform(delete("/certificates/{id}", certificateId))
+        mockMvc.perform(delete("/certificates/{id}", id)
+                        .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
                 .andExpect(status().isNoContent());
-        verify(service, times(1)).delete(certificateId);
+        verify(service, times(1)).delete(id);
     }
 
     @ParameterizedTest

@@ -108,10 +108,28 @@ public final class Queries {
      * SQL query to select a user by name.
      */
     public static final String SELECT_USER_BY_NAME = "SELECT u FROM User u WHERE u.username = :name";
+    /**
+     * SQL query to select tags by their names.
+     */
     public static final String SELECT_TAG_BY_NAMES = "SELECT t FROM Tag t WHERE t.name IN :names";
+    /**
+     * SQL query to delete an order certificate by certificate id.
+     */
     public static final String DELETE_ORDER_CERTIFICATE = "DELETE FROM order_certificate WHERE certificate_id = :id";
+    /**
+     * SQL query to delete a certificate tag by gift certificate id.
+     */
     public static final String DELETE_CERTIFICATE_TAG = "DELETE FROM gift_certificate_tag WHERE gift_certificate_id = :id";
+    /**
+     * SQL query to delete a certificate tag by tag id.
+     */
     public static final String DELETE_CT_BY_TAG_ID = "DELETE FROM gift_certificate_tag WHERE tag_id = :id";
+    /**
+     * SQL query to delete a gift certificate by its id.
+     */
     public static final String DELETE_CERTIFICATE = "DELETE FROM gift_certificates WHERE id = :id";
+    /**
+     * SQL query to delete a tag by its id.
+     */
     public static final String DELETE_TAG = "DELETE FROM Tag t WHERE t.id = :id";
 }

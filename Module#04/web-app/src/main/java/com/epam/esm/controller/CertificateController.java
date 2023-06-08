@@ -6,7 +6,7 @@ import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.PatchCertificateDto;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Criteria;
-import com.epam.esm.service.CertificateService;
+import com.epam.esm.security.service.CertificateService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;

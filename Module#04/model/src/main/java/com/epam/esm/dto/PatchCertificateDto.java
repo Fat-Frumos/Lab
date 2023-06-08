@@ -57,7 +57,7 @@ public class PatchCertificateDto
      * @throws IllegalArgumentException if an unknown property is encountered
      */
     @JsonAnySetter
-    public void handleUnknown(String key, Object value) {
+    public void handleUnknown(final String key, final Object value) {
         throw new IllegalArgumentException(
                 String.format("Field %s is not allowed for update: %s", key, value));
     }

@@ -116,7 +116,7 @@ public class OrderDaoImpl implements OrderDao {
      * @return an optional containing the order entity, or empty if not found.
      */
     @Override
-    public Optional<Order> getByName(final String username) {
+    public Optional<Order> findByUsername(final String username) {
         try (EntityManager entityManager =
                      factory.createEntityManager()) {
             TypedQuery<Order> query = entityManager
@@ -137,7 +137,7 @@ public class OrderDaoImpl implements OrderDao {
      * @return the saved order entity.
      */
     @Override
-    public Order save(Order order) {
+    public Order save(final Order order) {
         try (EntityManager entityManager =
                      factory.createEntityManager()) {
             EntityTransaction transaction =

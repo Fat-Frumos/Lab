@@ -3,7 +3,7 @@ package com.epam.esm.controller;
 import com.epam.esm.assembler.OrderAssembler;
 import com.epam.esm.dto.OrderDto;
 import com.epam.esm.entity.Tag;
-import com.epam.esm.service.OrderService;
+import com.epam.esm.security.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;

@@ -6,11 +6,12 @@ package com.epam.esm.exception;
 public class CertificateNotFoundException extends RuntimeException {
 
     /**
-     * Constructs a new CertificateNotFoundException
+     * Constructs a new CertificateNotFoundException.
      *
-     * @param message the error message
+     * @param message The error message.
      */
-    public CertificateNotFoundException(final String message) {
+    public CertificateNotFoundException(
+            final String message) {
         super(message);
     }
 }

@@ -1,3 +1,8 @@
+ALTER SEQUENCE gift_certificate_tag_seq RESTART WITH 21000;
+ALTER SEQUENCE order_id_seq RESTART WITH 2100;
+ALTER SEQUENCE tag_id_seq RESTART WITH 2100;
+ALTER SEQUENCE user_id_seq RESTART WITH 2100;
+
 -- DROP TABLE IF EXISTS gift_certificates;
 CREATE TABLE IF NOT EXISTS gift_certificates
 (

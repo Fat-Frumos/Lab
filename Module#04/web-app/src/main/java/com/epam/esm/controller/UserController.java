@@ -2,7 +2,7 @@ package com.epam.esm.controller;
 
 import com.epam.esm.assembler.UserAssembler;
 import com.epam.esm.dto.UserDto;
-import com.epam.esm.service.UserService;
+import com.epam.esm.security.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;

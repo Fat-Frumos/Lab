@@ -35,7 +35,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyMap;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
@@ -190,7 +189,7 @@ class UserDaoImplTest {
         when(typedQuery.setParameter("name", user.getUsername())).thenReturn(typedQuery);
         when(typedQuery.getResultList()).thenReturn(Collections.singletonList(user));
 
-        Optional<User> result = userDao.getByName(user.getUsername());
+        Optional<User> result = userDao.findByUsername(user.getUsername());
 
         assertTrue(result.isPresent());
         assertEquals(user, result.get());
@@ -210,7 +209,7 @@ class UserDaoImplTest {
         when(typedQuery.setParameter("name", name)).thenReturn(typedQuery);
         when(typedQuery.getResultList()).thenReturn(Collections.emptyList());
 
-        Optional<User> result = userDao.getByName(name);
+        Optional<User> result = userDao.findByUsername(name);
 
         assertFalse(result.isPresent());
         verify(entityManager).createQuery(SELECT_USER_BY_NAME, User.class);

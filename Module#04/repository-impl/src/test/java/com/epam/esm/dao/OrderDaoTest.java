@@ -17,7 +17,6 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Fetch;
 import jakarta.persistence.criteria.Join;
-import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Path;
 import jakarta.persistence.criteria.Root;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,19 +38,15 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import static com.epam.esm.dao.Queries.CERTIFICATES;
 import static com.epam.esm.dao.Queries.FETCH_GRAPH;
 import static com.epam.esm.dao.Queries.ID;
 import static com.epam.esm.dao.Queries.SELECT_ORDER_BY_ID;
 import static com.epam.esm.dao.Queries.SELECT_ORDER_BY_NAME;
-import static com.epam.esm.dao.Queries.USER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.anyInt;
-import static org.mockito.Mockito.anyString;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -172,7 +167,7 @@ class OrderDaoTest {
         when(entityManager.createQuery(SELECT_ORDER_BY_NAME, Order.class)).thenReturn(typedQuery);
         when(typedQuery.setParameter("username", username)).thenReturn(typedQuery);
         when(typedQuery.getResultList()).thenReturn(Collections.singletonList(order));
-        Optional<Order> result = orderDao.getByName(username);
+        Optional<Order> result = orderDao.findByUsername(username);
 
         assertTrue(result.isPresent());
         assertEquals(order, result.get());

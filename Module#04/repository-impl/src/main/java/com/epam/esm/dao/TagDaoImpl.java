@@ -72,7 +72,7 @@ public class TagDaoImpl implements TagDao {
      * @return an {@link Optional} containing the tag entity, or empty if not found
      */
     @Override
-    public Optional<Tag> getByName(
+    public Optional<Tag> findByUsername(
             final String name) {
         try (EntityManager entityManager = factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();

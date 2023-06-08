@@ -2,7 +2,6 @@ package com.epam.esm.dao;
 
 import com.epam.esm.entity.Certificate;
 import com.epam.esm.entity.Tag;
-import com.epam.esm.exception.CertificateNotFoundException;
 import jakarta.persistence.EntityGraph;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -39,19 +38,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import static com.epam.esm.dao.Queries.FETCH_GRAPH;
 import static com.epam.esm.dao.Queries.ID;
-import static com.epam.esm.dao.Queries.ORDERS;
-import static com.epam.esm.dao.Queries.SELECT_ALL_CERTIFICATES;
-import static com.epam.esm.dao.Queries.SELECT_CERTIFICATES_BY_ORDER_ID;
-import static com.epam.esm.dao.Queries.TAGS;
-import static com.epam.esm.dao.Queries.USER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyMap;
 import static org.mockito.ArgumentMatchers.anySet;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -59,7 +51,6 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -436,7 +427,7 @@ class CertificateDaoTest {
         when(entityManager.createQuery(anyString(), eq(Certificate.class))).thenReturn(typedQuery);
         when(typedQuery.setParameter(anyString(), any())).thenReturn(typedQuery);
         when(typedQuery.getResultList()).thenReturn(Collections.emptyList());
-        Optional<Certificate> result = certificateDao.getByName(name);
+        Optional<Certificate> result = certificateDao.findByUsername(name);
         assertFalse(result.isPresent());
         verify(entityManager).createQuery(anyString(), eq(Certificate.class));
         verify(typedQuery).setParameter(anyString(), any());
@@ -462,7 +453,7 @@ class CertificateDaoTest {
         when(typedQuery.setParameter(anyString(), any())).thenReturn(typedQuery);
         when(typedQuery.getResultList()).thenReturn(Collections.singletonList(certificate));
 
-        Optional<Certificate> result = certificateDao.getByName(name);
+        Optional<Certificate> result = certificateDao.findByUsername(name);
 
         assertTrue(result.isPresent());
         assertEquals(certificate, result.get());

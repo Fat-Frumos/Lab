@@ -7,7 +7,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>repository-impl</artifactId>
-<!--    <packaging>jar</packaging>-->
     <name>repository-impl</name>
 
     <dependencies>
@@ -48,12 +47,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>6.0.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>2.3.9.RELEASE</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

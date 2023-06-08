@@ -2,7 +2,7 @@ package com.epam.esm.controller;
 
 import com.epam.esm.assembler.TagAssembler;
 import com.epam.esm.dto.TagDto;
-import com.epam.esm.service.TagService;
+import com.epam.esm.security.service.TagService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
