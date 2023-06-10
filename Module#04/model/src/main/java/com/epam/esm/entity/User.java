@@ -3,12 +3,12 @@ package com.epam.esm.entity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedAttributeNode;
 import jakarta.persistence.NamedEntityGraph;
 import jakarta.persistence.NamedSubgraph;
@@ -22,14 +22,11 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-
-import static java.util.Collections.singletonList;
 
 /**
  * User class representing a user in the system.
@@ -43,9 +40,10 @@ import static java.util.Collections.singletonList;
 @AllArgsConstructor
 @Table(name = "users")
 @NamedEntityGraph(
-        name = "User.orders.certificates.tags",
+        name = "User.orders.certificates.tags.role",
         attributeNodes = {
-                @NamedAttributeNode(value = "orders", subgraph = "orderGraph")
+                @NamedAttributeNode(value = "orders", subgraph = "orderGraph"),
+                @NamedAttributeNode(value = "role", subgraph = "roleGraph")
         },
         subgraphs = {
                 @NamedSubgraph(
@@ -61,6 +59,12 @@ import static java.util.Collections.singletonList;
                         name = "certificateGraph",
                         attributeNodes = {
                                 @NamedAttributeNode("tags")
+                        }
+                ),
+                @NamedSubgraph(
+                        name = "roleGraph",
+                        attributeNodes = {
+                                @NamedAttributeNode("authorities")
                         }
                 )
         }
@@ -104,36 +108,10 @@ public class User implements UserDetails {
     private Set<Order> orders = new HashSet<>();
 
     /**
-     * Adds an order to the user's set of orders.
-     *
-     * @param order the order to add
-     */
-    public void addOrder(final Order order) {
-        if (orders == null) {
-            this.orders = new HashSet<>();
-        }
-        if (order != null) {
-            this.orders.add(order);
-        }
-    }
-
-    /**
-     * Removes an order from the user's set of orders.
-     *
-     * @param order the order to remove
-     * @return the removed order
-     */
-    public Order removeOrder(final Order order) {
-        if (order != null) {
-            this.orders.remove(order);
-        }
-        return order;
-    }
-
-    /**
      * The role of a user.
      */
-    @Enumerated(EnumType.STRING)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "role_id")
     private Role role;
 
     /**
@@ -143,8 +121,7 @@ public class User implements UserDetails {
      */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return singletonList(new SimpleGrantedAuthority(
-                String.format("ROLE_%s", role.name())));
+        return role.getPermission().getGrantedAuthorities();
     }
 
     /**

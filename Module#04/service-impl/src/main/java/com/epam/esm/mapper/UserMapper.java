@@ -14,7 +14,7 @@ import java.util.Set;
 /**
  * This interface defines mapping methods between User and UserDto objects.
  */
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {RoleMapper.class})
 public interface UserMapper {
     /**
      * Converts a UserDto object to a User entity.
@@ -24,6 +24,7 @@ public interface UserMapper {
      */
     @Mapping(target = "orders", source = "orderDtos",
             qualifiedByName = "toOrderSet")
+//    @Mapping(target = "role", source = "userDto.roleDto", qualifiedByName = "toRole")
     User toEntity(UserDto userDto);
 
     /**
@@ -34,6 +35,7 @@ public interface UserMapper {
      */
     @Mapping(target = "orderDtos", source = "orders",
             qualifiedByName = "toOrderDtoSet")
+//    @Mapping(target = "roleDto", source = "user.role", qualifiedByName = "toRoleDto")
     UserDto toDto(User user);
 
     /**

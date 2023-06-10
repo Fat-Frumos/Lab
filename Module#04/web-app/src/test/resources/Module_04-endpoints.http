@@ -1,0 +1,17 @@
+###
+POST http://localhost:8080/api/token/authenticate
+
+###
+POST http://localhost:8080/api/token/refresh
+
+###
+POST http://localhost:8080/api/token/register
+
+###
+GET http://localhost:8080/api/profile
+
+###
+POST http://localhost:8080/api/logout
+
+###
+POST http://localhost:8080/api/login

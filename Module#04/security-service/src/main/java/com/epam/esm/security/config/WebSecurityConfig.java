@@ -8,11 +8,13 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -29,6 +31,7 @@ import static org.springframework.http.HttpMethod.POST;
 public class WebSecurityConfig {
     private final JwtAuthorizationFilter authorizationFilter;
     private final AuthenticationProvider authenticationProvider;
+    private final LogoutHandler logoutHandler;
 
     /**
      * Configures the security filter chain for HTTP requests.
@@ -44,26 +47,28 @@ public class WebSecurityConfig {
                 .csrf().disable()
                 .cors().configurationSource(corsConfigurationSource())
                 .and()
-                .headers()
-                .httpStrictTransportSecurity()
-                .and()
-                .and()
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/signup", "/login").permitAll()
+                        .requestMatchers(POST, "/logout", "/login", "/token/**").permitAll()
                         .requestMatchers(GET, "/certificates/**").permitAll()
-                        .requestMatchers(POST, "/signup", "/login", "/token/**").permitAll()
                         .requestMatchers(POST, "/orders/**").hasAuthority("ROLE_USER")
                         .requestMatchers("/**").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(POST, "/token/**").permitAll()
+                        .requestMatchers("/**").permitAll()
                         .anyRequest()
                         .authenticated())
-//                .oauth2ResourceServer(oauth2 -> oauth2.jwt()) //TODO + STATELESS
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class)
+                .logout()
+                .logoutUrl("/api/auth/logout")
+                .addLogoutHandler(logoutHandler)
+                .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext())
+                .and()
                 .formLogin(formLogin -> formLogin.defaultSuccessUrl("/certificates"))
                 .build();
+//                .oauth2ResourceServer(oauth2 -> oauth2.jwt()) //TODO
     }
 
     /**

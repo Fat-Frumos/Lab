@@ -50,8 +50,8 @@ public class UserDto extends RepresentationModel<UserDto> {
             @JsonProperty("email") String email,
             @JsonProperty("orderDtos") Set<OrderDto> orderDtos) {
         this.id = id;
-        this.username = username;
         this.email = email;
+        this.username = username;
         this.orderDtos = orderDtos;
     }
 }

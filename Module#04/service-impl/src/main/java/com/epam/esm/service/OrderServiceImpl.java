@@ -1,4 +1,4 @@
-package com.epam.esm.security.service;
+package com.epam.esm.service;
 
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dao.OrderDao;

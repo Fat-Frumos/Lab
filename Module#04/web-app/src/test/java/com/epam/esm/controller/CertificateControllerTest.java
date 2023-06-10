@@ -4,8 +4,9 @@ import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Criteria;
 import com.epam.esm.entity.Role;
+import com.epam.esm.entity.RoleType;
 import com.epam.esm.entity.User;
-import com.epam.esm.security.service.CertificateService;
+import com.epam.esm.service.CertificateService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.BeforeEach;
@@ -65,7 +66,7 @@ class CertificateControllerTest {
 
     @BeforeEach
     void clearDatabase() {
-        userDetails = User.builder().id(id).role(Role.USER).email(email).password(password).username(username).build();
+        userDetails = User.builder().id(id).role(Role.builder().permission(RoleType.USER).build()).email(email).password(password).username(username).build();
         entityManager.createQuery("DELETE FROM Order").executeUpdate();
         entityManager.createQuery("DELETE FROM User").executeUpdate();
     }

@@ -1,41 +1,53 @@
 package com.epam.esm.security.service;
 
 import com.epam.esm.entity.Token;
+import com.epam.esm.entity.User;
 import com.epam.esm.exception.TokenNotFoundException;
 import com.epam.esm.repository.TokenRepository;
+import com.epam.esm.security.exception.InvalidJwtAuthenticationException;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import jakarta.transaction.Transactional;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.security.Key;
+import java.time.Instant;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 
+import static com.epam.esm.entity.TokenType.BEARER;
+
 /**
  * Service class that provides various JWT token operations.
  */
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class JwtTokenProvider {
-    private final TokenRepository tokenRepository;
     @Value("${jwt.secret-key}")
     private String secretKey;
     @Value("${jwt.expiration}")
-    private long jwtExpiration;
+    private Long expiration;
     @Value("${jwt.refresh-token.expiration}")
-    private long refreshExpiration;
+    private Long refreshExpiration;
+    private final TokenRepository tokenRepository;
 
     /**
      * Retrieves the jwtExpiration time
@@ -43,7 +55,7 @@ public class JwtTokenProvider {
      * @return The expiration time
      */
     public long getExpiration() {
-        return jwtExpiration;
+        return expiration;
     }
 
     /**
@@ -59,43 +71,34 @@ public class JwtTokenProvider {
             return getClaim(token, Claims::getSubject);
         } catch (MalformedJwtException e) {
             throw new TokenNotFoundException(
-                    String.format("Token Not Found: %s", token));
+                    String.format("Token not found: %s", token));
         }
     }
 
     /**
      * Retrieves a specific claim from the provided token using the given function.
      *
-     * @param token    The JWT token.
-     * @param function The function to extract the desired claim from the token.
-     * @param <T>      The type of the desired claim.
+     * @param token  The JWT token.
+     * @param claims The function to extract the desired claim from the token.
+     * @param <T>    The type of the desired claim.
      * @return The extracted claim.
-     * @throws TokenNotFoundException If the token is malformed or not found.
      */
     public <T> T getClaim(
             final String token,
-            final Function<Claims, T> function) {
-        try {
-            return function.apply(
-                    getAllClaims(token));
-        } catch (MalformedJwtException e) {
-            throw new TokenNotFoundException(
-                    String.format("Token Not Found: %s", token));
-        }
+            final Function<Claims, T> claims) {
+        return claims.apply(getAllClaims(token));
     }
 
     /**
      * Builds a refresh token for the specified user.
      *
-     * @param userDetails The UserDetails object.
+     * @param user The UserDetails object.
      * @return The generated refresh token.
      */
-    public String buildRefreshToken(
-            final UserDetails userDetails) {
-        return buildToken(
-                new HashMap<>(),
-                userDetails,
-                refreshExpiration);
+    public String generateRefreshToken(
+            final UserDetails user) {
+        return generateToken(new HashMap<>(),
+                user, refreshExpiration);
     }
 
     /**
@@ -104,25 +107,23 @@ public class JwtTokenProvider {
      * @param userDetails The UserDetails object.
      * @return The generated token.
      */
-    public String buildToken(
+    public String generateToken(
             final UserDetails userDetails) {
-        return buildToken(new HashMap<>(),
+        return generateToken(new HashMap<>(),
                 userDetails);
     }
 
     /**
      * Builds a token for the provided UserDetails with additional claims.
      *
-     * @param claims      Additional claims to include in the token.
-     * @param userDetails The UserDetails object.
+     * @param claims Additional claims to include in the token.
+     * @param user   The UserDetails object.
      * @return The generated token.
      */
-    public String buildToken(
+    public String generateToken(
             final Map<String, Object> claims,
-            final @NotNull UserDetails userDetails) {
-        return buildToken(claims,
-                userDetails,
-                jwtExpiration);
+            final @NotNull UserDetails user) {
+        return generateToken(claims, user, expiration);
     }
 
     /**
@@ -133,20 +134,21 @@ public class JwtTokenProvider {
      * @param expiration  The time expiration.
      * @return The generated JWT token.
      */
-    private String buildToken(
+    private String generateToken(
             final Map<String, Object> claims,
             final UserDetails userDetails,
-            final long expiration) {
+            final Long expiration) {
         try {
             return Jwts.builder()
                     .setClaims(claims)
                     .setSubject(userDetails.getUsername())
-                    .setIssuedAt(new Date(System.currentTimeMillis()))
-                    .setExpiration(new Date(System.currentTimeMillis() + expiration))
+                    .setIssuedAt(Date.from(Instant.now()))
                     .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+                    .setExpiration(Date.from(Instant.now().plusMillis(expiration)))
                     .compact();
         } catch (Exception e) {
-            throw new IllegalArgumentException("userDetails cannot be null");
+            throw new InvalidJwtAuthenticationException(
+                    "Invalid jwt authentication");
         }
     }
 
@@ -158,7 +160,7 @@ public class JwtTokenProvider {
      * @return {@code true} if the token is valid for the user,
      * {@code false} otherwise.
      */
-    public boolean validatedToken(
+    public boolean isTokenValid(
             final String token,
             final UserDetails userDetails) {
         try {
@@ -172,28 +174,40 @@ public class JwtTokenProvider {
     }
 
     /**
+     * Retrieves the signing key used for JWT token verification.
+     *
+     * @return The signing key.
+     */
+    public Key getSignInKey() {
+        return Keys.hmacShaKeyFor(Decoders
+                .BASE64.decode(secretKey));
+    }
+
+    /**
      * Utility methods and repository operations related to JWT tokens.
      *
      * @param token The jwt token
      * @return The claims extracted from the token.
      */
-    private Claims getAllClaims(
+    public Claims getAllClaims(
             final String token) {
-        return Jwts.parserBuilder()
-                .setSigningKey(getSignInKey())
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
+        try {
+            return Jwts.parserBuilder()
+                    .setSigningKey(getSignInKey())
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+        } catch (MalformedJwtException
+                 | ExpiredJwtException
+                 | UnsupportedJwtException
+                 | IllegalArgumentException e) {
+            throw new InvalidJwtAuthenticationException(e.getMessage());
+        }
     }
 
-    /**
-     * Retrieves the signing key used for JWT token verification.
-     *
-     * @return The signing key.
-     */
-    private Key getSignInKey() {
-        return Keys.hmacShaKeyFor(Decoders
-                .BASE64.decode(secretKey));
+    public boolean isBearerToken(HttpServletRequest request) {
+        String bearerToken = request.getHeader(HttpHeaders.AUTHORIZATION);
+        return bearerToken != null && bearerToken.startsWith("Bearer ");
     }
 
     /**
@@ -203,19 +217,42 @@ public class JwtTokenProvider {
      * @return An Optional containing the Token if found, or empty if not found.
      */
     @Transactional
-    public Optional<Token> findByToken(
-            final String jwt) {
-        return tokenRepository.findByToken(jwt);
+    public Optional<Token> findByToken(final String jwt) {
+        return tokenRepository.findByAccessToken(jwt);
     }
 
-    /**
-     * Saves a token in the database.
-     *
-     * @param token The Token object to save.
-     * @return The saved Token object.
-     */
     @Transactional
-    public Token save(Token token) {
-        return tokenRepository.save(token);
+    public void saveAll(List<Token> tokens) {
+        tokenRepository.saveAll(tokens);
+    }
+
+    @Transactional
+    public List<Token> findAllValidToken(final User user) {
+        return tokenRepository
+                .findAllValidAccessTokenByUserId(user.getId());
+    }
+
+    @Transactional
+    public Token updateUserTokens(
+            final User user,
+            final String accessToken) {
+        tokenRepository.deleteByUser(user);
+        List<Token> tokens = findAllValidToken(user);
+        if (!tokens.isEmpty()) {
+            tokens.forEach(token -> {
+                token.setExpired(false);
+                token.setRevoked(false);
+            });
+        }
+        saveAll(tokens);
+        return tokenRepository.save(Token
+                .builder()
+                .user(user)
+                .expired(false)
+                .revoked(false)
+                .tokenType(BEARER)
+                .accessToken(accessToken)
+                .accessTokenTTL(getExpiration())
+                .build());
     }
 }

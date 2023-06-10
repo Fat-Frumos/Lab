@@ -11,12 +11,13 @@ import org.springframework.http.CacheControl;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -38,7 +39,6 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
  */
 @EnableWebMvc
 @Configuration
-@EnableTransactionManagement
 public class WebMvcConfig implements WebMvcConfigurer {
 
     /**
@@ -170,10 +170,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .orElseThrow(() -> new UsernameNotFoundException(
                         String.format("User not found with name %s", username)));
     }
-//    @Bean
-//    public UserDetailsService userDetailsService() {
-//        return new InMemoryUserDetailsManager();
-//    }
 
     /**
      * Creates an instance of the PasswordEncoder.
@@ -182,8 +178,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Bean
     PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance(); //TODO
-//        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();
     }
 
     /**
@@ -193,9 +188,19 @@ public class WebMvcConfig implements WebMvcConfigurer {
      * @return An AuthenticationManager instance.
      * @throws Exception If an error occurs during the creation of the AuthenticationManager.
      */
-    @Bean
+    @Bean(BeanIds.AUTHENTICATION_MANAGER)
     public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration config) throws Exception {
+            AuthenticationConfiguration config)
+            throws Exception {
         return config.getAuthenticationManager();
+    }
+
+    @Bean
+    public SecurityContextLogoutHandler logoutHandler() {
+        SecurityContextLogoutHandler logoutHandler =
+                new SecurityContextLogoutHandler();
+        logoutHandler.setInvalidateHttpSession(true);
+        logoutHandler.setClearAuthentication(true);
+        return logoutHandler;
     }
 }

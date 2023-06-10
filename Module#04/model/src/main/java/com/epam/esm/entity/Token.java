@@ -14,6 +14,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * Represents a token used for authentication and authorization.
  */
@@ -22,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Token {
+public class Token implements Serializable {
 
     @Id
     @GeneratedValue
@@ -36,12 +38,12 @@ public class Token {
      * The actual token value.
      */
     @Column(unique = true)
-    private String token;
+    private String accessToken;
     /**
      * The time-to-live (TTL) in milliseconds for the access token.
      */
     @Column(name = "access_token_ttl")
-    private long accessTokenTTL;
+    private Long accessTokenTTL;
     /**
      * Flag indicating if the token has been revoked.
      */
