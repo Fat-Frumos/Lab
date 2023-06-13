@@ -1,12 +1,14 @@
-INSERT INTO roles (id, permission) VALUES (1, 'ANONYMOUS');
-INSERT INTO roles (id, permission) VALUES (2, 'GUEST');
-INSERT INTO roles (id, permission) VALUES (3, 'USER');
-INSERT INTO roles (id, permission) VALUES (4, 'ADMIN');
+INSERT INTO roles (role_id, permission) VALUES (1, 'ANONYMOUS');
+INSERT INTO roles (role_id, permission) VALUES (2, 'GUEST');
+INSERT INTO roles (role_id, permission) VALUES (3, 'USER');
+INSERT INTO roles (role_id, permission) VALUES (4, 'ADMIN');
+-- CREATE SEQUENCE ROLE_ID_SEQ START WITH 5;
+ALTER SEQUENCE role_id_seq RESTART WITH 5;
 
 INSERT INTO users (user_id, email, role_id, password, username)
 VALUES (1, 'Quartez@i.ua', 4, '$2a$10$6qjF7NTyowumOS9REwyh8O.pbwSIprYP8gvgmxu8lm7SsnPYd9OvG', 'alice'),
        (2, 'Johana@i.ua', 3, '$2a$10$F2C2v6OY8nfqvO01BifRmO4R5pGtnQkFVlPl8F4BseANxOj5yIYfa', 'bob'),
-       (3, 'Quenesha@i.ua', 3, '$2a$10$Yg/XbD3nJE7OxJVuelkcr.xVVlhCSH9xkxSDEliZ4P9Ya00beKqnm', 'Donnie'),
+       (3, 'Quenesha@i.ua', 3, '$2a$10$Yg/XbD3nJE7OxJVuelkcr.xVVlhCSH9xkxSDEliZ4P9Ya00beKqnm', 'user'),
        (4, 'Koren@i.ua', 3, '$2a$10$Yg/XbD3nJE7OxJVuelkcr.xVVlhCSH9xkxSDEliZ4P9Ya00beKqnm', 'Patrik'),
        (5, 'Brianne@i.ua', 3, '$2a$10$Yg/XbD3nJE7OxJVuelkcr.xVVlhCSH9xkxSDEliZ4P9Ya00beKqnm', 'Gabriela'),
        (6, 'Aron@i.ua', 3, '$2a$10$Yg/XbD3nJE7OxJVuelkcr.xVVlhCSH9xkxSDEliZ4P9Ya00beKqnm', 'Keisha Sirena'),

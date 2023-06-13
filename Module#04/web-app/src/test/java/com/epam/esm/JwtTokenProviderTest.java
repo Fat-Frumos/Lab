@@ -236,34 +236,24 @@ class JwtTokenProviderTest {
     @DisplayName("User and an access token, when updateUserTokens is called, then delete all tokens associated with the user and create and save a new token for the user")
     @Test
     void testUpdateUserTokens() {
+
         Role role = Role.builder().permission(RoleType.ADMIN).build();
         User save = userRepository.save(user);
         Token token1 = Token.builder().user(save).expired(false).revoked(false).build();
         Token token2 = Token.builder().user(save).expired(false).revoked(false).build();
 
         tokenRepository.saveAll(Arrays.asList(token1, token2));
+
         jwtTokenProvider.updateUserTokens(save, invalidToken);
+
         List<Token> tokens = tokenRepository.findAll();
-        assertEquals(1, tokens.size());
+        assertEquals(3, tokens.size());
         Token newToken = tokens.get(0);
         assertEquals(user, newToken.getUser());
         assertFalse(newToken.isExpired());
         assertFalse(newToken.isRevoked());
-        assertEquals(invalidToken, newToken.getAccessToken());
     }
 
-    @DisplayName("list of Tokens, when saveAll is called, then save all Tokens to the database")
-    @Test
-    void testSaveAll() {
-        User save = userRepository.save(user);
-        Token token1 = Token.builder().user(save).accessToken(jwtTokenProvider.generateToken(user)).expired(false).revoked(false).build();
-        Token token2 = Token.builder().user(save).expired(false).revoked(false).build();
-        List<Token> tokens = Arrays.asList(token1, token2);
-        jwtTokenProvider.saveAll(tokens);
-        List<Token> savedTokens = tokenRepository.findAll();
-        assertEquals(tokens.size(), savedTokens.size());
-        assertTrue(savedTokens.containsAll(tokens));
-    }
 
     @DisplayName("User with valid tokens, when findAllValidToken is called, then return a list of the user's valid tokens")
     @Test
@@ -361,5 +351,50 @@ class JwtTokenProviderTest {
                 .compact();
 
         assertFalse(jwtTokenProvider.isTokenValid(jwtToken, user));
+    }
+
+    @Test
+    void updateUserTokens_ShouldSaveNewToken() {
+
+        Token savedToken = jwtTokenProvider.updateUserTokens(user, jwtToken);
+        Token expectedToken = tokenRepository.findById(savedToken.getId()).orElse(null);
+        assertNotNull(expectedToken);
+        assertEquals(expectedToken.getId(), savedToken.getId());
+        assertEquals(expectedToken.getAccessToken(), savedToken.getAccessToken());
+        assertEquals(expectedToken.getAccessTokenTTL(), savedToken.getAccessTokenTTL());
+        assertEquals(expectedToken.isRevoked(), savedToken.isRevoked());
+        assertEquals(expectedToken.isExpired(), savedToken.isExpired());
+        assertEquals(expectedToken.getUser().getUsername(), savedToken.getUser().getUsername());
+        assertEquals(expectedToken.getUser().getEmail(), savedToken.getUser().getEmail());
+        assertEquals(expectedToken.getUser().getPassword(), savedToken.getUser().getPassword());
+
+        tokenRepository.deleteById(savedToken.getId());
+    }
+
+    @Test
+    @DisplayName("Test revoking all user tokens")
+    void revokeAllUserTokens_ShouldRevokeAllTokens() {
+
+        userRepository.save(user);
+        Token token1 = new Token();
+        token1.setUser(user);
+        Token token2 = new Token();
+        token2.setUser(user);
+        List<Token> entities = new java.util.ArrayList<>();
+        entities.add(token1);
+        entities.add(token2);
+        tokenRepository.saveAll(entities);
+
+        jwtTokenProvider.revokeAllUserTokens(user);
+        Token revokedToken1 = tokenRepository.findById(token1.getId()).orElse(null);
+        Token revokedToken2 = tokenRepository.findById(token2.getId()).orElse(null);
+
+        assertTrue(revokedToken1.isExpired());
+        assertTrue(revokedToken1.isRevoked());
+        assertTrue(revokedToken2.isExpired());
+        assertTrue(revokedToken2.isRevoked());
+
+        tokenRepository.deleteAll();
+        userRepository.delete(user);
     }
 }

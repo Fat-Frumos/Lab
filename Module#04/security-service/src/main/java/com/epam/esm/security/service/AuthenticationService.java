@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Optional;
 
@@ -42,8 +43,6 @@ public class AuthenticationService {
     private final JwtTokenProvider provider;
     private final AuthenticationManager manager;
     private final UserRepository userRepository;
-    private static final String FORMAT = "%s%n%s";
-
 
     /**
      * Registers a new user with the provided registration request.
@@ -57,16 +56,10 @@ public class AuthenticationService {
     public AuthenticationResponse register(
             final RegisterRequest request) {
         User user = findByUsername(request.getUsername())
-                .orElseGet(() -> saveUser(request));
+                .orElseGet(() -> saveUserWithRole(request));
         String jwtToken = provider.generateToken(user);
         Token token = provider.updateUserTokens(user, jwtToken);
-        log.info(format(FORMAT, token, jwtToken));
-        return AuthenticationResponse.builder()
-                .username(user.getUsername())
-                .expiresAt(Timestamp.from(now().plusMillis(token.getAccessTokenTTL())))
-                .refreshToken(provider.generateRefreshToken(user))
-                .accessToken(jwtToken)
-                .build();
+        return getResponse(user, jwtToken, token.getAccessTokenTTL());
     }
 
     /**
@@ -82,19 +75,21 @@ public class AuthenticationService {
     public AuthenticationResponse authenticate(
             final AuthenticationRequest request) {
         setAuthenticationToken(request);
-        User user = findUser(request);
+        User user = findUser(request.getUsername());
         String jwtToken = provider.generateToken(user);
-        log.info(format(FORMAT, user, jwtToken));
+        provider.revokeAllUserTokens(user);
         provider.updateUserTokens(user, jwtToken);
-        return AuthenticationResponse.builder()
-                .expiresAt(Timestamp.from(now().plusMillis(
-                        provider.getExpiration())))
-                .username(user.getUsername())
-                .refreshToken(provider.generateRefreshToken(user))
-                .accessToken(jwtToken)
-                .build();
+        return getResponse(user, jwtToken,
+                provider.getExpiration());
     }
 
+    /**
+     * Refreshes the access token for the current user.
+     *
+     * @param request  The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @return AuthenticationResponse containing the refreshed access token.
+     */
     @Transactional
     public AuthenticationResponse refresh(
             final HttpServletRequest request,
@@ -111,13 +106,11 @@ public class AuthenticationService {
                 if (provider.isTokenValid(refreshToken, user)) {
                     String accessToken = provider.generateToken(user);
                     Token token = provider.updateUserTokens(user, accessToken);
-                    log.info(format(FORMAT, user, token));
-                    CookieUtils.addCookie(response, "access_token", accessToken, (int) provider.getExpiration());
-                    CookieUtils.addCookie(response, "refresh_token", refreshToken, (int) provider.getExpiration());
                     return AuthenticationResponse.builder()
                             .username(username)
-                            .accessToken(accessToken)
+                            .accessToken(token.getAccessToken())
                             .refreshToken(refreshToken)
+                            .expiresAt(new Timestamp(token.getAccessTokenTTL()))
                             .build();
                 }
             }
@@ -125,16 +118,40 @@ public class AuthenticationService {
         throw new InvalidJwtAuthenticationException("Invalid Jwt Authentication");
     }
 
-    @Transactional
-    public User getUser(
-            String tokenValue) {
-        return findByUsername(provider
-                .getUsername(tokenValue)).orElseThrow(() ->
-                new UserNotFoundException("User not found"));
+    /**
+     * Logs out the current user by invalidating the access token and clearing any associated session data.
+     *
+     * @param request  The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     */
+    public void logout(
+            final HttpServletRequest request,
+            final HttpServletResponse response) {
+        String authHeader = request.getHeader("Authorization");
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            String jwt = authHeader.substring(7);
+            Token token = provider.findByToken(jwt).orElse(null);
+            if (token != null) {
+                token.setExpired(true);
+                token.setRevoked(true);
+                provider.save(token);
+            }
+        }
+        response.setStatus(HttpServletResponse.SC_OK);
+        try {
+            response.getWriter().write("Logout successful");
+        } catch (IOException e) {
+            log.error(e.getMessage());
+        }
     }
 
+    /**
+     * Sets the authentication token for the provided username and password.
+     *
+     * @param request The AuthenticationRequest containing the username and password.
+     */
     private void setAuthenticationToken(
-            AuthenticationRequest request) {
+            final AuthenticationRequest request) {
         Authentication authenticate = manager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getUsername(),
@@ -143,27 +160,76 @@ public class AuthenticationService {
                 .setAuthentication(authenticate);
     }
 
+    /**
+     * Retrieves the user with the given username.
+     *
+     * @param username The username of the user to find.
+     * @return The User object.
+     * @throws UserNotFoundException if the user is not found.
+     */
     @Transactional
-    public User findUser(AuthenticationRequest request) {
-        return userRepository
-                .findByUsername(request.getUsername())
+    public User findUser(final String username) {
+        return userRepository.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException(
-                        format("User not found: %s",
-                                request.getUsername())));
+                        format("User not found: %s", username)));
     }
 
+    /**
+     * Saves a new user with the provided registration details and default role.
+     *
+     * @param request The RegisterRequest containing the user registration details.
+     * @return The saved User object.
+     */
     @Transactional
-    public User saveUser(RegisterRequest request) {
-        return userRepository.save(User.builder()
+    public User saveUserWithRole(
+            final RegisterRequest request) {
+        User user = User.builder()
                 .password(encoder.encode(request.getPassword()))
                 .username(request.getUsername())
                 .email(request.getEmail())
-                .role(Role.builder().permission(USER).build())
-                .build());
+                .role(getRole())
+                .build();
+        return userRepository.save(user);
     }
 
+    /**
+     * Finds the user with the given username.
+     *
+     * @param username The username of the user to find.
+     * @return Optional containing the User object, or empty if not found.
+     */
     @Transactional
     public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    /**
+     * Returns the Role object representing the default role for a user.
+     *
+     * @return The default Role object.
+     */
+    private static Role getRole() {
+        return Role.builder()
+                .permission(USER)
+                .build();
+    }
+
+    /**
+     * Constructs the AuthenticationResponse object with the user details, JWT token, and access token expiration.
+     *
+     * @param user        The User object.
+     * @param jwtToken    The JWT token.
+     * @param accessToken The access token expiration time.
+     * @return The AuthenticationResponse object.
+     */
+    private AuthenticationResponse getResponse(
+            User user, String jwtToken, Long accessToken) {
+        return AuthenticationResponse.builder()
+                .username(user.getUsername())
+                .expiresAt(Timestamp.from(now()
+                        .plusMillis(accessToken)))
+                .refreshToken(provider.generateRefreshToken(user))
+                .accessToken(jwtToken)
+                .build();
     }
 }

@@ -1,11 +1,15 @@
 package com.epam.esm.dao;
 
+import com.epam.esm.entity.Certificate;
+import com.epam.esm.entity.Order;
+import com.epam.esm.entity.Role;
 import com.epam.esm.entity.User;
 import jakarta.persistence.EntityGraph;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.PersistenceException;
+import jakarta.persistence.Subgraph;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
@@ -35,7 +39,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -58,43 +63,19 @@ class UserDaoImplTest {
     @Mock
     private CriteriaQuery<User> criteriaQuery;
     @Mock
+    Subgraph<Order> orderGraph;
+    @Mock
+    Subgraph<Certificate> certificateGraph;
+    @Mock
+    Subgraph<Role> roleGraph;
+    @Mock
     private Root<User> root;
     @Mock
     private EntityGraph<User> graph;
     private final Pageable pageable = PageRequest.of(0, 25, Sort.by("name").ascending());
     private final Long id = 1L;
     private final User user = User.builder().id(id).username("Spring").email("spring@i.ua").build();
-
     User entity = mock(User.class);
-
-//    @ParameterizedTest
-//    @DisplayName("Get User by id")
-//    @CsvSource({
-//            "1, Olivia, Noah, Olivia-Noah@gmail.com",
-//            "2, Emma, Liam, Emma-Liam@gmail.com",
-//            "3, Charlotte, Oliver, Charlotte-Oliver@gmail.com",
-//            "4, Amelia, Elijah, Amelia-Elijah@gmail.com",
-//            "5, Ava, Leo, Ava-Leo@gmail.com"
-//    })
-//    void testGetUserOrders(Long userId, String firstName, String lastName, String email) {
-//
-//        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
-//        when(entityManager.createEntityGraph(User.class)).thenReturn(graph);
-//        User user = User.builder()
-//                .id(userId)
-//                .username(firstName + "-" + lastName)
-//                .email(email)
-//                .build();
-//        when(entityManager.find(eq(User.class), eq(userId), anyMap())).thenReturn(user);
-//        Optional<User> optional = userDao.getById(userId);
-//
-//        assertTrue(optional.isPresent());
-//        assertEquals(user.getId(), optional.get().getId());
-//        assertEquals(user.getUsername(), optional.get().getUsername());
-//        verify(entityManager).find(eq(User.class), eq(userId), anyMap());
-//
-//    }
-
 
     @Test
     @DisplayName("Test delete method")
@@ -153,6 +134,12 @@ class UserDaoImplTest {
         when(typedQuery.setFirstResult(0)).thenReturn(typedQuery);
         when(typedQuery.setMaxResults(anyInt())).thenReturn(typedQuery);
         when(typedQuery.getResultList()).thenReturn(users);
+        doNothing().when(orderGraph).addAttributeNodes("certificates");
+        doNothing().when(certificateGraph).addAttributeNodes("tags");
+        doNothing().when(roleGraph).addAttributeNodes("authorities");
+        doReturn(orderGraph).when(graph).addSubgraph("orders");
+        doReturn(certificateGraph).when(orderGraph).addSubgraph("certificates");
+        doReturn(roleGraph).when(graph).addSubgraph("role");
 
         List<User> result = userDao.getAllBy(pageable);
 

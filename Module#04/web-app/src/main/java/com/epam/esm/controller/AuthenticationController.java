@@ -1,19 +1,16 @@
 package com.epam.esm.controller;
 
-import com.epam.esm.entity.User;
 import com.epam.esm.security.auth.AuthenticationRequest;
 import com.epam.esm.security.auth.AuthenticationResponse;
 import com.epam.esm.security.auth.RegisterRequest;
 import com.epam.esm.security.service.AuthenticationService;
-import com.epam.esm.security.service.CookieUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -24,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(value = "/token")
 public class AuthenticationController {
     private final AuthenticationService service;
 
@@ -33,7 +31,7 @@ public class AuthenticationController {
      * @param request The registration request containing user details.
      * @return ResponseEntity containing the authentication response.
      */
-    @PostMapping("/token/register")
+    @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
             final @RequestBody RegisterRequest request) {
         return ResponseEntity.ok(service.register(request));
@@ -45,35 +43,38 @@ public class AuthenticationController {
      * @param request The authentication request containing user credentials.
      * @return ResponseEntity containing the authentication response.
      */
-    @PostMapping("/token/authenticate")
+    @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(
             final @RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(service.authenticate(request));
     }
 
-    @PostMapping("/token/refresh")
+    /**
+     * Refreshes the access token and returns a new AuthenticationResponse.
+     *
+     * @param request  The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @return ResponseEntity containing the refreshed AuthenticationResponse.
+     */
+    @PostMapping("/refresh")
     public ResponseEntity<AuthenticationResponse> refreshTokens(
             final HttpServletRequest request,
             final HttpServletResponse response) {
         return ResponseEntity.ok(service.refresh(request, response));
     }
 
+    /**
+     * Logs out the current user by invalidating the access token.
+     *
+     * @param request  The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @return ResponseEntity indicating a successful logout.
+     */
     @PostMapping("/logout")
     public ResponseEntity<Object> logout(
             final HttpServletRequest request,
             final HttpServletResponse response) {
-        CookieUtils.deleteCookie(request, response, "access_token");
-        CookieUtils.deleteCookie(request, response, "refresh_token");
+        service.logout(request, response);
         return ResponseEntity.ok().build();
-    }
-
-    @GetMapping("/profile")
-    public ResponseEntity<User> getProfile(
-            final HttpServletRequest request) {
-        return CookieUtils.getCookie(request, "access_token")
-                .map(token -> ResponseEntity.ok(
-                        service.getUser(token.getValue())))
-                .orElse(ResponseEntity.status(
-                        HttpStatus.UNAUTHORIZED).build());
     }
 }

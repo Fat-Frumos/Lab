@@ -124,7 +124,7 @@ public class Certificate implements Serializable {
      * This is a many-to-many relationship mapped
      * by the "certificates" field in the Order entity.
      * <p>
-     * The orders are lazily fetched
+     * The orders are eagerly fetched
      * and cascaded on persist and merge operations.
      */
     @Builder.Default

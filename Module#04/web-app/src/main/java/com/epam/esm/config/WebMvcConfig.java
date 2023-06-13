@@ -195,6 +195,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return config.getAuthenticationManager();
     }
 
+    /**
+     * Creates a SecurityContextLogoutHandler bean.
+     *
+     * @return The configured SecurityContextLogoutHandler bean.
+     */
     @Bean
     public SecurityContextLogoutHandler logoutHandler() {
         SecurityContextLogoutHandler logoutHandler =

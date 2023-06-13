@@ -10,10 +10,11 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+    public interface UserRepository extends JpaRepository<User, Long> {
+    @EntityGraph(attributePaths = { "orders" })
     Optional<User> findByUsername(String name);
 
-    Optional<User> findByEmail(String email);
+        Optional<User> findByEmail(String email);
 
     @EntityGraph(attributePaths = {"orders", "orders.certificates", "orders.certificates.tags", "role", "role.authorities"})
     Page<User> findAll(Pageable pageable);

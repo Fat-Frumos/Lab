@@ -189,8 +189,7 @@ public class JwtTokenProvider {
      * @param token The jwt token
      * @return The claims extracted from the token.
      */
-    public Claims getAllClaims(
-            final String token) {
+    public Claims getAllClaims(final String token) {
         try {
             return Jwts.parserBuilder()
                     .setSigningKey(getSignInKey())
@@ -205,7 +204,13 @@ public class JwtTokenProvider {
         }
     }
 
-    public boolean isBearerToken(HttpServletRequest request) {
+    /**
+     * Checks if the provided HttpServletRequest contains a valid Bearer token.
+     *
+     * @param request The HttpServletRequest object.
+     * @return true if a valid Bearer token is present in the request, false otherwise.
+     */
+    public boolean isBearerToken(final HttpServletRequest request) {
         String bearerToken = request.getHeader(HttpHeaders.AUTHORIZATION);
         return bearerToken != null && bearerToken.startsWith("Bearer ");
     }
@@ -221,38 +226,79 @@ public class JwtTokenProvider {
         return tokenRepository.findByAccessToken(jwt);
     }
 
-    @Transactional
-    public void saveAll(List<Token> tokens) {
-        tokenRepository.saveAll(tokens);
-    }
-
+    /**
+     * Retrieves a list of all valid tokens associated with the given user.
+     *
+     * @param user The user for whom to retrieve the tokens.
+     * @return A list of valid tokens.
+     */
     @Transactional
     public List<Token> findAllValidToken(final User user) {
         return tokenRepository
                 .findAllValidAccessTokenByUserId(user.getId());
     }
 
+    /**
+     * Saves a token in the database.
+     *
+     * @param token The token to be saved.
+     * @return The saved token.
+     */
+    @Transactional
+    public Token save(final Token token) {
+        return tokenRepository.save(token);
+    }
+
+    /**
+     * Updates the user's tokens with the new access token.
+     *
+     * @param user        The user for whom to update the tokens.
+     * @param accessToken The new access token to be updated.
+     * @return The updated token.
+     */
     @Transactional
     public Token updateUserTokens(
             final User user,
             final String accessToken) {
-        tokenRepository.deleteByUser(user);
+//        tokenRepository.deleteByUser(user);
+        Token token = getToken(user, accessToken);
+        return save(token);
+    }
+
+    /**
+     * Revokes all tokens associated with the given user.
+     *
+     * @param user The user whose tokens should be revoked.
+     */
+    @Transactional
+    public void revokeAllUserTokens(final User user) {
         List<Token> tokens = findAllValidToken(user);
         if (!tokens.isEmpty()) {
             tokens.forEach(token -> {
-                token.setExpired(false);
-                token.setRevoked(false);
+                token.setExpired(true);
+                token.setRevoked(true);
             });
         }
-        saveAll(tokens);
-        return tokenRepository.save(Token
-                .builder()
+        tokenRepository.saveAll(tokens);
+    }
+
+    /**
+     * Creates a new token for the given user with the provided access token.
+     *
+     * @param user        The user for whom to create the token.
+     * @param accessToken The access token to be associated with the token.
+     * @return The created token.
+     */
+    private Token getToken(
+            final User user,
+            final String accessToken) {
+        return Token.builder()
                 .user(user)
                 .expired(false)
                 .revoked(false)
                 .tokenType(BEARER)
                 .accessToken(accessToken)
                 .accessTokenTTL(getExpiration())
-                .build());
+                .build();
     }
 }

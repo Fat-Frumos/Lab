@@ -43,7 +43,8 @@ import java.util.Set;
         name = "User.orders.certificates.tags.role",
         attributeNodes = {
                 @NamedAttributeNode(value = "orders", subgraph = "orderGraph"),
-                @NamedAttributeNode(value = "role", subgraph = "roleGraph")
+                @NamedAttributeNode(value = "role", subgraph = "roleGraph"),
+                @NamedAttributeNode("tokens")
         },
         subgraphs = {
                 @NamedSubgraph(
@@ -58,7 +59,7 @@ import java.util.Set;
                 @NamedSubgraph(
                         name = "certificateGraph",
                         attributeNodes = {
-                                @NamedAttributeNode("tags")
+                                @NamedAttributeNode(value = "tags")
                         }
                 ),
                 @NamedSubgraph(
@@ -108,9 +109,20 @@ public class User implements UserDetails {
     private Set<Order> orders = new HashSet<>();
 
     /**
+     * The set of tokens associated with the user.
+     */
+    @Builder.Default
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user",
+            cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Token> tokens = new HashSet<>();
+
+    /**
      * The role of a user.
      */
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.EAGER,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "role_id")
     private Role role;
 

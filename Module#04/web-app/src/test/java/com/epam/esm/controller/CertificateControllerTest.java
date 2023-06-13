@@ -66,7 +66,8 @@ class CertificateControllerTest {
 
     @BeforeEach
     void clearDatabase() {
-        userDetails = User.builder().id(id).role(Role.builder().permission(RoleType.USER).build()).email(email).password(password).username(username).build();
+        userDetails = User.builder().id(id).role(Role.builder().permission(RoleType.USER)
+                .build()).email(email).password(password).username(username).build();
         entityManager.createQuery("DELETE FROM Order").executeUpdate();
         entityManager.createQuery("DELETE FROM User").executeUpdate();
     }

@@ -2,6 +2,7 @@ package com.epam.esm.dao;
 
 import com.epam.esm.entity.Certificate;
 import com.epam.esm.entity.Order;
+import com.epam.esm.entity.Role;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.UserAlreadyExistsException;
 import jakarta.persistence.EntityGraph;
@@ -62,10 +63,14 @@ public class UserDaoImpl implements UserDao {
             CriteriaQuery<User> query = builder.createQuery(User.class);
             Root<User> root = query.from(User.class);
 
-            EntityGraph<User> graph =
-                    entityManager.createEntityGraph(User.class);
-            graph.addAttributeNodes("orders");
-
+            EntityGraph<User> graph = entityManager.createEntityGraph(User.class);
+            graph.addAttributeNodes("orders", "role", "tokens");
+            Subgraph<Order> orderGraph = graph.addSubgraph("orders");
+            orderGraph.addAttributeNodes("certificates");
+            Subgraph<Certificate> certificateGraph = orderGraph.addSubgraph("certificates");
+            certificateGraph.addAttributeNodes("tags");
+            Subgraph<Role> roleGraph = graph.addSubgraph("role");
+            roleGraph.addAttributeNodes("authorities");
             query.select(root);
 
             if (pageable.getSort().isSorted()) {
