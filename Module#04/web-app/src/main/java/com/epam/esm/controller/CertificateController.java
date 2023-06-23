@@ -16,6 +16,7 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -163,26 +164,28 @@ public class CertificateController {
     /**
      * Retrieves the certificates associated with a user.
      *
-     * @param id the ID of the user
+     * @param userId the ID of the user
      * @return the CollectionModel representation of the certificates
      */
-    @GetMapping(value = "/users/{id}")
+    @GetMapping(value = "/users/{userId}")
+    @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
     public CollectionModel<EntityModel<CertificateDto>> getUserCertificates(
-            @PathVariable final Long id) {
+            @PathVariable final Long userId) {
         return assembler.toCollectionModel(
-                certificateService.getCertificatesByUserId(id));
+                certificateService.getCertificatesByUserId(userId));
     }
 
     /**
      * Retrieves all certificates associated with an order.
      *
-     * @param id the ID of the order
+     * @param orderId the ID of the order
      * @return the CollectionModel representation of the certificates
      */
-    @GetMapping(value = "/orders/{id}")
+    @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
+    @GetMapping(value = "/orders/{orderId}")
     public CollectionModel<EntityModel<CertificateDto>> getAllByOrderId(
-            @PathVariable final Long id) {
+            @PathVariable final Long orderId) {
         return assembler.toCollectionModel(
-                certificateService.getByOrderId(id));
+                certificateService.getByOrderId(orderId));
     }
 }

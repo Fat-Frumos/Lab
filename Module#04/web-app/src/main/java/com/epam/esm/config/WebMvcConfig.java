@@ -1,6 +1,9 @@
 package com.epam.esm.config;
 
+import com.epam.esm.handler.ResponseMessage;
 import com.epam.esm.repository.UserRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.CacheControl;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -17,6 +21,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -122,7 +128,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public SimpleUrlHandlerMapping faviconHandlerMapping() {
         SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
         mapping.setOrder(Integer.MIN_VALUE);
-        mapping.setUrlMap(Collections.singletonMap("/favicon.ico", faviconRequestHandler()));
+        mapping.setUrlMap(Collections.singletonMap("/favicon.ico",
+                faviconRequestHandler()));
         return mapping;
     }
 
@@ -190,7 +197,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Bean(BeanIds.AUTHENTICATION_MANAGER)
     public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration config)
+            final AuthenticationConfiguration config)
             throws Exception {
         return config.getAuthenticationManager();
     }
@@ -207,5 +214,41 @@ public class WebMvcConfig implements WebMvcConfigurer {
         logoutHandler.setInvalidateHttpSession(true);
         logoutHandler.setClearAuthentication(true);
         return logoutHandler;
+    }
+
+    /**
+     * Creates and configures an AuthenticationEntryPoint bean.
+     * The authentication entry point handles unauthorized access.
+     *
+     * @return AuthenticationEntryPoint bean
+     */
+    @Bean
+    public AuthenticationEntryPoint authenticationEntryPoint() {
+        return (request, response, ex) -> {
+            ResponseMessage errorResponse = new ResponseMessage(
+                    HttpStatus.UNAUTHORIZED, "Unauthorized");
+            response.setContentType("application/json");
+            response.setStatus(HttpStatus.UNAUTHORIZED.value());
+            response.getWriter().write(new ObjectMapper()
+                    .writeValueAsString(errorResponse));
+        };
+    }
+
+    /**
+     * Creates and configures an AccessDeniedHandler bean.
+     * The access denied handler handles forbidden access.
+     *
+     * @return AccessDeniedHandler bean
+     */
+    @Bean
+    public AccessDeniedHandler accessDeniedHandler() {
+        return (request, response, accessDeniedException) -> {
+            ResponseMessage errorResponse = new ResponseMessage(
+                    HttpStatus.FORBIDDEN, "Access Denied");
+            response.setContentType("application/json");
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            response.getWriter().write(new ObjectMapper()
+                    .writeValueAsString(errorResponse));
+        };
     }
 }

@@ -259,7 +259,7 @@ public class OrderDaoImpl implements OrderDao {
             List<Order> results = entityManager
                     .createQuery(query)
                     .setHint(FETCH_GRAPH, entityManager
-                            .getEntityGraph("User.orders.certificates.tags"))
+                            .getEntityGraph("User.orders.certificates.tags.role"))
                     .getResultList();
             if (!results.isEmpty()) {
                 Order order = results.get(0);

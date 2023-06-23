@@ -3,6 +3,7 @@ package com.epam.esm.security.service;
 import com.epam.esm.entity.Role;
 import com.epam.esm.entity.Token;
 import com.epam.esm.entity.User;
+import com.epam.esm.exception.UserAlreadyExistsException;
 import com.epam.esm.exception.UserNotFoundException;
 import com.epam.esm.repository.UserRepository;
 import com.epam.esm.security.auth.AuthenticationRequest;
@@ -13,7 +14,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -38,7 +38,7 @@ import static java.time.Instant.now;
 @Service
 @RequiredArgsConstructor
 @EnableTransactionManagement
-public class AuthenticationService {
+public class AuthenticationService implements AuthService {
     private final PasswordEncoder encoder;
     private final JwtTokenProvider provider;
     private final AuthenticationManager manager;
@@ -53,13 +53,31 @@ public class AuthenticationService {
      * @return The authentication response containing the generated token.
      */
     @Transactional
-    public AuthenticationResponse register(
+    public AuthenticationResponse signup(
             final RegisterRequest request) {
-        User user = findByUsername(request.getUsername())
-                .orElseGet(() -> saveUserWithRole(request));
-        String jwtToken = provider.generateToken(user);
-        Token token = provider.updateUserTokens(user, jwtToken);
-        return getResponse(user, jwtToken, token.getAccessTokenTTL());
+        if (findByUsername(request.getUsername())
+                .isPresent()) {
+            throw new UserAlreadyExistsException(
+                    "User already exists with name "
+                            + request.getUsername());
+        }
+        User user = saveUserWithRole(request);
+        log.info("signup service: " + user);
+        return getAuthenticationResponse(user);
+    }
+
+    /**
+     * Performs the login operation for the given authentication request.
+     *
+     * @param request the authentication request containing the username and password
+     * @return the authentication response containing the JWT token and other details
+     */
+    @Transactional
+    public AuthenticationResponse login(
+            final AuthenticationRequest request) {
+        setAuthenticationToken(request);
+        User user = findUser(request.getUsername());
+        return getAuthenticationResponse(user);
     }
 
     /**
@@ -76,28 +94,23 @@ public class AuthenticationService {
             final AuthenticationRequest request) {
         setAuthenticationToken(request);
         User user = findUser(request.getUsername());
-        String jwtToken = provider.generateToken(user);
         provider.revokeAllUserTokens(user);
-        provider.updateUserTokens(user, jwtToken);
-        return getResponse(user, jwtToken,
-                provider.getExpiration());
+        return getAuthenticationResponse(user);
     }
 
     /**
      * Refreshes the access token for the current user.
      *
-     * @param request  The HttpServletRequest object.
-     * @param response The HttpServletResponse object.
+     * @param authorizationHeader The HttpServletRequest object.
+     * @param response            The HttpServletResponse object.
      * @return AuthenticationResponse containing the refreshed access token.
      */
     @Transactional
     public AuthenticationResponse refresh(
-            final HttpServletRequest request,
+            final String authorizationHeader,
             final HttpServletResponse response) {
-        if (provider.isBearerToken(request)) {
-            String refreshToken = request
-                    .getHeader(HttpHeaders.AUTHORIZATION)
-                    .substring(7);
+        if (provider.isBearerToken(authorizationHeader)) {
+            String refreshToken = authorizationHeader.substring(7);
             String username = provider.getUsername(refreshToken);
             if (username != null) {
                 User user = userRepository.findByUsername(username)
@@ -189,6 +202,7 @@ public class AuthenticationService {
                 .email(request.getEmail())
                 .role(getRole())
                 .build();
+        log.info("saveUserWithRole: " + user);
         return userRepository.save(user);
     }
 
@@ -215,6 +229,36 @@ public class AuthenticationService {
     }
 
     /**
+     * Generates the authentication response for the given user.
+     * It generates a JWT token using the specified provider and updates the user's tokens.
+     *
+     * @param user the user for which the authentication response is generated
+     * @return the authentication response containing the JWT token and other details
+     */
+    @Transactional
+    public AuthenticationResponse getAuthenticationResponse(
+            final User user) {
+        String jwtToken = provider.generateToken(user);
+        Token token = provider.updateUserTokens(user, jwtToken);
+        return getAuthenticationResponse(user, jwtToken,
+                token.getAccessTokenTTL());
+    }
+
+    /**
+     * Generates the authentication response for the given user with the provided access token.
+     *
+     * @param user        the user for which the authentication response is generated
+     * @param accessToken the access token to include in the authentication response
+     * @return the authentication response containing the user, access token, and expiration time
+     */
+    public AuthenticationResponse getAuthenticationResponse(
+            User user, String accessToken) {
+        return getAuthenticationResponse(
+                user, accessToken,
+                provider.getExpiration());
+    }
+
+    /**
      * Constructs the AuthenticationResponse object with the user details, JWT token, and access token expiration.
      *
      * @param user        The User object.
@@ -222,7 +266,7 @@ public class AuthenticationService {
      * @param accessToken The access token expiration time.
      * @return The AuthenticationResponse object.
      */
-    private AuthenticationResponse getResponse(
+    private AuthenticationResponse getAuthenticationResponse(
             User user, String jwtToken, Long accessToken) {
         return AuthenticationResponse.builder()
                 .username(user.getUsername())

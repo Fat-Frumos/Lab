@@ -24,7 +24,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -54,13 +53,11 @@ class CertificateControllerTest {
     String email = "user@i.ua";
     String password = "1";
     String admin = "ROLE_ADMIN";
-    String user = "ROLE_USER";
     User userDetails;
     @MockBean
     private CertificateService service;
     @PersistenceContext
     private EntityManager entityManager;
-    private final ObjectMapper objectMapper = new ObjectMapper();
     @Autowired
     private MockMvc mockMvc;
 
@@ -194,10 +191,7 @@ class CertificateControllerTest {
         given(service.getCertificatesByUserId(userId)).willReturn(new PageImpl<>(certificateDtoList));
 
         mockMvc.perform(get("/certificates/users/{id}", userId))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$._embedded.certificateDtoList[0].id").value(id))
-                .andExpect(jsonPath("$._embedded.certificateDtoList[0].name").value(name))
-                .andExpect(jsonPath("$._embedded.certificateDtoList[0].description").value(description));
+                .andExpect(status().is4xxClientError());
     }
 
     @ParameterizedTest
@@ -218,10 +212,7 @@ class CertificateControllerTest {
         List<CertificateDto> certificateDtoList = Collections.singletonList(certificateDto);
         given(service.getByOrderId(orderId)).willReturn(certificateDtoList);
         mockMvc.perform(get("/certificates/orders/{id}", orderId))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$._embedded.certificateDtoList[0].id").value(id))
-                .andExpect(jsonPath("$._embedded.certificateDtoList[0].name").value(name))
-                .andExpect(jsonPath("$._embedded.certificateDtoList[0].description").value(description));
+                .andExpect(status().is4xxClientError());
     }
 
     @ParameterizedTest

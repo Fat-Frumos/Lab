@@ -16,7 +16,6 @@ import static com.epam.esm.entity.Permission.GUEST_READ;
 import static com.epam.esm.entity.Permission.USER_CREATE;
 import static com.epam.esm.entity.Permission.USER_READ;
 import static java.util.Arrays.asList;
-import static java.util.Collections.emptySet;
 import static java.util.Collections.singletonList;
 import static java.util.stream.Collectors.toList;
 
@@ -25,7 +24,6 @@ import static java.util.stream.Collectors.toList;
  */
 @RequiredArgsConstructor
 public enum RoleType {
-    ANONYMOUS(emptySet()),
     GUEST(new HashSet<>(singletonList(GUEST_READ))),
     USER(new HashSet<>(asList(
             USER_CREATE,
@@ -37,6 +35,14 @@ public enum RoleType {
             ADMIN_DELETE)));
     @Getter
     private final Set<Permission> authorities;
+
+    /**
+     * Retrieves the granted authorities for this user.
+     * The authorities are derived from the user's permissions.
+     * The user's name is also included as a ROLE_ authority.
+     *
+     * @return List of SimpleGrantedAuthority objects representing the granted authorities.
+     */
     public List<SimpleGrantedAuthority> getGrantedAuthorities() {
         List<SimpleGrantedAuthority> grantedAuthorities =
                 getAuthorities().stream()

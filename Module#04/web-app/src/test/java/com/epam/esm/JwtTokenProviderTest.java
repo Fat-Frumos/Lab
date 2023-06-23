@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.HttpHeaders;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 import java.util.Arrays;
@@ -55,7 +56,7 @@ class JwtTokenProviderTest {
     private final String username = "Bob";
     private User user;
     private final String invalidToken = "invalidToken";
-    private String jwtToken;
+    public String jwtToken;
 
     @BeforeEach
     void init() {
@@ -64,7 +65,7 @@ class JwtTokenProviderTest {
         user = User.builder()
                 .username(username)
                 .email("bob@i.ua")
-                .password("password")
+                .password(invalidToken)
                 .role(Role.builder().permission(RoleType.USER).build())
                 .build();
 
@@ -221,7 +222,7 @@ class JwtTokenProviderTest {
     @DisplayName("Given an invalid JWT token, when findByToken is called, then return an empty Optional")
     @Test
     void testFindByTokenWithInvalidToken() {
-        Optional<Token> result = jwtTokenProvider.findByToken("invalid_token");
+        Optional<Token> result = jwtTokenProvider.findByToken("invalidToken");
         assertFalse(result.isPresent());
     }
 
@@ -237,7 +238,6 @@ class JwtTokenProviderTest {
     @Test
     void testUpdateUserTokens() {
 
-        Role role = Role.builder().permission(RoleType.ADMIN).build();
         User save = userRepository.save(user);
         Token token1 = Token.builder().user(save).expired(false).revoked(false).build();
         Token token2 = Token.builder().user(save).expired(false).revoked(false).build();
@@ -300,7 +300,8 @@ class JwtTokenProviderTest {
     @Test
     @DisplayName("request without a Bearer token in the Authorization header")
     void testIsBearerTokenWithoutToken() {
-        boolean result = jwtTokenProvider.isBearerToken(request);
+        boolean result = jwtTokenProvider.isBearerToken(
+                request.getHeader(HttpHeaders.AUTHORIZATION));
         assertFalse(result);
     }
 
@@ -341,8 +342,6 @@ class JwtTokenProviderTest {
     @DisplayName("Given an expired JWT token, when isTokenValid is called with ignoreExpired set to true, then return false")
     void testIsTokenExpiredWithExpiredTokenAndIgnoreExpired() {
 
-        String username = "test_user";
-
         String jwtToken = Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
@@ -354,7 +353,7 @@ class JwtTokenProviderTest {
     }
 
     @Test
-    void updateUserTokens_ShouldSaveNewToken() {
+    void updateUserTokensShouldSaveNewToken() {
 
         Token savedToken = jwtTokenProvider.updateUserTokens(user, jwtToken);
         Token expectedToken = tokenRepository.findById(savedToken.getId()).orElse(null);
@@ -373,7 +372,7 @@ class JwtTokenProviderTest {
 
     @Test
     @DisplayName("Test revoking all user tokens")
-    void revokeAllUserTokens_ShouldRevokeAllTokens() {
+    void revokeAllUserTokensShouldRevokeAllTokens() {
 
         userRepository.save(user);
         Token token1 = new Token();

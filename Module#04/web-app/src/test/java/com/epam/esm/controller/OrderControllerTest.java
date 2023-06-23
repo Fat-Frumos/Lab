@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anySet;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
@@ -56,14 +57,16 @@ class OrderControllerTest {
                 .andExpect(jsonPath("$.name").value("Summer"));
     }
 
-//    @Test
-//    @DisplayName("Create order: Given valid order details, when create order, then return HTTP status 201")
-//    void testCreateOrderShouldReturnHttpStatusCreated() throws Exception {
-//        when(orderService.save(1L, new HashSet<>(Collections.singletonList(1L)))).thenReturn(orderDto);
-//        mockMvc.perform(post("/orders/2?certificateIds=2")
-//                        .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
-//                .andExpect(status().isCreated());
-//    }
+    @Test
+    @DisplayName("Create Order: Given valid user ID and certificate IDs, when create order, then return HTTP status 201")
+    void testCreateOrderShouldReturnHttpStatusCreated() throws Exception {
+        when(orderService.save(eq(id), anySet())).thenReturn(orderDto);
+
+        mockMvc.perform(post("/orders/{userId}", id)
+                        .param("certificateIds", String.valueOf(id))
+                        .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
+                .andExpect(status().isCreated());
+    }
 
     @Test
     @DisplayName("Get all orders by user ID: Given valid user ID, when get all orders, then return the collection of orders")

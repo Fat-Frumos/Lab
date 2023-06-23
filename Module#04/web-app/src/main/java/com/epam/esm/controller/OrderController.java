@@ -63,7 +63,7 @@ public class OrderController {
     /**
      * Retrieves all orders for a specific user by user ID.
      *
-     * @param userId the ID of the user.
+     * @param userId   the ID of the user.
      * @param pageable the pagination information.
      * @return a collection of order resources.
      */

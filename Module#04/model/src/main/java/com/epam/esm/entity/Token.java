@@ -6,6 +6,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -29,7 +30,8 @@ import java.io.Serializable;
 public class Token implements Serializable {
 
     @Id
-    @GeneratedValue
+    @Column(name = "token_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "token_sequence")
     private Integer id;
     /**
      * The type of the token (e.g., Bearer).

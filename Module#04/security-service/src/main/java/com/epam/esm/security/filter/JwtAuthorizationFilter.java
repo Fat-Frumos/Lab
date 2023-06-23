@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -54,30 +53,28 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             final @NonNull HttpServletResponse response,
             final @NonNull FilterChain filterChain)
             throws ServletException, IOException {
-        if (!request.getServletPath().contains("/api/token")) {
             String authHeader = request.getHeader("Authorization");
             if (authHeader != null && authHeader.startsWith("Bearer ")) {
                 String jwt = authHeader.substring(7);
                 SecurityContext securityContext = SecurityContextHolder.getContext();
-                Authentication authentication = securityContext.getAuthentication();
-                log.info("Context Authentication Security " + authentication);
                 UserDetails userDetails = userDetailsService
                         .loadUserByUsername(provider.getUsername(jwt));
                 boolean isValid = provider.findByToken(jwt)
                         .map(token -> !token.isExpired()
                                 && !token.isRevoked())
                         .orElse(false);
-                if (provider.isTokenValid(jwt, userDetails) && isValid) {
+                if (isValid && provider.isTokenValid(jwt, userDetails)) {
                     UsernamePasswordAuthenticationToken authToken =
                             new UsernamePasswordAuthenticationToken(
                                     userDetails, null,
                                     userDetails.getAuthorities());
+                    log.info("authToken: " + authToken.getAuthorities());
+                    log.info("security Context: " + securityContext);
                     authToken.setDetails(new WebAuthenticationDetailsSource()
                             .buildDetails(request));
                     securityContext.setAuthentication(authToken);
                 }
             }
-        }
         filterChain.doFilter(request, response);
     }
 }

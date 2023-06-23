@@ -13,12 +13,10 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -207,12 +205,13 @@ public class JwtTokenProvider {
     /**
      * Checks if the provided HttpServletRequest contains a valid Bearer token.
      *
-     * @param request The HttpServletRequest object.
+     * @param authorizationHeader The HttpServletRequest object.
      * @return true if a valid Bearer token is present in the request, false otherwise.
      */
-    public boolean isBearerToken(final HttpServletRequest request) {
-        String bearerToken = request.getHeader(HttpHeaders.AUTHORIZATION);
-        return bearerToken != null && bearerToken.startsWith("Bearer ");
+    public boolean isBearerToken(
+            final String authorizationHeader) {
+        return authorizationHeader != null
+                && authorizationHeader.startsWith("Bearer ");
     }
 
     /**
@@ -246,6 +245,7 @@ public class JwtTokenProvider {
      */
     @Transactional
     public Token save(final Token token) {
+        log.info("save: " + token);
         return tokenRepository.save(token);
     }
 
@@ -289,7 +289,7 @@ public class JwtTokenProvider {
      * @param accessToken The access token to be associated with the token.
      * @return The created token.
      */
-    private Token getToken(
+    public Token getToken(
             final User user,
             final String accessToken) {
         return Token.builder()

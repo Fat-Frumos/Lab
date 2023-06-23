@@ -21,6 +21,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.io.Serializable;
 import java.util.List;
@@ -33,16 +35,17 @@ import java.util.Set;
 @AllArgsConstructor
 @Table(name = "roles")
 public class Role implements Serializable {
-    private static final long serialVersionUID = 3218292427916480827L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "role_sequence")
-    @SequenceGenerator(name = "role_sequence", sequenceName = "role_id_seq", allocationSize = 1, initialValue = 5)
+    @SequenceGenerator(name = "role_sequence",
+            sequenceName = "role_id_seq",
+            allocationSize = 1, initialValue = 5)
     @Column(name = "role_id")
     private Long id;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "permission")
+    @Fetch(FetchMode.JOIN)
     private RoleType permission;
 
     @ToString.Exclude

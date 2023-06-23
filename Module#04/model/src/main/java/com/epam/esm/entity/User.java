@@ -15,14 +15,19 @@ import jakarta.persistence.NamedSubgraph;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.transaction.Transactional;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
+import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -33,9 +38,11 @@ import java.util.Set;
  * <p>
  * Implements UserDetails interface for Spring Security integration.
  */
+@Slf4j
 @Data
 @Entity
 @Builder
+@Validated
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
@@ -90,6 +97,7 @@ public class User implements UserDetails {
      * The email address of the user.
      */
     @Column(name = "email", nullable = false)
+    @Email(message = "{invalid.email}")
     private String email;
 
     /**
@@ -132,7 +140,10 @@ public class User implements UserDetails {
      * @return A collection of GrantedAuthority objects representing the user's authorities.
      */
     @Override
+    @Transactional
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        Hibernate.initialize(role);
+        Hibernate.initialize(role.getPermission());
         return role.getPermission().getGrantedAuthorities();
     }
 

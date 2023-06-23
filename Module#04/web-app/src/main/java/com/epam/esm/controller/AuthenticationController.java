@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -18,23 +18,21 @@ import org.springframework.web.bind.annotation.RestController;
  * <p>
  * This class is responsible for handling registration and authentication requests.
  */
-
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/token")
 public class AuthenticationController {
     private final AuthenticationService service;
 
     /**
-     * Endpoint for user registration.
+     * Handles the signup request and returns a ResponseEntity with the authentication response.
      *
-     * @param request The registration request containing user details.
-     * @return ResponseEntity containing the authentication response.
+     * @param request The RegisterRequest object containing the signup details.
+     * @return A ResponseEntity containing the AuthenticationResponse.
      */
-    @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(
+    @PostMapping("/signup")
+    public ResponseEntity<AuthenticationResponse> signup(
             final @RequestBody RegisterRequest request) {
-        return ResponseEntity.ok(service.register(request));
+        return ResponseEntity.ok(service.signup(request));
     }
 
     /**
@@ -43,7 +41,7 @@ public class AuthenticationController {
      * @param request The authentication request containing user credentials.
      * @return ResponseEntity containing the authentication response.
      */
-    @PostMapping("/authenticate")
+    @PostMapping("/token/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(
             final @RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(service.authenticate(request));
@@ -52,15 +50,28 @@ public class AuthenticationController {
     /**
      * Refreshes the access token and returns a new AuthenticationResponse.
      *
-     * @param request  The HttpServletRequest object.
-     * @param response The HttpServletResponse object.
+     * @param authorizationHeader The RequestHeader authorization.
+     * @param response            The HttpServletResponse object.
      * @return ResponseEntity containing the refreshed AuthenticationResponse.
      */
-    @PostMapping("/refresh")
+    @PostMapping("/token/refresh")
     public ResponseEntity<AuthenticationResponse> refreshTokens(
-            final HttpServletRequest request,
+            final @RequestHeader("Authorization") String authorizationHeader,
             final HttpServletResponse response) {
-        return ResponseEntity.ok(service.refresh(request, response));
+        return ResponseEntity.ok(service.refresh(
+                authorizationHeader, response));
+    }
+
+    /**
+     * Authenticates a user by processing a login request.
+     *
+     * @param loginRequest The login request containing the user's credentials.
+     * @return A ResponseEntity containing the authentication response.
+     */
+    @PostMapping("/login")
+    public ResponseEntity<AuthenticationResponse> login(
+            final @RequestBody AuthenticationRequest loginRequest) {
+        return ResponseEntity.ok(service.login(loginRequest));
     }
 
     /**
