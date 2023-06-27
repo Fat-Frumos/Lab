@@ -242,4 +242,32 @@ public class OrderServiceImpl implements OrderService {
             final Set<Long> ids) {
         return certificateDao.findAllByIds(ids);
     }
+
+    /**
+     * {@inheritDoc}
+     * <p>
+     *
+     * @param dto
+     * @return
+     */
+    @Override
+    @Transactional
+    public OrderDto update(
+            final OrderDto dto) {
+        return orderMapper.toDto(orderDao.update(
+                orderMapper.toEntity(dto)));
+    }
+
+    /**
+     * {@inheritDoc}
+     * <p>
+     *
+     * @param id
+     */
+    @Override
+    @Transactional
+    public void delete(
+            final Long id) {
+        orderDao.delete(id);
+    }
 }

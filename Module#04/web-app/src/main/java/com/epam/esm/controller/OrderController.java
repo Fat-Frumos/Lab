@@ -4,16 +4,21 @@ import com.epam.esm.assembler.OrderAssembler;
 import com.epam.esm.dto.OrderDto;
 import com.epam.esm.entity.Tag;
 import com.epam.esm.service.OrderService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -23,6 +28,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
 
 /**
  * Controller class for handling order-related operations.
@@ -132,5 +138,34 @@ public class OrderController {
             final @PathVariable Long userId) {
         return assembler.toModel(
                 orderService.getUserOrder(orderId, userId));
+    }
+
+    /**
+     * Updates an existing order with the given ID using the provided order DTO.
+     *
+     * @param id  the ID of the order to be updated
+     * @param dto the updated order DTO
+     * @return the updated order as an EntityModel
+     */
+    @PatchMapping(value = "/{id}")
+    public EntityModel<OrderDto> update(
+            @Valid @PathVariable final Long id,
+            @Valid @RequestBody final OrderDto dto) {
+        dto.setId(id);
+        return assembler.toModel(
+                orderService.update(dto));
+    }
+
+    /**
+     * Deletes the order with the given ID.
+     *
+     * @param id the ID of the order to be deleted
+     * @return a ResponseEntity with HTTP status NO_CONTENT
+     */
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<HttpStatus> delete(
+            @PathVariable final Long id) {
+        orderService.delete(id);
+        return new ResponseEntity<>(NO_CONTENT);
     }
 }

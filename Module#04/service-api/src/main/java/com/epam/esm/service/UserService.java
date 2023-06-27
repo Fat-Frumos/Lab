@@ -1,6 +1,7 @@
 package com.epam.esm.service;
 
 import com.epam.esm.dto.UserDto;
+import com.epam.esm.dto.UserSlimDto;
 import com.epam.esm.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,4 +34,10 @@ public interface UserService {
      * @return the page of user DTOs
      */
     Page<UserDto> getAll(Pageable pageable);
+
+    UserDto save(UserSlimDto dto);
+
+    UserDto update(UserSlimDto dto);
+
+    void delete(Long id);
 }

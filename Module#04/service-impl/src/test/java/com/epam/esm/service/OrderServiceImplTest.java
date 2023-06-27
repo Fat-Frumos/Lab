@@ -43,6 +43,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -57,7 +58,6 @@ class OrderServiceImplTest {
     private CertificateDao certificateDao;
     @Mock
     private OrderMapper orderMapper;
-
     @InjectMocks
     private OrderServiceImpl orderService;
     private final Long orderId = 1L;
@@ -230,7 +230,6 @@ class OrderServiceImplTest {
     })
     void getUserOrdersTest(Long orderId, String firstName, String lastName, String email,
                            long certificateId, String name, String description, BigDecimal price, int duration) {
-
         List<Order> expectedOrders = Collections.singletonList(order);
         List<OrderDto> expectedOrderDtos = Collections.singletonList(OrderDto.builder()
                 .id(orderId)
@@ -246,16 +245,12 @@ class OrderServiceImplTest {
                         .duration(duration)
                         .build()))
                 .build());
-
         when(orderDao.getUserOrders(user, pageable)).thenReturn(expectedOrders);
         when(orderMapper.toDtoList(expectedOrders)).thenReturn(expectedOrderDtos);
-
         Page<OrderDto> actualOrderDtos = orderService.getUserOrders(user, pageable);
-
         assertEquals(expectedOrderDtos.size(), actualOrderDtos.getContent().size());
         assertEquals(expectedOrderDtos.get(0).getId(), actualOrderDtos.getContent().get(0).getId());
         assertEquals(expectedOrderDtos.get(0).getUser().getEmail(), actualOrderDtos.getContent().get(0).getUser().getEmail());
-
         verify(orderDao).getUserOrders(user, pageable);
         verify(orderMapper).toDtoList(expectedOrders);
         verifyNoMoreInteractions(orderDao, orderMapper);
@@ -264,12 +259,9 @@ class OrderServiceImplTest {
     @Test
     @DisplayName("Get User Order - OrderNotFoundException")
     void getUserOrderOrderNotFoundExceptionTest() {
-
         when(orderDao.getUserOrder(user.getId(), orderId)).thenReturn(Optional.empty());
-
         assertThrows(OrderNotFoundException.class,
                 () -> orderService.getUserOrder(user.getId(), orderId));
-
         verify(orderDao).getUserOrder(user.getId(), orderId);
         verifyNoMoreInteractions(orderDao, orderMapper);
     }
@@ -277,12 +269,9 @@ class OrderServiceImplTest {
     @Test
     @DisplayName("Test get user order")
     void getUserOrderTest() {
-
         when(orderDao.getUserOrder(user.getId(), orderId)).thenReturn(Optional.of(order));
         when(orderMapper.toDto(order)).thenReturn(orderDto);
-
         OrderDto actualOrderDto = orderService.getUserOrder(user.getId(), orderId);
-
         assertEquals(orderDto, actualOrderDto);
         verify(orderDao).getUserOrder(user.getId(), orderId);
         verify(orderMapper).toDto(order);
@@ -291,9 +280,7 @@ class OrderServiceImplTest {
     @Test
     @DisplayName("Test get user order throws order not found exception")
     void getUserOrderThrowsOrderNotFoundExceptionTest() {
-
         when(orderDao.getUserOrder(user.getId(), orderId)).thenReturn(Optional.empty());
-
         assertThrows(OrderNotFoundException.class, () -> orderService.getUserOrder(user.getId(), orderId));
         verify(orderDao).getUserOrder(user.getId(), orderId);
     }
@@ -381,7 +368,7 @@ class OrderServiceImplTest {
             "5, 8, 4, Programming, description, 50, 90"
     })
     @DisplayName("testFindCertificateById")
-     void testFindCertificateById(long id1, long id2, long certificateId, String name, String description, BigDecimal price, int duration) {
+    void testFindCertificateById(long id1, long id2, long certificateId, String name, String description, BigDecimal price, int duration) {
         Set<Long> ids = new HashSet<>(Arrays.asList(id1, id2));
 
         Certificate certificate = Certificate.builder()
@@ -399,55 +386,27 @@ class OrderServiceImplTest {
         assertEquals(expectedCertificates, result);
         verify(certificateDao).findAllByIds(ids);
     }
-//    @Test
-//    @DisplayName("Test find certificate by id throws certificate not found exception")
-//    void testFindCertificateByIdThrowsCertificateNotFoundException() {
-//
-//        when(certificateDao.getById(userId)).thenReturn(Optional.empty());
-//        assertThrows(CertificateNotFoundException.class, () ->
-//                orderService.findCertificateById(Collections.singleton(userId)));
-//        verify(certificateDao).getById(userId);
-//    }
-
-//    @Test
-//    @DisplayName("Test find Certificate By Id")
-//    void findCertificateByIdTest() {
-//        when(certificateDao.getById(id)).thenReturn(Optional.of(certificate));
-//        Set<Certificate> actualCertificate = orderService
-//                .findCertificateById(Collections.singleton(id));
-//        assertEquals(certificate, actualCertificate);
-//        verify(certificateDao).getById(id);
-//        verifyNoMoreInteractions(orderDao, orderMapper);
-//    }
 
     @Test
     @DisplayName("Get All Orders")
     void getAllOrdersTest() {
-
         when(orderDao.getAllBy(pageable)).thenReturn(orders);
         when(orderMapper.toDtoList(orders)).thenReturn(orderDtos);
-
         Page<OrderDto> result = orderService.getAll(pageable);
-
         assertNotNull(result);
         assertEquals(orders.size(), result.getContent().size());
 
         for (int i = 0; i < orders.size(); i++) {
             Order order = orders.get(i);
             OrderDto orderDto = result.getContent().get(i);
-
             assertEquals(order.getId(), orderDto.getId());
             assertEquals(order.getUser().getUsername(), orderDto.getUser().getUsername());
             assertEquals(order.getUser().getEmail(), orderDto.getUser().getEmail());
-
             Set<Certificate> certificates = order.getCertificates();
             Set<PostCertificateDto> certificateDtos = orderDto.getCertificateDtos();
-
             assertEquals(certificates.size(), certificateDtos.size());
-
             Iterator<Certificate> certificateIterator = certificates.iterator();
             Iterator<PostCertificateDto> certificateDtoIterator = certificateDtos.iterator();
-
             while (certificateIterator.hasNext() && certificateDtoIterator.hasNext()) {
                 Certificate certificate = certificateIterator.next();
                 PostCertificateDto certificateDto = certificateDtoIterator.next();
@@ -469,39 +428,59 @@ class OrderServiceImplTest {
                 .id(id)
                 .name("Spring")
                 .build();
-
         when(orderDao.getMostUsedTagBy(userId)).thenReturn(Optional.of(tag));
-
         Tag result = orderService.getMostUsedTags(userId)
                 .orElseThrow(() -> new TagNotFoundException(
                         "Tag not found Exception"));
-
         assertNotNull(result);
         assertEquals(tag.getId(), result.getId());
         assertEquals(tag.getName(), result.getName());
-
         verify(orderDao).getMostUsedTagBy(userId);
         verifyNoMoreInteractions(orderDao);
     }
 
-//    @Test
-//    @DisplayName("Save Order")
-//    void saveOrderTest() {
-//        when(orderDao.save(order)).thenReturn(order);
-//        when(orderMapper.toDto(order)).thenReturn(orderDto);
-//
-//        OrderDto result = orderService.save(order.getUser().getId(), certificateIds);
-//
-//        assertNotNull(result);
-//        assertEquals(orderDto.getId(), result.getId());
-//        assertEquals(orderDto.getOrderDate(), result.getOrderDate());
-//        assertEquals(orderDto.getCost(), result.getCost());
-//        assertEquals(orderDto.getUser().getId(), result.getUser().getId());
-//        assertEquals(orderDto.getUser().getUsername(), result.getUser().getUsername());
-//        assertEquals(orderDto.getUser().getEmail(), result.getUser().getEmail());
-//
-//        verify(orderDao).save(order);
-//        verify(orderMapper).toDto(order);
-//        verifyNoMoreInteractions(orderDao, orderMapper);
-//    }
+    @Test
+    @DisplayName("Save Order")
+    void saveOrderTest() {
+        Set<Long> ids = new HashSet<>(Arrays.asList(1L, 2L));
+        Certificate certificate1 = new Certificate();
+        certificate1.setId(1L);
+        certificate1.setPrice(new BigDecimal("10.0"));
+        List<Certificate> certificates = Arrays.asList(certificate1, certificate2);
+        Order order = Order.builder()
+                .certificates(new HashSet<>(certificates))
+                .cost(new BigDecimal("30.0"))
+                .user(user)
+                .build();
+        Order savedOrder = Order.builder()
+                .id(1L)
+                .orderDate(order.getOrderDate())
+                .certificates(order.getCertificates())
+                .cost(order.getCost())
+                .user(order.getUser())
+                .build();
+        when(userDao.getById(userId)).thenReturn(Optional.of(user));
+        when(certificateDao.findAllByIds(ids)).thenReturn(certificates);
+        when(orderDao.save(order)).thenReturn(savedOrder);
+        when(orderMapper.toDto(savedOrder)).thenReturn(expectedOrderDto);
+        OrderDto result = orderService.save(userId, ids);
+        assertEquals(expectedOrderDto, result);
+        verify(orderDao).save(order);
+        assertNotNull(result);
+    }
+    @Test
+    void testUpdate() {
+        when(orderMapper.toEntity(orderDto)).thenReturn(order);
+        when(orderDao.update(order)).thenReturn(order);
+        when(orderMapper.toDto(order)).thenReturn(expectedOrderDto);
+        OrderDto actualOrderDto = orderService.update(orderDto);
+        assertNotNull(actualOrderDto);
+    }
+
+    @Test
+    void testDelete() {
+        doNothing().when(orderDao).delete(id);
+        orderService.delete(id);
+        verify(orderDao).delete(id);
+    }
 }

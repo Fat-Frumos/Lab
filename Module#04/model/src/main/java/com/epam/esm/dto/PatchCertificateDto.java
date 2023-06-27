@@ -62,6 +62,14 @@ public class PatchCertificateDto
                 String.format("Field %s is not allowed for update: %s", key, value));
     }
 
+    /**
+     * Constructs a new PatchCertificateDto object.
+     *
+     * @param id       the ID of the certificate
+     * @param price    the updated price of the certificate
+     * @param duration the updated duration of the certificate
+     * @param tags     the updated tags of the certificate
+     */
     @JsonCreator
     public PatchCertificateDto(
             @JsonProperty("id") Long id,

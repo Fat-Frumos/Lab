@@ -2,6 +2,7 @@ package com.epam.esm.mapper;
 
 import com.epam.esm.dto.OrderDto;
 import com.epam.esm.dto.UserDto;
+import com.epam.esm.dto.UserSlimDto;
 import com.epam.esm.entity.Order;
 import com.epam.esm.entity.User;
 import org.mapstruct.Mapper;
@@ -22,10 +23,11 @@ public interface UserMapper {
      * @param userDto The UserDto object to convert.
      * @return The corresponding User entity.
      */
-    @Mapping(target = "orders", source = "orderDtos",
-            qualifiedByName = "toOrderSet")
-//    @Mapping(target = "role", source = "userDto.roleDto", qualifiedByName = "toRole")
+    @Mapping(target = "orders", source = "orderDtos", qualifiedByName = "toOrderSet")
+    @Mapping(target = "role", source = "role", qualifiedByName = "toRole")
     User toEntity(UserDto userDto);
+    @Mapping(target = "role", source = "role", qualifiedByName = "toRole")
+    User toEntity(UserSlimDto userDto);
 
     /**
      * Converts a User entity to a UserDto object.
@@ -33,9 +35,8 @@ public interface UserMapper {
      * @param user The User entity to convert.
      * @return The corresponding UserDto object.
      */
-    @Mapping(target = "orderDtos", source = "orders",
-            qualifiedByName = "toOrderDtoSet")
-//    @Mapping(target = "roleDto", source = "user.role", qualifiedByName = "toRoleDto")
+    @Mapping(target = "orderDtos", source = "orders", qualifiedByName = "toOrderDtoSet")
+    @Mapping(target = "role", source = "role", qualifiedByName = "toRoleDto")
     UserDto toDto(User user);
 
     /**

@@ -2,11 +2,9 @@ package com.epam.esm.security.config;
 
 import com.epam.esm.security.filter.JwtAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -31,16 +29,36 @@ import static org.springframework.http.HttpMethod.POST;
 /**
  * Configuration class for web security.
  */
-@Slf4j
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class WebSecurityConfig {
-    private final JwtAuthorizationFilter authorizationFilter;
-    private final AuthenticationProvider authenticationProvider;
+    private static final String USER = "ROLE_USER";
+    private static final String ADMIN = "ROLE_ADMIN";
+    /**
+     * Handler for logging out the user.
+     */
     private final LogoutHandler logoutHandler;
+
+    /**
+     * Handler for handling access denied situations.
+     */
     private final AccessDeniedHandler accessDeniedHandler;
+
+    /**
+     * Filter for JWT authorization.
+     */
+    private final JwtAuthorizationFilter authorizationFilter;
+
+    /**
+     * Provider for authentication.
+     */
+    private final AuthenticationProvider authenticationProvider;
+
+    /**
+     * Entry point for authentication.
+     */
     private final AuthenticationEntryPoint authenticationEntryPoint;
 
     /**
@@ -51,7 +69,6 @@ public class WebSecurityConfig {
      * @throws Exception if an error occurs during configuration.
      */
     @Bean
-    @Order(2)
     public SecurityFilterChain securityFilterChain(
             final HttpSecurity http) throws Exception {
 
@@ -61,13 +78,12 @@ public class WebSecurityConfig {
                 .and().headers().frameOptions().sameOrigin()
                 .and().authorizeHttpRequests(authorize ->
                         authorize.requestMatchers(PathRequest.toH2Console()).permitAll()
-                                .requestMatchers(POST, "/signup", "/logout", "/login", "/token/**").permitAll()
+                                .requestMatchers(POST, "/signup", "/logout", "/login").permitAll()
                                 .requestMatchers(GET, "/certificates/**").permitAll()
-                                .requestMatchers("/tags/**", "/orders/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-                                .requestMatchers(POST, "/orders/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-//                                .requestMatchers( "/orders/**","/tags/**").hasAnyRole(USER.name(), ADMIN.name())
-//                                .requestMatchers(GET, "/orders/**","/tags/**").hasAnyRole(USER.name())
-                                .requestMatchers("/**").hasAuthority("ROLE_ADMIN")
+                                .requestMatchers(GET, "/tags/**", "/orders/**", "/token/**").hasAnyAuthority(USER, ADMIN)
+                                .requestMatchers(POST, "/orders/**").hasAnyAuthority(USER, ADMIN)
+                                .requestMatchers(POST, "/users/**").hasAnyAuthority(ADMIN)
+                                .requestMatchers("/**").hasAuthority(ADMIN)
                                 .anyRequest()
                                 .authenticated())
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

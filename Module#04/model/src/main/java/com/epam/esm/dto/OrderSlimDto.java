@@ -29,12 +29,14 @@ public class OrderSlimDto extends RepresentationModel<OrderDto> {
     /**
      * The cost of the order.
      */
-    @DecimalMax(value = "100000.00", inclusive = false, message = "Price must be less than 100000.00")
+    @DecimalMax(value = "100000.00", inclusive = false,
+            message = "Price must be less than 100000.00")
     private BigDecimal cost;
 
     /**
      * The date of the order.
      */
-    @JsonFormat(timezone = "GMT+03:00", pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @JsonFormat(timezone = "GMT+03:00",
+            pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Timestamp orderDate;
 }

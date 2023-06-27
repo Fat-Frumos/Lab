@@ -28,6 +28,10 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * The Role class represents a user role.
+ * It contains information about the role's ID, permission, associated users, and authorities.
+ */
 @Data
 @Entity
 @Builder
@@ -35,6 +39,9 @@ import java.util.Set;
 @AllArgsConstructor
 @Table(name = "roles")
 public class Role implements Serializable {
+    /**
+     * The ID of the role.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "role_sequence")
     @SequenceGenerator(name = "role_sequence",
@@ -42,18 +49,24 @@ public class Role implements Serializable {
             allocationSize = 1, initialValue = 5)
     @Column(name = "role_id")
     private Long id;
-
+    /**
+     * The permission associated with the role.
+     */
     @Enumerated(EnumType.STRING)
     @Column(name = "permission")
     @Fetch(FetchMode.JOIN)
     private RoleType permission;
-
+    /**
+     * The list of users associated with the role.
+     */
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "role",
             cascade = CascadeType.ALL, orphanRemoval = true)
     private List<User> users;
-
+    /**
+     * The set of authorities associated with the role.
+     */
     @ElementCollection(targetClass = Permission.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "role_authorities", joinColumns = @JoinColumn(name = "role_id"))
     @Column(name = "authority", nullable = false)

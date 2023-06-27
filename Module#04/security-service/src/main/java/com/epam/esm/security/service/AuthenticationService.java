@@ -213,7 +213,8 @@ public class AuthenticationService implements AuthService {
      * @return Optional containing the User object, or empty if not found.
      */
     @Transactional
-    public Optional<User> findByUsername(String username) {
+    public Optional<User> findByUsername(
+            final String username) {
         return userRepository.findByUsername(username);
     }
 
@@ -252,7 +253,7 @@ public class AuthenticationService implements AuthService {
      * @return the authentication response containing the user, access token, and expiration time
      */
     public AuthenticationResponse getAuthenticationResponse(
-            User user, String accessToken) {
+            final User user, final String accessToken) {
         return getAuthenticationResponse(
                 user, accessToken,
                 provider.getExpiration());
@@ -267,7 +268,9 @@ public class AuthenticationService implements AuthService {
      * @return The AuthenticationResponse object.
      */
     private AuthenticationResponse getAuthenticationResponse(
-            User user, String jwtToken, Long accessToken) {
+            final User user,
+            final String jwtToken,
+            final Long accessToken) {
         return AuthenticationResponse.builder()
                 .username(user.getUsername())
                 .expiresAt(Timestamp.from(now()

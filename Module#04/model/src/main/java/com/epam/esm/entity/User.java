@@ -83,8 +83,11 @@ public class User implements UserDetails {
      */
     @Id
     @Column(name = "user_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
-    @SequenceGenerator(name = "user_sequence", sequenceName = "user_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "user_sequence")
+    @SequenceGenerator(name = "user_sequence",
+            sequenceName = "user_id_seq",
+            allocationSize = 1)
     private Long id;
 
     /**
@@ -137,7 +140,8 @@ public class User implements UserDetails {
     /**
      * Retrieves the authorities granted to the user.
      *
-     * @return A collection of GrantedAuthority objects representing the user's authorities.
+     * @return A collection of GrantedAuthority
+     * objects representing the user's authorities.
      */
     @Override
     @Transactional

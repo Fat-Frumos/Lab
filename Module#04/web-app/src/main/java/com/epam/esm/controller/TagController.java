@@ -75,7 +75,8 @@ public class TagController {
      */
     @PostMapping
     @ResponseStatus(CREATED)
-    public TagDto create(@RequestBody final TagDto tagDto) {
+    public TagDto create(
+            @RequestBody final TagDto tagDto) {
         return tagService.save(tagDto);
     }
 
@@ -86,7 +87,8 @@ public class TagController {
      * @return the {@link ResponseEntity} with the HTTP status
      */
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<HttpStatus> delete(@PathVariable final Long id) {
+    public ResponseEntity<HttpStatus> delete(
+            @PathVariable final Long id) {
         tagService.delete(id);
         return new ResponseEntity<>(NO_CONTENT);
     }

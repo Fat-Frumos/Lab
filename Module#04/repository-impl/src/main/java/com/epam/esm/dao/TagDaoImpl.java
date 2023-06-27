@@ -39,6 +39,9 @@ import static java.util.stream.Collectors.toSet;
 @Repository
 @RequiredArgsConstructor
 public class TagDaoImpl implements TagDao {
+    /**
+     * The error message indicating that a tag was not found with the specified ID.
+     */
     public static final String TAG_NOT_FOUND_WITH_ID = "Tag not found with ID: ";
     /**
      * The entity manager factory used for obtaining the entity manager.

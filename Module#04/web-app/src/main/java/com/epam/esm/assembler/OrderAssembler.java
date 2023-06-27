@@ -30,7 +30,7 @@ public class OrderAssembler implements
      * into an {@link EntityModel<OrderDto>}.
      *
      * @param dto the {@link OrderDto} entity to be converted
-     * @return the {@link EntityModel<OrderDto>} representing the converted entity
+     * @return the representing the converted entity
      */
     @NonNull
     @Override

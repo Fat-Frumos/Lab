@@ -11,7 +11,6 @@ import org.springframework.hateoas.RepresentationModel;
 
 import java.util.Set;
 
-
 /**
  * Data Transfer Object (DTO) for User.
  */
@@ -42,16 +41,22 @@ public class UserDto extends RepresentationModel<UserDto> {
      * The set of order DTOs associated with the user.
      */
     private Set<OrderDto> orderDtos;
+    /**
+     * Represents the role assigned to the user.
+     */
+    private RoleDto role;
 
     @JsonCreator
     public UserDto(
             @JsonProperty("id") Long id,
             @JsonProperty("username") String username,
             @JsonProperty("email") String email,
-            @JsonProperty("orderDtos") Set<OrderDto> orderDtos) {
+            @JsonProperty("orderDtos") Set<OrderDto> orderDtos,
+            @JsonProperty("role") RoleDto role) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.orderDtos = orderDtos;
+        this.role = role;
     }
 }

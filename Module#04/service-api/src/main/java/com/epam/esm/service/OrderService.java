@@ -19,7 +19,7 @@ public interface OrderService {
     /**
      * Get a specific order of a user.
      *
-     * @param userId    the user
+     * @param userId  the user
      * @param orderId the order ID
      * @return the order DTO
      */
@@ -80,7 +80,7 @@ public interface OrderService {
      * Save an order.
      *
      * @param userId the user IS
-     * @param ids the certificate IDs
+     * @param ids    the certificate IDs
      * @return the saved order DTO
      */
     OrderDto save(Long userId, Set<Long> ids);
@@ -92,4 +92,9 @@ public interface OrderService {
      * @return the order DTO
      */
     OrderDto getById(Long id);
+
+    OrderDto update(OrderDto dto);
+
+    void delete(Long id);
+
 }

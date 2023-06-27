@@ -1,9 +1,11 @@
 package com.epam.esm.dao;
 
-import com.epam.esm.entity.Certificate;
+
 import com.epam.esm.entity.Order;
 import com.epam.esm.entity.Role;
+import com.epam.esm.entity.RoleType;
 import com.epam.esm.entity.User;
+import com.epam.esm.exception.RoleNotFoundException;
 import com.epam.esm.exception.UserAlreadyExistsException;
 import jakarta.persistence.EntityGraph;
 import jakarta.persistence.EntityManager;
@@ -14,8 +16,10 @@ import jakarta.persistence.PersistenceUnit;
 import jakarta.persistence.Subgraph;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.CriteriaUpdate;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
@@ -25,10 +29,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import static com.epam.esm.dao.Queries.CERTIFICATES;
+import static com.epam.esm.dao.Queries.DELETE_ORDER;
+import static com.epam.esm.dao.Queries.DELETE_TOKEN;
+import static com.epam.esm.dao.Queries.DELETE_USER;
 import static com.epam.esm.dao.Queries.FETCH_GRAPH;
 import static com.epam.esm.dao.Queries.NAME;
+import static com.epam.esm.dao.Queries.ORDERS;
 import static com.epam.esm.dao.Queries.SELECT_USER_BY_NAME;
-import static java.util.stream.Collectors.toList;
+import static com.epam.esm.dao.Queries.TAGS;
 
 /**
  * The implementation of the UserDao interface.
@@ -39,6 +48,7 @@ import static java.util.stream.Collectors.toList;
  * It utilizes the EntityManagerFactory and EntityManager
  * to interact with the database.
  */
+@Slf4j
 @Repository
 @RequiredArgsConstructor
 public class UserDaoImpl implements UserDao {
@@ -63,14 +73,7 @@ public class UserDaoImpl implements UserDao {
             CriteriaQuery<User> query = builder.createQuery(User.class);
             Root<User> root = query.from(User.class);
 
-            EntityGraph<User> graph = entityManager.createEntityGraph(User.class);
-            graph.addAttributeNodes("orders", "role", "tokens");
-            Subgraph<Order> orderGraph = graph.addSubgraph("orders");
-            orderGraph.addAttributeNodes("certificates");
-            Subgraph<Certificate> certificateGraph = orderGraph.addSubgraph("certificates");
-            certificateGraph.addAttributeNodes("tags");
-            Subgraph<Role> roleGraph = graph.addSubgraph("role");
-            roleGraph.addAttributeNodes("authorities");
+            EntityGraph<User> graph = getUserEntityGraph(entityManager);
             query.select(root);
 
             if (pageable.getSort().isSorted()) {
@@ -79,7 +82,7 @@ public class UserDaoImpl implements UserDao {
                         .map(order -> order.getDirection().equals(Sort.Direction.ASC)
                                 ? builder.asc(root.get(order.getProperty()))
                                 : builder.desc(root.get(order.getProperty())))
-                        .collect(toList());
+                        .toList();
                 query.orderBy(orders);
             }
 
@@ -101,20 +104,15 @@ public class UserDaoImpl implements UserDao {
      * @return an {@link Optional} containing the user entity,
      * or empty if not found
      */
-    @Override
     public Optional<User> getById(final Long id) {
-        try (EntityManager entityManager =
-                     factory.createEntityManager()) {
-            EntityGraph<User> graph = entityManager
-                    .createEntityGraph(User.class);
-            Subgraph<Order> orderGraph = graph.addSubgraph("orders");
-            Subgraph<Certificate> certificateGraph =
-                    orderGraph.addSubgraph("certificates");
-            certificateGraph.addAttributeNodes("tags");
+        try (EntityManager entityManager = factory.createEntityManager()) {
+            EntityGraph<User> graph = entityManager.createEntityGraph(User.class);
+            graph.addSubgraph("role");
+            graph.addSubgraph("orders");
             Map<String, Object> hints = new HashMap<>();
             hints.put(FETCH_GRAPH, graph);
-            return Optional.ofNullable(entityManager
-                    .find(User.class, id, hints));
+            User user = entityManager.find(User.class, id, hints);
+            return Optional.ofNullable(user);
         }
     }
 
@@ -186,14 +184,21 @@ public class UserDaoImpl implements UserDao {
      */
     @Override
     public void delete(final Long id) {
-        try (EntityManager entityManager =
-                     factory.createEntityManager()) {
-            EntityTransaction transaction =
-                    entityManager.getTransaction();
+        try (EntityManager entityManager = factory.createEntityManager()) {
+            EntityTransaction transaction = entityManager.getTransaction();
             try {
                 transaction.begin();
-                entityManager.remove(entityManager
-                        .getReference(User.class, id));
+                entityManager.createNativeQuery(DELETE_ORDER)
+                        .setParameter("id", id)
+                        .executeUpdate();
+
+                entityManager.createNativeQuery(DELETE_TOKEN)
+                        .setParameter("id", id)
+                        .executeUpdate();
+                entityManager.createNativeQuery(DELETE_USER)
+                        .setParameter("id", id)
+                        .executeUpdate();
+
                 transaction.commit();
             } catch (Exception e) {
                 if (transaction.isActive()) {
@@ -202,5 +207,97 @@ public class UserDaoImpl implements UserDao {
                 throw new PersistenceException(e);
             }
         }
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param user the entity of the user to update
+     * @throws PersistenceException if an error occurs during the deletion
+     */
+    @Override
+    public User update(final User user) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
+            EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+            try {
+                CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+                CriteriaUpdate<User> update = builder.createCriteriaUpdate(User.class);
+                Root<User> root = update.from(User.class);
+
+                if (user.getUsername() != null) {
+                    update.set(root.get("username"), user.getUsername());
+                }
+                if (user.getEmail() != null) {
+                    update.set(root.get("email"), user.getEmail());
+                }
+                if (user.getPassword() != null) {
+                    update.set(root.get("password"), user.getPassword());
+                }
+                if (user.getRole() != null && user.getRole().getPermission() != null) {
+                    Role existingRole = findRoleByPermission(
+                            entityManager, user.getRole().getPermission())
+                            .orElseThrow(() -> new RoleNotFoundException(
+                                    "Role not found with permission "
+                                            + user.getRole().getPermission()));
+                    user.setRole(existingRole);
+                    update.set(root.get("role"), user.getRole());
+                }
+
+                update.where(builder.equal(root.get("id"), user.getId()));
+
+                entityManager.createQuery(update)
+                        .setHint(FETCH_GRAPH, getUserEntityGraph(entityManager))
+                        .executeUpdate();
+                transaction.commit();
+
+                return entityManager.find(User.class, user.getId());
+            } catch (Exception e) {
+                if (transaction.isActive()) {
+                    transaction.rollback();
+                }
+                throw new PersistenceException(e);
+            }
+        }
+    }
+
+    /**
+     * Retrieves a role based on the given permission.
+     *
+     * @param entityManager the to build query by CriteriaBuilder
+     * @param permission the permission to search for
+     * @return an optional containing the role if found, or empty if not found
+     */
+    public Optional<Role> findRoleByPermission(
+            final EntityManager entityManager,
+            final RoleType permission) {
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Role> query = builder.createQuery(Role.class);
+        query.where(builder.equal(query.from(Role.class).get("permission"), permission));
+        List<Role> roles = entityManager
+                .createQuery(query)
+                .setMaxResults(1)
+                .getResultList();
+        return roles.isEmpty()
+                ? Optional.empty()
+                : Optional.of(roles.get(0));
+    }
+
+    /**
+     * Retrieves the entity graph for the User entity.
+     * This method creates and configures an entity graph for the User entity.
+     *
+     * @param entityManager the entity manager
+     * @return the entity graph for the User entity
+     */
+    private static EntityGraph<User> getUserEntityGraph(
+            EntityManager entityManager) {
+        EntityGraph<User> graph = entityManager.createEntityGraph(User.class);
+        graph.addAttributeNodes(ORDERS, "role", "tokens");
+        Subgraph<Order> orderSubgraph = graph.addSubgraph(ORDERS);
+        orderSubgraph.addAttributeNodes(CERTIFICATES);
+        orderSubgraph.addSubgraph(CERTIFICATES).addAttributeNodes(TAGS);
+        graph.addSubgraph("role").addAttributeNodes("authorities");
+        return graph;
     }
 }

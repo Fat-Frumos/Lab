@@ -33,10 +33,10 @@ import static com.epam.esm.dao.Queries.CERTIFICATES;
 import static com.epam.esm.dao.Queries.FETCH_GRAPH;
 import static com.epam.esm.dao.Queries.ID;
 import static com.epam.esm.dao.Queries.SELECT_ORDER_BY_ID;
+import static com.epam.esm.dao.Queries.SELECT_ORDER_BY_IDS;
 import static com.epam.esm.dao.Queries.SELECT_ORDER_BY_NAME;
 import static com.epam.esm.dao.Queries.TAGS;
 import static com.epam.esm.dao.Queries.USER;
-import static java.util.stream.Collectors.toList;
 
 /**
  * Implementation of the {@link OrderDao} interface
@@ -70,14 +70,13 @@ public class OrderDaoImpl implements OrderDao {
                         .map(order -> order.getDirection().equals(Sort.Direction.ASC)
                                 ? builder.asc(root.get(order.getProperty()))
                                 : builder.desc(root.get(order.getProperty())))
-                        .collect(toList()));
+                        .toList());
             }
             List<Long> orderIds = entityManager.createQuery(query)
                     .setMaxResults(pageable.getPageSize())
                     .setFirstResult(pageable.getPageNumber() * pageable.getPageSize())
                     .getResultList();
-            return entityManager.createQuery("SELECT o FROM Order o WHERE o.id IN :orderIds",
-                            Order.class)
+            return entityManager.createQuery(SELECT_ORDER_BY_IDS, Order.class)
                     .setParameter("orderIds", orderIds)
                     .setHint(FETCH_GRAPH, entityManager
                             .getEntityGraph("Order.certificates.tags"))
@@ -221,7 +220,7 @@ public class OrderDaoImpl implements OrderDao {
                         .map(order -> order.getDirection().equals(Sort.Direction.ASC)
                                 ? builder.asc(root.get(order.getProperty()))
                                 : builder.desc(root.get(order.getProperty())))
-                        .collect(toList()));
+                        .toList());
             }
             query.where(builder.equal(root.get(USER), user));
 
@@ -329,12 +328,33 @@ public class OrderDaoImpl implements OrderDao {
                         .map(order -> order.getDirection().equals(Sort.Direction.ASC)
                                 ? builder.asc(root.get(order.getProperty()))
                                 : builder.desc(root.get(order.getProperty())))
-                        .collect(toList()));
+                        .toList());
             }
             return entityManager
                     .createQuery(query)
                     .setHint(FETCH_GRAPH, graph)
                     .getResultList();
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     * <p>
+     *
+     * @param order the order to update
+     * @return the updated order
+     * @throws PersistenceException if an error occurs during the update process
+     */
+    @Override
+    public Order update(
+            final Order order) {
+        try (EntityManager entityManager =
+                     factory.createEntityManager()) {
+            entityManager.getTransaction().begin();
+            Order mergedOrder = entityManager.merge(order);
+            entityManager.getTransaction().commit();
+            entityManager.refresh(mergedOrder);
+            return mergedOrder;
         }
     }
 }

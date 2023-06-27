@@ -7,7 +7,9 @@ import com.epam.esm.dto.CertificateSlimDto;
 import com.epam.esm.dto.PatchCertificateDto;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Certificate;
+import com.epam.esm.entity.Criteria;
 import com.epam.esm.entity.Tag;
+import com.epam.esm.exception.CertificateAlreadyExistsException;
 import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.mapper.CertificateMapper;
 import com.epam.esm.mapper.TagMapper;
@@ -35,14 +37,17 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
 class CertificateServiceTest {
     @Mock
     private CertificateDao certificateDao = mock(CertificateDaoImpl.class);
@@ -53,6 +58,7 @@ class CertificateServiceTest {
     @InjectMocks
     private CertificateService service;
     public List<Certificate> certificates;
+    Long id = 1L;
     Page<CertificateDto> certificateDtos;
     List<CertificateDto> certificateDtoList = new ArrayList<>();
     List<CertificateSlimDto> slimDtos = new ArrayList<>();
@@ -63,21 +69,14 @@ class CertificateServiceTest {
     List<Tag> tags = Arrays.asList(
             Tag.builder().name("tag1").build(),
             Tag.builder().name("tag2").build());
-
-    List<String> tagNames = Arrays.asList("tag1", "tag2");
     List<Certificate> expectedCertificates = Arrays.asList(
             Certificate.builder().id(1L).name("certificate1").build(),
             Certificate.builder().id(2L).name("certificate2").build());
-    List<CertificateDto> expectedCertificateDtos = Arrays.asList(
-            CertificateDto.builder().id(1L).name("certificate1").build(),
-            CertificateDto.builder().id(2L).name("certificate2").build());
 
     @BeforeEach
     public void setUp() {
-
         pageable = PageRequest.of(0, 25, Sort.by("name").ascending());
         service = new CertificateServiceImpl(certificateDao, certificateMapper, tagMapper);
-
         certificate = Certificate.builder().id(1L).name("Gift").name("Certificate").build();
         certificateDto = CertificateDto.builder()
                 .id(1L).name("Test Certificate")
@@ -135,26 +134,6 @@ class CertificateServiceTest {
                 .tags(new HashSet<>()).build());
     }
 
-//    @ParameterizedTest
-//    @CsvSource({
-//            "1, Java, Winter, 10, 30",
-//            "2, SQL,  Summer, 10, 30",
-//            "4, PorsgreSQL, Autumn, 10, 30",
-//            "5, Spring, Boot, 10, 30"
-//    })
-//    void testGetCertificatesByTags(long id, String tag1, String tag2) {
-//        List<String> tagNames = Arrays.asList(tag1, tag2);
-//        when(certificateDao.findByTagNames(tagNames)).thenReturn(certificates);
-//        when(certificateMapper.toDtoList(certificates)).thenReturn(certificateDtoList);
-//
-//        List<CertificateDto> result = service.getCertificatesByTags(tagNames);
-//
-//        assertEquals(certificateDtoList, result);
-//        assertEquals(certificateDtoList.size(), result.size());
-//        verify(certificateDao).findByTagNames(tagNames);
-//        verify(certificateMapper).toDtoList(certificates);
-//    }
-
     @ParameterizedTest
     @CsvSource({
             "1, Java, description, 10, 30",
@@ -163,16 +142,11 @@ class CertificateServiceTest {
             "4, PorsgreSQL, description, 10, 30",
             "5, Spring, description, 10, 30"
     })
+    @DisplayName("Given an order ID, when getByOrderId is called, then return the corresponding result")
     void testGetByOrderId(long id, String name, String description, BigDecimal price, int duration) {
-        Certificate postDto = Certificate.builder()
-                .id(id)
-                .name(name)
-                .description(description)
-                .price(price)
-                .duration(duration)
-                .build();
+        Certificate post = getCertificate(id, name, description, price, duration);
         when(certificateDao.findAllByOrderId(id))
-                .thenReturn(new HashSet<>(Collections.singleton(postDto)));
+                .thenReturn(new HashSet<>(Collections.singleton(post)));
         List<CertificateDto> actualCertificates =
                 service.getByOrderId(id);
         assertEquals(certificateMapper
@@ -187,62 +161,41 @@ class CertificateServiceTest {
             "4, PorsgreSQL, description, 10, 30",
             "5, Spring, description, 10, 30"
     })
+    @DisplayName("Given a valid CertificateDto, when save is called, then return the saved CertificateDto")
     void testSave(long id, String name, String description, BigDecimal price, int duration) {
-        CertificateDto postDto = CertificateDto.builder()
-                .id(id)
-                .name(name)
-                .description(description)
-                .price(price)
-                .duration(duration)
-                .build();
+        CertificateDto postDto = getCertificateDto(id, name, description, price, duration);
         Certificate expectedCertificate = certificateMapper.toEntity(postDto);
         when(certificateDao.save(expectedCertificate)).thenReturn(expectedCertificate);
         CertificateDto actualCertificate = service.save(postDto);
         assertEquals(certificateMapper.toDto(expectedCertificate), actualCertificate);
     }
-//
-//    @ParameterizedTest
-//    @CsvSource({"1, Winter", "2, Summer", "3, Spring", "4, Autumn"})
-//    @DisplayName("Get certificates")
-//    void testGetAll(int page, String name) {
-//        Pageable pageable = PageRequest.of(page, 10);
-//        when(certificateDao.getAllBy(pageable)).thenReturn(expectedCertificates);
-//        List<CertificateDto> actualCertificates = service.getCertificates(pageable);
-//        assertEquals(certificateMapper.toDtoList(expectedCertificates), actualCertificates);
-//        verify(certificateDao).getAllBy(pageable);
-//    }
 
-//    @Test
-//    @DisplayName("Test Get Certificates By Tag")
-//    void testGetCertificatesByTag() {
-//        when(certificateDao.findByTagNames(tagNames)).thenReturn(expectedCertificates);
-//        when(certificateMapper.toDtoList(expectedCertificates)).thenReturn(expectedCertificateDtos);
-//        List<CertificateDto> actualPage = service.findAllByTags(tagNames);
-//        assertEquals(expectedCertificateDtos, actualPage);
-//        verify(certificateDao).findByTagNames(tagNames);
-//        verify(certificateMapper).toDtoList(expectedCertificates);
-//    }
+    @ParameterizedTest
+    @CsvSource({"1, Winter", "2, Summer", "3, Spring", "4, Autumn"})
+    @DisplayName("Given a pageable object, when findAllWithPageable is called, then return the paginated result")
+    void testGetAll(int page, String name) {
+        Pageable pageable = PageRequest.of(page, 10);
+        when(certificateDao.getAllBy(pageable)).thenReturn(expectedCertificates);
+        List<CertificateDto> actualCertificates = service.getCertificates(pageable);
+        assertEquals(certificateMapper.toDtoList(expectedCertificates), actualCertificates);
+        verify(certificateDao).getAllBy(pageable);
+    }
 
-    @DisplayName("Test find tags by certificate ID")
     @ParameterizedTest(name = "Test #{index} - Certificate ID: {0}")
     @CsvSource({
             "1",
             "2",
             "3",
             "4"})
+    @DisplayName("Given a valid certificate ID, when findTagsByCertificateId is called, then return the tags associated with the certificate")
     void testFindTagsByCertificate(Long certificateId) {
-
         Set<Tag> expectedTags = new HashSet<>(tags);
         Set<TagDto> expectedTagDtos = new HashSet<>(Arrays.asList(
                 TagDto.builder().name("tag1").build(),
                 TagDto.builder().name("tag2").build()));
-
         when(certificateDao.findTagsByCertificateId(certificateId)).thenReturn(tags);
         when(tagMapper.toDtoSet(expectedTags)).thenReturn(expectedTagDtos);
-
-
         Set<TagDto> actualTagDtos = service.findTagsByCertificateId(certificateId);
-
         assertEquals(expectedTagDtos, actualTagDtos);
         verify(certificateDao).findTagsByCertificateId(certificateId);
         verify(tagMapper).toDtoSet(expectedTags);
@@ -251,7 +204,7 @@ class CertificateServiceTest {
 
     @ParameterizedTest
     @CsvSource({"1, Winter", "2, Summer", "3, Spring", "4, Autumn"})
-    @DisplayName("Get certificate by id")
+    @DisplayName("Given a valid certificate ID, when getCertificateById is called, then return the corresponding Certificate")
     void testGetById(Long id, String name) {
         CertificateDto certificateDto = CertificateDto.builder().id(id).name(name).build();
         Certificate certificate = Certificate.builder().id(id).name(name).build();
@@ -262,14 +215,22 @@ class CertificateServiceTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"1, Winter", "2, Summer", "3, Spring", "4, Autumn"})
-    @DisplayName("Get certificate by name")
-    void getByName(Long id, String name) {
-        CertificateDto certificateDto = CertificateDto.builder().id(id).name(name).build();
-        Optional<Certificate> certificate = Optional.of(Certificate.builder().id(id).name(name).build());
+    @CsvSource({
+            "1, Java, description, 10, 30",
+            "2, SQL, description, 10, 30",
+            "3, Programming, description, 10, 30",
+            "4, PorsgreSQL, description, 10, 30",
+            "5, Spring, description, 10, 30"
+    })
+    @DisplayName("Given a valid certificate name, when getCertificateByName is called, then return the corresponding Certificate")
+    void getByName(Long id, String name, String description, BigDecimal price, int duration) {
+        CertificateDto certificateDto = getCertificateDto(id, name, description, price, duration);
+        Optional<Certificate> certificate = Optional.of(getCertificate(id, name, description, price, duration));
         when(certificateDao.findByUsername(name)).thenReturn(certificate);
         when(certificateMapper.toDto(certificate.get())).thenReturn(certificateDto);
         CertificateDto result = service.getByName(name);
+        assertThat(result).usingRecursiveComparison().isEqualTo(certificateDto);
+        assertThat(result).isNotNull().isInstanceOf(CertificateDto.class);
         assertEquals(certificateDto, result);
         verify(certificateDao).findByUsername(name);
         verify(certificateMapper).toDto(certificate.get());
@@ -277,7 +238,7 @@ class CertificateServiceTest {
 
     @ParameterizedTest
     @CsvSource({"1", "2", "3"})
-    @DisplayName("Delete certificate by id when found")
+    @DisplayName("Given a valid certificate ID, when deleteCertificateById is called and the certificate is found, then delete the certificate")
     void deleteFound(Long id) {
         CertificateDto certificateDto = CertificateDto.builder().id(id).build();
         Certificate certificate = Certificate.builder().id(id).build();
@@ -286,21 +247,22 @@ class CertificateServiceTest {
         verify(certificateDao).delete(id);
     }
 
-//    @ParameterizedTest
-//    @CsvSource({"0, Winter, 1, 25", "1, Summer, 2, 50", "2, Spring, 3, 75", "3, Autumn, 4, 100"})
-//    @DisplayName("Get all certificates without tags")
-//    void getAllWithoutTags(int i, String tagName, int page, int size) {
-//        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.ASC, tagName));
-//        when(certificateDao.getAllBy(pageable)).thenReturn(certificates);
-//        when(certificateMapper.toCertificateSlimDto(certificates)).thenReturn(slimDtos);
-//        List<CertificateDto> result = service.getCertificates(pageable);
-//        when(certificateDao.getAllBy(pageable)).thenReturn(certificates);
-//        when(certificateMapper.toCertificateSlimDto(certificates)).thenReturn(slimDtos);
-//        assertNotNull(result);
-//    }
+    @ParameterizedTest
+    @CsvSource({"0, Winter, 1, 25", "1, Summer, 2, 50", "2, Spring, 3, 75", "3, Autumn, 4, 100"})
+    @DisplayName("Given no tags, when getAllCertificatesWithoutTags is called, then return all certificates without tags")
+    void testGetAllCertificatesWithoutTags(int id, String tagName, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.ASC, tagName));
+        when(certificateDao.getAllBy(pageable)).thenReturn(certificates);
+        when(certificateMapper.toCertificateSlimDto(certificates)).thenReturn(slimDtos);
+        List<CertificateDto> result = service.getCertificates(pageable);
+        result.forEach(dto -> assertThat(dto).isNotNull().isInstanceOf(CertificateDto.class));
+        when(certificateDao.getAllBy(pageable)).thenReturn(certificates);
+        when(certificateMapper.toCertificateSlimDto(certificates)).thenReturn(slimDtos);
+        assertNotNull(result);
+    }
 
     @Test
-    @DisplayName("Should update certificate when certificate exists")
+    @DisplayName("Given an existing certificate ID and updated data, when updateCertificate is called, then update the certificate")
     void testUpdateShouldUpdateCertificate() {
         when(certificateDao.getById(certificateDtos.getContent().get(0).getId())).thenReturn(Optional.of(certificates.get(0)));
         when(certificateMapper.toEntity(certificateDtos.getContent().get(0))).thenReturn(certificates.get(0));
@@ -311,35 +273,42 @@ class CertificateServiceTest {
     }
 
     @Test
-    @DisplayName("Test Certificate Dto Builder")
+    @DisplayName("Given a valid CertificateDto, when build is called, then return a new Certificate entity")
     void testCertificateDtoBuilder() {
         assertEquals(Long.valueOf(1L), certificateDto.getId());
         assertEquals("Test Certificate", certificateDto.getName());
         assertEquals("Test description", certificateDto.getDescription());
         assertEquals(Integer.valueOf(10), certificateDto.getDuration());
         assertEquals(BigDecimal.valueOf(100), certificateDto.getPrice());
+        assertThat(certificateDto).isNotNull().isInstanceOf(CertificateDto.class);
         assertNotNull(certificateDto.getCreateDate());
         assertNotNull(certificateDto.getLastUpdateDate());
     }
 
     @ParameterizedTest
-    @CsvSource({"1, Winter", "2, Summer", "3, Spring", "4, Autumn"})
-    @DisplayName("Get certificate by name")
-    void getCertificateByName(Long id, String name) {
-
-        Certificate certificate = Certificate.builder().id(id).name(name).build();
-        CertificateDto certificateDto = CertificateDto.builder().id(id).name(name).build();
+    @CsvSource({
+            "1, Java, description, 10, 30",
+            "2, SQL, description, 10, 30",
+            "3, Programming, description, 10, 30",
+            "4, PorsgreSQL, description, 10, 30",
+            "5, Spring, description, 10, 30"
+    })
+    @DisplayName("Given a certificate name, when getCertificateByName is called, then return the corresponding certificate")
+    void getCertificateByName(Long id, String name, String description, BigDecimal price, int duration) {
+        Certificate certificate = getCertificate(id, name, description, price, duration);
+        CertificateDto certificateDto = getCertificateDto(id, name, description, price, duration);
         when(certificateDao.findByUsername(name)).thenReturn(Optional.of(certificate));
         when(certificateMapper.toDto(certificate)).thenReturn(certificateDto);
         CertificateDto result = service.getByName(name);
-
+        assertThat(result).usingRecursiveComparison().isEqualTo(certificateDto);
+        assertThat(result).isNotNull().isInstanceOf(CertificateDto.class);
         verify(certificateDao, times(1)).findByUsername(name);
         verify(certificateMapper, times(1)).toDto(certificate);
         assertEquals(certificateDto, result);
     }
 
     @Test
-    @DisplayName("Get certificate by non-existent name")
+    @DisplayName("Given a non-existent certificate name, when getCertificateByName is called, then return null or throw an exception")
     void getCertificateByNonExistentName() {
         when(certificateDao.findByUsername("NonExistentCertificate"))
                 .thenReturn(Optional.empty());
@@ -349,7 +318,6 @@ class CertificateServiceTest {
                 .findByUsername("NonExistentCertificate");
     }
 
-    @DisplayName("Test Get Certificate By Name")
     @ParameterizedTest(name = "Run {index}: name = {0}")
     @CsvSource({
             "1, Java, description, 10, 30",
@@ -358,17 +326,13 @@ class CertificateServiceTest {
             "4, PorsgreSQL, description, 10, 30",
             "5, Spring, description, 10, 30"
     })
+    @DisplayName("Given a valid certificate name, when getCertificateByName is called, then return the corresponding Certificate")
     void getCertificateByNames(Long id, String name, String description, BigDecimal price, int duration) {
-        Certificate certificate = Certificate.builder()
-                .id(id).description(description)
-                .duration(duration).price(price).name(name).build();
-        CertificateDto certificateDto = CertificateDto.builder()
-                .id(id).name(name).description(description)
-                .duration(duration).price(price).build();
+        Certificate certificate = getCertificate(id, name, description, price, duration);
+        CertificateDto certificateDto = getCertificateDto(id, name, description, price, duration);
         when(certificateDao.findByUsername(name)).thenReturn(Optional.of(certificate));
         when(certificateMapper.toDto(certificate)).thenReturn(certificateDto);
         CertificateDto dto = service.getByName(name);
-
         assertNotNull(certificateDto);
         assertEquals(name, certificateDto.getName());
         assertEquals("description", certificateDto.getDescription());
@@ -379,34 +343,6 @@ class CertificateServiceTest {
         verify(certificateMapper, times(1)).toDto(certificate);
     }
 
-//    @ParameterizedTest
-//    @CsvSource({
-//            "1, Java, description, 10, 30",
-//            "2, SQL, description, 10, 30",
-//            "3, Programming, description, 10, 30",
-//            "4, PorsgreSQL, description, 10, 30",
-//            "5, Spring, description, 10, 30"
-//    })
-//    void testFindCertificatesByTags(long id, String name, String description, BigDecimal price, int duration) {
-//        List<String> tagNames = Arrays.asList("Tag1", "Tag2", "Tag3");
-//
-//        Certificate certificate = Certificate.builder()
-//                .id(id).description(description)
-//                .duration(duration).price(price).name(name).build();
-//        CertificateDto certificateDto = CertificateDto.builder()
-//                .id(id).name(name).description(description)
-//                .duration(duration).price(price).build();
-//
-//        List<Certificate> certificates = Collections.singletonList(certificate);
-//        List<CertificateDto> expectedDtos = Collections.singletonList(certificateDto);
-//        when(certificateDao.findByTagNames(tagNames)).thenReturn(certificates);
-//        when(certificateMapper.toDtoList(certificates)).thenReturn(expectedDtos);
-//
-//        List<CertificateDto> result = service.findAllByTags(tagNames);
-//
-//        assertEquals(expectedDtos.size(), result.size());
-//    }
-
     @ParameterizedTest
     @CsvSource({
             "1, Java, description, 10, 30",
@@ -415,22 +351,17 @@ class CertificateServiceTest {
             "4, PorsgreSQL, description, 10, 30",
             "5, Spring, description, 10, 30"
     })
+    @DisplayName("Given a valid user ID, when getCertificatesByUserId is called, then return the list of certificates associated with the user")
     void getCertificatesByUserIdTest(
             long id, String name, String description, BigDecimal price, int duration) {
-
-        Certificate certificate = Certificate.builder()
-                .id(id).description(description)
-                .duration(duration).price(price).name(name).build();
-        CertificateDto certificateDto = CertificateDto.builder()
-                .id(id).name(name).description(description)
-                .duration(duration).price(price).build();
-
+        Certificate certificate = getCertificate(id, name, description, price, duration);
+        CertificateDto certificateDto = getCertificateDto(id, name, description, price, duration);
         List<Certificate> certificates = Collections.singletonList(certificate);
         List<CertificateDto> expectedDtos = Collections.singletonList(certificateDto);
         when(certificateDao.getCertificatesByUserId(anyLong())).thenReturn(certificates);
         when(certificateMapper.toDtoList(Collections.singletonList(certificate))).thenReturn(expectedDtos);
-
         Page<CertificateDto> actualCertificates = service.getCertificatesByUserId(id);
+        assertThat(actualCertificates).isNotNull().isInstanceOf(PageImpl.class);
         assertEquals(expectedDtos, actualCertificates.getContent());
     }
 
@@ -442,24 +373,20 @@ class CertificateServiceTest {
             "4, PorsgreSQL, description, 10, 30",
             "5, Spring, description, 10, 30"
     })
-    void testUpdateCertificates(Long id, String name,
-                                String description, BigDecimal price, int duration) {
-        Certificate certificate = Certificate.builder()
-                .id(id).description(description)
-                .duration(duration).price(price).name(name).build();
-        CertificateDto dto = CertificateDto.builder()
-                .id(id).duration(duration).price(price).build();
+    @DisplayName("Given a valid PatchCertificateDto, when update is called, then return the updated CertificateDto")
+    void testUpdateCertificates(Long id, String name, String description, BigDecimal price, int duration) {
+        Certificate certificate = getCertificate(id, name, description, price, duration);
+        CertificateDto dto = getCertificateDto(id, name, description, price, duration);
         PatchCertificateDto patchDto = PatchCertificateDto.builder()
                 .id(id).duration(duration).price(price).build();
         when(certificateDao.update(certificate)).thenReturn(certificate);
         when(certificateMapper.toEntity(patchDto)).thenReturn(certificate);
         when(certificateMapper.toDto(certificate)).thenReturn(dto);
-
         CertificateDto result = service.update(patchDto);
-
         verify(certificateDao).update(certificate);
         verify(certificateMapper).toEntity(patchDto);
         verify(certificateMapper).toDto(certificate);
+        assertThat(result).isNotNull().isInstanceOf(CertificateDto.class);
         assertEquals(dto, result);
     }
 
@@ -471,27 +398,113 @@ class CertificateServiceTest {
             "4, PorsgreSQL, description, 10, 30",
             "5, Spring, description, 10, 30"
     })
+    @DisplayName("Given a set of valid certificate IDs, when findAllByIds is called, then return the corresponding set of Certificates")
     void getByIdsTest(long id, String name, String description, BigDecimal price, int duration) {
 
-        Certificate certificate = Certificate.builder()
-                .id(id).description(description)
-                .duration(duration).price(price).name(name).build();
-        CertificateDto certificateDto = CertificateDto.builder()
-                .id(id).name(name).description(description)
-                .duration(duration).price(price).build();
+        Certificate certificate = getCertificate(id, name, description, price, duration);
+        CertificateDto certificateDto = getCertificateDto(id, name, description, price, duration);
         Set<Long> ids = new HashSet<>();
         ids.add(1L);
         ids.add(2L);
         List<Certificate> certificates = Collections.singletonList(certificate);
         List<CertificateDto> expectedDtos = Collections.singletonList(certificateDto);
-
         when(certificateDao.findAllByIds(ids)).thenReturn(certificates);
         when(certificateMapper.toDtoList(certificates)).thenReturn(expectedDtos);
-
         List<CertificateDto> actualCertificateDtos = service.getByIds(ids);
-
+        assertThat(actualCertificateDtos).usingRecursiveComparison().isEqualTo(expectedDtos);
+        actualCertificateDtos.forEach(actualCertificateDto -> assertThat(actualCertificateDto).isNotNull().isInstanceOf(CertificateDto.class));
         assertEquals(new HashSet<>(expectedDtos), new HashSet<>(actualCertificateDtos));
         verify(certificateDao).findAllByIds(ids);
         verify(certificateMapper).toDtoList(certificates);
+    }
+
+    @Test
+    @DisplayName("Given a Pageable object, when getCertificates method is called, then a list of CertificateDto is returned")
+    void testGetCertificates() {
+        List<CertificateDto> certificateDtos = Arrays.asList(mock(CertificateDto.class), mock(CertificateDto.class));
+        when(certificateDao.getAllBy(pageable)).thenReturn(certificates);
+        when(certificateMapper.toDtoList(certificates)).thenReturn(certificateDtos);
+        List<CertificateDto> result = service.getCertificates(pageable);
+        assertThat(result).usingRecursiveComparison().isEqualTo(certificateDtos);
+        result.forEach(certificateDto -> assertThat(certificateDto).isNotNull().isInstanceOf(CertificateDto.class));
+        assertSame(certificateDtos, result);
+        verify(certificateDao).getAllBy(pageable);
+        verify(certificateMapper).toDtoList(certificates);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1, Java, description, 10, 30",
+            "2, SQL, description, 10, 30",
+            "3, Programming, description, 10, 30",
+            "4, PorsgreSQL, description, 10, 30",
+            "5, Spring, description, 10, 30"
+    })
+    @DisplayName("Given a CertificateDto, when save method is called, then a CertificateDto is returned")
+    void testSaveCertificate(long id, String name, String description, BigDecimal price, int duration) {
+        Certificate certificate = getCertificate(id, name, description, price, duration);
+        CertificateDto savedDto = getCertificateDto(id, name, description, price, duration);
+        CertificateDto dto = getCertificateDto(id, name, description, price, duration);
+        when(certificateDao.findByUsername(certificate.getName())).thenReturn(Optional.empty());
+        when(certificateMapper.toEntity(dto)).thenReturn(certificate);
+        when(certificateDao.save(certificate)).thenReturn(certificate);
+        when(certificateMapper.toDto(certificate)).thenReturn(savedDto);
+        CertificateDto result = service.save(dto);
+        assertThat(result).usingRecursiveComparison().isEqualTo(savedDto);
+        assertThat(result).isNotNull().isInstanceOf(CertificateDto.class);
+        verify(certificateDao).findByUsername(certificate.getName());
+        verify(certificateMapper).toEntity(dto);
+        verify(certificateDao).save(certificate);
+        verify(certificateMapper).toDto(certificate);
+    }
+
+    @Test
+    @DisplayName("Given a CertificateDto with a name that already exists, when save method is called, then a CertificateAlreadyExistsException is thrown")
+    void testSaveCertificateWhenCertificateAlreadyExists() {
+        CertificateDto dto = mock(CertificateDto.class);
+        when(dto.getName()).thenReturn("certificateName");
+        when(certificateDao.findByUsername("certificateName")).thenReturn(Optional.of(certificate));
+        CertificateAlreadyExistsException exception = assertThrows(CertificateAlreadyExistsException.class, () -> service.save(dto));
+        assertThat(exception).hasMessageContaining("Certificate already exists with name certificateName");
+        verify(certificateDao).findByUsername("certificateName");
+    }
+
+    @Test
+    @DisplayName("Given a list of tag names, when findAllBy is called, then retrieve all certificates associated with the tag names")
+    void testFindAllBy() {
+        Criteria criteria = Criteria.builder().build();
+        Pageable pageable = PageRequest.of(0, 10);
+        when(certificateDao.findByCriteria(criteria, pageable)).thenReturn(certificates);
+        when(certificateMapper.toDtoList(certificates)).thenReturn(certificateDtoList);
+        List<CertificateDto> result = service.findAllBy(criteria, pageable);
+        verify(certificateDao).findByCriteria(criteria, pageable);
+        verify(certificateMapper).toDtoList(certificates);
+        result.forEach(dto -> assertThat(dto).usingRecursiveComparison().isNotNull().isInstanceOf(CertificateDto.class));
+    }
+
+    @Test
+    @DisplayName("Given a valid certificate ID, when getById is called, then return the corresponding CertificateDto")
+    void testGetById() {
+        when(certificateDao.getById(id)).thenReturn(Optional.of(certificate));
+        when(certificateMapper.toDto(certificate)).thenReturn(certificateDto);
+        CertificateDto result = service.getById(id);
+        assertThat(result).usingRecursiveComparison().isEqualTo(certificateDto);
+        assertThat(result).isNotNull().isInstanceOf(CertificateDto.class);
+        assertEquals(certificateDto, result);
+        verify(certificateMapper).toDto(certificate);
+        verify(certificateDao).getById(id);
+    }
+
+    private static CertificateDto getCertificateDto(
+            long id, String name, String description, BigDecimal price, int duration) {
+        return CertificateDto.builder()
+                .id(id).name(name).description(description)
+                .duration(duration).price(price).build();
+    }
+
+    private static Certificate getCertificate(
+            long id, String name, String description, BigDecimal price, int duration) {
+        return Certificate.builder().id(id).description(description)
+                .duration(duration).price(price).name(name).build();
     }
 }

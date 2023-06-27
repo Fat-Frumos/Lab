@@ -31,7 +31,8 @@ public class Token implements Serializable {
 
     @Id
     @Column(name = "token_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "token_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "token_sequence")
     private Integer id;
     /**
      * The type of the token (e.g., Bearer).

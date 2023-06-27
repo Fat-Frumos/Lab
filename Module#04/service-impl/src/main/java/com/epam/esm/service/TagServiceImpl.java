@@ -14,8 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Objects;
 
-import static java.util.stream.Collectors.toList;
-
 /**
  * Service implementation for managing tags.
  */
@@ -90,7 +88,7 @@ public class TagServiceImpl implements TagService {
         return tagDao.getAllBy(pageable)
                 .stream()
                 .map(tagMapper::toDto)
-                .collect(toList());
+                .toList();
     }
 
     /**

@@ -24,15 +24,27 @@ import static java.util.stream.Collectors.toList;
  */
 @RequiredArgsConstructor
 public enum RoleType {
+    /**
+     * Represents the guest role with read-only access.
+     */
     GUEST(new HashSet<>(singletonList(GUEST_READ))),
+    /**
+     * Represents the user role with create and read access.
+     */
     USER(new HashSet<>(asList(
             USER_CREATE,
             USER_READ))),
+    /**
+     * Represents the admin role with create, read, update, and delete access.
+     */
     ADMIN(new HashSet<>(asList(
             ADMIN_CREATE,
             ADMIN_READ,
             ADMIN_UPDATE,
             ADMIN_DELETE)));
+    /**
+     * The set of permissions associated with the role.
+     */
     @Getter
     private final Set<Permission> authorities;
 

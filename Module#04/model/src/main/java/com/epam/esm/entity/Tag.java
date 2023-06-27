@@ -34,8 +34,12 @@ public class Tag implements Serializable {
      * The unique identifier of the tag.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tag_sequence")
-    @SequenceGenerator(name = "tag_sequence", sequenceName = "tag_id_seq", allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "tag_sequence")
+    @SequenceGenerator(name = "tag_sequence",
+            sequenceName = "tag_id_seq",
+            allocationSize = 1)
     private Long id;
 
     /**

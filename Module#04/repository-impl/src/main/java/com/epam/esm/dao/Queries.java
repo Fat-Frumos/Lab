@@ -68,14 +68,6 @@ public final class Queries {
     public static final String SELECT_ALL_BY_IDS = SELECT_ALL + " WHERE c.id IN :ids";
 
     /**
-     * SQL query to select all certificates.
-     */
-    public static final String SELECT_ALL_CERTIFICATES =
-            "SELECT c.id, c.create_date, c.description, c.duration, c.last_update_date, c.name, c.price "
-                    + "FROM gift_certificates c JOIN gift_certificate_tag ct ON c.id = ct.gift_certificate_id "
-                    + "JOIN tag t ON ct.tag_id = t.id ORDER BY c.id ASC OFFSET :offset ROWS FETCH NEXT :limit ROWS ONLY";
-
-    /**
      * SQL query to select certificates by order ID.
      */
     public static final String SELECT_CERTIFICATES_BY_ORDER_ID = "SELECT DISTINCT c "
@@ -113,6 +105,10 @@ public final class Queries {
      */
     public static final String SELECT_TAG_BY_NAMES = "SELECT t FROM Tag t WHERE t.name IN :names";
     /**
+     * SQL query to select orders by their certificate ids.
+     */
+    public static final String SELECT_ORDER_BY_IDS = "SELECT o FROM Order o WHERE o.id IN :orderIds";
+    /**
      * SQL query to delete an order certificate by certificate id.
      */
     public static final String DELETE_ORDER_CERTIFICATE = "DELETE FROM order_certificate WHERE certificate_id = :id";
@@ -132,4 +128,16 @@ public final class Queries {
      * SQL query to delete a tag by its id.
      */
     public static final String DELETE_TAG = "DELETE FROM Tag t WHERE t.id = :id";
+    /**
+     * SQL query for deleting orders by user ID.
+     */
+    public static final String DELETE_ORDER = "DELETE FROM orders WHERE user_id = :id";
+    /**
+     * SQL query for deleting tokens by user ID.
+     */
+    public static final String DELETE_TOKEN = "DELETE FROM tokens WHERE user_id = :id";
+    /**
+     * SQL query for deleting users by user ID.
+     */
+    public static final String DELETE_USER = "DELETE FROM users WHERE user_id = :id";
 }

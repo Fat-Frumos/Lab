@@ -205,7 +205,7 @@ public class CertificateDaoImpl implements CertificateDao {
             EntityTransaction transaction = entityManager.getTransaction();
             try {
                 transaction.begin();
-                if (!getById(id).isPresent()) {
+                if (getById(id).isEmpty()) {
                     throw new CertificateNotFoundException(
                             NOT_FOUND_WITH_ID + id);
                 }
@@ -491,7 +491,7 @@ public class CertificateDaoImpl implements CertificateDao {
         List<String> tagNames = certificate.getTags()
                 .stream()
                 .map(Tag::getName)
-                .collect(Collectors.toList());
+                .toList();
         List<Tag> existingTags = entityManager.createQuery(
                         SELECT_TAG_BY_NAMES,
                         Tag.class)
