@@ -185,10 +185,10 @@ class TagServiceTest {
                 .id(id)
                 .name(name)
                 .build();
-        when(tagDao.getByName(name)).thenReturn(Optional.of(tag));
+        when(tagDao.findByUsername(name)).thenReturn(Optional.of(tag));
         when(tagMapper.toDto(tag)).thenReturn(tagDto);
         assertEquals(tagDto, tagService.getByName(name));
-        verify(tagDao, times(1)).getByName(name);
+        verify(tagDao, times(1)).findByUsername(name);
     }
 
     @Test
@@ -229,7 +229,7 @@ class TagServiceTest {
         final Tag tag = Tag.builder().id(tagId).name(name).build();
         final TagDto tagDto = TagDto.builder().id(tagId).name(name).build();
 
-        when(tagDao.getByName(name)).thenReturn(Optional.of(tag));
+        when(tagDao.findByUsername(name)).thenReturn(Optional.of(tag));
         when(tagMapper.toDto(tag)).thenReturn(tagDto);
 
         final TagDto result = tagService.getByName(name);
@@ -238,7 +238,7 @@ class TagServiceTest {
         assertEquals(tagDto.getId(), result.getId());
         assertEquals(tagDto.getName(), result.getName());
 
-        verify(tagDao).getByName(name);
+        verify(tagDao).findByUsername(name);
         verify(tagMapper).toDto(tag);
     }
 
@@ -246,9 +246,9 @@ class TagServiceTest {
     @CsvSource({"1, Winter", "2, Summer", "3, Spring", "4, Autumn"})
     @ParameterizedTest
     void getByNameShouldThrowTagNotFoundException(final long id, final String name) {
-        when(tagDao.getByName(name)).thenReturn(Optional.empty());
+        when(tagDao.findByUsername(name)).thenReturn(Optional.empty());
         assertThrows(TagNotFoundException.class, () -> tagService.getByName(name));
-        verify(tagDao).getByName(name);
+        verify(tagDao).findByUsername(name);
 
         when(tagDao.getById(id)).thenReturn(Optional.empty());
         assertThrows(TagNotFoundException.class, () -> tagService.getById(id));

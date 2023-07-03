@@ -39,6 +39,9 @@ import static java.util.stream.Collectors.toSet;
 @Repository
 @RequiredArgsConstructor
 public class TagDaoImpl implements TagDao {
+    /**
+     * The error message indicating that a tag was not found with the specified ID.
+     */
     public static final String TAG_NOT_FOUND_WITH_ID = "Tag not found with ID: ";
     /**
      * The entity manager factory used for obtaining the entity manager.
@@ -72,7 +75,7 @@ public class TagDaoImpl implements TagDao {
      * @return an {@link Optional} containing the tag entity, or empty if not found
      */
     @Override
-    public Optional<Tag> getByName(
+    public Optional<Tag> findByUsername(
             final String name) {
         try (EntityManager entityManager = factory.createEntityManager()) {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -143,7 +146,7 @@ public class TagDaoImpl implements TagDao {
                 if (transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException(e.getMessage());
+                throw new PersistenceException("Can not saves a tag");
             }
         }
     }
@@ -193,7 +196,7 @@ public class TagDaoImpl implements TagDao {
                 if (transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException(e.getMessage(), e);
+                throw new PersistenceException("Can not deletes a tag by its ID: " + id);
             }
         }
     }

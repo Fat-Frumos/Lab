@@ -1,3 +1,8 @@
+ALTER SEQUENCE gift_certificate_tag_seq RESTART WITH 21000;
+ALTER SEQUENCE order_id_seq RESTART WITH 2100;
+ALTER SEQUENCE tag_id_seq RESTART WITH 2100;
+ALTER SEQUENCE user_id_seq RESTART WITH 2100;
+
 -- DROP TABLE IF EXISTS gift_certificates;
 CREATE TABLE IF NOT EXISTS gift_certificates
 (
@@ -23,37 +28,12 @@ CREATE TABLE IF NOT EXISTS orders
     cost       DECIMAL(10, 2)
 );
 
---
--- CREATE TABLE gift_certificates
--- (
---     id               SERIAL PRIMARY KEY,
---     name             VARCHAR(155),
---     description      TEXT,
---     price            DECIMAL(10, 2),
---     create_date      TIMESTAMP,
---     last_update_date TIMESTAMP,
---     duration         INTEGER
--- );
+INSERT INTO users (user_id, email, role_id, password, username)
+VALUES (1, 'Quartez@i.ua', 4, '$2a$10$6qjF7NTyowumOS9REwyh8O.pbwSIprYP8gvgmxu8lm7SsnPYd9OvG', 'alice'),
+       (2, 'Johana@i.ua', 3, '$2a$10$F2C2v6OY8nfqvO01BifRmO4R5pGtnQkFVlPl8F4BseANxOj5yIYfa', 'bob'),
+       (3, 'Quenesha@i.ua', 3, '$2a$10$Yg/XbD3nJE7OxJVuelkcr.xVVlhCSH9xkxSDEliZ4P9Ya00beKqnm', 'user');
+
 --
 -- CREATE SEQUENCE gift_certificates_id_seq START WITH 1 INCREMENT BY 1 NO CYCLE;
 --
 -- ALTER TABLE gift_certificates ALTER COLUMN id SET DEFAULT nextval('gift_certificates_id_seq');
-
--- INSERT INTO gift_certificates (name, description, price, create_date, last_update_date, duration)
--- VALUES ('Christmas Gift Certificate', 'This holiday with our gift certificate!', 50.00, NOW(), NOW(), 60);
---
--- INSERT INTO gift_certificates (name, description, price, create_date, last_update_date, duration)
--- VALUES ('Spa Gift Certificate', 'A day of pampering at our luxurious spa!', 100.00, NOW(), NOW(), 120);
---
--- INSERT INTO gift_certificates (name, description, price, create_date, last_update_date, duration)
--- VALUES ('Birthday Gift Certificate', 'Celebrate your special day with a gift certificate!', 75.00, NOW(), NOW(), 90);
---
--- INSERT INTO gift_certificates (name, description, price, create_date, last_update_date, duration)
--- VALUES ('Valentine', 'A gift certificate for Valentine Day', 49.99, NOW(), NOW(), 30);
---
--- INSERT INTO gift_certificates (name, description, price, create_date, last_update_date, duration)
--- VALUES ('Independence', 'A gift certificate for Independence Day', 29.99, NOW(), NOW(), 30);
---
--- INSERT INTO gift_certificates (name, description, price, create_date, last_update_date, duration)
--- VALUES ('Easter', 'A gift certificate for Easter', 39.99, NOW(), NOW(), 30);
---

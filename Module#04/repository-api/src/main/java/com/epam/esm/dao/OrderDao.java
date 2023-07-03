@@ -27,7 +27,7 @@ public interface OrderDao extends Dao<Order> {
     /**
      * Retrieves an order for the specified user and order ID.
      *
-     * @param userId    The user for whom to retrieve the order.
+     * @param userId  The user for whom to retrieve the order.
      * @param orderId The ID of the order to retrieve.
      * @return An optional containing the order
      * for the specified user and order ID, or empty if not found.
@@ -47,8 +47,16 @@ public interface OrderDao extends Dao<Order> {
      * Retrieves a list of orders for the user with the specified ID.
      *
      * @param userId   The ID of the user.
-     * @param pageable
+     * @param pageable The pagination criteria.
      * @return A list of orders for the user with the specified ID.
      */
     List<Order> findOrdersByUserId(Long userId, Pageable pageable);
+
+    /**
+     * Updates the given order in the database.
+     *
+     * @param order the order to update
+     * @return the updated order
+     */
+    Order update(Order order);
 }

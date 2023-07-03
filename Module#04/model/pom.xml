@@ -14,13 +14,13 @@
     <description>Project for Spring Boot</description>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-json</artifactId>
-            <version>3.0.5</version>
+            <version>3.1.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

@@ -14,8 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Objects;
 
-import static java.util.stream.Collectors.toList;
-
 /**
  * Service implementation for managing tags.
  */
@@ -70,7 +68,7 @@ public class TagServiceImpl implements TagService {
     @Transactional(readOnly = true)
     public TagDto getByName(final String name) {
         Objects.requireNonNull(name, "Name should not be null");
-        Tag tag = tagDao.getByName(name)
+        Tag tag = tagDao.findByUsername(name)
                 .orElseThrow(() -> new TagNotFoundException(
                         String.format("%s name: %s", MESSAGE, name)));
         return tagMapper.toDto(tag);
@@ -90,7 +88,7 @@ public class TagServiceImpl implements TagService {
         return tagDao.getAllBy(pageable)
                 .stream()
                 .map(tagMapper::toDto)
-                .collect(toList());
+                .toList();
     }
 
     /**
@@ -104,7 +102,7 @@ public class TagServiceImpl implements TagService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public TagDto save(final TagDto dto) {
-        if (tagDao.getByName(dto.getName()).isPresent()) {
+        if (tagDao.findByUsername(dto.getName()).isPresent()) {
             throw new TagAlreadyExistsException(String.format(
                     "Tag already exists exception with name %s", dto.getName()));
         }

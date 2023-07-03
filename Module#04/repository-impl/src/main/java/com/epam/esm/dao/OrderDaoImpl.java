@@ -33,10 +33,10 @@ import static com.epam.esm.dao.Queries.CERTIFICATES;
 import static com.epam.esm.dao.Queries.FETCH_GRAPH;
 import static com.epam.esm.dao.Queries.ID;
 import static com.epam.esm.dao.Queries.SELECT_ORDER_BY_ID;
+import static com.epam.esm.dao.Queries.SELECT_ORDER_BY_IDS;
 import static com.epam.esm.dao.Queries.SELECT_ORDER_BY_NAME;
 import static com.epam.esm.dao.Queries.TAGS;
 import static com.epam.esm.dao.Queries.USER;
-import static java.util.stream.Collectors.toList;
 
 /**
  * Implementation of the {@link OrderDao} interface
@@ -70,14 +70,13 @@ public class OrderDaoImpl implements OrderDao {
                         .map(order -> order.getDirection().equals(Sort.Direction.ASC)
                                 ? builder.asc(root.get(order.getProperty()))
                                 : builder.desc(root.get(order.getProperty())))
-                        .collect(toList()));
+                        .toList());
             }
             List<Long> orderIds = entityManager.createQuery(query)
                     .setMaxResults(pageable.getPageSize())
                     .setFirstResult(pageable.getPageNumber() * pageable.getPageSize())
                     .getResultList();
-            return entityManager.createQuery("SELECT o FROM Order o WHERE o.id IN :orderIds",
-                            Order.class)
+            return entityManager.createQuery(SELECT_ORDER_BY_IDS, Order.class)
                     .setParameter("orderIds", orderIds)
                     .setHint(FETCH_GRAPH, entityManager
                             .getEntityGraph("Order.certificates.tags"))
@@ -116,7 +115,7 @@ public class OrderDaoImpl implements OrderDao {
      * @return an optional containing the order entity, or empty if not found.
      */
     @Override
-    public Optional<Order> getByName(final String username) {
+    public Optional<Order> findByUsername(final String username) {
         try (EntityManager entityManager =
                      factory.createEntityManager()) {
             TypedQuery<Order> query = entityManager
@@ -137,7 +136,7 @@ public class OrderDaoImpl implements OrderDao {
      * @return the saved order entity.
      */
     @Override
-    public Order save(Order order) {
+    public Order save(final Order order) {
         try (EntityManager entityManager =
                      factory.createEntityManager()) {
             EntityTransaction transaction =
@@ -186,8 +185,7 @@ public class OrderDaoImpl implements OrderDao {
                 transaction.commit();
             } catch (Exception e) {
                 transaction.rollback();
-                throw new EntityNotFoundException(
-                        e.getMessage(), e);
+                throw new EntityNotFoundException("Can not delete the order by " + id);
             }
         }
     }
@@ -221,7 +219,7 @@ public class OrderDaoImpl implements OrderDao {
                         .map(order -> order.getDirection().equals(Sort.Direction.ASC)
                                 ? builder.asc(root.get(order.getProperty()))
                                 : builder.desc(root.get(order.getProperty())))
-                        .collect(toList()));
+                        .toList());
             }
             query.where(builder.equal(root.get(USER), user));
 
@@ -259,7 +257,7 @@ public class OrderDaoImpl implements OrderDao {
             List<Order> results = entityManager
                     .createQuery(query)
                     .setHint(FETCH_GRAPH, entityManager
-                            .getEntityGraph("User.orders.certificates.tags"))
+                            .getEntityGraph("User.orders.certificates.tags.role"))
                     .getResultList();
             if (!results.isEmpty()) {
                 Order order = results.get(0);
@@ -329,12 +327,33 @@ public class OrderDaoImpl implements OrderDao {
                         .map(order -> order.getDirection().equals(Sort.Direction.ASC)
                                 ? builder.asc(root.get(order.getProperty()))
                                 : builder.desc(root.get(order.getProperty())))
-                        .collect(toList()));
+                        .toList());
             }
             return entityManager
                     .createQuery(query)
                     .setHint(FETCH_GRAPH, graph)
                     .getResultList();
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     * <p>
+     *
+     * @param order the order to update
+     * @return the updated order
+     * @throws PersistenceException if an error occurs during the update process
+     */
+    @Override
+    public Order update(
+            final Order order) {
+        try (EntityManager entityManager =
+                     factory.createEntityManager()) {
+            entityManager.getTransaction().begin();
+            Order mergedOrder = entityManager.merge(order);
+            entityManager.getTransaction().commit();
+            entityManager.refresh(mergedOrder);
+            return mergedOrder;
         }
     }
 }

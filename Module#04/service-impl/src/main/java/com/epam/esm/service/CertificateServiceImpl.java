@@ -94,7 +94,7 @@ public class CertificateServiceImpl implements CertificateService {
     @Transactional(readOnly = true)
     public CertificateDto getByName(final String name) {
         Objects.requireNonNull(name, "Name should not be null");
-        Certificate certificate = certificateDao.getByName(name)
+        Certificate certificate = certificateDao.findByUsername(name)
                 .orElseThrow(() -> new CertificateNotFoundException(
                         String.format("%s name: %s", MESSAGE, name)));
         return mapper.toDto(certificate);
@@ -145,7 +145,7 @@ public class CertificateServiceImpl implements CertificateService {
     @Transactional(rollbackFor = Exception.class)
     public CertificateDto save(
             final CertificateDto dto) {
-        if (certificateDao.getByName(dto.getName()).isPresent()) {
+        if (certificateDao.findByUsername(dto.getName()).isPresent()) {
             throw new CertificateAlreadyExistsException(
                     String.format("Certificate already exists with name %s",
                             dto.getName()));
@@ -204,8 +204,7 @@ public class CertificateServiceImpl implements CertificateService {
      * of {@link CertificateDto} associated with the user
      */
     @Override
-    public Page<CertificateDto> getCertificatesByUserId(
-            final Long id) {
+    public Page<CertificateDto> getCertificatesByUserId(final Long id) {
         List<CertificateDto> dtos = mapper.toDtoList(
                 certificateDao.getCertificatesByUserId(id));
         return new PageImpl<>(dtos, Pageable.unpaged(), dtos.size());

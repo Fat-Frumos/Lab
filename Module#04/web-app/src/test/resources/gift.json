@@ -1,0 +1,52 @@
+{
+  "_embedded": {
+    "certificateDtoList": [
+      {
+        "id": 1,
+        "name": "New hears for your ears! New Year's Day",
+        "description": "May the joy of this festive season light your life with love, peace and hope",
+        "price": 49.00,
+        "duration": 26,
+        "createDate": "2023-06-28T22:57:06.885",
+        "lastUpdateDate": "2023-06-28T22:57:06.885",
+        "tags": [
+          {
+            "id": 2,
+            "name": "Golf"
+          },
+          {
+            "id": 3,
+            "name": "Massage"
+          },
+          {
+            "id": 1,
+            "name": "Mazda"
+          }
+        ],
+        "orderDtos": null,
+        "_links": {
+          "self": {
+            "href": "http://localhost/certificates/1"
+          },
+          "tags": {
+            "href": "http://localhost/certificates/1/tags"
+          },
+          "delete": {
+            "href": "http://localhost/certificates/1"
+          },
+          "create": {
+            "href": "http://localhost/certificates"
+          },
+          "update": {
+            "href": "http://localhost/certificates/1"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "http://localhost/certificates"
+    }
+  }
+}

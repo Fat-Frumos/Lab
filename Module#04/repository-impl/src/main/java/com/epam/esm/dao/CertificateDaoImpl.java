@@ -93,7 +93,7 @@ public class CertificateDaoImpl implements CertificateDao {
      * or an empty optional if not found
      */
     @Override
-    public Optional<Certificate> getByName(final String name) {
+    public Optional<Certificate> findByUsername(final String name) {
         try (EntityManager entityManager = factory
                 .createEntityManager()) {
             List<Certificate> certificates =
@@ -156,7 +156,7 @@ public class CertificateDaoImpl implements CertificateDao {
     }
 
     /**
-     * <p>Saves a certificate</p>
+     * Saves a certificate
      * <p>
      * This method saves the specified certificate to the database.
      * </p>
@@ -180,7 +180,7 @@ public class CertificateDaoImpl implements CertificateDao {
                 if (transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException(e.getMessage());
+                throw new PersistenceException("Can not saves a certificate");
             }
         }
     }
@@ -205,7 +205,7 @@ public class CertificateDaoImpl implements CertificateDao {
             EntityTransaction transaction = entityManager.getTransaction();
             try {
                 transaction.begin();
-                if (!getById(id).isPresent()) {
+                if (getById(id).isEmpty()) {
                     throw new CertificateNotFoundException(
                             NOT_FOUND_WITH_ID + id);
                 }
@@ -223,7 +223,7 @@ public class CertificateDaoImpl implements CertificateDao {
                 if (transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException(e.getMessage(), e);
+                throw new PersistenceException("Removes the certificate with the specified ID");
             }
         }
     }
@@ -283,7 +283,7 @@ public class CertificateDaoImpl implements CertificateDao {
                 if (transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException(e.getMessage());
+                throw new PersistenceException("Can not updates a certificate");
             }
         }
     }
@@ -491,7 +491,7 @@ public class CertificateDaoImpl implements CertificateDao {
         List<String> tagNames = certificate.getTags()
                 .stream()
                 .map(Tag::getName)
-                .collect(Collectors.toList());
+                .toList();
         List<Tag> existingTags = entityManager.createQuery(
                         SELECT_TAG_BY_NAMES,
                         Tag.class)

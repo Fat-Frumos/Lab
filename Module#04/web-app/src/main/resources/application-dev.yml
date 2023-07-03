@@ -13,6 +13,4 @@ spring:
     sql:
       init:
         data:
-          classpath:db/gift.sql
-          classpath:db/tags.sql
-          classpath:db/user.sql
+          classpath:db/test/init.sql

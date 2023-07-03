@@ -1,5 +1,7 @@
 package com.epam.esm.dto;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
@@ -21,6 +23,7 @@ public class UserSlimDto extends RepresentationModel<UserSlimDto> {
     private Long id;
     /**
      * The username of the user.
+     * The password must be between 1 and 128 characters in length.
      */
     @Size(min = 1, max = 128)
     @NotNull(message = "Name cannot be blank")
@@ -28,7 +31,36 @@ public class UserSlimDto extends RepresentationModel<UserSlimDto> {
 
     /**
      * The email of the user.
+     * It cannot be blank (null).
      */
     @Size(min = 1, max = 128)
+    @NotNull(message = "Email cannot be blank")
     private String email;
+    /**
+     * Represents a user's password.
+     * The password must be between 1 and 128 characters in length.
+     * It cannot be blank (null).
+     */
+    @Size(min = 1, max = 128)
+    @NotNull(message = "Password cannot be blank")
+    private String password;
+    /**
+     * Represents the role assigned to the user.
+     */
+    private RoleDto role;
+
+    @JsonCreator
+    public UserSlimDto(
+            @JsonProperty("id") Long id,
+            @JsonProperty("username") String username,
+            @JsonProperty("email") String email,
+            @JsonProperty("password") String password,
+            @JsonProperty("role") RoleDto role
+    ) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
 }

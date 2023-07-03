@@ -1,0 +1,49 @@
+{
+  "_embedded": {
+    "userDtoList": [
+      {
+        "id": 1,
+        "username": "alice",
+        "email": "Quartez@i.ua",
+        "orderDtos": [
+          {
+            "id": 1,
+            "user": {
+              "id": 1,
+              "username": "alice",
+              "email": "Quartez@i.ua",
+              "password": "$2a$10$6qjF7NTyowumOS9REwyh8O.pbwSIprYP8gvgmxu8lm7SsnPYd9OvG",
+              "role": {
+                "id": 4,
+                "permission": "ADMIN"
+              }
+            },
+            "cost": 0.00,
+            "orderDate": "2023-06-29T00:11:22.502",
+            "certificateDtos": null
+          }
+        ],
+        "role": {
+          "id": 4,
+          "permission": "ADMIN"
+        },
+        "_links": {
+          "self": {
+            "href": "http://localhost/users/1"
+          },
+          "orders": {
+            "href": "http://localhost/orders/users/1"
+          },
+          "certificates": {
+            "href": "http://localhost/certificates/users/1"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "http://localhost/users"
+    }
+  }
+}

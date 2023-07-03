@@ -5,7 +5,8 @@ package com.epam.esm.exception;
  */
 public class TagNotFoundException extends RuntimeException {
     /**
-     * Constructs a new {@code TagNotFoundException} with the specified detail message.
+     * Constructs a new {@code TagNotFoundException}
+     * with the specified detail message.
      *
      * @param message the detail message
      */

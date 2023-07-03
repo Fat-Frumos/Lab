@@ -15,6 +15,8 @@ import jakarta.persistence.NamedAttributeNode;
 import jakarta.persistence.NamedEntityGraph;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -63,19 +65,22 @@ public class Certificate implements Serializable {
     /**
      * The name of the certificate.
      */
-    @Column(nullable = false, length = 512)
+    @Column(nullable = false)
+    @Size(min = 2, max = 512, message = "Name is required, maximum 512 characters")
     private String name;
 
     /**
      * The price of the certificate.
      */
     @Column(nullable = false)
+    @DecimalMax(value = "10000.00", inclusive = false, message = "Price must be less than 10000.00")
     private BigDecimal price;
 
     /**
      * The description of the certificate.
      */
     @Column(nullable = false, length = 1024)
+    @Size(min = 2, max = 1024, message = "Description is required, maximum 512 characters")
     private String description;
 
     /**
@@ -124,7 +129,7 @@ public class Certificate implements Serializable {
      * This is a many-to-many relationship mapped
      * by the "certificates" field in the Order entity.
      * <p>
-     * The orders are lazily fetched
+     * The orders are eagerly fetched
      * and cascaded on persist and merge operations.
      */
     @Builder.Default
