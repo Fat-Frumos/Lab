@@ -1,7 +1,6 @@
 package com.epam.esm.config;
 
 import com.epam.esm.handler.ResponseMessage;
-import com.epam.esm.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
@@ -18,7 +17,6 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -46,7 +44,6 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 @EnableWebMvc
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-
     /**
      * The context path of the server servlet.
      */
@@ -162,20 +159,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         authProvider.setUserDetailsService(userDetailsService);
         authProvider.setPasswordEncoder(passwordEncoder);
         return authProvider;
-    }
-
-    /**
-     * Creates an instance of the UserDetailsService.
-     *
-     * @param userRepository The UserRepository implementation.
-     * @return A UserDetailsService instance.
-     */
-    @Bean
-    public UserDetailsService userDetailsService(
-            final UserRepository userRepository) {
-        return username -> userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException(
-                        String.format("User not found with name %s", username)));
     }
 
     /**

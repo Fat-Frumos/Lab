@@ -4,6 +4,7 @@ import com.epam.esm.entity.Token;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.TokenNotFoundException;
 import com.epam.esm.repository.TokenRepository;
+import com.epam.esm.security.auth.SecurityUser;
 import com.epam.esm.security.exception.InvalidJwtAuthenticationException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -198,7 +199,7 @@ public class JwtTokenProvider {
                  | ExpiredJwtException
                  | UnsupportedJwtException
                  | IllegalArgumentException e) {
-            throw new InvalidJwtAuthenticationException(e.getMessage());
+            throw new InvalidJwtAuthenticationException("The claims extracted from the token is failed");
         }
     }
 
@@ -258,9 +259,8 @@ public class JwtTokenProvider {
      */
     @Transactional
     public Token updateUserTokens(
-            final User user,
+            final SecurityUser user,
             final String accessToken) {
-//        tokenRepository.deleteByUser(user);
         Token token = getToken(user, accessToken);
         return save(token);
     }
@@ -290,10 +290,10 @@ public class JwtTokenProvider {
      * @return The created token.
      */
     public Token getToken(
-            final User user,
+            final SecurityUser user,
             final String accessToken) {
         return Token.builder()
-                .user(user)
+                .user(user.getUser())
                 .expired(false)
                 .revoked(false)
                 .tokenType(BEARER)

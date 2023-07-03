@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.stream.StreamSupport;
 
-import static java.util.stream.Collectors.toList;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
@@ -56,7 +55,7 @@ public class OrderAssembler implements
         return CollectionModel.of(StreamSupport
                         .stream(entities.spliterator(), false)
                         .map(this::toModel)
-                        .collect(toList()),
+                        .toList(),
                 linkTo(methodOn(OrderController.class)
                         .getAllOrders(PageRequest.of(
                                 0, 25, Sort.by("name")

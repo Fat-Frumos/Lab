@@ -9,6 +9,7 @@ import com.epam.esm.repository.UserRepository;
 import com.epam.esm.security.auth.AuthenticationRequest;
 import com.epam.esm.security.auth.AuthenticationResponse;
 import com.epam.esm.security.auth.RegisterRequest;
+import com.epam.esm.security.auth.SecurityUser;
 import com.epam.esm.security.exception.InvalidJwtAuthenticationException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -61,8 +63,8 @@ public class AuthenticationService implements AuthService {
                     "User already exists with name "
                             + request.getUsername());
         }
-        User user = saveUserWithRole(request);
-        log.info("signup service: " + user);
+        SecurityUser user = saveUserWithRole(request);
+        log.info("signup service: " + user.getUsername());
         return getAuthenticationResponse(user);
     }
 
@@ -76,7 +78,7 @@ public class AuthenticationService implements AuthService {
     public AuthenticationResponse login(
             final AuthenticationRequest request) {
         setAuthenticationToken(request);
-        User user = findUser(request.getUsername());
+        SecurityUser user = findUser(request.getUsername());
         return getAuthenticationResponse(user);
     }
 
@@ -93,8 +95,8 @@ public class AuthenticationService implements AuthService {
     public AuthenticationResponse authenticate(
             final AuthenticationRequest request) {
         setAuthenticationToken(request);
-        User user = findUser(request.getUsername());
-        provider.revokeAllUserTokens(user);
+        SecurityUser user = findUser(request.getUsername());
+        provider.revokeAllUserTokens(user.getUser());
         return getAuthenticationResponse(user);
     }
 
@@ -116,9 +118,10 @@ public class AuthenticationService implements AuthService {
                 User user = userRepository.findByUsername(username)
                         .orElseThrow(() -> new UserNotFoundException(
                                 format("User not found :%s", username)));
-                if (provider.isTokenValid(refreshToken, user)) {
-                    String accessToken = provider.generateToken(user);
-                    Token token = provider.updateUserTokens(user, accessToken);
+                SecurityUser securityUser = SecurityUser.builder().user(user).build();
+                if (provider.isTokenValid(refreshToken, securityUser)) {
+                    String accessToken = provider.generateToken(securityUser);
+                    Token token = provider.updateUserTokens(securityUser, accessToken);
                     return AuthenticationResponse.builder()
                             .username(username)
                             .accessToken(token.getAccessToken())
@@ -181,10 +184,10 @@ public class AuthenticationService implements AuthService {
      * @throws UserNotFoundException if the user is not found.
      */
     @Transactional
-    public User findUser(final String username) {
-        return userRepository.findByUsername(username)
+    public SecurityUser findUser(final String username) {
+        return SecurityUser.builder().user(userRepository.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException(
-                        format("User not found: %s", username)));
+                        format("User not found: %s", username)))).build();
     }
 
     /**
@@ -194,7 +197,7 @@ public class AuthenticationService implements AuthService {
      * @return The saved User object.
      */
     @Transactional
-    public User saveUserWithRole(
+    public SecurityUser saveUserWithRole(
             final RegisterRequest request) {
         User user = User.builder()
                 .password(encoder.encode(request.getPassword()))
@@ -203,7 +206,7 @@ public class AuthenticationService implements AuthService {
                 .role(getRole())
                 .build();
         log.info("saveUserWithRole: " + user);
-        return userRepository.save(user);
+        return SecurityUser.builder().user(userRepository.save(user)).build();
     }
 
     /**
@@ -238,7 +241,7 @@ public class AuthenticationService implements AuthService {
      */
     @Transactional
     public AuthenticationResponse getAuthenticationResponse(
-            final User user) {
+            final SecurityUser user) {
         String jwtToken = provider.generateToken(user);
         Token token = provider.updateUserTokens(user, jwtToken);
         return getAuthenticationResponse(user, jwtToken,
@@ -253,7 +256,7 @@ public class AuthenticationService implements AuthService {
      * @return the authentication response containing the user, access token, and expiration time
      */
     public AuthenticationResponse getAuthenticationResponse(
-            final User user, final String accessToken) {
+            final UserDetails user, final String accessToken) {
         return getAuthenticationResponse(
                 user, accessToken,
                 provider.getExpiration());
@@ -268,7 +271,7 @@ public class AuthenticationService implements AuthService {
      * @return The AuthenticationResponse object.
      */
     private AuthenticationResponse getAuthenticationResponse(
-            final User user,
+            final UserDetails user,
             final String jwtToken,
             final Long accessToken) {
         return AuthenticationResponse.builder()

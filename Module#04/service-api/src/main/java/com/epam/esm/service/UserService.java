@@ -22,10 +22,11 @@ public interface UserService {
     /**
      * Get a user by ID.
      *
-     * @param id the user ID
+     * @param id       the user ID
+     * @param username the name of user
      * @return the user DTO
      */
-    UserDto getById(Long id);
+    UserDto getById(Long id, String username);
 
     /**
      * Get all users with pagination.

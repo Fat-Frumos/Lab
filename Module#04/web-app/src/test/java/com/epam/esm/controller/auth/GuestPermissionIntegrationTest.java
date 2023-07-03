@@ -49,7 +49,7 @@ class GuestPermissionIntegrationTest {
 //        mockMvc.perform(get(host).contentType(MediaType.APPLICATION_JSON))
 //                .andExpect(status().isOk());
 //    }
-
+//
 //    @Test
 //    @DisplayName("Guest user should be able to authenticate")
 //    void guestWhenAuthenticateThenAllowed() throws Exception {
@@ -108,7 +108,6 @@ class GuestPermissionIntegrationTest {
         for (int i = 1; i < httpRequests.size(); i++) {
             mockMvc.perform(httpRequests.get(i)).andExpect(status().isUnauthorized())
                     .andExpect(content().json(unauthorized));
-            ;
         }
     }
 

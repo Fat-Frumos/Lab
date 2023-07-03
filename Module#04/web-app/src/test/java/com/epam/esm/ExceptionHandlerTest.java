@@ -23,11 +23,11 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 class ExceptionHandlerTest {
     private final static String[] messages = {
-            "Tag already exists",
-            "Certificate not found",
-            "Internal Server Error",
-            "Method Not Allowed",
-            "Tag not found with id 1"};
+            "Bad request",
+            "Element Not Found",
+            "Something's not right",
+            "Something's not right",
+            "Element Not Found"};
 
     @InjectMocks
     private ErrorHandlerController exceptionHandler;

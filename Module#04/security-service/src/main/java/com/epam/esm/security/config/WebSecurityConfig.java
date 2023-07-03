@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,9 +24,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 import java.util.Collections;
 
-import static org.springframework.http.HttpMethod.GET;
-import static org.springframework.http.HttpMethod.POST;
-
 /**
  * Configuration class for web security.
  */
@@ -36,6 +34,8 @@ import static org.springframework.http.HttpMethod.POST;
 public class WebSecurityConfig {
     private static final String USER = "ROLE_USER";
     private static final String ADMIN = "ROLE_ADMIN";
+    private static final String[] GET = {"/tags/**", "/orders/**", "/users/**"};
+    private static final String[] POST = {"/orders/**", "/users/**", "/login", "/token/**", "/logout"};
     /**
      * Handler for logging out the user.
      */
@@ -71,18 +71,16 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(
             final HttpSecurity http) throws Exception {
-
         return http
                 .csrf().disable()
                 .cors().configurationSource(corsConfigurationSource())
                 .and().headers().frameOptions().sameOrigin()
                 .and().authorizeHttpRequests(authorize ->
                         authorize.requestMatchers(PathRequest.toH2Console()).permitAll()
-                                .requestMatchers(POST, "/signup", "/logout", "/login").permitAll()
-                                .requestMatchers(GET, "/certificates/**").permitAll()
-                                .requestMatchers(GET, "/tags/**", "/orders/**", "/token/**").hasAnyAuthority(USER, ADMIN)
-                                .requestMatchers(POST, "/orders/**").hasAnyAuthority(USER, ADMIN)
-                                .requestMatchers(POST, "/users/**").hasAnyAuthority(ADMIN)
+                                .requestMatchers(HttpMethod.POST, "/signup", "/login").permitAll()
+                                .requestMatchers(HttpMethod.GET, "/certificates/**").permitAll()
+                                .requestMatchers(HttpMethod.GET, GET).hasAnyAuthority(USER, ADMIN)
+                                .requestMatchers(HttpMethod.POST, POST).hasAnyAuthority(USER, ADMIN)
                                 .requestMatchers("/**").hasAuthority(ADMIN)
                                 .anyRequest()
                                 .authenticated())

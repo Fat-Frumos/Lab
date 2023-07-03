@@ -6,6 +6,7 @@ import com.epam.esm.entity.Token;
 import com.epam.esm.entity.User;
 import com.epam.esm.repository.TokenRepository;
 import com.epam.esm.repository.UserRepository;
+import com.epam.esm.security.auth.SecurityUser;
 import com.epam.esm.security.exception.InvalidJwtAuthenticationException;
 import com.epam.esm.security.service.JwtTokenProvider;
 import io.jsonwebtoken.Claims;
@@ -55,13 +56,13 @@ class JwtTokenProviderTest {
     private UserRepository userRepository;
     private final String username = "Bob";
     private User user;
+    private SecurityUser securityUser;
     private final String invalidToken = "invalidToken";
     public String jwtToken;
 
     @BeforeEach
     void init() {
         request = new MockHttpServletRequest();
-
         user = User.builder()
                 .username(username)
                 .email("bob@i.ua")
@@ -76,12 +77,14 @@ class JwtTokenProviderTest {
                 .signWith(Keys.hmacShaKeyFor(Decoders.BASE64.decode(secretKey)),
                         SignatureAlgorithm.HS256)
                 .compact();
+
+        securityUser = SecurityUser.builder().user(user).build();
     }
 
     @Test
     @DisplayName("UserDetails object with a scope, when buildToken is called, then return a valid JWT token with the scope")
     void testValidUserDetailsWithScopeWhenBuildTokenThenReturnValidTokenWithScope() {
-        String jwt = jwtTokenProvider.generateToken(user);
+        String jwt = jwtTokenProvider.generateToken(securityUser);
         Jws<Claims> claims = Jwts.parserBuilder()
                 .setSigningKey(Keys.hmacShaKeyFor(Decoders.BASE64.decode(secretKey)))
                 .build()
@@ -107,7 +110,7 @@ class JwtTokenProviderTest {
     @Test
     @DisplayName("UserDetails object, when buildRefreshToken is called, then return a valid refresh JWT token")
     void testValidUserWhenBuildRefreshTokenThenReturnValidRefreshToken() {
-        String token = jwtTokenProvider.generateRefreshToken(user);
+        String token = jwtTokenProvider.generateRefreshToken(securityUser);
         Jws<Claims> claims = Jwts.parserBuilder()
                 .setSigningKey(Keys.hmacShaKeyFor(Decoders.BASE64.decode(secretKey)))
                 .build()
@@ -119,7 +122,7 @@ class JwtTokenProviderTest {
     @Test
     @DisplayName("UserDetails object, when buildToken is called, then return a valid JWT token")
     void testValidUserWhenBuildTokenThenReturnValidToken() {
-        String jwt = jwtTokenProvider.generateToken(user);
+        String jwt = jwtTokenProvider.generateToken(securityUser);
         Jws<Claims> claims = Jwts.parserBuilder()
                 .setSigningKey(Keys.hmacShaKeyFor(Decoders.BASE64.decode(secretKey)))
                 .build()
@@ -133,7 +136,7 @@ class JwtTokenProviderTest {
     void testValidUserAndValidClaimsWhenBuildTokenWithClaimsAndUserThenReturnValidTokenWithClaims() {
         Map<String, Object> claimsMap = new HashMap<>();
         claimsMap.put("key", "value");
-        String jwt = jwtTokenProvider.generateToken(claimsMap, user);
+        String jwt = jwtTokenProvider.generateToken(claimsMap, securityUser);
         Jws<Claims> claims = Jwts.parserBuilder()
                 .setSigningKey(Keys.hmacShaKeyFor(Decoders.BASE64.decode(secretKey)))
                 .build()
@@ -146,7 +149,7 @@ class JwtTokenProviderTest {
     @Test
     @DisplayName("JWT token and a valid UserDetails object, when validateToken is called, then return true")
     void validatedJwtTokenAndValidUserWhenValidateTokenThenReturnTrue() {
-        boolean result = jwtTokenProvider.isTokenValid(jwtToken, user);
+        boolean result = jwtTokenProvider.isTokenValid(jwtToken, securityUser);
         assertTrue(result);
     }
 
@@ -174,7 +177,7 @@ class JwtTokenProviderTest {
                 .signWith(Keys.hmacShaKeyFor(Decoders.BASE64.decode(secretKey)),
                         SignatureAlgorithm.HS256)
                 .compact();
-        boolean result = jwtTokenProvider.isTokenValid(token, user);
+        boolean result = jwtTokenProvider.isTokenValid(token, securityUser);
         assertFalse(result);
     }
 
@@ -204,14 +207,14 @@ class JwtTokenProviderTest {
     @DisplayName("UserDetails object and invalid claims, when buildToken is called with claims and userDetails arguments, then throw InvalidJwtAuthenticationException")
     void buildTokenWithInvalidClaims() {
         assertThrows(InvalidJwtAuthenticationException.class,
-                () -> jwtTokenProvider.generateToken(null, user));
+                () -> jwtTokenProvider.generateToken(null, securityUser));
     }
 
     @DisplayName("JWT token, when findByToken is called, then return an Optional containing the Token")
     @Test
     void testFindByTokenWithValidToken() {
         User save = userRepository.save(user);
-        String accessToken = jwtTokenProvider.generateToken(user);
+        String accessToken = jwtTokenProvider.generateToken(securityUser);
         Token token = Token.builder().user(save).accessToken(accessToken).expired(false).revoked(false).build();
         token = tokenRepository.save(token);
         Optional<Token> result = jwtTokenProvider.findByToken(accessToken);
@@ -244,7 +247,7 @@ class JwtTokenProviderTest {
 
         tokenRepository.saveAll(Arrays.asList(token1, token2));
 
-        jwtTokenProvider.updateUserTokens(save, invalidToken);
+        jwtTokenProvider.updateUserTokens(SecurityUser.builder().user(save).build(), invalidToken);
 
         List<Token> tokens = tokenRepository.findAll();
         assertEquals(3, tokens.size());
@@ -271,7 +274,7 @@ class JwtTokenProviderTest {
     @Test
     @DisplayName("JWT token, when getAllClaims is called, then return the claims extracted from the token")
     void testGetAllClaimsWithValidToken() {
-        String token = jwtTokenProvider.generateToken(user);
+        String token = jwtTokenProvider.generateToken(securityUser);
         Claims claims = jwtTokenProvider.getAllClaims(token);
         assertNotNull(claims);
     }
@@ -308,8 +311,8 @@ class JwtTokenProviderTest {
     @Test
     @DisplayName("Given an generateToken JWT token, when isTokenValid is called, then return true")
     void testIsTokenExpiredWithExpiredToken() {
-        String expiredToken = jwtTokenProvider.generateToken(user);
-        boolean result = jwtTokenProvider.isTokenValid(expiredToken, user);
+        String expiredToken = jwtTokenProvider.generateToken(securityUser);
+        boolean result = jwtTokenProvider.isTokenValid(expiredToken, securityUser);
         assertTrue(result);
     }
 
@@ -322,7 +325,7 @@ class JwtTokenProviderTest {
                 .setExpiration(new Date(System.currentTimeMillis() - jwtExpiration))
                 .signWith(jwtTokenProvider.getSignInKey())
                 .compact();
-        boolean result = jwtTokenProvider.isTokenValid(jwtToken, user);
+        boolean result = jwtTokenProvider.isTokenValid(jwtToken, securityUser);
         assertFalse(result);
     }
 
@@ -335,7 +338,7 @@ class JwtTokenProviderTest {
                 .setExpiration(new Date(System.currentTimeMillis() + jwtExpiration))
                 .signWith(jwtTokenProvider.getSignInKey())
                 .compact();
-        assertTrue(jwtTokenProvider.isTokenValid(jwtToken, user));
+        assertTrue(jwtTokenProvider.isTokenValid(jwtToken, securityUser));
     }
 
     @Test
@@ -349,13 +352,13 @@ class JwtTokenProviderTest {
                 .signWith(jwtTokenProvider.getSignInKey())
                 .compact();
 
-        assertFalse(jwtTokenProvider.isTokenValid(jwtToken, user));
+        assertFalse(jwtTokenProvider.isTokenValid(jwtToken, securityUser));
     }
 
     @Test
     void updateUserTokensShouldSaveNewToken() {
 
-        Token savedToken = jwtTokenProvider.updateUserTokens(user, jwtToken);
+        Token savedToken = jwtTokenProvider.updateUserTokens(securityUser, jwtToken);
         Token expectedToken = tokenRepository.findById(savedToken.getId()).orElse(null);
         assertNotNull(expectedToken);
         assertEquals(expectedToken.getId(), savedToken.getId());

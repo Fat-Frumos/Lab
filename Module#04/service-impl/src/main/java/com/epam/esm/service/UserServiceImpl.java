@@ -1,13 +1,15 @@
 package com.epam.esm.service;
 
 import com.epam.esm.dao.UserDao;
+import com.epam.esm.dto.RoleDto;
 import com.epam.esm.dto.UserDto;
 import com.epam.esm.dto.UserSlimDto;
+import com.epam.esm.entity.RoleType;
 import com.epam.esm.entity.User;
+import com.epam.esm.exception.UnauthorizedAccessException;
 import com.epam.esm.exception.UserNotFoundException;
 import com.epam.esm.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +23,6 @@ import java.util.List;
  * <p>
  * Provides methods for managing user data.
  */
-@Slf4j
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -33,14 +34,20 @@ public class UserServiceImpl implements UserService {
     /**
      * Get a user DTO by ID.
      *
-     * @param id the user ID
+     * @param id       the user ID
+     * @param username name
      * @return the user DTO
-     * @throws UserNotFoundException if the user is not found
+     * @throws UserNotFoundException       if the user is not found
+     * @throws UnauthorizedAccessException has a different ID than the specified userId.
      */
     @Override
     @Transactional(readOnly = true)
-    public UserDto getById(final Long id) {
-        return mapper.toDto(findById(id));
+    public UserDto getById(final Long id, String username) {
+        User user = findById(id);
+        if (!user.getUsername().equals(username)) {
+            throw new UnauthorizedAccessException("Unauthorized Access :" + username);
+        }
+        return mapper.toDto(user);
     }
 
     /**
@@ -82,6 +89,8 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserDto save(
             final UserSlimDto dto) {
+        dto.setRole(RoleDto.builder()
+                .permission(RoleType.USER).build());
         User user = userDao.save(
                 mapper.toEntity(dto));
         return mapper.toDto(user);

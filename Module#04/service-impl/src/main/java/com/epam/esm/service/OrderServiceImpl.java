@@ -10,6 +10,7 @@ import com.epam.esm.entity.Tag;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.exception.OrderNotFoundException;
+import com.epam.esm.exception.UnauthorizedAccessException;
 import com.epam.esm.exception.UserNotFoundException;
 import com.epam.esm.mapper.OrderMapper;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -55,35 +55,6 @@ public class OrderServiceImpl implements OrderService {
     /**
      * {@inheritDoc}
      * <p>
-     * Saves an order.
-     *
-     * @param userId the user ID
-     * @return the saved order DTO
-     */
-    @Override
-    @Transactional(rollbackFor = Exception.class,
-            isolation = Isolation.READ_COMMITTED)
-    public OrderDto save(
-            final Long userId,
-            final Set<Long> ids) {
-        User user = userDao.getById(userId).orElseThrow(() ->
-                new UserNotFoundException("UserNotFoundException"));
-        List<Certificate> certificates =
-                certificateDao.findAllByIds(ids);
-        Order order = Order.builder()
-                .certificates(new HashSet<>(certificates))
-                .cost(certificates.stream()
-                        .map(Certificate::getPrice)
-                        .reduce(BigDecimal.ZERO, BigDecimal::add))
-                .user(user)
-                .build();
-        return orderMapper.toDto(
-                orderDao.save(order));
-    }
-
-    /**
-     * {@inheritDoc}
-     * <p>
      * Retrieves an order by its ID.
      *
      * @param id the ID of the order to retrieve
@@ -113,26 +84,14 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional(readOnly = true)
     public OrderDto createOrder(
+            final String username,
             final Long userId,
             final Set<Long> certificateIds) {
-        User user = userDao.getById(userId)
-                .orElseThrow(() -> new UserNotFoundException(
-                        String.format("User with id %d not found", userId)));
-        List<Certificate> certificates = certificateDao
-                .findAllByIds(certificateIds);
-        if (certificates.size() != certificateIds.size()) {
-            throw new CertificateNotFoundException(
-                    "One or more certificates not found");
-        }
-        Order order = Order.builder()
-                .user(user)
-                .certificates(new HashSet<>(certificates))
-                .orderDate(Timestamp.valueOf(LocalDateTime.now()))
-                .cost(certificates.stream()
-                        .map(Certificate::getPrice)
-                        .reduce(BigDecimal.ZERO, BigDecimal::add))
-                .build();
-
+        User user = getUser(username);
+        validUser(user, userId);
+        List<Certificate> certificates =
+                getCertificatesByIds(certificateIds);
+        Order order = getOrder(user, certificates);
         return orderMapper.toDto(orderDao.save(order));
     }
 
@@ -177,16 +136,16 @@ public class OrderServiceImpl implements OrderService {
      * <p>
      * Retrieves a specific order for a user.
      *
-     * @param userId  the ID of the user
-     * @param orderId the ID of the order
+     * @param username
+     * @param userId   the ID of the user
+     * @param orderId  the ID of the order
      * @return the order DTO
      * @throws OrderNotFoundException if the order is not found
      */
     @Override
     @Transactional(readOnly = true)
     public OrderDto getUserOrder(
-            final Long userId,
-            final Long orderId) {
+            String username, final Long userId, final Long orderId) {
         Order order = orderDao.getUserOrder(userId, orderId)
                 .orElseThrow(() -> new OrderNotFoundException(
                         String.format("Order not found with id %d", orderId)));
@@ -214,17 +173,19 @@ public class OrderServiceImpl implements OrderService {
      * Retrieves all orders for a specific user.
      *
      * @param userId   the ID of the user
-     * @param pageable
+     * @param pageable the pageable object for pagination
      * @return a page of order DTOs
      */
     @Override
     @Transactional(readOnly = true)
     public List<OrderDto> getAllByUserId(
+            final String username,
             final Long userId,
             final Pageable pageable) {
+        User user = getUser(username);
+        validUser(user, userId);
         return orderMapper.toDtoList(
                 orderDao.findOrdersByUserId(userId, pageable));
-
     }
 
     /**
@@ -247,8 +208,8 @@ public class OrderServiceImpl implements OrderService {
      * {@inheritDoc}
      * <p>
      *
-     * @param dto
-     * @return
+     * @param dto The {@link OrderDto} containing the updated information.
+     * @return The updated {@link OrderDto}.
      */
     @Override
     @Transactional
@@ -262,12 +223,79 @@ public class OrderServiceImpl implements OrderService {
      * {@inheritDoc}
      * <p>
      *
-     * @param id
+     * @param id of the order to delete.
      */
     @Override
     @Transactional
-    public void delete(
-            final Long id) {
+    public void delete(final Long id) {
         orderDao.delete(id);
+    }
+
+    /**
+     * Retrieves a user by their username.
+     *
+     * @param username the username of the user
+     * @return the User object if found
+     * @throws UserNotFoundException if no user is found with the given username
+     */
+    private User getUser(final String username) {
+        return userDao.findByUsername(username)
+                .orElseThrow(() -> new UserNotFoundException(
+                        String.format("%s User not found%n", username)));
+    }
+
+    /**
+     * Constructs an Order object using the provided user and list of certificates.
+     *
+     * @param user         the User object associated with the order
+     * @param certificates the list of certificates included in the order
+     * @return the constructed Order object
+     */
+    private static Order getOrder(
+            final User user,
+            final List<Certificate> certificates) {
+        return Order.builder()
+                .user(user)
+                .certificates(new HashSet<>(certificates))
+                .orderDate(Timestamp.valueOf(LocalDateTime.now()))
+                .cost(certificates.stream()
+                        .map(Certificate::getPrice)
+                        .reduce(BigDecimal.ZERO, BigDecimal::add))
+                .build();
+    }
+
+    /**
+     * Retrieves a list of certificates based on the given set of certificate IDs.
+     *
+     * @param certificateIds the set of certificate IDs to retrieve
+     * @return the list of certificates matching the given IDs
+     * @throws CertificateNotFoundException if one or more certificates are not found
+     */
+    private List<Certificate> getCertificatesByIds(
+            final Set<Long> certificateIds) {
+        List<Certificate> certificates = certificateDao
+                .findAllByIds(certificateIds);
+        if (certificates.size() != certificateIds.size()) {
+            throw new CertificateNotFoundException(
+                    "One or more certificates not found");
+        }
+        return certificates;
+    }
+
+    /**
+     * Method will throw an exception when the parameter is null.
+     * Checks if the authenticated user is the same as the specified userId.
+     *
+     * @param user   The authenticated user obtained from the security context.
+     * @param userId The ID of the user to compare with the authenticated user.
+     * @throws UnauthorizedAccessException If the authenticated user is null
+     *                                     or has a different ID than the specified userId.
+     */
+    private static void validUser(
+            final User user, final Long userId) {
+        if (user.getId().compareTo(userId) != 0) {
+            throw new UnauthorizedAccessException(
+                    "Access denied for " + user.getUsername());
+        }
     }
 }

@@ -42,6 +42,7 @@ public class PostCertificateDto extends RepresentationModel<CertificateDto> {
      * The description of the certificate.
      */
     @Size(min = 1, max = 1024)
+    @NotNull(message = "Description cannot be blank")
     private String description;
 
     /**

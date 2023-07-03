@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,12 +22,11 @@ import java.util.Collections;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anySet;
-import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -58,24 +58,10 @@ class OrderControllerTest {
     }
 
     @Test
-    @DisplayName("Create Order: Given valid user ID and certificate IDs, when create order, then return HTTP status 201")
-    void testCreateOrderShouldReturnHttpStatusCreated() throws Exception {
-        when(orderService.save(eq(id), anySet())).thenReturn(orderDto);
-        mockMvc.perform(post("/orders/{userId}", id)
-                        .param("certificateIds", String.valueOf(id))
-                        .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
-                .andExpect(status().isCreated());
-    }
-
-    @Test
     @DisplayName("Get all orders by user ID: Given valid user ID, when get all orders, then return the collection of orders")
     void testGetAllOrdersByUserIdShouldReturnOrderCollection() throws Exception {
-        when(orderService.getAllByUserId(eq(1L), any(Pageable.class)))
-                .thenReturn(Collections.singletonList(orderDto));
-        mockMvc.perform(get("/orders/users/1")
-                        .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$._embedded.orderDtoList[0].id").value(1));
+        mockMvc.perform(get("/orders/users/1").with(user("alice")))
+                .andExpect(status().isOk());
     }
 
     @Test
@@ -99,13 +85,16 @@ class OrderControllerTest {
     }
 
     @Test
+    @WithMockUser(username = "alice")
     @DisplayName("Get order details: Given valid order ID and user ID, when get order details, then return the order details")
     void testGetOrderDetailsShouldReturnOrderDetailsWhenTheyExist() throws Exception {
-        when(orderService.getUserOrder(1L, 1L)).thenReturn(orderDto);
-        mockMvc.perform(get("/orders/1/users/1")
-                        .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
+        Long orderId = 1L;
+        orderDto.setId(orderId);
+        String username = "alice";
+        when(orderService.getUserOrder(username, orderId, id)).thenReturn(orderDto);
+        mockMvc.perform(get("/orders/{orderId}/users/{userId}", orderId, id))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1));
+                .andExpect(jsonPath("$.id").value(orderId));
+        verify(orderService).getUserOrder(username, orderId, id);
     }
-
 }

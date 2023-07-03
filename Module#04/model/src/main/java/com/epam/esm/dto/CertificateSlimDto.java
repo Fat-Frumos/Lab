@@ -40,6 +40,7 @@ public class CertificateSlimDto
      * It should be between 1 and 1024 characters in length.
      */
     @Size(min = 1, max = 1024)
+    @NotNull(message = "Description cannot be blank")
     private String description;
 
     /**
@@ -54,8 +55,7 @@ public class CertificateSlimDto
      * The duration of the certificate in days.
      * It must be less than or equal to 365.
      */
-    @Max(value = 365,
-            message = "Duration must be less than or equal to 365.")
+    @Max(value = 365, message = "Duration must be less than or equal to 365.")
     private Integer duration;
 
     /**

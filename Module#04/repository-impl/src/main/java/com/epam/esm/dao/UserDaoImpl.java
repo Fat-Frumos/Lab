@@ -1,9 +1,9 @@
 package com.epam.esm.dao;
 
-
 import com.epam.esm.entity.Order;
 import com.epam.esm.entity.Role;
 import com.epam.esm.entity.RoleType;
+import com.epam.esm.entity.Token;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.RoleNotFoundException;
 import com.epam.esm.exception.UserAlreadyExistsException;
@@ -28,11 +28,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import static com.epam.esm.dao.Queries.CERTIFICATES;
-import static com.epam.esm.dao.Queries.DELETE_ORDER;
-import static com.epam.esm.dao.Queries.DELETE_TOKEN;
-import static com.epam.esm.dao.Queries.DELETE_USER;
 import static com.epam.esm.dao.Queries.FETCH_GRAPH;
 import static com.epam.esm.dao.Queries.NAME;
 import static com.epam.esm.dao.Queries.ORDERS;
@@ -169,7 +167,7 @@ public class UserDaoImpl implements UserDao {
                 if (transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException(e.getMessage(), e);
+                throw new PersistenceException("Can not Saves a user with " + user.getUsername());
             }
         }
     }
@@ -185,29 +183,36 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void delete(final Long id) {
         try (EntityManager entityManager = factory.createEntityManager()) {
-            EntityTransaction transaction = entityManager.getTransaction();
-            try {
-                transaction.begin();
-                entityManager.createNativeQuery(DELETE_ORDER)
-                        .setParameter("id", id)
-                        .executeUpdate();
+            EntityTransaction transaction = null;
 
-                entityManager.createNativeQuery(DELETE_TOKEN)
-                        .setParameter("id", id)
-                        .executeUpdate();
-                entityManager.createNativeQuery(DELETE_USER)
-                        .setParameter("id", id)
-                        .executeUpdate();
+            try {
+                transaction = entityManager.getTransaction();
+                transaction.begin();
+
+                User user = entityManager.find(User.class, id);
+
+                if (user != null) {
+                    Set<Token> userTokens = user.getTokens();
+                    for (Token token : userTokens) {
+                        entityManager.remove(token);
+                    }
+                    Set<Order> userOrders = user.getOrders();
+                    for (Order order : userOrders) {
+                        entityManager.remove(order);
+                    }
+                    entityManager.remove(user);
+                }
 
                 transaction.commit();
             } catch (Exception e) {
-                if (transaction.isActive()) {
+                if (transaction != null && transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException(e);
+                throw new PersistenceException("Can not Deletes a user with " + id);
             }
         }
     }
+
 
     /**
      * {@inheritDoc}
@@ -256,7 +261,7 @@ public class UserDaoImpl implements UserDao {
                 if (transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException(e);
+                throw new PersistenceException("Uhe user to update is failed: " + user.getUsername());
             }
         }
     }
@@ -265,7 +270,7 @@ public class UserDaoImpl implements UserDao {
      * Retrieves a role based on the given permission.
      *
      * @param entityManager the to build query by CriteriaBuilder
-     * @param permission the permission to search for
+     * @param permission    the permission to search for
      * @return an optional containing the role if found, or empty if not found
      */
     public Optional<Role> findRoleByPermission(

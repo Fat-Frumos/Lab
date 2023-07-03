@@ -4,6 +4,7 @@ import com.epam.esm.entity.User;
 import com.epam.esm.security.auth.AuthenticationRequest;
 import com.epam.esm.security.auth.AuthenticationResponse;
 import com.epam.esm.security.auth.RegisterRequest;
+import com.epam.esm.security.auth.SecurityUser;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.transaction.annotation.Transactional;
@@ -64,7 +65,7 @@ public interface AuthService {
      * @return the user object if found, otherwise null
      */
     @Transactional
-    User findUser(String username);
+    SecurityUser findUser(String username);
 
     /**
      * Saves a user with the specified role and returns the updated user object.
@@ -73,7 +74,7 @@ public interface AuthService {
      * @return the updated user object
      */
     @Transactional
-    User saveUserWithRole(
+    SecurityUser saveUserWithRole(
             RegisterRequest request);
 
     /**

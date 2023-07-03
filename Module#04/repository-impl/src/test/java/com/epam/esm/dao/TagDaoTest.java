@@ -297,7 +297,7 @@ class TagDaoTest {
         when(entityTransaction.isActive()).thenReturn(true);
         doThrow(new RuntimeException("Error during persist")).when(entityManager).persist(tag);
         PersistenceException exception = assertThrows(PersistenceException.class, () -> tagDao.save(tag));
-        assertEquals("Error during persist", exception.getMessage());
+        assertEquals("Can not saves a tag", exception.getMessage());
         verify(entityTransaction).rollback();
         verify(entityManager).close();
     }
