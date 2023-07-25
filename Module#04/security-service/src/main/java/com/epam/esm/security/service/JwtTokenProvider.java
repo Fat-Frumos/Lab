@@ -260,7 +260,6 @@ public class JwtTokenProvider {
     public Token updateUserTokens(
             final User user,
             final String accessToken) {
-//        tokenRepository.deleteByUser(user);
         Token token = getToken(user, accessToken);
         return save(token);
     }

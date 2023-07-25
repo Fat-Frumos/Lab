@@ -73,7 +73,6 @@ public class WebSecurityConfig {
             final HttpSecurity http) throws Exception {
 
         return http
-                .csrf().disable()
                 .cors().configurationSource(corsConfigurationSource())
                 .and().headers().frameOptions().sameOrigin()
                 .and().authorizeHttpRequests(authorize ->

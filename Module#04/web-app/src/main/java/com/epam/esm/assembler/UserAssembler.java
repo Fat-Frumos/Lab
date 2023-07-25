@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.stream.StreamSupport;
 
-import static java.util.stream.Collectors.toList;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
@@ -64,7 +63,7 @@ public class UserAssembler implements
         return CollectionModel.of(StreamSupport
                         .stream(users.spliterator(), false)
                         .map(this::toModel)
-                        .collect(toList()),
+                        .toList(),
                 linkTo(methodOn(UserController.class)
                         .getUsers(PageRequest.of(
                                 0, 25,

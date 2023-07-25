@@ -61,7 +61,7 @@ public class OrderDto extends RepresentationModel<OrderDto> {
      */
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set<PostCertificateDto> certificateDtos;
+    private Set<CertificateDto> certificateDtos;
 
     @JsonCreator
     public OrderDto(
@@ -69,7 +69,7 @@ public class OrderDto extends RepresentationModel<OrderDto> {
             @JsonProperty("user") UserSlimDto user,
             @JsonProperty("cost") BigDecimal cost,
             @JsonProperty("orderDate") Timestamp orderDate,
-            @JsonProperty("certificateDtos") Set<PostCertificateDto> certificateDtos) {
+            @JsonProperty("certificateDtos") Set<CertificateDto> certificateDtos) {
         this.id = id;
         this.cost = cost;
         this.user = user;

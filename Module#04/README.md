@@ -39,6 +39,8 @@ Maven will perform the necessary build tasks, such as compiling the code,
 creating the project's artifacts, and verifying their correctness. 
 `mvn verify -e`
 
+` mvn sonar:sonar`
+
 
 ### Business requirements
 

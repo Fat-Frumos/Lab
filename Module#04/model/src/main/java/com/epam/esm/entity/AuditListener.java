@@ -17,12 +17,11 @@ public class AuditListener {
      */
     @PrePersist
     public void prePersist(final Object entity) {
-        if (entity instanceof Order) {
-            Order order = (Order) entity;
+        if (entity instanceof Order order) {
             order.setOrderDate(now());
         }
-        if (entity instanceof Certificate) {
-            Certificate certificate = (Certificate) entity;
+
+        if (entity instanceof Certificate certificate) {
             certificate.setCreateDate(now());
             certificate.setLastUpdateDate(now());
         }
@@ -35,8 +34,7 @@ public class AuditListener {
      */
     @PreUpdate
     public void preUpdate(final Object entity) {
-        if (entity instanceof Certificate) {
-            Certificate certificate = (Certificate) entity;
+        if (entity instanceof Certificate certificate) {
             certificate.setLastUpdateDate(now());
         }
     }
