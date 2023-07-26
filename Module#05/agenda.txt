@@ -1,0 +1,45 @@
+Intro to AWS CLouds (deploy java)
+
+Cлайд 1: https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1#
+
+консоль AWS, 
+services AWS:  (VPC), Security Group, EC2, RDS і S3.
+AWS Free Tier. 
+https://us-east-1.console.aws.amazon.com/billing/home?region=us-east-1#/freetier
+
+main taks: deploy rest-api app java on EC2 binding Static resource S3. +  інтеграції з Remote Desktop Services (RDS).
+
+manual deploy without ci/cd
+
+FreeTier AWS
+
+IAM Roles permissions
+
+EC2 -> S3 AmazonS3ReadOnlyAccess
+https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/roles
+
+AWS S3 
+https://s3.console.aws.amazon.com/s3/home?region=us-east-1
+
+Bucket policy
+https://s3.console.aws.amazon.com/s3/buckets/certificate--rest-api-jar?region=us-east-1&tab=permissions
+
+RDS  VPC
+https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#databases:
+
+
+CREATE DATABASE gift;
+
+psql --host=gift.cpwsodl3pdrd.us-east-1.rds.amazonaws.com --port=5432 --username=
+
+Start EC2 Amazon Linux 2(Ferora) VPC default
+
+connect cli: aws cli: aws s3 cp s3://BUCKET-NAME/FILENAME . 
+
+ 8080
+https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#SecurityGroup:group-id=sg-0571196ce4f8e7594
+
+java jar profile
+
+принципи хмарного ціноутворення AWS. Розірвання та вартість
+https://us-east-1.console.aws.amazon.com/billing/home?region=us-east-1#/bills

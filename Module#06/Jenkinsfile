@@ -1,0 +1,100 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone repo') {
+            steps {
+                git branch: 'module#3', credentialsId: '337c23bd-e9ce-4b42-973a-9011487bd289', url: 'https://github.com/Fat-Frumos/Lab.git'
+            }
+        }
+
+        stage('Maven Build') {
+            steps {
+                dir('Module#04') {
+                    // bat 'mvn dependency:resolve -U'
+                    bat 'mvn clean install -e -DskipTests'
+                }
+            }
+        }
+        stage('Model') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f model/pom.xml'
+                    }
+                }
+            }
+        }        
+        stage('Service-api') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f service-api/pom.xml'
+                    }
+                }
+            }
+        }
+        stage('Service-impl') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f service-impl/pom.xml'
+                    }
+                }
+            }
+        }         
+        stage('Repository-api') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f repository-api/pom.xml'
+                    }
+                }
+            }
+        }
+        stage('Repository-impl') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f repository-impl/pom.xml'
+                    }
+                }
+            }
+        }
+        stage('Web-app') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f web-app/pom.xml'
+                    }
+                }
+            }
+        }       
+        stage('Repository-spring-jpa') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f repository-spring-jpa/pom.xml'
+                    }
+                }
+            }
+        }
+        stage('Security-service') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f security-service/pom.xml'
+                    }
+                }
+            }
+        }                       
+        stage('Parent') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn sonar:sonar'
+                    }
+                }
+            }
+        }                               
+    }
+}

@@ -1,0 +1,13 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::276601941100:role/S3ReadOnly"
+			},
+			"Action": "s3:GetObject",
+			"Resource": "arn:aws:s3:::certificate-api-mjc--jar/*"
+		}
+	]
+}

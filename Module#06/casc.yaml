@@ -1,0 +1,56 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          scope: GLOBAL
+          id: github
+          username: root
+          password: root
+          description: "Git Login"
+
+jenkins:
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: admin
+          password: admin
+        - id: developer
+          password: developer
+
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Job/Build:developer"
+        - "Job/Cancel:developer"
+        - "Overall/Read:developer"
+        - "Overall/Administer:admin"
+  remotingSecurity:
+    enabled: true
+
+  disableRememberMe: true
+
+security:
+  queueItemAuthenticator:
+    authenticators:
+      - global:
+          strategy: triggeringUsersAuthorizationStrategy
+
+unclassified:
+  location:
+    url: http://localhost:8081/
+
+tool:
+  git:
+    installations:
+      - name: Environment git client
+        home: git
+  maven:
+    installations:
+      - name: Maven 3
+        properties:
+          - installSource:
+              installers:
+                - maven:
+                    id: '3.6.3'
