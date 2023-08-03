@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.hateoas.RepresentationModel;
 
@@ -31,6 +32,7 @@ import java.util.Set;
  */
 @Data
 @Builder
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class OrderDto extends RepresentationModel<OrderDto> {
     /**

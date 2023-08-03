@@ -1,15 +1,14 @@
 package com.epam.esm.config;
 
+import com.epam.esm.entity.SecurityUser;
 import com.epam.esm.handler.ResponseMessage;
 import com.epam.esm.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,14 +26,11 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
-import org.springframework.web.servlet.resource.PathResourceResolver;
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 
-import java.io.IOException;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
@@ -52,12 +48,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Value("${server.servlet.context-path}")
     private String contextPath;
-    /**
-     * The classpath resource locations for static resources.
-     */
-    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
-            "classpath:/META-INF/resources/", "classpath:/resources/",
-            "classpath:/static/", "classpath:/public/", "/favicon.ico"};
 
     /**
      * Adds view controllers for specific paths.
@@ -91,32 +81,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void configureContentNegotiation(
             final ContentNegotiationConfigurer configurer) {
         configurer.defaultContentType(APPLICATION_JSON);
-    }
-
-    /**
-     * Adds resource handlers for serving static resources.
-     *
-     * @param registry the resource handler registry
-     */
-    @Override
-    public void addResourceHandlers(
-            final ResourceHandlerRegistry registry) {
-        registry.addResourceHandler(contextPath)
-                .addResourceLocations(CLASSPATH_RESOURCE_LOCATIONS)
-                .setCacheControl(CacheControl.maxAge(30, TimeUnit.DAYS))
-                .resourceChain(true)
-                .addResolver(new PathResourceResolver() {
-                    @Override
-                    protected Resource getResource(
-                            @NonNull final String resourcePath,
-                            @NonNull final Resource location) throws IOException {
-                        Resource resource = location.createRelative(resourcePath);
-                        return resource.exists()
-                                && resource.isReadable()
-                                ? resource
-                                : new ClassPathResource("/static/favicon.ico");
-                    }
-                });
     }
 
     /**
@@ -173,9 +137,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Bean
     public UserDetailsService userDetailsService(
             final UserRepository userRepository) {
-        return username -> userRepository.findByUsername(username)
+        return username -> SecurityUser.builder()
+                .user(userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException(
-                        String.format("User not found with name %s", username)));
+                        String.format("User not found with name %s", username))))
+                .build();
     }
 
     /**

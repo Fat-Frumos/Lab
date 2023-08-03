@@ -8,7 +8,7 @@
         <artifactId>certificate</artifactId>
         <version>1.0.0</version>
     </parent>
-
+    <packaging>war</packaging>
     <artifactId>web-app</artifactId>
     <version>1.0.0</version>
     <name>web-app</name>
@@ -43,6 +43,11 @@
             <artifactId>security-service</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>
@@ -93,6 +98,22 @@
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <server>maven-tomcat-war-deployment-server</server>
+                    <url>http://localhost:8080/manager/text</url>
+                    <server>maven-tomcat-war-deployment-server</server>
+                    <update>true</update>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

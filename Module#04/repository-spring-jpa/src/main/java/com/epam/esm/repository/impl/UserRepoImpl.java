@@ -5,6 +5,7 @@ import com.epam.esm.entity.User;
 import com.epam.esm.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +52,9 @@ public class UserRepoImpl implements UserDao {
      */
     @Override
     public Optional<User> findByUsername(final String name) {
-        return userRepository.findByUsername(name);
+         return Optional.ofNullable(
+                 userRepository.findByUsername(name)
+                         .orElseThrow(()-> new UsernameNotFoundException(name)));
     }
 
     /**

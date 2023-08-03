@@ -1,5 +1,6 @@
 package com.epam.esm;
 
+import com.epam.esm.entity.SecurityUser;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.UserNotFoundException;
 import com.epam.esm.repository.UserRepository;
@@ -39,7 +40,7 @@ import static org.mockito.Mockito.when;
 
 @DataJpaTest
 @Import({AuthenticationService.class, JwtTokenProvider.class})
-class AuthenticationServiceTest {
+class AuthenticationServiceDataJpaTest {
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -56,6 +57,7 @@ class AuthenticationServiceTest {
     private final String password = "password";
     Long expired = 1000L;
     RegisterRequest registerRequest;
+    SecurityUser securityUser;
 
     @BeforeEach
     public void setUp() {
@@ -64,6 +66,7 @@ class AuthenticationServiceTest {
         Mockito.when(encoder.encode(anyString())).thenReturn("encodedPassword");
         user = User.builder().email(email).password(password).username(username).build();
         userRepository.save(user);
+        securityUser = SecurityUser.builder().user(user).build();
     }
 
     @AfterEach
@@ -73,9 +76,9 @@ class AuthenticationServiceTest {
 
     @Test
     void findUserWhenUserExistsReturnsUser() {
-        userRepository.save(user);
-        User foundUser = service.findUser(username);
-        assertEquals(foundUser, user);
+        User save = userRepository.save(user);
+        SecurityUser foundUser = service.findUser(username);
+        assertEquals(foundUser.getUser(), save);
     }
 
     @Test
@@ -86,9 +89,8 @@ class AuthenticationServiceTest {
 
     @Test
     void testAuthenticateSuccess() {
-        AuthenticationRequest authenticationRequest = new AuthenticationRequest();
-        authenticationRequest.setUsername(username);
-        authenticationRequest.setPassword(password);
+        AuthenticationRequest authenticationRequest =
+                AuthenticationRequest.builder().username(username).password(password).build();
         AuthenticationResponse authenticationResponse = service.authenticate(authenticationRequest);
         assertNotNull(authenticationResponse);
         assertNotNull(authenticationResponse.getAccessToken());
@@ -113,7 +115,8 @@ class AuthenticationServiceTest {
     @DisplayName("Given a RegisterRequest, when saveUserWithRole is called, then return a User with the expected values")
     void testSaveUserWithRole() {
         RegisterRequest request = new RegisterRequest(bob, email, password);
-        AuthenticationService authService = new AuthenticationService(encoder, jwtTokenProvider, null, userRepository);
+        AuthenticationService authService =
+                new AuthenticationService(encoder, jwtTokenProvider, null, userRepository);
         User user = authService.saveUserWithRole(request);
         assertEquals(bob, user.getUsername());
         assertEquals("encodedPassword", user.getPassword());
@@ -136,7 +139,7 @@ class AuthenticationServiceTest {
     @Test
     @DisplayName("Given a valid authorization header and response, when refresh is called, then an AuthenticationResponse is returned")
     void refreshGivenValidAuthorizationHeaderAndResponseReturnsAuthenticationResponse() {
-        String refreshToken = jwtTokenProvider.generateRefreshToken(user);
+        String refreshToken = jwtTokenProvider.generateRefreshToken(securityUser);
         String authorizationHeader = "Bearer " + refreshToken;
         HttpServletResponse httpServletResponse = new MockHttpServletResponse();
         AuthenticationResponse response = service.refresh(authorizationHeader, httpServletResponse);
@@ -168,7 +171,7 @@ class AuthenticationServiceTest {
     @Test
     @DisplayName("Given a user and a refresh token, when getAuthenticationResponse is called, then an AuthenticationResponse is returned with the correct values")
     void testGetAuthenticationResponses() {
-        AuthenticationResponse response = service.getAuthenticationResponse(user);
+        AuthenticationResponse response = service.getAuthenticationResponse(securityUser);
         assertEquals(username, response.getUsername());
         assertNotNull(response.getRefreshToken());
         assertNotNull(response.getAccessToken());
@@ -185,7 +188,7 @@ class AuthenticationServiceTest {
         when(provider.getExpiration()).thenReturn(1000L);
         UserRepository userRepository = mock(UserRepository.class);
         when(userRepository.findByUsername(username)).thenReturn(Optional.of(user));
-        AuthenticationResponse response = service.getAuthenticationResponse(user);
+        AuthenticationResponse response = service.getAuthenticationResponse(securityUser);
         assertEquals(username, response.getUsername());
         assertNotNull(response.getAccessToken());
     }
@@ -195,7 +198,7 @@ class AuthenticationServiceTest {
     void testGetResponse() {
         JwtTokenProvider provider = mock(JwtTokenProvider.class);
         when(provider.getExpiration()).thenReturn(expired);
-        AuthenticationResponse response = service.getAuthenticationResponse(user);
+        AuthenticationResponse response = service.getAuthenticationResponse(securityUser);
         assertEquals(username, response.getUsername());
         assertNotNull(response.getAccessToken());
         assertNotNull(response.getExpiresAt());
@@ -204,7 +207,7 @@ class AuthenticationServiceTest {
     @Test
     @DisplayName("Given a user and a refresh token, when getAuthenticationResponse is called, then an AuthenticationResponse is returned with the correct values")
     void testGetAuthenticationResponse() {
-        AuthenticationResponse response = service.getAuthenticationResponse(user, "testRefreshToken");
+        AuthenticationResponse response = service.getAuthenticationResponse(securityUser, "testRefreshToken");
         assertEquals(username, response.getUsername());
         assertNotNull(response.getAccessToken());
         assertNotNull(response.getRefreshToken());

@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.springframework.hateoas.RepresentationModel;
 
 /**
@@ -15,6 +16,7 @@ import org.springframework.hateoas.RepresentationModel;
  */
 @Data
 @Builder
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class UserSlimDto extends RepresentationModel<UserSlimDto> {
     /**

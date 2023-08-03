@@ -15,7 +15,6 @@ import jakarta.persistence.NamedSubgraph;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import jakarta.transaction.Transactional;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,12 +23,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Hibernate;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 
-import java.util.Collection;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -77,7 +73,7 @@ import java.util.Set;
                 )
         }
 )
-public class User implements UserDetails {
+public class User implements Serializable {
     /**
      * The unique identifier of the user.
      */
@@ -136,58 +132,4 @@ public class User implements UserDetails {
             cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "role_id")
     private Role role;
-
-    /**
-     * Retrieves the authorities granted to the user.
-     *
-     * @return A collection of GrantedAuthority
-     * objects representing the user's authorities.
-     */
-    @Override
-    @Transactional
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        Hibernate.initialize(role);
-        Hibernate.initialize(role.getPermission());
-        return role.getPermission().getGrantedAuthorities();
-    }
-
-    /**
-     * Checks if the user's account is not expired.
-     *
-     * @return true if the account is not expired, false otherwise.
-     */
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    /**
-     * Checks if the user's account is not locked.
-     *
-     * @return true if the account is not locked, false otherwise.
-     */
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    /**
-     * Checks if the user's credentials are not expired.
-     *
-     * @return true if the credentials are not expired, false otherwise.
-     */
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    /**
-     * Checks if the user is enabled.
-     *
-     * @return true if the user is enabled, false otherwise.
-     */
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 }

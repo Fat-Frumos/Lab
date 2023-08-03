@@ -1,5 +1,6 @@
 package com.epam.esm.security.service;
 
+import com.epam.esm.entity.SecurityUser;
 import com.epam.esm.entity.User;
 import com.epam.esm.security.auth.AuthenticationRequest;
 import com.epam.esm.security.auth.AuthenticationResponse;
@@ -64,7 +65,7 @@ public interface AuthService {
      * @return the user object if found, otherwise null
      */
     @Transactional
-    User findUser(String username);
+    SecurityUser findUser(String username);
 
     /**
      * Saves a user with the specified role and returns the updated user object.

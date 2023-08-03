@@ -1,6 +1,7 @@
 package com.epam.esm.security.service;
 
 import com.epam.esm.entity.Role;
+import com.epam.esm.entity.SecurityUser;
 import com.epam.esm.entity.Token;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.UserAlreadyExistsException;
@@ -61,7 +62,9 @@ public class AuthenticationService implements AuthService {
                     "User already exists with name "
                             + request.getUsername());
         }
-        User user = saveUserWithRole(request);
+        SecurityUser user = SecurityUser.builder()
+                .user(saveUserWithRole(request))
+                .build();
         log.info("signup service: " + user);
         return getAuthenticationResponse(user);
     }
@@ -76,7 +79,7 @@ public class AuthenticationService implements AuthService {
     public AuthenticationResponse login(
             final AuthenticationRequest request) {
         setAuthenticationToken(request);
-        User user = findUser(request.getUsername());
+        SecurityUser user = findUser(request.getUsername());
         return getAuthenticationResponse(user);
     }
 
@@ -93,8 +96,8 @@ public class AuthenticationService implements AuthService {
     public AuthenticationResponse authenticate(
             final AuthenticationRequest request) {
         setAuthenticationToken(request);
-        User user = findUser(request.getUsername());
-        provider.revokeAllUserTokens(user);
+        SecurityUser user = findUser(request.getUsername());
+        provider.revokeAllUserTokens(user.getUser());
         return getAuthenticationResponse(user);
     }
 
@@ -113,12 +116,10 @@ public class AuthenticationService implements AuthService {
             String refreshToken = authorizationHeader.substring(7);
             String username = provider.getUsername(refreshToken);
             if (username != null) {
-                User user = userRepository.findByUsername(username)
-                        .orElseThrow(() -> new UserNotFoundException(
-                                format("User not found :%s", username)));
+                SecurityUser user = findUser(username);
                 if (provider.isTokenValid(refreshToken, user)) {
                     String accessToken = provider.generateToken(user);
-                    Token token = provider.updateUserTokens(user, accessToken);
+                    Token token = provider.updateUserTokens(user.getUser(), accessToken);
                     return AuthenticationResponse.builder()
                             .username(username)
                             .accessToken(token.getAccessToken())
@@ -181,10 +182,11 @@ public class AuthenticationService implements AuthService {
      * @throws UserNotFoundException if the user is not found.
      */
     @Transactional
-    public User findUser(final String username) {
-        return userRepository.findByUsername(username)
+    public SecurityUser findUser(final String username) {
+        User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException(
                         format("User not found: %s", username)));
+        return SecurityUser.builder().user(user).build();
     }
 
     /**
@@ -238,9 +240,9 @@ public class AuthenticationService implements AuthService {
      */
     @Transactional
     public AuthenticationResponse getAuthenticationResponse(
-            final User user) {
+            final SecurityUser user) {
         String jwtToken = provider.generateToken(user);
-        Token token = provider.updateUserTokens(user, jwtToken);
+        Token token = provider.updateUserTokens(user.getUser(), jwtToken);
         return getAuthenticationResponse(user, jwtToken,
                 token.getAccessTokenTTL());
     }
@@ -253,7 +255,7 @@ public class AuthenticationService implements AuthService {
      * @return the authentication response containing the user, access token, and expiration time
      */
     public AuthenticationResponse getAuthenticationResponse(
-            final User user, final String accessToken) {
+            final SecurityUser user, final String accessToken) {
         return getAuthenticationResponse(
                 user, accessToken,
                 provider.getExpiration());
@@ -268,7 +270,7 @@ public class AuthenticationService implements AuthService {
      * @return The AuthenticationResponse object.
      */
     private AuthenticationResponse getAuthenticationResponse(
-            final User user,
+            final SecurityUser user,
             final String jwtToken,
             final Long accessToken) {
         return AuthenticationResponse.builder()

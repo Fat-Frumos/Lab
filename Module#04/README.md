@@ -39,7 +39,11 @@ Maven will perform the necessary build tasks, such as compiling the code,
 creating the project's artifacts, and verifying their correctness. 
 `mvn verify -e`
 
-` mvn sonar:sonar`
+`mvn sonar:sonar`
+
+`mvn install tomcat7:deploy -X`
+
+`mvn tomcat7:run  -DskipTests`
 
 
 ### Business requirements
