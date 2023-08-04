@@ -45,6 +45,7 @@ creating the project's artifacts, and verifying their correctness.
 
 `mvn tomcat7:run  -DskipTests`
 
+`mvn test jacoco:report`
 
 ### Business requirements
 

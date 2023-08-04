@@ -1,6 +1,6 @@
-#RDS psql profile=prod
-
 #!/bin/bash
+
+#RDS psql profile=prod
 
 # enter SSH
 ssh -i "virginia.pem" ec2-user@compute-1.amazonaws.com:8080/api/

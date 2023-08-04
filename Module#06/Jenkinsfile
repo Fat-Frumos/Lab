@@ -1,3 +1,5 @@
+//git@github.com:Fat-Frumos/Lab.git/
+
 pipeline {
     agent any
     stages {
@@ -11,15 +13,32 @@ pipeline {
             steps {
                 dir('Module#04') {
                     // bat 'mvn dependency:resolve -U'
-                    bat 'mvn clean install -e -DskipTests'
+                    bat 'mvn clean install -e'
+                    echo "Maven Package Goal Executed Successfully!";
                 }
             }
         }
+        
+        // stage('JUNit Reports') {
+        //     steps {
+        //             junit 'target/surefire-reports/*.xml'
+		      //          echo "Publishing JUnit reports"
+        //     }
+        // }
+        
+        // stage('Jacoco Reports') {
+        //     steps {
+        //           jacoco()
+        //           echo "Publishing Jacoco Code Coverage Reports";
+        //     }
+        // }
+        
+        
         stage('Model') {
             steps {
                 dir('Module#04') {
                     withSonarQubeEnv('Sonar-Server-10.1'){
-                    bat 'mvn clean install sonar:sonar -B -f model/pom.xml'
+                    bat 'mvn clean install sonar:sonar -B -f model/pom.xml -Dsonar.password=admin -Dsonar.login=admin'
                     }
                 }
             }
@@ -28,7 +47,7 @@ pipeline {
             steps {
                 dir('Module#04') {
                     withSonarQubeEnv('Sonar-Server-10.1'){
-                    bat 'mvn clean install sonar:sonar -B -f service-api/pom.xml'
+                    bat 'mvn clean install sonar:sonar -B -f service-api/pom.xml -Dsonar.password=admin -Dsonar.login=admin'
                     }
                 }
             }
@@ -37,7 +56,7 @@ pipeline {
             steps {
                 dir('Module#04') {
                     withSonarQubeEnv('Sonar-Server-10.1'){
-                    bat 'mvn clean install sonar:sonar -B -f service-impl/pom.xml'
+                    bat 'mvn clean install sonar:sonar -B -f service-impl/pom.xml -Dsonar.password=admin -Dsonar.login=admin'
                     }
                 }
             }
@@ -46,7 +65,7 @@ pipeline {
             steps {
                 dir('Module#04') {
                     withSonarQubeEnv('Sonar-Server-10.1'){
-                    bat 'mvn clean install sonar:sonar -B -f repository-api/pom.xml'
+                    bat 'mvn clean install sonar:sonar -B -f repository-api/pom.xml -Dsonar.password=admin -Dsonar.login=admin'
                     }
                 }
             }
@@ -55,7 +74,7 @@ pipeline {
             steps {
                 dir('Module#04') {
                     withSonarQubeEnv('Sonar-Server-10.1'){
-                    bat 'mvn clean install sonar:sonar -B -f repository-impl/pom.xml'
+                    bat 'mvn clean install sonar:sonar -B -f repository-impl/pom.xml -Dsonar.password=admin -Dsonar.login=admin'
                     }
                 }
             }
@@ -64,7 +83,7 @@ pipeline {
             steps {
                 dir('Module#04') {
                     withSonarQubeEnv('Sonar-Server-10.1'){
-                    bat 'mvn clean install sonar:sonar -B -f web-app/pom.xml'
+                    bat 'mvn clean install sonar:sonar -B -f web-app/pom.xml -Dsonar.password=admin -Dsonar.login=admin'
                     }
                 }
             }
@@ -73,7 +92,7 @@ pipeline {
             steps {
                 dir('Module#04') {
                     withSonarQubeEnv('Sonar-Server-10.1'){
-                    bat 'mvn clean install sonar:sonar -B -f repository-spring-jpa/pom.xml'
+                    bat 'mvn clean install sonar:sonar -B -f repository-spring-jpa/pom.xml -Dsonar.password=admin -Dsonar.login=admin'
                     }
                 }
             }
@@ -82,7 +101,7 @@ pipeline {
             steps {
                 dir('Module#04') {
                     withSonarQubeEnv('Sonar-Server-10.1'){
-                    bat 'mvn clean install sonar:sonar -B -f security-service/pom.xml'
+                    bat 'mvn clean install sonar:sonar -B -f security-service/pom.xml -Dsonar.password=admin -Dsonar.login=admin'
                     }
                 }
             }
@@ -91,10 +110,32 @@ pipeline {
             steps {
                 dir('Module#04') {
                     withSonarQubeEnv('Sonar-Server-10.1'){
-                    bat 'mvn sonar:sonar'
+                    bat 'mvn sonar:sonar -Dsonar.password=admin -Dsonar.login=admin'
                     }
                 }
             }
-        }                               
+        }
+
+  // stage('Quality Gate Check') {
+  //           steps {
+  //               timeout(time: 1, unit: 'HOURS') {
+  //                     script {
+  //                       def qg = waitForQualityGate()
+  //                       if (qg.status != 'OK') {
+  //                           error "Quality Gate did not pass. Check SonarQube for details:/dashboard?id="
+  //                       }
+  //                   }
+  //               }
+  //           }
+  //       }
+
+        stage('Deploy') {
+            steps {
+                dir('Module#04') {
+                bat 'mvn install tomcat7:deploy -X'
+                echo "Deployed Successfully"
+                }
+            }
+        }
     }
 }

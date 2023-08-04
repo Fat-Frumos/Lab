@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cat /etc/os-release
 sudo apt-get update
 sudo apt-get install openjdk-8-jre-headless -y
@@ -13,3 +15,9 @@ sudo apt-get install jenkins -y
 
 sudo service jenkins status
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+#list plugins
+Jenkins.instance.pluginManager.plugins.each{
+  plugin -> 
+    println ("${plugin.getDisplayName()} (${plugin.getShortName()}): ${plugin.getVersion()}")
+}
