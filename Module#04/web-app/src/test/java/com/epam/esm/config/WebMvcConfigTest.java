@@ -19,13 +19,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Optional;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -49,6 +50,11 @@ class WebMvcConfigTest {
     HttpServletRequest request = mock(HttpServletRequest.class);
     HttpServletResponse response = mock(HttpServletResponse.class);
 
+    @Autowired
+    private WebApplicationContext context;
+
+    String username = "test";
+
     @BeforeEach
     public void setup() {
         user = User.builder().id(1L).username("test")
@@ -59,7 +65,6 @@ class WebMvcConfigTest {
 
     @Test
     void testLoadUserByUsername() {
-        String username = "test";
         user.setUsername(username);
         userRepository.save(user);
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
@@ -75,18 +80,16 @@ class WebMvcConfigTest {
         userRepository.delete(securityUser.getUser());
     }
 
-//    @Test
-//    void userDetailsServiceShouldThrowExceptionForUnknownUser() {
-//        userRepository.findByUsername(anyString());
-//        assertThatThrownBy(() -> userDetailsService.loadUserByUsername("unknown"))
-//                .isInstanceOf(UsernameNotFoundException.class)
-//                .hasMessageContaining("User not found with name unknown");
-//    }
-
+    @Test
+    void testUserDetailsServiceUserNotFound() {
+        Optional<User> optionalUser = userRepository.findByUsername(username);
+        UserDetailsService userDetailsService = context.getBean(UserDetailsService.class);
+        assertThrows(UsernameNotFoundException.class,
+                () -> userDetailsService.loadUserByUsername(username));
+    }
     @Test
     void testAccessDeniedHandler() throws IOException, ServletException {
         AccessDeniedException deniedException = mock(AccessDeniedException.class);
-
         doAnswer(invocation -> {
             int status = invocation.getArgument(0);
             when(response.getStatus()).thenReturn(status);

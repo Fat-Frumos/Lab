@@ -32,7 +32,7 @@ public class CertificateAssembler
     @NonNull
     @Override
     public EntityModel<CertificateDto> toModel(
-            @NonNull final CertificateDto dto) {
+            final CertificateDto dto) {
         return EntityModel.of(dto,
                 linkTo(methodOn(CertificateController.class)
                         .getCertificateById(dto.getId())).withSelfRel(),

@@ -269,7 +269,7 @@ public class AuthenticationService implements AuthService {
      * @param accessToken The access token expiration time.
      * @return The AuthenticationResponse object.
      */
-    private AuthenticationResponse getAuthenticationResponse(
+    public AuthenticationResponse getAuthenticationResponse(
             final SecurityUser user,
             final String jwtToken,
             final Long accessToken) {

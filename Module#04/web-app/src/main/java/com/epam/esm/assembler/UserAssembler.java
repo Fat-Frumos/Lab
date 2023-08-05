@@ -33,7 +33,7 @@ public class UserAssembler implements
     @NonNull
     @Override
     public EntityModel<UserDto> toModel(
-            final @NonNull UserDto userDto) {
+            final UserDto userDto) {
         return EntityModel.of(userDto,
                 linkTo(methodOn(UserController.class)
                         .getUser(userDto.getId()))
@@ -59,7 +59,7 @@ public class UserAssembler implements
     @NonNull
     @Override
     public CollectionModel<EntityModel<UserDto>> toCollectionModel(
-            final @NonNull Iterable<? extends UserDto> users) {
+            final Iterable<? extends UserDto> users) {
         return CollectionModel.of(StreamSupport
                         .stream(users.spliterator(), false)
                         .map(this::toModel)

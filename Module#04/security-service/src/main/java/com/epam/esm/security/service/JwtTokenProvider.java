@@ -15,7 +15,6 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -35,7 +34,6 @@ import static com.epam.esm.entity.TokenType.BEARER;
 /**
  * Service class that provides various JWT token operations.
  */
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class JwtTokenProvider {
@@ -245,7 +243,6 @@ public class JwtTokenProvider {
      */
     @Transactional
     public Token save(final Token token) {
-        log.info("save: " + token);
         return tokenRepository.save(token);
     }
 
