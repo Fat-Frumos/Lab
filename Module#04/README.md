@@ -47,6 +47,8 @@ creating the project's artifacts, and verifying their correctness.
 
 `mvn test jacoco:report`
 
+`mvn dependency:resolve -U`
+
 ### Business requirements
 
 #### Develop web service for Gift Certificates system with the following entities (many-to-many):

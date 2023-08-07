@@ -14,7 +14,10 @@
     <name>web-app</name>
     <description>Project for Spring Boot</description>
     <properties>
-        <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <tomcat.url>http://192.168.31.177:8080/manager/text</tomcat.url>
+        <tomcat.username>war-deployer</tomcat.username>
+        <tomcat.password>maven-tomcat</tomcat.password>
+    	<sonar.java.binaries>target/classes</sonar.java.binaries>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <java.version>17</java.version>
@@ -109,7 +112,6 @@
                 <version>2.2</version>
                 <configuration>
                     <server>maven-tomcat-war-deployment-server</server>
-                    <url>http://localhost:8080/manager/text</url>
                     <update>true</update>
                 </configuration>
             </plugin>
