@@ -14,19 +14,23 @@ class PatchCertificateDtoTest {
     @Test
     void testPatchCertificateDto() {
         Set<TagDto> tags = new HashSet<>();
-        tags.add(new TagDto(1L, "tag1"));
+        long id = 1L;
+        int duration = 30;
+        tags.add(new TagDto(id, "tag1"));
         tags.add(new TagDto(2L, "tag2"));
+        BigDecimal price = new BigDecimal("99.99");
 
-        PatchCertificateDto certificate = new PatchCertificateDto(
-                1L,
-                new BigDecimal("99.99"),
-                30,
-                tags);
+        PatchCertificateDto dto = new PatchCertificateDto(
+                id, price, duration, tags);
 
-        assertEquals(1L, certificate.getId());
-        assertEquals(new BigDecimal("99.99"), certificate.getPrice());
-        assertEquals(30, certificate.getDuration());
-        assertEquals(tags, certificate.getTags());
+        dto.setId(id);
+        dto.setTags(tags);
+        dto.setPrice(price);
+        dto.setDuration(duration);
+        assertEquals(id, dto.getId());
+        assertEquals(price, dto.getPrice());
+        assertEquals(duration, dto.getDuration());
+        assertEquals(tags, dto.getTags());
     }
 
     @Test

@@ -124,7 +124,10 @@ class TagMapperTest {
     void testToTagSet() {
         Set<TagDto> tagDtos = new HashSet<>(Arrays.asList(tagDto1, tagDto2));
         Tag tag1 = Tag.builder().id(1L).name("Test Tag 1").build();
-        Tag tag2 = Tag.builder().id(2L).name("Test Tag 2").build();
+
+        Tag tag2 = new Tag();
+        tag2.setName("Test Tag 2");
+        tag2.setId(2L);
         Set<Tag> expected = new HashSet<>(Arrays.asList(tag1, tag2));
         Set<Tag> result = tagMapper.toTagSet(tagDtos);
         assertEquals(expected, result);

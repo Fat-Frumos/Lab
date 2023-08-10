@@ -27,7 +27,10 @@ class UserSlimDtoTest {
         String username = "user";
         String email = "test@test.com";
         String password = "password";
-        RoleDto role = RoleDto.builder().permission(RoleType.USER).id(id).build();
+        RoleType roleType = RoleType.USER;
+        RoleDto role = RoleDto.builder().permission(roleType).id(id).build();
+        role.setId(id);
+        role.setPermission(roleType);
         UserSlimDto user = new UserSlimDto(id, username, email, password, role);
         assertEquals(user.getId(), id);
         assertEquals(user.getUsername(), username);

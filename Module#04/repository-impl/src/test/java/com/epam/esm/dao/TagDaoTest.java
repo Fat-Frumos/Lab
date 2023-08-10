@@ -25,8 +25,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import static com.epam.esm.dao.Queries.DELETE_CT_BY_TAG_ID;
 import static com.epam.esm.dao.Queries.DELETE_TAG;
@@ -78,6 +81,32 @@ class TagDaoTest {
         builder = mock(CriteriaBuilder.class);
         when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
         tagDao = new TagDaoImpl(entityManagerFactory);
+    }
+
+    @Test
+    @DisplayName("Given a set of tags, when saveAll is called, then it should save all tags and return the saved set")
+    void testSaveAll() {
+        Set<Tag> tagsToSave = new HashSet<>();
+        tagsToSave.add(tag);
+        when(entityManager.getTransaction()).thenReturn(entityTransaction);
+        Set<Tag> savedTags = tagDao.saveAll(tagsToSave);
+        verify(entityManager).persist(tag);
+        assertEquals(tagsToSave, savedTags);
+    }
+
+    @Test
+    @DisplayName("Test get All By Test")
+    void getAllByTest() {
+        when(entityManager.getCriteriaBuilder()).thenReturn(builder);
+        when(builder.createQuery(Tag.class)).thenReturn(criteriaQuery);
+        when(criteriaQuery.from(Tag.class)).thenReturn(root);
+        when(criteriaQuery.select(root)).thenReturn(criteriaQuery);
+        when(entityManager.createQuery(criteriaQuery)).thenReturn(typedQuery);
+        when(typedQuery.setMaxResults(pageable.getPageSize())).thenReturn(typedQuery);
+        when(typedQuery.setFirstResult(pageable.getPageNumber() * pageable.getPageSize())).thenReturn(typedQuery);
+        when(typedQuery.getResultList()).thenReturn(List.of(tag));
+        List<Tag> result = tagDao.getAllBy(pageable);
+        assertEquals(List.of(tag), result);
     }
 
     @ParameterizedTest

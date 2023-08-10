@@ -1,5 +1,7 @@
 package com.epam.esm.dto;
 
+import com.epam.esm.entity.Order;
+import com.epam.esm.entity.User;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -30,6 +32,26 @@ class OrderDtoTest {
         assertEquals(user, orderDto.getUser());
         assertEquals(decimal, orderDto.getCost());
         assertEquals(certificateDtos, orderDto.getCertificateDtos());
+        assertEquals(id, orderDto.getId());
+        assertEquals(date, orderDto.getOrderDate());
+    }
+
+    @Test
+    void testOrder() {
+        User user = new User();
+        Timestamp date = new Timestamp(System.currentTimeMillis());
+        long id = 1L;
+        BigDecimal decimal = new BigDecimal("100.00");
+        Order orderDto = Order.builder()
+                .id(id)
+                .user(user)
+                .cost(decimal)
+                .orderDate(date)
+                .build();
+
+        assertEquals(id, orderDto.getId());
+        assertEquals(user, orderDto.getUser());
+        assertEquals(decimal, orderDto.getCost());
         assertEquals(id, orderDto.getId());
         assertEquals(date, orderDto.getOrderDate());
     }

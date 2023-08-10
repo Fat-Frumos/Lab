@@ -2,14 +2,16 @@ package com.epam.esm.security.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * The RegisterRequest class represents the request payload for user registration.
  * It contains the user's username, email, and password.
  */
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

@@ -2,9 +2,9 @@
 ## Jenkins
 #### admin/admin, developer/developer
 
-java -jar agent.jar -jnlpUrl http://localhost:8081/computer/Local/jenkins-agent.jnlp -secret
+java -jar jenkins.war --httpPort=8082 -secret
 
-mvn clean verify sonar:sonar -Dsonar.projectKey=Lab -Dsonar.projectName='Lab' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=
+mvn clean verify sonar:sonar -Dsonar.projectKey=Lab -Dsonar.projectName='Lab' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=admin
 	
 mvn clean verify sonar:sonar -Dsonar.token=
 

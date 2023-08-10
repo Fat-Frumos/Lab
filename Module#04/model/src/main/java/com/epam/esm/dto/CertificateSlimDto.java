@@ -6,8 +6,9 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.math.BigDecimal;
@@ -17,7 +18,8 @@ import java.sql.Timestamp;
  * Represents a slim version of the Certificate entity.
  * It includes a subset of properties from the full Certificate entity.
  */
-@Data
+@Getter
+@Setter
 @Builder
 @EqualsAndHashCode(callSuper = false)
 public class CertificateSlimDto

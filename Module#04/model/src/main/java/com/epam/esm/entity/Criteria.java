@@ -1,14 +1,16 @@
 package com.epam.esm.entity;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 /**
  * Represents the criteria for searching certificates.
  */
-@Data
+@Getter
+@Setter
 @Builder
 public class Criteria {
     /**

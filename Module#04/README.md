@@ -49,6 +49,8 @@ creating the project's artifacts, and verifying their correctness.
 
 `mvn dependency:resolve -U`
 
+`java -jar jenkins.war --httpPort=8082`
+
 ### Business requirements
 
 #### Develop web service for Gift Certificates system with the following entities (many-to-many):

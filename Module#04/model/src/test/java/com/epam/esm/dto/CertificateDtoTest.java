@@ -19,6 +19,7 @@ import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -28,11 +29,13 @@ class CertificateDtoTest {
     private Tag tag;
     private Order order;
     private Certificate certificate;
+    private CertificateDto dto;
     private final Timestamp createDate = Timestamp.valueOf(LocalDateTime.now());
     private final Timestamp lastUpdateDate = Timestamp.valueOf(LocalDateTime.now());
 
     @BeforeEach
     public void setup() {
+        dto = new CertificateDto();
         order = Order.builder().build();
         certificate = Certificate.builder().lastUpdateDate(lastUpdateDate).createDate(createDate).build();
         certificate2 = Certificate.builder().lastUpdateDate(lastUpdateDate).createDate(createDate).build();
@@ -85,6 +88,39 @@ class CertificateDtoTest {
         assertFalse(certificate.getOrders().contains(order));
     }
 
+
+    @ParameterizedTest(name = "Test #{index} - ID: {0}, Name: {1}, Description: {2}")
+    @CsvSource({
+            "1, Winter, Season 1, 10.0, 30",
+            "2, Summer, Season 2, 20.0, 45",
+            "3, Spring, Season 3, 30.0, 60",
+            "4, Autumn, Season 4, 40.0, 75"})
+    void testCertificateDto(
+            Long id, String name, String description,
+            BigDecimal price, int duration) {
+        dto.setId(id);
+        dto.setName(name);
+        dto.setPrice(price);
+        dto.setDescription(description);
+        dto.setDuration(duration);
+        dto.setCreateDate(createDate);
+        dto.setLastUpdateDate(lastUpdateDate);
+        dto.setTags(new HashSet<>());
+        dto.setOrderDtos(new HashSet<>());
+        CertificateDto certificateDto = dto;
+        assertEquals(certificateDto, dto);
+        assertEquals(certificateDto.hashCode(), dto.hashCode());
+        assertTrue(dto.getOrderDtos().isEmpty());
+        assertTrue(dto.getTags().isEmpty());
+        assertEquals(lastUpdateDate, dto.getLastUpdateDate());
+        assertEquals(id, dto.getId());
+        assertEquals(name, dto.getName());
+        assertEquals(price, dto.getPrice());
+        assertEquals(description, dto.getDescription());
+        assertEquals(duration, dto.getDuration());
+        assertEquals(createDate, dto.getCreateDate());
+        assertEquals(lastUpdateDate, dto.getLastUpdateDate());
+    }
     @ParameterizedTest(name = "Test #{index} - ID: {0}, Name: {1}, Description: {2}")
     @CsvSource({
             "1, Winter, Season 1, 10.0, 30",
@@ -103,14 +139,17 @@ class CertificateDtoTest {
                 .createDate(createDate)
                 .lastUpdateDate(lastUpdateDate)
                 .build();
+
+        CertificateDto certificateDto = dto;
+        assertEquals(certificateDto, dto);
+        assertEquals(certificateDto.hashCode(), dto.hashCode());
+        assertNotEquals(certificate.hashCode(), certificate2.hashCode());
         order.addCertificate(certificate);
         order.addCertificate(certificate2);
         order.removeCertificate(certificate);
         int initialSize = order.getCertificates().size();
-
         assertEquals(createDate, certificate.getCreateDate());
         assertEquals(lastUpdateDate, certificate.getLastUpdateDate());
-
         assertFalse(order.getCertificates().contains(certificate));
         assertFalse(certificate.getOrders().contains(order));
         assertTrue(order.getCertificates().contains(certificate2));
@@ -136,16 +175,30 @@ class CertificateDtoTest {
             "3, Spring, Season 3, 30.0, 60",
             "4, Autumn, Season 4, 40.0, 75"})
     void testRemoveNonExistingCertificate(
-            long id, String name, String name2,
+            long id, String name, String description,
             BigDecimal price, int duration) {
+        Certificate certificate = Certificate.builder()
+                .id(id).name(name)
+                .price(price)
+                .lastUpdateDate(lastUpdateDate)
+                .description(description)
+                .build();
         certificate.setId(id);
         certificate.setName(name);
         certificate.setPrice(price);
         certificate.setDuration(duration);
         order.addCertificate(certificate);
-        certificate2.setName(name2);
+        certificate2.setName(name);
         int initialSize = order.getCertificates().size();
         order.removeCertificate(certificate2);
+        assertNotNull(certificate.getLastUpdateDate());
+        assertNotNull(certificate.getName());
+        assertNotNull(certificate.getId());
+        assertNotNull(certificate.getPrice());
+        assertNotNull(certificate.getDescription());
+        assertNotNull(certificate.getLastUpdateDate());
+        assertNotNull(certificate.getLastUpdateDate());
+        assertNotNull(certificate.getLastUpdateDate());
         assertEquals(initialSize, order.getCertificates().size());
         assertTrue(order.getCertificates().contains(certificate));
         assertTrue(certificate.getOrders().contains(order));

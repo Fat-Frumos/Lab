@@ -16,7 +16,7 @@ services:
   jenkins:
     image: jenkins/jenkins
     ports:
-      - "8080:8080"
+      - "8082:8080"
     volumes:
       - ./casc.yaml:/var/jenkins_home/casc_configs/casc.yaml
       - ./plugins.txt:/usr/share/jenkins/ref/plugins.txt
@@ -29,7 +29,7 @@ services:
   tomcat:
     image: tomcat
     ports:
-      - "8082:8080"
+      - "8080:8080"
     networks:
       - sonarnet
 
@@ -43,3 +43,4 @@ services:
 
 networks:
   sonarnet:
+

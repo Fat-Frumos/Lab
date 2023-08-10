@@ -39,7 +39,7 @@ security:
 
 unclassified:
   location:
-    url: http://localhost:8081/
+    url: http://localhost:8082/
 
 tool:
   git:
@@ -54,3 +54,4 @@ tool:
               installers:
                 - maven:
                     id: '3.6.3'
+

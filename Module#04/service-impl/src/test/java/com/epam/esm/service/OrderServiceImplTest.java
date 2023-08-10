@@ -3,8 +3,8 @@ package com.epam.esm.service;
 import com.epam.esm.dao.CertificateDao;
 import com.epam.esm.dao.OrderDao;
 import com.epam.esm.dao.UserDao;
-import com.epam.esm.dto.OrderDto;
 import com.epam.esm.dto.CertificateDto;
+import com.epam.esm.dto.OrderDto;
 import com.epam.esm.dto.UserSlimDto;
 import com.epam.esm.entity.Certificate;
 import com.epam.esm.entity.Order;
@@ -133,6 +133,14 @@ class OrderServiceImplTest {
         certificateIds.add(10L);
         certificateIds.add(20L);
         certificateIds.add(30L);
+    }
+
+    @Test
+    @DisplayName("Call the save method and verify that it throws a UserNotFoundException return an empty Optional")
+    void testSaveThrowsUserNotFoundException() {
+        when(userDao.getById(id)).thenReturn(Optional.empty());
+        Set<Long> ids = new HashSet<>(Arrays.asList(1L, 2L));
+        assertThrows(UserNotFoundException.class, () -> orderService.save(userId, ids));
     }
 
     @Test

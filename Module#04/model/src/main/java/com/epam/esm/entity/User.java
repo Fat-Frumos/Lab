@@ -18,9 +18,10 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -35,7 +36,8 @@ import java.util.Set;
  * Implements UserDetails interface for Spring Security integration.
  */
 @Slf4j
-@Data
+@Getter
+@Setter
 @Entity
 @Builder
 @Validated
