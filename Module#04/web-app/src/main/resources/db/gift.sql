@@ -18,8 +18,7 @@ VALUES (1, NOW(), 'May the joy of this festive season light your life with love,
 (15, NOW(), 'I''ll never forgive myself...but I''m hoping you will. I''m sorry. Barnes & Noble', 11, NOW(), 'Mother''s Day Christmas Day', 88.00),
 (16, NOW(), 'Please accept our deepest sympathy and heartfelt thoughts. DeWALT', 26, NOW(), 'Happy house warming! New Year''s Day (in lieu)', 96.00),
 (17, NOW(), 'Selamat Hari Raya Aidilfitri! May this season of forgiveness bring peace to fill your heart and home. Ashley Furniture', 11, NOW(), ' Hope your recovery is a speedy one. We miss you! Birth Anniversary of the 4th Druk Gyalpo', 74.00),
-(18, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] K9 Advantix', 30, NOW(), 'Outdoor Voices E-Gift Certificate Eid al-Fitr Holiday', 14.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(18, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] K9 Advantix', 30, NOW(), 'Outdoor Voices E-Gift Certificate Eid al-Fitr Holiday', 14.00), 
 (19, NOW(), 'A dad is someone who wants to catch you when you fall. Instead he picks you up, brushes you off and lets you try again. Unknown Helzberg Diamonds', 12, NOW(), 'Cause you''re very melodious Betico Croes Day', 61.00),
 (20, NOW(), 'Roses are red. Violets are blue. Carnations are sweet. And so are you! Saucony', 13, NOW(), 'Fly by Jing Gift Certificate Labour Day', 83.00),
 (21, NOW(), 'When God shuts a door, he opens a window. Duraflame', 19, NOW(), 'Framebridge E-Gift Certificate Easter Day (Catholic)', 89.00),
@@ -37,8 +36,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (33, NOW(), 'Thank you for your valued business. Look forward to serving you again. Emu Brewery', 24, NOW(), 'Have a wonderful life together. Remna Ni', 47.00),
 (34, NOW(), 'My love for you is never-ending and never-fading. It will only increase as days and years pass by. Wishing you a happy valentines day! REI', 15, NOW(), 'StubHub e-gift card St. George''s Caye Day (in lieu)', 10.00),
 (35, NOW(), 'Nothing says, I care quite like covering someones grocery delivery. Hoover', 20, NOW(), 'Everlane Gift Certificate Labour Day', 99.00),
-(36, NOW(), 'Making the impossible into possible is your own style. Congrats for your success! Tom Ford', 14, NOW(), 'For the New Homeowner Losoong/Namsoong', 10.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(36, NOW(), 'Making the impossible into possible is your own style. Congrats for your success! Tom Ford', 14, NOW(), 'For the New Homeowner Losoong/Namsoong', 10.00), 
 (37, NOW(), 'You''re on the right path to a wonderful life. Congratulations! Almond Joy', 25, NOW(), 'cooling cotton PJs Republic Day', 66.00),
 (38, NOW(), 'Give the gift of no-makeup makeup and glowing winter skin. Farmers', 17, NOW(), 'Our friendship is golden Independence Day', 76.00),
 (39, NOW(), 'Cheers on your birthday. One step closer to adult underpants. Global Linguistics', 25, NOW(), 'Fresh Direct E-Gift Certificate Women''s Day', 55.00),
@@ -56,8 +54,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (51, NOW(), 'Happy birthday! You don''t get older, you get better. Shirley Bassey Florida Orange Juice', 20, NOW(), 'Thanks for another great year! Sint Eustatius Flag Day', 68.00),
 (52, NOW(), 'May the joy You''re sharing now grow deeper day by day. Birkenstock', 26, NOW(), 'Play a little All Souls'' Day', 44.00),
 (53, NOW(), 'I know  life isnt fair sometimes. Im here and I care. Blue Cross', 25, NOW(), 'For Getting Active Teyongsi Sirijunga Sawan Tongnam', 15.00),
-(54, NOW(), 'May the joy You''re sharing now grow deeper day by day. London Fog', 11, NOW(), 'Housewarming/Open House New Year''s Day', 52.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(54, NOW(), 'May the joy You''re sharing now grow deeper day by day. London Fog', 11, NOW(), 'Housewarming/Open House New Year''s Day', 52.00),
 (55, NOW(), 'Another year older and another reason to celebrate! Happy Birthday! Godrej', 14, NOW(), 'Play a little Civic Holiday', 22.00),
 (56, NOW(), 'It may be possible to gild pure gold, but who can make his mother more beautiful? Mahatma Gandhi Coach', 25, NOW(), 'Because you''re so spa-cial Traditional Day', 36.00),
 (57, NOW(), 'For laughing at all my text reactions in meetings. Agricultural Bank of China', 16, NOW(), 'Joy to you and yours this holiday! Imam Ali''s Birthday', 45.00),
@@ -75,8 +72,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (69, NOW(), 'Thank you for your friendship, your business and the opportunity to serve you. Epcot', 26, NOW(), 'Everyone needs a spa day! Sankranti', 79.00),
 (70, NOW(), 'You have worked hard; now enjoy reaping the benefits! Burlington Coat Factory', 20, NOW(), 'Sending this just to say hi. Good Friday', 18.00),
 (71, NOW(), 'Get what you love, love what you get. Domino''s Pizza', 26, NOW(), 'Lisa Says Gah E-Gift Certificate Ide el Fitr Holiday', 41.00),
-(72, NOW(), 'Casetify offers so many custom case designs and collections to keep phones, tablets, and laptops protected that its probably best to just let them choose their favorite. Gucci', 21, NOW(), 'For Winter-Proof Boots Tabaski Holiday', 68.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(72, NOW(), 'Casetify offers so many custom case designs and collections to keep phones, tablets, and laptops protected that its probably best to just let them choose their favorite. Gucci', 21, NOW(), 'For Winter-Proof Boots Tabaski Holiday', 68.00), 
 (73, NOW(), 'May your degree unlock many doors to well deserved success. Buick', 27, NOW(), 'Netflix EGift Certificate Lui-Ngai-Ni', 94.00),
 (74, NOW(), 'Hoping this finds you well on the way to recovery. Activia', 20, NOW(), 'Big Night EGift Certificate New Year''s Day', 66.00),
 (75, NOW(), 'So you can keep looking better than me. Big Bazaar', 30, NOW(), 'Time to say buy-buy! Christmas Eve', 83.00),
@@ -95,8 +91,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (88, NOW(), 'Hoping you find strength with each new day. You are in our thoughts. C&A', 25, NOW(), 'Always fashionably latte! Christmas Day', 77.00),
 (89, NOW(), 'You take my breath away...today and every day. Omega', 26, NOW(), 'Pamper yourself pretty! Ethiopian Good Friday', 52.00),
 (90, NOW(), 'Just the beginning of successes for you. Congrats! New Balance', 25, NOW(), 'All the best  to the best. Father''s Day', 99.00),
-(91, NOW(), 'Depending on the recipient and how much they enjoy their home-improvement tasks, this may be the most exciting gift they receive during the holidays. Lowe''s', 30, NOW(), 'Rebag Digital Gift Certificate Ferragosto', 66.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(91, NOW(), 'Depending on the recipient and how much they enjoy their home-improvement tasks, this may be the most exciting gift they receive during the holidays. Lowe''s', 30, NOW(), 'Rebag Digital Gift Certificate Ferragosto', 66.00),
 (92, NOW(), 'Just a note to keep in touch. Lets talk soon. BOSE', 30, NOW(), 'Here''s to another year of experience. Easter Monday', 15.00),
 (93, NOW(), 'So you can keep looking better than me. Avis', 11, NOW(), 'Mansur Gavriel E-Gift Certificate Guanacaste Day', 93.00),
 (94, NOW(), 'Because of you everything is so much nicer Dallmayr', 19, NOW(), 'Chewy E-Gift Certificate Mary Prince Day', 56.00),
@@ -115,8 +110,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (107, NOW(), 'Go see another rom-com (on me this time). Diet Coke', 20, NOW(), 'Chinese New Year Good Friday', 64.00),
 (108, NOW(), 'If I know what love is, its because of you. QMS Medicosmetics', 21, NOW(), 'Congratulations, graduate! Christmas Day', 87.00),
 (109, NOW(), 'Yes, for all the crocheted trivets (and face planters and dumpling lights) their heart could desire. Life Savers', 20, NOW(), 'Get some glamorous looks! Labour Day', 23.00),
-(110, NOW(), 'So they can indulge in the infamously maximalist menu and order all the chicken-parm pizzas, fried mac-and-cheese balls, and slices of white-chocolate raspberry-truffle cheesecake their heart desires. Art Institute International', 26, NOW(), 'How beautiful a day can be when kindness touches it. Vigil of Assumption Day', 79.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(110, NOW(), 'So they can indulge in the infamously maximalist menu and order all the chicken-parm pizzas, fried mac-and-cheese balls, and slices of white-chocolate raspberry-truffle cheesecake their heart desires. Art Institute International', 26, NOW(), 'How beautiful a day can be when kindness touches it. Vigil of Assumption Day', 79.00),
 (111, NOW(), 'Warm, brown elixir of life, we pray to thee. Nationwide', 23, NOW(), 'Universal Standard Gift Certificate St. George''s Day', 93.00),
 (112, NOW(), 'May your new little girl/boy bring you joy and happiness. Continental', 27, NOW(), 'Cheer up! Be happy! Keep smiling! Carnival Monday', 56.00),
 (113, NOW(), 'Congratulations on the birth of you new baby [BOY/GIRL] Brookfield Asset Management', 27, NOW(), 'I wish that your career and life, just like the round moon on Mid-Autumn Day, be bright and perfect. Good Friday', 49.00),
@@ -134,8 +128,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (125, NOW(), 'Dad, you are my best friend, my guide, and my teacher. You have always been there when I needed you the most. Wishing you a very happy Fathers Day. In.gr', 14, NOW(), 'Hope you''re feeling better Labour Day Holiday', 91.00),
 (126, NOW(), 'My/Our sympathy and thoughts are with you and your family. Campari', 26, NOW(), 'Wishing you happiness everyday. Kurban Ait', 61.00),
 (127, NOW(), 'Who doesn''t love buttery soft fabric, comfortable workout attire and cool athleisure? We know we do! Chanel', 22, NOW(), 'WELCOME to this gift card New Year''s Day', 19.00),
-(128, NOW(), 'Congratulations on finding each other! Your greatest adventure has just begun. Heath', 29, NOW(), 'Youre a really great human. Anniversary of the Revolution', 54.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(128, NOW(), 'Congratulations on finding each other! Your greatest adventure has just begun. Heath', 29, NOW(), 'Youre a really great human. Anniversary of the Revolution', 54.00),
 (129, NOW(), 'Bravo! Your hard work has truly paid off. Aja Malibu', 11, NOW(), 'Everlane Gift Certificate Third Onam', 71.00),
 (130, NOW(), 'One father is more than a hundred schoolmasters. George Herbert Coleman', 23, NOW(), 'Because you''re BREWtiful Holiday Holiday', 13.00),
 (131, NOW(), 'Hope this helps get you that thing that brings the cozy to your new place. MAC Cosmetics', 17, NOW(), 'reusable nylon tote Third Day of Christmas', 78.00),
@@ -155,8 +148,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (145, NOW(), 'How happy you must be with a new little son/daughter to love. Escape', 24, NOW(), 'Zappos E-Gift Certificate Christmas Day', 16.00),
 (146, NOW(), 'A little holiday treat from your favorite elf! Shout', 11, NOW(), 'workout wear turned WFH wear Labour Day', 48.00),
 (147, NOW(), 'Great results come from hard work. Well done! Clarins', 21, NOW(), 'For the Pet Parent Independence Day', 89.00),
-(148, NOW(), 'I thank God every day for making me a part of your life. Happy Valentines Day my better half! Beerenberg Farm', 22, NOW(), 'Big Night EGift Certificate Our Lady of Mercedes Day', 76.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(148, NOW(), 'I thank God every day for making me a part of your life. Happy Valentines Day my better half! Beerenberg Farm', 22, NOW(), 'Big Night EGift Certificate Our Lady of Mercedes Day', 76.00), 
 (149, NOW(), 'I was feeling defensive and when I feel defensive, sometimes I say things I don''t mean. Starbucks', 20, NOW(), 'To the world''s greatest [DAD/MOM/GRANDMA] Easter Day', 85.00),
 (150, NOW(), 'My heart is reaching out to you in sympathy and prayer. HTC', 14, NOW(), 'Way to go&shopping! New Year''s Eve', 56.00),
 (151, NOW(), 'May happiness &amp; love move in with you. Diesel', 17, NOW(), 'Golde E- Gift Certificate Easter Monday', 97.00),
@@ -175,8 +167,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (164, NOW(), 'Happy Anniversary! Thank you for being a part of our success now and in the future.  Ila', 26, NOW(), 'Anthropologie E-Gift Certificate Easter Sunday', 63.00),
 (165, NOW(), 'May happiness &amp; love move in with you. Johnson & Johnson', 22, NOW(), 'For Leaning into Luxury Christmas Day', 30.00),
 (166, NOW(), 'Wishing you the beauty of spring and the spirit of love this Easter! Colt 45', 12, NOW(), 'Soooooo thoughtful! Labour Day', 88.00),
-(167, NOW(), 'Like a fine wine, you improve with age. Kellogg''s', 18, NOW(), 'Baron Fig Gift Certificate Public Holiday', 91.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(167, NOW(), 'Like a fine wine, you improve with age. Kellogg''s', 18, NOW(), 'Baron Fig Gift Certificate Public Holiday', 91.00),
 (168, NOW(), 'Brooklinen is also offering e-gift cards, to snag their very own luxury sheets, bedding, towels, loungewear and more. Drewry''s', 10, NOW(), 'For a Guest Room Upgrade New Year''s Eve', 95.00),
 (169, NOW(), 'Because of you everything is so much nicer Domino''s Pizza', 29, NOW(), 'For Wine Night Eid-e-Miladunnabi', 90.00),
 (170, NOW(), 'Welcome aboard! Its good to have you with us. Blundstone Footwear', 15, NOW(), ' Con-GRAD-ulations! St. Stephen''s Day', 75.00),
@@ -195,8 +186,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (183, NOW(), 'A good father is one of the most unsung, unpraised, unnoticed, and yet one of the most valuable assets in our society. Billy Graham Grand', 16, NOW(), 'Boy Smells E-Gift Certificate Christmas Day', 86.00),
 (184, NOW(), 'Look what the bunny found in the carrot patch! Happy Easter! Clue', 11, NOW(), 'Hope you can use this to celebrate! Corpus Christi', 93.00),
 (185, NOW(), 'May you treasure today forever in your memory. Colt 45', 19, NOW(), 'Lululemon Gift Certificate National Day of Community Service (in lieu)', 49.00),
-(186, NOW(), U&'May you treasure today forever in your memory. Am\00c3\00a9rica Latina Log\00c3stica', 29, NOW(), 'How do you expect me to remember your birthday, when you never look any older? Carnival Monday', 91.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(186, NOW(), U&'May you treasure today forever in your memory. Am\00c3\00a9rica Latina Log\00c3stica', 29, NOW(), 'How do you expect me to remember your birthday, when you never look any older? Carnival Monday', 91.00), 
 (187, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Kissan', 22, NOW(), 'Hope you feel better soon Boxing Day', 52.00),
 (188, NOW(), 'Hope your recovery is a speedy one. We miss you! IBM', 11, NOW(), 'excellent last-minute gifts Republic Day', 92.00),
 (189, NOW(), 'May the Festival of Lights lend a glow to your year. Pantene', 26, NOW(), 'Lyft Gift Certificate Independence Day', 20.00),
@@ -215,8 +205,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (202, NOW(), 'So they can treat themselves to some sculpting shapewear or some cozy loungewear. Alliance Group', 29, NOW(), 'Happy Belated Birthday! New Year''s Day (in lieu)', 27.00),
 (203, NOW(), 'Best wishes on this wonderful journey, as you build your new lives together. Chef', 24, NOW(), 'Big Night EGift Certificate Vappu', 48.00),
 (204, NOW(), 'Congratulations and best wishes for a succesful future. Buffalo Wild Wings', 24, NOW(), 'Just touching base with you. Al Isra et Al Mirague', 22.00),
-(205, NOW(), 'Our thoughts and prayers are with you during this difficult time. We are sorry for your loss. Language History', 29, NOW(), 'Bando Gift Certificate Independence Day', 83.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(205, NOW(), 'Our thoughts and prayers are with you during this difficult time. We are sorry for your loss. Language History', 29, NOW(), 'Bando Gift Certificate Independence Day', 83.00),
 (206, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Buckle, Inc.', 20, NOW(), ' It''s still a mystery to me, I haven''t got a clue, how I got so lucky and found you! Labor Day', 72.00),
 (207, NOW(), 'I blew it. Please give me another chance. Aviator', 27, NOW(), 'review of Bonobos'' impressively affordable stretch chinos Holy Week Holiday', 50.00),
 (208, NOW(), 'Today is a very special day for sending all my love your way! Alex and Ani', 29, NOW(), 'You are in my thoughts and prayers Whit Monday', 58.00),
@@ -235,8 +224,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (221, NOW(), 'I hurt you, but I didnt mean to Please forgive me! Chili''s', 29, NOW(), 'Dont worry, I still owe you. Boxing Day', 66.00),
 (222, NOW(), 'May this festival of light bring peace, prosperity and happiness to all. Happy Diwali! Limited', 27, NOW(), 'Go get that serotonin rush! Ascension Day', 21.00),
 (223, NOW(), 'Time runs so fast when Im with you. Every second we spend together is so wonderful. May life offers us more time to spend together! Happy valentines day. Just For Men', 10, NOW(), 'Hope youll soon be well Anniversary of the ''Arengo''', 20.00),
-(224, NOW(), 'Dont burn your mouth. You''re already hot enough. Crate & Barrel', 27, NOW(), 'Wishing you a special birthday Kiribati National Day', 85.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(224, NOW(), 'Dont burn your mouth. You''re already hot enough. Crate & Barrel', 27, NOW(), 'Wishing you a special birthday Kiribati National Day', 85.00),
 (225, NOW(), 'How your home has been blessed with a new baby. Clairol', 14, NOW(), 'Cheer Up! National Day Holiday', 25.00),
 (226, NOW(), 'Take care of yourself and feel better soon. Old Navy', 20, NOW(), 'Huckberry E-Gift Certificate Chinese National Day Holiday', 51.00),
 (227, NOW(), 'Get well soon. Feel better. We miss you! Brother', 13, NOW(), 'West Elm E-Gift Certificate Labour Day', 85.00),
@@ -255,8 +243,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (240, NOW(), 'Like a fine wine, you improve with age. Puma', 19, NOW(), 'Get something newlywed-y! Christmas Day', 62.00),
 (241, NOW(), 'Hope your recovery is a speedy one. We miss you! Country Crock', 30, NOW(), 'A mother is not a person to lean on, but a person to make leaning unnecessary. Dorothy Canfield Fisher New Year''s Day', 13.00),
 (242, NOW(), 'How your home has been blessed with a new baby. Rock Spa and Salon ', 22, NOW(), 'Islandwide Courier Delivery New Year''s Day', 77.00),
-(243, NOW(), 'Love is a promise, love is a souvenir, once given never forgotten, never let it disappear. John Lennon Alamo', 27, NOW(), 'L.L.Bean Gift Certificate Africa Liberation Day', 80.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(243, NOW(), 'Love is a promise, love is a souvenir, once given never forgotten, never let it disappear. John Lennon Alamo', 27, NOW(), 'L.L.Bean Gift Certificate Africa Liberation Day', 80.00),
 (244, NOW(), 'May happiness &amp; love move in with you. Bounty', 11, NOW(), 'Enjoy making your new place a home! New Year''s Day', 30.00),
 (245, NOW(), 'This comes with all my best thoughts for your recovery. NXP Semiconductors', 27, NOW(), 'Some tune-age for you-nage. Ash Wednesday', 43.00),
 (246, NOW(), 'Send me a postcard with a kitten on it. Avalon', 18, NOW(), 'Holiday Calendar Civic Holiday', 83.00),
@@ -275,8 +262,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (259, NOW(), 'Thank you for your friendship, your business and the opportunity to serve you. Madeco SA', 19, NOW(), ' May your holiday season be bright. Whit Monday', 92.00),
 (260, NOW(), 'At this important milestone in your life, congratulations and best wishes for your continuing success. Boston Scientific', 17, NOW(), 'Coach E-Gift Certificate The day following the first day of January', 67.00),
 (261, NOW(), 'You may be out of sight, but never out of mind. Perrier', 19, NOW(), 'Thanks to the most amazing work buddy! Maharishi Valmiki Birthday', 52.00),
-(262, NOW(), 'You dont have to buy me a thank-you card with this. Aviator', 25, NOW(), 'Ask for the dessert menu Fiji Day', 45.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(262, NOW(), 'You dont have to buy me a thank-you card with this. Aviator', 25, NOW(), 'Ask for the dessert menu Fiji Day', 45.00),
 (263, NOW(), 'Wishing you the beauty of spring and the spirit of love this Easter! Dunkin''', 11, NOW(), 'Etsy E-Gift Certificate Unduvap Full Moon Poya', 48.00),
 (264, NOW(), 'When it rains, it pours but soon, the sun shines again. Better days are ahead. Jose Cuervo', 26, NOW(), 'Because pizza aint free Our Lady of Mercedes Day', 88.00),
 (265, NOW(), 'Like a fine wine, you improve with age. Cobalt', 28, NOW(), 'everything to know Corpus Christi', 76.00),
@@ -293,8 +279,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (276, NOW(), 'Wishing you good life, luck and may all your wishes come true Clinique', 30, NOW(), 'Yay for you! Whit Monday', 62.00),
 (277, NOW(), 'Congratulations on finding each other! Your greatest adventure has just begun. HKR International', 22, NOW(), 'excellent last-minute gifts Vikram Samvat New Year', 46.00),
 (278, NOW(), 'Hope your recovery is a speedy one. We miss you! Filson', 26, NOW(), 'Yay for you! Good Friday', 93.00),
-(279, NOW(), 'I love you more than I have ever found a way to say to you.  Ben Folds Drpers', 18, NOW(), 'The Strategist Orthodox Christmas', 11.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(279, NOW(), 'I love you more than I have ever found a way to say to you.  Ben Folds Drpers', 18, NOW(), 'The Strategist Orthodox Christmas', 11.00), 
 (280, NOW(), 'This comes with all my best thoughts for your recovery. Olay', 30, NOW(), 'I''ll never forget your kindness. Easter Monday', 12.00),
 (281, NOW(), 'You get better with every year. Happy 50th birthday! BabyGap', 21, NOW(), 'You bring joy and love to my life. Prophet Muhammad''s Birthday', 58.00),
 (282, NOW(), 'A warm welcome. Thank you for choosing us! Emu Brewery', 10, NOW(), 'workout wear turned WFH wear New Year''s Day', 20.00),
@@ -313,8 +298,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (295, NOW(), 'This comes with all my best thoughts for your recovery. Dusit Thani', 28, NOW(), 'ClassPass E-Gift Certificate Labour Day', 72.00),
 (296, NOW(), 'For the home-improvement obsessive in your life. Blundstone Footwear', 10, NOW(), 'Airbnb Gift Certificate International Women''s Day', 59.00),
 (297, NOW(), 'Congratulations on your new bundle of joy. CJ', 13, NOW(), 'Personal anniversary Christmas Day', 67.00),
-(298, NOW(), 'May your degree unlock many doors to well deserved success. Boppy', 11, NOW(), 'Cheers to you two! All Saints'' Day', 98.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(298, NOW(), 'May your degree unlock many doors to well deserved success. Boppy', 11, NOW(), 'Cheers to you two! All Saints'' Day', 98.00),
 (299, NOW(), 'You both deserve a lifetime of beautiful tomorrows. Turners & Growers', 20, NOW(), 'Urban Stems Classic Flower Subscription Orthodox Good Friday', 19.00),
 (300, NOW(), 'You dont have to buy me a thank-you card with this. Allegra', 28, NOW(), 'Material Kitchen Gift Certificate New Year''s Day', 68.00),
 (301, NOW(), 'To happy endings and new beginnings. Congratulations! Apple', 12, NOW(), 'Food and drink Christmas', 69.00),
@@ -334,8 +318,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (315, NOW(), 'If you want to get them a sweater you know they''ll love, let them pick it out themselves. Advair', 23, NOW(), 'Congratulations on an outstanding accomplishment St. Stephen''s Day', 33.00),
 (316, NOW(), 'Congratulations and best wishes for a succesful future. Subway', 18, NOW(), 'Mejuri Digital Gift Certificate Ashura', 47.00),
 (317, NOW(), 'Your thoughtfulness is appreciated so much more than words can say. Fila', 28, NOW(), 'Get Well Soon Day of the Virgin of Guadalupe', 25.00),
-(318, NOW(), 'Have a Merry Christmas and a Happy New Year. Edy''s', 16, NOW(), 'Bravo! Youve accomplished great things. Good Friday', 68.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(318, NOW(), 'Have a Merry Christmas and a Happy New Year. Edy''s', 16, NOW(), 'Bravo! Youve accomplished great things. Good Friday', 68.00),
 (319, NOW(), 'For the home-improvement obsessive in your life. Nordstrom', 18, NOW(), 'BaubleBar Digital Gift Certificate Easter Monday', 98.00),
 (320, NOW(), 'Congratulations and best wishes for a succesful future. Chili''s', 20, NOW(), 'Hope this makes your sweet home even homier. New Year''s Day', 96.00),
 (321, NOW(), 'Selamat Hari Raya Aidilfitri! May this season of forgiveness bring peace to fill your heart and home. Codan Limited', 26, NOW(), 'Get well soon King''s Day', 24.00),
@@ -354,8 +337,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (334, NOW(), 'Thank you for being my biggest supporter. I couldn''t do it without you. Moretti', 14, NOW(), 'Thanks for all your help King Charles'' Birthday', 54.00),
 (335, NOW(), 'When the whole world left, you were there with open arms. Thanks for being my friend!! CBS', 20, NOW(), 'Graduation Certificate Ideas Christmas Day', 35.00),
 (336, NOW(), 'I blew it. Please give me another chance. Campari', 10, NOW(), 'You have no item in your shopping cart. All Saints'' Day', 100.00),
-(337, NOW(), 'To my wife, my soul mate, my love, my life. Denver Hayes', 17, NOW(), 'Congratulations on your beautiful home Janmashtami', 60.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(337, NOW(), 'To my wife, my soul mate, my love, my life. Denver Hayes', 17, NOW(), 'Congratulations on your beautiful home Janmashtami', 60.00), 
 (338, NOW(), 'Now is the time to enjoy all the things you never had time to do when you worked. Urban Outfitters', 18, NOW(), 'You''re the partridge to my pear tree. Constitution Day', 54.00),
 (339, NOW(), 'Health, wealth and endless joy is what I wish for you and your family this year. Alibaba', 24, NOW(), 'Fandango Gift Certificate Good Friday', 68.00),
 (340, NOW(), 'May God bless you on your graduation day. Converse', 21, NOW(), 'Ulta Beauty Gift Certificate King''s Birthday', 76.00),
@@ -372,8 +354,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (351, NOW(), 'Because a bottle of wine wouldnt fit in the envelope. H&M', 29, NOW(), 'May your babys future be brighter than the suns radiant beam, may your little child fulfill all your dreams. Congratulations for your newborn. Ascension Day', 29.00),
 (352, NOW(), 'Great results come from hard work. Well done! Herbal Essences', 26, NOW(), 'For the Well-Dressed Marathoner Labour Day', 87.00),
 (353, NOW(), 'Adoption is when a child grew in its mommy''s heart instead of her tummy. Congratulations on your new arrival! Red Lobster', 26, NOW(), 'For Something Floral Easter Monday', 86.00),
-(354, NOW(), 'Sorry I forgot your birthday. Can you reschedule it for sometime next week? Hand And Stone ', 10, NOW(), 'Get Well Soon Wishes Christmas Day', 51.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(354, NOW(), 'Sorry I forgot your birthday. Can you reschedule it for sometime next week? Hand And Stone ', 10, NOW(), 'Get Well Soon Wishes Christmas Day', 51.00),
 (355, NOW(), 'This comes with all my best thoughts for your recovery. 6YS', 15, NOW(), 'For Taking a Deep Breath Easter Day', 33.00),
 (356, NOW(), 'Beautiful people like you deserve a beautiful home. Congratulations! Acne', 10, NOW(), 'Saks Fifth Avenue E-Gift Certificate New Year''s Day', 31.00),
 (357, NOW(), 'To happy endings and new beginnings. Congratulations! Bank of Greece', 11, NOW(), 'For the person currently subsidizing five different streamers. White Sunday', 16.00),
@@ -392,8 +373,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (370, NOW(), U&'Trust methis is better than me shopping for you! Victoria\2019s Secret', 14, NOW(), 'Big Night EGift Certificate Epiphany', 88.00),
 (371, NOW(), 'The worlds a better place because of people like you. Baker Hughes', 25, NOW(), 'Home sweet new home. Leilat al-Meiraj', 91.00),
 (372, NOW(), 'Mazel tov on your Bar Mitzvah! [Send to a 13 year old Jewish boy] GTO', 30, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Whit Monday', 39.00),
-(373, NOW(), 'Take care of yourself and feel better soon. Old Navy', 14, NOW(), 'For the diaper fund. Eid al-Fitr Holiday', 54.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(373, NOW(), 'Take care of yourself and feel better soon. Old Navy', 14, NOW(), 'For the diaper fund. Eid al-Fitr Holiday', 54.00),
 (374, NOW(), 'Presents are like noses: better to pick them yourself! Hang Seng Bank', 23, NOW(), 'May the fires of passion burn on! Cheikh Al Maarouf Day', 98.00),
 (375, NOW(), 'You''re so great Im really glad you turned out to be MY dad!Happy Fathers Day! Liqui Moly', 27, NOW(), 'For your screen room Eid al-Fitr Holiday', 81.00),
 (376, NOW(), 'Its great to see good things happen for someone so deserving. Louis Vuitton', 10, NOW(), ' Hope your birthday''s as terrific as you are. Good Friday', 40.00),
@@ -411,8 +391,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (388, NOW(), 'Cheers to you! Cheers to your year ahead! Michael Kors', 30, NOW(), 'Love &amp; Anniversary Good Friday', 32.00),
 (389, NOW(), 'Best wishes for a little progress and a little encouragement everyday during your recuperation. Elmer Fudd', 11, NOW(), 'Goldbelly Gift Certificate King''s Day', 85.00),
 (390, NOW(), 'Thank you for your order. Continuing to serve you will be a pleasure. Pottery Barn', 20, NOW(), 'Material Kitchen Gift Certificate Eid Al Adha Holiday', 17.00),
-(391, NOW(), 'Keep smiling and one day life will get tired of upsetting you! Cheer up! Blue Cross', 20, NOW(), 'May happiness &amp; love move in with you. May Day Revolution', 43.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(391, NOW(), 'Keep smiling and one day life will get tired of upsetting you! Cheer up! Blue Cross', 20, NOW(), 'May happiness &amp; love move in with you. May Day Revolution', 43.00),
 (392, NOW(), 'I couldnt log on to your registry because I forget every password ever. Downy', 24, NOW(), 'The best for the best. Victory Day', 65.00),
 (393, NOW(), 'We share in your celebration of the new life you created! Dramamine', 12, NOW(), 'Wishing you a speedy recovery. Mother''s Day', 94.00),
 (394, NOW(), 'Hoping this adds a little extra happy to your holidays. Jet', 19, NOW(), 'Hope youll soon be well New Year''s Eve', 38.00),
@@ -431,8 +410,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (407, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. ESPA', 25, NOW(), 'Jump to Worker''s Day (in lieu)', 39.00),
 (408, NOW(), 'For your friend who always has a Slow Burn candle on deck. Nestle', 27, NOW(), 'Saks Fifth Avenue E-Gift Certificate The Sultan of Pahang Hol', 42.00),
 (409, NOW(), 'For those looking to expand their Bushwick Birkin collection. Ulta Beauty', 30, NOW(), 'Because youre so spa-cial. Fiestas Patronales Holiday', 27.00),
-(410, NOW(), 'Happy Valentines Day. You are amazing in every way! I love you! Gruppo Generali', 21, NOW(), 'I figured youd know better than Santa. Ascension Day', 56.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(410, NOW(), 'Happy Valentines Day. You are amazing in every way! I love you! Gruppo Generali', 21, NOW(), 'I figured youd know better than Santa. Ascension Day', 56.00),
 (411, NOW(), 'May the promise of Easter fill you with peace and joy! Brunello Cucinelli', 17, NOW(), 'For your screen room. National Day', 12.00),
 (412, NOW(), 'A diamond is a piece of coal that stuck to the job. Arnott''s Biscuits Holdings', 25, NOW(), 'Casetify Gift Certificate New Year''s Day', 98.00),
 (413, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Sony', 26, NOW(), 'workout wear turned WFH wear St. Wenceslas Day', 77.00),
@@ -451,8 +429,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (426, NOW(), 'An especially good last-minute gift for the hard-to-shop-for teenager. Farmers', 20, NOW(), 'Gorjana E-Gift Certificate Boxing Day', 85.00),
 (427, NOW(), 'Its wonderful sharing with a good friend like you. Alka-Seltzer', 11, NOW(), '57Hours E-Gift Certificate Easter Monday', 52.00),
 (428, NOW(), 'Thank you for making me feel so comfortable Comedy Central', 29, NOW(), 'Beautiful people like you deserve a beautiful home. Congratulations! Carnival Monday', 15.00),
-(429, NOW(), 'The power of a dad in a childs life is unmatched. Justin Ricklefs Bebe', 27, NOW(), 'Friends are forever! Christmas Day', 12.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(429, NOW(), 'The power of a dad in a childs life is unmatched. Justin Ricklefs Bebe', 27, NOW(), 'Friends are forever! Christmas Day', 12.00),
 (430, NOW(), 'Thank you for trusting us. We look forward to exceeding your expectations! Polar', 16, NOW(), 'For Something Extra Special Christmas Day', 42.00),
 (431, NOW(), 'Give a sweet gift to your loved one with a Milk Bar gift card. They can choose from cakes, cookies, pies and more. Gillette', 10, NOW(), 'Treat yourself. Youve earned it. Victory Day', 32.00),
 (432, NOW(), 'Happy Valentine''s Day! Remember not to eat too much candy you''re sweet enough already. Carnegie', 21, NOW(), 'Verishop E-Gift Certificate Mid-Lent', 34.00),
@@ -471,8 +448,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (445, NOW(), 'Congratulations on your new little someone to love. Allianz', 29, NOW(), 'Chewy E-Gift Certificate Boxing Day', 33.00),
 (446, NOW(), 'Sending loads of love your way for a speedy recovery! Mytilineos', 10, NOW(), 'Youre wished a lifetime of love. Celebration of the Birthday of His Majesty the King', 54.00),
 (447, NOW(), 'Its that time of year for feasting, celebrating and looking forward to a happy and prosperous year ahead. Enjoy every moment! Coles Group Lmt', 17, NOW(), 'Get well soon Water Festival Ceremony Holiday', 59.00),
-(448, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. General Mills', 27, NOW(), 'Kudos to you! Youve earned them. New Year''s Day', 49.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(448, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. General Mills', 27, NOW(), 'Kudos to you! Youve earned them. New Year''s Day', 49.00),
 (449, NOW(), 'Let me guess&You''re going to see a movie where stuff blows up. Baleno', 17, NOW(), 'You are always in my heart! Epiphany', 48.00),
 (450, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Canyon Ranch ', 25, NOW(), 'Joy to you and yours this holiday! Easter Sunday', 11.00),
 (451, NOW(), 'We appreciate your business and your confidence in us. Carlton & United Breweries', 15, NOW(), 'funky iPhone accessories Victory Day', 99.00),
@@ -491,8 +467,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (464, NOW(), 'Get ya some sugar! (With a little coffee added in.) Azercell', 15, NOW(), 'Milk Bar eGift Certificate Chinese National Day Holiday', 42.00),
 (465, NOW(), 'I hope this comes in handy on your adventure! ICICI Bank', 25, NOW(), 'With concern and caring sympathy So Paulo Anniversary', 70.00),
 (466, NOW(), 'Hope youll be feeling frisky again in no time. Bonox', 13, NOW(), 'Love makes a house a home All Saints'' Day', 41.00),
-(467, NOW(), 'Sending you good vibes with this gift card! Beano', 20, NOW(), 'The Sill Gift Certificate Christmas Day', 76.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(467, NOW(), 'Sending you good vibes with this gift card! Beano', 20, NOW(), 'The Sill Gift Certificate Christmas Day', 76.00),
 (468, NOW(), 'Because of you everything is so much nicer A6', 26, NOW(), 'Jump to Christmas Day', 86.00),
 (469, NOW(), 'I am bad at gifts! (But you know this.) Planned Parenthood', 28, NOW(), 'Get well soon New Year''s Day', 79.00),
 (470, NOW(), 'Cant wait for your review of this movie. Swarovski', 30, NOW(), 'Youre a really great human. New Year''s Day', 37.00),
@@ -510,8 +485,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (482, NOW(), 'If I know what love is, it is because of you. Hermann Hesse Sony', 19, NOW(), 'Have an awesome birthday Christmas Day', 18.00),
 (483, NOW(), 'Mi Amor, Te amo! [SPANISH: "My love, I love you"] QMS Medicosmetics', 23, NOW(), 'Do your thing! Eid Al Fitr Holiday', 19.00),
 (484, NOW(), 'It was a pleasure to work with you. Monopoly', 26, NOW(), 'Girlfriend Collective Gift Certificate Victory Day', 93.00),
-(485, NOW(), 'Sending my best wishes to make you feel better. Get well soon! Allsteel', 27, NOW(), 'glowing winter skin Eid al-Fitr', 32.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(485, NOW(), 'Sending my best wishes to make you feel better. Get well soon! Allsteel', 27, NOW(), 'glowing winter skin Eid al-Fitr', 32.00), 
 (486, NOW(), 'If your giftee is wild about furniture and decor, then they will be head over heels for this Pottery Barn gift card. Trust us with this one. The Cheesecake Factory', 28, NOW(), 'Today being fathers day, dad, I just want to tell you that I love you and appreciate everything that youve done for me. May God never stop blessing you. Happy Fathers Day! Armenian Independence Day', 85.00),
 (487, NOW(), 'Who''s the preppiest person you know? What''re you going to get them for their birthday? Might we suggest a J. Crew e-gift card? Nivea', 26, NOW(), 'Dont worry, I still owe you. Death Anniversary of Zhabdrung', 59.00),
 (488, NOW(), 'Love doesnt make the world go round. Love is what makes the ride worthwhile.  Franklin P. Jones Burlington Coat Factory', 12, NOW(), 'For Dainty Jewelry Memorial Day', 63.00),
@@ -529,8 +503,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (500, NOW(), 'To describe my mother would be to write about a hurricane in its perfect power. Or the climbing, falling colors of a rainbow. Maya Angelou New Balance', 27, NOW(), 'Verishop E-Gift Certificate Independence Day', 78.00),
 (501, NOW(), 'You deserve all the feel-good you can get. Hanjin', 14, NOW(), 'Flowers today. Fireworks tonight! Peace Day', 98.00),
 (502, NOW(), 'Get that dish you love! With food on it! AGL Energy', 15, NOW(), 'Birthday Certificate Gift National Day', 31.00),
-(503, NOW(), 'I hope you consider trying to forgive me. Gucci', 15, NOW(), 'Go see something as epic as you are! Feast of St. Nicholas', 43.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(503, NOW(), 'I hope you consider trying to forgive me. Gucci', 15, NOW(), 'Go see something as epic as you are! Feast of St. Nicholas', 43.00), 
 (504, NOW(), 'I blew it. Please give me another chance. Fila', 22, NOW(), 'Christmas Certificate Gifts Labor Day', 57.00),
 (505, NOW(), 'May God be with you at this time. Urban Outfitters', 25, NOW(), 'Revolve Gift Certificate Christmas Day', 61.00),
 (506, NOW(), 'Just a little thanks for the big way you showed up for me. Australian Gas Light Company', 23, NOW(), 'excellent last-minute gifts Easter Monday', 77.00),
@@ -549,8 +522,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (519, NOW(), 'Mazel tov on your Bar Mitzvah! [Send to a 13 year old Jewish boy] ADInstruments', 25, NOW(), 'The Sill Gift Certificate Labour Day', 22.00),
 (520, NOW(), 'Thank you for your friendship, your business and the opportunity to serve you. Allsteel', 24, NOW(), 'A warm welcome from all of us. Pongal', 14.00),
 (521, NOW(), 'Cheering you up with a big smile! Brioni', 22, NOW(), 'Personal anniversary Babu Jagjivan Ram Birthday', 46.00),
-(522, NOW(), 'You dont have to spend this on lingerie. Im just saying if you wanna Cosan', 20, NOW(), 'Thinking of you. May you feel better soon. Father''s Day', 80.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(522, NOW(), 'You dont have to spend this on lingerie. Im just saying if you wanna Cosan', 20, NOW(), 'Thinking of you. May you feel better soon. Father''s Day', 80.00),
 (523, NOW(), 'I''ll never forgive myself...but I''m hoping you will. I''m sorry. Lindt', 13, NOW(), 'Everlane Gift Certificate Eid al-Fitr Holiday', 55.00),
 (524, NOW(), 'Winter boot season is coming. Don''t leave them out in the cold. Exxon Mobil', 13, NOW(), 'Enjoy your retirement. You''ve earned it. Easter Monday', 11.00),
 (525, NOW(), 'We do not remember days, we remember moments. Acrobat', 30, NOW(), 'For a cute outfit, plus maybe one for the baby. Ramjan Edul Fikra', 25.00),
@@ -569,8 +541,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (538, NOW(), 'Hope your special day is made up of sharing warm and happy memories. Geocell', 13, NOW(), 'our review of Otherland here Labour Day', 84.00),
 (539, NOW(), 'Thank you, your thoughtfulness really put sunshine in my day. Arla', 22, NOW(), 'Telfar E-Gift Certificate Independence Day', 41.00),
 (540, NOW(), 'One father is more than a hundred schoolmasters. George Herbert Samsung', 20, NOW(), 'Happy Mid-Autumn Festival! Netaji Subhas Chandra Bose Jayanti', 22.00),
-(541, NOW(), 'You make the world a more beautiful place. Diet Pepsi', 15, NOW(), 'We sincerely appreciate your business Western Australia Day', 99.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(541, NOW(), 'You make the world a more beautiful place. Diet Pepsi', 15, NOW(), 'We sincerely appreciate your business Western Australia Day', 99.00),
 (542, NOW(), 'It was a pleasure to work with you. Iams', 15, NOW(), 'For the Well-Dressed Marathoner St Cyril and Methodius Day', 31.00),
 (543, NOW(), 'Welcome aboard! Its good to have you with us. Evian', 13, NOW(), 'Yay for you! Independence Restoration Day', 96.00),
 (544, NOW(), 'Every product is independently selected by (obsessive) editors. Things you buy through our links may earn usa commission. Febreze', 13, NOW(), 'Success is having you for a customer. Armenian Independence Day', 54.00),
@@ -588,8 +559,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (556, NOW(), 'A father is someone you look up to no matter how tall you grow. Unknown Home Depot', 18, NOW(), 'Hope you feel better soon. Spring Day', 77.00),
 (557, NOW(), 'Now you can get all the gift-card cards you want! Coca-Cola', 22, NOW(), 'How beautiful a day can be when kindness touches it. Labour Day', 67.00),
 (558, NOW(), 'Do not seek the becausein love there is no because, no reason, no explanation, no solutions. Anais Nin Epcot', 11, NOW(), 'Fresh Direct E-Gift Certificate St. Stephen''s Day', 40.00),
-(559, NOW(), 'Thinking of you and wishing you a happy day. Evian', 22, NOW(), 'Mytheresa Gift Certificate Autumnal Equinox Day', 60.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(559, NOW(), 'Thinking of you and wishing you a happy day. Evian', 22, NOW(), 'Mytheresa Gift Certificate Autumnal Equinox Day', 60.00),
 (560, NOW(), 'If you cant tell the difference between Gods of War and Gears of War, you should probably just give your favorite gamer a gift card. Estee Lauder', 30, NOW(), 'Thinking of you Eid ul-Fitr Holiday', 89.00),
 (561, NOW(), 'Give the gift of no-makeup makeup and glowing winter skin. Bugles', 15, NOW(), 'Were wishing everything wonderful to a wonderful couple. Independence Day', 72.00),
 (562, NOW(), 'Hoping this adds a little extra happy to your holidays. Clairol', 30, NOW(), 'So grateful for you Eid al-Fitr Holiday', 26.00),
@@ -608,8 +578,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (575, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Absolut', 18, NOW(), 'Corporate Gifts Orthodox Christmas Holiday', 34.00),
 (576, NOW(), 'Congratulations on your new bundle of joy. Under Armour', 14, NOW(), 'Its wonderful sharing with a good friend like you. National Day', 94.00),
 (577, NOW(), 'To happy endings and new beginnings. Congratulations! Crisco', 30, NOW(), 'MoMA Design Store E-Gift Certificate Ascension Day', 16.00),
-(578, NOW(), 'I miss you, so I am sending you a floral hug! Citigroup', 15, NOW(), 'Happy birthday to the greatest gift I have ever received. I love you! Holy Week Holiday', 85.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(578, NOW(), 'I miss you, so I am sending you a floral hug! Citigroup', 15, NOW(), 'Happy birthday to the greatest gift I have ever received. I love you! Holy Week Holiday', 85.00), 
 (579, NOW(), 'Our deepest sympathy to you and your family. From all your friends at [BUSINESS NAME] Free People', 15, NOW(), 'Dinners on me! Arafat Day', 20.00),
 (580, NOW(), 'I just wanted to say that I''m sorry for hurting you, and if you have it in your heart to forgive me, I want us to start anew. Williams Sonoma', 12, NOW(), 'Airbnb Gift Certificate Orthodox Easter Day', 28.00),
 (581, NOW(), 'Wishing you a lifetime of love and happiness. Alcan', 30, NOW(), 'Aritzia EGift Certificate Workers'' Memorial Day', 31.00),
@@ -628,8 +597,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (594, NOW(), 'You''ve stolen my heart. I know it''s in good hands. American Heart Association', 16, NOW(), 'Mytheresa Gift Certificate Hari Raya Aidil Adha', 11.00),
 (595, NOW(), U&'You dont have to buy me a thank-you card with this. Global T\00c3\00a1xi A\00c3\00a9reo', 19, NOW(), 'Please accept my/our deepest sympathy Labour Day', 69.00),
 (596, NOW(), 'Let me guess&You''re going to see a movie where stuff blows up. Kurnia', 20, NOW(), 'Babies are Gods miracles Pentecost Sunday', 78.00),
-(597, NOW(), 'We appreciate your business and your confidence in us.  Six Senses Douro Valley', 30, NOW(), 'Its wonderful sharing with a good friend like you. Navami of Durga Puja', 11.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(597, NOW(), 'We appreciate your business and your confidence in us.  Six Senses Douro Valley', 30, NOW(), 'Its wonderful sharing with a good friend like you. Navami of Durga Puja', 11.00),
 (598, NOW(), U&'Hope your surgery [GOES/WENT] well, and that your recovery is quick! Lanc\00f4me', 14, NOW(), 'Get whatever you want! All Saints'' Day', 14.00),
 (599, NOW(), 'Not cooking is the most delicious of all. Dynamotive Energy Systems', 18, NOW(), 'Sign up for promotions Victory and Homeland Thanksgiving Day', 76.00),
 (600, NOW(), 'Hope this Mooncake Festival is the beginning of of all that is the brightest for you. Corsendonk Pater Noster', 18, NOW(), 'Hanukkah Certificate Gifts Water Festival Ceremony Holiday', 35.00),
@@ -646,8 +614,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (611, NOW(), 'Thank you for taking the time to meet with me. Glad', 17, NOW(), 'Netflix EGift Certificate Maghe Sankranti', 17.00),
 (612, NOW(), 'Hoping this finds you well on the way to a speedy recovery. Monster.com', 15, NOW(), 'The Cheesecake Factory Gift Certificate Eid al-Fitr Holiday', 40.00),
 (613, NOW(), 'Im sending a bunch of happies to say Have a cheerful day! Mengniu', 26, NOW(), 'Coach E-Gift Certificate Labour Day (in lieu)', 74.00),
-(614, NOW(), 'The future belongs to those who believe in the beauty of their dreams. Congratulations! AB-inBev', 16, NOW(), 'You did it! Congratulations, graduate! New Year''s Day', 50.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(614, NOW(), 'The future belongs to those who believe in the beauty of their dreams. Congratulations! AB-inBev', 16, NOW(), 'You did it! Congratulations, graduate! New Year''s Day', 50.00), 
 (615, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Dermalogica', 12, NOW(), 'Congratulations, graduate! Anniversary of the Revolution', 94.00),
 (616, NOW(), 'May your new little girl/boy bring you joy and happiness. Ritz', 24, NOW(), 'Food and drink Orthodox Good Friday', 36.00),
 (617, NOW(), 'I hate to see you feeling blue so here is my get well wish to you. Hartford', 24, NOW(), 'Go see something as epic as you are! Dragon Boat Festival Holiday', 16.00),
@@ -666,8 +633,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (630, NOW(), 'Heres to a Valentines Day filled with good wine, good food and especially good friends like you. Driza-Bone', 15, NOW(), 'Hope you feel better soon Constitutional Day', 94.00),
 (631, NOW(), 'Thinking of youhope all is well. Let me know if I can help in any way. Geox', 11, NOW(), 'Baron Fig Gift Certificate Fiesta de San Salvador', 73.00),
 (632, NOW(), 'Life being a journey, Success has brought you many miles ahead of many people. Congratulations. Australian Agricultural Company', 26, NOW(), 'In loving memory Good Friday', 25.00),
-(633, NOW(), 'Thank you for the privilege and opportunity to work with you. 7Up', 17, NOW(), 'BLK MKT Vintage Gift Certificate Christmas Day', 82.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(633, NOW(), 'Thank you for the privilege and opportunity to work with you. 7Up', 17, NOW(), 'BLK MKT Vintage Gift Certificate Christmas Day', 82.00),
 (634, NOW(), 'Every time you see these blooms, remember someone is thinking of you! Australian Agricultural Company', 11, NOW(), 'Thanks for being there Emancipation Day', 68.00),
 (635, NOW(), U&'You get better with every year. Happy 50th birthday! Chlo\00c3\00a9', 23, NOW(), 'our review of Otherland here Revolution Anniversary Holiday', 77.00),
 (636, NOW(), 'You take my breath away...today and every day. Braun', 25, NOW(), 'Telfar E-Gift Certificate Christmas Eve', 36.00),
@@ -686,8 +652,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (649, NOW(), 'Wishing you a happy and peaceful Eid! Selamat Hari Raya! Chanel', 12, NOW(), 'Big Night EGift Certificate Prophet''s Birthday', 44.00),
 (650, NOW(), 'Many thanks for your inquiry. Im sure we can meet your needs. Domino''s Pizza', 25, NOW(), 'Of all the rights of women, the greatest is to be a mother. Lin Yutang Labour Day', 83.00),
 (651, NOW(), 'I blew it. Please give me another chance. Whole Foods Market', 14, NOW(), 'All I want for Christmas is you. Teyongsi Sirijunga Sawan Tongnam', 97.00),
-(652, NOW(), 'Sorry I forgot the most important day of the year... your Birthday! Popeyes', 29, NOW(), 'Same Day Delivery (Order Placed By 12pm) Mother''s Day', 61.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(652, NOW(), 'Sorry I forgot the most important day of the year... your Birthday! Popeyes', 29, NOW(), 'Same Day Delivery (Order Placed By 12pm) Mother''s Day', 61.00),
 (653, NOW(), 'I hope this comes in handy on your adventure! Lean Cuisine', 21, NOW(), 'BLK MKT Vintage Gift Certificate Public Sector Holiday', 41.00),
 (654, NOW(), 'Its better than me trying to shop for you, right? Ariel', 29, NOW(), 'Do your thing! Christmas Day', 45.00),
 (655, NOW(), 'Well done! This is the first. Keep reaching for the stars! Meijer', 30, NOW(), 'Aritzia EGift Certificate Victory of the Islamic Emirate', 44.00),
@@ -707,8 +672,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (669, NOW(), 'Wishing you the beauty of spring and the spirit of love this Easter! Irish Spring', 14, NOW(), 'Get Well Soon New Year''s Day', 57.00),
 (670, NOW(), 'You have worked hard; now enjoy reaping the benefits! Zara', 10, NOW(), 'Fandango Gift Certificate Birthday of Prophet Muhammed', 36.00),
 (671, NOW(), 'Great results come from hard work. Well done! Bazooka', 10, NOW(), 'So grateful for you All Saints'' Day', 33.00),
-(672, NOW(), 'We appreciate your business and your confidence in us. TJX', 15, NOW(), 'Pamper yourself pretty! New Year''s Day', 87.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(672, NOW(), 'We appreciate your business and your confidence in us. TJX', 15, NOW(), 'Pamper yourself pretty! New Year''s Day', 87.00),
 (673, NOW(), 'I am the luckiest child in the world because I have the most amazing father in the world. Happy Fathers Day to you, my wonderful father. Krazy Glue', 19, NOW(), 'Anthropologie E-Gift Certificate Majority Rule Day', 52.00),
 (674, NOW(), 'Cheering you up with a big smile! Target', 20, NOW(), 'Lunya Gift Certificate Whit Tuesday', 85.00),
 (675, NOW(), 'Rejoice! He is watching over you this Easter! H&M', 13, NOW(), 'Take the time to really enjoy your childs infancy; after all, they do grow up so fast. Congratulations on your new life. Emancipation Day', 39.00),
@@ -728,8 +692,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (689, NOW(), 'Love doesnt make the world go round. Love is what makes the ride worthwhile.  Franklin P. Jones Cooper', 29, NOW(), 'Sincere good wishes on your special day. Good Friday', 77.00),
 (690, NOW(), 'Think of the years as gold bullion...and you''re rich! Angus and Robertson', 20, NOW(), 'Hay E-Gift Certificate Kingdom Day', 75.00),
 (691, NOW(), 'Just a cheery note to wish you well. HBO', 29, NOW(), 'Hari Raya Mother''s Day', 93.00),
-(692, NOW(), 'Hope your new home is as special as you are. Brisbane Capital', 26, NOW(), 'Congratulations for the new nest. May the warmth of new home keep you all happy always. Al Isra et Al Mirague', 76.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(692, NOW(), 'Hope your new home is as special as you are. Brisbane Capital', 26, NOW(), 'Congratulations for the new nest. May the warmth of new home keep you all happy always. Al Isra et Al Mirague', 76.00),
 (693, NOW(), 'I never know what to get you&but you do! American Airlines', 13, NOW(), 'Our friendship is golden. Republic Day (in lieu)', 99.00),
 (694, NOW(), 'F-antastic, A-wesome, T-errific, H-onorable, E-xcellent, R-emarkable. This sums up my dad. Happy Fathers Day! Carnival Cruise Lines', 22, NOW(), 'The Tiffany Gift Certificate Virgin of Los Angeles Day', 87.00),
 (695, NOW(), 'Hoping this finds you well on the way to a speedy recovery. Ion', 10, NOW(), 'May God hold you in the palm of His hand and comfort you with His everlasting love. Black Awareness Day', 88.00),
@@ -747,8 +710,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (707, NOW(), 'Warm, brown elixir of life, we pray to thee. Nine West', 18, NOW(), 'Welcome to the neighborhood. Liberation Day', 28.00),
 (708, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Axe', 13, NOW(), 'Glossier EGift Certificate Kannada Rajyothsava', 40.00),
 (709, NOW(), 'A Headspace subscription isn''t just a one-off gift. It''s a way for your loved ones to build a more mindful routine. Carfax', 22, NOW(), 'Bandier Digital Gift Certificate New Year''s Day', 10.00),
-(710, NOW(), 'Nothing says, I care quite like covering someones grocery delivery. Aavin', 20, NOW(), 'A Florist 20 website Christmas Day', 36.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(710, NOW(), 'Nothing says, I care quite like covering someones grocery delivery. Aavin', 20, NOW(), 'A Florist 20 website Christmas Day', 36.00), 
 (711, NOW(), 'It was a pleasure to work with you. Jif', 30, NOW(), 'The Sorel Gift Certificate Bermuda Day', 21.00),
 (712, NOW(), 'May this Easter warm your heart with peace! Frito-Lay', 26, NOW(), 'Thank you for your time Independence Day', 81.00),
 (713, NOW(), 'May the future be filled with much happiness. AutoTrader', 27, NOW(), 'Casetify Gift Certificate Constitution Day', 44.00),
@@ -767,8 +729,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (726, NOW(), 'I love you just as much as I did on our wedding day. Happy anniversary. Versace', 26, NOW(), 'A babys smile makes each day worthwhile. International Women''s Day', 16.00),
 (727, NOW(), 'Rejoice! He is watching over you this Easter! Raytheon', 24, NOW(), 'May this special day be filled with joy, love and laughter. Easter Monday', 31.00),
 (728, NOW(), 'Think of the years as gold bullion...and you''re rich! AFLAC', 19, NOW(), 'There''s no place like home! Congratulations. Malaysia Day', 98.00),
-(729, NOW(), 'Congratulations on your retirement. Best wishes for a great future. Louis Vuitton', 20, NOW(), 'Get out of Dodge. Father''s Day', 56.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(729, NOW(), 'Congratulations on your retirement. Best wishes for a great future. Louis Vuitton', 20, NOW(), 'Get out of Dodge. Father''s Day', 56.00), 
 (730, NOW(), 'Because of you everything is so much nicer Goodman Fielder', 21, NOW(), 'So grateful for you Eid Al Fitr', 86.00),
 (731, NOW(), 'For the shopper who looks forward to Nordstroms reliably good Half-Yearly and Anniversary sales. Maybach', 19, NOW(), 'Corporate Gifts Easter Day', 24.00),
 (732, NOW(), 'It was a pleasure to work with you. Omega', 27, NOW(), 'BYO red carpet New Year''s Day Holiday', 72.00),
@@ -787,8 +748,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (745, NOW(), 'Is your birthday wish a gift card? Because Starbucks', 15, NOW(), 'A friend is forever! Eid ul-Fitr', 49.00),
 (746, NOW(), 'May this new year bring you good health and good fortune. Product Naming', 19, NOW(), 'For Absolutely Anything Birthday of Late King Sobhuza (in lieu)', 96.00),
 (747, NOW(), 'Send me a postcard with a kitten on it. Giordano International Limited', 27, NOW(), 'May the comfort of friends and family be your strength for today and the days ahead. Eid Al Adha Holiday', 95.00),
-(748, NOW(), 'Go see another rom-com (on me this time). Crocs', 21, NOW(), 'Mejuri Gift Certificate Christmas Eve', 95.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(748, NOW(), 'Go see another rom-com (on me this time). Crocs', 21, NOW(), 'Mejuri Gift Certificate Christmas Eve', 95.00),
 (749, NOW(), 'Coffee! It''s like having a great friend around when Im not there. Louis Vuitton', 10, NOW(), 'Parachute Digital Gift Certificate New Year''s Day', 16.00),
 (750, NOW(), 'Words are so inadequate at a time like this. Bank of Montreal', 19, NOW(), 'Aritzia EGift Certificate Semana Moraznica', 61.00),
 (751, NOW(), 'Think of the years as gold bullion...and you''re rich! Accell Group', 12, NOW(), 'Spend it on something you love! Eid al-Fitr', 76.00),
@@ -807,8 +767,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (764, NOW(), 'Presents are like noses: better to pick them yourself! Actimel', 30, NOW(), 'This is between you and your arteries. Quaid-e-Azam Day', 21.00),
 (765, NOW(), 'Because You''re never too old to spend money. Complete', 15, NOW(), 'For Her Wardrobe Essentials Birth Day of Prophet Mohammad', 47.00),
 (766, NOW(), 'Thinking of you. May you feel better soon. Little Debbie', 13, NOW(), 'Huckberry E-Gift Certificate San Martin''s Day', 15.00),
-(767, NOW(), 'My love for you grows stronger every year. Marmot', 25, NOW(), 'Get you some yum! Christmas Day', 36.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(767, NOW(), 'My love for you grows stronger every year. Marmot', 25, NOW(), 'Get you some yum! Christmas Day', 36.00), 
 (768, NOW(), 'Like a fine wine, you improve with age. Clinique', 27, NOW(), 'Macys E-Gift Certificate National Culture and Senior Citizens Day', 15.00),
 (769, NOW(), 'Outdoor Voices is home to lots of fashion-forward athletic apparel, from the famed exercise dress to skorts and leggings.&nbsp;&nbsp; Aquafresh', 13, NOW(), 'Areaware Gift Certificate Labour Day', 50.00),
 (770, NOW(), 'The love you share makes this day special. DeWALT', 16, NOW(), 'Virtual Delivery (Email/SMS) Whit Monday', 71.00),
@@ -827,8 +786,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (783, NOW(), 'When it rains, it pours but soon, the sun shines again. Better days are ahead. AXA', 10, NOW(), 'Virtual Delivery (Email/SMS) Losoong/Namsoong', 79.00),
 (784, NOW(), 'My heart to you is given, oh do give yours to me; Well lock them up together, and throw away the key. Frederick Saunders Neutrogena', 26, NOW(), 'For Getting Active Easter Monday', 89.00),
 (785, NOW(), 'May your memories be a source of comfort at this time. MGM', 10, NOW(), 'face planters and dumpling lights Eid-ul-Azha Holiday', 33.00),
-(786, NOW(), 'Congratulations on your new little someone to love. Swiffer', 26, NOW(), ' My love for you grows stronger every year. Christmas', 58.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(786, NOW(), 'Congratulations on your new little someone to love. Swiffer', 26, NOW(), ' My love for you grows stronger every year. Christmas', 58.00),
 (787, NOW(), 'Cheers on your birthday. One step closer to adult underpants. Ponto Frio', 16, NOW(), 'Love &amp; Anniversary Liberation Day', 38.00),
 (788, NOW(), 'My thoughts are with you at your time of need Cracker Barrel', 25, NOW(), 'A Florist 2.0 website. Republic Day (in lieu)', 24.00),
 (789, NOW(), 'Congratulations, and best of luck in your future endeavors. Flahavan''s', 24, NOW(), 'Away Gift Certificate Full Moon Day of Waso', 42.00),
@@ -847,8 +805,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (802, NOW(), 'Happy Anniversary - My love for you grows with each passing year. Max Mara', 17, NOW(), 'Happy Mid-Autumn Festival! Independence Restoration Day', 19.00),
 (803, NOW(), 'The waiting is finally over and you have a bundle of joy to love. Discovery Channel', 30, NOW(), 'Great results come from hard work. Well done! Heritage Day', 100.00),
 (804, NOW(), 'Today is a very special day for sending all my love your way! Dr. Scholl''s', 29, NOW(), 'Home sweet new home Prophet Mohammed''s Birthday', 34.00),
-(805, NOW(), 'A new baby is like the beginning of all things - wonder, hope, a dream of possibilities. Flextronics', 22, NOW(), 'I treasure the times we share. Christmas Eve', 37.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(805, NOW(), 'A new baby is like the beginning of all things - wonder, hope, a dream of possibilities. Flextronics', 22, NOW(), 'I treasure the times we share. Christmas Eve', 37.00),
 (806, NOW(), 'Stay strong. It might be stormy now, but it cant rain forever. Phat Farm', 30, NOW(), 'To love! Ashoora', 64.00),
 (807, NOW(), 'Cant wait for your review of this movie. Wienerberger', 30, NOW(), 'Get something newlywed-y! Assumption Day', 24.00),
 (808, NOW(), 'Hope your birthday''s as terrific as you are. Milka', 11, NOW(), 'Thinking of you President''s Day', 82.00),
@@ -867,8 +824,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (821, NOW(), 'For those his n hers towels. Or something. Krispy Kreme', 30, NOW(), 'You bring joy and love to my life. Easter Monday', 94.00),
 (822, NOW(), 'Hope this helps bring a smile to your day. Shane Co.', 21, NOW(), 'Lululemon Gift Certificate Ancestry Day', 45.00),
 (823, NOW(), 'Happy birthday, friend. May your day be as beautiful as you. Kisses', 19, NOW(), 'Way to go&shopping! Obon', 74.00),
-(824, NOW(), 'For the home-improvement obsessive in your life. Adidas', 25, NOW(), 'It was a pleasure to work with you. Yennayer', 53.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(824, NOW(), 'For the home-improvement obsessive in your life. Adidas', 25, NOW(), 'It was a pleasure to work with you. Yennayer', 53.00),
 (825, NOW(), 'Hope youll be in the best of health soon. Johnson''s Baby', 10, NOW(), 'Home goods Christmas Day', 12.00),
 (826, NOW(), 'Let them pick a matching set or a new slate of workout gear. AIS', 29, NOW(), 'Hope youll be in the best of health soon. Prophet Muhammad''s Birthday', 91.00),
 (827, NOW(), 'For the home-improvement obsessive in your life. Head & Shoulders', 28, NOW(), 'Huckberry E-Gift Certificate Days of History and Commemoration of Ancestors (bridge day)', 36.00),
@@ -887,8 +843,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (840, NOW(), 'Its great to see good things happen for someone so deserving. Jack in the Box', 24, NOW(), 'Souvenirs appreciated. Labour Day (in lieu)', 79.00),
 (841, NOW(), 'Thoughts of you always bring me a smile. Skechers', 23, NOW(), 'Buy more clutter! Thats the marriage way. Emancipation Day', 99.00),
 (842, NOW(), 'You always do the nicest things in just the nicest way. Dabur', 26, NOW(), 'Fly by Jing Gift Certificate New Year''s Day', 72.00),
-(843, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Aegean Airlines', 12, NOW(), 'Anthropologie E-Gift Certificate New Year''s Day', 90.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(843, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Aegean Airlines', 12, NOW(), 'Anthropologie E-Gift Certificate New Year''s Day', 90.00), 
 (844, NOW(), 'For the thing that wouldnt fit on Santas sleigh. Advanced Auto Parts', 14, NOW(), 'Fly by Jing Gift Certificate Kali Puja', 12.00),
 (845, NOW(), 'Just a little something to say Im thinking of you. Nutreco', 16, NOW(), 'Here''s to another year of experience. Good Friday', 22.00),
 (846, NOW(), 'Dream big - Reach far - Shine brightly - You''re a star, Congratulations on your Graduation! Maxim''s Catering', 25, NOW(), 'Heres to your dreams of being an elite home cook. Christmas Day', 14.00),
@@ -905,8 +860,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (857, NOW(), 'I hope this comes in handy on your adventure! Brisco', 18, NOW(), 'Bookshop Gift Certificate Epiphany', 34.00),
 (858, NOW(), 'May love always live in the home that you share. Alex and Ani', 27, NOW(), 'Material Kitchen Gift Certificate Errol Barrow Day', 24.00),
 (859, NOW(), 'This super soft bamboo brand has bedding, loungewear and more that all make perfect gifts they can choose themselves. Seasonale', 18, NOW(), 'H&M Gift Certificate Haryana Heroes'' Martyrdom Day', 46.00),
-(860, NOW(), 'Don''t just count your years, make your years count. Happy birthday! George Meredith Free People', 17, NOW(), 'Short and Simple Christmas Day', 49.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(860, NOW(), 'Don''t just count your years, make your years count. Happy birthday! George Meredith Free People', 17, NOW(), 'Short and Simple Christmas Day', 49.00),
 (861, NOW(), 'College throws a lot at you at once. Hope this helps. AMC Theatres', 19, NOW(), 'West Elm E-Gift Certificate British Columbia Day', 93.00),
 (862, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio GranTurismo', 15, NOW(), 'Hallmark Gold Crown Foundation of Quito Day', 83.00),
 (863, NOW(), 'Cheering you up with a big smile! Ace Radio', 18, NOW(), 'Thank you Eid Al Fitr Holiday', 45.00),
@@ -925,8 +879,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (876, NOW(), 'Not just a year older, but a year better. Chef Boyardee', 11, NOW(), 'Life being a journey, Success has brought you many miles ahead of many people. Congratulations. Assumption Day', 32.00),
 (877, NOW(), 'The love you share makes this day special. Beats by Dre', 22, NOW(), 'Lyft Gift Certificate Meskel', 83.00),
 (878, NOW(), 'My/Our sympathy and thoughts are with you and your family. Air Australia', 25, NOW(), 'Yummy for you! Epiphany', 31.00),
-(879, NOW(), 'Frogs and snails and puppy-dogs'' tails, that''s what little boys are made of. Renaissance Indian Wells Resort and Spa', 14, NOW(), 'Personal anniversary Ash Wednesday', 54.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(879, NOW(), 'Frogs and snails and puppy-dogs'' tails, that''s what little boys are made of. Renaissance Indian Wells Resort and Spa', 14, NOW(), 'Personal anniversary Ash Wednesday', 54.00),
 (880, NOW(), 'Go see another rom-com (on me this time). Dairy Queen', 22, NOW(), 'Lululemon Gift Certificate Thanksgiving', 30.00),
 (881, NOW(), 'May your life be as colourful and shimmering as the lights of Diwali! Must See TV', 29, NOW(), 'Wishing you a speedy recovery! New Year''s Day', 92.00),
 (882, NOW(), 'A mother is the one who fills your heart in the first place. Amy Tan Barnes & Noble Nook', 13, NOW(), 'Christmas Certificate Gifts Defender''s Day (in lieu)', 69.00),
@@ -944,8 +897,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (894, NOW(), 'If You''re not exactly sure what they need right now, Verishop has a little bit of everything  from clothes for the whole family to home goods to beauty products to sex toys. ITC', 25, NOW(), ' May you create countless memories in your new home. St. Olavs Eve', 16.00),
 (895, NOW(), 'Thinking of you. May you feel better soon. Anheuser-Busch', 27, NOW(), 'BaubleBar Digital Gift Certificate Janmostav of Srimatna Sankardev', 19.00),
 (896, NOW(), 'A little holiday treat from your favorite elf! Best Buy', 28, NOW(), 'Add some stuff to cart. Boxing Day', 94.00),
-(897, NOW(), 'Our family wishes you love, joy and peace  today, tomorrow and always. Converse', 11, NOW(), 'Airbnb Gift Certificate National Heroes and Benefactors Day (in lieu)', 58.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(897, NOW(), 'Our family wishes you love, joy and peace  today, tomorrow and always. Converse', 11, NOW(), 'Airbnb Gift Certificate National Heroes and Benefactors Day (in lieu)', 58.00),
 (898, NOW(), 'Heres to your dreams of being an elite home cook. Choclitos', 14, NOW(), 'Thank you for the referrals Whit Monday', 84.00),
 (899, NOW(), 'Happy Anniversary to the love of my life. Dell', 13, NOW(), 'To love! Kali Puja', 31.00),
 (900, NOW(), 'Give the gift of no-makeup makeup and glowing winter skin. Bank One', 25, NOW(), 'Go get that serotonin rush! Benito Juarez''s Birthday', 78.00),
@@ -965,8 +917,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (914, NOW(), 'With friendly thoughts and best wishes for your birthday. Ambank', 25, NOW(), 'BLK + GRN E-Gift Certificate Ascension Day', 34.00),
 (915, NOW(), 'Every product is independently selected by (obsessive) editors. Things you buy through our links may earnus a commission. Dollar Tree Stores', 18, NOW(), 'Trust me, youll need this. Triumph of the Revolution', 90.00),
 (916, NOW(), 'Trust me, this is better than a home-cooked meal from me. Aerolineas Argentinas', 19, NOW(), 'Virtual Delivery (Email/SMS) Birth Anniversary Of Guru Rinpoche', 35.00),
-(917, NOW(), 'For the avid reader who likes to support small businesses. Allsteel', 30, NOW(), 'Min 2 Days Booking Janmotsav of Sri Sri Madhav Dev', 27.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(917, NOW(), 'For the avid reader who likes to support small businesses. Allsteel', 30, NOW(), 'Min 2 Days Booking Janmotsav of Sri Sri Madhav Dev', 27.00),
 (918, NOW(), 'I hope that every day you two spend together is as blissful and love-filled as possible. Here''s to one of my all-time favorite couples! Congratulations. Nixon Watches', 11, NOW(), 'With you it''s Valentine''s Day 365 days a year. Easter Monday', 16.00),
 (919, NOW(), 'Congratulations to proud new parents! May these tiny feet will tiptoe with love into your hearts and stay there forever! AGL Energy', 12, NOW(), 'Dinners on me! St. John''s Day', 70.00),
 (920, NOW(), 'Happy Valentines Day to the most beautiful woman I know. Sisley Paris', 10, NOW(), ' How can I begin to say I''m sorry. I didn''t mean to upset you. I hope that you can forgive me. Ullortuneq', 87.00),
@@ -984,8 +935,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (932, NOW(), 'I was in college once, so I knew just what to get you. Apple', 12, NOW(), 'May happiness &amp; love move in with you. All Saints'' Day', 48.00),
 (933, NOW(), 'Trust me, this is better than a home-cooked meal from me. Crocs', 24, NOW(), 'Go spa yourself! Birthday of Manuel L Quezon', 53.00),
 (934, NOW(), 'The 18 Very Best Sunscreens for Your Face Subway', 30, NOW(), 'Heres an excuse to escape. Awal Muharram', 12.00),
-(935, NOW(), 'Life is the flower for which love is the honey.  Victor Hug Back to Basics', 22, NOW(), 'For the New Homeowner Labour Day', 21.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(935, NOW(), 'Life is the flower for which love is the honey.  Victor Hug Back to Basics', 22, NOW(), 'For the New Homeowner Labour Day', 21.00), 
 (936, NOW(), 'You always go out of your way to be thoughtful. Norma', 18, NOW(), 'It''s your day to shine! Easter Sunday', 27.00),
 (937, NOW(), 'For the person currently subsidizing five different streamers. Carl''s Jr.', 26, NOW(), 'Ob Fitness Monthly Membership Jan Hus Day', 92.00),
 (938, NOW(), 'Your wedding day will come and go, but may your love forever grow. Audible', 27, NOW(), 'Apple E-Gift Certificate New Year''s Holiday', 32.00),
@@ -1004,8 +954,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (951, NOW(), 'Today is for remembering the happy times you''ve known. Allegra', 29, NOW(), 'Your business is always appreciated. Easter Monday', 60.00),
 (952, NOW(), 'Wishing you lots of luck and happiness in the year ahead. CyberLink', 11, NOW(), 'May all your days be filled with lasting love. Adelaide Cup', 61.00),
 (953, NOW(), 'Your business is sincerely appreciated. We look forward to continuing to serve you. AIG', 26, NOW(), 'For a special friend New Year''s Day', 36.00),
-(954, NOW(), 'May your home be filled with Hanukkah light and love. Norma', 21, NOW(), 'This comes with sincere appreciation. Labour Day', 12.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(954, NOW(), 'May your home be filled with Hanukkah light and love. Norma', 21, NOW(), 'This comes with sincere appreciation. Labour Day', 12.00),
 (955, NOW(), 'Sending warm greetings and sincere wishes for a happy and prosperous Raya. Selamat Hari Raya! Urban Outfitters', 15, NOW(), 'No bread, just jams! Remembrance Sunday', 97.00),
 (956, NOW(), 'See? It was all worth it! Right?? The North Face', 11, NOW(), 'Nordstrom E-Gift Certificate New Year''s Day', 39.00),
 (957, NOW(), 'Just a little something to show my appreciation. Bowflex', 20, NOW(), 'Relax and enjoy your wonderful new home! Ascension Day', 24.00),
@@ -1023,8 +972,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (969, NOW(), 'May the bright and festive glow of the New Year candle warm your days. Hope you have a wonderful time enjoying the New Year and may you be happy in every way. Salvatore Ferragamo', 16, NOW(), 'Reformation E-Gift Certificate Ethiopian Easter', 30.00),
 (970, NOW(), 'For laughing at all my text reactions in meetings. Funnelback', 29, NOW(), 'Nike Digital Gift Certificate Victory Day', 78.00),
 (971, NOW(), 'Depending on the recipient and how much they enjoy their home-improvement tasks, this may be the most exciting gift they receive during the holidays. Tissot', 21, NOW(), 'Happy nesting! HRH King Charles III Coronation', 11.00),
-(972, NOW(), 'Just a little something from me to you. CR-V', 17, NOW(), 'Thank you for your time Martyrdom of Sri Guru Teg Bahadur Ji', 89.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(972, NOW(), 'Just a little something from me to you. CR-V', 17, NOW(), 'Thank you for your time Martyrdom of Sri Guru Teg Bahadur Ji', 89.00), 
 (973, NOW(), 'And so... The adventure begins! Congratulations on your graduation! Lowe''s', 16, NOW(), 'H&M Gift Certificate Good Friday (Orthodox)', 22.00),
 (974, NOW(), 'Get well soon. Feel better. We miss you! Ajisen Ramen', 10, NOW(), 'For the New Homeowner New Year''s Day', 77.00),
 (975, NOW(), U&'It is a rare friendship that feels forever new. Soci\00c3\00a9t\00c3\00a9 G\00c3\00a9n\00c3\00a9rale', 25, NOW(), 'Gorjana E-Gift Certificate St. George''s Day', 98.00),
@@ -1043,8 +991,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (988, NOW(), 'Good results are attained through hard work. Happy graduation! Marshall', 14, NOW(), 'Glossier EGift Certificate Mizoram State Day', 57.00),
 (989, NOW(), 'Thank you from the bottom of my heart. Butterfinger', 12, NOW(), 'Its always shopping time. All Saints'' Day', 16.00),
 (990, NOW(), 'We wish you a very Merry Christmas and a Happy New Year! Aconquija Water', 30, NOW(), 'How ya doing, friend? International Labour Day', 56.00),
-(991, NOW(), 'Thank you for your encouragement and support always. Payless Entertainment', 30, NOW(), 'ASOS E-Gift Certificate Dormition of the Theotokos', 65.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(991, NOW(), 'Thank you for your encouragement and support always. Payless Entertainment', 30, NOW(), 'ASOS E-Gift Certificate Dormition of the Theotokos', 65.00),
 (992, NOW(), 'Merry Christmas! I put so much thought into your gift that now it''s too late to get it. UNIQLO', 19, NOW(), 'The Strategist New Year''s Eve', 85.00),
 (993, NOW(), 'With sincere gratitude for all you have done. American Century', 30, NOW(), 'Fruit and Gourmet Baskets Orthodox New Year''s Day', 39.00),
 (994, NOW(), 'You deserve a round of applauseand this, too. Anheuser-Busch', 29, NOW(), 'Always get the fries Workers'' Memorial Day', 62.00),
@@ -1063,8 +1010,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1007, NOW(), 'Happy Anniversary to the love of my life. Dr. Scholl''s', 20, NOW(), ' I just wanted to let you know that I have been thinking about you lately. I am reminded of you as I go through my day and I smile. I hope these flowers make you smile too. Netaji Subhas Chandra Bose Jayanti', 56.00),
 (1008, NOW(), 'I love you today, as I did from the start. I''ll love you forever, with all of my heart. Happy Anniversary! AB-inBev', 23, NOW(), 'New Baby Welcome Gift Carnival Monday', 77.00),
 (1009, NOW(), 'Your name has been synonymous with success! Congratulations! National Grid', 18, NOW(), 'Fashion and accessories Tabaski', 64.00),
-(1010, NOW(), 'I hurt you, but I didnt mean to Please forgive me! Chable Resort ', 15, NOW(), 'Three words: Add. To. Cart. Ramdev Jayanti', 62.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1010, NOW(), 'I hurt you, but I didnt mean to Please forgive me! Chable Resort ', 15, NOW(), 'Three words: Add. To. Cart. Ramdev Jayanti', 62.00),
 (1011, NOW(), 'Love doesnt make the world go round. Love is what makes the ride worthwhile.  Franklin P. Jones Maui Jim', 24, NOW(), 'the top pick in our buying guide Hari Raya Puasa Holiday', 84.00),
 (1012, NOW(), 'We do not remember days, we remember moments. Bunnings', 29, NOW(), 'For the Pet Parent Eid Al Fitr Holiday', 27.00),
 (1013, NOW(), 'For anyone who might appreciate some especially colorful new home goods. Devassa', 25, NOW(), 'For Her Wardrobe Essentials Lakshmi Puja', 93.00),
@@ -1084,8 +1030,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1027, NOW(), 'You eat food, right? I know you so well. Cointreau', 20, NOW(), 'Telfar E-Gift Certificate Labour Day', 74.00),
 (1028, NOW(), 'May happiness &amp; love move in with you. TWA', 14, NOW(), 'Thinking of you. May you feel better soon. Eid Milad-un-Nabi', 27.00),
 (1029, NOW(), 'My thoughts are with you at your time of need Accent', 10, NOW(), 'Happy nesting! New Year''s Day', 13.00),
-(1030, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! H&M', 25, NOW(), 'For Wine Night Ascension Day', 32.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1030, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! H&M', 25, NOW(), 'For Wine Night Ascension Day', 32.00),
 (1031, NOW(), 'A friend is someone you can lean on Georgia-Pacific', 16, NOW(), 'So thoughtful of you to think of us. Mother''s Day', 20.00),
 (1032, NOW(), 'Its hard to tell who is luckier, you or your new baby. Primark', 14, NOW(), 'Thinking of you Good Friday', 42.00),
 (1033, NOW(), 'Go see something as epic as you are! Old Navy', 25, NOW(), 'Glossier EGift Certificate Assumption Day', 44.00),
@@ -1104,8 +1049,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1046, NOW(), 'Thank you for your friendship, your business and the opportunity to serve you. Inco Rogers Communications Empire', 17, NOW(), 'Cheer Up! Mother''s Day', 20.00),
 (1047, NOW(), 'Hoping this finds you well on the way to recovery. AutoZone', 29, NOW(), 'For a Guest Room Upgrade Dragon Boat Festival', 58.00),
 (1048, NOW(), 'Give a sweet gift to your loved one with a Milk Bar gift card. They can choose from cakes, cookies, pies and more. Nintendo', 24, NOW(), 'Amazon E-Gift Certificate Ayyankali Jayanthi', 17.00),
-(1049, NOW(), 'For the home-improvement obsessive in your life. Chanel', 21, NOW(), 'Bando Gift Certificate Easter Sunday', 36.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1049, NOW(), 'For the home-improvement obsessive in your life. Chanel', 21, NOW(), 'Bando Gift Certificate Easter Sunday', 36.00), 
 (1050, NOW(), 'Now you can buy something when You''re up at 3 a.m. Firestone', 24, NOW(), 'With heartfelt condolences King Charles III''s Coronation', 49.00),
 (1051, NOW(), 'Cheering you up with a big smile! Rail Infrastructure Corporation', 28, NOW(), 'Cause you''re very melodious Holy Week Holiday', 84.00),
 (1052, NOW(), 'Merry Christmas! May your happiness be large and your bills be small. Delta Projects', 12, NOW(), 'Maude EGift Certificate Orthodox Easter Tuesday', 26.00),
@@ -1124,8 +1068,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1065, NOW(), 'To my wife, my soul mate, my love, my life. Australian Securities Exchange', 21, NOW(), 'Food and drink New Year''s Day', 64.00),
 (1066, NOW(), U&'I send a kiss inside the petals of each rose... L''Or\00e9al Paris', 13, NOW(), 'Ah-Shi E-Gift Certificate Father''s Day', 44.00),
 (1067, NOW(), 'May you create countless memories in your new home. Aveda', 12, NOW(), 'Cause youre very melodious. New Year''s Eve', 76.00),
-(1068, NOW(), 'Offering my/our sincerest condolences to you and your family All Star', 21, NOW(), 'Indulge, darling. National Day', 57.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1068, NOW(), 'Offering my/our sincerest condolences to you and your family All Star', 21, NOW(), 'Indulge, darling. National Day', 57.00),
 (1069, NOW(), 'Get something for yourself next time you go to Hallmark. Coolpix', 22, NOW(), 'Starbucks Digital Gift Certificate Revolution Day', 21.00),
 (1070, NOW(), 'Think of the years as gold bullion...and you''re rich! ASOS', 17, NOW(), 'The Sill Gift Certificate Immaculate Conception Day', 57.00),
 (1071, NOW(), 'For the person who takes remote work to whole new level. Reynolds Stockbrokers', 23, NOW(), 'Thinking of you Tabaski', 46.00),
@@ -1145,8 +1088,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1085, NOW(), 'For the home-improvement obsessive in your life. Dorf Clark Industries Limited', 25, NOW(), 'Heres to more coffee dates! Sovereignty Day Holiday', 22.00),
 (1086, NOW(), 'Hope youll be in the best of health soon. Wrangler', 13, NOW(), 'This calls for shopping! Louis Riel Day', 97.00),
 (1087, NOW(), 'It was a pleasure to work with you. Harris Teeter', 26, NOW(), 'Hari Raya New Year''s Day', 60.00),
-(1088, NOW(), 'Happy New Year! You make our family so proud, and we wish you nothing but continued success and happiness. Funyuns', 27, NOW(), 'Because pizza aint free Democracy Day', 31.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1088, NOW(), 'Happy New Year! You make our family so proud, and we wish you nothing but continued success and happiness. Funyuns', 27, NOW(), 'Because pizza aint free Democracy Day', 31.00), 
 (1089, NOW(), 'Dont burn your mouth. You''re already hot enough. Urban Outfitters', 16, NOW(), 'Thank you for trusting us. We look forward to exceeding your expectations! Ascension Day', 36.00),
 (1090, NOW(), 'Words are inadequate at a time like this. Please accept my heartfelt sympathy. Bosch', 20, NOW(), 'Heres to more coffee dates! New Year''s Day', 94.00),
 (1091, NOW(), 'Thank you for your encouragement and support always. Spavia ', 29, NOW(), 'So you can keep looking better than me. Christmas Day', 33.00),
@@ -1166,8 +1108,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1105, NOW(), 'Go see something as epic as you are! Hynix', 24, NOW(), 'Yay for you! New Year''s Day', 27.00),
 (1106, NOW(), 'My love for you grows stronger every year. Clue', 13, NOW(), 'Telfar E-Gift Certificate Kenya declares Public Holiday for Idd-ul-Fitr', 90.00),
 (1107, NOW(), 'Thank you, your thoughtfulness really put sunshine in my day. Carnini', 22, NOW(), 'Coach E-Gift Certificate King''s Birthday', 16.00),
-(1108, NOW(), 'Our love is a journey, with a beginning but no end. We will walk the path together forever. American Eagle Outfitters', 20, NOW(), 'Gong Hei Fatt Choy! Sati Sadhani Divas', 40.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1108, NOW(), 'Our love is a journey, with a beginning but no end. We will walk the path together forever. American Eagle Outfitters', 20, NOW(), 'Gong Hei Fatt Choy! Sati Sadhani Divas', 40.00),
 (1109, NOW(), 'Love is a good reason for a gift card. Allegra', 19, NOW(), 'Bookshop Gift Certificate New Year''s Day (in lieu)', 68.00),
 (1110, NOW(), 'You have no item in your shopping cart. Oral-B', 11, NOW(), 'Corporate Gifts Losar', 94.00),
 (1111, NOW(), 'How your home has been blessed with a new baby. Adidas', 20, NOW(), 'Get something newlywed-y! New Year''s Day', 53.00),
@@ -1186,8 +1127,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1124, NOW(), 'My life just wouldn''t be the same without you in it. I love you. Coach', 18, NOW(), 'Huckberry E-Gift Certificate Easter Sunday', 19.00),
 (1125, NOW(), 'For the home-improvement obsessive in your life. Gen-i', 17, NOW(), 'Baggu Gift Certificate National Salvation Day', 62.00),
 (1126, NOW(), 'I blew it. Please give me another chance. Life Time Fitness', 18, NOW(), 'Because you''re so spa-cial Reconciliation Day', 68.00),
-(1127, NOW(), 'you''ve got all that learning. Heres a little something to go with it! Anne Klein', 14, NOW(), 'Now do something nice for YOU. New Year''s Day', 77.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1127, NOW(), 'you''ve got all that learning. Heres a little something to go with it! Anne Klein', 14, NOW(), 'Now do something nice for YOU. New Year''s Day', 77.00),
 (1128, NOW(), 'Go see another rom-com (on me this time). Smucker''s', 19, NOW(), 'For Winter-Proof Boots Holy Thursday', 56.00),
 (1129, NOW(), 'May your sorrow be eased by good memories. Celcom', 12, NOW(), 'Whole Foods EGift Certificate Labour Day', 33.00),
 (1130, NOW(), 'Our thoughts are with you. Get well soon! Thinking of you. ANT1 Group', 13, NOW(), 'I never know what to get you&but you do! Birthday of Rabindra Nath Tagore', 11.00),
@@ -1205,8 +1145,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1142, NOW(), 'A dad is someone who wants to catch you when you fall. Instead he picks you up, brushes you off and lets you try again. Unknown Home Depot', 10, NOW(), 'Warmest regards Eid Al Fitr', 13.00),
 (1143, NOW(), 'Im not great at coming up with gifts. Thank goodness Im sexy. Co-op', 12, NOW(), 'Apple E-Gift Certificate Christmas Day', 25.00),
 (1144, NOW(), 'Trust methis is better than me shopping for you! Austereo Radio Network', 24, NOW(), 'Congratulations, graduate! New Year''s Day', 72.00),
-(1145, NOW(), 'Ihope your birthday was as special as you are. Nivea', 10, NOW(), 'Netflix EGift Certificate Orthodox Good Friday', 24.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1145, NOW(), 'Ihope your birthday was as special as you are. Nivea', 10, NOW(), 'Netflix EGift Certificate Orthodox Good Friday', 24.00),
 (1146, NOW(), 'Hoping the best things in life will always be yours. Dunkin''', 21, NOW(), 'Aritzia EGift Certificate Day of Fraternity and Cohesion', 58.00),
 (1147, NOW(), 'No matter the distance between our homes, the distance between our hearts will never change. Hershey''s', 23, NOW(), '57Hours E-Gift Certificate Christmas Eve', 84.00),
 (1148, NOW(), 'Cheering you up with a big smile! Bonds', 24, NOW(), 'Mother''s Day Imoinu Iratpa', 87.00),
@@ -1225,8 +1164,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1161, NOW(), 'Dont burn your mouth. You''re already hot enough. Codan Limited', 14, NOW(), 'Holiday Calendar Easter Tuesday', 32.00),
 (1162, NOW(), 'A little late-night shopping with a gift card never hurt anyone (probably). Australian Submarine Corporation', 17, NOW(), 'I hope this comes in handy on your adventure! Mother''s Day', 95.00),
 (1163, NOW(), 'Caps in the air like you just dont care. The North Face', 30, NOW(), 'Studs E-Gift Certificate New Year''s Day', 18.00),
-(1164, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Astra International', 25, NOW(), 'Salam Aidilfitri. Maaf zahir dan batin. Labour Day', 66.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1164, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Astra International', 25, NOW(), 'Salam Aidilfitri. Maaf zahir dan batin. Labour Day', 66.00),
 (1165, NOW(), 'Thinking of you. May you feel better soon. Airbus', 18, NOW(), 'For a special friend. Martyrdom of Imam Hassan Asgari', 64.00),
 (1166, NOW(), 'Bless your new life as husband and wife. Mariner', 12, NOW(), 'Nothing can separate friends Ascension Day', 64.00),
 (1167, NOW(), 'May this new year bring you good health and good fortune. Vans', 16, NOW(), ' Happy Silver Wedding Anniversary! After 25 years, you still make my heart skip a beat. Labour Day', 42.00),
@@ -1245,8 +1183,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1180, NOW(), 'Thoughts of you always bring me a smile. Sephora', 19, NOW(), 'Lowes Gift Certificate Canada Day', 69.00),
 (1181, NOW(), 'Get what you love, love what you get. AT&T', 20, NOW(), 'Tropical Arrangements Sint Eustatius Flag Day', 32.00),
 (1182, NOW(), 'Thank you for the memories of yesterday, for the happiness today, and the promise of all tomorrows! Happy Anniversary! Clinique', 16, NOW(), ' All my best to the birthday [GIRL/BOY]! Eid Al-Adha Holiday', 87.00),
-(1183, NOW(), 'May the future be filled with much happiness. Acuvue', 27, NOW(), 'Next Day Delivery Labour Day', 70.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1183, NOW(), 'May the future be filled with much happiness. Acuvue', 27, NOW(), 'Next Day Delivery Labour Day', 70.00), 
 (1184, NOW(), 'I hope all your birthday dreams and wishes come true. Ethical Ocean', 15, NOW(), 'Thanks for another great year! Worker''s Day (in lieu)', 72.00),
 (1185, NOW(), 'Bless your new life as husband and wife. Chipotle', 17, NOW(), 'Airbnb Gift Certificate Victory of Adwa', 22.00),
 (1186, NOW(), 'May all the dreams You''re dreaming soon turn into dreams come true. Louis Vuitton', 24, NOW(), 'Mother''s Day Independence Day', 50.00),
@@ -1264,8 +1201,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1198, NOW(), 'Think of the years as gold bullion...and you''re rich! Under Armour', 19, NOW(), 'Thank you for your business Christmas Day', 66.00),
 (1199, NOW(), 'Just want to add my good wishes to those you''ve already received. St John', 16, NOW(), 'Welcome to the neighborhood Good Friday', 96.00),
 (1200, NOW(), 'Sure, in some cases, they may give you a few hints about what they''re interested in, or maybe they''re easy to shop for all around  but what about the people who already have everything they could ever want? Aspirin', 24, NOW(), ' Good Friday', 91.00),
-(1201, NOW(), 'For anyone who might appreciate some especially colorful new home goods. Holly Hobbie', 20, NOW(), 'Business anniversary Labour Day', 89.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1201, NOW(), 'For anyone who might appreciate some especially colorful new home goods. Holly Hobbie', 20, NOW(), 'Business anniversary Labour Day', 89.00), 
 (1202, NOW(), 'May this new year bring you good health and good fortune. H&M', 18, NOW(), 'Rack up some reward miles! Easter Day', 67.00),
 (1203, NOW(), 'May happiness &amp; love move in with you. Genius', 26, NOW(), 'You: Great! Me: Grateful! All Saints'' Day', 89.00),
 (1204, NOW(), 'So thoughtful of you to think of us. H&M', 16, NOW(), 'Huckberry E-Gift Certificate Royal Brunei Armed Forces Day', 17.00),
@@ -1283,8 +1219,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1216, NOW(), 'Were wishing everything wonderful to a wonderful couple. Head & Shoulders', 13, NOW(), 'Have a holly, jolly Holiday! Holy Saturday', 37.00),
 (1217, NOW(), 'Best wishes for a joyous Christmas filled with love, happiness and prosperity! Toblerone', 28, NOW(), 'Relax and sleep well in your new abode. Hope it proves a great place of comfort. Congrats! Commerce Day', 63.00),
 (1218, NOW(), 'When it rains, it pours but soon, the sun shines again. Better days are ahead. Amgen', 10, NOW(), 'Just a little something from me to you. Thanksgiving Day', 28.00),
-(1219, NOW(), 'Reaching this milestone wasnt an easy task. But you did it. My heartiest congratulations. Anheuser-Busch', 20, NOW(), 'Keep looking fresh and fabulous National Heroes and Heroines Day', 25.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1219, NOW(), 'Reaching this milestone wasnt an easy task. But you did it. My heartiest congratulations. Anheuser-Busch', 20, NOW(), 'Keep looking fresh and fabulous National Heroes and Heroines Day', 25.00),
 (1220, NOW(), 'Hope your new home is filled with joy. Jared', 10, NOW(), 'For Her Wardrobe Essentials Islander Day', 64.00),
 (1221, NOW(), 'Hope your recovery is a speedy one. We miss you! Shiseido', 13, NOW(), 'Williams Sonoma E-Gift Certificate People Power Revolution', 96.00),
 (1222, NOW(), 'This comes with all my best thoughts for your recovery. Bob''s', 20, NOW(), 'Thank you for the vote of confidence. Second Day of Christmas', 76.00),
@@ -1303,8 +1238,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1235, NOW(), 'Its wonderful sharing with a good friend like you. Cointreau', 26, NOW(), ' Congratulations on the birth of you new baby [BOY/GIRL] Prophet''s Birthday', 31.00),
 (1236, NOW(), 'A mothers arms are more comforting than anyone elses. Princess Diana KPMG', 21, NOW(), 'With special thanks and much appreciation. Imlek Holiday', 87.00),
 (1237, NOW(), 'Take care of yourself and feel better soon. Gatorade', 20, NOW(), 'Don''t sweat shipping delays. Australia Day', 56.00),
-(1238, NOW(), 'Gift card? Bacon? It was a really tough decision. WigWam', 28, NOW(), 'A warm welcome from all of us. Holy Saturday', 11.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1238, NOW(), 'Gift card? Bacon? It was a really tough decision. WigWam', 28, NOW(), 'A warm welcome from all of us. Holy Saturday', 11.00),
 (1239, NOW(), 'Its great to see good things happen for someone so deserving. Chipotle', 27, NOW(), 'Uber Gift Certificate Assumption Day', 99.00),
 (1240, NOW(), 'Sending you good vibes with this gift card! Leighton Holdings', 23, NOW(), 'Youre off to a beautiful beginning. Christmas Day', 82.00),
 (1241, NOW(), 'Dream big! (Heres some dream fuel to help.) Herbal Essences', 24, NOW(), 'Wishing you happiness everyday National Revolution Day', 45.00),
@@ -1324,8 +1258,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1255, NOW(), 'Sending my best wishes to make you feel better. Get well soon! CorpBanca', 30, NOW(), 'Casetify Gift Certificate Day of the Glories of the Chilean Army', 86.00),
 (1256, NOW(), 'Not cooking is the most delicious of all. Coach', 29, NOW(), 'Fandango Gift Certificate Mountain Day', 87.00),
 (1257, NOW(), 'Thank you for making me feel so comfortable Bushmills Irish Whiskey', 21, NOW(), 'Apple E-Gift Certificate Islamic Republic Day', 91.00),
-(1258, NOW(), 'Happy Anniversary to the love of my life. Aleve', 22, NOW(), 'May God be with you at this time. French National Day', 75.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1258, NOW(), 'Happy Anniversary to the love of my life. Aleve', 22, NOW(), 'May God be with you at this time. French National Day', 75.00), 
 (1259, NOW(), 'Thank you for being my biggest supporter. I couldn''t do it without you. Stuart Weitzman', 10, NOW(), 'glowing winter skin Bank Holiday', 97.00),
 (1260, NOW(), 'I know  life isnt fair sometimes. Im here and I care. Coach', 12, NOW(), 'Next Day Delivery Maundy Thursday', 60.00),
 (1261, NOW(), 'Just a little something from me to you. Toblerone', 16, NOW(), 'Aritzia EGift Certificate Good Friday', 62.00),
@@ -1345,8 +1278,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1275, NOW(), 'Happy Valentines Day. You are amazing in every way! I love you! Alcan', 18, NOW(), 'I owe you big time Durga Ashtami', 25.00),
 (1276, NOW(), 'Just the beginning of successes for you. Congrats! Good Housekeeping', 15, NOW(), 'I couldnt log on to your registry because I forget every password ever. Christmas Day', 42.00),
 (1277, NOW(), 'Most people won''t have too much trouble putting Uber credit to good use, whether they''re going out or ordering in. Banana Republic', 19, NOW(), 'Happiness is having a friend like you. Labour Day', 88.00),
-(1278, NOW(), 'May your business flourish and bring you lots of joy in the new year. Forever 21', 15, NOW(), 'Good results are attained through hard work. Happy graduation! Good Friday', 99.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1278, NOW(), 'May your business flourish and bring you lots of joy in the new year. Forever 21', 15, NOW(), 'Good results are attained through hard work. Happy graduation! Good Friday', 99.00),
 (1279, NOW(), 'Wishing you steady improvement until You''re well again. Whole Foods Market', 27, NOW(), 'Nike Digital Gift Certificate Coptic Easter Sunday', 96.00),
 (1280, NOW(), 'Your thoughtfulness is appreciated so much more than words can say. Tommy Hilfiger', 26, NOW(), 'We sincerely appreciate your business Traditional Day', 71.00),
 (1281, NOW(), 'I send a kiss inside the petals of each rose... Bush', 10, NOW(), 'Thank you for your time Good Friday', 59.00),
@@ -1365,8 +1297,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1294, NOW(), 'May God bless you on your graduation day. Merrill Lynch', 20, NOW(), 'Happy nesting! Carnival Monday', 65.00),
 (1295, NOW(), 'Congratulations on making all of us proud of you. We are so happy for you my dear. Lenovo', 24, NOW(), 'Just because youve bean on my mind. Labour Day', 22.00),
 (1296, NOW(), 'Gift card? Bacon? It was a really tough decision. Brahma', 12, NOW(), 'For Dainty Jewelry Christmas Day', 20.00),
-(1297, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Busch', 29, NOW(), 'Happy Mid-Autumn Festival! Mother''s Day', 27.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1297, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Busch', 29, NOW(), 'Happy Mid-Autumn Festival! Mother''s Day', 27.00),
 (1298, NOW(), 'Thinking of you and wishing you a happy day. The Ritz Carlton ', 27, NOW(), 'Happy retirement. We''ll miss you! Day of Victory', 73.00),
 (1299, NOW(), 'For the person who likes their clothing to come with Amazon-fast shipping. Fulinmen', 26, NOW(), 'Whats a stove, am I right? New Year''s Day', 33.00),
 (1300, NOW(), 'May happiness &amp; love move in with you. Abbott Laboratories', 25, NOW(), 'Send me a postcard with a kitten on it. Dutch Emancipation Day', 20.00),
@@ -1385,8 +1316,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1313, NOW(), 'May God bless you on your graduation day. Geocell', 23, NOW(), 'Shopbop E-Gift Certificate Anniversary of the Revolution', 98.00),
 (1314, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Kroger', 20, NOW(), 'Because of you everything is so much nicer Celebration of the Birthday of His Majesty the King', 41.00),
 (1315, NOW(), 'Warm, brown elixir of life, we pray to thee. Renaissance Indian Wells Resort and Spa', 26, NOW(), 'Congratulations on your beautiful home Freedom and Democracy Day', 56.00),
-(1316, NOW(), 'Happy New Year! You make our family so proud, and we wish you nothing but continued success and happiness. GlaxoSmithKline', 23, NOW(), 'Wishing you a special birthday Uzhavar Tirunal', 53.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1316, NOW(), 'Happy New Year! You make our family so proud, and we wish you nothing but continued success and happiness. GlaxoSmithKline', 23, NOW(), 'Wishing you a special birthday Uzhavar Tirunal', 53.00),
 (1317, NOW(), 'Its great to see good things happen for someone so deserving. Louis Vuitton', 26, NOW(), 'Sorry I forgot the most important day of the year... your Birthday! The day following the first day of January', 94.00),
 (1318, NOW(), 'Congratulations on achieving a milestone. Here''s to a great future. Nike', 18, NOW(), 'When it rains, it pours but soon, the sun shines again. Better days are ahead. Veterans Day', 97.00),
 (1319, NOW(), 'Every time you see these blooms, remember someone is thinking of you! Disaronno', 24, NOW(), 'Congratulations on 50 golden years! Good Friday', 23.00),
@@ -1404,8 +1334,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1331, NOW(), 'Because of you everything is so much nicer Angel Soft', 22, NOW(), 'Anniversary Certificate Gifts Independence Day', 33.00),
 (1332, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] ASOS', 23, NOW(), 'Valentines Day is a very special occasion to let you know what an important place you have in my heart. I love you! Happy Valentines Day! National Day', 79.00),
 (1333, NOW(), 'May the joy of this festive season light your life with love, peace and hope. Selamat Hari Raya! Ferrero', 20, NOW(), 'The Cheesecake Factory Gift Certificate Easter Monday', 90.00),
-(1334, NOW(), 'According toGhetto Gastro co-founder Jason Gray, Salt Fat Acid Heat author Samin Nosrat keeps Fly By Jings Sichuan Chili Crisp out on her kitchen counter. Beanie Babies', 27, NOW(), 'reusable nylon tote May Bank Holiday', 80.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1334, NOW(), 'According toGhetto Gastro co-founder Jason Gray, Salt Fat Acid Heat author Samin Nosrat keeps Fly By Jings Sichuan Chili Crisp out on her kitchen counter. Beanie Babies', 27, NOW(), 'reusable nylon tote May Bank Holiday', 80.00), 
 (1335, NOW(), 'Christmas is the day that holds all time together. La Reserve Geneve', 23, NOW(), 'Rack up some reward miles! Boxing Day', 60.00),
 (1336, NOW(), 'Congratulations and best wishes for a succesful future. Motta', 16, NOW(), 'Take care of yourself and feel better soon. Independence Day', 28.00),
 (1337, NOW(), 'Wishing you every happiness as you celebrate the love you share Aura', 22, NOW(), 'Its always shopping time. Birth Anniversary of the 4th Druk Gyalpo', 93.00),
@@ -1424,8 +1353,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1350, NOW(), 'For the ecoconscious person with a KN95 subscription. Louis Vuitton', 30, NOW(), 'Framebridge E-Gift Certificate Patriot''s Day', 99.00),
 (1351, NOW(), 'May the future be filled with much happiness. Samsung', 15, NOW(), 'Wishing you companionship, contentment and love. Day of National Sovereignty', 50.00),
 (1352, NOW(), 'Our thoughts and prayers are with you during this difficult time. We are sorry for your loss. Clif Bar', 10, NOW(), 'Parachute Digital Gift Certificate Readjustment Movement Day', 46.00),
-(1353, NOW(), 'Rejoice! He is watching over you this Easter! Sisley Paris', 10, NOW(), 'Cool Move! Congratulations! New Year''s Day (in lieu)', 100.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1353, NOW(), 'Rejoice! He is watching over you this Easter! Sisley Paris', 10, NOW(), 'Cool Move! Congratulations! New Year''s Day (in lieu)', 100.00),
 (1354, NOW(), 'Hoping this finds you well on the way to a speedy recovery. Raisinets', 23, NOW(), 'Nordstrom E-Gift Certificate Martin Luther King Jr. Day', 30.00),
 (1355, NOW(), 'Mother''s love is the fuel that enables a normal human being to do the impossible. Marion C. Garretty ', 30, NOW(), 'Thanks for being there Iraqi Army Day', 44.00),
 (1356, NOW(), 'Your business is sincerely appreciated. We look forward to continuing to serve you. DaKine', 26, NOW(), 'Belated birthday Holy Saturday', 47.00),
@@ -1444,8 +1372,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1369, NOW(), 'Just a note to keep in touch. Lets talk soon. Dole', 15, NOW(), 'Tonights homework: Spend this Independence Day', 57.00),
 (1370, NOW(), 'Know someone who''s moving into a new place? Try handing them a Wayfair gift card, and grant them access to thousands of home furnishings, on your dime. Logitech', 20, NOW(), 'StubHub e-gift card Eid-ul-Fitr', 56.00),
 (1371, NOW(), 'We appreciate your business and your confidence in us. Chanel', 11, NOW(), 'For the New Homeowner Carnival Tuesday', 41.00),
-(1372, NOW(), 'You take my breath away...today and every day. Advanced Auto Parts', 22, NOW(), ' Wish I could turn back the time and make things right Please forgive me! Bastille Day', 42.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1372, NOW(), 'You take my breath away...today and every day. Advanced Auto Parts', 22, NOW(), ' Wish I could turn back the time and make things right Please forgive me! Bastille Day', 42.00), 
 (1373, NOW(), 'For the person who cant stop reading our tech reviews. Converse', 17, NOW(), 'Way to go&shopping! Easter Sunday', 28.00),
 (1374, NOW(), 'A mothers arms are more comforting than anyone elses. Princess Diana American Eagle Outfitters', 16, NOW(), 'Telfar E-Gift Certificate Summer Day', 63.00),
 (1375, NOW(), 'You''re now a team of two. Congrats on an unbeatable union! Wishing you a happy and successful marriage. la prairie', 20, NOW(), 'Anniversary Certificate Gifts Vinayagar Chathurthi', 20.00),
@@ -1463,8 +1390,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1387, NOW(), 'See? It was all worth it! Right?? Jelly Belly', 16, NOW(), 'Go get that serotonin rush! Birthday of HRH Crown Prince (in lieu)', 91.00),
 (1388, NOW(), 'May the love and happiness you feel today shine through the years. Kaiser', 29, NOW(), ' I hope you consider trying to forgive me. Flag Day', 68.00),
 (1389, NOW(), 'Hoping each new day will find you feeling better. ICBC', 20, NOW(), ' Look what the bunny found in the carrot patch! Happy Easter! Christmas Day', 12.00),
-(1390, NOW(), 'I blew it. Please give me another chance. Desitin', 25, NOW(), 'Framebridge E-Gift Certificate Grand Final Eve', 81.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1390, NOW(), 'I blew it. Please give me another chance. Desitin', 25, NOW(), 'Framebridge E-Gift Certificate Grand Final Eve', 81.00), 
 (1391, NOW(), 'Cheers to you! Cheers to your year ahead! Actimel', 14, NOW(), 'BaubleBar Digital Gift Certificate Heroe''s Day', 30.00),
 (1392, NOW(), 'You take my breath away...today and every day. Anheuser-Busch', 23, NOW(), 'Youve made our success possible. Thank you! Christmas Day', 33.00),
 (1393, NOW(), 'You both deserve the very best that life can bring you. Fendi', 16, NOW(), ' Thank you for being my biggest supporter. I couldn''t do it without you. Christmas Day', 53.00),
@@ -1482,8 +1408,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1405, NOW(), 'Were wishing everything wonderful to a wonderful couple. Subway', 18, NOW(), 'Beyond every cloud, there is a rainbow. Thimphu Tshechu Holiday', 18.00),
 (1406, NOW(), 'After 10 years, I still feel like we''re newlyweds. Sydney Ferries Corporation', 26, NOW(), 'Same Day Delivery (Order Placed By 1pm) International Women''s Day', 26.00),
 (1407, NOW(), 'To happy endings and new beginnings. Congratulations! Red Bull', 28, NOW(), 'For Dainty Jewelry New Year''s Eve', 16.00),
-(1408, NOW(), 'Just a little something from me to you. Calvin Klein', 17, NOW(), 'Ask for the dessert menu Immaculate Conception Day', 37.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1408, NOW(), 'Just a little something from me to you. Calvin Klein', 17, NOW(), 'Ask for the dessert menu Immaculate Conception Day', 37.00),
 (1409, NOW(), 'Trust me, this is better than a home-cooked meal from me. Cascina Verdesole', 20, NOW(), 'Love &amp; Anniversary Randol Fawkes Labour Day', 92.00),
 (1410, NOW(), 'Im not great at coming up with gifts. Thank goodness Im sexy. Haigh''s chocolates', 23, NOW(), 'Babies are Gods miracles Gospel Day', 31.00),
 (1411, NOW(), 'So thoughtful of you to think of us. Citizens Bank', 22, NOW(), 'Watch carefully&dinner is almost here. HRH King Charles III Coronation', 78.00),
@@ -1501,8 +1426,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1423, NOW(), 'Our sympathy and warmest thoughts are with you now. Sephora', 15, NOW(), 'The Cheesecake Factory Gift Certificate Women''s Day', 19.00),
 (1424, NOW(), 'With best wishes for a lifetime of happiness together. Fudge Shoppe', 11, NOW(), 'Apparently, you mean this much to me. Guru Nanak''s Birthday', 29.00),
 (1425, NOW(), 'With this gift card, theyll be able to shop big-ticket furniture items as well as a curated collection of our favorite things. CRSanjiu', 30, NOW(), 'Kitty Guo Independence Day', 17.00),
-(1426, NOW(), 'For the person who spends all their money on their pet anyway. Lacoste', 10, NOW(), 'Personal anniversary New Year''s Day', 36.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1426, NOW(), 'For the person who spends all their money on their pet anyway. Lacoste', 10, NOW(), 'Personal anniversary New Year''s Day', 36.00),
 (1427, NOW(), 'Happy Mid-Autumn Festival! May the round moon bring you a happy family and a successful future. David Yurman', 26, NOW(), 'Coach E-Gift Certificate Constitution Day', 60.00),
 (1428, NOW(), 'Warm Easter greetings to you and your family. Altos Del Plata', 11, NOW(), 'StubHub e-gift card Khmer New Year Holiday', 69.00),
 (1429, NOW(), 'How happy you must be with a new little son/daughter to love. Furla', 14, NOW(), 'Thank you for being so nice. Easter Monday', 90.00),
@@ -1521,8 +1445,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1442, NOW(), 'Its so nice sharing special moments with a friend like you. Old Navy', 29, NOW(), 'Use this to escape from your in-laws. Guru Hargobind Ji''s Birthday', 90.00),
 (1443, NOW(), 'A hundred hearts would be too few to carry all my love for you. Bluescope', 10, NOW(), 'Don''t eat the eye cucumbers Emancipation Day', 53.00),
 (1444, NOW(), 'Thank you for your encouragement and support always. Smart', 12, NOW(), 'So grateful for you King''s Birthday', 89.00),
-(1445, NOW(), 'Sorry I forgot your birthday. Can you reschedule it for sometime next week? Ducati', 10, NOW(), 'You deserve ithappy retirement! King''s Birthday', 69.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1445, NOW(), 'Sorry I forgot your birthday. Can you reschedule it for sometime next week? Ducati', 10, NOW(), 'You deserve ithappy retirement! King''s Birthday', 69.00),
 (1446, NOW(), 'Look what the bunny found in the carrot patch! Happy Easter! Abercrombie & Fitch', 22, NOW(), 'Material Kitchen Gift Certificate All Saints'' Day', 54.00),
 (1447, NOW(), 'Selamat Hari Raya! May you and your loved ones be blessed with happiness and peace! Maxim''s Catering', 13, NOW(), 'Great Jones Gift Certificate King''s Birthday', 46.00),
 (1448, NOW(), 'May all the dreams You''re dreaming soon turn into dreams come true. Gucci', 25, NOW(), 'For the ecoconscious person with a KN95 subscription. Maundy Thursday', 96.00),
@@ -1540,8 +1463,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1460, NOW(), 'Wishing you a joyous celebration, Selamat Hari Raya! Celesc', 11, NOW(), ' I was feeling defensive and when I feel defensive, sometimes I say things I don''t mean. New Year''s Day (in lieu)', 89.00),
 (1461, NOW(), 'Sending you good vibes with this gift card! Old Spice', 25, NOW(), 'My love for you grows stronger every year. Thanksgiving', 100.00),
 (1462, NOW(), 'A little holiday treat from your favorite elf! ANT1 Group', 30, NOW(), 'The Strategist Good Friday', 86.00),
-(1463, NOW(), 'Here''s a toast to you on your 21st birthday! Cheers! Columbia', 23, NOW(), 'Congratulations on the new home! May it bring lot more happiness in coming years. Spring Festival Holiday', 41.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1463, NOW(), 'Here''s a toast to you on your 21st birthday! Cheers! Columbia', 23, NOW(), 'Congratulations on the new home! May it bring lot more happiness in coming years. Spring Festival Holiday', 41.00),
 (1464, NOW(), 'Today is for remembering the happy times you''ve known. Fendi', 10, NOW(), 'Soooooo thoughtful! Labour Day (in lieu)', 95.00),
 (1465, NOW(), 'Sending hugs, kisses and this little gift to let you know Im thinking of you! Milk Duds', 17, NOW(), 'May your love bring happiness to all your days. St. Stephen''s Day', 57.00),
 (1466, NOW(), 'Our thoughts and prayers are with you during this difficult time. We are sorry for your loss. Hugo Boss', 24, NOW(), 'Marriage is so beautiful. You have finally found that one person you get to annoy all through your life. Labour Day', 45.00),
@@ -1560,8 +1482,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1479, NOW(), 'Heres to your dreams of being an elite home cook. Andrade Gutierrez', 17, NOW(), 'Islandwide Courier Delivery Special King''s Coronation Bank Holiday', 82.00),
 (1480, NOW(), 'I may find my prince, but my dad will alwaysbe my king. Unknown AirTran', 29, NOW(), 'The heart of a father is the masterpiece of nature. Antoine Francois Prevost Labour Day', 74.00),
 (1481, NOW(), 'May the love and happiness you feel today shine through the years. Conair', 20, NOW(), 'For Something Floral Labour Day', 96.00),
-(1482, NOW(), 'I blew it. Please give me another chance. Enbridge', 18, NOW(), 'Huckberry E-Gift Certificate Orthodox Easter Day', 78.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1482, NOW(), 'I blew it. Please give me another chance. Enbridge', 18, NOW(), 'Huckberry E-Gift Certificate Orthodox Easter Day', 78.00), 
 (1483, NOW(), 'Is your birthday wish a gift card? Because China Merchants Bank', 16, NOW(), 'Mother''s Day Revolution Anniversary Holiday', 58.00),
 (1484, NOW(), 'Congratulations on your new bundle of joy. Dermalogica', 15, NOW(), 'Whole Foods EGift Certificate Eid Al Fitr Holiday', 67.00),
 (1485, NOW(), 'Wishing you a joyous celebration, Selamat Hari Raya! 7Up', 14, NOW(), 'For the Archival Fashion Lover Veterans Day', 32.00),
@@ -1581,8 +1502,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1499, NOW(), 'You dont have to buy me a thank-you card with this. Magna Doodle', 26, NOW(), 'Your name has been synonymous with success! Congratulations! New Year''s Eve', 18.00),
 (1500, NOW(), 'Just a little something from me to you. Norelco', 28, NOW(), 'May all your birthday wishes come true! Eid Al-Adha', 13.00),
 (1501, NOW(), 'A warm welcome. Thank you for choosing us! Mylanta', 15, NOW(), 'For a special friend. Repentance Day', 72.00),
-(1502, NOW(), 'Many thanks for referring  to me. Ill make sure he/she gets VIP service. Ermenegildo Zegna', 17, NOW(), 'Cheers to you two! Doljatra', 44.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1502, NOW(), 'Many thanks for referring  to me. Ill make sure he/she gets VIP service. Ermenegildo Zegna', 17, NOW(), 'Cheers to you two! Doljatra', 44.00),
 (1503, NOW(), 'Drivers, watch the road! Someone just turned 16! Thermacare', 25, NOW(), 'You made my day! Christmas Day', 99.00),
 (1504, NOW(), 'Cheering you up with a big smile! Elion', 27, NOW(), ' All of my heart, I send to you. All of my life, I''ll spend with you. I love you! Veterans Day (in lieu)', 54.00),
 (1505, NOW(), 'Santa needed help saving space in his sack. Baloise', 17, NOW(), 'Anniversary Certificate Gifts Labour Day', 77.00),
@@ -1602,8 +1522,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1519, NOW(), 'I hope all your birthday wishes came true. Hugo Boss', 19, NOW(), 'To love! Christmas Day', 26.00),
 (1520, NOW(), 'Were wishing everything wonderful to a wonderful couple. Subtle Energies ', 14, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! Christmas Day', 70.00),
 (1521, NOW(), 'We do not remember days, we remember moments. Lego', 13, NOW(), 'Read Next Independence Day', 55.00),
-(1522, NOW(), 'Congratulations, and best of luck in your future endeavors. Linguistically Based', 21, NOW(), 'Because of you everything is so much nicer Hanukkah', 15.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1522, NOW(), 'Congratulations, and best of luck in your future endeavors. Linguistically Based', 21, NOW(), 'Because of you everything is so much nicer Hanukkah', 15.00),
 (1523, NOW(), 'This is for that one time when that one thing happened. Coon cheese', 24, NOW(), 'Dont forget the wine! Birthday of Swami Vivekananda', 83.00),
 (1524, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Sebring', 20, NOW(), 'Happy Mid-Autumn Festival! Christmas Day', 37.00),
 (1525, NOW(), 'Thank you, your thoughtfulness really put sunshine in my day. Anthropologie', 13, NOW(), 'Stay caffeinated, my friend. Easter Monday', 100.00),
@@ -1623,8 +1542,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1539, NOW(), 'Your love is all I need to feel complete. HP', 23, NOW(), 'Studs E-Gift Certificate Orthodox Easter Day', 33.00),
 (1540, NOW(), 'It is a rare friendship that feels forever new. Elements Massage ', 24, NOW(), ' Mazel tov on your Bat Mitzvah! [Send to a 13 year old Jewish girl] Constitution Day', 91.00),
 (1541, NOW(), 'A boy is all God has with which to make a man. Biotech', 24, NOW(), 'You''re the partridge to my pear tree. Fasching', 39.00),
-(1542, NOW(), 'You eat food, right? I know you so well. Forenza', 29, NOW(), 'BLK + GRN E-Gift Certificate Christmas Day', 28.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1542, NOW(), 'You eat food, right? I know you so well. Forenza', 29, NOW(), 'BLK + GRN E-Gift Certificate Christmas Day', 28.00), 
 (1543, NOW(), 'Get yourself some brain food. (Yes, pizza is brain food.) Razer', 29, NOW(), 'Belated birthday Corpus Christi', 35.00),
 (1544, NOW(), 'Trust me, this is better than a home-cooked meal from me. Urban Outfitters', 21, NOW(), 'Retirement Certificate Gifts Labour Day', 92.00),
 (1545, NOW(), 'Its just one day in the year, but you should know that I love you every day and every moment. Take my love on this beautiful occasion! Lululemon', 17, NOW(), 'Cheer Up! Good Friday', 38.00),
@@ -1643,8 +1561,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1558, NOW(), 'Thank you for being my biggest supporter. I couldn''t do it without you. Oral-B', 26, NOW(), 'Nike Digital Gift Certificate Proclamation of the Republic', 65.00),
 (1559, NOW(), 'Congratulations on your new bundle of joy. Louis Vuitton', 20, NOW(), 'Min 3 Days Booking Saba Day', 58.00),
 (1560, NOW(), 'Our deepest sympathies during your time of loss. Please know that we are here for you. Burberry', 16, NOW(), 'Bandier Digital Gift Certificate Three Kings'' Day', 59.00),
-(1561, NOW(), 'Santa needed help saving space in his sack. Pandora', 17, NOW(), 'For the New Homeowner Picnic Day', 85.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1561, NOW(), 'Santa needed help saving space in his sack. Pandora', 17, NOW(), 'For the New Homeowner Picnic Day', 85.00),
 (1562, NOW(), 'Just a little thanks for the big way you showed up for me. Ananda', 20, NOW(), 'Always get the fries. Birth Anniversary Of Guru Rinpoche', 77.00),
 (1563, NOW(), 'May your degree unlock many doors to well deserved success. American Express', 15, NOW(), 'Get well soon Christmas Day', 68.00),
 (1564, NOW(), 'If you want to spend part of this on your favorite family member, who am I to stop you? J.Crew', 16, NOW(), 'This comes with sincere appreciation Armenian Orthodox Christmas Day', 91.00),
@@ -1663,8 +1580,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1577, NOW(), 'Like a fine wine, you improve with age. Snack Brands Australia', 30, NOW(), 'Welcome aboard! Its good to have you with us. Statehood Day', 99.00),
 (1578, NOW(), 'You both deserve the very best that life can bring you. Louis Vuitton', 28, NOW(), 'Happy Resurrection Day! Maharashtra Day', 32.00),
 (1579, NOW(), 'My/Our sympathy and thoughts are with you and your family. Ace Radio', 10, NOW(), 'Coach E-Gift Certificate Christmas Day', 23.00),
-(1580, NOW(), 'See? It was all worth it! Right?? Sebring', 21, NOW(), 'Thinking of you Arrival Day', 29.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1580, NOW(), 'See? It was all worth it! Right?? Sebring', 21, NOW(), 'Thinking of you Arrival Day', 29.00),
 (1581, NOW(), 'Ihope your birthday was as special as you are. Zales', 30, NOW(), 'Fresh Direct E-Gift Certificate British Columbia Day', 88.00),
 (1582, NOW(), 'Thank you for your valued business. Look forward to serving you again. Alexander Keith''s Brewery', 21, NOW(), 'reusable nylon tote Easter Monday', 24.00),
 (1583, NOW(), 'Gourmet dinners. There are people for this. Not me, but you know, other people. Bell Atlantic', 15, NOW(), 'The 11 Very Best Protein Powders Thimphu Tshechu Holiday', 72.00),
@@ -1682,8 +1598,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1595, NOW(), 'A mother is not a person to lean on, but a person to make leaning unnecessary. Dorothy Canfield Fisher Eni S.p.A.', 17, NOW(), ' It''s still a mystery to me, I haven''t got a clue, how I got so lucky and found you! Liberation Day', 71.00),
 (1596, NOW(), 'Not just a year older, but a year better. Lululemon', 16, NOW(), 'You did it! Congratulations, graduate! Shab e-Barat', 87.00),
 (1597, NOW(), 'Rejoice! He is watching over you this Easter! Bulla Dairy Foods', 28, NOW(), 'Happy nesting! Women''s Day', 68.00),
-(1598, NOW(), 'We value your trust and confidence and appreciate your loyalty as a customer AMG', 22, NOW(), 'Stay caffeinated, my friend. Corpus Christi', 70.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1598, NOW(), 'We value your trust and confidence and appreciate your loyalty as a customer AMG', 22, NOW(), 'Stay caffeinated, my friend. Corpus Christi', 70.00), 
 (1599, NOW(), 'May all the dreams You''re dreaming soon turn into dreams come true. Payless Entertainment', 16, NOW(), 'A friend is forever! Army Day', 96.00),
 (1600, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Agrichar', 21, NOW(), 'Let''s make this Diwali joyous and bright, Let''s celebrate in true sense this Festival of Light! Assumption Day', 60.00),
 (1601, NOW(), 'Hope your new home is filled with joy. Chipotle', 20, NOW(), 'glowing winter skin Boxing Day', 63.00),
@@ -1702,8 +1617,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1614, NOW(), 'Hope this helps bring a smile to your day. Tidal', 27, NOW(), 'West Elm E-Gift Certificate Fasching', 13.00),
 (1615, NOW(), 'The love you share makes this day special. Cott', 16, NOW(), 'For a Designer Download All Saints'' Day Holiday', 39.00),
 (1616, NOW(), U&'There is so little one can say, but my heart goes out to you. 361\00b0', 17, NOW(), 'reusable nylon tote Lunar New Year''s Day', 16.00),
-(1617, NOW(), 'Take care of yourself and feel better soon. Kokanee Beer', 11, NOW(), 'I hope this comes in handy on your adventure! Hari Raya Aidil Adha', 80.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1617, NOW(), 'Take care of yourself and feel better soon. Kokanee Beer', 11, NOW(), 'I hope this comes in handy on your adventure! Hari Raya Aidil Adha', 80.00),
 (1618, NOW(), 'Im not great at coming up with gifts. Thank goodness Im sexy. American Eagle Outfitters', 12, NOW(), 'Great Jones Gift Certificate New Year''s Day', 49.00),
 (1619, NOW(), 'Now you can get all the gift-card cards you want! Bohemia', 22, NOW(), ' Con-GRAD-ulations! New Year''s Day', 37.00),
 (1620, NOW(), 'I have a special mother, this I truly know. I could not ask for better, my mother, I love her so. Julie Hebert French''s', 13, NOW(), 'Zappos E-Gift Certificate Liberation Day', 54.00),
@@ -1722,8 +1636,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1633, NOW(), 'Gift cards are even better when they come in a little blue box. Bare Escentuals', 11, NOW(), 'Santa needed help saving space in his sack. Christmas Day', 79.00),
 (1634, NOW(), 'This is for that one time when that one thing happened. Versace', 10, NOW(), 'No bread, just jams! Father''s Day', 42.00),
 (1635, NOW(), 'Hoping this finds you well on the way to recovery. Kix', 25, NOW(), 'To love! All Souls'' Day', 49.00),
-(1636, NOW(), 'Find a song to get stuck in your head. Carfax', 14, NOW(), 'Nordstrom E-Gift Certificate Good Friday', 92.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1636, NOW(), 'Find a song to get stuck in your head. Carfax', 14, NOW(), 'Nordstrom E-Gift Certificate Good Friday', 92.00),
 (1637, NOW(), 'Sorry I missed you. Hope to talk with you soon. Hoka One One', 13, NOW(), 'Thank you for your time Birthday of the Raja of Perlis', 85.00),
 (1638, NOW(), 'Life began with waking up and loving my mother''s face. George Eliot Cafe Coffee Day', 15, NOW(), 'Ob Fitness Monthly Membership All Saints'' Day', 95.00),
 (1639, NOW(), 'There is only one happiness in life: to love and be loved.  George Sand Media Markt & Saturn', 27, NOW(), 'Bandier Digital Gift Certificate Celebration of the Birthday of His Majesty the King', 60.00),
@@ -1741,8 +1654,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1651, NOW(), U&'Think of the years as gold bullion...and you''re rich! C\00c3\00a9line', 17, NOW(), 'Wishing you a speedy recovery! Durga Puja', 91.00),
 (1652, NOW(), 'Wishing you happiness and joy in this new life you share. CCR', 16, NOW(), 'Thank you with a business touch Ayyankali Jayanthi', 75.00),
 (1653, NOW(), 'I hope this comes in handy on your adventure! Baloise', 26, NOW(), 'Starbucks Digital Gift Certificate Eid Al Adha', 31.00),
-(1654, NOW(), 'You bring joy and love to my life. Iced VoVo', 25, NOW(), 'You did it! Congratulations, graduate! Armenian Orthodox Christmas Day', 87.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1654, NOW(), 'You bring joy and love to my life. Iced VoVo', 25, NOW(), 'You did it! Congratulations, graduate! Armenian Orthodox Christmas Day', 87.00), 
 (1655, NOW(), 'Congratulations on your new bundle of joy. Hollister', 14, NOW(), 'Parachute Digital Gift Certificate Good Friday', 49.00),
 (1656, NOW(), 'Congratulations for the new nest. May the warmth of new home keep you all happy always. QMS Medicosmetics', 23, NOW(), 'A friend is forever! End of Ramadan Day 3', 87.00),
 (1657, NOW(), U&'Get that dish you love! With food on it! Herm\00e8s', 23, NOW(), 'Spotify E-Gift Certificate Mother''s Day', 75.00),
@@ -1761,8 +1673,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1670, NOW(), 'Wishing you happiness and joy in this new life you share. Macy''s', 15, NOW(), 'We are so happy for you and the arrival of your new child. Good Friday', 68.00),
 (1671, NOW(), 'Someone is turning the BIG 3 - 0! Celebrate! Disney+', 15, NOW(), 'Our family wishes you love, joy and peace  today, tomorrow and always. New Year''s Day', 83.00),
 (1672, NOW(), 'Gift cards: Almost as magical as flying reindeer. Easy Jet', 20, NOW(), 'Retirement Certificate Gifts Ascension Day', 64.00),
-(1673, NOW(), 'Get something for yourself next time you go to Hallmark. Rio Tinto Group', 11, NOW(), 'Take your homebody out shopping! National Anthem and Flag Day', 15.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1673, NOW(), 'Get something for yourself next time you go to Hallmark. Rio Tinto Group', 11, NOW(), 'Take your homebody out shopping! National Anthem and Flag Day', 15.00),
 (1674, NOW(), 'Madewell is home to bestselling denim, clothing, shoes, and accessories, making this gift card a great gift for anyone in need of some new apparel. Hotmail', 19, NOW(), 'wont break the bank Labour Day', 64.00),
 (1675, NOW(), 'We wish you a very Merry Christmas and a Happy New Year! Abercrombie & Fitch', 28, NOW(), 'Chewy E-Gift Certificate Christmas Day', 26.00),
 (1676, NOW(), 'Someone is turning the BIG 3 - 0! Celebrate! Kinley', 12, NOW(), ' Not once did I ever doubt you''d make it. Independence Day', 92.00),
@@ -1780,8 +1691,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1688, NOW(), 'You take my breath away...today and every day. Starbucks', 21, NOW(), 'Housewarming/Open House Easter Monday', 50.00),
 (1689, NOW(), 'Thinking of you and wishing you a happy day. Depo', 17, NOW(), 'Wishing you a wonderful day. Eid al-Fitr', 62.00),
 (1690, NOW(), 'A beautiful soul deserves beautiful things in life. Congratulations! Brite', 14, NOW(), 'Were glad you joined us Chhath Puja', 18.00),
-(1691, NOW(), 'A gift card to Gorjana is an invitation to pick earrings or rings they''ll never take off. BAE Systems Australia', 13, NOW(), 'You bring joy and love to my life. Labour Day', 95.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1691, NOW(), 'A gift card to Gorjana is an invitation to pick earrings or rings they''ll never take off. BAE Systems Australia', 13, NOW(), 'You bring joy and love to my life. Labour Day', 95.00),
 (1692, NOW(), 'Congratulations on your new little someone to love. Albertsons', 24, NOW(), 'Need a travel buddy? Armistice Day', 55.00),
 (1693, NOW(), 'Zappos is the home of pretty much every type of shoe imaginable, and a gift card can go towards the sneakers, boots, sandals, or loafers they''ve been eyeing for a while. Red Lobster', 28, NOW(), 'Hope you can use this to celebrate! Eid Al Adha', 26.00),
 (1694, NOW(), 'Take care of yourself and feel better soon. IWC Schaffhausen', 16, NOW(), 'Telfar E-Gift Certificate All Saints'' Day', 30.00),
@@ -1800,8 +1710,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1707, NOW(), 'Hoping this adds a little extra happy to your holidays. BOSE', 21, NOW(), 'Kudos to you! Youve earned them. Spring Festival', 78.00),
 (1708, NOW(), 'Thanks for being a couple of role models of marriage. Happy Anniversary. Spa by JW', 24, NOW(), 'excellent last-minute gifts Constitution Day', 39.00),
 (1709, NOW(), 'Keep smiling and one day life will get tired of upsetting you! Cheer up! Spa by JW', 29, NOW(), 'Chewy E-Gift Certificate New Year''s Eve', 50.00),
-(1710, NOW(), 'Its so nice sharing special moments with a friend like you. Anthropologie', 25, NOW(), 'Graduation Certificate Ideas Parents'' Day', 19.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1710, NOW(), 'Its so nice sharing special moments with a friend like you. Anthropologie', 25, NOW(), 'Graduation Certificate Ideas Parents'' Day', 19.00), 
 (1711, NOW(), 'The moms and mothers-in-law on your list will love fresh flowers delivered every month. Billabong', 16, NOW(), 'Airbnb Gift Certificate Christmas Day', 38.00),
 (1712, NOW(), 'I hope you consider trying to forgive me. UNIQLO', 30, NOW(), 'Way to go&shopping! King''s Birthday', 47.00),
 (1713, NOW(), 'Hope your birthday''s as terrific as you are. Dixie', 17, NOW(), 'Chewy E-Gift Certificate Orthodox Good Friday', 22.00),
@@ -1821,8 +1730,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1727, NOW(), 'Mazel tov on your Bat Mitzvah! [Send to a 13 year old Jewish girl] AAA', 17, NOW(), 'Thinking of you and wishing you a happy day. Mother''s Day', 41.00),
 (1728, NOW(), 'Because they can never have too many sets of sheets or guest towels. Trading Spaces', 23, NOW(), 'Airbnb Gift Certificate Good Friday', 92.00),
 (1729, NOW(), 'I hope all your birthday wishes came true. Caracu', 15, NOW(), 'Kudos to you! Youve earned them. Second day of Christmas', 62.00),
-(1730, NOW(), 'I hope this comes in handy on your adventure! RBS', 22, NOW(), 'Food and drink The day following Good Friday', 95.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1730, NOW(), 'I hope this comes in handy on your adventure! RBS', 22, NOW(), 'Food and drink The day following Good Friday', 95.00),
 (1731, NOW(), 'There is only one happiness in life: to love and be loved.  George Sand Milk-Bone', 19, NOW(), 'Some tune-age for you-nage Decoration Day', 86.00),
 (1732, NOW(), 'For the person who loves classic leather goods. EBX Group', 16, NOW(), 'Thinking of you New Year''s Day', 61.00),
 (1733, TIMESTAMP '2023-05-22 03:24:27', 'For anyone in need of a new wardrobe or even furniture, a Macy''s gift card gives them access to seemingly endless clothes and accessories. Greenpeace', 27, TIMESTAMP '2023-05-22 03:24:27', 'Fruit and Gourmet Baskets Orthodox Christmas Eve', 42.00),
@@ -1841,8 +1749,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1746, NOW(), 'Hope youll be feeling frisky again in no time. Gordon''s', 12, NOW(), 'Everyone needs a spa day! Father''s Day', 10.00),
 (1747, NOW(), 'May the comfort of friends and family be your strength for today and the days ahead. LOCCITANE EN PROVENCE', 30, NOW(), 'Mid Autumn Festival Three Kings'' Day', 43.00),
 (1748, NOW(), 'Go see another rom-com (on me this time). Navigator', 28, NOW(), 'Get Well Soon Wishes Boxing Day', 95.00),
-(1749, NOW(), 'Winter boot season is coming. Don''t leave them out in the cold. Cartier', 26, NOW(), 'reusable nylon tote Imam Mahdi''s Birthday', 37.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1749, NOW(), 'Winter boot season is coming. Don''t leave them out in the cold. Cartier', 26, NOW(), 'reusable nylon tote Imam Mahdi''s Birthday', 37.00),
 (1750, NOW(), 'How sweet it is to be loved by you! Australian', 16, NOW(), 'Wishing you companionship, contentment and love. Boxing Day', 19.00),
 (1751, NOW(), 'Because they can never have too many sets of sheets or guest towels. Fusion', 13, NOW(), 'Go get that serotonin rush! German Unity Day', 47.00),
 (1752, NOW(), 'It was a pleasure to work with you. LOCCITANE EN PROVENCE', 12, NOW(), 'Hallmark Gold Crown Eid Al Adha Holiday', 66.00),
@@ -1861,8 +1768,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1765, NOW(), 'To happy endings and new beginnings. Congratulations! Kellogg''s', 14, NOW(), 'what to shop now All Saints'' Day', 54.00),
 (1766, NOW(), 'Many thanks for referring  to me. Ill make sure he/she gets VIP service. Sony', 20, NOW(), 'what to shop now Losoong/Namsoong', 46.00),
 (1767, NOW(), 'You dont have to buy me a thank-you card with this. Ericsson', 14, NOW(), 'Youre the best. Martin Miguel de Guemes Day', 60.00),
-(1768, NOW(), 'Thank you for trusting us. We look forward to exceeding your expectations! Gerber', 15, NOW(), 'Goodbye time clock! Hello world! Anniversary of the Battle of Pichincha', 14.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1768, NOW(), 'Thank you for trusting us. We look forward to exceeding your expectations! Gerber', 15, NOW(), 'Goodbye time clock! Hello world! Anniversary of the Battle of Pichincha', 14.00),
 (1769, NOW(), 'Congratulations on achieving a milestone. Here''s to a great future. Victoria''s Secret', 10, NOW(), 'Think of this as edible plastic. Independence Day', 38.00),
 (1770, NOW(), 'Give the gift of Skims with this special gift card. Now, your recipient can choose whatever their heart desires. CBS', 29, NOW(), 'Amazon E-Gift Certificate National Heroes Day', 11.00),
 (1771, NOW(), U&'Nothing says, I care quite like covering someones grocery delivery. L''Or\00e9al', 20, NOW(), 'Youve made our success possible. Thank you! Tamu Lhosar', 12.00),
@@ -1881,8 +1787,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1784, NOW(), 'Hope youll be feeling frisky again in no time. Sierra', 17, NOW(), 'Rebag Digital Gift Certificate Novruz Holiday', 49.00),
 (1785, NOW(), 'Dont burn your mouth. You''re already hot enough. Apivita', 18, NOW(), 'Lululemon Gift Certificate Whit Sunday', 63.00),
 (1786, NOW(), 'May the promise of Easter fill you with peace and joy! Ion', 26, NOW(), 'Hope its all half off! Eid al-Fitr Holiday', 72.00),
-(1787, NOW(), 'I couldnt log on to your registry because I forget every password ever. Forenza', 26, NOW(), 'Nice work, Mom and Dad! Malvinas Day', 28.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1787, NOW(), 'I couldnt log on to your registry because I forget every password ever. Forenza', 26, NOW(), 'Nice work, Mom and Dad! Malvinas Day', 28.00), 
 (1788, NOW(), 'Wishing you and family a warm and blessed Aidilfitri, showered with love and happiness, with laughters and joy! Selamat Hari Raya! AT&T', 15, NOW(), 'Today being fathers day, dad, I just want to tell you that I love you and appreciate everything that youve done for me. May God never stop blessing you. Happy Fathers Day! Idul Adha', 12.00),
 (1789, NOW(), 'A simple celebration, a gathering of friends; here is wishing you great happiness, a joy that never ends. Itautec', 28, NOW(), 'To love! Battle Day', 19.00),
 (1790, NOW(), 'Enjoy the flowers, I''m sending them just because you''re you. Eight O''Clock Coffee Company', 12, NOW(), 'Maude EGift Certificate Easter Monday', 22.00),
@@ -1900,8 +1805,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1802, NOW(), 'Great news! You wont have to return this. Aristocrat Leisure Limited', 21, NOW(), 'All I want for Christmas is you. Independence Day', 44.00),
 (1803, NOW(), 'You may be over the hillbut at least you''re still climbing! Busan Bank', 28, NOW(), 'Graduation Certificate Ideas Sint Eustatius Flag Day', 46.00),
 (1804, NOW(), 'Our sympathy and warmest thoughts are with you now. NASA', 27, NOW(), 'Verishop E-Gift Certificate New Year''s Day', 98.00),
-(1805, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Zara', 15, NOW(), 'For Their Fitness Resolutions Christmas Day', 51.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1805, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Zara', 15, NOW(), 'For Their Fitness Resolutions Christmas Day', 51.00), 
 (1806, NOW(), 'You deserve all the feel-good you can get. Bounty', 28, NOW(), 'Eater Wine Club Gift Certificate Christmas Day', 26.00),
 (1807, NOW(), 'Thank you from the bottom of my heart. Delta Projects', 17, NOW(), 'You are always in my heart! Ninoy Aquino Day', 24.00),
 (1808, NOW(), 'May all your days be filled with lasting love. Tissot', 18, NOW(), 'everything to know Meritxell Day', 34.00),
@@ -1920,8 +1824,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1821, NOW(), 'Hope this makes your sweet home even homier. Always', 30, NOW(), 'Soooooo thoughtful! All Souls'' Day', 69.00),
 (1822, NOW(), 'Caps in the air like you just dont care. Fiber One', 27, NOW(), 'Je t''aime [FRENCH: "I love you"] National Culture and Senior Citizens Day', 85.00),
 (1823, NOW(), 'You are too far away from me now, but you stay close in my thoughts. Codan Limited', 16, NOW(), 'Get whatever you want! Boxing Day', 91.00),
-(1824, NOW(), 'I am bad at gifts! (But you know this.) Brach''s', 28, NOW(), 'Were sick without you. Get well soon. Independence Day', 70.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1824, NOW(), 'I am bad at gifts! (But you know this.) Brach''s', 28, NOW(), 'Were sick without you. Get well soon. Independence Day', 70.00),
 (1825, NOW(), 'With sincere gratitude for all you have done. 3 Musketeers', 19, NOW(), 'Ah-Shi E-Gift Certificate Labour Day', 57.00),
 (1826, NOW(), 'Warm Easter greetings to you and your family. Aunt Jemima', 28, NOW(), 'Congratulations on an outstanding accomplishment. Ethiopian Easter', 13.00),
 (1827, NOW(), 'Beautiful people like you deserve a beautiful home. Congratulations! Kronenbourg1664', 16, NOW(), 'This is a day to remember. Orthodox Christmas Eve', 46.00),
@@ -1940,8 +1843,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1840, NOW(), 'You deserve all the feel-good you can get. Subway', 13, NOW(), 'Kitty Guo Carnival Monday', 59.00),
 (1841, NOW(), 'Get yourself a double whatever with an extra shot of something. Under Armour', 19, NOW(), 'Great Jones Gift Certificate Downfall of the Derg', 83.00),
 (1842, NOW(), 'Gift cards: Almost as magical as flying reindeer. Bush', 15, NOW(), 'The gift of music. Youre welcome! Good Friday', 56.00),
-(1843, NOW(), 'May your love bring happiness to all your days. Ambien', 10, NOW(), 'For a Designer Download Women''s Union Establishment Day', 73.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1843, NOW(), 'May your love bring happiness to all your days. Ambien', 10, NOW(), 'For a Designer Download Women''s Union Establishment Day', 73.00),
 (1844, NOW(), 'You have no item in your shopping cart. Starbucks', 19, NOW(), 'Go where no YOU has gone before. Dormition of the Virgin Mary', 11.00),
 (1845, NOW(), 'May all the dreams You''re dreaming soon turn into dreams come true. Antares', 15, NOW(), 'face planters and dumpling lights Carnival Monday', 48.00),
 (1846, NOW(), 'May God bless you on your graduation day. MetLife', 24, NOW(), 'May the joy of this festive season light your life with love, peace and hope. Selamat Hari Raya! Women''s Day', 11.00),
@@ -1959,8 +1861,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1858, NOW(), 'Who doesn''t love buttery soft fabric, comfortable workout attire and cool athleisure? We know we do! Little Debbie', 24, NOW(), 'WELCOME to this gift card Melbourne Cup Day', 61.00),
 (1859, NOW(), 'Congratulations on the birth of you new baby [BOY/GIRL] BBVA', 15, NOW(), 'Chinese New Year Sankranti', 16.00),
 (1860, NOW(), 'May God hold you in the palm of His hand and comfort you with His everlasting love. Domino''s Pizza', 24, NOW(), 'Ban.do Gift Certificate Exaltation of the Holy Cross', 33.00),
-(1861, NOW(), 'Just a little something to show my appreciation. Australian Air Express', 15, NOW(), 'Your kindness comes as a welcome touch of warmth and caring Labour Day', 53.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1861, NOW(), 'Just a little something to show my appreciation. Australian Air Express', 15, NOW(), 'Your kindness comes as a welcome touch of warmth and caring Labour Day', 53.00),
 (1862, NOW(), 'Today is for remembering the happy times you''ve known. Louis Vuitton', 15, NOW(), 'For Wine Night New Year''s Day', 92.00),
 (1863, NOW(), 'I miss you, so I am sending you a floral hug! Don de Dieu', 30, NOW(), 'Hope you dig your new digs. Rincon Day', 81.00),
 (1864, NOW(), 'There is only one happiness in this life, to love and be loved. George Sand Shiseido', 25, NOW(), 'For your screen room Good Friday', 32.00),
@@ -1979,8 +1880,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1877, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Baidu', 12, NOW(), 'Welcome to the neighborhood New Year''s Holiday (bridge day)', 79.00),
 (1878, NOW(), 'Sending loads of love your way for a speedy recovery! ASICS', 23, NOW(), 'Buy more clutter! Thats the marriage way. Melbourne Cup Day', 47.00),
 (1879, NOW(), 'So they can treat themselves to some sculpting shapewear or some cozy loungewear. Alsa', 10, NOW(), 'Get well soon Easter Day (Catholic)', 15.00),
-(1880, NOW(), 'For the person currently subsidizing five different streamers. Meijer', 17, NOW(), 'Candles to enjoy life; Decorations to light life; Presents to share success; Fire Crackers to burn evils; Sweets to sweeten success, And worship to thank god! Wish you a joyous and prosperous Diwali! May Day Revolution', 85.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1880, NOW(), 'For the person currently subsidizing five different streamers. Meijer', 17, NOW(), 'Candles to enjoy life; Decorations to light life; Presents to share success; Fire Crackers to burn evils; Sweets to sweeten success, And worship to thank god! Wish you a joyous and prosperous Diwali! May Day Revolution', 85.00),
 (1881, NOW(), 'To the world, you may be one person, but to one person you are the world. Camus', 13, NOW(), 'Dont worry, I still owe you. Birthday of The Sultan of Selangor', 53.00),
 (1882, NOW(), 'Because of you everything is so much nicer Disney+', 17, NOW(), 'Jump to Good Friday', 29.00),
 (1883, NOW(), 'Were fans of Instagram-friendly cookware brand Our Place, which makes some of our favorite do-it-all pots and pans. Aspirin', 29, NOW(), 'Mother''s Day Easter Day', 68.00),
@@ -1997,8 +1897,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1894, NOW(), 'At Macys, theyll be able pick out whatever they want in any number of categories  from clothing to beauty products to homewares. Ambien', 16, NOW(), 'Thank you for your business Australia Day', 76.00),
 (1895, NOW(), 'When it rains, it pours but soon, the sun shines again. Better days are ahead. Advanced Auto Parts', 23, NOW(), 'Were sick without you. Get well soon. Independence Day', 17.00),
 (1896, NOW(), 'It is a rare friendship that feels forever new. Annedd''ale', 26, NOW(), 'Belated birthday Discovery Day', 50.00),
-(1897, NOW(), 'May your love bring happiness to all your days. BHP Billiton', 27, NOW(), 'The best for the best.  Armed Forces Day', 69.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1897, NOW(), 'May your love bring happiness to all your days. BHP Billiton', 27, NOW(), 'The best for the best.  Armed Forces Day', 69.00),
 (1898, NOW(), 'Our thoughts are with you. Get well soon! Thinking of you. Cadbury', 10, NOW(), 'Bookshop Gift Certificate Good Friday', 16.00),
 (1899, NOW(), 'Its so nice sharing special moments with a friend like you. New Balance', 23, NOW(), 'Next Day Delivery National Army Day', 21.00),
 (1900, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Dockers', 13, NOW(), 'Our Place Gift Certificate Christmas Day', 14.00),
@@ -2018,8 +1917,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1914, NOW(), 'You have 12 days of Christmas to spend this. Bank One', 21, NOW(), 'Enjoy the popcorn! Labour Day (in lieu)', 90.00),
 (1915, NOW(), 'Its hard to tell who is luckier, you or your new baby. EFG Bank', 14, NOW(), 'Expressing sympathy is always difficult, but all we can say is how sorry we are. Christmas Day (Catholic)', 47.00),
 (1916, NOW(), 'Thank you from the bottom of my heart. Landor & Hawa', 18, NOW(), 'Parachute Digital Gift Certificate Day of respect for cultural diversity', 98.00),
-(1917, NOW(), 'Because of you everything is so much nicer Alex and Ani', 23, NOW(), 'Were glad youre here. Victory Day', 78.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1917, NOW(), 'Because of you everything is so much nicer Alex and Ani', 23, NOW(), 'Were glad youre here. Victory Day', 78.00), 
 (1918, NOW(), 'May your memories be a source of comfort at this time. Auchan', 19, NOW(), ' Wishing you prosperity in business, peace in your life and happiness in your home. St. Stephen''s Day', 10.00),
 (1919, NOW(), 'Hoping you two are blessed with many more years together. Amazon', 17, NOW(), 'May your sorrow be eased by good memories. Orthodox Christmas', 62.00),
 (1920, NOW(), 'May the future be filled with much happiness. Inco Rogers Communications Empire', 21, NOW(), 'Fly by Jing Gift Certificate Thimphu Tshechu', 51.00),
@@ -2037,8 +1935,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1932, NOW(), 'No matter how tough things are, I have so much faith in you. You are amazing and will be okay. Australian Submarine Corporation', 24, NOW(), 'Lululemon Gift Certificate Independence Day', 14.00),
 (1933, NOW(), 'I hope you have a most happy and prosperous New Year. Cadence Capital Limited', 19, NOW(), 'The Tiffany Gift Certificate Manua Cession Day (in lieu)', 54.00),
 (1934, NOW(), 'May your new little girl/boy bring you joy and happiness. Funnelback', 20, NOW(), 'Birthday Certificate Gift Lord Buddha''s Parinirvana ', 55.00),
-(1935, NOW(), 'May the promise of Easter fill your heart with joy! OceanAir', 14, NOW(), 'The best for the best Independence Day', 69.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1935, NOW(), 'May the promise of Easter fill your heart with joy! OceanAir', 14, NOW(), 'The best for the best Independence Day', 69.00),
 (1936, NOW(), 'A friend is someone you can lean on L.A. Weightloss Center', 28, NOW(), 'Lyft Gift Certificate Immaculate Conception Day', 64.00),
 (1937, NOW(), 'Happy 13th birthday to the world''s best teenager. Boost Mobile', 29, NOW(), 'Gift Certificate Pharses Labour Day', 91.00),
 (1938, NOW(), 'We do not remember days, we remember moments. Cerpa', 27, NOW(), 'The Strategist Emancipation Monday', 24.00),
@@ -2058,8 +1955,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1952, NOW(), 'Take care of yourself and feel better soon. Prada', 12, NOW(), 'Thanks for all your help Three King''s Day', 17.00),
 (1953, NOW(), 'A little late-night shopping with a gift card never hurt anyone (probably). Longines', 23, NOW(), 'Apple EGift Certificate Easter Monday', 56.00),
 (1954, NOW(), 'Its wonderful sharing with a good friend like you. Lao Feng Xiang', 13, NOW(), 'Father''s Day/Mother''s Day/Grandparent''s Day Certificate Ideas Corpus Christi', 72.00),
-(1955, NOW(), 'Just a little something from me to you. Cool Whip', 11, NOW(), ' With heartfelt condolences Laylat al-Qadr', 78.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1955, NOW(), 'Just a little something from me to you. Cool Whip', 11, NOW(), ' With heartfelt condolences Laylat al-Qadr', 78.00),
 (1956, NOW(), 'You''re a gift in my life. And not the kind Id return for store credit. Merry Christmas! Juicy Couture', 29, NOW(), 'Happiness is having a friend like you. Whit Monday', 39.00),
 (1957, NOW(), 'Happy 13th birthday to the world''s best teenager. Polo Ralph Lauren', 30, NOW(), 'You can through with flying colors. Bank Holiday', 61.00),
 (1958, NOW(), 'Just a cheery note to wish you well. Anzco Foods', 29, NOW(), 'BYO red carpet Day after New Year''s Day', 93.00),
@@ -2078,8 +1974,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1971, NOW(), 'Gift card? Bacon? It was a really tough decision. Krackel', 24, NOW(), 'You: Great! Me: Grateful! New Year''s Day', 63.00),
 (1972, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. QX56', 25, NOW(), 'For Winter-Proof Boots Christmas Day', 88.00),
 (1973, NOW(), 'You have no item in your shopping cart. Old Spice', 12, NOW(), '[DAD/MOM/GRANDMA] you are my inspiration Idul Fitri', 66.00),
-(1974, NOW(), 'A diamond is a piece of coal that stuck to the job. K-Swiss', 16, NOW(), 'Love is a good reason for a gift card. Bank Holiday', 34.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1974, NOW(), 'A diamond is a piece of coal that stuck to the job. K-Swiss', 16, NOW(), 'Love is a good reason for a gift card. Bank Holiday', 34.00), 
 (1975, NOW(), 'Hoping these words of sympathy will comfort you in your time of sorrow. Crate & Barrel', 28, NOW(), 'Your love is all I need to feel complete. National Day', 84.00),
 (1976, NOW(), 'Great results come from hard work. Well done! Busch', 21, NOW(), 'Tune in to a good day. New Year''s Day', 61.00),
 (1977, NOW(), 'Just a little something to show my appreciation. Papa John''s', 27, NOW(), 'Great Jones Gift Certificate Eid Milad-un-Nabi', 28.00),
@@ -2097,8 +1992,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (1989, NOW(), 'Just the beginning of successes for you. Congrats! Inspiration', 19, NOW(), 'Christmas Certificate Gifts Sacred Heart', 51.00),
 (1990, NOW(), 'Valentines Day is a very special occasion to let you know what an important place you have in my heart. I love you! Happy Valentines Day! Aquafresh', 14, NOW(), 'Valentine''s Day Good Friday', 65.00),
 (1991, NOW(), 'The love you share makes this day special. Brandchannel', 27, NOW(), 'Virtual Delivery (Email/SMS) Ancestors'' Day', 89.00),
-(1992, NOW(), 'Sending you good vibes with this gift card! BAE Systems Australia', 16, NOW(), 'Get you some yum! Pidjiguiti Day', 28.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(1992, NOW(), 'Sending you good vibes with this gift card! BAE Systems Australia', 16, NOW(), 'Get you some yum! Pidjiguiti Day', 28.00),
 (1993, NOW(), 'You make the world a more beautiful place. 24-Hour Fitness Center', 21, NOW(), '&lt;&Not precisely equal to my exact level of gratitude&but its a start. Odisha Day', 91.00),
 (1994, NOW(), 'Glossier is the one-stop-shop for all things skincare, makeup and beauty. Your skincare-obsessed friend will have a blast loading their virtual carts. Yeti', 28, NOW(), 'Aritzia EGift Certificate New Year''s Day', 68.00),
 (1995, NOW(), 'For the thing that wouldnt fit on Santas sleigh. Liberty Medical', 11, NOW(), 'For the New Homeowner Carnival Monday', 42.00),
@@ -2117,8 +2011,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2008, NOW(), 'Now you can get all the gift-card cards you want! Nexxus', 19, NOW(), 'Dont forget dessert. You definitely deserve it. Hari Raya Puasa Holiday', 94.00),
 (2009, NOW(), 'See? It was all worth it! Right?? Hofer', 29, NOW(), 'Friends make life more beautiful Dessalines Day', 19.00),
 (2010, NOW(), 'Consider this your permission slip for a mini shopping spree. Omega', 27, NOW(), 'Friends make life more beautiful. Idul Adha', 31.00),
-(2011, NOW(), 'Find a song to get stuck in your head. Macy''s', 30, NOW(), 'Thinking of you Water Festival Ceremony Holiday', 42.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2011, NOW(), 'Find a song to get stuck in your head. Macy''s', 30, NOW(), 'Thinking of you Water Festival Ceremony Holiday', 42.00),
 (2012, NOW(), 'Congratulations on your new bundle of joy. Bausch & Lomb', 27, NOW(), 'Get well soon Labour Day', 52.00),
 (2013, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. China Construction Bank', 11, NOW(), 'Airbnb Gift Certificate Christmas Day', 13.00),
 (2014, NOW(), 'Thank you, your thoughtfulness really put sunshine in my day. Blockbuster', 15, NOW(), 'Thinking of you Three Kings'' Day', 86.00),
@@ -2137,8 +2030,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2027, NOW(), 'Cheering you up with a big smile! Australia Asia Airlines', 18, NOW(), ' We wish you a very Merry Christmas and a Happy New Year! Ash Wednesday', 19.00),
 (2028, NOW(), 'F-antastic, A-wesome, T-errific, H-onorable, E-xcellent, R-emarkable. This sums up my dad. Happy Fathers Day! Cummins', 23, NOW(), 'Aritzia EGift Certificate Eid Al Adha', 30.00),
 (2029, NOW(), 'Just a cheery note to wish you well. Bianchi', 12, NOW(), 'Mid Autumn Festival Armistice Day', 76.00),
-(2030, NOW(), 'May God bless you and keep you in His loving care. AA Insurance', 27, NOW(), 'Casetify Gift Certificate Bermuda Day', 67.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2030, NOW(), 'May God bless you and keep you in His loving care. AA Insurance', 27, NOW(), 'Casetify Gift Certificate Bermuda Day', 67.00),
 (2031, NOW(), 'Please accept our deepest sympathy and heartfelt thoughts. Banana Republic', 20, NOW(), 'Food and drink Christmas Day', 56.00),
 (2032, NOW(), 'Happy birthday to the greatest gift I have ever received. I love you! Cooper', 17, NOW(), 'Areaware Gift Certificate Eid ul-Fitr Holiday', 19.00),
 (2033, NOW(), 'You make the world a more beautiful place. BYD', 28, NOW(), 'ASOS E-Gift Certificate New Year''s Day', 84.00),
@@ -2156,8 +2048,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2045, NOW(), 'I''m so lucky to have such a great friend like you... who''d forgive me if I forgot your birthday. Happy Belated Birthday! Mandara Spa', 10, NOW(), 'Ganni EGift Certificate Corpus Christi', 79.00),
 (2046, NOW(), 'Parenthood is one of the best journeys in life. Enjoy the ride. Lime Wood', 28, NOW(), 'Hope this brightens your day! Christmas Day', 66.00),
 (2047, NOW(), 'Reds, whites, and ross delivered straight to their door are perfect for the hostess on your list. Banco de Galicia y Buenos Aires SA', 22, NOW(), 'excellent last-minute gifts Mother''s Day', 29.00),
-(2048, NOW(), 'The 18 Very Best Sunscreens for Your Face Maytag', 12, NOW(), 'Apple EGift Certificate Labour Day', 55.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2048, NOW(), 'The 18 Very Best Sunscreens for Your Face Maytag', 12, NOW(), 'Apple EGift Certificate Labour Day', 55.00),
 (2049, NOW(), 'I hope this comes in handy on your adventure! Butterfinger', 19, NOW(), 'Hope youre feeling better. Statehood Day', 70.00),
 (2050, NOW(), 'Its a big world out there&go explore it! Inxmail Australia Pty Limited', 26, NOW(), 'Universal retailers Public Holiday', 78.00),
 (2051, NOW(), 'You have no item in your shopping cart. Hero Honda', 22, NOW(), 'Congratulations, and best of luck in your future endeavors. Heroes and Foreparents Day', 12.00),
@@ -2176,8 +2067,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2064, NOW(), 'I hope that for every candle on your cake you get a wonderful surprise. Brioni', 27, NOW(), 'Another year older and another reason to celebrate! Happy Birthday! Constitution Day', 83.00),
 (2065, NOW(), 'Happy 100th birthday. You''re an inspiration to all of us. Renaissance Indian Wells Resort and Spa', 21, NOW(), 'A friend is forever! Hijri New Year', 13.00),
 (2066, NOW(), 'Love is a good reason for a gift card. La Chouffe', 12, NOW(), 'A friend is someone you can lean on August Monday', 35.00),
-(2067, NOW(), 'You bring joy and love to my life. Bugatti', 13, NOW(), 'Zola E-Gift Certificate National Day Holiday', 51.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2067, NOW(), 'You bring joy and love to my life. Bugatti', 13, NOW(), 'Zola E-Gift Certificate National Day Holiday', 51.00), 
 (2068, NOW(), 'Have a Merry Christmas and a Happy New Year. Dow Chemical', 22, NOW(), 'For Tech Savvy Teens Ascension Day', 54.00),
 (2069, NOW(), 'Thoughts of you always bring me a smile. IKEA', 25, NOW(), 'Gift Certificate Pharses All Saints'' Day', 13.00),
 (2070, NOW(), 'You can use this next time Im being really annoying. HIH Insurance', 30, NOW(), 'Hope youll be in the best of health soon. Mid-Autumn Festival', 30.00),
@@ -2197,8 +2087,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2084, NOW(), 'May your life be as colourful and shimmering as the lights of Diwali! Burberry', 11, NOW(), 'The Tiffany Gift Certificate Christmas Day', 47.00),
 (2085, NOW(), 'Congratulations on your new bundle of joy. Colavita', 30, NOW(), 'Min 2 Days Booking Ganesh Chaturthi', 18.00),
 (2086, NOW(), 'See? It was all worth it! Right?? ENBW', 28, NOW(), 'Sending you Happy Easter Wishes! Hari Raya Haji Holiday', 35.00),
-(2087, NOW(), 'Hoping this finds you well on the way to a speedy recovery. Hefty', 11, NOW(), 'Corporate Gifts Good Friday', 33.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2087, NOW(), 'Hoping this finds you well on the way to a speedy recovery. Hefty', 11, NOW(), 'Corporate Gifts Good Friday', 33.00),
 (2088, NOW(), 'The 18 Very Best Sunscreens for Your Face Acer', 15, NOW(), 'Fandango Gift Certificate Independence Day', 56.00),
 (2089, NOW(), 'Thanks for your patience, your loving words, your kindness, your friendship Haagen-Dazs', 11, NOW(), 'Selamat Hari Raya! May you and your loved ones be blessed with happiness and peace! Tabaski', 84.00),
 (2090, NOW(), U&'You deserve a round of applauseand this, too. Am\00c3\00a9rica Latina Log\00c3stica', 25, NOW(), 'Min 2 Days Booking Independence Day', 40.00),
@@ -2217,8 +2106,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2103, NOW(), 'We may not have it altogether but together we have it all! Tiffany & Co.', 30, NOW(), 'For the Frequent Flyer Bank Holiday', 37.00),
 (2104, NOW(), 'You always go out of your way to be thoughtful. Adidas', 27, NOW(), 'glowing winter skin Armenian Orthodox Christmas Day', 26.00),
 (2105, NOW(), 'Wishing you lots of luck and happiness in the year ahead. AGL Energy', 27, NOW(), 'Get some glamorous looks! Independence Day', 61.00),
-(2106, NOW(), 'Thank You! Your business means the world to us. Sephora', 13, NOW(), 'Macys E-Gift Certificate Tsagaan Sar Holiday', 81.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2106, NOW(), 'Thank You! Your business means the world to us. Sephora', 13, NOW(), 'Macys E-Gift Certificate Tsagaan Sar Holiday', 81.00), 
 (2107, NOW(), 'Sorry I missed you. Hope to talk with you soon. Liquid-Plumr', 17, NOW(), 'Do your thing! Victory over Genocide Day', 72.00),
 (2108, NOW(), 'Every editorial product is independently selected. If you buy something through our links,New Yorkmay earn an affiliate commission. Desitin', 12, NOW(), 'Thank you for your business New Year''s Day', 66.00),
 (2109, NOW(), 'Warm Easter greetings to you and your family. Babor', 24, NOW(), 'Get out of Dodge New Year''s Day', 79.00),
@@ -2237,8 +2125,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2122, NOW(), 'Ihope your birthday was as special as you are. Under Armour', 27, NOW(), 'Hay E-Gift Certificate Victory Day', 87.00),
 (2123, NOW(), 'To the most amazing woman who I am lucky enough to call my wife, Happy Valentine''s Day. Chable Resort ', 21, NOW(), 'You always go out of your way to be thoughtful. Good Friday', 72.00),
 (2124, NOW(), 'For the person who loves classic leather goods. Subway', 14, NOW(), 'Go see another rom-com (on me this time). Epiphany', 27.00),
-(2125, NOW(), 'We value your trust and confidence and appreciate your loyalty as a customer Aerogard', 27, NOW(), 'Delta Airlines EGift Certificate Easter Sunday', 74.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2125, NOW(), 'We value your trust and confidence and appreciate your loyalty as a customer Aerogard', 27, NOW(), 'Delta Airlines EGift Certificate Easter Sunday', 74.00), 
 (2126, NOW(), 'So you can keep looking better than me. Rail Infrastructure Corporation', 22, NOW(), 'Fruit and Gourmet Baskets New Year''s Eve', 34.00),
 (2127, NOW(), 'Cheering you up with a big smile! Haigh''s chocolates', 25, NOW(), 'Chewy E-Gift Certificate Easter Monday', 32.00),
 (2128, NOW(), 'For the avid reader who likes to support small businesses. IKEA', 12, NOW(), 'Lowes Gift Certificate Independence Day', 82.00),
@@ -2258,8 +2145,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2142, NOW(), U&'Words can say so little when someones done so much. Crunch \00e2\0080\0098n Munch', 20, NOW(), 'Copy Boxing Day', 19.00),
 (2143, NOW(), 'My/Our sympathy and thoughts are with you and your family. AAA 01 Center WS', 30, NOW(), 'Get out of Dodge. Eid Al Fitr Holiday', 31.00),
 (2144, NOW(), 'Hope youll be in the best of health soon. Kappa', 27, NOW(), 'New hears for your ears! New Year''s Day', 79.00),
-(2145, NOW(), 'My hero, my helper, my friend, my dad. Happy Fathers Day! BASF', 25, NOW(), 'The Strategist Ascension Day', 61.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2145, NOW(), 'My hero, my helper, my friend, my dad. Happy Fathers Day! BASF', 25, NOW(), 'The Strategist Ascension Day', 61.00),
 (2146, NOW(), 'Wishing you good life, luck and may all your wishes come true CSL Limited', 15, NOW(), 'Uber Gift Certificate Army Day', 80.00),
 (2147, NOW(), 'Happy Anniversary to the love of my life. Accenture', 19, NOW(), '57Hours E-Gift Certificate Children''s Union Foundation Day', 95.00),
 (2148, NOW(), 'Suitable for Valentine''s Day, Anniversary, Sweetest Day, Just Because... Acindar SA', 10, NOW(), 'Go see something as epic as you are! The National Holiday of Quebec', 20.00),
@@ -2277,8 +2163,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2160, NOW(), 'Expressing sympathy is always difficult, but all we can say is how sorry we are. Santos', 20, NOW(), 'Accident or Illness Vasant Panchami', 91.00),
 (2161, NOW(), 'Thank you, your thoughtfulness really put sunshine in my day. Ruth''s Chris Steak House', 11, NOW(), 'You did it! Congratulations, graduate! Labour Day', 69.00),
 (2162, NOW(), 'To happy endings and new beginnings. Congratulations! Nike', 20, NOW(), 'Because you''re BREWtiful Independence Day', 94.00),
-(2163, NOW(), 'You are my angel sent from Heaven above. Happy Valentine''s Day Sony', 29, NOW(), 'Get some glamorous looks! Spring Bank Holiday', 79.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2163, NOW(), 'You are my angel sent from Heaven above. Happy Valentine''s Day Sony', 29, NOW(), 'Get some glamorous looks! Spring Bank Holiday', 79.00), 
 (2164, NOW(), 'Hoping these words of sympathy will comfort you in your time of sorrow. John Fairfax Holdings', 24, NOW(), 'Personal anniversary Carnival Tuesday', 57.00),
 (2165, NOW(), 'We do not remember days, we remember moments. 84 Lumber', 25, NOW(), 'Brooklinen E-Gift Certificate Christmas Day', 28.00),
 (2166, NOW(), 'May you enjoy a long and wonderful retirement. Elion', 30, NOW(), 'Aritzia EGift Certificate Corpus Christi', 98.00),
@@ -2297,8 +2182,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2179, NOW(), 'I love you for not only who you are, but for who I am when I am with you IHOP', 15, NOW(), 'Brooklinen E-Gift Certificate Nauryz Holiday', 96.00),
 (2180, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Corolla', 21, NOW(), 'Because we just too pretty to cook. Carnival Monday', 78.00),
 (2181, NOW(), 'Presents are like noses: better to pick them yourself! Nudie Jeans', 20, NOW(), 'BYO red carpet French Community Holiday', 61.00),
-(2182, NOW(), 'Thank you for your order. Continuing to serve you will be a pleasure. Naming Resources', 16, NOW(), 'best things to buy Kiribati National Day', 67.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2182, NOW(), 'Thank you for your order. Continuing to serve you will be a pleasure. Naming Resources', 16, NOW(), 'best things to buy Kiribati National Day', 67.00), 
 (2183, NOW(), 'May this Easter warm your heart with peace! Bubble Wrap', 15, NOW(), 'Revolve Gift Certificate Easter Monday', 92.00),
 (2184, NOW(), 'If I had to do it all over again, I wouldn''t. Coppertone', 10, NOW(), 'A babys smile makes each day worthwhile. Christmas Day', 54.00),
 (2185, NOW(), 'Find a song to get stuck in your head. Bonia', 13, NOW(), 'Get yourself some brain food. (Yes, pizza is brain food.) Orthodox Good Friday', 91.00),
@@ -2317,8 +2201,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2198, NOW(), 'You''re a Hallmark card personified, so I had to get you this. Coca-Cola', 10, NOW(), 'Father''s Day St. Vitus'' Day', 36.00),
 (2199, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! Conti', 10, NOW(), 'Pottery Barn Gift Certificate Independence Day', 87.00),
 (2200, NOW(), 'Here''s to you twowishing my two favorite lovebirds a lifetime of happiness and love. Congrats on a beautiful wedding! Aerolineas Argentinas', 24, NOW(), 'For the diaper fund. Mid-Autumn Festival', 92.00),
-(2201, NOW(), 'Your name has been synonymous with success! Congratulations! Aral', 28, NOW(), 'ClassPass E-Gift Certificate German Community Day', 100.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2201, NOW(), 'Your name has been synonymous with success! Congratulations! Aral', 28, NOW(), 'ClassPass E-Gift Certificate German Community Day', 100.00),
 (2202, NOW(), 'Im sending a bunch of happies to say Have a cheerful day! Hand And Stone ', 25, NOW(), 'Cause youre very melodious. Meritxell Day', 57.00),
 (2203, NOW(), 'Congratulations on your new bundle of joy. Maui Jim', 30, NOW(), 'You did it! So I did this. Easter Monday', 54.00),
 (2204, NOW(), 'At Macys, theyll be able pick out whatever they want in any number of categories  from clothing to beauty products to homewares. AmBev', 30, NOW(), 'Parachute Digital Gift Certificate George Price Day (in lieu)', 35.00),
@@ -2336,8 +2219,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2216, NOW(), 'A little holiday treat from your favorite elf! Bonds', 17, NOW(), 'Heres an excuse to escape Hari Raya Aidil Fitri Holiday', 59.00),
 (2217, NOW(), 'Cheers to you! Cheers to your year ahead! Buffalo Wild Wings', 14, NOW(), ' Our love is a journey, with a beginning but no end. We will walk the path together forever. Immaculate Conception Day', 76.00),
 (2218, NOW(), 'Sending warm greetings and sincere wishes for a happy and prosperous Raya. Selamat Hari Raya! Bertolli Olive Oil', 15, NOW(), 'Drivers, watch the road! Someone just turned 16! New Year''s Eve', 24.00),
-(2219, NOW(), 'Try not to think of it as a hospital stay. Think of it as a spa package that includes meals, regular health evaluations and jello cubes. Airbus', 22, NOW(), 'Online Gift Certificate New Year''s Day (in lieu)', 36.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2219, NOW(), 'Try not to think of it as a hospital stay. Think of it as a spa package that includes meals, regular health evaluations and jello cubes. Airbus', 22, NOW(), 'Online Gift Certificate New Year''s Day (in lieu)', 36.00), 
 (2220, NOW(), 'Caps in the air like you just dont care. Chanel', 12, NOW(), 'Don''t sweat shipping delays. Awal Muharram', 51.00),
 (2221, NOW(), 'Congratulations on your new bundle of joy. Cracker Barrel', 21, NOW(), 'This is grounds for fun. General Prayer Day', 21.00),
 (2222, NOW(), 'Cheers to you! Cheers to your year ahead! Laffy Taffy', 24, NOW(), 'With Warmest congratulations Day of Arafa', 54.00),
@@ -2357,8 +2239,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2236, NOW(), 'Suitable for Valentine''s Day, Anniversary, Sweetest Day, Just Because... Austal Ships', 27, NOW(), 'Get something newlywed-y! Public Holiday', 97.00),
 (2237, NOW(), 'Sugar and spice and all that''s nice, that''s what little girls are made of. Congratulations! Gucci', 30, NOW(), 'Same Day Delivery (Order Placed By 12pm) Liberation Day', 21.00),
 (2238, NOW(), 'Great results come from hard work. Well done! Herbal Essences', 27, NOW(), 'Aritzia EGift Certificate Father''s Day', 79.00),
-(2239, NOW(), 'Best wishes for a joyous Christmas filled with love, happiness and prosperity! Cracker Jack', 12, NOW(), 'Hope your hospital stay is a short one. Mawlid', 62.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2239, NOW(), 'Best wishes for a joyous Christmas filled with love, happiness and prosperity! Cracker Jack', 12, NOW(), 'Hope your hospital stay is a short one. Mawlid', 62.00),
 (2240, NOW(), 'It was a pleasure to work with you. Hahn Brewery', 22, NOW(), 'Please enjoy this less-versatile money Eid-ul-Azha', 45.00),
 (2241, NOW(), 'I was in college once, so I knew just what to get you. Motrin', 24, NOW(), 'A babys smile makes each day worthwhile. Eid-ul-Fitr', 61.00),
 (2242, NOW(), 'You have 12 days of Christmas to spend this. Oi', 19, NOW(), 'Warmest regards Water Festival Ceremony Holiday', 63.00),
@@ -2377,8 +2258,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2255, NOW(), U&'Wishing you a lifetime of love and happiness. Kahl\00c3\00baa', 20, NOW(), 'Congratulations on the new home! May it bring lot more happiness in coming years. Easter Sunday', 32.00),
 (2256, NOW(), 'A warm welcome. Thank you for choosing us! Abbott Laboratories', 24, NOW(), 'Uber Gift Certificate Mother''s Day', 79.00),
 (2257, NOW(), 'Hope this helps get you that thing that brings the cozy to your new place. ANCA', 15, NOW(), 'The heart of a father is the masterpiece of nature. Antoine Francois Prevost Good Friday', 93.00),
-(2258, NOW(), 'Love is a good reason for a gift card. Barnes & Noble Nook', 26, NOW(), 'Amazon E-Gift Certificate Easter Monday', 79.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2258, NOW(), 'Love is a good reason for a gift card. Barnes & Noble Nook', 26, NOW(), 'Amazon E-Gift Certificate Easter Monday', 79.00), 
 (2259, NOW(), 'Happy Valentines Day. You are amazing in every way! I love you! AIS', 27, NOW(), 'Thank you for choosing us Eid al-Fitr', 84.00),
 (2260, NOW(), 'Congratulations and best wishes for a succesful future. Marks & Spencer', 29, NOW(), 'Happy nesting! Good Friday (Orthodox)', 15.00),
 (2261, NOW(), 'May this Easter warm your heart with peace! Danone', 16, NOW(), 'Get well soon Mary Prince Day', 64.00),
@@ -2397,8 +2277,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2274, NOW(), 'Thank you from the bottom of my heart. Brambles Industries', 17, NOW(), 'Wishing you a very warm Birthday. Orthodox Good Friday', 30.00),
 (2275, NOW(), 'There is only one happiness in life: to love and be loved.  George Sand Nickelodeon', 28, NOW(), 'workout wear turned WFH wear Public Holiday', 33.00),
 (2276, NOW(), 'They say you lose your memory as you grow older. I say forget about the past and live life to the fullest today. Start with cake. Happy birthday. Austar', 23, NOW(), 'what to shop now Ash Wednesday', 73.00),
-(2277, NOW(), 'May you treasure today forever in your memory. Red Bull', 22, NOW(), 'For the New Homeowner The Day Maldives Embraced Islam', 43.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2277, NOW(), 'May you treasure today forever in your memory. Red Bull', 22, NOW(), 'For the New Homeowner The Day Maldives Embraced Islam', 43.00),
 (2278, NOW(), 'To happy endings and new beginnings. Congratulations! Urban Outfitters', 19, NOW(), 'Happy 13th birthday to the world''s best teenager. St. George''s Day', 48.00),
 (2279, NOW(), 'Thank you from the bottom of my heart. Hitachi', 22, NOW(), 'Get Well Soon Orthodox Good Friday', 37.00),
 (2280, NOW(), 'Happy 100th birthday. You''re an inspiration to all of us. Baby Ruth', 18, NOW(), 'Congratulations on your newest family member! New Year''s Day (in lieu)', 40.00),
@@ -2416,8 +2295,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2292, NOW(), 'After 10 years, I still feel like we''re newlyweds. Alpine Bau', 13, NOW(), 'May all your days be filled with lasting love. Constitution Day', 13.00),
 (2293, NOW(), 'See? It was all worth it! Right?? Barilla', 11, NOW(), 'Souvenirs appreciated. Unity Day', 58.00),
 (2294, NOW(), 'Personalize your thank you note by acknowledging the specific gift you received or the good deed or favor that someone did for you. Use words like Generous, Generosity, Useful, Perfect, Thoughtful, Appreciate, Grateful, Much Needed, Always Treasure. Sony', 20, NOW(), 'I''ll never forget your kindness New Year''s Day', 82.00),
-(2295, NOW(), 'I hope you consider trying to forgive me. Clinique', 20, NOW(), 'Download those favorite jams and dance. National Patriots'' Day', 30.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2295, NOW(), 'I hope you consider trying to forgive me. Clinique', 20, NOW(), 'Download those favorite jams and dance. National Patriots'' Day', 30.00),
 (2296, NOW(), 'We are born of love; love is our mother. Rumi Twinkies', 24, NOW(), 'May all your dreams come true. Congrats. Birth Anniversary Of His Majesty the King Holiday', 50.00),
 (2297, NOW(), 'May all the dreams You''re dreaming soon turn into dreams come true. Carfax', 26, NOW(), 'Mid Autumn Festival Water Festival Ceremony', 62.00),
 (2298, NOW(), 'If the person you''re shopping for loves playing video games, buy them a gift card from GameStop. They can put the gift card towards a new game, headset, console and more. IMAX', 15, NOW(), 'Macys E-Gift Certificate Martyrs'' Day', 13.00),
@@ -2434,8 +2312,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2309, NOW(), U&'You''ve stolen my heart. I know it''s in good hands. K\00c3\00a4rcher', 22, NOW(), 'Kudos to you! Youve earned them. Father''s Day', 60.00),
 (2310, NOW(), 'My love for you grows stronger every year. Astra International', 13, NOW(), 'For a Guest Room Upgrade Benito Juarez''s Birthday', 91.00),
 (2311, NOW(), 'With friendly thoughts and best wishes for your birthday. Prada', 20, NOW(), ' How sweet it is to be loved by you! Eid ul-Fitr', 80.00),
-(2312, NOW(), 'Thoughts of you always bring me a smile. Longines', 10, NOW(), 'May every year you share find you more in love with each other. Good Friday', 80.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2312, NOW(), 'Thoughts of you always bring me a smile. Longines', 10, NOW(), 'May every year you share find you more in love with each other. Good Friday', 80.00), 
 (2313, NOW(), 'Im there for you on rough days and spa days. Spavia ', 23, NOW(), 'Macys E-Gift Certificate Epiphany', 81.00),
 (2314, NOW(), 'Something hot for someone&who has a lot of nice qualities. Jimmy Dean', 23, NOW(), 'All my best to the birthday [GIRL/BOY]! Whit Monday', 36.00),
 (2315, NOW(), 'You have no item in your shopping cart. Bubble O'' Bill', 21, NOW(), 'You have 12 days of Christmas to spend this. Holy Week Holiday', 60.00),
@@ -2454,8 +2331,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2328, NOW(), 'Sending loads of hugs and kisses. I hope they make you feel happy and healthy. Wrangler', 25, NOW(), 'Nike Digital Gift Certificate Nevruz', 30.00),
 (2329, NOW(), 'Great news! You wont have to return this. Coach', 14, NOW(), 'Thanks for another great year! Day of the Dead', 37.00),
 (2330, NOW(), 'Look what the bunny found in the carrot patch! Happy Easter! Gore-Tex', 10, NOW(), 'To you, gift wrapping is an art. So heres a little something for art supplies. Madaraka Day', 86.00),
-(2331, NOW(), 'Thank you from the bottom of my heart. ENBW', 13, NOW(), 'Enjoy the popcorn! Eid ul-Fitr Holiday', 15.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2331, NOW(), 'Thank you from the bottom of my heart. ENBW', 13, NOW(), 'Enjoy the popcorn! Eid ul-Fitr Holiday', 15.00),
 (2332, NOW(), 'Caps in the air like you just dont care. Baconator', 17, NOW(), 'For Getting Active End of Ramadan Day 2', 48.00),
 (2333, NOW(), 'Happy Birthday and many happy returns of the day. Clearly Canadian', 21, NOW(), 'Have a holly, jolly Holiday! Good Friday', 67.00),
 (2334, NOW(), 'Thinking of you and wishing you a happy day. CCR', 15, NOW(), 'Thank you for your continued business. We look forward to working with you in the future. Emancipation Wednesday', 40.00),
@@ -2473,8 +2349,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2346, NOW(), 'Happy Birthday and many happy returns of the day. KFC', 30, NOW(), 'Delta Airlines EGift Certificate Hijri New Year', 15.00),
 (2347, NOW(), 'Your business is appreciated. Thank you for choosing us. Lecker', 20, NOW(), 'Fly by Jing Gift Certificate Christmas Day', 64.00),
 (2348, NOW(), 'A little holiday treat from your favorite elf! Fulinmen', 22, NOW(), ' There''s no stopping you now. Congratulations! Proclamation Day', 98.00),
-(2349, NOW(), 'Happy Valentines Day to the most special person in my life. Red Rose Tea', 12, NOW(), 'Nothing can separate friends Ethiopian New Year', 11.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2349, NOW(), 'Happy Valentines Day to the most special person in my life. Red Rose Tea', 12, NOW(), 'Nothing can separate friends Ethiopian New Year', 11.00), 
 (2350, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Banestes', 13, NOW(), 'Happy Valentines Day to the most beautiful woman I know. Good Friday', 65.00),
 (2351, NOW(), 'Happy 13th birthday to the world''s best teenager. Charmin', 26, NOW(), 'There''s no place like home! Congratulations. The fourth day of Lunar New Year', 57.00),
 (2352, NOW(), 'So you can keep looking better than me. Leader Price', 22, NOW(), 'Bravo! Youve accomplished great things. Nigeria declares April 21st and 24th as Public Holidays', 13.00),
@@ -2491,8 +2366,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2363, NOW(), 'I love you more than I have ever found a way to say to you.  Ben Folds Aji Ichiban', 15, NOW(), 'To love! Easter Sunday', 83.00),
 (2364, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. JumboTron', 14, NOW(), 'Welcome to the neighborhood Government, lawmakers mull changes to public holiday calendar', 76.00),
 (2365, NOW(), 'Caps in the air like you just dont care. Home Depot', 23, NOW(), 'Here''s to you twowishing my two favorite lovebirds a lifetime of happiness and love. Congrats on a beautiful wedding! Tabaski', 35.00),
-(2366, NOW(), 'Happy New Year! You make our family so proud, and we wish you nothing but continued success and happiness. Avonmore', 20, NOW(), 'Yay for you! Guru Nanak''s Birthday', 52.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2366, NOW(), 'Happy New Year! You make our family so proud, and we wish you nothing but continued success and happiness. Avonmore', 20, NOW(), 'Yay for you! Guru Nanak''s Birthday', 52.00),
 (2367, NOW(), 'Santa needed help saving space in his sack. Diesel', 11, NOW(), 'Thank you French Community Holiday', 66.00),
 (2368, NOW(), 'You''re in my thoughts and I thought I''d let you know. Chable Resort ', 13, NOW(), 'A friend is forever! Epiphany', 68.00),
 (2369, NOW(), 'In loving memory of [NAME], [HE/SHE] will be missed dearly. Harry Winston', 11, NOW(), 'Spend some time spending some money. Holy Saturday', 26.00),
@@ -2511,8 +2385,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2382, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Delta Projects', 14, NOW(), ' Congratulations! Keep up the good work. Sree Narayana Guru Samadhi', 98.00),
 (2383, NOW(), 'We appreciate the opportunity to serve you. Please call me whenever I can be of further service. Chex', 27, NOW(), 'Your business is always appreciated Puducherry Liberation Day', 84.00),
 (2384, NOW(), 'Many loving and caring thoughts as you recover. Get well soon! Banco Safra', 25, NOW(), 'Winc Subscription Da de la Raza (in lieu)', 33.00),
-(2385, NOW(), 'Cheers to you! Cheers to your year ahead! Mattel', 20, NOW(), 'Bravo! Youve accomplished great things. Battle of Boyac', 91.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2385, NOW(), 'Cheers to you! Cheers to your year ahead! Mattel', 20, NOW(), 'Bravo! Youve accomplished great things. Battle of Boyac', 91.00),
 (2386, NOW(), 'Hope your birthday''s as terrific as you are. Lao Feng Xiang', 16, NOW(), 'You did it! Congratulations, graduate! Reformation Day', 19.00),
 (2387, NOW(), 'I never know what to get you&but you do! Clue', 25, NOW(), 'May your holiday season be bright. All Saints'' Day', 75.00),
 (2388, NOW(), 'You dont have to spend this on lingerie. Im just saying if you wanna Eskimo Pie', 23, NOW(), 'Thinking of you Hijri New Year', 94.00),
@@ -2531,8 +2404,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2401, NOW(), 'Depending on the recipient and how much they enjoy their home-improvement tasks, this may be the most exciting gift they receive during the holidays. Speed Stick', 27, NOW(), 'Uber Gift Certificate Grand Final Eve', 57.00),
 (2402, NOW(), 'May the promise of Easter fill your heart with joy! CNN', 21, NOW(), 'Cheer Up! National Heroes and Benefactors Day (in lieu)', 71.00),
 (2403, NOW(), 'May all the dreams You''re dreaming soon turn into dreams come true. Under Armour', 25, NOW(), 'Remember, youth is wasted on the young. Easter Monday', 90.00),
-(2404, NOW(), 'Are you a banana? Because I find you a-peel-ing. Happy Valentine''s Day my love. Gregg''s', 27, NOW(), 'Pamper yourself pretty! Independence Day', 88.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2404, NOW(), 'Are you a banana? Because I find you a-peel-ing. Happy Valentine''s Day my love. Gregg''s', 27, NOW(), 'Pamper yourself pretty! Independence Day', 88.00), 
 (2405, NOW(), 'Congratulations on your new bundle of joy! May your world be filled with love. Black Diamond', 20, NOW(), 'Hanukkah Certificate Gifts National Heroes Day', 99.00),
 (2406, NOW(), 'With sincere gratitude for all you have done. Hynix', 29, NOW(), 'Don''t tell the others you got this. Day of National Sovereignty', 24.00),
 (2407, NOW(), 'May love always live in the home that you share. Ricoh', 20, NOW(), 'excellent last-minute gifts Independence Day', 15.00),
@@ -2551,8 +2423,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2420, NOW(), 'If I had to do it all over again, I wouldn''t. Atari', 14, NOW(), 'Gorjana E-Gift Certificate Independence Day', 17.00),
 (2421, NOW(), 'This comes with all my best thoughts for your recovery. Dermalogica', 14, NOW(), 'Making the impossible into possible is your own style. Congrats for your success! International Women''s Day', 34.00),
 (2422, NOW(), 'Life being a journey, Success has brought you many miles ahead of many people. Congratulations. Daikin', 17, NOW(), 'Ganni EGift Certificate International Human Rights Day', 66.00),
-(2423, NOW(), 'For the person who has been a jet-setter since getting vaccinated. Liz Claiborne', 17, NOW(), 'Jump to Easter Sunday', 19.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2423, NOW(), 'For the person who has been a jet-setter since getting vaccinated. Liz Claiborne', 17, NOW(), 'Jump to Easter Sunday', 19.00),
 (2424, NOW(), 'Gift cards: Almost as magical as flying reindeer. Agrichar', 29, NOW(), 'Hope this brightens your day! Boxing Day', 18.00),
 (2425, NOW(), 'Welcome to a lifetime of always saying "yes" when you really mean "no." In other words, welcome to married life, buddy! Just kiddingcongratulations on your marriage! EFTel', 17, NOW(), 'Hope you feel better soon. New Year''s Day', 19.00),
 (2426, NOW(), 'Your name has been synonymous with success! Congratulations! Amazon', 25, NOW(), 'Business anniversary Independence Day', 23.00),
@@ -2572,8 +2443,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2440, NOW(), 'May a river of gold flow into your pockets. Easy Spirit', 26, NOW(), 'A friend is forever! Dutch Emancipation Day', 21.00),
 (2441, NOW(), 'Its wonderful sharing with a good friend like you. Acer', 17, NOW(), 'Take your homebody out shopping! Labour Day', 88.00),
 (2442, NOW(), 'Congratulations on your new little someone to love. Alamos', 28, NOW(), 'A friend is forever! Kanakadasa Jayanthi', 22.00),
-(2443, NOW(), 'Many loving and caring thoughts as you recover. Get well soon! Cartier', 25, NOW(), 'The Strategist Christmas Day', 96.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2443, NOW(), 'Many loving and caring thoughts as you recover. Get well soon! Cartier', 25, NOW(), 'The Strategist Christmas Day', 96.00),
 (2444, NOW(), 'Wishing you a beautiful day and many more happy years. Garnier', 23, NOW(), 'For your screen room Ching Ming Festival', 78.00),
 (2445, NOW(), 'Your wedding day will come and go, but may your love forever grow. HBO Max', 20, NOW(), 'Get something newlywed-y! Republic Day (in lieu)', 23.00),
 (2446, NOW(), 'Help the cord cutter in your life upgrade to Hulu+, which comes with live TV. AkzoNobel', 18, NOW(), 'For Their Fitness Resolutions Islamic Revolution Day', 31.00),
@@ -2591,8 +2461,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2458, NOW(), 'Like a fine wine, you improve with age. Bank of Greece', 25, NOW(), 'a gift card for Dunkin'' All Saints'' Day', 69.00),
 (2459, NOW(), 'May God bless you on your graduation day. Zalando', 15, NOW(), 'For Dainty Jewelry Pentecost Sunday', 100.00),
 (2460, NOW(), 'Your love and wisdom have always helped guide me. Applebee''s', 16, NOW(), 'Hope you''re feeling better St. Wenceslas Day', 80.00),
-(2461, NOW(), 'A friend is someone you can lean on L.J. Hooker', 11, NOW(), ' How can I begin to say I''m sorry. I didn''t mean to upset you. I hope that you can forgive me. Christmas Day', 32.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2461, NOW(), 'A friend is someone you can lean on L.J. Hooker', 11, NOW(), ' How can I begin to say I''m sorry. I didn''t mean to upset you. I hope that you can forgive me. Christmas Day', 32.00), 
 (2462, NOW(), 'Merry Christmas! May your happiness be large and your bills be small. NAPA Auto Parts', 13, NOW(), 'Some people don''t believe in heroes, but they haven''t met my dad. Unknown Orthodox Christmas Eve', 72.00),
 (2463, NOW(), 'Go see something as epic as you are! Louis Vuitton', 10, NOW(), 'Nice work, Mom and Dad! Assumption Day', 61.00),
 (2464, NOW(), 'Is your birthday wish a gift card? Because Adecco', 15, NOW(), 'Congratulations on your special day The fourth day of Lunar New Year', 90.00),
@@ -2610,8 +2479,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2476, NOW(), 'Christmas is the day that holds all time together. Abbott Laboratories', 25, NOW(), 'Nike Digital Gift Certificate Falkland Islands Liberation Day', 39.00),
 (2477, NOW(), 'Bless your new life as husband and wife. All', 18, NOW(), 'ClassPass E-Gift Certificate King''s Birthday', 65.00),
 (2478, NOW(), 'I never know what to get you&but you do! IWC Schaffhausen', 10, NOW(), 'Brooklinen Gift Certificate Immaculate Conception Day', 52.00),
-(2479, NOW(), 'May it help in some way to know that friends are sharing the sorrow of your heart. Gold''n Plump', 14, NOW(), 'Thinking of you New Year''s Day (in lieu)', 57.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2479, NOW(), 'May it help in some way to know that friends are sharing the sorrow of your heart. Gold''n Plump', 14, NOW(), 'Thinking of you New Year''s Day (in lieu)', 57.00),
 (2480, NOW(), 'On this special day, all I wish for you is that you find the arms that give you the warmth of love and hugs of strength. Happy valentines day. Aquafina', 15, NOW(), 'Yay for you! Ascension Day', 17.00),
 (2481, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Genting', 15, NOW(), 'Twitch E-Gift Certificate Spring Bank Holiday', 83.00),
 (2482, NOW(), 'Selamat Hari Raya! May you and your loved ones be blessed with happiness and peace! Rock Spa and Salon ', 26, NOW(), 'Zappos E-Gift Certificate Good Friday', 76.00),
@@ -2629,8 +2497,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2494, NOW(), U&'Bravo! Your hard work has truly paid off. Lanc\00c3\00b4me', 10, NOW(), 'Girlfriend Collective Gift Certificate Emancipation Monday', 26.00),
 (2495, NOW(), 'My/Our sympathy and thoughts are with you and your family. Cenovus Energy', 29, NOW(), 'Netflix EGift Certificate Flag Day', 33.00),
 (2496, NOW(), 'For beauty enthusiasts, it''s hard to top a Glossier gift card, which they can use on the brand''s bestselling skincare and makeup products. Cafe de Coral', 22, NOW(), 'For Winter-Proof Boots Labour Day', 95.00),
-(2497, NOW(), 'Health, wealth and endless joy is what I wish for you and your family this year. C&A', 11, NOW(), 'Thank you with a personal touch Independence Day', 19.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2497, NOW(), 'Health, wealth and endless joy is what I wish for you and your family this year. C&A', 11, NOW(), 'Thank you with a personal touch Independence Day', 19.00),
 (2498, NOW(), 'May your babys future be brighter than the suns radiant beam, may your little child fulfill all your dreams. Congratulations for your newborn. Country Crock', 28, NOW(), 'Your new favorite ornament is on me. Independence Day', 13.00),
 (2499, NOW(), 'A mothers arms are more comforting than anyone elses. Princess Diana Best Western', 30, NOW(), 'Need a travel buddy? Hari Raya Aidil Adha', 72.00),
 (2500, NOW(), 'Graduation is a time for celebration, a time of reflection, and a time look ahead. Wishing you a bright future. Cisco', 10, NOW(), 'Copy National Day', 75.00),
@@ -2648,8 +2515,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2512, NOW(), U&'Inspired? Create and share by tagging @HallmarkStores. L''Or\00e9al Paris', 27, NOW(), 'face planters and dumpling lights Good Friday', 38.00),
 (2513, NOW(), 'Your name has been synonymous with success! Congratulations! Dolby Surround', 22, NOW(), 'Wishing you a speedy recovery. Netaji Subhas Chandra Bose Jayanti', 16.00),
 (2514, NOW(), 'Sharing in your happiness and wishing you all the best. Parkson', 24, NOW(), 'Hulu E-Gift Certificate New Year''s Day', 53.00),
-(2515, NOW(), 'Just the beginning of successes for you. Congrats! Australian Agricultural Company', 13, NOW(), 'Soko Glam Gift Certificate Good Friday', 21.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2515, NOW(), 'Just the beginning of successes for you. Congrats! Australian Agricultural Company', 13, NOW(), 'Soko Glam Gift Certificate Good Friday', 21.00), 
 (2516, NOW(), 'Get what you love, love what you get. Raisinets', 23, NOW(), 'A good mother is irreplaceable. Adriana Frigiani Coptic Christmas', 81.00),
 (2517, NOW(), 'Thank you for making your guests feel right at home. Monster.com', 18, NOW(), 'Get something newlywed-y! Constitutional Day', 52.00),
 (2518, NOW(), 'To my wife, my soul mate, my love, my life. Barbie', 17, NOW(), 'For a Designer Download Boganda Day', 63.00),
@@ -2668,8 +2534,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2531, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] Camry', 30, NOW(), 'Wishing you health and longevity National Day', 13.00),
 (2532, NOW(), 'May this new year bring you good health and good fortune. Bank of Montreal', 17, NOW(), 'Chinese New Year Bengali New Year', 43.00),
 (2533, NOW(), 'Its hard to tell who is luckier, you or your new baby. Pottery Barn', 26, NOW(), 'Hari Raya Eid ul-Fitr', 23.00),
-(2534, NOW(), 'Hope your hospital stay is a short one. Crate & Barrel', 25, NOW(), 'You''re the best! King Charles'' Birthday', 16.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2534, NOW(), 'Hope your hospital stay is a short one. Crate & Barrel', 25, NOW(), 'You''re the best! King Charles'' Birthday', 16.00), 
 (2535, NOW(), 'Just a little something to show my appreciation. Johnson', 25, NOW(), 'Don''t tell the others you got this. Labour Day', 69.00),
 (2536, NOW(), 'You always go out of your way to be thoughtful. Doritos', 16, NOW(), 'best things to buy Boxing Day', 86.00),
 (2537, NOW(), 'For those looking to expand their Bushwick Birkin collection. Kay Jewelers', 15, NOW(), 'Shopbop E-Gift Certificate Nepal National Mourning Day', 25.00),
@@ -2688,8 +2553,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2550, NOW(), 'Wishing you eight days of peace and happiness! (and lots of potato pancakes!) Black Diamond', 18, NOW(), 'Warmest regards Ascension Day', 15.00),
 (2551, NOW(), 'Thank you for trusting us. We look forward to exceeding your expectations! Hershey''s', 25, NOW(), 'Get what you love, love what you get. Deepavali', 88.00),
 (2552, NOW(), 'Cheering you up with a big smile! Crisco', 24, NOW(), 'Kitty Guo Easter Monday', 81.00),
-(2553, NOW(), 'I hope you have a most happy and prosperous New Year. Net-a-Porter', 15, NOW(), 'Tonights homework: Spend this Columbus Day', 67.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2553, NOW(), 'I hope you have a most happy and prosperous New Year. Net-a-Porter', 15, NOW(), 'Tonights homework: Spend this Columbus Day', 67.00),
 (2554, NOW(), 'Happiness is in the air; it''s Diwali everywhere; let''s show some love and care to everyone out there. Have ajoyous Diwali! Amazon', 12, NOW(), 'For a Guest Room Upgrade All Souls'' Day', 66.00),
 (2555, NOW(), 'Hope your recovery is a speedy one. We miss you! Gueuze', 24, NOW(), 'Framebridge E-Gift Certificate Unification Day', 97.00),
 (2556, NOW(), 'As the brand describes it, drinks come true with Winc. So allow your recipient the drink of their dreams with a gift card they''ll definitely appreciate. Allphones', 26, NOW(), 'Ihope your birthday was as special as you are. Maundy Thursday', 55.00),
@@ -2707,8 +2571,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2568, NOW(), 'May your new home be filled with love and laughter, good fortune, the sunshine, and happiness. Congratulations! Papa John''s', 14, NOW(), 'a gift card for Dunkin'' Epiphany', 47.00),
 (2569, NOW(), 'Our thoughts are with you. Get well soon! Thinking of you. Reynolds Stockbrokers', 13, NOW(), 'Were sick without you. Get well soon. Constitution Day', 23.00),
 (2570, NOW(), 'Our sympathy and warmest thoughts are with you now. Canyon Ranch ', 17, NOW(), 'Words are so inadequate at a time like this. Easter Monday', 86.00),
-(2571, NOW(), 'Congratulations on your new bundle of joy. Intergy Consulting', 11, NOW(), 'Always get the fries. Janmostav of Srimatna Sankardev', 49.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2571, NOW(), 'Congratulations on your new bundle of joy. Intergy Consulting', 11, NOW(), 'Always get the fries. Janmostav of Srimatna Sankardev', 49.00),
 (2572, NOW(), 'Sending warm greetings and sincere wishes for a happy and prosperous Raya. Selamat Hari Raya! Motul', 24, NOW(), 'Outdoor Voices E-Gift Certificate Orthodox Epiphany', 64.00),
 (2573, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Nordstrom', 11, NOW(), 'Holiday Calendar Assumption Day', 21.00),
 (2574, NOW(), 'Not cooking is the most delicious of all. Asus', 14, NOW(), 'We do not remember days, we remember moments. Labour Day', 65.00),
@@ -2727,8 +2590,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2587, NOW(), 'Your thoughtfulness meant more than words can ever say. China Mobile', 10, NOW(), 'committed bakers International Women''s Day', 53.00),
 (2588, NOW(), 'I hope you consider trying to forgive me. Brooks', 10, NOW(), 'Studs E-Gift Certificate Easter Sunday', 49.00),
 (2589, NOW(), 'May happiness &amp; love move in with you. Bang & Olufsen', 23, NOW(), 'For Dainty Jewelry Mother''s Day', 45.00),
-(2590, NOW(), 'Because itll be a while before You''re makin the big bucks. Lime Wood', 27, NOW(), 'I think in a lot of ways unconditional love is a myth. My mom''s the only reason I know it''s a real thing. Conor Oberst New Year''s Day', 45.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2590, NOW(), 'Because itll be a while before You''re makin the big bucks. Lime Wood', 27, NOW(), 'I think in a lot of ways unconditional love is a myth. My mom''s the only reason I know it''s a real thing. Conor Oberst New Year''s Day', 45.00), 
 (2591, NOW(), 'For the ecoconscious person with a KN95 subscription. West Elm', 18, NOW(), 'Mejuri Digital Gift Certificate Christmas Day', 13.00),
 (2592, NOW(), 'Let me guess&You''re going to see a movie where stuff blows up. IWC', 26, NOW(), 'Virtual Delivery (Email/SMS) Royal Hobart Regatta', 35.00),
 (2593, NOW(), 'I hope all your birthday wishes came true. Cadillac', 15, NOW(), 'Happy Resurrection Day! Christmas Eve', 73.00),
@@ -2747,8 +2609,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2606, NOW(), 'Congratulations on the birth of you new baby [BOY/GIRL] Calvin Klein', 24, NOW(), 'Congratulations on a well-deserved promotion. Easter Monday', 99.00),
 (2607, NOW(), 'Happy Valentine''s Day! Remember not to eat too much candy you''re sweet enough already. Reynolds Stockbrokers', 10, NOW(), 'Dont worry, I still owe you. Carnival Monday', 11.00),
 (2608, NOW(), 'Happy 100th birthday. You''re an inspiration to all of us. Borealis', 11, NOW(), 'a gift card for Dunkin'' New Year''s Day', 44.00),
-(2609, NOW(), 'For the person who has been a jet-setter since getting vaccinated. Air Australia', 29, NOW(), 'excellent last-minute gifts Abolition Day', 13.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2609, NOW(), 'For the person who has been a jet-setter since getting vaccinated. Air Australia', 29, NOW(), 'excellent last-minute gifts Abolition Day', 13.00),
 (2610, NOW(), 'Happy Valentines day 2022. May you celebrate love not only this one day but throughout the year. Metcash', 25, NOW(), 'Jump to All Saints'' Day', 31.00),
 (2611, NOW(), 'You still make me laugh. You still give me butterflies. And I''m still falling for you every single day. Happy Valentine''s Day! TV5 Monde', 23, NOW(), 'Hope this helps get you that thing that brings the cozy to your new place. Whit Monday', 96.00),
 (2612, NOW(), 'You eat food, right? I know you so well. Ethical Ocean', 30, NOW(), 'Thank you for the referrals Cochabamba Day', 40.00),
@@ -2767,8 +2628,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2625, NOW(), 'You both deserve the very best that life can bring you. DaKine', 23, NOW(), 'Short and Simple Labor Day', 77.00),
 (2626, NOW(), 'To happy endings and new beginnings. Congratulations! Zara', 23, NOW(), ' May happiness &amp; love move in with you. Easter Monday', 49.00),
 (2627, NOW(), 'Gift card? Bacon? It was a really tough decision. Memorex', 13, NOW(), 'You''re a really great human Independence Day', 95.00),
-(2628, NOW(), 'Congratulations on your new bundle of joy. Delta Electricity', 22, NOW(), 'Lowes Gift Certificate Independence Day', 54.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2628, NOW(), 'Congratulations on your new bundle of joy. Delta Electricity', 22, NOW(), 'Lowes Gift Certificate Independence Day', 54.00),
 (2629, NOW(), 'A Victoria''s Secret gift card is always a great gift. Your special someone can choose from silky pajamas, sweet body mists, yummy lipglosses and more. Amoco', 10, NOW(), 'Short and Simple All Saints'' Day', 93.00),
 (2630, NOW(), 'You take my breath away...today and every day. Logitech', 10, NOW(), 'You''re in my thoughts. Armenian Independence Day', 96.00),
 (2631, NOW(), 'Sending you Christmas cheer that lasts throughout the year! Bright', 20, NOW(), 'We sincerely appreciate your business. Constitution Day', 90.00),
@@ -2787,8 +2647,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2644, NOW(), 'Thank you for making me feel so comfortable Tory Burch', 18, NOW(), 'For something naughty or nice. Whichever. Armistice Day', 73.00),
 (2645, NOW(), 'Sharing in your happiness and wishing you all the best. H2', 12, NOW(), 'Ganni EGift Certificate Sardar Patel''s Birthday', 34.00),
 (2646, NOW(), 'Rejoice! He is watching over you this Easter! Du Maurier', 11, NOW(), 'Mother''s Day King''s Birthday', 54.00),
-(2647, NOW(), 'Im there for you on rough days and spa days. Opal', 18, NOW(), 'I may not be with you at all times, but I want you to know that you are never out of my heart. I love you! Emancipation Day', 71.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2647, NOW(), 'Im there for you on rough days and spa days. Opal', 18, NOW(), 'I may not be with you at all times, but I want you to know that you are never out of my heart. I love you! Emancipation Day', 71.00),
 (2648, NOW(), 'Not once did I ever doubt you''d make it. Marshall', 26, NOW(), 'I may find my prince, but my dad will alwaysbe my king. Unknown Tiradentes Day', 10.00),
 (2649, NOW(), 'May the joy of this festive season light your life with love, peace and hope. Selamat Hari Raya! POSCO', 16, NOW(), 'Huckberry E-Gift Certificate Friday after Eid e-Milad-un Nabi', 48.00),
 (2650, NOW(), 'Sending loads of love your way for a speedy recovery! Dr. Scholl''s', 29, NOW(), 'You both share a special love. Thimphu Tshechu Holiday', 44.00),
@@ -2808,8 +2667,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2664, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Olive Garden', 22, NOW(), 'BaubleBar Digital Gift Certificate Revolution Day July 23', 45.00),
 (2665, NOW(), 'Today is for remembering the happy times you''ve known. AirAsia', 24, NOW(), 'Starbucks Digital Gift Certificate Easter Monday', 36.00),
 (2666, NOW(), 'Im there for you on rough days and spa days. Dodge', 17, NOW(), 'Download those favorite jams and dance. St. Brigid''s Day', 72.00),
-(2667, NOW(), 'Great news! You wont have to return this. DayQuil', 18, NOW(), 'Hay E-Gift Certificate Ascension Day', 24.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2667, NOW(), 'Great news! You wont have to return this. DayQuil', 18, NOW(), 'Hay E-Gift Certificate Ascension Day', 24.00),
 (2668, NOW(), 'Many loving and caring thoughts as you recover. Get well soon! Bob the Builder', 22, NOW(), ' I hope you consider trying to forgive me. Imlek', 37.00),
 (2669, NOW(), 'With you it''s Valentine''s Day 365 days a year. Foodland Supermarkets', 19, NOW(), 'A diamond is a piece of coal that stuck to the job. Easter Monday', 43.00),
 (2670, NOW(), 'Just the beginning of successes for you. Congrats! Dick''s Sporting Goods', 24, NOW(), 'Airbnb Gift Certificate New Year''s Day', 13.00),
@@ -2827,8 +2685,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2682, NOW(), 'Congratulations and best wishes for a succesful future. Old Navy', 22, NOW(), 'You both share a special love. New Year''s Day', 24.00),
 (2683, NOW(), 'You have 12 days of Christmas to spend this. Axis Bank', 16, NOW(), ' Mazel tov on your Bat Mitzvah! [Send to a 13 year old Jewish girl] Second Day of Christmas', 22.00),
 (2684, NOW(), 'Not cooking is the most delicious of all. Albert Heijn', 10, NOW(), 'Baggu Gift Certificate New Year''s Day', 79.00),
-(2685, NOW(), 'Dads are most ordinary men turned by love into heroes, adventurers, story-tellers and singers of song. -Pam Brown Victoria''s Secret', 16, NOW(), 'Retirement Certificate Gifts Freedom Day', 48.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2685, NOW(), 'Dads are most ordinary men turned by love into heroes, adventurers, story-tellers and singers of song. -Pam Brown Victoria''s Secret', 16, NOW(), 'Retirement Certificate Gifts Freedom Day', 48.00), 
 (2686, NOW(), 'Thank you from the bottom of my heart. Big Mac', 13, NOW(), 'A friend is someone you can lean on Easter Day', 40.00),
 (2687, NOW(), 'Go see another rom-com (on me this time). UNIQLO', 13, NOW(), 'Glossier EGift Certificate Saint Leopold''s Day', 83.00),
 (2688, NOW(), 'A little something for you and the little one! Advil', 14, NOW(), 'Congratulations! Wishing you a successful journey ahead! Easter', 28.00),
@@ -2847,8 +2704,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2701, NOW(), 'Just a note to keep in touch. Lets talk soon. Chiko Roll', 17, NOW(), 'Get what you love, love what you get. Public Holiday', 96.00),
 (2702, NOW(), 'You can use this next time Im being really annoying. The North Face', 30, NOW(), 'Business anniversary Revolution Day', 41.00),
 (2703, NOW(), 'Look what the bunny found in the carrot patch! Happy Easter! China Construction Bank', 19, NOW(), 'Have a wonderful life together Second Day of Christmas', 68.00),
-(2704, NOW(), 'We know you have a world full of choices and appreciate that you have selected us. C&A', 19, NOW(), 'Goodbye time clock! Hello world! New Year''s Day', 36.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2704, NOW(), 'We know you have a world full of choices and appreciate that you have selected us. C&A', 19, NOW(), 'Goodbye time clock! Hello world! New Year''s Day', 36.00),
 (2705, NOW(), 'Not just a year older, but a year better. Citibank', 12, NOW(), 'Eater Wine Club Gift Certificate Ascension Day', 41.00),
 (2706, NOW(), 'Its a big world out there&go explore it! Hansol', 29, NOW(), 'Get you some yum! Spring Bank Holiday', 82.00),
 (2707, NOW(), 'May this festival of light bring peace, prosperity and happiness to all. Happy Diwali! UGG', 26, NOW(), 'For the Well-Dressed Marathoner Independence Day Holiday', 53.00),
@@ -2867,8 +2723,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2720, NOW(), U&'May your new home be a special place to live, to love and to grow. Bj\00c3\00b6rn Borg', 17, NOW(), 'Thank you for your support Labour Day', 93.00),
 (2721, NOW(), 'For the person whos thoroughly enjoying their New York Times Cooking subscription. Arla', 19, NOW(), 'Youre wished a lifetime of love. Boxing Day', 64.00),
 (2722, NOW(), 'May this festival of light bring peace, prosperity and happiness to all. Happy Diwali! Dairy Farmers', 13, NOW(), 'Father''s Day Boxing Day', 66.00),
-(2723, NOW(), 'Zappos is a one-stop-shop selling clothes, shoes, and accessories for the entire family, which makes it perfect for nearly any fashion-forward giftee. Ermenegildo Zegna', 16, NOW(), 'foam made from sugar cane Proclamation Day', 59.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2723, NOW(), 'Zappos is a one-stop-shop selling clothes, shoes, and accessories for the entire family, which makes it perfect for nearly any fashion-forward giftee. Ermenegildo Zegna', 16, NOW(), 'foam made from sugar cane Proclamation Day', 59.00), 
 (2724, NOW(), 'Get ya some sugar! (With a little coffee added in.) Hydroxycut', 21, NOW(), 'New Baby Welcome Gift Ash Wednesday', 19.00),
 (2725, NOW(), 'Thank you from the bottom of my heart. Hardee''s', 21, NOW(), 'Hope its all half off! Public Sector Holiday', 60.00),
 (2726, NOW(), 'Gift card? Bacon? It was a really tough decision. Hacky Sack', 25, NOW(), 'Now you can afford textbooks. Or food. Orthodox Easter Day', 66.00),
@@ -2888,8 +2743,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2740, NOW(), 'A gift card to Gorjana is an invitation to pick earrings or rings they''ll never take off. Cocoa Krispies', 29, NOW(), 'If I know what love is, its because of you. Eid al-Fitr', 59.00),
 (2741, NOW(), 'Another reason to dress up! (Or dress down!) American Eagle Outfitters', 10, NOW(), 'You: Great! Me: Grateful! Corpus Christi', 98.00),
 (2742, NOW(), U&'Looking at your success, it gives me the inspiration to do more. Congratulations. Lanc\00f4me', 14, NOW(), 'Fashion and accessories New Year''s Day', 70.00),
-(2743, NOW(), 'We know that you have a world full of choices, Thank You for selecting us. ANCA', 30, NOW(), 'Because this family shops! New Year''s Holiday', 14.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2743, NOW(), 'We know that you have a world full of choices, Thank You for selecting us. ANCA', 30, NOW(), 'Because this family shops! New Year''s Holiday', 14.00),
 (2744, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Audible', 23, NOW(), ' I am sorry you are not feeling well. I am praying for you to have a complete and quick recovery Sarhul', 90.00),
 (2745, NOW(), 'It may be possible to gild pure gold, but who can make his mother more beautiful? Mahatma Gandhi Australian', 16, NOW(), 'A simple celebration, a gathering of friends; here is wishing you great happiness, a joy that never ends. Bathukamma Starting Day', 34.00),
 (2746, NOW(), 'Just a little something to show my appreciation. Microsoft', 19, NOW(), 'The Strategist Tusu Puja', 14.00),
@@ -2908,8 +2762,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2759, NOW(), 'Not cooking is the most delicious of all. Cadence Capital Limited', 19, NOW(), 'ClassPass E-Gift Certificate Orthodox Good Friday', 81.00),
 (2760, NOW(), 'For the person whos thoroughly enjoying their New York Times Cooking subscription. AirTran', 26, NOW(), 'Wishing you happiness together. Christmas Day', 58.00),
 (2761, NOW(), 'Wishing you a happy and peaceful Eid! Selamat Hari Raya! Hills Hoist', 18, NOW(), 'Good luck in your new job. Corpus Christi', 31.00),
-(2762, NOW(), 'The 18 Very Best Sunscreens for Your Face Chipotle', 10, NOW(), 'Happy nesting! Garia Puja', 47.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2762, NOW(), 'The 18 Very Best Sunscreens for Your Face Chipotle', 10, NOW(), 'Happy nesting! Garia Puja', 47.00),
 (2763, NOW(), 'Please accept these flowers and hear the words we are not able to speak American Eagle Outfitters', 10, NOW(), 'Happy nesting! Birthday of SPB Yang di Pertuan Agong', 44.00),
 (2764, NOW(), 'Your love is the best Christmas gift I could ever receive. Merry Christmas, sweetheart! GlaxoSmithKline', 22, NOW(), 'Cheer Up! Whit Monday', 69.00),
 (2765, NOW(), 'Dad, whenever I am in trouble or in need of guidance, you are the one that I look up to. Thanks for everything. ICBC', 10, NOW(), 'Wishing you happiness everyday Christmas Day', 26.00),
@@ -2927,8 +2780,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2777, NOW(), 'So thoughtful of you to think of us. Brahma', 11, NOW(), 'Virtual Delivery (Email/SMS) New Year''s Eve', 65.00),
 (2778, NOW(), 'A mother is the one who fills your heart in the first place. Amy Tan 501', 14, NOW(), 'Lisa Says Gah E-Gift Certificate King''s Birthday', 59.00),
 (2779, NOW(), 'Congratulations on your new bundle of joy. Red Lobster', 16, NOW(), 'Grubhub E-Gift Certificate Coronation day of His Majesty the King', 37.00),
-(2780, NOW(), 'Get well soon. Feel better. We miss you! Sisley', 30, NOW(), 'Reformation E-Gift Certificate Mother''s Day', 13.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2780, NOW(), 'Get well soon. Feel better. We miss you! Sisley', 30, NOW(), 'Reformation E-Gift Certificate Mother''s Day', 13.00), 
 (2781, NOW(), 'Just the beginning of successes for you. Congrats! Chow Tai Fook', 23, NOW(), 'Bando Gift Certificate August Monday', 49.00),
 (2782, NOW(), 'May you treasure today forever in your memory. Crown Lager', 19, NOW(), 'Thanks for all your help Independence Day', 96.00),
 (2783, NOW(), 'Sending my best wishes to make you feel better. Get well soon! Azul Brazilian Airlines', 14, NOW(), 'Some tune-age for you-nage. New Year''s Eve', 75.00),
@@ -2945,8 +2797,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2794, NOW(), 'Presents are like noses: better to pick them yourself! Fossil', 20, NOW(), 'Lululemon Gift Certificate New Year''s Day (in lieu)', 38.00),
 (2795, NOW(), 'May your degree unlock many doors to well deserved success. Contact Us', 18, NOW(), 'Business Associate/Corporate Gift Certificates Good Friday', 64.00),
 (2796, NOW(), 'Cant wait for your review of this movie. Lindt', 13, NOW(), 'our review of Otherland here Korit', 98.00),
-(2797, NOW(), 'Hope this makes your sweet home even homier. Inalca', 17, NOW(), 'Life will keep changing but there is one thing that will remain constant till the day you die  your love for your child. Congratulations for finding something so magical. August Thursday', 91.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2797, NOW(), 'Hope this makes your sweet home even homier. Inalca', 17, NOW(), 'Life will keep changing but there is one thing that will remain constant till the day you die  your love for your child. Congratulations for finding something so magical. August Thursday', 91.00), 
 (2798, NOW(), 'Have fun getting your little cutie all geared up! Aja Malibu', 14, NOW(), 'Islandwide Courier Delivery Christmas Day', 13.00),
 (2799, NOW(), 'A warm welcome. Thank you for choosing us! Head & Shoulders', 10, NOW(), 'Thanks for being such a great friend/co-worker! Christmas Day', 66.00),
 (2800, NOW(), 'Congratulations on your wedding day and best wishes for a happy life together! Macy''s', 14, NOW(), 'Thanks to the most amazing work buddy! Labour Day', 29.00),
@@ -2964,8 +2815,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2812, NOW(), 'If I know what love is, its because of you. CDW', 30, NOW(), 'For a special friend Christmas Day', 88.00),
 (2813, NOW(), 'Warm, brown elixir of life, we pray to thee. QMS Medicosmetics', 19, NOW(), 'Fashion and accessories Maharaja Hari Singh Birth Anniversary', 53.00),
 (2814, NOW(), 'Its hard to tell who is luckier, you or your new baby. Marmot', 29, NOW(), 'Verishop E-Gift Certificate Ascension', 77.00),
-(2815, NOW(), 'Great news! You wont have to return this. Hy-Vee', 29, NOW(), 'Bandier Digital Gift Certificate Martin Miguel de Guemes Day', 60.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2815, NOW(), 'Great news! You wont have to return this. Hy-Vee', 29, NOW(), 'Bandier Digital Gift Certificate Martin Miguel de Guemes Day', 60.00), 
 (2816, NOW(), 'Today is a very special day for sending all my love your way! Furla', 13, NOW(), ' Be mine. Ascension Day', 33.00),
 (2817, NOW(), 'To the most amazing woman who I am lucky enough to call my wife, Happy Valentine''s Day. Michael Kors', 29, NOW(), 'For Absolutely Anything Day of victory over fascism', 29.00),
 (2818, NOW(), 'Hope this helps bring a smile to your day. Dymocks', 12, NOW(), 'For the diaper fund Labour Day', 96.00),
@@ -2984,8 +2834,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2831, NOW(), 'Because You''re never too old to spend money. Domino''s Pizza', 10, NOW(), 'Amazon E-Gift Certificate Easter Tuesday', 19.00),
 (2832, NOW(), 'Sending loads of hugs and kisses. I hope they make you feel happy and healthy. Big M', 15, NOW(), 'Americanos, lattes, frappes&get your caffeine fix! Saint Teresa Canonisation Day', 55.00),
 (2833, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Cinnamon Toast Crunch', 21, NOW(), 'Warmest regards New Year''s Day', 34.00),
-(2834, NOW(), 'We appreciate the opportunity to serve you. Please call me whenever I can be of further service. Barnes & Noble Nook', 29, NOW(), 'For a special friend. Hari Raya Haji', 95.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2834, NOW(), 'We appreciate the opportunity to serve you. Please call me whenever I can be of further service. Barnes & Noble Nook', 29, NOW(), 'For a special friend. Hari Raya Haji', 95.00), 
 (2835, NOW(), 'From movies to audiobooks to TV shows, your loved one has many options with a Google Play gift card. Babcock & Brown', 21, NOW(), 'Father''s Day Orthodox Easter Day', 88.00),
 (2836, NOW(), 'May all your days be filled with lasting love. BHP Billiton', 30, NOW(), 'Our Place Gift Certificate Birth Anniversary Of His Majesty the King Holiday', 25.00),
 (2837, NOW(), 'May God bless you on your graduation day. Apple', 20, NOW(), 'Corporate Gifts Eid Milad-un-Nabi', 46.00),
@@ -3003,8 +2852,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2849, NOW(), 'My heart is reaching out to you in sympathy and prayer. Back to Basics', 30, NOW(), 'The 16 Very Best Moisturizers for Mature Skin V.C. Bird Day', 58.00),
 (2850, NOW(), 'Just want to add my good wishes to those you''ve already received. George Weston', 18, NOW(), 'This is grounds for fun. New Year''s Day', 76.00),
 (2851, NOW(), 'Please accept our condolences on the loss of your [MOTHER/FATHER/OTHER RELATION]. All Star', 11, NOW(), 'Lunya Gift Certificate Labour Day', 31.00),
-(2852, NOW(), 'It''s always best to write something personal. Try writing about: A memory you share with your mother/father/grandparent - A recollection of your childhood. Mention qualities unique to your your relationship. Four''N Twenty Pie', 17, NOW(), 'Thinking of you Immaculate Conception Day', 37.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2852, NOW(), 'It''s always best to write something personal. Try writing about: A memory you share with your mother/father/grandparent - A recollection of your childhood. Mention qualities unique to your your relationship. Four''N Twenty Pie', 17, NOW(), 'Thinking of you Immaculate Conception Day', 37.00), 
 (2853, NOW(), 'This is a big deal. Now go spend like a big deal. Pepsodent', 14, NOW(), 'HR-approved love from me to you. Malvinas Day', 44.00),
 (2854, NOW(), 'You are the pillar of strength and fountain of wisdom to me, my Dad. Unknown Puma', 19, NOW(), 'It''s your day to shine! Whit Monday', 33.00),
 (2855, NOW(), 'Sending you Christmas cheer that lasts throughout the year! The Ritz Carlton ', 29, NOW(), 'Congratulations and best wishes always Christmas Day', 93.00),
@@ -3022,8 +2870,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2867, NOW(), 'Happy 13th birthday to the world''s best teenager. ADInstruments', 12, NOW(), 'For Tech Savvy Teens Christmas Day', 65.00),
 (2868, NOW(), 'Love is a good reason for a gift card. Starbucks', 18, NOW(), 'Thanks for being there Novruz Holiday', 66.00),
 (2869, NOW(), 'It''s not a special occasion. But you''re a special person. BASF', 10, NOW(), 'best things to buy Independence Day', 78.00),
-(2870, NOW(), 'Sending you well wishes for your quick recovery and good health. Golden North', 17, NOW(), 'Tropical Arrangements Ascension Day', 36.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2870, NOW(), 'Sending you well wishes for your quick recovery and good health. Golden North', 17, NOW(), 'Tropical Arrangements Ascension Day', 36.00),
 (2871, NOW(), 'May the Festival of Lights lend a glow to your year. Naming Resources', 19, NOW(), 'You are the best thing that ever happened to me. Happy Valentines day, my happiness. Eid ul-Fitr', 76.00),
 (2872, NOW(), 'To my wife, my soul mate, my love, my life. Outblaze', 16, NOW(), 'Congratulations and best wishes always. Jananeta Irawat Birth Day', 21.00),
 (2873, NOW(), 'The 18 Very Best Sunscreens for Your Face CityRail', 16, NOW(), 'Hope you dig your new digs. Immaculate Conception Day', 91.00),
@@ -3042,8 +2889,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2886, NOW(), 'Please accept our condolences on the loss of your [MOTHER/FATHER/OTHER RELATION]. Acer', 19, NOW(), 'You did it! Congratulations, graduate! Good Friday', 72.00),
 (2887, NOW(), 'Today is for remembering the happy times you''ve known. Smarties', 13, NOW(), 'Get well soon Birthday of the Sultan of Kelantan Holiday', 31.00),
 (2888, NOW(), 'I never know what to get you&but you do! Publishers Clearing House', 21, NOW(), 'Apple EGift Certificate Easter Monday', 72.00),
-(2889, NOW(), 'Dream big! (Heres some dream fuel to help.) Bonduelle', 20, NOW(), 'Watch carefully&dinner is almost here Good Friday', 46.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2889, NOW(), 'Dream big! (Heres some dream fuel to help.) Bonduelle', 20, NOW(), 'Watch carefully&dinner is almost here Good Friday', 46.00), 
 (2890, NOW(), 'May your sorrow be eased by good memories. Pelargos', 26, NOW(), 'Food and drink New Year''s Day', 32.00),
 (2891, NOW(), 'One father is more than a hundred schoolmasters. George Herbert Expedition', 30, NOW(), 'Cool Move! Congratulations! Independence Day', 23.00),
 (2892, NOW(), 'Now is the time to enjoy all the things you never had time to do when you worked. Prada', 17, NOW(), 'Valentine''s Day Children''s Day', 94.00),
@@ -3062,8 +2908,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2905, NOW(), 'A warm welcome. Thank you for choosing us! Nordstrom', 25, NOW(), 'Dinners on me! Eid Al-Fitr', 28.00),
 (2906, NOW(), 'Life is the flower for which love is the honey.  Victor Hug Ray-Ban', 11, NOW(), 'Congratulations, graduate! Boxing Day', 30.00),
 (2907, NOW(), 'Casetify offers so many custom case designs and collections to keep phones, tablets, and laptops protected that its probably best to just let them choose their favorite. FrontLine', 21, NOW(), 'This calls for shopping! All Souls'' Day', 79.00),
-(2908, NOW(), 'With you it''s Valentine''s Day 365 days a year. Abercrombie & Fitch', 22, NOW(), 'Gorjana E-Gift Certificate MHIP Day', 94.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2908, NOW(), 'With you it''s Valentine''s Day 365 days a year. Abercrombie & Fitch', 22, NOW(), 'Gorjana E-Gift Certificate MHIP Day', 94.00),
 (2909, NOW(), 'Drivers, watch the road! Someone just turned 16! Kiehl''s', 23, NOW(), 'When God shuts a door, he opens a window. Bank Holiday', 45.00),
 (2910, NOW(), 'Gourmet dinners. There are people for this. Not me, but you know, other people. AutoTrader', 29, NOW(), 'Heres an excuse to escape. Good Friday', 87.00),
 (2911, NOW(), 'Wishing you a lifetime of love and happiness. Crystal Light', 20, NOW(), 'Bandier Digital Gift Certificate Chinese National Day', 67.00),
@@ -3082,8 +2927,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2924, NOW(), '&lt;&Not precisely equal to my exact level of gratitude&but its a start. Glad', 24, NOW(), 'Milk Bar eGift Certificate Boxing Day', 62.00),
 (2925, NOW(), 'May you create countless memories in your new home. Dave & Busters', 14, NOW(), 'Joy to the whole mispucha! Reconciliation Day', 30.00),
 (2926, NOW(), 'Thinking of you and wishing you a happy day. Patagonia', 29, NOW(), 'I am not a camera but Im really good at picturing us together. I wish I could show them to you. Happy valentines day! Easter Sunday', 77.00),
-(2927, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] Lady Speed Stick', 10, NOW(), 'Congratulations on a well-deserved promotion Father''s Day', 97.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2927, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] Lady Speed Stick', 10, NOW(), 'Congratulations on a well-deserved promotion Father''s Day', 97.00),
 (2928, NOW(), 'Happy 13th birthday to the world''s best teenager. Bean Media Group', 10, NOW(), 'Time for a passport! Republic Day', 40.00),
 (2929, NOW(), 'Christmas is the day that holds all time together. Boston Market', 28, NOW(), '2:38pm Easter Monday', 60.00),
 (2930, NOW(), 'Just the beginning of successes for you. Congrats! Splice', 30, NOW(), 'Thank you for the referrals Assumption Day', 69.00),
@@ -3102,8 +2946,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2943, NOW(), 'We are born of love; love is our mother. Rumi Microsoft', 16, NOW(), 'Madewell E-Gift Certificate Semana Moraznica', 100.00),
 (2944, NOW(), 'Selamat Hari Raya Aidilfitri! Wishing you and your family a prosperous and blessing celebration. Honey Bunches of Oat', 12, NOW(), 'Bravo! you''ve accomplished great things Carnival Monday', 45.00),
 (2945, NOW(), 'Nothing says, I care quite like covering someones grocery delivery. Carnegie', 18, NOW(), 'New Home Housewarming Certificate Gifts Fiestas Patronales Holiday', 31.00),
-(2946, NOW(), 'We do not remember days, we remember moments. Baker''s Choice', 12, NOW(), 'Fruit and Gourmet Baskets Independence Day', 60.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2946, NOW(), 'We do not remember days, we remember moments. Baker''s Choice', 12, NOW(), 'Fruit and Gourmet Baskets Independence Day', 60.00),
 (2947, NOW(), 'Now you can get all the gift-card cards you want! Chang Beer', 13, NOW(), 'Coach E-Gift Certificate Janmashtami', 10.00),
 (2948, NOW(), 'Give the gift of no-makeup makeup and glowing winter skin. The Ritz Carlton ', 21, NOW(), 'Framebridge E-Gift Certificate Christmas Day', 27.00),
 (2949, NOW(), 'With sincere gratitude for all you have done. Costco', 14, NOW(), 'Just touching base with you New Year''s Day (in lieu)', 35.00),
@@ -3122,8 +2965,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2962, NOW(), 'Find a song to get stuck in your head. Maui Jim', 22, NOW(), 'MoMA Design Store E-Gift Certificate Ashoora', 31.00),
 (2963, NOW(), 'Get one of those Home Sweet Home plaques. U-Haul', 11, NOW(), 'Your kindness meant so much. Eid Al Adha Holiday', 68.00),
 (2964, NOW(), 'Bright moon and stars twinkling and shining, wishing you a Mooncake Festival full of bliss and happiness! Acropolis Rally', 26, NOW(), 'You + Me = Forever Eid al-Fitr', 21.00),
-(2965, NOW(), 'May this Easter warm your heart with peace! Geniki Bank', 12, NOW(), 'For Taking a Deep Breath Reconciliation Day', 18.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2965, NOW(), 'May this Easter warm your heart with peace! Geniki Bank', 12, NOW(), 'For Taking a Deep Breath Reconciliation Day', 18.00),
 (2966, NOW(), 'May happiness &amp; love move in with you. Beanie Babies', 29, NOW(), 'Areaware Gift Certificate Ganesh Chaturthi Holiday', 21.00),
 (2967, NOW(), 'Selamat Hari Raya Aidilfitri! Wishing you and your family a prosperous and blessing celebration. Primelife', 11, NOW(), 'Travel and experiential Boxing Day', 81.00),
 (2968, NOW(), 'Hope youll be improving with each and every day. Audible', 18, NOW(), 'Treat yourself you''ve earned it Jananeta Irawat Birth Day', 46.00),
@@ -3142,8 +2984,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2981, NOW(), 'Happy Anniversary to the love of my life. Aston Martin', 13, NOW(), 'Gorjana E-Gift Certificate Eid Al Adaha', 25.00),
 (2982, NOW(), 'If I had to do it all over again, I wouldn''t. Audi', 15, NOW(), 'This comes with sincere appreciation. Christmas Day', 28.00),
 (2983, NOW(), 'You may be over the hillbut at least you''re still climbing! AMC Theatres', 16, NOW(), 'For Leaning into Luxury Constitution Day', 40.00),
-(2984, NOW(), 'Hoping each new day will find you feeling better. 20th Century Fox', 12, NOW(), ' May God bless you on your graduation day. Water Festival Ceremony Holiday', 45.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(2984, NOW(), 'Hoping each new day will find you feeling better. 20th Century Fox', 12, NOW(), ' May God bless you on your graduation day. Water Festival Ceremony Holiday', 45.00),
 (2985, NOW(), 'Best wishes for a joyous Christmas filled with love, happiness and prosperity! 6YS', 20, NOW(), 'Go spa yourself! Obon', 48.00),
 (2986, NOW(), 'Your first steps into your new home are your first steps into your new life. Here''s to the beginning of something beautiful. Congratulations. Adidas', 11, NOW(), 'Islandwide Courier Delivery American Samoa Flag Day', 20.00),
 (2987, NOW(), 'Because you''ve always been the one who could pick out great gifts. Brugse Straffe Hendrik', 30, NOW(), 'Retirement Certificate Gifts Repentance Day', 17.00),
@@ -3161,8 +3002,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (2999, NOW(), U&'So thoughtful of you to think of us. Camargo Corr\00c3\00aaa', 12, NOW(), 'Hope you feel better soon. Declaration of Independence Day (bridge day)', 71.00),
 (3000, NOW(), 'The power of a dad in a childs life is unmatched. Justin Ricklefs Jabra', 16, NOW(), 'Valentines Day is a very special occasion to let you know what an important place you have in my heart. I love you! Happy Valentines Day! All Saints'' Day', 43.00),
 (3001, NOW(), 'A hundred hearts would be too few to carry all my love for you. CNN', 11, NOW(), 'May your new bundle of joy bring happiness in your life and fill a void in your heart. President''s Day', 61.00),
-(3002, NOW(), 'May it help in some way to know that friends are sharing the sorrow of your heart. Godiva', 27, NOW(), ' Hoppy Easter! Good Friday', 24.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3002, NOW(), 'May it help in some way to know that friends are sharing the sorrow of your heart. Godiva', 27, NOW(), ' Hoppy Easter! Good Friday', 24.00),
 (3003, NOW(), 'Cheering you up with a big smile! KFC', 12, NOW(), 'Ban.do Gift Certificate St. George''s Caye Day (in lieu)', 58.00),
 (3004, NOW(), 'Send me a postcard with a kitten on it. Schick', 22, NOW(), 'Apple E-Gift Certificate Boxing Day', 88.00),
 (3005, NOW(), 'For the person currently subsidizing five different streamers. Ducati', 26, NOW(), 'subscription service gift ideas National Heroes'' Day', 97.00),
@@ -3182,8 +3022,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3019, NOW(), 'A little something for you and the little one! Bugles', 25, NOW(), 'GameStop Gift Certificate Good Friday', 20.00),
 (3020, NOW(), ' You''ll always be younger than springtime. Happy Birthday! CHEP', 22, NOW(), 'Dont forget dessert. You definitely deserve it. All Saints'' Day', 40.00),
 (3021, NOW(), 'Just a little thanks for the big way you showed up for me. Diadora', 26, NOW(), 'Islandwide Courier Delivery National Flag Day', 39.00),
-(3022, NOW(), U&'Dont burn your mouth. You''re already hot enough. Lanc\00f4me', 23, NOW(), 'Parachute Digital Gift Certificate Chapchar Kut', 99.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3022, NOW(), U&'Dont burn your mouth. You''re already hot enough. Lanc\00f4me', 23, NOW(), 'Parachute Digital Gift Certificate Chapchar Kut', 99.00),
 (3023, NOW(), 'Merry Christmas! May your happiness be large and your bills be small. Kronenbourg1664', 28, NOW(), 'Hope you feel better soon Missionary Day', 21.00),
 (3024, NOW(), 'Just a little something to show my appreciation. Emu Brewery', 30, NOW(), 'MoMA Design Store E-Gift Certificate Spring Bank Holiday', 60.00),
 (3025, NOW(), 'I know  life isnt fair sometimes. Im here and I care. Tiffany & Co.', 26, NOW(), 'Thanks for being there. Father''s Day', 29.00),
@@ -3202,8 +3041,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3038, NOW(), 'Wishing you a season thats merry and bright with the light of Gods love. Jack in the Box', 29, NOW(), 'subscription service gift ideas Christmas Day', 47.00),
 (3039, NOW(), 'I hope you consider trying to forgive me. Four Loko', 28, NOW(), 'Spotify E-Gift Certificate Labour Day', 35.00),
 (3040, NOW(), 'Because a bottle of wine wouldnt fit in the envelope. Anheuser-Busch', 10, NOW(), 'Warmest regards Workers'' Day', 41.00),
-(3041, NOW(), 'We wish you all the happiness the coming years can hold. Dawn', 11, NOW(), 'Way to go&shopping! Coming-of-Age Day', 15.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3041, NOW(), 'We wish you all the happiness the coming years can hold. Dawn', 11, NOW(), 'Way to go&shopping! Coming-of-Age Day', 15.00),
 (3042, NOW(), 'For the ecoconscious person with a KN95 subscription. Chili''s', 29, NOW(), 'Dream big! (Heres some dream fuel to help.) Easter Monday', 61.00),
 (3043, NOW(), 'Congratulations on your new bundle of joy. QMS Medicosmetics', 27, NOW(), 'Sincere thanks for your extra efforts. Good Friday', 74.00),
 (3044, NOW(), 'See? It was all worth it! Right?? Brand Architecture', 18, NOW(), 'Hallmark Gold Crown Independence Day', 34.00),
@@ -3223,8 +3061,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3058, NOW(), 'The love you share makes this day special. The North Face', 15, NOW(), 'Business anniversary Botswana Day Holiday', 69.00),
 (3059, NOW(), 'Gift card? Bacon? It was a really tough decision. Etch A Sketch', 18, NOW(), 'ClassPass E-Gift Certificate Govardhan Puja', 41.00),
 (3060, NOW(), 'Hope your birthday''s as terrific as you are. Ice Breakers', 16, NOW(), 'Wishing you a season thats merry and bright with the light of Gods love. Summer Day', 43.00),
-(3061, NOW(), 'Thank you for the privilege and opportunity to work with you. Lenovo', 22, NOW(), 'Amazon Gift Certificate Republic Day', 26.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3061, NOW(), 'Thank you for the privilege and opportunity to work with you. Lenovo', 22, NOW(), 'Amazon Gift Certificate Republic Day', 26.00), 
 (3062, NOW(), 'May it help in some way to know that friends are sharing the sorrow of your heart. Maxwell House', 17, NOW(), 'I hope you have a most happy and prosperous New Year. Christmas Eve', 55.00),
 (3063, NOW(), 'Wishing you steady improvement until You''re well again. Jared', 25, NOW(), 'Finally, you can bid adieu to late night studies and uncountable sacrifices of enjoyment. Your Graduation day is finally here. Cheers! Hearty congratulations. Thiruvalluvar Day', 52.00),
 (3064, NOW(), 'Just the beginning of successes for you. Congrats! Bob''s', 21, NOW(), ' I know I have [HURT YOU/YOUR FEELINGS] - please accept my sincerest apologies. Christmas Day', 83.00),
@@ -3242,8 +3079,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3076, NOW(), 'When God shuts a door, he opens a window. Pizza Hut', 12, NOW(), 'Soooooo thoughtful! New Year''s Day', 26.00),
 (3077, NOW(), 'Nothing says, I care quite like covering someones grocery delivery. AmerisourceBergen', 23, NOW(), 'You are in my thoughts and prayers Da de la Raza (in lieu)', 94.00),
 (3078, NOW(), 'Find a song to get stuck in your head. Tory Burch', 20, NOW(), 'Bravo! you''ve accomplished great things Emancipation Day', 24.00),
-(3079, NOW(), 'You deserve all the feel-good you can get. Blaupunkt', 16, NOW(), 'March 1, 2023 New Year''s Day (in lieu)', 53.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3079, NOW(), 'You deserve all the feel-good you can get. Blaupunkt', 16, NOW(), 'March 1, 2023 New Year''s Day (in lieu)', 53.00), 
 (3080, NOW(), 'There is something you must always remember. You are braver than you believe, stronger than you seem and smarter than you know. Raymonds', 23, NOW(), 'Thank you with a business touch Emancipation Day', 22.00),
 (3081, NOW(), 'You deserve all the feel-good you can get. Cisco', 10, NOW(), 'For Getting Active Eid El Kebir', 53.00),
 (3082, NOW(), 'Thank you for making me feel so comfortable Red Lobster', 29, NOW(), 'Thinking of you and wishing you a happy day. Republic Day', 59.00),
@@ -3262,8 +3098,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3095, NOW(), 'Take care of yourself and feel better soon. Cafe de Coral', 28, NOW(), 'For impractical purchases only Carnival', 21.00),
 (3096, NOW(), U&'HelloFresh is a meal kit delivery service that drops off fresh ingredients for delicious home-cooked meals. It makes week-time prep easier, and it helps amateur and experienced cooks conveniently expand their repertoire.&nbsp; Crunch \00e2\0080\0098n Munch', 24, NOW(), 'END E-Gift Certificate Labour Day', 74.00),
 (3097, NOW(), 'Its just one day in the year, but you should know that I love you every day and every moment. Take my love on this beautiful occasion! J.Crew', 30, NOW(), 'No bread, just jams! Nowrooz', 22.00),
-(3098, NOW(), 'Mi Amor, Te amo! [SPANISH: "My love, I love you"] Fage', 23, NOW(), 'everything to know Good Friday (Orthodox)', 99.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3098, NOW(), 'Mi Amor, Te amo! [SPANISH: "My love, I love you"] Fage', 23, NOW(), 'everything to know Good Friday (Orthodox)', 99.00),
 (3099, NOW(), 'Bright moon and stars twinkling and shining, wishing you a Mooncake Festival full of bliss and happiness! Brush-Ups', 22, NOW(), 'Do your thing! Spring Festival Holiday', 88.00),
 (3100, NOW(), 'Your thoughtfulness meant more than words can ever say. Zara', 24, NOW(), 'Your kindness meant so much Africa Day', 24.00),
 (3101, NOW(), 'Someone is turning the BIG 3 - 0! Celebrate! CSL Limited', 21, NOW(), 'You have 12 days of Christmas to spend this. Krishna Jayanthi', 20.00),
@@ -3280,8 +3115,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3112, NOW(), 'You deserve all the feel-good you can get. Coca-Cola', 18, NOW(), 'Hulu E-Gift Certificate Proclamation Day', 98.00),
 (3113, NOW(), 'Love is something eternal; the aspect may change, but not the essence.  Vincent van Gogh Agrichar', 29, NOW(), 'Lunya Gift Certificate Saint Leopold''s Day', 25.00),
 (3114, NOW(), 'You deserve all the feel-good you can get. Baleno', 19, NOW(), 'Thinking of youhope all is well. Let me know if I can help in any way. Id-Ul-Zuha', 45.00),
-(3115, NOW(), 'Go see another rom-com (on me this time). Nordstrom', 28, NOW(), 'Because you''re BREWtiful Father''s Day', 78.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3115, NOW(), 'Go see another rom-com (on me this time). Nordstrom', 28, NOW(), 'Because you''re BREWtiful Father''s Day', 78.00),
 (3116, NOW(), 'Dream big! (Heres some dream fuel to help.) Bouygues Telecom', 18, NOW(), 'Gong Hei Fatt Choy! Thanksgiving', 24.00),
 (3117, NOW(), 'Is your birthday wish a gift card? Because Le Figaro', 29, NOW(), 'Thank you with a business touch New Year''s Day', 58.00),
 (3118, NOW(), 'Warm, brown elixir of life, we pray to thee. Bonduelle', 27, NOW(), 'Wishing you happiness together Ethiopian Easter', 31.00),
@@ -3300,8 +3134,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3131, NOW(), 'Its so nice sharing special moments with a friend like you. Lincoln Logs', 16, NOW(), 'Hope its all half off! Eid Al Adaha', 13.00),
 (3132, NOW(), 'Your thoughtfulness meant more than words can ever say. Air Australia', 20, NOW(), 'Happy birthday! You don''t get older, you get better. Shirley Bassey New Year''s Day (in lieu)', 75.00),
 (3133, NOW(), 'College throws a lot at you at once. Hope this helps. Hungry-Man', 28, NOW(), 'cooling cotton PJs People''s War Day', 79.00),
-(3134, NOW(), 'If I had to do it all over again, I wouldn''t. Samsung', 11, NOW(), 'Beyond every cloud, there is a rainbow. New Year''s Day', 21.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3134, NOW(), 'If I had to do it all over again, I wouldn''t. Samsung', 11, NOW(), 'Beyond every cloud, there is a rainbow. New Year''s Day', 21.00), 
 (3135, NOW(), 'Thinking of you and your family and wishing you all a year that outshines the rest. Aegon', 22, NOW(), 'For the Pet Parent New Year''s Day', 66.00),
 (3136, NOW(), 'Thank you from the bottom of my heart. Codan Limited', 28, NOW(), 'Love is something eternal; the aspect may change, but not the essence.  Vincent van Gogh Mother''s Day', 22.00),
 (3137, NOW(), 'Take the time to really enjoy your childs infancy; after all, they do grow up so fast. Congratulations on your new life. Banco Safra', 18, NOW(), 'Whole Foods EGift Certificate Easter Monday', 61.00),
@@ -3320,8 +3153,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3150, NOW(), 'For those his n hers towels. Or something. Kate Spade', 11, NOW(), 'Netflix EGift Certificate Martyrs'' Day', 93.00),
 (3151, NOW(), 'Hope youll be in the best of health soon. Goldfish', 12, NOW(), 'Revolve Gift Certificate Mawlid', 42.00),
 (3152, NOW(), 'With friendly thoughts and best wishes for your birthday. AT&T', 14, NOW(), 'For Absolutely Anything New Year''s Eve', 82.00),
-(3153, NOW(), 'Get yourself a double whatever with an extra shot of something. Cerpinha', 30, NOW(), 'Hope youre up and about soon. Bengali New Year', 31.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3153, NOW(), 'Get yourself a double whatever with an extra shot of something. Cerpinha', 30, NOW(), 'Hope youre up and about soon. Bengali New Year', 31.00),
 (3154, NOW(), 'Wishing you the beauty of spring and the spirit of love this Easter! Athleta', 22, NOW(), 'Sign up for promotions Ascension Day', 83.00),
 (3155, NOW(), 'Hoping you two are blessed with many more years together. Kiehl''s', 30, NOW(), 'Some tune-age for you-nage Harvest Festival Holiday', 92.00),
 (3156, NOW(), 'Happy Anniversary - My love for you grows with each passing year. Steve Madden', 17, NOW(), 'Outdoor Voices Gift Certificate New Year''s Holiday', 99.00),
@@ -3340,8 +3172,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3169, NOW(), 'How beautiful a day can be when kindness touches it. Capital Dynamics', 28, NOW(), 'Keep looking fresh and fabulous. Yennayer', 45.00),
 (3170, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Tory Burch', 26, NOW(), 'Friends are forever! Nova Scotia Heritage Day', 77.00),
 (3171, NOW(), 'For the ecoconscious person with a KN95 subscription. Dettol', 12, NOW(), 'My/Our sympathy and thoughts are with you and your family. Christmas Day', 98.00),
-(3172, NOW(), 'The 18 Very Best Sunscreens for Your Face Skechers', 10, NOW(), 'For Taking a Deep Breath Battle of Boyac', 79.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3172, NOW(), 'The 18 Very Best Sunscreens for Your Face Skechers', 10, NOW(), 'For Taking a Deep Breath Battle of Boyac', 79.00), 
 (3173, NOW(), 'May God bless you and keep you in His loving care. Jabra', 16, NOW(), 'May the fires of passion burn on! New Year''s Day', 15.00),
 (3174, NOW(), 'Because itll be a while before You''re makin the big bucks. Apple', 29, NOW(), 'StubHub e-gift card Transfer Day', 92.00),
 (3175, NOW(), 'Hope this helps get you that thing that brings the cozy to your new place. Alkane Exploration', 29, NOW(), 'Remember, youth is wasted on the young. New Year''s Day', 72.00),
@@ -3360,8 +3191,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3188, NOW(), 'I hope all your birthday wishes came true. Burt''s Bees', 19, NOW(), 'Stay strong. It might be stormy now, but it cant rain forever. National Patriots'' Day', 97.00),
 (3189, NOW(), 'Welcome aboard! Its good to have you with us. Canon', 20, NOW(), 'wont break the bank Summer Day', 69.00),
 (3190, NOW(), 'May God bless you on your graduation day. Sephora', 11, NOW(), 'Glossier EGift Certificate Ashura', 10.00),
-(3191, NOW(), 'Love is a good reason for a gift card. Phillips', 10, NOW(), 'I hope all your birthday wishes came true. New Year''s Day', 21.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3191, NOW(), 'Love is a good reason for a gift card. Phillips', 10, NOW(), 'I hope all your birthday wishes came true. New Year''s Day', 21.00), 
 (3192, NOW(), 'Cheers to you! Cheers to your year ahead! Aeroplane Jelly', 11, NOW(), 'Get well soon Easter Day', 88.00),
 (3193, NOW(), 'Enjoy the flowers, I''m sending them just because you''re you. Florida Orange Juice', 25, NOW(), 'Easter Certificate Ideas British Columbia Day', 25.00),
 (3194, NOW(), 'Hope youll be improving with each and every day. Air China', 16, NOW(), 'F-antastic, A-wesome, T-errific, H-onorable, E-xcellent, R-emarkable. This sums up my dad. Happy Fathers Day! New Year''s Eve', 29.00),
@@ -3381,8 +3211,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3208, NOW(), 'May your family be showered with health and prosperity. Wishing you a blessed and joyous Hari Raya! Men''s Warehouse', 27, NOW(), 'Outdoor Voices E-Gift Certificate Martyrdom Day of Shaheed Udham Singh', 97.00),
 (3209, NOW(), 'Its a big world out there&go explore it! Armol All', 17, NOW(), 'New hears for your ears! Easter Monday', 70.00),
 (3210, NOW(), 'I know  life isnt fair sometimes. Im here and I care. Aveeno', 19, NOW(), 'Christmas Certificate Gifts Republic Day', 46.00),
-(3211, NOW(), 'Happy Birthday! You have to get older, but you dont have to grow up. Astro', 24, NOW(), ' Congratulations! Glad to hear the good news! New Year''s Day', 41.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3211, NOW(), 'Happy Birthday! You have to get older, but you dont have to grow up. Astro', 24, NOW(), ' Congratulations! Glad to hear the good news! New Year''s Day', 41.00),
 (3212, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Zara', 22, NOW(), ' Hope your new home is as special as you are. Vaisakhi', 63.00),
 (3213, NOW(), 'If &trendy clothes& is their middle name, consider getting them a gift card to H&amp;M. The style finds are limitless. Villa Stephanie ', 25, NOW(), 'Father''s Day Easter Sunday', 97.00),
 (3214, NOW(), 'You are missed! Get well soon and hurry back. Aussie', 27, NOW(), 'For the Well-Dressed Marathoner Revolution Day', 88.00),
@@ -3401,8 +3230,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3227, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] Net-a-Porter', 25, NOW(), 'Mother''s Day Day of the Martyrs', 38.00),
 (3228, NOW(), 'How happy you must be with a new little son/daughter to love. Boucheron', 21, NOW(), 'Flowers today Fireworks tonight! Thanksgiving Day', 21.00),
 (3229, NOW(), 'May your babys future be brighter than the suns radiant beam, may your little child fulfill all your dreams. Congratulations for your newborn. Safeway', 20, NOW(), 'glowing winter skin Gurban Bayrami Holiday', 100.00),
-(3230, NOW(), 'Travel money for your trip to happily ever after.  Ila', 25, NOW(), 'For Something Floral Maha Shivratri', 49.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3230, NOW(), 'Travel money for your trip to happily ever after.  Ila', 25, NOW(), 'For Something Floral Maha Shivratri', 49.00),
 (3231, NOW(), 'I hurt you, but I didnt mean to Please forgive me! Next', 27, NOW(), 'Congratulations on your big day! All Saints'' Day', 90.00),
 (3232, NOW(), 'Happy 13th birthday to the world''s best teenager. Australian Ethanol Limited', 11, NOW(), 'You take my breath away...today and every day. Good Friday', 87.00),
 (3233, NOW(), 'you''ve got all that learning. Heres a little something to go with it! Back to Nature', 12, NOW(), 'So grateful for you Public Holiday', 41.00),
@@ -3421,8 +3249,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3246, NOW(), 'Were wishing everything wonderful to a wonderful couple. Bajaj', 25, NOW(), 'Saks Fifth Avenue E-Gift Certificate Freedom Day', 63.00),
 (3247, NOW(), 'Thank You! Your business means the world to us. Gueuze', 19, NOW(), 'Verishop E-Gift Certificate Mardi Gras', 53.00),
 (3248, NOW(), 'I know  life isnt fair sometimes. Im here and I care. Maalox', 24, NOW(), 'BYO red carpet Eid Al-Adha Holiday', 62.00),
-(3249, NOW(), 'Thank you for bringing so much love, joy, and adventure into my life. I love you. Maersk', 14, NOW(), 'With best wishes for a lifetime of happiness together. Eid Al Fitr', 82.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3249, NOW(), 'Thank you for bringing so much love, joy, and adventure into my life. I love you. Maersk', 14, NOW(), 'With best wishes for a lifetime of happiness together. Eid Al Fitr', 82.00), 
 (3250, NOW(), 'Have a Merry Christmas and a Happy New Year. Bravox', 20, NOW(), 'Kitty Guo American Samoa Flag Day', 29.00),
 (3251, NOW(), 'For those looking to expand their Bushwick Birkin collection. Birds Eye', 25, NOW(), 'Edie Parker E-Gift Certificate Language Martyrs'' Day', 84.00),
 (3252, NOW(), 'May your love bring happiness to all your days. Burberry', 23, NOW(), 'Baggu Gift Certificate Feast of St. Paul''s shipwreck', 49.00),
@@ -3440,8 +3267,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3264, NOW(), U&'Dad, my kids say I am a good father; I know I got it from you. Happy Fathers Day. Intermarch\00c3\00a9', 27, NOW(), 'wont break the bank All Saints'' Day', 62.00),
 (3265, NOW(), 'If they prefer train travel, there''s also an Amtrak gift card.&nbsp; Name DNA Validation', 16, NOW(), 'For Getting Active Grand Final Eve', 94.00),
 (3266, NOW(), 'You eat food, right? I know you so well. ASICS', 25, NOW(), 'Friends make life more beautiful American Samoa Flag Day', 85.00),
-(3267, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! Brava', 26, NOW(), 'Amazon E-Gift Certificate Orthodox Christmas', 29.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3267, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! Brava', 26, NOW(), 'Amazon E-Gift Certificate Orthodox Christmas', 29.00), 
 (3268, NOW(), 'A friend is someone you can lean on Denny''s', 21, NOW(), 'May the comfort of friends and family be your strength for today and the days ahead. Independent Czechoslovak State Day', 22.00),
 (3269, NOW(), 'Sending you good vibes with this gift card! Courvoisier', 25, NOW(), 'Only the best food for you. Martin Luther King Jr. Day', 23.00),
 (3270, NOW(), 'Travel money for your trip to happily ever after. Dr. Scholl''s', 23, NOW(), 'Lululemon Gift Certificate Whit Sunday', 47.00),
@@ -3459,8 +3285,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3282, NOW(), 'For your friend whos been carrying around the same wallet since college. AIS', 18, NOW(), 'Romantic Certificate Gifts (Valentine''s Day/Sweetest Day) Chinese National Day Holiday', 29.00),
 (3283, NOW(), 'Your first steps into your new home are your first steps into your new life. Here''s to the beginning of something beautiful. Congratulations. Cartier', 16, NOW(), 'Ban.do Gift Certificate New Year''s Day', 24.00),
 (3284, NOW(), 'May your new little girl/boy bring you joy and happiness. Banco Gradesco', 27, NOW(), 'Nordstrom E-Gift Certificate Gawai Dayak', 32.00),
-(3285, NOW(), 'Dream big! (Heres some dream fuel to help.) Calvin Klein', 12, NOW(), ' I''ll never forget your kindness. Public Holiday', 32.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3285, NOW(), 'Dream big! (Heres some dream fuel to help.) Calvin Klein', 12, NOW(), ' I''ll never forget your kindness. Public Holiday', 32.00),
 (3286, NOW(), 'May your life be as colourful and shimmering as the lights of Diwali! Aveeno', 23, NOW(), 'For a Designer Download Eid al-Fitr Holiday', 15.00),
 (3287, NOW(), 'So thoughtful of you to think of us. BMW', 14, NOW(), 'Just a cheery note to wish you well. New Year''s Eve', 34.00),
 (3288, NOW(), 'Hope your special day is made up of sharing warm and happy memories. Costco', 27, NOW(), 'Graduation Certificate Ideas National Anthem and Flag Day', 57.00),
@@ -3479,8 +3304,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3301, NOW(), 'Take care of yourself and feel better soon. Cass', 22, NOW(), 'Pamper yourself pretty! Constitution Day', 18.00),
 (3302, NOW(), 'Great news! You wont have to return this. Swarovski', 30, NOW(), ' If I told you to "Get Well Soon," it wouldn''t be soon enough. Get Well Now. Gospel Day', 95.00),
 (3303, NOW(), 'Go see another rom-com (on me this time). Hoveround', 15, NOW(), 'For Something Extra Special Imam Ali''s Birthday', 68.00),
-(3304, NOW(), 'How happy you must be with a new little son/daughter to love. Campbell''s', 21, NOW(), ' Please accept these flowers and hear the words we are not able to speak Army Day', 79.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3304, NOW(), 'How happy you must be with a new little son/daughter to love. Campbell''s', 21, NOW(), ' Please accept these flowers and hear the words we are not able to speak Army Day', 79.00),
 (3305, NOW(), 'Were fans of Instagram-friendly cookware brand Our Place, which makes some of our favorite do-it-all pots and pans. Lotto Sport Italia', 12, NOW(), 'subscription service gift ideas New Year''s Day', 24.00),
 (3306, NOW(), 'May happiness &amp; love move in with you. Austrend International', 12, NOW(), 'May this new year bring you good health and good fortune. New Year''s Day', 13.00),
 (3307, NOW(), 'Best wishes on this wonderful journey, as you build your new lives together. Swarovski', 17, NOW(), 'Soko Glam Gift Certificate Father''s Day', 42.00),
@@ -3499,8 +3323,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3320, NOW(), 'Just in case you ever get tired of [Kirksville]. Hey, it could happen. Business Week', 13, NOW(), 'Urban Outfitters EGift Certificate Immaculate Conception Day', 28.00),
 (3321, NOW(), 'Im there for you on rough days and spa days. Name DNA Detection', 21, NOW(), 'You''re the best! Whit Monday', 15.00),
 (3322, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! Ernest Adams', 24, NOW(), 'Go spa yourself! Public Holiday', 48.00),
-(3323, NOW(), 'Dont blow it all on popcorn! Or do. Its your choice really. Canyon Ranch ', 15, NOW(), 'Thank you National Day', 15.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3323, NOW(), 'Dont blow it all on popcorn! Or do. Its your choice really. Canyon Ranch ', 15, NOW(), 'Thank you National Day', 15.00),
 (3324, NOW(), 'Sending you good vibes with this gift card! Advil', 30, NOW(), 'Ah-Shi E-Gift Certificate New Year''s Day', 11.00),
 (3325, NOW(), 'Hope your birthday''s as terrific as you are. Oakley', 12, NOW(), 'Just because youve bean on my mind. Islamic New Year', 66.00),
 (3326, NOW(), 'I hope you have a most happy and prosperous New Year. Brasil Foods', 26, NOW(), 'Apple E-Gift Certificate Battle Day', 60.00),
@@ -3518,8 +3341,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3338, NOW(), 'My hero, my helper, my friend, my dad. Happy Fathers Day! Royal Bank of Canada', 25, NOW(), 'Chinese New Year Labour Day', 27.00),
 (3339, NOW(), 'Sending you Christmas cheer that lasts throughout the year! Beaver Buzz', 26, NOW(), 'Thank you St. Vitus'' Day', 42.00),
 (3340, NOW(), 'My life just wouldn''t be the same without you in it. I love you. Gatorade', 14, NOW(), 'For the Frequent Flyer Labour Day', 96.00),
-(3341, NOW(), 'Get ya some sugar! (With a little coffee added in.) Omega', 17, NOW(), 'Hay E-Gift Certificate Shab e-Barat', 61.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3341, NOW(), 'Get ya some sugar! (With a little coffee added in.) Omega', 17, NOW(), 'Hay E-Gift Certificate Shab e-Barat', 61.00),
 (3342, NOW(), 'Every time I see you, I fall in love all over again. Prada', 28, NOW(), 'best things to buy Kings''s Birthday', 81.00),
 (3343, NOW(), 'For the ecoconscious person with a KN95 subscription. Center Fresh', 18, NOW(), 'Every time I see you, I fall in love all over again. Birthday of the Sultan of Pahang', 21.00),
 (3344, NOW(), 'Your love is all I need to feel complete. Altronics Australia', 11, NOW(), 'Because pizza aint free Easter Sunday', 78.00),
@@ -3537,8 +3359,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3356, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Apple', 28, NOW(), 'A friend is forever! New Year''s Day', 41.00),
 (3357, NOW(), 'Love recognizes no barriers. It jumps hurdles, leaps fences, penetrates walls to arrive at its destination full of hope.  Maya Angelou Banyan Tree Holdings', 17, NOW(), 'Holiday Calendar Easter Monday', 56.00),
 (3358, NOW(), 'Gift cards: Almost as magical as flying reindeer. Gordon''s', 25, NOW(), 'Thanks for being there National Heroes and Heroines Day', 12.00),
-(3359, NOW(), 'Thank you for your encouragement and support always.  Ila', 27, NOW(), 'Airbnb Gift Certificate Martin Luther King Jr. Day', 58.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3359, NOW(), 'Thank you for your encouragement and support always.  Ila', 27, NOW(), 'Airbnb Gift Certificate Martin Luther King Jr. Day', 58.00),
 (3360, NOW(), 'Thank you for your encouragement and support always. Beano', 16, NOW(), 'Thank you for your support New Year''s Day', 34.00),
 (3361, NOW(), 'Time runs so fast when Im with you. Every second we spend together is so wonderful. May life offers us more time to spend together! Happy valentines day. Alliance Bank', 17, NOW(), ' Our love is a journey, with a beginning but no end. We will walk the path together forever. May Day Revolution (bridge day)', 24.00),
 (3362, NOW(), 'Here''s a housewarming gift for the friend getting ready to decorate their next space. Anheuser-Busch', 11, NOW(), 'Thank you for your support Carnival Tuesday', 17.00),
@@ -3556,8 +3377,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3374, NOW(), 'Have a Merry Christmas and a Happy New Year. Apple', 23, NOW(), 'Fashion and accessories La Paz day', 63.00),
 (3375, NOW(), 'Congratulations on your new little someone to love. Ulta Beauty', 26, NOW(), 'Mytheresa Gift Certificate Constitution Memorial Day', 56.00),
 (3376, NOW(), 'Life is the flower for which love is the honey.  Victor Hug IHOP', 23, NOW(), '57Hours E-Gift Certificate Chinese New Year', 62.00),
-(3377, NOW(), 'We are born of love; love is our mother. Rumi Tiffany & Co.', 25, NOW(), 'Away Gift Certificate Novruz', 64.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3377, NOW(), 'We are born of love; love is our mother. Rumi Tiffany & Co.', 25, NOW(), 'Away Gift Certificate Novruz', 64.00),
 (3378, NOW(), 'My heart is reaching out to you in sympathy and prayer. Samsung', 21, NOW(), 'Dont burn your mouth. Youre already hot enough. Independence Day', 76.00),
 (3379, NOW(), 'With you it''s Valentine''s Day 365 days a year. Darden', 26, NOW(), 'With my deepest sympathy Celebration of the Birthday of His Majesty the King', 76.00),
 (3380, NOW(), 'You chose each other. Now you get to choose a gift! B2W Varejo', 25, NOW(), 'College throws a lot at you at once. Hope this helps. New Year''s Day Holiday', 35.00),
@@ -3575,8 +3395,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3392, NOW(), 'Now you can get all the gift-card cards you want! Absolut', 11, NOW(), 'You are always in my heart! Nova Scotia Heritage Day', 73.00),
 (3393, NOW(), 'Bravo! Your hard work has truly paid off. Dilmah', 16, NOW(), 'Cheer Up! New Year''s Day', 27.00),
 (3394, NOW(), U&'May God bless you on your graduation day. Herm\00c3\00a9s', 20, NOW(), 'Remember, youll probably have to share this. Orthodox Easter Day', 43.00),
-(3395, NOW(), 'Go see something as epic as you are! Giant Eagle', 28, NOW(), 'Uber Gift Certificate Orthodox Easter Monday', 91.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3395, NOW(), 'Go see something as epic as you are! Giant Eagle', 28, NOW(), 'Uber Gift Certificate Orthodox Easter Monday', 91.00),
 (3396, NOW(), 'Your thoughtfulness is appreciated so much more than words can say. Cascadian Farm', 24, NOW(), 'Many loving and caring thoughts as you recover. Get well soon! Good Friday', 72.00),
 (3397, NOW(), 'Hope your new home is filled with joy. BCE', 30, NOW(), 'Get outta here! Easter Sunday', 28.00),
 (3398, NOW(), 'You bring joy and love to my life. Flonase', 27, NOW(), 'Great results come from hard work. Well done! Good Friday', 52.00),
@@ -3595,8 +3414,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3411, NOW(), 'You''re the twinkle in my eye, you''re the song in my laugh, you''re the light in my smile. You''re my everything. Aetna', 25, NOW(), 'Winc Subscription Shab e-Barat', 24.00),
 (3412, NOW(), 'I hope you can use this on something you need for your new place! Bausch & Lomb', 30, NOW(), 'Enjoy making your new place a home! Nuakhai', 24.00),
 (3413, NOW(), 'You''re in my thoughts and I thought I''d let you know. Allianz', 24, NOW(), 'Huckberry E-Gift Certificate Immaculate Conception Day', 25.00),
-(3414, NOW(), 'The love you share makes this day special. Ray-Ban', 19, NOW(), 'This is grounds for fun Africa Liberation Day', 18.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3414, NOW(), 'The love you share makes this day special. Ray-Ban', 19, NOW(), 'This is grounds for fun Africa Liberation Day', 18.00),
 (3415, NOW(), 'Hoping you find strength with each new day. You are in our thoughts. Chipotle', 19, NOW(), 'Shopping spree on me Independence Day', 63.00),
 (3416, NOW(), 'My love for you grows stronger every year. Barnes & Noble Nook', 19, NOW(), 'Outdoor Voices Gift Certificate Day of Memory', 35.00),
 (3417, NOW(), 'I may find my prince, but my dad will alwaysbe my king. Unknown Sealy', 26, NOW(), 'By Independence Day', 94.00),
@@ -3614,8 +3432,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3429, NOW(), 'You were smart enough to do THAT, so you can figure out how to spend THIS. Carte Noire', 22, NOW(), 'Sephora Gift Certificate Public Holiday (bridge day)', 70.00),
 (3430, NOW(), 'Thank you for making me feel so comfortable Montblanc', 29, NOW(), 'For the Well-Dressed Marathoner Labour Day', 59.00),
 (3431, NOW(), 'Thank you for the memories of yesterday, for the happiness today, and the promise of all tomorrows! Happy Anniversary! Humana', 10, NOW(), 'Christmas is magical because we''re together. Death Anniversary of Zhabdrung', 29.00),
-(3432, NOW(), 'These gift card message ideas are great for when you want the gesture of giving the gift itself to do most of the talking. Theyre short, sweet wishes that let them know you care! Beats by Dre', 29, NOW(), 'Cheer Up! Hari Raya Aidil Adha', 81.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3432, NOW(), 'These gift card message ideas are great for when you want the gesture of giving the gift itself to do most of the talking. Theyre short, sweet wishes that let them know you care! Beats by Dre', 29, NOW(), 'Cheer Up! Hari Raya Aidil Adha', 81.00),
 (3433, NOW(), 'Cheering you up with a big smile! Tiffany & Co.', 21, NOW(), 'Get well soon Anniversary of the Revolution', 56.00),
 (3434, NOW(), 'Sugar and spice and all that''s nice, that''s what little girls are made of. Congratulations! Skechers', 11, NOW(), 'Chinese New Year Netaji Subhas Chandra Bose Jayanti', 10.00),
 (3435, NOW(), 'Please accept our condolences on the loss of your [MOTHER/FATHER/OTHER RELATION]. Ermenegildo Zegna', 29, NOW(), 'Reformation E-Gift Certificate Ramazan Bayrami Holiday', 13.00),
@@ -3634,8 +3451,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3448, NOW(), 'An especially good last-minute gift for the hard-to-shop-for teenager. Albertsons', 25, NOW(), 'You''re the best! New Year''s Day', 77.00),
 (3449, NOW(), 'You are missed! Get well soon and hurry back. Aetna', 23, NOW(), 'I think in a lot of ways unconditional love is a myth. My mom''s the only reason I know it''s a real thing. Conor Oberst New Year''s Day', 93.00),
 (3450, NOW(), 'A girl is all God has which to make a woman. FirstEnergy', 15, NOW(), 'Pamper yourself pretty! King''s Birthday', 23.00),
-(3451, NOW(), 'Sending warm greetings and sincere wishes for a happy and prosperous Raya. Selamat Hari Raya! Next', 19, NOW(), 'For Tech Savvy Teens Eid Al-Adha Holiday', 34.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3451, NOW(), 'Sending warm greetings and sincere wishes for a happy and prosperous Raya. Selamat Hari Raya! Next', 19, NOW(), 'For Tech Savvy Teens Eid Al-Adha Holiday', 34.00),
 (3452, NOW(), 'A boy is all God has with which to make a man. FLO', 28, NOW(), 'Tech German Community Day', 67.00),
 (3453, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! NCR Systems', 21, NOW(), 'Brooklinen E-Gift Certificate Manua Cession Day', 100.00),
 (3454, NOW(), 'Parachute makes some of our favorite bathrobes, and is also a great spot to shop for furniture and home goods. A gift card can help them splurge on whatever decor or self-care items they need. Alex and Ani', 25, NOW(), 'END E-Gift Certificate Gaura Festival', 63.00),
@@ -3653,8 +3469,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3466, NOW(), 'And so... The adventure begins! Congratulations on your graduation! Ann Taylor', 19, NOW(), 'Warmest regards The Day Maldives Embraced Islam', 27.00),
 (3467, NOW(), 'Happy Valentines Day to the most beautiful woman I know. Wells Fargo', 18, NOW(), 'For Something Floral Liberation Day', 35.00),
 (3468, NOW(), 'Stay strong. It might be stormy now, but it cant rain forever. Bitburger', 26, NOW(), 'Universal Standard Gift Certificate Liberation day', 37.00),
-(3469, NOW(), 'I can''t thank you enough, so please accept my flowers as a small token of my appreciation. Ferrari', 19, NOW(), ' You''re in my thoughts and I thought I''d let you know. Al Isra et Al Mirague', 46.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3469, NOW(), 'I can''t thank you enough, so please accept my flowers as a small token of my appreciation. Ferrari', 19, NOW(), ' You''re in my thoughts and I thought I''d let you know. Al Isra et Al Mirague', 46.00), 
 (3470, NOW(), 'Congratulations on your retirement. Best wishes for a great future. Ajisen Ramen', 28, NOW(), 'Play a little Eid Al Adha Holiday', 30.00),
 (3471, NOW(), 'Sending you well wishes for your quick recovery and good health. Jergens', 22, NOW(), 'Thank you for your business Traditional Day of Offering', 57.00),
 (3472, NOW(), 'May you enjoy a long and wonderful retirement. Korres', 27, NOW(), 'Get Well Soon Heroe''s Day', 11.00),
@@ -3673,8 +3488,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3485, NOW(), 'Whether it''s for your parents'' ski cabin, your best friend''s dog, or your fly-fishing uncle, Orvis has just about everyone covered. Itautec', 23, NOW(), 'Etsy E-Gift Certificate Ascension Day', 19.00),
 (3486, NOW(), 'Hope your birthday''s as terrific as you are. Ambank', 15, NOW(), 'Hari Raya May Bank Holiday', 60.00),
 (3487, NOW(), 'Parenthood is one of the best journeys in life. Enjoy the ride. Allegra', 13, NOW(), 'For a Guest Room Upgrade Christmas Day', 33.00),
-(3488, NOW(), 'The moms and mothers-in-law on your list will love fresh flowers delivered every month. Resene', 14, NOW(), 'Amazon Gift Certificate Dongzhi', 64.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3488, NOW(), 'The moms and mothers-in-law on your list will love fresh flowers delivered every month. Resene', 14, NOW(), 'Amazon Gift Certificate Dongzhi', 64.00),
 (3489, NOW(), 'My heart is reaching out to you in sympathy and prayer. Lifestyle Clotheslines', 15, NOW(), 'Happy Mid-Autumn Festival! Mouloud', 71.00),
 (3490, NOW(), 'Wishing you steady improvement until You''re well again. Annedd''ale', 21, NOW(), 'All I want for Christmas is you. Christmas Eve (in lieu)', 29.00),
 (3491, NOW(), 'Congratulations on your new little someone to love. Christian Louboutin', 22, NOW(), 'For the Pet Parent Workers'' Day', 10.00),
@@ -3693,8 +3507,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3504, NOW(), 'May love always live in the home that you share. West Elm', 14, NOW(), 'Stay caffeinated, my friend Vaisakhi', 93.00),
 (3505, NOW(), 'Bless your new life as husband and wife. Brennan''s', 29, NOW(), 'Anthropologie E-Gift Certificate Eid al-Fitr', 10.00),
 (3506, NOW(), 'Gift a year of movies, shows and stories with a one year gift subscription to Disney+. Netflix and chill just got a whole lot more fun. Accord', 19, NOW(), 'Tropical Arrangements King''s Birthday Holiday', 38.00),
-(3507, NOW(), 'Warm, brown elixir of life, we pray to thee. Urban Outfitters', 30, NOW(), 'Lunya Gift Certificate Losoong/Namsoong', 91.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3507, NOW(), 'Warm, brown elixir of life, we pray to thee. Urban Outfitters', 30, NOW(), 'Lunya Gift Certificate Losoong/Namsoong', 91.00),
 (3508, NOW(), 'Wishing you a Happy Birthday and many more to come. Lay''s', 11, NOW(), 'This is a day to remember. Easter Monday', 73.00),
 (3509, NOW(), 'Thank you from the bottom of my heart. ICBC', 29, NOW(), 'education and personal development editor New Year''s Day', 92.00),
 (3510, NOW(), 'To happy endings and new beginnings. Congratulations! Allianz', 13, NOW(), 'Spotify E-Gift Certificate First Sermon Of Lord Buddha', 21.00),
@@ -3712,8 +3525,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3522, NOW(), 'Great results come from hard work. Well done! Ariston', 11, NOW(), 'Wishing you a speedy recovery! Independence Day', 50.00),
 (3523, NOW(), U&'Sending warm greetings and sincere wishes for a happy and prosperous Raya. Selamat Hari Raya! Victoria\2019s Secret', 16, NOW(), 'Chinese New Year All Saints'' Day', 24.00),
 (3524, NOW(), 'Congratulations for the new nest. May the warmth of new home keep you all happy always. Amgen', 18, NOW(), 'A warm Diwali wish for every happiness. May the warmth and splendour, that are a part of this auspicious occasion, fill your life with happiness and bright cheer, and bring to you joy and prosperity, for the whole year. Easter Sunday', 37.00),
-(3525, NOW(), 'Please accept these flowers in place of the words I said. I''m truly sorry. Crestor', 21, NOW(), 'Thank you for your time Emancipation Day', 35.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3525, NOW(), 'Please accept these flowers in place of the words I said. I''m truly sorry. Crestor', 21, NOW(), 'Thank you for your time Emancipation Day', 35.00),
 (3526, NOW(), 'I never know what to get you&but you do! Lowe''s', 11, NOW(), 'Soooooo thoughtful! Bank Holiday', 32.00),
 (3527, NOW(), 'Hope this makes your sweet home even homier. Orvis', 19, NOW(), 'Glossier EGift Certificate Korit', 70.00),
 (3528, NOW(), 'Because of you everything is so much nicer Zales', 30, NOW(), 'Soooooo thoughtful! Mother''s Day', 50.00),
@@ -3732,8 +3544,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3541, NOW(), 'Hoping each new day will find you feeling better. Hulu', 12, NOW(), 'Add some stuff to cart Somhlolo Day', 18.00),
 (3542, NOW(), 'Your wedding day will come and go, but may your love forever grow. Eddie Bauer', 11, NOW(), 'Enjoy the popcorn! King''s Birthday', 10.00),
 (3543, NOW(), 'Our deepest sympathy to you and your family. From all your friends at [BUSINESS NAME] Boral Limited', 22, NOW(), 'Thank you Ochi Day', 53.00),
-(3544, NOW(), 'Choose from a variety of holiday-themed cards so they can browse colorful, bohemian housewares before finding their dream gift. Cracker Barrel', 25, NOW(), 'You made my day! Immaculate Conception Day', 66.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3544, NOW(), 'Choose from a variety of holiday-themed cards so they can browse colorful, bohemian housewares before finding their dream gift. Cracker Barrel', 25, NOW(), 'You made my day! Immaculate Conception Day', 66.00), 
 (3545, NOW(), 'A boy is all God has with which to make a man. Chili''s', 30, NOW(), 'Lyft Gift Certificate Tusu Puja', 21.00),
 (3546, NOW(), 'Enjoy the flowers, I''m sending them just because you''re you. Oil of Olay', 13, NOW(), 'Urban Outfitters EGift Certificate Durga Puja', 59.00),
 (3547, NOW(), 'May the love and happiness you feel today shine through the years. Altoids', 23, NOW(), 'Our friendship is golden. Good Friday', 71.00),
@@ -3752,8 +3563,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3560, NOW(), 'Send me a postcard with a kitten on it. Crazy John''s', 20, NOW(), 'Studs E-Gift Certificate Prayer Day', 52.00),
 (3561, NOW(), 'No matter the distance between our homes, the distance between our hearts will never change. Good & Plenty', 11, NOW(), 'Just because youve bean on my mind. Ascension Day', 85.00),
 (3562, NOW(), 'They say that life is not a waste as long as you have one person that cares for you in the world. Whenever something gets you down, just remember that you have me! Patek Philippe', 13, NOW(), 'Tropical Arrangements Second Easter Day', 97.00),
-(3563, NOW(), 'Dream big - Reach far - Shine brightly - You''re a star, Congratulations on your Graduation! E.ON', 18, NOW(), 'To love! Independence Day', 98.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3563, NOW(), 'Dream big - Reach far - Shine brightly - You''re a star, Congratulations on your Graduation! E.ON', 18, NOW(), 'To love! Independence Day', 98.00), 
 (3564, NOW(), 'We do not remember days, we remember moments. China Merchants Bank', 21, NOW(), 'Reformation E-Gift Certificate Death Anniversary of Zhabdrung', 24.00),
 (3565, NOW(), 'Thinking of you. May you feel better soon. BPCL', 27, NOW(), 'Thanks for all your help. St. Stephen''s Day', 75.00),
 (3566, NOW(), 'If I know what love is, it is because of you. Hermann Hesse Discover', 10, NOW(), 'Chewy E-Gift Certificate Boxing Day', 62.00),
@@ -3772,8 +3582,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3579, NOW(), 'Wishing you steady improvement until You''re well again. Draka', 21, NOW(), 'Father''s Day Easter', 65.00),
 (3580, NOW(), 'Ihope your birthday was as special as you are. Christian Louboutin', 27, NOW(), 'We sincerely appreciate your business New Year''s Holiday', 61.00),
 (3581, NOW(), 'You have no item in your shopping cart. Olive Garden', 30, NOW(), 'For Absolutely Anything Christmas Day', 55.00),
-(3582, NOW(), 'Give the gift of fitness, wellness and beauty treatments, all at once. ClassPass lets you pick and choose from your favorite local gyms and salons, booking classes and more with a single click. Baidu', 14, NOW(), 'Cheers on your birthday. One step closer to adult underpants. Whit Sunday', 21.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3582, NOW(), 'Give the gift of fitness, wellness and beauty treatments, all at once. ClassPass lets you pick and choose from your favorite local gyms and salons, booking classes and more with a single click. Baidu', 14, NOW(), 'Cheers on your birthday. One step closer to adult underpants. Whit Sunday', 21.00),
 (3583, NOW(), 'Congratulations on your new home and all of the memories that it will soon house. Michael Kors', 25, NOW(), 'How ya doing, friend? Majority Rule Day', 48.00),
 (3584, NOW(), 'Thank you from the bottom of my heart. Dolby Surround', 20, NOW(), 'Nordstrom E-Gift Certificate National Heroes'' Day', 12.00),
 (3585, NOW(), 'Thank you, your thoughtfulness really put sunshine in my day. Breitling', 26, NOW(), 'Je t''aime [FRENCH: "I love you"] Eid Al-Adha Holiday', 81.00),
@@ -3790,8 +3599,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3596, NOW(), 'To the world, you may be one person, but to one person you are the world. Meadow Fresh', 13, NOW(), 'Next Day Delivery Eid al-Fitre', 98.00),
 (3597, NOW(), 'Graduation is a time to celebrate your achievements, prepare for a future of opportunities and embrace a world of infinite possibilities. Hulu', 22, NOW(), 'Easter Certificate Ideas Readjustment Movement Day', 79.00),
 (3598, NOW(), 'Think of the years as gold bullion...and you''re rich! Ermenegildo Zegna', 19, NOW(), 'Kitty Guo Mashujaa Day', 49.00),
-(3599, NOW(), 'If I had to do it all over again, I wouldn''t. Macquarie Infrastructure Group', 18, NOW(), 'Dad, whenever I am in trouble or in need of guidance, you are the one that I look up to. Thanks for everything. African Union Day', 53.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3599, NOW(), 'If I had to do it all over again, I wouldn''t. Macquarie Infrastructure Group', 18, NOW(), 'Dad, whenever I am in trouble or in need of guidance, you are the one that I look up to. Thanks for everything. African Union Day', 53.00), 
 (3600, NOW(), 'Heard that you''ve been under the weather. Hope things clear up soon. Amstel Light', 17, NOW(), 'There''s no stopping you now. Congratulations! Maundy Thursday', 15.00),
 (3601, NOW(), 'Drivers, watch the road! Someone just turned 16! GlaxoSmithKline', 26, NOW(), 'Virtual Delivery (Email/SMS) Eid al-Fitr', 33.00),
 (3602, NOW(), 'Gift cards: Almost as magical as flying reindeer. Eagle Boys', 29, NOW(), ' I blew it. Please give me another chance. Corpus Christi', 52.00),
@@ -3810,8 +3618,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3615, NOW(), 'Look what the bunny found in the carrot patch! Happy Easter! RX330', 16, NOW(), 'Cheer Up! Islamic Republic Day', 74.00),
 (3616, NOW(), 'Congratulations on your new bundle of joy. Louis Vuitton', 29, NOW(), 'Because this family shops! Epiphany', 59.00),
 (3617, NOW(), 'Get what you love, love what you get. Maker''s Mark', 14, NOW(), 'Stay caffeinated, my friend Ide el Fitr', 24.00),
-(3618, NOW(), 'Congratulations on making all of us proud of you. We are so happy for you my dear. Crown Limited', 13, NOW(), 'Congratulations on a well-deserved promotion Victory and Homeland Thanksgiving Day', 97.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3618, NOW(), 'Congratulations on making all of us proud of you. We are so happy for you my dear. Crown Limited', 13, NOW(), 'Congratulations on a well-deserved promotion Victory and Homeland Thanksgiving Day', 97.00), 
 (3619, NOW(), 'Congratulations on the birth of you new baby [BOY/GIRL] AXA', 24, NOW(), 'Valentine''s Day Koriteh', 17.00),
 (3620, NOW(), 'Happy Easter! Happy Spring! Thanks for all the joy you bring! Longchamp', 21, NOW(), 'Cheers to you two! New Year''s Day', 64.00),
 (3621, NOW(), 'Im not great at coming up with gifts. Thank goodness Im sexy. Light', 19, NOW(), 'Kitty Guo Public Holiday', 38.00),
@@ -3829,8 +3636,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3633, NOW(), 'Get ya some sugar! (With a little coffee added in.) Agrichar', 10, NOW(), 'Your achievement is an inspiration Eid Al Adha', 50.00),
 (3634, NOW(), 'May this new year bring you good health and good fortune. Brunello Cucinelli', 18, NOW(), 'For the diaper fund. All Saints'' Day', 67.00),
 (3635, NOW(), 'The power of a dad in a childs life is unmatched. Justin Ricklefs Vans', 15, NOW(), 'Chinese New Year Saint Teresa Canonisation Day', 19.00),
-(3636, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Old Navy', 24, NOW(), 'Reformation E-Gift Certificate New Year''s Day', 84.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3636, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Old Navy', 24, NOW(), 'Reformation E-Gift Certificate New Year''s Day', 84.00), 
 (3637, NOW(), 'A little something for you and the little one! Old Navy', 12, NOW(), 'Dad, my kids say I am a good father; I know I got it from you. Happy Fathers Day. New Year''s Day', 37.00),
 (3638, NOW(), 'Our thoughts are with you in this time of sorrow. Cbus', 18, NOW(), 'Thanks for another great year! Boquern Battle Victory Day', 72.00),
 (3639, NOW(), 'If they live in a big city or don''t own a car, they''ll definitely appreciate a Lyft gift card to help them get around town. Take it from us city dwellers. Kelkoo', 24, NOW(), 'Travel and experiential Assumption Day', 17.00),
@@ -3848,8 +3654,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3651, NOW(), 'Heres to your dreams of being an elite home cook. 6YS', 21, NOW(), 'Sincere thanks for your extra efforts. All Saints'' Day', 24.00),
 (3652, NOW(), '57Hours will help your recipient plan everything from ski day trips to a 21-day mountaineering expedition in Argentina. Holcim', 30, NOW(), 'Youve made our success possible. Thank you! Whit Monday', 65.00),
 (3653, NOW(), 'Wish I could turn back the time and make things right Please forgive me! Abercrombie & Fitch', 30, NOW(), 'Gift yourself! Prayer Day', 64.00),
-(3654, NOW(), 'Love is a good reason for a gift card. Toblerone', 17, NOW(), 'I know  life isnt fair sometimes. Im here and I care. Christmas Day', 32.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3654, NOW(), 'Love is a good reason for a gift card. Toblerone', 17, NOW(), 'I know  life isnt fair sometimes. Im here and I care. Christmas Day', 32.00),
 (3655, NOW(), 'May happiness &amp; love move in with you. Rock Spa and Salon ', 22, NOW(), 'Hope you''re feeling better Christmas Day', 45.00),
 (3656, NOW(), 'May your home be filled with Hanukkah light and love. Target', 27, NOW(), 'Good fathers do three things: they provide, they nurture and they guide. Roland Warren Sheikh Mujibur Rahman''s birthday', 53.00),
 (3657, NOW(), 'May the promise of Easter fill your heart with joy! Hercules', 26, NOW(), 'For a cute outfit, plus maybe one for the baby. Spring Festival Holiday', 25.00),
@@ -3867,8 +3672,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3669, NOW(), 'Bless your new life as husband and wife. Freddie Mac', 24, NOW(), 'Studs E-Gift Certificate Ide el Fitr Holiday', 54.00),
 (3670, NOW(), 'You get better with every year. Happy 50th birthday! Mylanta', 16, NOW(), 'Apple E-Gift Certificate Boxing Day', 57.00),
 (3671, NOW(), 'Hope your recovery is a speedy one. We miss you! Gardetto''s', 24, NOW(), 'For Dainty Jewelry Orthodox Easter Day', 14.00),
-(3672, NOW(), 'Its better than me trying to shop for you, right? Copacol', 30, NOW(), 'Christmas Certificate Gifts Christmas Eve', 51.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3672, NOW(), 'Its better than me trying to shop for you, right? Copacol', 30, NOW(), 'Christmas Certificate Gifts Christmas Eve', 51.00),
 (3673, NOW(), 'Wishing you good fortune and happiness on this amazing Mid-Autumn day! Harry Winston', 29, NOW(), 'Thanks for your time. If you need anything, dont hesitate to call me. Thanksgiving Day', 93.00),
 (3674, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Arnott''s Biscuits Holdings', 12, NOW(), 'Were glad you''re here Eid al-Fitr Holiday', 69.00),
 (3675, NOW(), 'May all the dreams You''re dreaming soon turn into dreams come true. Hugo Boss', 27, NOW(), 'Mid Autumn Festival Dassain', 35.00),
@@ -3886,8 +3690,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3687, NOW(), 'Some are dreamers, some are talented. You are both. May you achieve more success ahead. Congratulations on this success. Banco de Galicia y Buenos Aires SA', 30, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Eid Al Fitr Holiday', 67.00),
 (3688, NOW(), 'Trust me, this is better than a home-cooked meal from me. Ray-Ban', 20, NOW(), 'Birthday Certificate Gift Union Day', 73.00),
 (3689, NOW(), 'Go see something as epic as you are! Burlington Coat Factory', 16, NOW(), 'Congratulations on your beautiful home Ide el Kabir', 36.00),
-(3690, NOW(), 'With best wishes for a lifetime of happiness together. Dell', 18, NOW(), 'Congratulations on a well-deserved promotion Christmas (Catholic)', 82.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3690, NOW(), 'With best wishes for a lifetime of happiness together. Dell', 18, NOW(), 'Congratulations on a well-deserved promotion Christmas (Catholic)', 82.00),
 (3691, NOW(), 'A little holiday treat from your favorite elf! Longines', 10, NOW(), 'Nice work, Mom and Dad! Emancipation Day', 72.00),
 (3692, NOW(), 'You both deserve the very best that life can bring you. Aveda', 30, NOW(), 'Keep looking fresh and fabulous. Mahalaya', 78.00),
 (3693, NOW(), 'Brooklinen is also offering e-gift cards, to snag their very own luxury sheets, bedding, towels, loungewear and more. Polo Ralph Lauren', 17, NOW(), 'face planters and dumpling lights Farmer''s Day', 56.00),
@@ -3906,8 +3709,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3706, NOW(), 'Its great to see good things happen for someone so deserving. Sportmart', 11, NOW(), 'HappyBelatedEarly Birthday! First Sermon Of Lord Buddha', 87.00),
 (3707, NOW(), 'Because you''ve always been the one who could pick out great gifts. American Apparel', 12, NOW(), 'Min 3 Days Booking El Hijra', 28.00),
 (3708, NOW(), 'Get yourself a double whatever with an extra shot of something. Asus', 15, NOW(), 'Shopping spree on me Eid Al Adha', 17.00),
-(3709, NOW(), 'Congratulations on your new little someone to love. Camry', 17, NOW(), 'Great Jones Gift Certificate Imoinu Iratpa', 51.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3709, NOW(), 'Congratulations on your new little someone to love. Camry', 17, NOW(), 'Great Jones Gift Certificate Imoinu Iratpa', 51.00),
 (3710, NOW(), 'I''ll never forgive myself...but I''m hoping you will. I''m sorry. Boggle', 14, NOW(), 'Universal Standard Gift Certificate Eid Al Adha Holiday', 25.00),
 (3711, NOW(), 'Not just a year older, but a year better. Cisco', 16, NOW(), 'there''s also an Amtrak gift card Boxing Day', 80.00),
 (3712, NOW(), 'My love for you grows stronger every year. Pepsi', 22, NOW(), 'Friends are forever! Thimphu Drubchen', 71.00),
@@ -3927,8 +3729,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3726, NOW(), 'Christmas is the day that holds all time together. Global Linguistics', 19, NOW(), 'Bravo! you''ve accomplished great things Rosh Hashanah', 89.00),
 (3727, NOW(), 'Life is the flower for which love is the honey.  Victor Hug Downer EDi', 29, NOW(), 'Don''t sweat shipping delays National Heroes'' Day', 13.00),
 (3728, NOW(), 'So you can keep looking better than me. Hyundai', 27, NOW(), 'For Endless Accessorizing Whit Monday', 77.00),
-(3729, NOW(), 'Drivers, watch the road! Someone just turned 16! Gregg''s', 28, NOW(), 'what to shop now King''s Birthday', 94.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3729, NOW(), 'Drivers, watch the road! Someone just turned 16! Gregg''s', 28, NOW(), 'what to shop now King''s Birthday', 94.00), 
 (3730, NOW(), 'My thoughts are with you at your time of need Maybank', 26, NOW(), '57Hours E-Gift Certificate Ching Ming Festival', 23.00),
 (3731, NOW(), 'Just a little something to show my appreciation. GTO', 27, NOW(), 'Get some glamorous looks! Day of Our Lady of Immaculate Conception', 67.00),
 (3732, NOW(), 'Just a little something from me to you. Old Navy', 27, NOW(), 'Girlfriend Collective Gift Certificate Full Moon Day of Waso', 80.00),
@@ -3947,8 +3748,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3745, NOW(), 'Take care of yourself and feel better soon. Hamburger Helper', 18, NOW(), 'Bando Gift Certificate Malvinas Day', 53.00),
 (3746, NOW(), 'Selamat Hari Raya! May you and your loved ones be blessed with happiness and peace! Degree', 17, NOW(), 'Everlane Gift Certificate Moulid', 46.00),
 (3747, NOW(), 'So you can keep looking better than me. Canyon Ranch ', 10, NOW(), 'For Something Floral Republic Day', 33.00),
-(3748, NOW(), 'Our deepest sympathies during your time of loss. Please know that we are here for you. Filippa K', 17, NOW(), 'Next Day Delivery All Saints'' Day', 84.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3748, NOW(), 'Our deepest sympathies during your time of loss. Please know that we are here for you. Filippa K', 17, NOW(), 'Next Day Delivery All Saints'' Day', 84.00), 
 (3749, NOW(), 'We value your trust and confidence and appreciate your loyalty as a customer Renaissance Indian Wells Resort and Spa', 26, NOW(), 'March 1, 2023 Good Friday', 99.00),
 (3750, NOW(), 'There are all kinds of good things in store! ConAgra', 11, NOW(), 'everything to know Khongjom Day', 44.00),
 (3751, NOW(), 'The beauty of these roses cannot match the beauty and depth of the love I feel for you. You are always in my heart! Cotton Inc.', 15, NOW(), 'GameStop Gift Certificate Khmer New Year Holiday', 49.00),
@@ -3966,8 +3766,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3763, NOW(), 'How sweet it is to be loved by you! Chicco', 16, NOW(), 'Time to say buy-buy! Khmer New Year Holiday', 96.00),
 (3764, NOW(), 'Have a sports junkie on your hands? If so, an ESPN+ subscription is exactly what they''ll want. They''ll get to enjoy a plethora of live sports and originals. Nike', 21, NOW(), 'Your achievement is an inspiration. Bank Holiday', 25.00),
 (3765, NOW(), 'May your new little girl/boy bring you joy and happiness. Chow Tai Fook', 17, NOW(), 'Get well soon Ashoora', 11.00),
-(3766, NOW(), 'Have fun getting your little cutie all geared up! Flextronics', 11, NOW(), 'Have a holly, jolly Holiday! Youth National Day', 19.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3766, NOW(), 'Have fun getting your little cutie all geared up! Flextronics', 11, NOW(), 'Have a holly, jolly Holiday! Youth National Day', 19.00), 
 (3767, NOW(), 'Rejoice! He is watching over you this Easter! Hilton', 11, NOW(), 'Go spa yourself! Assumption Day', 80.00),
 (3768, NOW(), 'You get better with every year. Happy 50th birthday! ITC', 26, NOW(), 'Mother''s Day Reconciliation Day', 47.00),
 (3769, NOW(), 'You deserve a round of applauseand this, too. QMS Medicosmetics', 25, NOW(), 'Fandango Gift Certificate All Saints'' Day', 58.00),
@@ -3985,8 +3784,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3781, NOW(), 'We wish you all the happiness the coming years can hold. Capezio', 16, NOW(), 'Dinners on me! Thingyan Holiday', 68.00),
 (3782, NOW(), 'For the home-improvement obsessive in your life. Preparation H', 24, NOW(), 'For laughing at all my text reactions in meetings. Christmas Day', 36.00),
 (3783, NOW(), 'May this special day be filled with joy, love and laughter. Ecco', 27, NOW(), 'END E-Gift Certificate New Year''s Holiday Holiday', 89.00),
-(3784, NOW(), 'During thisMooncake Festival time, the bright, full moon wishes you many blessings, sincere and long-lasting friendship, and always good fortune in the future. Puma', 28, NOW(), 'With special thanks and much appreciation. Traditional Day', 64.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3784, NOW(), 'During thisMooncake Festival time, the bright, full moon wishes you many blessings, sincere and long-lasting friendship, and always good fortune in the future. Puma', 28, NOW(), 'With special thanks and much appreciation. Traditional Day', 64.00),
 (3785, NOW(), 'May God be with you at this time. NordicTrack', 10, NOW(), 'May the joy youre sharing now grow deeper day by day. New Year''s Day', 66.00),
 (3786, NOW(), 'My love for you grows stronger every year. Ferrari', 18, NOW(), 'For Taking a Deep Breath Emancipation Day', 91.00),
 (3787, NOW(), 'From the CloudKnit sweatpants to the MegaFleece to the exercise dress, Outdoor Voices has plenty of Strat-approved workout wear turned WFH wear to choose from. Intel', 17, NOW(), 'Graduation Certificate Ideas Good Friday', 51.00),
@@ -4004,8 +3802,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3799, NOW(), 'Thank you from the bottom of my heart. Crestor', 22, NOW(), ' Frogs and snails and puppy-dogs'' tails, that''s what little boys are made of. Corpus Christi', 76.00),
 (3800, NOW(), 'I love you more than I have ever found a way to say to you.  Ben Folds China Construction Bank', 21, NOW(), 'Great news! You wont have to return this. Basava Jayanthi', 77.00),
 (3801, NOW(), 'There is only one happiness in this life, to love and be loved. George Sand Converse', 27, NOW(), 'For impractical purchases only New Year''s Day', 56.00),
-(3802, NOW(), 'Many thanks for referring  to me. Ill make sure he/she gets VIP service. Netcom', 13, NOW(), 'The Cheesecake Factory Gift Certificate Armenian Independence Day', 28.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3802, NOW(), 'Many thanks for referring  to me. Ill make sure he/she gets VIP service. Netcom', 13, NOW(), 'The Cheesecake Factory Gift Certificate Armenian Independence Day', 28.00),
 (3803, NOW(), 'Just a little something to show my appreciation. Bank of Montreal', 13, NOW(), 'Need a travel buddy? Good Friday', 40.00),
 (3804, NOW(), 'Cheering you up with a big smile! Subtle Energies ', 26, NOW(), 'With concern and caring sympathy. Eid-ul-Fitr', 29.00),
 (3805, NOW(), 'Thank you for your encouragement and support always. Armada', 23, NOW(), 'Youre off to a beautiful beginning. Day of Atonement', 49.00),
@@ -4024,8 +3821,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3818, NOW(), 'Here''s a toast to you on your 21st birthday! Cheers! Hugo Boss', 29, NOW(), 'Make your own food pyramid. St. George''s Day', 30.00),
 (3819, NOW(), 'Time runs so fast when Im with you. Every second we spend together is so wonderful. May life offers us more time to spend together! Happy valentines day. Helzberg Diamonds', 19, NOW(), 'Valentine''s Day Mahatma Jyotiba Phule Jayanti', 86.00),
 (3820, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Ice Breakers', 25, NOW(), 'Bookshop Gift Certificate Easter Monday', 33.00),
-(3821, NOW(), 'Please accept our deepest sympathy and heartfelt thoughts. Pampers', 24, NOW(), 'Ulta Beauty Gift Certificate Carnival', 93.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3821, NOW(), 'Please accept our deepest sympathy and heartfelt thoughts. Pampers', 24, NOW(), 'Ulta Beauty Gift Certificate Carnival', 93.00),
 (3822, NOW(), 'May you create countless memories in your new home. Carroten', 26, NOW(), 'For a special friend. Independence Day', 70.00),
 (3823, NOW(), 'Not cooking is the most delicious of all. Aura', 15, NOW(), 'Thank you with a business touch Freedom Day', 28.00),
 (3824, NOW(), '&lt;&Not precisely equal to my exact level of gratitude&but its a start. IFB', 16, NOW(), 'Thanks from all of us for  years of your business. We look forward to many more. Bir Chilarai Divas', 81.00),
@@ -4044,8 +3840,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3837, NOW(), 'Trust me, this is better than a home-cooked meal from me. Cheerios', 14, NOW(), 'Hope you can use this to celebrate! Day of Arafa', 96.00),
 (3838, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] Coca-Cola Amatil', 30, NOW(), 'Get something newlywed-y! Mujahideen Victory Day', 85.00),
 (3839, NOW(), 'You''re a gift in my life. And not the kind Id return for store credit. Merry Christmas! Casey''s General Store', 24, NOW(), 'For a Guest Room Upgrade National Day', 77.00),
-(3840, NOW(), 'Not once did I ever doubt you''d make it. Next', 24, NOW(), 'Sephora Gift Certificate Father''s Day', 80.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3840, NOW(), 'Not once did I ever doubt you''d make it. Next', 24, NOW(), 'Sephora Gift Certificate Father''s Day', 80.00),
 (3841, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Head & Shoulders', 21, NOW(), 'subscription service gift ideas Christmas Day', 49.00),
 (3842, NOW(), 'Selamat Hari Raya! May you and your loved ones be blessed with happiness and peace! Bowflex', 28, NOW(), 'Soooooo thoughtful! Labour Day', 43.00),
 (3843, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] Moncler', 25, NOW(), 'Happy house warming! Carnival', 78.00),
@@ -4064,8 +3859,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3856, NOW(), 'Thank you for the memories of yesterday, for the happiness today, and the promise of all tomorrows! Happy Anniversary! FLO', 21, NOW(), 'Policies Eid al-Fitr', 55.00),
 (3857, NOW(), 'Bravo! Your hard work has truly paid off. Fiber One', 23, NOW(), 'Because pizza aint free Kings''s Birthday', 74.00),
 (3858, NOW(), 'To happy endings and new beginnings. Congratulations! Nordstrom', 19, NOW(), 'How ya doing, friend? Sankranti', 92.00),
-(3859, NOW(), 'Thanks for your time. If you need anything, dont hesitate to call me. Nordea', 25, NOW(), 'Min 3 Days Booking Carnival Monday', 64.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3859, NOW(), 'Thanks for your time. If you need anything, dont hesitate to call me. Nordea', 25, NOW(), 'Min 3 Days Booking Carnival Monday', 64.00), 
 (3860, NOW(), 'And so... The adventure begins! Congratulations on your graduation! Center Fresh', 17, NOW(), ' Be mine. Orthodox Epiphany', 16.00),
 (3861, NOW(), 'We share in your celebration of the new life you created! Liberty', 25, NOW(), 'Go spa yourself! Dutch Emancipation Day', 25.00),
 (3862, NOW(), U&'May your business flourish and bring you lots of joy in the new year. C\00c3\00a9line', 26, NOW(), 'Have an awesome birthday Christmas Day', 31.00),
@@ -4085,8 +3879,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3876, NOW(), 'May your life be as colourful and shimmering as the lights of Diwali! BreadTalk Group', 19, NOW(), 'Fandango Gift Certificate Ascension Day', 32.00),
 (3877, NOW(), 'Great news! You wont have to return this. Myer', 22, NOW(), 'Studs E-Gift Certificate Whit Monday', 93.00),
 (3878, NOW(), 'Warm Easter greetings to you and your family. Air Jordan', 26, NOW(), 'Starbucks Digital Gift Certificate Eid Al Adha', 22.00),
-(3879, NOW(), 'When God shuts a door, he opens a window. Fluor', 13, NOW(), 'For a Guest Room Upgrade Assumption Day', 14.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3879, NOW(), 'When God shuts a door, he opens a window. Fluor', 13, NOW(), 'For a Guest Room Upgrade Assumption Day', 14.00), 
 (3880, NOW(), 'Mi Amor, Te amo! [SPANISH: "My love, I love you"] Converse', 21, NOW(), 'Everyone needs a spa day! National Day', 26.00),
 (3881, NOW(), 'Selamat Hari Raya Aidilfitri! May this season of forgiveness bring peace to fill your heart and home. Columbia', 16, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Tamil New Year', 73.00),
 (3882, NOW(), 'Gift them a gift card for all conceivable forms of tech, home appliances, and more.&nbsp; Dermalogica', 19, NOW(), 'I couldnt log on to your registry because I forget every password ever. Emancipation Wednesday', 78.00),
@@ -4104,8 +3897,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3894, NOW(), 'Get what you love, love what you get. J. Lindeberg', 25, NOW(), 'Take the time to really enjoy your childs infancy; after all, they do grow up so fast. Congratulations on your new life. Eid Sghir', 60.00),
 (3895, NOW(), 'Thank You! Your business means the world to us. Microsoft', 30, NOW(), 'March 1, 2023 Veterans'' Day', 91.00),
 (3896, NOW(), 'Hope this helps bring a smile to your day. Apollo', 25, NOW(), 'It''s your day to shine! National Heroes'' Day', 95.00),
-(3897, NOW(), 'Get what you love, love what you get. Camero', 29, NOW(), 'Wishing you happiness everyday. Kingdom Day', 55.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3897, NOW(), 'Get what you love, love what you get. Camero', 29, NOW(), 'Wishing you happiness everyday. Kingdom Day', 55.00),
 (3898, NOW(), 'May your love bring happiness to all your days. Sephora', 20, NOW(), 'For a special friend Idd-ul-Azha', 44.00),
 (3899, NOW(), 'Get well soon. Feel better. We miss you! Altoids', 27, NOW(), 'Flowers today Fireworks tonight! Women''s Day', 88.00),
 (3900, NOW(), 'Santa needed help saving space in his sack. Netflix', 30, NOW(), 'cooling cotton PJs Kartar Singh Sarabha Martyrdom Day', 61.00),
@@ -4125,8 +3917,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3914, NOW(), 'Gift card? Bacon? It was a really tough decision. Ace Hardware', 18, NOW(), 'You''re the best New Year''s Day', 66.00),
 (3915, NOW(), 'Just a little something from me to you. Tommy Hilfiger', 21, NOW(), 'Fandango Gift Certificate Chuquisaca Day', 76.00),
 (3916, NOW(), 'Because of you everything is so much nicer Brioni', 15, NOW(), 'Aritzia EGift Certificate Easter Day', 33.00),
-(3917, NOW(), 'When God shuts a door, he opens a window. Chevron', 28, NOW(), 'Get you some yum! New Year''s Day (in lieu)', 21.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3917, NOW(), 'When God shuts a door, he opens a window. Chevron', 28, NOW(), 'Get you some yum! New Year''s Day (in lieu)', 21.00),
 (3918, NOW(), 'Sending hugs, kisses and this little gift to let you know Im thinking of you! Kamala', 11, NOW(), 'Evolve Together Digital Gift Certificate Birthday of the Sultan of Negeri Sembilan', 19.00),
 (3919, NOW(), 'Your kindness comes as a welcome touch of warmth and caring Miracle-Gro', 21, NOW(), 'Love &amp; Anniversary National Health Day', 34.00),
 (3920, NOW(), 'Roses are red, violets are blue, I am so happy that I love you! Moncler', 17, NOW(), 'It was a pleasure to work with you. Restoration Day of the Independent Czech State', 69.00),
@@ -4144,8 +3935,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3932, NOW(), 'Most people won''t have too much trouble putting Uber credit to good use, whether they''re going out or ordering in. Aqua Net', 14, NOW(), 'After every storm the sun will smile; for every problem there is a solution, and the souls indefeasible duty is to be of good cheer. Christmas Day', 12.00),
 (3933, NOW(), 'May all your days be filled with lasting love. Spotify', 17, NOW(), 'Ganni EGift Certificate Language Martyrs'' Day', 40.00),
 (3934, NOW(), 'Congratulations on your new little someone to love. Herbal Essences', 25, NOW(), 'Grubhub E-Gift Certificate Botswana Day Holiday', 45.00),
-(3935, NOW(), 'I hate fighting, and I''m sorry for my part of this one! Please forgive me. Aamco', 12, NOW(), 'Anniversary Certificate Gifts Lakshmi Puja', 73.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3935, NOW(), 'I hate fighting, and I''m sorry for my part of this one! Please forgive me. Aamco', 12, NOW(), 'Anniversary Certificate Gifts Lakshmi Puja', 73.00), 
 (3936, NOW(), 'Because of you everything is so much nicer Farberware', 12, NOW(), 'Thank you for your support New Year''s Day', 40.00),
 (3937, NOW(), 'Thoughts of you always bring me a smile. Discover', 16, NOW(), 'Wishing you a speedy recovery Feast of St. Francis Xavier (in lieu)', 73.00),
 (3938, NOW(), 'May your new little girl/boy bring you joy and happiness. Fleet Farm', 23, NOW(), 'March 1, 2023 Labour Day', 83.00),
@@ -4164,8 +3954,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3951, NOW(), 'May this Easter warm your heart with peace! Crocs', 12, NOW(), 'Thanks for being such a great friend/co-worker! Boxing Day', 61.00),
 (3952, NOW(), 'May all your days be filled with lasting love. American Heart Association', 30, NOW(), 'Kitty Guo New Year''s Day', 70.00),
 (3953, NOW(), 'Look what the bunny found in the carrot patch! Happy Easter! Coolpix', 16, NOW(), 'Go spa yourself! Canberra Day', 78.00),
-(3954, NOW(), 'F-antastic, A-wesome, T-errific, H-onorable, E-xcellent, R-emarkable. This sums up my dad. Happy Fathers Day! Mitsubishi', 28, NOW(), 'Thank you for your encouragement and support always. Victory Day', 90.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3954, NOW(), 'F-antastic, A-wesome, T-errific, H-onorable, E-xcellent, R-emarkable. This sums up my dad. Happy Fathers Day! Mitsubishi', 28, NOW(), 'Thank you for your encouragement and support always. Victory Day', 90.00),
 (3955, NOW(), 'May your new bundle of joy bring happiness in your life and fill a void in your heart. Air New Zealand', 18, NOW(), 'For Their Fitness Resolutions National Heroes'' Day', 24.00),
 (3956, NOW(), 'Consider this your permission slip for a mini shopping spree. Chipotle', 28, NOW(), 'Get Well Soon Wishes New Year''s Day', 21.00),
 (3957, NOW(), 'Were wishing everything wonderful to a wonderful couple. Lacoste', 28, NOW(), 'Bando Gift Certificate Koriteh', 73.00),
@@ -4183,8 +3972,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3969, NOW(), 'Expressing sympathy is always difficult, but all we can say is how sorry we are. Adecco', 27, NOW(), 'For the home-improvement obsessive in your life. Saint Stephen''s Day', 70.00),
 (3970, NOW(), 'Our sympathy and warmest thoughts are with you now. China Merchants Bank', 26, NOW(), 'Our thoughts are with you in this time of sorrow. Labor Day', 60.00),
 (3971, NOW(), 'Today is for remembering the happy times you''ve known. Bertolli', 30, NOW(), 'Macys E-Gift Certificate Christmas Eve', 69.00),
-(3972, NOW(), 'Best wishes on your birthday for good health and happiness throughout the year. Funyuns', 17, NOW(), 'May love always live in the home that you share. Independence Day', 84.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3972, NOW(), 'Best wishes on your birthday for good health and happiness throughout the year. Funyuns', 17, NOW(), 'May love always live in the home that you share. Independence Day', 84.00), 
 (3973, NOW(), 'Wishing you a lifetime of love and happiness. British Airways', 26, NOW(), 'Netflix EGift Certificate Eid Al Adha Holiday', 22.00),
 (3974, NOW(), 'We wish you a very Merry Christmas and a Happy New Year! BMW', 20, NOW(), 'Congratulations on your beautiful home. The day following the Chinese Mid-Autumn Festival', 21.00),
 (3975, NOW(), 'A birthday is just the first day of another 365-day journey around the sun. Enjoy the trip. Timberland', 10, NOW(), 'Fashion and accessories Good Friday', 39.00),
@@ -4203,8 +3991,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (3988, NOW(), 'The 18 Very Best Sunscreens for Your Face Urban Outfitters', 20, NOW(), 'excellent last-minute gifts Whit Sunday', 69.00),
 (3989, NOW(), 'Thank you from the bottom of my heart. Louis Vuitton', 19, NOW(), 'Youre the best! Fasching', 56.00),
 (3990, NOW(), 'Your thoughtfulness meant more than words can ever say. West Elm', 14, NOW(), 'H&M Gift Certificate Holy Thursday', 62.00),
-(3991, NOW(), 'It was a pleasure to work with you. CJ', 15, NOW(), 'Happy nesting! New Year''s Holiday', 32.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(3991, NOW(), 'It was a pleasure to work with you. CJ', 15, NOW(), 'Happy nesting! New Year''s Holiday', 32.00),
 (3992, NOW(), 'Santa needed help saving space in his sack. Chipotle', 20, NOW(), 'Grubhub E-Gift Certificate Mother''s Day', 71.00),
 (3993, NOW(), 'Were wishing everything wonderful to a wonderful couple. Ananda', 30, NOW(), ' Every time you see these blooms, remember someone is thinking of you! Easter Monday', 35.00),
 (3994, NOW(), 'Best wishes for today and every day in the future. Placemarkers', 27, NOW(), 'funky iPhone accessories National Mourning Day', 17.00),
@@ -4221,8 +4008,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4005, NOW(), 'A simple celebration, a gathering of friends; here is wishing you great happiness, a joy that never ends. Tory Burch', 17, NOW(), 'Please accept my/our deepest sympathy National Heroes and Heroines Day', 89.00),
 (4006, NOW(), 'Our family wishes you love, joy and peace  today, tomorrow and always. Patek Philippe', 26, NOW(), ' How can I begin to say I''m sorry. I didn''t mean to upset you. I hope that you can forgive me. Easter Monday', 39.00),
 (4007, NOW(), 'Take care of yourself and feel better soon. Macy''s', 24, NOW(), 'The 11 Very Best Protein Powders Constitution Day', 29.00),
-(4008, NOW(), 'Congratulations! May your dreams always be big and your worries small. Bendigo Bank', 24, NOW(), 'You''re the best! New Year''s Day', 93.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4008, NOW(), 'Congratulations! May your dreams always be big and your worries small. Bendigo Bank', 24, NOW(), 'You''re the best! New Year''s Day', 93.00),
 (4009, NOW(), 'Gift cards: Almost as magical as flying reindeer. Mercury Insurance', 21, NOW(), 'Yay for you! Nuzul Al-Quran', 63.00),
 (4010, NOW(), 'May all your days be filled with lasting love. Lite-Brite', 16, NOW(), 'You + Me = Forever Netaji Subhas Chandra Bose Jayanti', 30.00),
 (4011, NOW(), 'Congratulations on your new bundle of joy. Grupo Folha', 16, NOW(), 'excellent last-minute gifts Revolution Day June 30', 40.00),
@@ -4241,8 +4027,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4024, NOW(), 'Parenthood is one of the best journeys in life. Enjoy the ride. EFG Bank', 14, NOW(), 'Thinking of you and wishing you a happy day. Boxing Day', 60.00),
 (4025, NOW(), 'Have fun getting your little cutie all geared up! Hydroxycut', 25, NOW(), 'Thank you for your time Orthodox Easter Monday', 11.00),
 (4026, NOW(), 'Roses are red, violets are blue, I am so happy that I love you! Back to Basics', 25, NOW(), 'reusable nylon tote King''s Coronation Day', 18.00),
-(4027, NOW(), 'Trust methis is better than the 60 cats I was going to get you. Aunt Jemima', 15, NOW(), 'Get Well Soon New Year''s Day', 31.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4027, NOW(), 'Trust methis is better than the 60 cats I was going to get you. Aunt Jemima', 15, NOW(), 'Get Well Soon New Year''s Day', 31.00),
 (4028, NOW(), 'Christmas is the day that holds all time together. Agrale', 25, NOW(), 'Now you can afford textbooks. Or food. Christmas Day', 41.00),
 (4029, NOW(), 'Thanks for being a couple of role models of marriage. Happy Anniversary. Schick', 16, NOW(), 'To the world''s greatest [DAD/MOM/GRANDMA]. Whit Sunday', 64.00),
 (4030, NOW(), 'If they need any suggestions of what to buy with a Golde gift card, were big fans of the Superwhisk and Turmeric latte blend. Aramark', 21, NOW(), 'A star is born. Labour Day', 31.00),
@@ -4261,8 +4046,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4043, NOW(), 'Its a big world out there&go explore it! Kleenmaid', 14, NOW(), 'It''s your day to shine! Women''s Day', 33.00),
 (4044, NOW(), 'For the ecoconscious person with a KN95 subscription. Accord', 27, NOW(), 'Baron Fig Gift Certificate Pentecost Monday', 19.00),
 (4045, NOW(), 'Im more thankful than mere words can ever tell Itaipava', 29, NOW(), 'meal delivery kit Nuzul Al-Quran', 99.00),
-(4046, NOW(), 'Christmas is the day that holds all time together. Toyota', 21, NOW(), 'For Winter-Proof Boots Labour Day', 13.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4046, NOW(), 'Christmas is the day that holds all time together. Toyota', 21, NOW(), 'For Winter-Proof Boots Labour Day', 13.00),
 (4047, NOW(), 'For the home-improvement obsessive in your life. Pandora', 26, NOW(), 'To love! Pentecost Monday', 13.00),
 (4048, NOW(), 'Love is something eternal; the aspect may change, but not the essence.  Vincent van Gogh Folgers', 14, NOW(), 'Get Well Soon Wishes Third Day of Christmas', 24.00),
 (4049, NOW(), 'Just a little something to say Im thinking of you. Cox Communications', 27, NOW(), 'Skims EGift Certificate All Saints'' Day', 92.00),
@@ -4281,8 +4065,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4062, NOW(), 'Best wishes on your birthday for good health and happiness throughout the year. Airtel', 20, NOW(), 'May this Easter warm your heart with peace! Korit Holiday', 32.00),
 (4063, NOW(), 'I was in college once, so I knew just what to get you. Chanel', 28, NOW(), 'Dinner is on its way (soon)! Armed Forces Day', 24.00),
 (4064, NOW(), 'May all the dreams You''re dreaming soon turn into dreams come true. Cabbage Patch Kids', 16, NOW(), 'Soooooo thoughtful! Orthodox Easter Monday', 34.00),
-(4065, NOW(), 'Our thoughts are with you in this time of sorrow. Hanjin', 15, NOW(), 'The Tiffany Gift Certificate Youth National Day', 14.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4065, NOW(), 'Our thoughts are with you in this time of sorrow. Hanjin', 15, NOW(), 'The Tiffany Gift Certificate Youth National Day', 14.00), 
 (4066, NOW(), 'We share in your celebration of the new life you created! Beetle', 24, NOW(), 'With Warmest congratulations Edul Aajha', 34.00),
 (4067, NOW(), 'Were so happy about the arrival of your bundle of joy. Novartis', 17, NOW(), 'You deserve a round of applauseand this, too. Christmas Day', 17.00),
 (4068, NOW(), 'Great results come from hard work. Well done! Looney Tunes', 14, NOW(), 'Thanks for being such a great friend/co-worker! New Year''s Day (in lieu)', 29.00),
@@ -4301,8 +4084,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4081, NOW(), 'Our thoughts and prayers are with you during this difficult time. We are sorry for your loss. MECWA', 26, NOW(), 'Not just a year older, but a year better. Royal Brunei Armed Forces Day', 20.00),
 (4082, NOW(), 'Take care of yourself and feel better soon. Bed Bath & Beyond', 26, NOW(), 'Because youre never too old to spend money. Liberation Day', 62.00),
 (4083, NOW(), 'Thank you for making me feel so comfortable Bradesco', 20, NOW(), 'Have a Hallmark moment already President''s Day', 70.00),
-(4084, NOW(), 'Welcome aboard! Its good to have you with us. Bubble Yum', 27, NOW(), 'Hope youll continue to feel better everyday. Whit Monday', 60.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4084, NOW(), 'Welcome aboard! Its good to have you with us. Bubble Yum', 27, NOW(), 'Hope youll continue to feel better everyday. Whit Monday', 60.00),
 (4085, NOW(), 'Love is a good reason for a gift card. Anheuser-Busch', 14, NOW(), 'Thinking of you National Day', 93.00),
 (4086, NOW(), 'Hope you enjoy the festivities and have a great time! Selamat Hari Raya! Chuck E. Cheese', 12, NOW(), 'cooling cotton PJs Eid-ul-Fitr', 30.00),
 (4087, NOW(), 'Hoping you two are blessed with many more years together. Luigi Bosca Reserve', 25, NOW(), 'Lululemon Gift Certificate Independence Day', 10.00),
@@ -4321,8 +4103,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4100, NOW(), 'Bright moon and stars twinkling and shining, wishing you a Mooncake Festival full of bliss and happiness! Almay', 14, NOW(), 'May this Easter warm your heart with peace! St. Stephen''s Day', 52.00),
 (4101, NOW(), 'We are born of love; love is our mother. Rumi Chimei', 19, NOW(), 'Girlfriend Collective Gift Certificate Mouloud', 30.00),
 (4102, NOW(), 'See? It was all worth it! Right?? QMS Medicosmetics', 12, NOW(), 'Happy house warming! Sheikh Mujibur Rahman''s birthday', 76.00),
-(4103, NOW(), 'Drivers, watch the road! Someone just turned 16! Armani', 24, NOW(), 'Take your homebody out shopping! Good Friday', 43.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4103, NOW(), 'Drivers, watch the road! Someone just turned 16! Armani', 24, NOW(), 'Take your homebody out shopping! Good Friday', 43.00), 
 (4104, NOW(), 'May God bless you on your graduation day. Dunkin''', 21, NOW(), 'Were wishing everything wonderful to a wonderful couple. Idul Fitri', 44.00),
 (4105, NOW(), 'Thinking of you and your family and wishing you all a year that outshines the rest. Cerruti', 16, NOW(), 'Easter Certificate Ideas Christmas Day', 54.00),
 (4106, NOW(), 'Today is for remembering the happy times you''ve known. Jimmy Dean', 11, NOW(), 'Kudos to you! Youve earned them. Whit Sunday', 19.00),
@@ -4340,8 +4121,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4118, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Schloss Elmau', 22, NOW(), 'A star is born Utamaduni Day', 41.00),
 (4119, NOW(), 'Your thoughtfulness meant more than words can ever say. Back to Nature', 16, NOW(), 'Congratulations Graduate, you did it! New Year''s Day', 41.00),
 (4120, NOW(), 'Hoping to deliver a little extra comfort with your gift? Weve got ideas for what to write inside in a get-well card that should help. Countdown', 20, NOW(), 'Spotify E-Gift Certificate Cochabamba Day', 85.00),
-(4121, NOW(), 'Cheering you up with a big smile! Century 21', 13, NOW(), ' Congratulations! Keep up the good work. New Year''s Day', 10.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4121, NOW(), 'Cheering you up with a big smile! Century 21', 13, NOW(), ' Congratulations! Keep up the good work. New Year''s Day', 10.00), 
 (4122, NOW(), 'Hope this makes your sweet home even homier. Coors Light', 20, NOW(), 'Remember, youth is wasted on the young. Eid Al Adha', 85.00),
 (4123, NOW(), 'And so... The adventure begins! Congratulations on your graduation! Sonos', 22, NOW(), 'Fandango Gift Certificate Idul Fitr', 54.00),
 (4124, NOW(), 'Cheers to you! Cheers to your year ahead! Malibu', 27, NOW(), 'Just the beginning of successes for you. Congrats! St. Joseph''s Day (in lieu)', 66.00),
@@ -4359,8 +4139,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4136, NOW(), 'Enjoy the flowers, I''m sending them just because you''re you. Tidal', 24, NOW(), 'Congratulations on a job well done. Boxing Day', 78.00),
 (4137, NOW(), 'May all the dreams You''re dreaming soon turn into dreams come true. Red Bull', 20, NOW(), 'Another reason to dress up! (Or dress down!) Drukpa Tsheshi', 96.00),
 (4138, NOW(), U&'Sending you Christmas cheer that lasts throughout the year! L''Or\00e9al Paris', 13, NOW(), 'Girlfriend Collective Gift Certificate Inti Raymi', 73.00),
-(4139, NOW(), 'Just in case you ever get tired of [Kirksville]. Hey, it could happen. Apple Music', 11, NOW(), 'Great Jones Gift Certificate Christmas Eve Day', 37.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4139, NOW(), 'Just in case you ever get tired of [Kirksville]. Hey, it could happen. Apple Music', 11, NOW(), 'Great Jones Gift Certificate Christmas Eve Day', 37.00),
 (4140, NOW(), 'This cosmetics brand is a great place to give a gift card to, with plenty of affordable options to shop for all ages. Leo Beer', 27, NOW(), 'A Florist 20 website Eid Al Adha', 53.00),
 (4141, NOW(), 'My/Our sympathy and thoughts are with you and your family. Cocoa Puffs', 17, NOW(), 'Baggu Gift Certificate Tiradentes Day', 42.00),
 (4142, NOW(), 'Hope this helps get you that thing that brings the cozy to your new place. Bazooka', 17, NOW(), 'BLK MKT Vintage Gift Certificate Day of Arafa', 37.00),
@@ -4378,8 +4157,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4154, NOW(), 'Our deepest sympathies during your time of loss. Please know that we are here for you. Auchan', 26, NOW(), 'Thank you for being so nice. Boxing Day', 79.00),
 (4155, NOW(), 'Thank you for making your guests feel right at home. Akubra', 20, NOW(), 'Our thoughts are with you. Get well soon! Thinking of you. Christmas Day', 11.00),
 (4156, NOW(), 'Congratulations on your wedding day and best wishes for a happy life together! REI', 15, NOW(), 'Lululemon Gift Certificate First Day of Ramadhan', 46.00),
-(4157, NOW(), 'The love you share makes this day special. Old Navy', 12, NOW(), 'Any man can be a father, but it takes someone special to be a Dad. Anne Geddes Christmas Day', 93.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4157, NOW(), 'The love you share makes this day special. Old Navy', 12, NOW(), 'Any man can be a father, but it takes someone special to be a Dad. Anne Geddes Christmas Day', 93.00),
 (4158, NOW(), 'Thank you from the bottom of my heart. Dunkin''', 24, NOW(), 'Corporate Gifts Chinese New Year', 86.00),
 (4159, NOW(), 'A lifelong search has reached an end. I''ve found both my love and my best friend. The North Face', 11, NOW(), 'May the future be filled with much happiness. Eid-ul-Fitr', 86.00),
 (4160, NOW(), 'Sending you Christmas cheer that lasts throughout the year! Macquarie Bank', 26, NOW(), 'Happy 13th birthday to the world''s best teenager. Orthodox Easter Monday', 64.00),
@@ -4398,8 +4176,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4173, NOW(), 'Bless your new life as husband and wife. Taj', 22, NOW(), 'No bread, just jams! Ascension Day', 98.00),
 (4174, NOW(), 'Wishing you steady improvement until You''re well again. Chicco', 22, NOW(), 'Winc Subscription Easter (Catholic)', 13.00),
 (4175, NOW(), 'Caps in the air like you just dont care. Citizens Bank', 27, NOW(), 'Thank you for your time Meritxell Day', 85.00),
-(4176, NOW(), 'May your family be showered with health and prosperity. Wishing you a blessed and joyous Hari Raya! la prairie', 13, NOW(), 'Mytheresa Gift Certificate Easter Monday', 32.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4176, NOW(), 'May your family be showered with health and prosperity. Wishing you a blessed and joyous Hari Raya! la prairie', 13, NOW(), 'Mytheresa Gift Certificate Easter Monday', 32.00),
 (4177, NOW(), 'For anyone who might appreciate some especially colorful new home goods. Charles Schwab', 10, NOW(), 'For a Designer Download Christmas Day', 42.00),
 (4178, NOW(), U&'I want you to know that I am here for you at this time of grieving Victoria\2019s Secret', 25, NOW(), 'Get well soon Revolution Day July 23', 92.00),
 (4179, NOW(), 'In addition to Anthropologies in-house brands, your giftee will be able to shop labels like MOTHER, Calvin Klein, Levis, Sunday Riley, and more. Naming Articles', 17, NOW(), 'For a Guest Room Upgrade Whit Monday', 99.00),
@@ -4418,8 +4195,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4192, NOW(), 'Hope this helps bring a smile to your day. Carnegie', 24, NOW(), 'glowing winter skin Victory Day', 53.00),
 (4193, NOW(), 'For the person who likes their clothing to come with Amazon-fast shipping. Tide', 16, NOW(), 'Rebag Digital Gift Certificate Eid Al-Adha', 10.00),
 (4194, NOW(), 'You''re so thoughtful, I got you something to help you keep doing that. Brunello Cucinelli', 19, NOW(), 'Not cooking is the most delicious of all. Govt declares public holiday on Monday to mark Peoples War Day', 17.00),
-(4195, NOW(), 'Just a little something to show my appreciation. Ace Hardware', 18, NOW(), 'To the darling little newcomer. Prophet''s Birthday', 45.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4195, NOW(), 'Just a little something to show my appreciation. Ace Hardware', 18, NOW(), 'To the darling little newcomer. Prophet''s Birthday', 45.00), 
 (4196, NOW(), 'Congratulations on your new little someone to love. Fruit Harvest', 14, NOW(), 'Starbucks Digital Gift Certificate Kimbangu Day', 59.00),
 (4197, NOW(), 'You bring joy and love to my life. Adecco', 21, NOW(), 'Time for a passport! Ascension Day', 86.00),
 (4198, NOW(), 'May the promise of Easter fill you with peace and joy! American Idol', 28, NOW(), 'It''s your day to shine! Labour Day', 80.00),
@@ -4438,8 +4214,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4211, NOW(), 'Anything is possible  all you have to do is believe in yourself. Wishing you all the best in what lies ahead and good luck. 5 Second', 23, NOW(), 'You deserve a round of applauseand this, too. Easter (Catholic)', 18.00),
 (4212, NOW(), 'To happy endings and new beginnings. Congratulations! Flextronics', 19, NOW(), 'Thank you for referring  to our firm. We sincerely appreciate your confidence in us. Whit Monday', 83.00),
 (4213, NOW(), 'Hope your hospital stay is a short one. Advair', 22, NOW(), 'A friend is forever! Christmas Day', 76.00),
-(4214, NOW(), 'Hope this Mooncake Festival is the beginning of of all that is the brightest for you. Boots', 10, NOW(), 'Another reason to dress up! (Or dress down!) Public Sector Holiday', 20.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4214, NOW(), 'Hope this Mooncake Festival is the beginning of of all that is the brightest for you. Boots', 10, NOW(), 'Another reason to dress up! (Or dress down!) Public Sector Holiday', 20.00), 
 (4215, NOW(), 'Roses are red, violets are blue, I am so happy that I love you! Puma', 28, NOW(), 'Hari Raya New Year''s Day', 91.00),
 (4216, NOW(), 'With best wishes for a lifetime of happiness together. Omega', 13, NOW(), 'A father is someone you look up to no matter how tall you grow. Unknown Ash Wednesday', 37.00),
 (4217, NOW(), 'After 10 years, I still feel like we''re newlyweds. Buffalo Wild Wings', 20, NOW(), 'Nice work, Mom and Dad! All Saints'' Day', 73.00),
@@ -4457,8 +4232,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4229, NOW(), 'You have no item in your shopping cart. Falabella', 18, NOW(), 'With Warmest congratulations All Saints'' Day', 37.00),
 (4230, NOW(), 'And so... The adventure begins! Congratulations on your graduation! Altium', 10, NOW(), 'Santa needed help saving space in his sack. Labour Day', 21.00),
 (4231, NOW(), 'Hope your recovery is a speedy one. We miss you! Bristol-Myers Squibb', 21, NOW(), 'Ganni EGift Certificate Independence Day', 31.00),
-(4232, NOW(), 'For the home-improvement obsessive in your life. Aramark', 20, NOW(), 'Congratulations on your big day! New Year''s Day', 22.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4232, NOW(), 'For the home-improvement obsessive in your life. Aramark', 20, NOW(), 'Congratulations on your big day! New Year''s Day', 22.00),
 (4233, NOW(), 'Because itll be a while before You''re makin the big bucks. Nordstrom', 20, NOW(), 'Dont burn your mouth. Youre already hot enough. Emancipation Tuesday', 43.00),
 (4234, NOW(), 'If they happen to be big book lovers, a Bookshop gift card is a simple and appreciated gift. As a bonus, every purchase on the site gives back to local bookstores. Nestle', 24, NOW(), 'Anthropologie E-Gift Certificate Easter Sunday', 75.00),
 (4235, NOW(), 'Happy Anniversary - My love for you grows with each passing year. Dole', 23, NOW(), 'Next Day Delivery Labour Day', 34.00),
@@ -4477,8 +4251,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4248, NOW(), 'Hope your new home is filled with joy. Crown', 29, NOW(), 'Heres to more coffee dates! Third Onam', 77.00),
 (4249, NOW(), 'I love you just as much as I did on our wedding day. Happy anniversary. Conair', 18, NOW(), 'You are in my thoughts. If there is anything I can do, please let me know. Constitution Day', 85.00),
 (4250, NOW(), 'Mi Amor, Te amo! [SPANISH: "My love, I love you"] Subway', 10, NOW(), 'Sending good, healthy vibes your way. New Year''s Day', 67.00),
-(4251, NOW(), 'Great news! You wont have to return this. Eight O''Clock Coffee Company', 11, NOW(), 'You both deserve a lifetime of beautiful tomorrows. Republic Day (in lieu)', 18.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4251, NOW(), 'Great news! You wont have to return this. Eight O''Clock Coffee Company', 11, NOW(), 'You both deserve a lifetime of beautiful tomorrows. Republic Day (in lieu)', 18.00),
 (4252, NOW(), 'Doesnt come close to showing you how grateful I really am. Boeing', 14, NOW(), 'Virtual Delivery (Email/SMS) Jhulan Purnima', 17.00),
 (4253, NOW(), 'Stay strong. It might be stormy now, but it cant rain forever. G2000', 17, NOW(), 'You can use this next time Im being really annoying. Easter Monday (Catholic)', 66.00),
 (4254, NOW(), '57Hours will help your recipient plan everything from ski day trips to a 21-day mountaineering expedition in Argentina. Gradiente', 10, NOW(), 'Rebag Digital Gift Certificate Whit Monday', 37.00),
@@ -4497,8 +4270,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4267, NOW(), 'When You''re at a complete loss, a gift card to Amazon really does allow them to do all the deciding. The Warehouse', 29, NOW(), 'Retirement Certificate Gifts Liberation Day', 30.00),
 (4268, NOW(), 'Best wishes for today and every day in the future. Element Skateboards', 29, NOW(), 'For Absolutely Anything Chinese National Day Holiday', 75.00),
 (4269, NOW(), 'For the person who has been a jet-setter since getting vaccinated. Centrale Latte Roma', 29, NOW(), 'Ask for the dessert menu Pentecost Sunday', 96.00),
-(4270, NOW(), 'May all your days be filled with lasting love. Apple Music', 20, NOW(), 'Have a wonderful life together Memorial Day', 63.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4270, NOW(), 'May all your days be filled with lasting love. Apple Music', 20, NOW(), 'Have a wonderful life together Memorial Day', 63.00),
 (4271, NOW(), 'My thoughts are with you at your time of need Hulu', 12, NOW(), 'committed bakers Remembrance Day', 11.00),
 (4272, NOW(), 'May it help in some way to know that friends are sharing the sorrow of your heart. Rolex', 24, NOW(), 'Congratulations on a job well done. Mother''s Day', 90.00),
 (4273, NOW(), 'You both deserve a lifetime of beautiful tomorrows. Applebee''s', 11, NOW(), 'Have a holly, jolly Holiday! Easter Monday', 46.00),
@@ -4518,8 +4290,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4287, NOW(), 'Hoping this adds a little extra happy to your holidays. ASM International', 30, NOW(), 'Congratulations on your new bundle of blessing. Samvatsari', 89.00),
 (4288, NOW(), 'Just a little something to say Im thinking of you. Arun', 27, NOW(), 'glowing winter skin Sovereignty Day of Montenegro', 31.00),
 (4289, NOW(), 'Congratulations on your new bundle of joy. Calvin Klein', 29, NOW(), 'For Dainty Jewelry Boxing Day', 87.00),
-(4290, NOW(), 'With friendly thoughts and best wishes for your birthday. Freestyle', 14, NOW(), 'Christmas Certificate Gifts Hari Raya Puasa Holiday', 58.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4290, NOW(), 'With friendly thoughts and best wishes for your birthday. Freestyle', 14, NOW(), 'Christmas Certificate Gifts Hari Raya Puasa Holiday', 58.00),
 (4291, NOW(), 'Wishing you steady improvement until You''re well again. Spavia ', 24, NOW(), 'In loving memory Unification Day', 97.00),
 (4292, NOW(), 'Just want to add my good wishes to those you''ve already received. Bubble Wrap', 27, NOW(), 'Lululemon Gift Certificate New Year''s Day', 89.00),
 (4293, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Netcom', 13, NOW(), 'Remember, youth is wasted on the young. San Martin''s Day', 72.00),
@@ -4538,8 +4309,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4306, NOW(), 'Have fun getting your little cutie all geared up! Pert', 10, NOW(), 'StubHub e-gift card June Day', 56.00),
 (4307, NOW(), 'Thank you for your order. Continuing to serve you will be a pleasure. Herron', 11, NOW(), 'Tune in to a good day. National Heroes'' Day', 60.00),
 (4308, NOW(), 'A hug...a kiss...and lots of love for you on [MOTHER''S/FATHER''S/GRANDPARENTS] Day. Vair spa ', 18, NOW(), 'The Strategist New Year''s Day (in lieu)', 76.00),
-(4309, NOW(), 'Congratulations on your new bundle of joy. Reebok', 20, NOW(), 'LLBean Gift Certificate Boxing Day Holiday', 86.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4309, NOW(), 'Congratulations on your new bundle of joy. Reebok', 20, NOW(), 'LLBean Gift Certificate Boxing Day Holiday', 86.00),
 (4310, NOW(), 'You can use this next time Im being really annoying. Fossil', 18, NOW(), 'Thank you Boxing Day', 67.00),
 (4311, NOW(), 'For your friend whos been carrying around the same wallet since college. PEZ', 17, NOW(), 'Friends are forever! Pentecost Sunday', 90.00),
 (4312, NOW(), 'A little holiday treat from your favorite elf! Bud Light', 14, NOW(), 'Wishing you steady improvement until youre well again. Kwame Nkrumah Memorial Day', 92.00),
@@ -4558,8 +4328,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4325, NOW(), 'You dont have to buy me a thank-you card with this. Aamco', 29, NOW(), 'Mytheresa Gift Certificate Independence Day', 57.00),
 (4326, NOW(), 'We know you have a world full of choices and appreciate that you have selected us. Monterey', 26, NOW(), 'Goodbye time clock! Hello world! Independence Day', 68.00),
 (4327, NOW(), 'May the joy You''re sharing now grow deeper day by day. Cookie Time', 17, NOW(), 'Online Gift Certificate Maundy Thursday', 60.00),
-(4328, NOW(), 'May this Easter warm your heart with peace! Cascade Brewery', 24, NOW(), 'Verishop E-Gift Certificate Children''s Day', 82.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4328, NOW(), 'May this Easter warm your heart with peace! Cascade Brewery', 24, NOW(), 'Verishop E-Gift Certificate Children''s Day', 82.00),
 (4329, NOW(), 'Happy Valentines day, my special one. Your love makes me feel over the moon. Pizza Hut', 25, NOW(), ' May your holiday season be bright. Carnival Monday', 69.00),
 (4330, NOW(), 'I wish that your career and life, just like the round moon on Mid-Autumn Day, be bright and perfect. PANPURI', 20, NOW(), 'I''ll never forget your kindness. Battle of Ayacucho', 12.00),
 (4331, NOW(), 'Selamat Hari Raya Aidilfitri! Wishing you and your family a prosperous and blessing celebration. H&M', 14, NOW(), 'Ganni EGift Certificate Eid Al Fitr Holiday', 57.00),
@@ -4578,8 +4347,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4344, NOW(), 'Wishing you a joyous celebration, Selamat Hari Raya! Samsung', 26, NOW(), 'Casetify Gift Certificate Orthodox Easter Monday', 98.00),
 (4345, NOW(), 'Get yourself a double whatever with an extra shot of something. Quake', 19, NOW(), 'The Sill Gift Certificate National Patriots'' Day', 74.00),
 (4346, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] ABC', 14, NOW(), 'Etsy E-Gift Certificate General Prayer Day', 84.00),
-(4347, NOW(), 'Gourmet dinners. There are people for this. Not me, but you know, other people. Whole Foods Market', 11, NOW(), 'My heart is reaching out to you in sympathy and prayer. Carnival Monday', 86.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4347, NOW(), 'Gourmet dinners. There are people for this. Not me, but you know, other people. Whole Foods Market', 11, NOW(), 'My heart is reaching out to you in sympathy and prayer. Carnival Monday', 86.00),
 (4348, NOW(), 'Inspired? Create and share by tagging @HallmarkStores.  Six Senses Douro Valley', 28, NOW(), 'Virtual Delivery (Email/SMS) Eid Al-Adha Holiday', 96.00),
 (4349, NOW(), 'Because You''re never too old to spend money. Geocell', 27, NOW(), 'Congratulations and best wishes always. Holy Friday', 51.00),
 (4350, NOW(), 'Go see something as epic as you are! Buckle, Inc.', 15, NOW(), 'Thank you with a business touch National Day', 56.00),
@@ -4597,8 +4365,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4362, NOW(), 'Happy Valentines day 2022. May you celebrate love not only this one day but throughout the year. Alinta Gas', 15, NOW(), 'Hallmark Gold Crown New Year''s Day', 99.00),
 (4363, NOW(), 'Offering my/our sincerest condolences to you and your family Chanel', 20, NOW(), 'Same Day Delivery (Order Placed By 1pm) Thanksgiving', 13.00),
 (4364, NOW(), 'A new house is a dream come true. Congrats for the same. Hidden Valley', 13, NOW(), 'Congratulations on a job well done. Easter Monday', 18.00),
-(4365, NOW(), 'Let''s make this Diwali joyous and bright, Let''s celebrate in true sense this Festival of Light! The Cheesecake Factory', 28, NOW(), 'Go get that serotonin rush! National Women''s Day', 20.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4365, NOW(), 'Let''s make this Diwali joyous and bright, Let''s celebrate in true sense this Festival of Light! The Cheesecake Factory', 28, NOW(), 'Go get that serotonin rush! National Women''s Day', 20.00),
 (4366, NOW(), 'Mazel tov on your Bat Mitzvah! [Send to a 13 year old Jewish girl] Jared Galleria', 10, NOW(), 'GameStop Gift Certificate Janmashtami', 54.00),
 (4367, NOW(), 'May your love bring happiness to all your days. American Heart Association', 27, NOW(), 'Telfar E-Gift Certificate Armistice Day', 10.00),
 (4368, NOW(), 'Your business is sincerely appreciated. We look forward to continuing to serve you. Subtle Energies ', 24, NOW(), 'Its always shopping time. Independence Day', 92.00),
@@ -4616,8 +4383,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4380, NOW(), 'Just a little something to show my appreciation. Forrester', 17, NOW(), 'Please accept my/our deepest sympathy Fasching', 64.00),
 (4381, NOW(), 'Were wishing everything wonderful to a wonderful couple. Burns, Philp & Company Ltd.', 21, NOW(), 'Best Buy E-Gift Certificate Eid Milad-un-Nabi', 42.00),
 (4382, NOW(), 'Hope your new home is as special as you are. Hannah Montana', 14, NOW(), 'Studs E-Gift Certificate Independence Day', 29.00),
-(4383, NOW(), 'May you and your family enjoy years of happy times in your new home. Marmot', 30, NOW(), 'For the Pet Parent Christmas Day', 70.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4383, NOW(), 'May you and your family enjoy years of happy times in your new home. Marmot', 30, NOW(), 'For the Pet Parent Christmas Day', 70.00),
 (4384, NOW(), 'Get well soon. Feel better. We miss you! Telequartz', 27, NOW(), 'Everyone needs a spa day! New Year''s Day (in lieu)', 96.00),
 (4385, NOW(), 'Cheers to you! Cheers to your year ahead! Ray-Ban', 22, NOW(), 'Brooklinen E-Gift Certificate Feast of St. Ambrose', 100.00),
 (4386, NOW(), 'May this Hari Raya celebration be the brightest and best you ever had... Wishing you a sparkling Hari Raya! Easy Jet', 28, NOW(), 'My love for you is never-ending and never-fading. It will only increase as days and years pass by. Wishing you a happy valentines day! Mardi Gras', 54.00),
@@ -4636,8 +4402,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4399, NOW(), 'You may be out of sight, but never out of mind. Cox Communications', 18, NOW(), 'Apple E-Gift Certificate Independence Day', 59.00),
 (4400, NOW(), 'Budding beauty bloggers would flip over a gift card from the makeup and scent emporium. Cinzano Vermouth', 13, NOW(), 'Thinking of you Saint Rupert''s Day', 32.00),
 (4401, NOW(), 'No matter the distance between our homes, the distance between our hearts will never change. Coach', 20, NOW(), 'For laughing at all my text reactions in meetings. National Day', 67.00),
-(4402, NOW(), 'For the avid reader who likes to support small businesses. Apivita', 15, NOW(), 'Fashion and accessories Guam Liberation Day', 69.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4402, NOW(), 'For the avid reader who likes to support small businesses. Apivita', 15, NOW(), 'Fashion and accessories Guam Liberation Day', 69.00),
 (4403, NOW(), 'Sending loads of love your way for a speedy recovery! Barrick Gold', 12, NOW(), 'Its just one day in the year, but you should know that I love you every day and every moment. Take my love on this beautiful occasion! All Saints'' Day', 13.00),
 (4404, NOW(), 'You dont have to spend this on lingerie. Im just saying if you wanna American Century', 29, NOW(), 'With heartfelt condolences Meritxell Day', 65.00),
 (4405, NOW(), 'You may be over the hillbut at least you''re still climbing! R. M. Williams', 16, NOW(), 'glowing winter skin All Saints'' Day', 80.00),
@@ -4656,8 +4421,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4418, NOW(), 'See? It was all worth it! Right?? Hofer', 22, NOW(), 'I hope that for every candle on your cake you get a wonderful surprise. Manua Cession Day (in lieu)', 96.00),
 (4419, NOW(), 'Have fun getting your little cutie all geared up! Maudite', 10, NOW(), 'Sephora Gift Certificate Labour Day', 86.00),
 (4420, NOW(), 'Let''s make this Diwali joyous and bright, Let''s celebrate in true sense this Festival of Light! HBO Max', 25, NOW(), 'Thank you for your continued business. We look forward to working with you in the future. Good Friday', 85.00),
-(4421, NOW(), 'Get that dish you love! With food on it! All', 23, NOW(), 'How sweet it is to be loved by you! Day of the State Worker', 44.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4421, NOW(), 'Get that dish you love! With food on it! All', 23, NOW(), 'How sweet it is to be loved by you! Day of the State Worker', 44.00), 
 (4422, NOW(), 'Sorry I missed you. Hope to talk with you soon. Hunt''s', 21, NOW(), 'Hope youre up and about soon. All Saints'' Day', 100.00),
 (4423, NOW(), 'Rejoice! He is watching over you this Easter! Etos', 25, NOW(), 'Remember, youth is wasted on the young. Saint Teresa Canonisation Day', 70.00),
 (4424, NOW(), 'Hoping you find strength with each new day. You are in our thoughts. Cat Chow', 24, NOW(), 'Next Day Delivery Hari Raya Puasa', 38.00),
@@ -4676,8 +4440,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4437, NOW(), 'Wishing you good life, luck and may all your wishes come true Mark''s', 27, NOW(), 'Your business is always appreciated. Anniversary of the Revolution', 28.00),
 (4438, NOW(), 'A warm welcome. Thank you for choosing us! Aunt Jemima', 17, NOW(), 'Casetify Gift Certificate New Year''s Day', 87.00),
 (4439, NOW(), 'Now you can get all the gift-card cards you want! Cif', 27, NOW(), 'committed bakers Christmas Day', 44.00),
-(4440, NOW(), 'Get what you love, love what you get. PayDay', 29, NOW(), 'Lyft Gift Certificate Eid al-Fitr Holiday', 89.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4440, NOW(), 'Get what you love, love what you get. PayDay', 29, NOW(), 'Lyft Gift Certificate Eid al-Fitr Holiday', 89.00),
 (4441, NOW(), 'With you it''s Valentine''s Day 365 days a year. Applebee''s', 13, NOW(), 'a gift card for Dunkin'' Saba Day', 37.00),
 (4442, NOW(), 'For your friend whos been carrying around the same wallet since college. Comcast', 10, NOW(), 'Lowes Gift Certificate New Year''s Day', 39.00),
 (4443, NOW(), 'Another reason to dress up! (Or dress down!) Air France', 11, NOW(), 'Verishop E-Gift Certificate Orthodox Easter Day', 70.00),
@@ -4697,8 +4460,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4457, NOW(), 'A boy is all God has with which to make a man. Aavin', 22, NOW(), 'Madewell E-Gift Certificate Id el Kabir', 51.00),
 (4458, NOW(), U&'Its so nice sharing special moments with a friend like you. Camargo Corr\00c3\00aaa', 29, NOW(), 'Tonights homework: Spend this Eid Al Fitr', 76.00),
 (4459, NOW(), 'You''re in my thoughts and I thought I''d let you know. La Fin du Monde', 28, NOW(), 'Were glad you joined us. New Year''s Day', 25.00),
-(4460, NOW(), 'Just a little something to show my appreciation. Cemex', 16, NOW(), 'reusable nylon tote National Heroes'' Day', 38.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4460, NOW(), 'Just a little something to show my appreciation. Cemex', 16, NOW(), 'reusable nylon tote National Heroes'' Day', 38.00),
 (4461, NOW(), 'I love you just as much as I did on our wedding day. Happy anniversary. Jacuzzi', 17, NOW(), 'Just a cheery note to wish you well. Eid Al-Adha Holiday', 26.00),
 (4462, NOW(), 'If I know what love is, its because of you. Carlton & United Breweries', 17, NOW(), 'With my deepest sympathy Ascension Day', 39.00),
 (4463, NOW(), 'Mi Amor, Te amo! [SPANISH: "My love, I love you"] Astra International', 17, NOW(), 'Wishing you a very warm Birthday. Day of Slavonic Alphabet, Bulgarian Enlightenment and Culture', 60.00),
@@ -4717,8 +4479,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4476, NOW(), 'May God bless you and keep you in His loving care. Betty Crocker', 18, NOW(), 'Wishing you a wonderful day Labour Day', 12.00),
 (4477, NOW(), 'Wishing you a lifetime of love and happiness. Allens', 26, NOW(), 'Have a wonderful life together. Tsagaan Sar Holiday', 46.00),
 (4478, NOW(), 'Wishing you a joyous celebration, Selamat Hari Raya! Bunnings', 16, NOW(), 'Cheer up! Be happy! Keep smiling! Mothering Sunday', 67.00),
-(4479, NOW(), 'Thank you for your friendship, your business and the opportunity to serve you. Igloo', 13, NOW(), '&copy; 2023 Blossom Shoppe New Year''s Day', 29.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4479, NOW(), 'Thank you for your friendship, your business and the opportunity to serve you. Igloo', 13, NOW(), '&copy; 2023 Blossom Shoppe New Year''s Day', 29.00), 
 (4480, NOW(), 'Today is for remembering the happy times you''ve known. Biolage', 16, NOW(), ' You bring joy and love to my life. Eid Al Adha', 95.00),
 (4481, NOW(), 'Because You''re never too old to spend money. PANPURI', 22, NOW(), 'cooling cotton PJs End of Ramadan Day 4', 20.00),
 (4482, NOW(), 'Hope this makes your sweet home even homier. Candy', 17, NOW(), 'Go get that serotonin rush! German Community Day', 65.00),
@@ -4738,8 +4499,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4496, NOW(), 'Thank you for trusting us. We look forward to exceeding your expectations! Hula-Hoop', 27, NOW(), 'Hope they spell your name right. Constitution Day', 68.00),
 (4497, NOW(), 'May the joy of this festive season light your life with love, peace and hope. Selamat Hari Raya! Health2000', 16, NOW(), 'Airbnb Gift Certificate Whit Monday', 66.00),
 (4498, NOW(), 'Congratulations on your new bundle of joy! May your world be filled with love. Spavia ', 30, NOW(), 'excellent last-minute gifts Labour Day', 20.00),
-(4499, NOW(), 'You may be over the hillbut at least you''re still climbing! CPFL', 13, NOW(), 'For the New Homeowner Easter Monday', 86.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4499, NOW(), 'You may be over the hillbut at least you''re still climbing! CPFL', 13, NOW(), 'For the New Homeowner Easter Monday', 86.00),
 (4500, NOW(), 'Life is too short for us to dwell on sadness. Cheer up and live life to the fullest. Pandora', 29, NOW(), ' Remember, youth is wasted on the young. Independence Day', 78.00),
 (4501, NOW(), 'Sugar and spice and all that''s nice, that''s what little girls are made of. Congratulations! Gerber', 16, NOW(), 'Blockbuster, indie, animation, its your call! Christmas Day', 64.00),
 (4502, NOW(), 'Love recognizes no barriers. It jumps hurdles, leaps fences, penetrates walls to arrive at its destination full of hope.  Maya Angelou Aura', 13, NOW(), 'So happy to hear your good news. Christmas Day', 83.00),
@@ -4757,8 +4517,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4514, NOW(), 'A particularly thoughtful gift for your friend who uses their oven to store shoes. Caboodles', 15, NOW(), 'Soko Glam Gift Certificate Dessalines Day', 100.00),
 (4515, NOW(), 'Happy Valentines day, my special one. Your love makes me feel over the moon. Husky Energy', 23, NOW(), 'Gift Certificate Pharses Nativity of Our Lady', 27.00),
 (4516, NOW(), 'Thank you for making your guests feel right at home. Lotto Sport Italia', 25, NOW(), 'Need a travel buddy? Victoria Day', 38.00),
-(4517, NOW(), 'After 10 years, I still feel like we''re newlyweds. Conti', 29, NOW(), 'Not cooking is the most delicious of all. Easter Monday', 62.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4517, NOW(), 'After 10 years, I still feel like we''re newlyweds. Conti', 29, NOW(), 'Not cooking is the most delicious of all. Easter Monday', 62.00), 
 (4518, NOW(), 'Happy 100th birthday. You''re an inspiration to all of us. Rock Spa and Salon ', 19, NOW(), 'Not once did I ever doubt you''d make it. Melaka Governor''s Birthday', 42.00),
 (4519, NOW(), 'May your new little girl/boy bring you joy and happiness. Gueuze', 23, NOW(), 'Williams Sonoma E-Gift Certificate Majority Rule Day', 33.00),
 (4520, NOW(), 'Your kindness comes as a welcome touch of warmth and caring Banco Gradesco', 12, NOW(), 'Virtual Delivery (Email/SMS) Saint Teresa Canonisation Day', 43.00),
@@ -4777,8 +4536,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4533, NOW(), 'Your thoughtfulness meant more than words can ever say. Secret', 29, NOW(), 'Play a little Special Administration Region (SAR) Day', 15.00),
 (4534, NOW(), 'Christmas is the day that holds all time together. Emerson Electric', 16, NOW(), 'Framebridge E-Gift Certificate All Soul''s Day', 89.00),
 (4535, NOW(), 'Choose from a variety of holiday-themed cards so they can browse colorful, bohemian housewares before finding their dream gift. Boston Scientific', 20, NOW(), 'Bookshop Gift Certificate All Saints'' Day', 69.00),
-(4536, NOW(), 'May this Easter warm your heart with peace! Reebok', 26, NOW(), 'Happy house warming! Chinese New Year', 54.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4536, NOW(), 'May this Easter warm your heart with peace! Reebok', 26, NOW(), 'Happy house warming! Chinese New Year', 54.00), 
 (4537, NOW(), 'The hard-to-shop-for guy in your life will find everyday wear as well as gear for just about any outdoor activity at Huckberry. Listerine', 24, NOW(), 'Anthropologie E-Gift Certificate Day of the State Worker', 59.00),
 (4538, NOW(), 'Ihope your birthday was as special as you are. Mr. Pibb', 14, NOW(), 'For Her Wardrobe Essentials All Saints'' Day', 11.00),
 (4539, NOW(), 'Its better than me trying to shop for you, right? Cass', 19, NOW(), 'For Wine Night National Heroes'' Day', 98.00),
@@ -4797,8 +4555,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4552, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! Sephora', 26, NOW(), 'Thank you for your business Carnival Tuesday', 42.00),
 (4553, NOW(), 'Any man can be a father, but it takes someone special to be a Dad. Anne Geddes McDonald''s', 30, NOW(), 'Apple E-Gift Certificate Immaculate Conception Day', 83.00),
 (4554, NOW(), 'For the person who cant stop reading our tech reviews. Nike', 20, NOW(), 'Have a Hallmark moment already. Mahatma Jyotiba Phule Jayanti', 27.00),
-(4555, NOW(), 'Health, wealth and endless joy is what I wish for you and your family this year. ANT1 Group', 16, NOW(), 'Wishing you a blessed Easter! Birth Anniversary Of His Majesty the King', 22.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4555, NOW(), 'Health, wealth and endless joy is what I wish for you and your family this year. ANT1 Group', 16, NOW(), 'Wishing you a blessed Easter! Birth Anniversary Of His Majesty the King', 22.00), 
 (4556, NOW(), 'Only mothers can think of the future - because they give birth to it in their children. Maxim Gorky Vair spa ', 12, NOW(), 'Lisa Says Gah E-Gift Certificate Repentance Day', 36.00),
 (4557, NOW(), 'May your home be filled with Hanukkah light and love. Cheer', 23, NOW(), 'Easter Certificate Ideas Nooruz', 33.00),
 (4558, NOW(), 'Hope youll be improving with each and every day. Dolby Surround', 21, NOW(), 'Hope you''re feeling better Boxing Day', 13.00),
@@ -4817,8 +4574,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4571, NOW(), 'For a cute outfit, plus maybe one for the baby. Looney Tunes', 30, NOW(), 'I hope all your birthday wishes came true. Proclamation of the Republic', 13.00),
 (4572, NOW(), 'Shipping perishables can be logistically difficult, but a Milk Bar gift card wont go bad in the mail. IOPE', 14, NOW(), ' To the world''s greatest [DAD/MOM/GRANDMA]. Prophet''s Birthday', 55.00),
 (4573, NOW(), 'Suitable for Valentine''s Day, Anniversary, Sweetest Day, Just Because... Old Navy', 23, NOW(), 'Christmas Certificate Gifts Independence Day', 60.00),
-(4574, NOW(), 'It was a pleasure to work with you. Embratel', 22, NOW(), 'This is between you and your arteries. Assumption Day (in lieu)', 85.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4574, NOW(), 'It was a pleasure to work with you. Embratel', 22, NOW(), 'This is between you and your arteries. Assumption Day (in lieu)', 85.00),
 (4575, NOW(), 'Get well soon. Feel better. We miss you! Claritin-D', 23, NOW(), 'Watch carefully&dinner is almost here. Christmas Day', 84.00),
 (4576, NOW(), 'Happy 13th birthday to the world''s best teenager. Ram', 10, NOW(), 'Hope this makes your sweet home even homier. New Year''s Day', 63.00),
 (4577, NOW(), 'May your sorrow be eased by good memories. Inco Rogers Communications Empire', 18, NOW(), 'our review of Otherland here Labour Day', 50.00),
@@ -4837,8 +4593,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4590, NOW(), 'Hoping the best things in life will always be yours. Dunkin'' Donuts', 22, NOW(), 'I owe you big time. Christmas Day', 69.00),
 (4591, NOW(), 'Hope this helps bring a smile to your day. Victoria''s Secret', 24, NOW(), 'Being in love with you makes every morning worth getting up for. Independence Day', 77.00),
 (4592, NOW(), 'Your kindness comes as a welcome touch of warmth and caring Pepsi', 21, NOW(), 'Ah-Shi E-Gift Certificate Eid-el-Kibr', 25.00),
-(4593, NOW(), 'They already have their personal beauty favorites. With this gift card, they won''t have to use their precious Sephora points on that new lipstick or foundation. Cascina Verdesole', 16, NOW(), 'famed exercise dress The Birthday of the Buddha', 42.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4593, NOW(), 'They already have their personal beauty favorites. With this gift card, they won''t have to use their precious Sephora points on that new lipstick or foundation. Cascina Verdesole', 16, NOW(), 'famed exercise dress The Birthday of the Buddha', 42.00), 
 (4594, NOW(), 'I wont judge if you spend it all on Cheetos. Nordstrom', 25, NOW(), 'Ganni EGift Certificate Independence Day', 58.00),
 (4595, NOW(), 'And so... The adventure begins! Congratulations on your graduation! Appliances Online', 18, NOW(), 'Islandwide Courier Delivery French National Day', 95.00),
 (4596, NOW(), 'Hoping these words of sympathy will comfort you in your time of sorrow. GranTurismo', 28, NOW(), 'With my deepest sympathy Orthodox Easter Day', 51.00),
@@ -4857,8 +4612,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4609, NOW(), 'No matter the distance between our homes, the distance between our hearts will never change. Kia', 24, NOW(), 'For Leaning into Luxury Easter Day', 92.00),
 (4610, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Coruba', 22, NOW(), 'Get outta here! Tusu Puja', 10.00),
 (4611, NOW(), 'This comes with all my best thoughts for your recovery. Bosch', 28, NOW(), 'You''re the best! Easter Monday', 51.00),
-(4612, NOW(), 'Best wishes on this wonderful journey, as you build your new lives together. Baileys', 27, NOW(), 'The Tiffany Gift Certificate Kurman Ait', 31.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4612, NOW(), 'Best wishes on this wonderful journey, as you build your new lives together. Baileys', 27, NOW(), 'The Tiffany Gift Certificate Kurman Ait', 31.00),
 (4613, NOW(), 'We are born of love; love is our mother. Rumi AIG', 28, NOW(), 'Welcome to the neighborhood. Melbourne Cup Day', 91.00),
 (4614, NOW(), 'May you treasure today forever in your memory. BP', 23, NOW(), 'Happy nesting! Boxing Day', 43.00),
 (4615, NOW(), 'For those his n hers towels. Or something. Bombardier', 21, NOW(), 'Cool Move! Congratulations! Christmas Day', 35.00),
@@ -4876,8 +4630,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4627, NOW(), 'Words are so inadequate at a time like this. New Balance', 28, NOW(), 'This calls for shopping! Eid Al Adha', 26.00),
 (4628, NOW(), 'I hope you consider trying to forgive me. Cif', 29, NOW(), 'Enjoy your retirement. You''ve earned it. Boxing Day', 56.00),
 (4629, NOW(), 'With this gift card, they can choose their own luxury shopping adventure. Nike', 29, NOW(), 'Because youre BREWtiful. Liberation day', 45.00),
-(4630, NOW(), 'Congratulations on finding each other! Your greatest adventure has just begun. Celebrex', 24, NOW(), 'Hanukkah Certificate Gifts Remembrance Sunday', 56.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4630, NOW(), 'Congratulations on finding each other! Your greatest adventure has just begun. Celebrex', 24, NOW(), 'Hanukkah Certificate Gifts Remembrance Sunday', 56.00),
 (4631, NOW(), 'I hope your birthday was all that you hoped for. Timberland', 23, NOW(), 'Dont worry, I still owe you. Christmas Day', 23.00),
 (4632, NOW(), 'Every time you see these blooms, remember someone is thinking of you! EVA Air', 24, NOW(), 'Sending you good vibes with this gift card! Eid Al Adha', 22.00),
 (4633, NOW(), 'They can spend it on the latest games and entertainment like movies, TV, music, apps, and more.&nbsp; Agip', 19, NOW(), 'Go spa yourself! Govardhan Puja', 92.00),
@@ -4896,8 +4649,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4646, NOW(), 'Your kindness comes as a welcome touch of warmth and caring Aavin', 26, NOW(), 'Virtual Delivery (Email/SMS) Easter Monday', 14.00),
 (4647, NOW(), 'I hurt you, but I didnt mean to Please forgive me! Iced VoVo', 18, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Proclamation Day', 92.00),
 (4648, NOW(), 'For the person who has been a jet-setter since getting vaccinated. KFC', 17, NOW(), 'face planters and dumpling lights Constitution Day', 61.00),
-(4649, NOW(), 'God could not be everywhere, and therefore he made mothers. Rudyard Kipling Adidas', 23, NOW(), 'You deserve all the nice things. Easter Sunday', 94.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4649, NOW(), 'God could not be everywhere, and therefore he made mothers. Rudyard Kipling Adidas', 23, NOW(), 'You deserve all the nice things. Easter Sunday', 94.00),
 (4650, NOW(), 'Look what the bunny found in the carrot patch! Happy Easter! Taj Mahal Tea', 15, NOW(), 'Bravo! Your hard work has truly paid off. National Day', 91.00),
 (4651, NOW(), 'For the person who loves classic leather goods. FX', 14, NOW(), 'Turning a year older calls for a little splurge, am I right? (Im right.) British Columbia Day', 86.00),
 (4652, NOW(), 'Were wishing everything wonderful to a wonderful couple. De Bortoli Wines', 26, NOW(), ' Mazel tov on your Bar Mitzvah! [Send to a 13 year old Jewish boy] Janmashtami', 10.00),
@@ -4916,8 +4668,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4665, NOW(), 'Thoughts of you always bring me a smile. Nestle', 12, NOW(), ' To the world''s greatest [DAD/MOM/GRANDMA]. Easter Monday', 42.00),
 (4666, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Banana Republic', 12, NOW(), 'Hope your hospital stay is a short one. Bank Holiday', 49.00),
 (4667, NOW(), 'We appreciate your business and your confidence in us. Quality Bakers', 17, NOW(), 'Because pizza aint free. Recreation Day', 97.00),
-(4668, NOW(), 'If I were asked to define motherhood. I would have defined it as love in its purest form. Unconditional love. Revathi Sankaran Audio-Technica', 11, NOW(), 'Online Gift Certificate Eid Al Adha', 63.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4668, NOW(), 'If I were asked to define motherhood. I would have defined it as love in its purest form. Unconditional love. Revathi Sankaran Audio-Technica', 11, NOW(), 'Online Gift Certificate Eid Al Adha', 63.00),
 (4669, NOW(), 'May the Festival of Lights lend a glow to your year. Escalade', 22, NOW(), 'New hears for your ears! Hari Raya Puasa Holiday', 99.00),
 (4670, NOW(), 'May your memories be a source of comfort at this time. 7 For all Mankind', 13, NOW(), ' They say you only fall in love once, but that can''t be true... Every time I look at you, I fall in love all over again. Janmashtami', 85.00),
 (4671, NOW(), 'Hope your special day is made up of sharing warm and happy memories. Auchan', 12, NOW(), 'For Absolutely Anything Barahimizong', 61.00),
@@ -4936,8 +4687,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4684, NOW(), 'My heart is reaching out to you in sympathy and prayer. Starbucks', 25, NOW(), 'Treat yourself. Youve earned it. Good Friday', 37.00),
 (4685, NOW(), 'Words are inadequate at a time like this. Please accept my heartfelt sympathy. Lexus', 23, NOW(), 'With my deepest sympathy Labour Day', 17.00),
 (4686, NOW(), 'This is for that one time when that one thing happened. Credit Mutual', 29, NOW(), 'Lululemon Gift Certificate Canada Day', 16.00),
-(4687, NOW(), 'May the joy of this festive season light your life with love, peace and hope. Selamat Hari Raya! Boost Juice', 14, NOW(), 'Personal anniversary Good Friday', 24.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4687, NOW(), 'May the joy of this festive season light your life with love, peace and hope. Selamat Hari Raya! Boost Juice', 14, NOW(), 'Personal anniversary Good Friday', 24.00),
 (4688, NOW(), 'For the person who spends all their money on their pet anyway. Lufthansa', 12, NOW(), 'You did it! Congratulations! Traditional Day of Offering', 93.00),
 (4689, NOW(), 'Selamat Hari Raya Aidilfitri! Wishing you a joyous celebration and prosperous days ahead. Red Bull', 25, NOW(), ' I hope you consider trying to forgive me. The first weekday after Christmas Day', 95.00),
 (4690, NOW(), 'May happiness &amp; love move in with you. Bank of Queensland', 17, NOW(), 'Hoping each new day will find you feeling better. Juneteenth', 25.00),
@@ -4956,8 +4706,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4703, NOW(), 'Send me a postcard with a kitten on it. Embratel', 27, NOW(), 'Many thanks for all you do. Mujahideen Victory Day', 37.00),
 (4704, NOW(), 'With this gift card, they can choose their own luxury shopping adventure. Foot Locker', 14, NOW(), ' Be mine. Eid al-Fitr Holiday', 99.00),
 (4705, NOW(), 'I hope that for every candle on your cake you get a wonderful surprise. Liz Claiborne', 14, NOW(), 'Ganni EGift Certificate Remembrance Day', 43.00),
-(4706, NOW(), 'I am wishing you a great sense of accomplishment as you celebrate your hard work. PNC Financial', 22, NOW(), 'Urban Stems Classic Flower Subscription Labour Day', 28.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4706, NOW(), 'I am wishing you a great sense of accomplishment as you celebrate your hard work. PNC Financial', 22, NOW(), 'Urban Stems Classic Flower Subscription Labour Day', 28.00),
 (4707, NOW(), 'Get what you love, love what you get. Language History', 16, NOW(), 'Every time I see you, I fall in love all over again. New Year''s Day', 84.00),
 (4708, NOW(), 'You can use this next time Im being really annoying. Under Armour', 23, NOW(), 'Love as powerful as your mothers for you leaves its own mark  to have been loved so deeply .. will give us some protection forever. J.K. Rowling Unification Day', 92.00),
 (4709, NOW(), 'No matter the distance between our homes, the distance between our hearts will never change. Feldschlosschen', 14, NOW(), 'ASOS E-Gift Certificate Obon', 64.00),
@@ -4975,8 +4724,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4721, NOW(), 'Congratulations on your new home and all of the memories that it will soon house. Red Lobster', 16, NOW(), 'Hope your birthday''s as terrific as you are. Virgin of Los Angeles Day', 24.00),
 (4722, NOW(), 'Keep smiling and one day life will get tired of upsetting you! Cheer up! DaKine', 13, NOW(), 'You + Me = Forever Korit', 87.00),
 (4723, NOW(), U&'Im more thankful than mere words can ever tell J\00c3\00a4germeister', 26, NOW(), 'Merry Christmas! May your happiness be large and your bills be small. Easter Sunday', 34.00),
-(4724, NOW(), 'A Headspace subscription isn''t just a one-off gift. It''s a way for your loved ones to build a more mindful routine. DeWALT', 22, NOW(), 'Thank you for choosing us. Nikini Full Moon Poya', 36.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4724, NOW(), 'A Headspace subscription isn''t just a one-off gift. It''s a way for your loved ones to build a more mindful routine. DeWALT', 22, NOW(), 'Thank you for choosing us. Nikini Full Moon Poya', 36.00),
 (4725, NOW(), 'Best wishes for a little progress and a little encouragement everyday during your recuperation. Air China', 10, NOW(), 'Thank you for your support Christmas Day', 47.00),
 (4726, NOW(), 'It was a pleasure to work with you. Center Fresh', 24, NOW(), 'Mejuri Digital Gift Certificate The first working day after the Day before Easter', 74.00),
 (4727, NOW(), 'You bring joy and love to my life. New Balance', 18, NOW(), 'This is a day to remember. Christmas Day', 74.00),
@@ -4995,8 +4743,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4740, NOW(), 'Just a little thanks for the big way you showed up for me. AXA', 22, NOW(), 'Not bragging, but this gift rocks! Eid Al Adha', 45.00),
 (4741, NOW(), 'You both deserve the very best that life can bring you. Miller', 27, NOW(), 'Get Well Soon Wishes Thimphu Tshechu Holiday', 89.00),
 (4742, NOW(), 'May the future be filled with much happiness. 9-3', 20, NOW(), 'Travel and experiential Eid Al Adaha', 98.00),
-(4743, NOW(), 'A friend is someone you can lean on Brite', 29, NOW(), 'Get Well Soon Bank Holiday', 69.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4743, NOW(), 'A friend is someone you can lean on Brite', 29, NOW(), 'Get Well Soon Bank Holiday', 69.00),
 (4744, NOW(), 'Words are so inadequate at a time like this. Roma', 11, NOW(), 'Soooooo thoughtful! Women''s Day', 23.00),
 (4745, NOW(), 'May the promise of Easter fill you with peace and joy! John Deere', 15, NOW(), 'Wishing you health and longevity. Independence Day', 46.00),
 (4746, NOW(), 'Congratulations on your new bundle of joy. Cheetos', 19, NOW(), 'Shopbop E-Gift Certificate Birth Anniversary Of His Majesty the King Holiday', 38.00),
@@ -5014,8 +4761,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4758, NOW(), 'Good results are attained through hard work. Happy graduation! Progresso', 13, NOW(), 'Wishing you a speedy recovery! Martyrs'' Day', 97.00),
 (4759, NOW(), 'A mothers arms are more comforting than anyone elses. Princess Diana Hainan Airlines', 15, NOW(), 'Hope its all half off! Easter Monday', 90.00),
 (4760, NOW(), 'No matter the distance between our homes, the distance between our hearts will never change. Cafe de Coral', 20, NOW(), 'Way to go&shopping! Easter Monday', 45.00),
-(4761, NOW(), 'If you really dont know them at all, anywhere Amex is accepted, theyll be able to swipe this gift card, too. Blockbuster', 21, NOW(), 'Soooooo thoughtful! That Luang Festival', 36.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4761, NOW(), 'If you really dont know them at all, anywhere Amex is accepted, theyll be able to swipe this gift card, too. Blockbuster', 21, NOW(), 'Soooooo thoughtful! That Luang Festival', 36.00), 
 (4762, NOW(), 'For the home-improvement obsessive in your life. Wolters Kluwer', 22, NOW(), 'Dream big! (Heres some dream fuel to help.) Corpus Christi', 63.00),
 (4763, NOW(), 'Just a little something to show my appreciation. Acuvue', 26, NOW(), 'Hulu E-Gift Certificate Indigenous People''s Day', 33.00),
 (4764, NOW(), 'You both deserve a lifetime of beautiful tomorrows. Art Institute International', 15, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Struggle for Freedom and Democracy Day', 88.00),
@@ -5034,8 +4780,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4777, NOW(), 'Day and everyday, hope you know how much you''re loved. Traynor Amplifiers', 19, NOW(), 'For the New Homeowner Three King''s Day', 49.00),
 (4778, NOW(), 'Bravo! Your hard work has truly paid off. Robitussin', 21, NOW(), 'Reformation E-Gift Certificate Ascension Day', 58.00),
 (4779, NOW(), 'Suitable for Valentine''s Day, Anniversary, Sweetest Day, Just Because... Garnier', 20, NOW(), 'Thanks for all your help Victory of the Islamic Emirate', 34.00),
-(4780, NOW(), 'Just a note to keep in touch. Lets talk soon. Tidal', 15, NOW(), ' Hope your new home is as special as you are. Christmas Day', 70.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4780, NOW(), 'Just a note to keep in touch. Lets talk soon. Tidal', 15, NOW(), ' Hope your new home is as special as you are. Christmas Day', 70.00), 
 (4781, NOW(), 'Sending loads of love your way for a speedy recovery! Haywards', 18, NOW(), 'For Getting Active Death Anniversary of Zhabdrung', 43.00),
 (4782, NOW(), 'Great news! You wont have to return this. Beaver Buzz', 20, NOW(), 'Wishing you a speedy recovery! Orthodox Easter Monday', 65.00),
 (4783, NOW(), 'Whatever they spend this on, you can be sure they''ll get something great that''ll last them for years.&nbsp; Osram', 11, NOW(), 'For a special friend The Prophet''s Ascension', 11.00),
@@ -5054,8 +4799,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4796, NOW(), 'Thinking of you. May you feel better soon. ESPA', 12, NOW(), 'Outdoor Voices E-Gift Certificate Remna Ni', 65.00),
 (4797, NOW(), 'May God bless you on your graduation day. Angel Soft', 20, NOW(), 'Just touching base with you Durga Puja', 16.00),
 (4798, NOW(), 'I hope you consider trying to forgive me. Gerber', 15, NOW(), 'Tonights homework: Spend this Emancipation Tuesday', 34.00),
-(4799, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Breyer''s', 13, NOW(), 'New Home Housewarming Certificate Gifts Official holiday announced on Christmas, New Year', 75.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4799, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Breyer''s', 13, NOW(), 'New Home Housewarming Certificate Gifts Official holiday announced on Christmas, New Year', 75.00),
 (4800, NOW(), 'We do not remember days, we remember moments. Clinique', 20, NOW(), 'Edie Parker E-Gift Certificate Christmas Day', 18.00),
 (4801, NOW(), 'Help the cord cutter in your life upgrade to Hulu+, which comes with live TV. Pottery Barn', 16, NOW(), 'Time for a passport! New Year''s Day (in lieu)', 59.00),
 (4802, NOW(), 'Day and everyday, hope you know how much you''re loved. Breyer''s', 23, NOW(), 'For Endless Accessorizing National Heroes and Heroines Day', 15.00),
@@ -5075,8 +4819,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4816, NOW(), 'Sending you my warm wishes full of love, peace and prosperity on Hari Raya Aidilfitri. Salam Aidilfitri! Accenture', 13, NOW(), 'Get Well Eid Al Fitr Holiday', 42.00),
 (4817, NOW(), 'Roses are red, violets are blue, I am so happy that I love you! Miko', 21, NOW(), 'Enjoy your trip! Orozo Ait', 81.00),
 (4818, NOW(), 'For the person who takes remote work to whole new level. Chicco', 20, NOW(), 'Revolve Gift Certificate Easter Monday', 94.00),
-(4819, NOW(), 'Parenthood is one of the best journeys in life. Enjoy the ride. PetroChina', 19, NOW(), 'Kitty Guo Independence Day', 56.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4819, NOW(), 'Parenthood is one of the best journeys in life. Enjoy the ride. PetroChina', 19, NOW(), 'Kitty Guo Independence Day', 56.00),
 (4820, NOW(), 'Congratulations, and best of luck in your future endeavors. QNX', 17, NOW(), 'A Florist 2.0 website. Ui Ariki Day', 99.00),
 (4821, NOW(), 'For the thing that wouldnt fit on Santas sleigh. The North Face', 27, NOW(), 'Saks Fifth Avenue E-Gift Certificate Easter Monday', 61.00),
 (4822, NOW(), 'Thinking of you. May you feel better soon. Altronics Australia', 27, NOW(), 'Thank you for the vote of confidence. New Year''s Eve', 34.00),
@@ -5094,8 +4837,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4834, NOW(), 'So glad to work with you. Consider this a bonus! Ann Taylor', 17, NOW(), 'May love always live in the home that you share. Day after New Year''s Day', 77.00),
 (4835, NOW(), 'You deserve all the feel-good you can get. Renaissance Indian Wells Resort and Spa', 17, NOW(), 'Thank you with a personal touch Korit', 92.00),
 (4836, NOW(), 'Gift them a Hulu gift card so they can watch all their favorites from under a pile of blankets.&nbsp; Clear Eyes', 19, NOW(), 'Wishing you a special birthday Orthodox Good Friday', 95.00),
-(4837, NOW(), 'May a river of gold flow into your pockets. Rock Spa and Salon ', 22, NOW(), 'Birthday Certificate Gift Good Friday', 39.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4837, NOW(), 'May a river of gold flow into your pockets. Rock Spa and Salon ', 22, NOW(), 'Birthday Certificate Gift Good Friday', 39.00),
 (4838, NOW(), 'Gift cards: Almost as magical as flying reindeer. Crate & Barrel', 17, NOW(), 'The Sorel Gift Certificate Sir Seretse Khama Day', 77.00),
 (4839, NOW(), 'Cheers to you! Cheers to your year ahead! Habib''s', 16, NOW(), 'Because we just too pretty to cook. National Foundation Day', 100.00),
 (4840, NOW(), U&'I know  life isnt fair sometimes. Im here and I care. Herm\00e8s', 28, NOW(), 'Chinese New Year Corpus Christi', 27.00),
@@ -5115,8 +4857,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4854, NOW(), 'Is your birthday wish a gift card? Because 579', 27, NOW(), 'Bless your new life as husband and wife. Thiruvalluvar Day', 25.00),
 (4855, NOW(), 'You are my angel sent from Heaven above. Happy Valentine''s Day Cadbury', 15, NOW(), 'Easter Certificate Ideas All Saints'' Day', 70.00),
 (4856, NOW(), 'I hope you consider trying to forgive me. Omega', 17, NOW(), 'Travel and experiential Full Moon of Thadingyut Holiday Holiday', 93.00),
-(4857, NOW(), 'Hoping this adds a little extra happy to your holidays. Next', 12, NOW(), 'Retirement Certificate Gifts Second Day of Christmas', 71.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4857, NOW(), 'Hoping this adds a little extra happy to your holidays. Next', 12, NOW(), 'Retirement Certificate Gifts Second Day of Christmas', 71.00), 
 (4858, NOW(), 'I never know what to get you&but you do! Corvette', 24, NOW(), 'Netflix EGift Certificate Good Friday', 90.00),
 (4859, NOW(), 'Hoping this adds a little extra happy to your holidays. IWC Schaffhausen', 24, NOW(), 'The love you share makes this day special. All Souls'' Day', 20.00),
 (4860, NOW(), 'And so... The adventure begins! Congratulations on your graduation! Clinique', 21, NOW(), 'Rack up some reward miles! Eid Al Adha', 82.00),
@@ -5134,8 +4875,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4872, NOW(), 'There is only one happiness in this life, to love and be loved. George Sand Nash Timbers', 25, NOW(), 'I would choose you again and again. Happy Valentine''s Day to the woman of my dreams. New Year''s Day', 23.00),
 (4873, NOW(), 'My love for you grows stronger every year. Disney+', 20, NOW(), 'Thinking of you. May you feel better soon. New Year''s Holiday', 36.00),
 (4874, NOW(), 'May God bless you and keep you in His loving care. Corelle', 17, NOW(), 'J.Crew Gift Certificate Maha Shivaratri', 45.00),
-(4875, NOW(), 'For the person who cant stop reading our tech reviews. Jared Galleria', 27, NOW(), 'BaubleBar Digital Gift Certificate First Day of Ramadhan', 47.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4875, NOW(), 'For the person who cant stop reading our tech reviews. Jared Galleria', 27, NOW(), 'BaubleBar Digital Gift Certificate First Day of Ramadhan', 47.00),
 (4876, NOW(), 'Know a person whose entire personality is their pet? They''ll love an excuse to buy their furry best friend another treat. Shure', 19, NOW(), 'Just touching base with you Good Friday', 22.00),
 (4877, NOW(), 'Thank you for the referral. Your confidence and trust in us is sincerely appreciated. MSN', 24, NOW(), 'Lunya Gift Certificate Nunavut Day', 83.00),
 (4878, NOW(), 'Who doesn''t love buttery soft fabric, comfortable workout attire and cool athleisure? We know we do! AMC Theatres', 10, NOW(), 'How your home has been blessed with a new baby. Labour Day (in lieu)', 55.00),
@@ -5154,8 +4894,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4891, NOW(), 'Every time you see these blooms, remember someone is thinking of you! Bausch & Lomb', 11, NOW(), 'Nice work, Mom and Dad! Bihar Divas', 68.00),
 (4892, NOW(), 'Just a little something from me to you. Rolex', 23, NOW(), 'The Tiffany Gift Certificate Maha Saptami', 56.00),
 (4893, NOW(), 'Not cooking is the most delicious of all. Reebok', 24, NOW(), 'StubHub e-gift card Christmas Day', 92.00),
-(4894, NOW(), 'The newly engaged couple on your list will be overjoyed with whatever dent this makes in their wedding expenses. Highlander', 28, NOW(), 'best things to buy Christmas Holiday', 37.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4894, NOW(), 'The newly engaged couple on your list will be overjoyed with whatever dent this makes in their wedding expenses. Highlander', 28, NOW(), 'best things to buy Christmas Holiday', 37.00), 
 (4895, NOW(), 'How can I begin to say I''m sorry. I didn''t mean to upset you. I hope that you can forgive me. Kilsen', 11, NOW(), 'Spotify E-Gift Certificate Ascension Day', 94.00),
 (4896, NOW(), 'May you treasure today forever in your memory. Nutrisse', 13, NOW(), 'Make your own food pyramid Hari Raya Puasa Holiday', 57.00),
 (4897, NOW(), 'Your love is the best Christmas gift I could ever receive. Merry Christmas, sweetheart! Starbucks', 29, NOW(), 'Soooooo thoughtful! Statehood Day', 53.00),
@@ -5174,8 +4913,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4910, NOW(), 'If their bathroom cabinets are filled with sheet masks and serums, theyll probably be delighted by the gift of K-beauty from Soko Glam. HP', 19, NOW(), 'Nike Digital Gift Certificate Summer Day', 57.00),
 (4911, NOW(), 'Thinking of youhope all is well. Let me know if I can help in any way. EHarmony.com', 19, NOW(), 'Thank you for your time Constitution Day', 82.00),
 (4912, NOW(), 'Im more thankful than mere words can ever tell Martha Stewart Living', 17, NOW(), '&copy; 2023 Blossom Shoppe Christmas Day', 77.00),
-(4913, NOW(), 'I couldnt log on to your registry because I forget every password ever. Bubblicious', 24, NOW(), ' Wishing you the beauty of spring and the spirit of love this Easter! Eid al-Fitr Holiday', 98.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4913, NOW(), 'I couldnt log on to your registry because I forget every password ever. Bubblicious', 24, NOW(), ' Wishing you the beauty of spring and the spirit of love this Easter! Eid al-Fitr Holiday', 98.00),
 (4914, NOW(), 'Thank you from the bottom of my heart. Cracker Barrel', 29, NOW(), 'Happy Mid-Autumn Festival! Mother''s Day', 57.00),
 (4915, NOW(), 'Congratulations! May your dreams always be big and your worries small. Versace', 29, NOW(), 'Get well soon Easter Monday', 18.00),
 (4916, NOW(), 'Get yourself some brain food. (Yes, pizza is brain food.) Timberland', 22, NOW(), 'Hulu E-Gift Certificate Christmas Day', 45.00),
@@ -5194,8 +4932,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4929, NOW(), 'To happy endings and new beginnings. Congratulations! Chip''s Ahoy', 12, NOW(), 'Yay for you! King''s Birthday', 59.00),
 (4930, NOW(), U&'Mother, the ribbons of your love are woven around my heart. Anonymous Citro\00c3\00abn', 20, NOW(), 'Get what you love, love what you get. Pa Togan Nengminza Sangma', 96.00),
 (4931, NOW(), 'Santa needed help saving space in his sack. Pantene', 21, NOW(), 'Wishing you health and longevity So Paulo Anniversary', 61.00),
-(4932, NOW(), 'Day and everyday, hope you know how much you''re loved. Schloss Elmau', 23, NOW(), 'Wishing you everything happy for your birthday. Christmas Day', 47.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4932, NOW(), 'Day and everyday, hope you know how much you''re loved. Schloss Elmau', 23, NOW(), 'Wishing you everything happy for your birthday. Christmas Day', 47.00),
 (4933, NOW(), 'Find a song to get stuck in your head. Chanel', 24, NOW(), 'Get Well Soon Wishes Eid Milad-un-Nabi', 48.00),
 (4934, NOW(), 'Thinking of you. May you feel better soon. Columbia', 21, NOW(), 'Islandwide Courier Delivery Kimbangu Day', 34.00),
 (4935, NOW(), 'Hope youll be in the best of health soon. Aeropostale', 21, NOW(), 'Big Night EGift Certificate Independence Day', 59.00),
@@ -5215,8 +4952,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4949, NOW(), 'Life is the flower for which love is the honey.  Victor Hug Curves', 18, NOW(), 'For Tech Savvy Teens Columbus Day', 60.00),
 (4950, NOW(), 'Warm, brown elixir of life, we pray to thee. Australian Healthcare Technology Limited', 30, NOW(), 'Wishing you good life, luck and may all your wishes come true New Year''s Day', 54.00),
 (4951, NOW(), 'Dont blow it all on popcorn! Or do. Its your choice really. Canyon Ranch ', 24, NOW(), 'Fresh Direct E-Gift Certificate Emancipation Day', 20.00),
-(4952, NOW(), 'All of my heart, I send to you. All of my life, I''ll spend with you. I love you! Australia Asia Airlines', 18, NOW(), 'Its so nice sharing special moments with a friend like you. Proclamation Day', 43.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4952, NOW(), 'All of my heart, I send to you. All of my life, I''ll spend with you. I love you! Australia Asia Airlines', 18, NOW(), 'Its so nice sharing special moments with a friend like you. Proclamation Day', 43.00),
 (4953, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Mambo Graphics', 29, NOW(), 'Accident or Illness Eid Al Adha Holiday', 82.00),
 (4954, NOW(), 'Wishing you the beauty of spring and the spirit of love this Easter! Ricola', 25, NOW(), 'Hallmark Gold Crown Immaculate Conception Day', 86.00),
 (4955, NOW(), 'Congratulations on finding each other! Your greatest adventure has just begun. Air New Zealand', 21, NOW(), 'Huckberry E-Gift Certificate Labour Day', 13.00),
@@ -5235,8 +4971,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4968, NOW(), 'Love is a good reason for a gift card. Baby Mild', 24, NOW(), 'BYO red carpet Victory Day', 33.00),
 (4969, NOW(), U&'For the person currently subsidizing five different streamers. Victoria\2019s Secret', 28, NOW(), 'Thank you with a personal touch Carnival Monday', 18.00),
 (4970, NOW(), 'Please accept these flowers and hear the words we are not able to speak Kamala', 22, NOW(), 'Coach E-Gift Certificate Easter Monday', 43.00),
-(4971, NOW(), 'The love you share makes this day special. AMG', 11, NOW(), 'Parachute Digital Gift Certificate Swiss Federal Fast', 50.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4971, NOW(), 'The love you share makes this day special. AMG', 11, NOW(), 'Parachute Digital Gift Certificate Swiss Federal Fast', 50.00),
 (4972, NOW(), 'Because You''re never too old to spend money. Codelco', 22, NOW(), 'To love! Our Lady of Mercedes Day', 31.00),
 (4973, NOW(), 'Congratulations and best wishes for a succesful future. Cheap Monday', 25, NOW(), 'A star is born. Easter Sunday', 81.00),
 (4974, NOW(), 'For the ecoconscious person with a KN95 subscription. Gucci', 30, NOW(), 'Treat yourself you''ve earned it Whit Monday', 70.00),
@@ -5255,8 +4990,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (4987, NOW(), 'Just the beginning of successes for you. Congrats! LensCrafters', 11, NOW(), 'I hate to see you feeling blue so here is my get well wish to you. Good Friday', 54.00),
 (4988, NOW(), 'Your thoughtfulness meant more than words can ever say. Elmer''s', 23, NOW(), 'Thanks for another great year! Christmas Day', 81.00),
 (4989, NOW(), 'Thinking of you and wishing you a happy day. Humana', 28, NOW(), 'Lululemon Gift Certificate Easter Monday', 49.00),
-(4990, NOW(), 'So you can keep looking better than me. AWB Limited', 12, NOW(), 'I hope that for every candle on your cake you get a wonderful surprise. Israk Mikraj', 81.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(4990, NOW(), 'So you can keep looking better than me. AWB Limited', 12, NOW(), 'I hope that for every candle on your cake you get a wonderful surprise. Israk Mikraj', 81.00), 
 (4991, NOW(), 'I''ll never forgive myself...but I''m hoping you will. I''m sorry. E.Leclerc', 13, NOW(), 'Soooooo thoughtful! Carnival Monday', 82.00),
 (4992, NOW(), 'Get well soon. Feel better. We miss you! Australian Submarine Corporation', 11, NOW(), 'Wishing you a joyous celebration, Selamat Hari Raya! Genocide Memorial Day', 11.00),
 (4993, NOW(), 'Our thoughts are with you. Get well soon! Thinking of you. Gucci', 19, NOW(), 'StubHub e-gift card National Day for Truth and Reconciliation', 95.00),
@@ -5275,8 +5009,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5006, NOW(), 'For laughing at all my text reactions in meetings. IHOP', 17, NOW(), 'Business anniversary Hari Raya Aidil Fitri Holiday', 71.00),
 (5007, NOW(), 'Hoping you two are blessed with many more years together. Abercrombie & Fitch', 29, NOW(), 'When God shuts a door, he opens a window. Constitution Day (in lieu)', 92.00),
 (5008, NOW(), 'Congratulations and best wishes for a succesful future. Altra', 14, NOW(), 'Father''s Day Sankranti', 88.00),
-(5009, NOW(), 'Even though your family feels so complete&I thought you might be able to use this. JBL', 24, NOW(), 'Have a holly, jolly Holiday! All Souls'' Day', 71.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5009, NOW(), 'Even though your family feels so complete&I thought you might be able to use this. JBL', 24, NOW(), 'Have a holly, jolly Holiday! All Souls'' Day', 71.00),
 (5010, NOW(), 'The 18 Very Best Sunscreens for Your Face Acsa Argentina', 16, NOW(), 'Accident or Illness Eid Al Fitr', 74.00),
 (5011, NOW(), 'The 18 Very Best Sunscreens for Your Face Hennessy', 17, NOW(), 'Let''s make this Diwali joyous and bright, Let''s celebrate in true sense this Festival of Light! New Year''s Day', 30.00),
 (5012, NOW(), 'Sending you Christmas cheer that lasts throughout the year! Irish Spring', 12, NOW(), 'On this joyous occasion, may you be blessed with happiness and your home be graced with warmth and peace! Selamat Hari Raya! New Year''s Holiday', 18.00),
@@ -5294,8 +5027,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5024, NOW(), 'The 18 Very Best Sunscreens for Your Face ABC Learning', 22, NOW(), 'Goldbelly Gift Certificate San Martin''s Day', 93.00),
 (5025, NOW(), 'Wish you a very happy Diwali, may this festival of light always enlighten the path of success for you! Ferrero Rocher', 30, NOW(), 'Warm wishes on your 30th birthday. Ancestors'' Day', 45.00),
 (5026, NOW(), 'You get better with every year. Happy 50th birthday! Honda', 21, NOW(), 'You did it! Congratulations! Democracy Day', 20.00),
-(5027, NOW(), 'You''re a gift in my life. And not the kind Id return for store credit. Merry Christmas! Hungry-Man', 29, NOW(), 'Don''t eat the eye cucumbers. Genocide Memorial Day', 46.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5027, NOW(), 'You''re a gift in my life. And not the kind Id return for store credit. Merry Christmas! Hungry-Man', 29, NOW(), 'Don''t eat the eye cucumbers. Genocide Memorial Day', 46.00),
 (5028, NOW(), 'For the person who loves classic leather goods. Vair spa ', 21, NOW(), 'The Sill Gift Certificate Danish Constitution Day', 45.00),
 (5029, NOW(), 'Simply  and perfectly  designed T-shirts, casual pants, sweaters, and accessories for men and women. Hertz', 14, NOW(), 'For Endless Accessorizing Orthodox Easter Monday', 69.00),
 (5030, NOW(), 'You have 12 days of Christmas to spend this. Tidal', 29, NOW(), 'Best Buy E-Gift Certificate New Year''s Eve', 57.00),
@@ -5313,8 +5045,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5042, NOW(), 'Sending you good vibes with this gift card! Rolex', 27, NOW(), 'Amazon E-Gift Certificate Public Holiday', 66.00),
 (5043, NOW(), 'Something hot for someone&who has a lot of nice qualities. Old Navy', 23, NOW(), 'Hope this makes your sweet home even homier. Respect for the Aged Day', 51.00),
 (5044, NOW(), U&'Thank you, your thoughtfulness really put sunshine in my day. Herm\00e8s', 13, NOW(), 'Sending prayers and hearty Christmas greetings to you. May you receive the most special of Gods blessings during this amazing Christmas season! President declares 6 February a public holiday', 23.00),
-(5045, NOW(), 'Good results are attained through hard work. Happy graduation! Citibank', 22, NOW(), ' Thank you for your encouragement and support always. Ayudha Puja', 21.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5045, NOW(), 'Good results are attained through hard work. Happy graduation! Citibank', 22, NOW(), ' Thank you for your encouragement and support always. Ayudha Puja', 21.00),
 (5046, NOW(), 'Sending you Christmas cheer that lasts throughout the year! Fannie Mae', 12, NOW(), 'Escape to someplace pretty! King''s Birthday', 97.00),
 (5047, NOW(), 'Every product is independently selected by (obsessive) editors. Things you buy through our links may earn usa commission. Gold''n Plump', 24, NOW(), 'Bookshop Gift Certificate Kurban Ait', 25.00),
 (5048, NOW(), 'We appreciate your business and your confidence in us. Downer EDi', 11, NOW(), 'Happiness is having a friend like you. Gospel Day', 92.00),
@@ -5333,8 +5064,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5061, NOW(), 'Wishing you a Happy Birthday and many more to come. Adidas', 20, NOW(), 'For impractical purchases only. Awal Muharram', 31.00),
 (5062, NOW(), 'The worlds a better place because of people like you. Lee Kim Kee', 23, NOW(), 'For Leaning into Luxury Hari Raya Aidil Adha', 72.00),
 (5063, NOW(), 'A beautiful soul deserves beautiful things in life. Congratulations! Kaiser Permanente', 18, NOW(), 'Thank you for choosing us Maundy Thursday', 74.00),
-(5064, NOW(), 'May you enjoy a long and wonderful retirement. Erste Group', 16, NOW(), 'We wish you all the happiness the coming years can hold. Easter Monday', 82.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5064, NOW(), 'May you enjoy a long and wonderful retirement. Erste Group', 16, NOW(), 'We wish you all the happiness the coming years can hold. Easter Monday', 82.00),
 (5065, NOW(), 'Warm, brown elixir of life, we pray to thee. No Name', 25, NOW(), 'Eater Wine Club Gift Certificate Ascension Day', 90.00),
 (5066, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. Zara', 16, NOW(), 'Congratulations on your well-deserved success. Fiji Day', 50.00),
 (5067, NOW(), 'Not just a year older, but a year better. Max Factor', 17, NOW(), 'Good luck in the year ahead. New Year''s Day', 30.00),
@@ -5353,8 +5083,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5080, NOW(), 'Thank you for your encouragement and support always. Georgia-Pacific', 10, NOW(), 'Thanks for being there Sukkot', 76.00),
 (5081, NOW(), 'Sending warm greetings and sincere wishes for a happy and prosperous Raya. Selamat Hari Raya! Lolly Gobble Bliss Bombs', 29, NOW(), 'Don''t eat the eye cucumbers. King Charles III''s Coronation', 71.00),
 (5082, NOW(), 'You eat food, right? I know you so well. Microsoft', 23, NOW(), 'You both share a special love. Christmas Day', 14.00),
-(5083, NOW(), 'My hero, my helper, my friend, my dad. Happy Fathers Day! Hollys Coffee', 23, NOW(), 'It''s your day to shine! Labour Day', 20.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5083, NOW(), 'My hero, my helper, my friend, my dad. Happy Fathers Day! Hollys Coffee', 23, NOW(), 'It''s your day to shine! Labour Day', 20.00), 
 (5084, NOW(), 'So you can keep looking better than me. Cinnabon', 25, NOW(), 'Nordstrom E-Gift Certificate Eid Kbir Holiday', 41.00),
 (5085, NOW(), 'Hope your birthday''s as terrific as you are. AirElite', 20, NOW(), 'American Express eGift Certificate Nowruz Holiday', 35.00),
 (5086, NOW(), 'You make the world a more beautiful place. Bugatti', 29, NOW(), 'Happy house warming! Yennayer', 96.00),
@@ -5372,8 +5101,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5098, NOW(), 'For the home-improvement obsessive in your life. Accent', 25, NOW(), 'Amazon Gift Certificate Birth Anniversary of the 3rd Druk Gyalpo', 87.00),
 (5099, NOW(), 'Thank you for your order. Continuing to serve you will be a pleasure. Reebok', 15, NOW(), 'After every storm the sun will smile; for every problem there is a solution, and the souls indefeasible duty is to be of good cheer. Adelaide Cup', 45.00),
 (5100, NOW(), 'For your friend who always has a Slow Burn candle on deck. Honda', 25, NOW(), 'Love makes a house a home St. Stephen''s Day', 64.00),
-(5101, NOW(), 'Wishing you lots of luck and happiness in the year ahead. Mr. Juicy', 12, NOW(), 'Outdoor Voices Gift Certificate Diwali', 24.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5101, NOW(), 'Wishing you lots of luck and happiness in the year ahead. Mr. Juicy', 12, NOW(), 'Outdoor Voices Gift Certificate Diwali', 24.00),
 (5102, NOW(), '[NAME] will always be in our hearts and memories. With Sympathy, The [YOUR LAST NAME] Family Macy''s', 27, NOW(), 'Kitty Guo Christmas Day', 80.00),
 (5103, NOW(), 'You dont have to spend this on lingerie. Im just saying if you wanna Carnival Cruise Lines', 27, NOW(), 'Time to say buy-buy! Carnival Tuesday', 55.00),
 (5104, NOW(), 'Happy New Year! You make our family so proud, and we wish you nothing but continued success and happiness. Bally Total Fitness', 20, NOW(), 'We sincerely appreciate your business. Behdienkhlam', 71.00),
@@ -5391,8 +5119,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5116, NOW(), 'Congratulations on the birth of you new baby [BOY/GIRL] Centro Properties Group', 26, NOW(), 'You make the world a more beautiful place. Mother''s Day', 21.00),
 (5117, NOW(), 'God could not be everywhere, and therefore he made mothers. Rudyard Kipling Boggle', 18, NOW(), 'Indulge, darling. Hijri New Year', 17.00),
 (5118, NOW(), 'Wishing you all the goodness in the world and all the  this gift card can buy. Steve Madden', 26, NOW(), 'Get out of Dodge Whit Monday', 82.00),
-(5119, NOW(), 'May you create countless memories in your new home. BHP Billiton', 17, NOW(), 'The worlds a better place because of people like you. Easter Monday', 34.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5119, NOW(), 'May you create countless memories in your new home. BHP Billiton', 17, NOW(), 'The worlds a better place because of people like you. Easter Monday', 34.00),
 (5120, NOW(), 'The waiting is finally over and you have a bundle of joy to love. Business Week', 10, NOW(), ' Think of the years as gold bullion...and you''re rich! Ramazan Bayrami', 69.00),
 (5121, NOW(), 'You take my breath away...today and every day. Ariston', 28, NOW(), 'meal delivery kit Whit Monday', 65.00),
 (5122, NOW(), 'You''re so great Im really glad you turned out to be MY dad!Happy Fathers Day! Dunkin''', 29, NOW(), 'Romantic Certificate Gifts (Valentine''s Day/Sweetest Day) Easter Sunday', 73.00),
@@ -5411,8 +5138,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5135, NOW(), 'Let''s make this Diwali joyous and bright, Let''s celebrate in true sense this Festival of Light! Aalberts Industries', 30, NOW(), 'Make your own food pyramid Good Friday', 55.00),
 (5136, NOW(), 'You are the sun to my sky and the color of my life. I love you to infinity and beyond. Beetle', 23, NOW(), 'Tonights homework: Spend this Plateau State Anniversary', 81.00),
 (5137, NOW(), 'Hoping this adds a little extra happy to your holidays. Colgate', 14, NOW(), 'Lululemon Gift Certificate Worker''s Day', 52.00),
-(5138, NOW(), 'A new house is a dream come true. Congrats for the same. CNP Assurances', 20, NOW(), 'With concern and caring sympathy Independence Day', 68.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5138, NOW(), 'A new house is a dream come true. Congrats for the same. CNP Assurances', 20, NOW(), 'With concern and caring sympathy Independence Day', 68.00),
 (5139, NOW(), 'So sorry You''re dealing with so much! Hope this makes things 1% better. Pacifica', 12, NOW(), 'For a special friend. Father''s Day', 76.00),
 (5140, NOW(), 'How your home has been blessed with a new baby. Country Energy', 14, NOW(), 'May this Easter warm your heart with peace! Assumption Day', 83.00),
 (5141, NOW(), 'Just a little something to say Im thinking of you. AWB Limited', 15, NOW(), 'Macys E-Gift Certificate October Revolution Day', 15.00),
@@ -5431,8 +5157,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5154, NOW(), 'Happy Valentines Day to the most beautiful woman I know. Badan Baden', 15, NOW(), 'You make the world a more beautiful place. Holy Week Holiday', 24.00),
 (5155, NOW(), 'Happy 13th birthday to the world''s best teenager. Celia', 28, NOW(), 'Gift Certificate Pharses Easter Monday', 23.00),
 (5156, NOW(), 'This comes with all my best thoughts for your recovery. Dior', 10, NOW(), 'Yummy for you! New Year''s Day Holiday', 29.00),
-(5157, NOW(), 'The love you share makes this day special. ANCA', 29, NOW(), 'Get something newlywed-y! Orthodox Christmas Eve', 46.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5157, NOW(), 'The love you share makes this day special. ANCA', 29, NOW(), 'Get something newlywed-y! Orthodox Christmas Eve', 46.00), 
 (5158, NOW(), 'Drivers, watch the road! Someone just turned 16! ABB Grain Limited', 10, NOW(), 'Belated birthday Eid Al-Adha Holiday', 82.00),
 (5159, NOW(), 'Hope youll be in the best of health soon. HDFC Bank', 26, NOW(), 'Take your homebody out shopping! Durga Puja', 65.00),
 (5160, NOW(), 'May God be with you at this time. Babor', 28, NOW(), 'the top pick in our buying guide Good Friday', 69.00),
@@ -5450,8 +5175,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5172, NOW(), 'Depending on the recipient and how much they enjoy their home-improvement tasks, this may be the most exciting gift they receive during the holidays. France Telecom', 12, NOW(), 'Twitch E-Gift Certificate Day of National Sovereignty', 17.00),
 (5173, NOW(), 'May you treasure today forever in your memory. Badoit', 14, NOW(), 'Fruit and Gourmet Baskets Whit Monday', 61.00),
 (5174, NOW(), 'Are you a banana? Because I find you a-peel-ing. Happy Valentine''s Day my love. Whole Foods Market', 15, NOW(), 'New Home Housewarming Certificate Gifts National Heroes and Benefactors Day (in lieu)', 93.00),
-(5175, NOW(), 'F-antastic, A-wesome, T-errific, H-onorable, E-xcellent, R-emarkable. This sums up my dad. Happy Fathers Day! Coach', 16, NOW(), 'The best is yet to come! Christmas Day', 46.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5175, NOW(), 'F-antastic, A-wesome, T-errific, H-onorable, E-xcellent, R-emarkable. This sums up my dad. Happy Fathers Day! Coach', 16, NOW(), 'The best is yet to come! Christmas Day', 46.00),
 (5176, NOW(), 'If they love candles but you''re not sure of what scents they like, they can choose their own at Otherland. Insurance Australia Group', 26, NOW(), 'education and personal development editor Easter Monday', 62.00),
 (5177, NOW(), 'Have fun getting your little cutie all geared up! Elements Massage ', 12, NOW(), 'Youre wished a lifetime of love. Grand Final Eve', 29.00),
 (5178, NOW(), 'Your thoughtfulness meant more than words can ever say. Steve Madden', 22, NOW(), 'Je t''aime [FRENCH: "I love you"] Father''s Day', 75.00),
@@ -5469,8 +5193,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5190, NOW(), 'May happiness &amp; love move in with you. Outback Steakhouse', 15, NOW(), 'I may not be with you at all times, but I want you to know that you are never out of my heart. I love you! Women''s Day', 79.00),
 (5191, NOW(), 'Get what you love, love what you get. Burger King', 21, NOW(), 'Your thoughtfulness meant more than words can ever say. New Year''s Day', 92.00),
 (5192, NOW(), 'Go see something as epic as you are! Avis', 28, NOW(), 'Easter Certificate Ideas Day after New Year''s Day (in lieu)', 26.00),
-(5193, NOW(), 'The power of a dad in a childs life is unmatched. Justin Ricklefs 579', 27, NOW(), 'Graduation Certificate Ideas Christmas Day', 61.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5193, NOW(), 'The power of a dad in a childs life is unmatched. Justin Ricklefs 579', 27, NOW(), 'Graduation Certificate Ideas Christmas Day', 61.00),
 (5194, NOW(), 'Sending my best wishes to make you feel better. Get well soon! Advil', 11, NOW(), 'A Florist 20 website Unity Day', 46.00),
 (5195, NOW(), 'The future belongs to those who believe in the beauty of their dreams. Congratulations! Badan Baden', 23, NOW(), 'For a Guest Room Upgrade Easter Monday', 19.00),
 (5196, NOW(), 'Just a little thanks for the big way you showed up for me. Astra International', 21, NOW(), 'Big Night EGift Certificate Second Day of Christmas', 56.00),
@@ -5488,8 +5211,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5208, NOW(), 'May you enjoy a long and wonderful retirement. West Elm', 17, NOW(), 'Mid Autumn Festival Easter Day', 27.00),
 (5209, NOW(), 'This cosmetics brand is a great place to give a gift card to, with plenty of affordable options to shop for all ages. Bang & Olufsen', 27, NOW(), 'Reformation E-Gift Certificate Saint Rupert''s Day', 46.00),
 (5210, NOW(), 'Christmas is the day that holds all time together. Affin Bank', 20, NOW(), 'This is between you and your arteries. Women''s Day', 38.00),
-(5211, NOW(), 'They say that life is not a waste as long as you have one person that cares for you in the world. Whenever something gets you down, just remember that you have me! La Reserve Geneve', 16, NOW(), 'You can through with flying colors. Independence Day', 29.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5211, NOW(), 'They say that life is not a waste as long as you have one person that cares for you in the world. Whenever something gets you down, just remember that you have me! La Reserve Geneve', 16, NOW(), 'You can through with flying colors. Independence Day', 29.00),
 (5212, NOW(), 'A mothers arms are more comforting than anyone elses. Princess Diana CPIC', 27, NOW(), 'Thoughts of you always bring me a smile. Christmas Day', 80.00),
 (5213, NOW(), 'For the person currently subsidizing five different streamers. Ray-Ban', 10, NOW(), 'Easter Certificate Ideas Christmas Day', 17.00),
 (5214, NOW(), 'Thank you for making me feel so comfortable Texas Roadhouse', 20, NOW(), 'Hope you''re feeling better Losar', 33.00),
@@ -5508,8 +5230,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5227, NOW(), U&'A beautiful soul deserves beautiful things in life. Congratulations! Linens \00e2\0080\0098n Things', 12, NOW(), 'Time for a passport! Ashura', 65.00),
 (5228, NOW(), 'You have worked hard; now enjoy reaping the benefits! Friesland Bank', 15, NOW(), 'Madewell E-Gift Certificate Christmas Day', 49.00),
 (5229, NOW(), 'My love for you grows stronger every year. Lowe''s', 30, NOW(), '40 is the new 30. Happy Birthday! Public Holiday', 46.00),
-(5230, NOW(), 'Happy Valentines Day to the most special person in my life. Changyu', 29, NOW(), 'Islandwide Courier Delivery Labour Day', 50.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5230, NOW(), 'Happy Valentines Day to the most special person in my life. Changyu', 29, NOW(), 'Islandwide Courier Delivery Labour Day', 50.00), 
 (5231, NOW(), 'Great Joness good-looking cookware has been approved by multiple experts for its durability and how easy it is to clean. Austar', 12, NOW(), 'Hulu E-Gift Certificate Royal Plowing Ceremony', 67.00),
 (5232, NOW(), 'May you receive lots of red envelopes and have a wonderful family gathering (without facing the annoying question, Why Are You Still Single?) Happy New Year! Lambic', 12, NOW(), 'Don''t sweat shipping delays Blessed Rainy Day', 97.00),
 (5233, NOW(), 'May the promise of Easter fill you with peace and joy! Company Naming', 27, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] Eid ul-Adha', 28.00),
@@ -5528,8 +5249,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5246, NOW(), 'You take my breath away...today and every day. Doritos', 10, NOW(), 'Fashion and accessories Parsi New Year', 59.00),
 (5247, NOW(), 'Hope this makes your sweet home even homier. DTDC', 12, NOW(), 'BaubleBar Digital Gift Certificate Good Friday', 48.00),
 (5248, NOW(), 'May God be with you at this time. Snack Pack', 25, NOW(), 'Congratulations! Keep up the good work. New Year''s Day', 64.00),
-(5249, NOW(), 'Best wishes for today and every day in the future. Hy-Vee', 28, NOW(), 'Outdoor Voices E-Gift Certificate Orthodox Christmas', 66.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5249, NOW(), 'Best wishes for today and every day in the future. Hy-Vee', 28, NOW(), 'Outdoor Voices E-Gift Certificate Orthodox Christmas', 66.00),
 (5250, NOW(), 'Dont burn your mouth. You''re already hot enough. 5', 10, NOW(), 'For Their Fitness Resolutions Flag Day', 76.00),
 (5251, NOW(), 'May you create countless memories in your new home. Credit Agricole', 14, NOW(), 'Fun fact: Wedded bliss often involves shopping. Holy Saturday', 71.00),
 (5252, NOW(), 'For the shopper who looks forward to Nordstroms reliably good Half-Yearly and Anniversary sales. Hollister', 20, NOW(), 'Congratulations on your beautiful home. Independence Day', 92.00),
@@ -5547,8 +5267,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5264, NOW(), 'How sweet it is to be loved by you! Gueuze', 12, NOW(), ' I wish I could be there with you. Know that you are with me in my thoughts. Gaura Festival', 84.00),
 (5265, NOW(), 'Best wishes for a joyous Christmas filled with love, happiness and prosperity! Boots', 23, NOW(), 'Get you some yum! New Year''s Holiday', 54.00),
 (5266, NOW(), 'Good results are attained through hard work. Happy graduation! Sonos', 26, NOW(), 'You made my day! Father''s Day', 43.00),
-(5267, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Babor', 22, NOW(), 'How your home has been blessed with a new baby. New Year''s Day (in lieu)', 13.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5267, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Babor', 22, NOW(), 'How your home has been blessed with a new baby. New Year''s Day (in lieu)', 13.00),
 (5268, NOW(), 'Someone is turning the BIG 3 - 0! Celebrate! Gerber', 13, NOW(), 'For the New Homeowner Good Friday', 71.00),
 (5269, NOW(), 'For the person currently subsidizing five different streamers. Lime Wood', 15, NOW(), 'Evolve Together Digital Gift Certificate Independence Day', 96.00),
 (5270, NOW(), 'Winter boot season is coming. Don''t leave them out in the cold. Nicoderm', 13, NOW(), ' How sweet it is to be loved by you! Orthodox Easter Day', 57.00),
@@ -5567,8 +5286,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5283, NOW(), 'Sending loads of love your way for a speedy recovery! Norton', 18, NOW(), 'J.Crew Gift Certificate Holy Saturday', 22.00),
 (5284, NOW(), 'Bless your new life as husband and wife. Civic', 28, NOW(), 'Were glad you joined us Kuwait sets Feb 19, 26, 27 as public holidays for Al-Israa wal Miraj, national day festivities', 48.00),
 (5285, NOW(), 'Thinking of you. May you feel better soon. Toblerone', 21, NOW(), 'Areaware Gift Certificate Losar', 32.00),
-(5286, NOW(), 'For anyone who might appreciate some especially colorful new home goods. Banco Rio de la Plata SA', 10, NOW(), 'Congratulations on your special day Fourth Onam', 80.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5286, NOW(), 'For anyone who might appreciate some especially colorful new home goods. Banco Rio de la Plata SA', 10, NOW(), 'Congratulations on your special day Fourth Onam', 80.00),
 (5287, NOW(), 'Like a fine wine, you improve with age. Jergens', 18, NOW(), 'Congratulations on your beautiful home Christmas Day', 49.00),
 (5288, NOW(), 'Sugar and spice and all that''s nice, that''s what little girls are made of. Congratulations! ConnectEast', 28, NOW(), 'committed bakers Janmashtami', 68.00),
 (5289, NOW(), 'Merry Christmas! May your happiness be large and your bills be small. Neutrogena', 27, NOW(), 'You have 12 days of Christmas to spend this. Veterans Day (in lieu)', 87.00),
@@ -5586,8 +5304,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5301, NOW(), 'Just the beginning of successes for you. Congrats! Alex and Ani', 24, NOW(), 'Apple EGift Certificate Carnival', 61.00),
 (5302, NOW(), 'If you follow our monthly hauls you''ve probably seen us mention home dcor from Hay dozens of times. Any Strat stan will have no problem filling their cart with some of our favorite items. Dusit Thani', 15, NOW(), 'Congratulations on your big day! New Year''s Holiday', 46.00),
 (5303, NOW(), 'May the promise of Easter fill you with peace and joy! Next', 11, NOW(), 'Ask for the dessert menu Meritxell Day', 42.00),
-(5304, NOW(), 'The 16 Very Best Moisturizers for Mature Skin  Six Senses Douro Valley', 12, NOW(), 'Fun fact: Wedded bliss often involves shopping. Orthodox Easter Monday', 72.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5304, NOW(), 'The 16 Very Best Moisturizers for Mature Skin  Six Senses Douro Valley', 12, NOW(), 'Fun fact: Wedded bliss often involves shopping. Orthodox Easter Monday', 72.00), 
 (5305, NOW(), 'Look what the bunny found in the carrot patch! Happy Easter! Australian Ethanol Limited', 26, NOW(), 'Smiles are the best medicine. All Saints'' Day', 32.00),
 (5306, NOW(), 'Sending loads of love your way for a speedy recovery! Accord', 15, NOW(), ' Not once did I ever doubt you''d make it. Labour Day (in lieu)', 24.00),
 (5307, NOW(), U&'Sending loads of hugs and kisses. I hope they make you feel happy and healthy. 361\00b0', 20, NOW(), 'Rebag Digital Gift Certificate Water Festival Ceremony Holiday', 20.00),
@@ -5605,8 +5322,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5319, NOW(), 'You dont have to spend this on lingerie. Im just saying if you wanna Safeway', 15, NOW(), 'It''s your day to shine! Establishment Day', 94.00),
 (5320, NOW(), 'You bring joy and love to my life. Red Lobster', 11, NOW(), 'A new house is a dream come true. Congrats for the same. Birthday of Prophet Muhammed', 56.00),
 (5321, NOW(), 'Mi Amor, Te amo! [SPANISH: "My love, I love you"] Ellininki Radiofonia Tileoriasi', 18, NOW(), 'Outdoor Voices Gift Certificate Day of Slavonic Alphabet, Bulgarian Enlightenment and Culture', 87.00),
-(5322, NOW(), 'Great results come from hard work. Well done! Aetna', 16, NOW(), ' &copy; 2023 Vox Media, LLC. All rights reserved. Holiday Holiday', 74.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5322, NOW(), 'Great results come from hard work. Well done! Aetna', 16, NOW(), ' &copy; 2023 Vox Media, LLC. All rights reserved. Holiday Holiday', 74.00),
 (5323, NOW(), 'So you can keep looking better than me. Bubble O'' Bill', 27, NOW(), 'Kudos to you! Youve earned them. New Year''s Day', 44.00),
 (5324, NOW(), 'Congratulations on your new bundle of joy. Dole', 29, NOW(), 'Wishing you life''s best today and always. Al-Hijra', 48.00),
 (5325, NOW(), 'Santa needed help saving space in his sack. Nerf', 28, NOW(), 'Wishing you health and longevity Summer Day', 14.00),
@@ -5625,8 +5341,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5338, NOW(), 'Go see another rom-com (on me this time). Max Mara', 13, NOW(), 'Youre off to a beautiful beginning. Mid-Autumn Festival', 57.00),
 (5339, NOW(), 'A father is someone you look up to no matter how tall you grow. Unknown Arla', 11, NOW(), 'Gong Hei Fatt Choy! Tabaski', 15.00),
 (5340, NOW(), 'I have a special mother, this I truly know. I could not ask for better, my mother, I love her so. Julie Hebert Nippon Paint', 29, NOW(), 'West Elm E-Gift Certificate Independence Day', 24.00),
-(5341, NOW(), 'Words are so inadequate at a time like this. Cielo', 30, NOW(), 'This calls for shopping! Christmas Day and Family Day', 20.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5341, NOW(), 'Words are so inadequate at a time like this. Cielo', 30, NOW(), 'This calls for shopping! Christmas Day and Family Day', 20.00),
 (5342, NOW(), '&lt;&Not precisely equal to my exact level of gratitude&but its a start. Singapore Airlines', 11, NOW(), 'For Their Fitness Resolutions Ash Wednesday', 37.00),
 (5343, NOW(), 'Housing products for face, body, hair and more, The Body Shop sells something for everyone. They won''t be disappointed with this one. Anne Klein', 16, NOW(), 'Thanks for another great year! Independence Day', 10.00),
 (5344, NOW(), 'Congratulations on your new bundle of joy. Bacardi', 10, NOW(), 'A mother is not a person to lean on, but a person to make leaning unnecessary. Dorothy Canfield Fisher Independence Day', 44.00),
@@ -5644,8 +5359,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5356, NOW(), 'Your kindness comes as a welcome touch of warmth and caring Pampers', 21, NOW(), 'H&M Gift Certificate Id-Ul-Fitr', 99.00),
 (5357, NOW(), 'We share in your celebration of the new life you created! Swiffer', 27, NOW(), 'Shopbop E-Gift Certificate Naadam Holiday', 99.00),
 (5358, NOW(), 'May this Easter warm your heart with peace! EasyShare', 17, NOW(), 'Happy nesting! Eid Al Adha', 21.00),
-(5359, NOW(), 'Here''s a housewarming gift for the friend getting ready to decorate their next space. Texas Roadhouse', 19, NOW(), 'This Christmas, may your family be functional and all your batteries be included Father''s Day', 49.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5359, NOW(), 'Here''s a housewarming gift for the friend getting ready to decorate their next space. Texas Roadhouse', 19, NOW(), 'This Christmas, may your family be functional and all your batteries be included Father''s Day', 49.00),
 (5360, NOW(), 'Frogs and snails and puppy-dogs'' tails, that''s what little boys are made of. JetBlue', 30, NOW(), 'Pamper yourself pretty! Pentecost Sunday', 24.00),
 (5361, NOW(), 'May the future be filled with much happiness. Under Armour', 23, NOW(), 'Hari Raya Holy Week Holiday', 41.00),
 (5362, NOW(), 'Hope your birthday''s as terrific as you are. Dyson', 12, NOW(), 'Babies are Gods miracles Emancipation Day', 35.00),
@@ -5664,8 +5378,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5375, NOW(), 'Thank you from the bottom of my heart. Next', 18, NOW(), 'Graduation Certificate Ideas Idul Fitri', 52.00),
 (5376, NOW(), 'Bless your new life as husband and wife. Alinta Gas', 30, NOW(), 'Today is for remembering the happy times youve known. Ayyankali Jayanthi', 83.00),
 (5377, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Gucci', 15, NOW(), 'Eater Wine Club Gift Certificate Boxing Day', 12.00),
-(5378, NOW(), 'I hope you consider trying to forgive me. Dr. Martens', 27, NOW(), 'Goldbelly Gift Certificate Day of Victory', 83.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5378, NOW(), 'I hope you consider trying to forgive me. Dr. Martens', 27, NOW(), 'Goldbelly Gift Certificate Day of Victory', 83.00),
 (5379, NOW(), 'Thank you for meeting with me. If you need anything, Im only a phone call away. Jif', 26, NOW(), 'Urban Outfitters EGift Certificate Independent Czechoslovak State Day', 90.00),
 (5380, NOW(), 'Every time I see you, I fall in love all over again. All', 17, NOW(), '[DAD/MOM/GRANDMA] you are my inspiration. Labour Day', 24.00),
 (5381, NOW(), 'Its a big world out there&go explore it! Alliance Bank', 13, NOW(), 'Get well soon Pentecost Monday', 12.00),
@@ -5683,8 +5396,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5393, NOW(), 'Your name has been synonymous with success! Congratulations! DSM', 20, NOW(), 'So you can keep looking better than me. Eid Al-Adha', 38.00),
 (5394, NOW(), 'Thank you for your encouragement and support always. H&M', 22, NOW(), ' Lots of love on your 40th birthday. Orthodox Palm Sunday', 82.00),
 (5395, NOW(), U&'Every product is independently selected by (obsessive) editors. Things you buy through our links may earn usa commission. Macy\2019s', 13, NOW(), 'You: Great! Me: Grateful! International Women''s Day', 86.00),
-(5396, NOW(), 'Were wishing everything wonderful to a wonderful couple. Night', 19, NOW(), 'Christmas Certificate Gifts Eid Milad-un-Nabi', 84.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5396, NOW(), 'Were wishing everything wonderful to a wonderful couple. Night', 19, NOW(), 'Christmas Certificate Gifts Eid Milad-un-Nabi', 84.00),
 (5397, NOW(), 'Sending you my warm wishes full of love, peace and prosperity on Hari Raya Aidilfitri. Salam Aidilfitri! ASB', 29, NOW(), 'Trust me, youll need this. Mawlid', 32.00),
 (5398, NOW(), 'Sharing in your happiness and wishing you all the best. Lean Cuisine', 20, NOW(), 'Virtual Delivery (Email/SMS) Easter Monday', 59.00),
 (5399, NOW(), 'Travel money for your trip to happily ever after. Amul', 13, NOW(), 'Apple E-Gift Certificate Reconciliation Day', 19.00),
@@ -5703,8 +5415,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5412, NOW(), 'Get well soon. Feel better. We miss you! Banco Popular', 14, NOW(), 'May the future be filled with much happiness. Mother''s Day', 11.00),
 (5413, NOW(), 'Happy Birthday and many happy returns of the day. Pottery Barn', 28, NOW(), 'A friend is forever! Good Friday', 97.00),
 (5414, NOW(), 'Cant wait for your review of this movie. Air India', 24, NOW(), 'Uber Gift Certificate Corpus Christi', 41.00),
-(5415, NOW(), 'For your friend whos been carrying around the same wallet since college. Jaeger-Le Coultre', 10, NOW(), 'Mytheresa Gift Certificate Tabaski', 85.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5415, NOW(), 'For your friend whos been carrying around the same wallet since college. Jaeger-Le Coultre', 10, NOW(), 'Mytheresa Gift Certificate Tabaski', 85.00),
 (5416, NOW(), 'Hoping this finds you well on the way to recovery. Mirvac Group', 10, NOW(), 'Coach E-Gift Certificate National Day', 65.00),
 (5417, NOW(), 'Let them pick a matching set or a new slate of workout gear. Exxon Mobil', 26, NOW(), 'The 11 Very Best Protein Powders Bank Holiday', 51.00),
 (5418, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Guararapes', 19, NOW(), 'Congratulations on a well-deserved promotion Easter Monday', 94.00),
@@ -5722,8 +5433,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5430, NOW(), 'With friendly thoughts and best wishes for your birthday. Sephora', 16, NOW(), 'You have no item in your shopping cart. Father''s Day', 49.00),
 (5431, NOW(), 'Gift cards: Almost as magical as flying reindeer. Goody''s', 22, NOW(), 'Congratulations on achieving a milestone. Here''s to a great future. Late Summer Bank Holiday', 76.00),
 (5432, NOW(), U&'To happy endings and new beginnings. Congratulations! 85\00b0C', 30, NOW(), 'Short and Simple Yennayer', 22.00),
-(5433, NOW(), 'When God shuts a door, he opens a window. Luxardo', 10, NOW(), 'Because this family shops! New Year''s Day', 24.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5433, NOW(), 'When God shuts a door, he opens a window. Luxardo', 10, NOW(), 'Because this family shops! New Year''s Day', 24.00), 
 (5434, NOW(), 'How do you expect me to remember your birthday, when you never look any older? Babor', 26, NOW(), 'Thinking of you Labour Day', 59.00),
 (5435, NOW(), 'Just the beginning of successes for you. Congrats! About Us', 28, NOW(), 'Hope you feel better soon. Good Friday', 13.00),
 (5436, NOW(), 'Ihope your birthday was as special as you are. Propel', 24, NOW(), 'Good luck in the year ahead. Ramadan Bajram', 49.00),
@@ -5741,8 +5451,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5448, NOW(), 'For your friend who always has a Slow Burn candle on deck. Cartier', 24, NOW(), 'Lowes Gift Certificate Victory Day', 74.00),
 (5449, NOW(), 'You''ve stolen my heart. I know it''s in good hands. H&M', 20, NOW(), 'With heartfelt condolences Martyrdom of Imam Ali', 29.00),
 (5450, NOW(), 'The 18 Very Best Sunscreens for Your Face Imtech', 14, NOW(), 'Hat''s off to the graduate. Congratulations! Carnival Tuesday', 83.00),
-(5451, NOW(), 'Your name has been synonymous with success! Congratulations! Chimei', 16, NOW(), 'Reformation E-Gift Certificate New Year''s Day', 40.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5451, NOW(), 'Your name has been synonymous with success! Congratulations! Chimei', 16, NOW(), 'Reformation E-Gift Certificate New Year''s Day', 40.00), 
 (5452, NOW(), 'Get something for yourself next time you go to Hallmark. Bellsouth', 13, NOW(), 'The more candles, the bigger the wish. Christmas Day', 78.00),
 (5453, NOW(), 'When God shuts a door, he opens a window. Longines', 18, NOW(), 'ClassPass E-Gift Certificate Independence Day', 47.00),
 (5454, NOW(), 'I hope this comes in handy on your adventure! Adidas', 27, NOW(), ' I can''t thank you enough, so please accept my flowers as a small token of my appreciation. Independence Day', 11.00),
@@ -5762,8 +5471,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5468, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Camry', 23, NOW(), 'Shopbop E-Gift Certificate New Year''s Day', 70.00),
 (5469, NOW(), 'To my wife, my soul mate, my love, my life. U.S. Army', 21, NOW(), 'Share New Year''s Eve', 46.00),
 (5470, NOW(), 'At Macys, theyll be able pick out whatever they want in any number of categories  from clothing to beauty products to homewares. Hershey''s', 15, NOW(), 'everything to know Azerbaijani Victory Day', 62.00),
-(5471, NOW(), 'Go see something as epic as you are! Tidal', 17, NOW(), 'Christmas Certificate Gifts New Year''s Day', 85.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5471, NOW(), 'Go see something as epic as you are! Tidal', 17, NOW(), 'Christmas Certificate Gifts New Year''s Day', 85.00), 
 (5472, NOW(), 'For the thing that wouldnt fit on Santas sleigh. Capital One', 27, NOW(), 'In loving memory Armistice Day', 38.00),
 (5473, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Group Sense PDA', 25, NOW(), 'For Absolutely Anything Easter Monday', 83.00),
 (5474, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Baron Otard Cognacs', 26, NOW(), 'Enjoy your trip! Independence Day', 87.00),
@@ -5782,8 +5490,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5487, NOW(), 'Merry Christmas! May your happiness be large and your bills be small. Ergon S.A.', 28, NOW(), 'Hope youll be feeling frisky again in no time. St. Joseph''s Day', 24.00),
 (5488, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Audio-Technica', 28, NOW(), 'Personal anniversary Bengali New Year', 27.00),
 (5489, NOW(), 'Mother''s love is the fuel that enables a normal human being to do the impossible. Marion C. Garretty Cheap Monday', 26, NOW(), 'With Warmest congratulations. Boxing Day', 27.00),
-(5490, NOW(), 'Thank you from the bottom of my heart. Korres', 18, NOW(), 'Thanks for all your help New Year''s Day', 59.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5490, NOW(), 'Thank you from the bottom of my heart. Korres', 18, NOW(), 'Thanks for all your help New Year''s Day', 59.00),
 (5491, NOW(), 'Your business is appreciated. Thank you for choosing us. Humana', 23, NOW(), ' You get better with every year. Happy 50th birthday! Orthodox Easter Tuesday', 31.00),
 (5492, NOW(), 'Is your birthday wish a gift card? Because Bridgestone', 25, NOW(), 'Revolve Gift Certificate Christmas Eve', 95.00),
 (5493, NOW(), 'Wish I could be there to give this to you myselfmiss you! Acer', 13, NOW(), 'Christmas Certificate Gifts Labour Day', 39.00),
@@ -5802,8 +5509,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5506, NOW(), 'Sending you good vibes with this gift card! Banrisul', 14, NOW(), 'Bandier Digital Gift Certificate Christmas Day', 25.00),
 (5507, NOW(), 'Im there for you on rough days and spa days. Max Mara', 16, NOW(), 'Nike Digital Gift Certificate Christchurch Show Day', 45.00),
 (5508, NOW(), 'In loving memory of [NAME], [HE/SHE] will be missed dearly. ICICI Bank', 13, NOW(), 'With special thanks and much appreciation. Feast of St. Paul''s shipwreck', 23.00),
-(5509, NOW(), 'You''re in my thoughts and I thought I''d let you know. Blue', 27, NOW(), 'Urban Outfitters EGift Certificate Reformation Day', 27.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5509, NOW(), 'You''re in my thoughts and I thought I''d let you know. Blue', 27, NOW(), 'Urban Outfitters EGift Certificate Reformation Day', 27.00),
 (5510, NOW(), 'I hope you consider trying to forgive me. Audi', 30, NOW(), 'It''s your day to shine! Children''s Day (bridge day)', 84.00),
 (5511, NOW(), 'Hope this makes your sweet home even homier. After Thoughts', 14, NOW(), 'Shopbop E-Gift Certificate Spring Festival Holiday', 22.00),
 (5512, NOW(), 'Thinking of youhope all is well. Let me know if I can help in any way. Under Armour', 13, NOW(), 'Valentine''s Day Birth Anniversary Of His Majesty the King', 73.00),
@@ -5822,8 +5528,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5525, NOW(), 'Your business is appreciated. Thank you for choosing us. Freehand Group', 28, NOW(), 'Macys E-Gift Certificate New Year''s Eve', 89.00),
 (5526, NOW(), 'Wishing you a lifetime of love and happiness. Beano', 14, NOW(), 'How ya doing, friend? Carnival Tuesday', 75.00),
 (5527, NOW(), 'Thank you from the bottom of my heart. Extra', 22, NOW(), 'what to shop now Eid e-Fitr', 61.00),
-(5528, NOW(), 'So they can upgrade to linen sheets or get a new bathrobe. AirElite', 30, NOW(), 'Bandier Digital Gift Certificate Hari Raya Nyepi Holiday', 37.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5528, NOW(), 'So they can upgrade to linen sheets or get a new bathrobe. AirElite', 30, NOW(), 'Bandier Digital Gift Certificate Hari Raya Nyepi Holiday', 37.00),
 (5529, NOW(), 'They can spend it on the latest games and entertainment like movies, TV, music, apps, and more.&nbsp; Astro', 30, NOW(), 'Get something newlywed-y! Eid-el-Kibr Holiday', 76.00),
 (5530, NOW(), 'The love you share makes this day special. Patek Philippe', 24, NOW(), 'Congratulations on your well-deserved success Victory Day', 53.00),
 (5531, NOW(), 'Dream big! (Heres some dream fuel to help.) Canon', 10, NOW(), 'Sign up for promotions World Azerbaijanis Solidarity Day', 77.00),
@@ -5842,8 +5547,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5544, NOW(), 'Today is a very special day for sending all my love your way! Chang Beer', 28, NOW(), 'Get well soon New Year''s Day', 26.00),
 (5545, NOW(), 'Sending warm greetings and sincere wishes for a happy and prosperous Raya. Selamat Hari Raya! OmniPro', 26, NOW(), 'For Getting Active Gothar Bathou Sun', 62.00),
 (5546, NOW(), 'Here''s a toast to you on your 21st birthday! Cheers! Busch Gardens', 15, NOW(), 'I''ll never forget your kindness St. Patrick''s Day', 99.00),
-(5547, NOW(), 'Gift cards: Almost as magical as flying reindeer. Avalanche', 10, NOW(), 'Selamat Hari Raya Aidilfitri and Happy Holidays! Labour Day', 18.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5547, NOW(), 'Gift cards: Almost as magical as flying reindeer. Avalanche', 10, NOW(), 'Selamat Hari Raya Aidilfitri and Happy Holidays! Labour Day', 18.00),
 (5548, NOW(), 'How happy you must be with a new little son/daughter to love. Trailblazer', 10, NOW(), 'Thank you from the bottom of my heart. Epiphany', 32.00),
 (5549, NOW(), 'Well done! This is the first. Keep reaching for the stars! Bajaj', 13, NOW(), 'Youre so thoughtful, I got you something to help you keep doing that. St. Stephen''s Day', 71.00),
 (5550, NOW(), 'It is a rare friendship that feels forever new. Mr. Sub', 16, NOW(), 'excellent last-minute gifts Mother''s Day', 44.00),
@@ -5862,8 +5566,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5563, NOW(), 'So you can keep looking better than me. Codelco', 27, NOW(), 'Beautiful people like you deserve a beautiful home. Congratulations! Veterans Day (in lieu)', 34.00),
 (5564, NOW(), 'How your home has been blessed with a new baby. Bitburger', 15, NOW(), 'Heres an excuse to escape Labour Day', 79.00),
 (5565, NOW(), 'Thank you for your encouragement and support always. Blue Ribbon', 26, NOW(), 'Im sending a bunch of happies to say Have a cheerful day! Louis Riel Day', 56.00),
-(5566, NOW(), 'May God bless you on your graduation day. Red Lobster', 17, NOW(), 'Happy nesting! Holi', 22.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5566, NOW(), 'May God bless you on your graduation day. Red Lobster', 17, NOW(), 'Happy nesting! Holi', 22.00),
 (5567, NOW(), 'For the home-improvement obsessive in your life. Pizza Hut', 17, NOW(), 'Shopping spree on me. Labour Day (in lieu)', 35.00),
 (5568, NOW(), 'Hope youll be in the best of health soon. Diageo', 10, NOW(), 'Just touching base with you Indian Bank Holidays in May 2023', 33.00),
 (5569, NOW(), 'Get well soon. Feel better. We miss you! Patagonia', 14, NOW(), 'Add some stuff to cart. Whit Monday', 99.00),
@@ -5882,8 +5585,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5582, NOW(), 'So they can treat themselves to some sculpting shapewear or some cozy loungewear. Fiber Plus', 26, NOW(), 'Islandwide Courier Delivery Independence Day', 78.00),
 (5583, NOW(), 'Wishing you a Happy Birthday and many more to come. David Jones Limited', 20, NOW(), 'Its always shopping time Eid al-Fitr Holiday', 52.00),
 (5584, NOW(), 'I miss you, so I am sending you a floral hug! Latex Gloves', 16, NOW(), 'Verishop E-Gift Certificate Anguilla Day (in lieu)', 36.00),
-(5585, NOW(), 'Hoping these words of sympathy will comfort you in your time of sorrow. Old Navy', 11, NOW(), 'Congratulations on your beautiful home Father''s Day', 32.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5585, NOW(), 'Hoping these words of sympathy will comfort you in your time of sorrow. Old Navy', 11, NOW(), 'Congratulations on your beautiful home Father''s Day', 32.00), 
 (5586, NOW(), 'Hoping each new day will find you feeling better. Etos', 24, NOW(), 'Wishing you happiness together. Christmas Day', 14.00),
 (5587, NOW(), 'Every editorial product is independently selected. If you buy something through our links,New Yorkmay earn an affiliate commission. AkzoNobel', 18, NOW(), 'For the Archival Fashion Lover Good Friday', 10.00),
 (5588, NOW(), 'For your friend whos been carrying around the same wallet since college. Chevrolet', 17, NOW(), 'Lululemon Gift Certificate Independence Restoration Day', 43.00),
@@ -5902,8 +5604,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5601, NOW(), 'Day and everyday, hope you know how much you''re loved. Anchor', 17, NOW(), 'meal delivery kit Father''s Day', 26.00),
 (5602, NOW(), 'Wishing you a Happy Birthday and many more to come. Drewry''s', 11, NOW(), 'our favorite Everlane pieces here Maundy Thursday', 97.00),
 (5603, NOW(), 'Trust me, this is better than a home-cooked meal from me. Cosan', 13, NOW(), 'best things to buy National Heroes'' Day', 27.00),
-(5604, NOW(), 'In addition to Anthropologies in-house brands, your giftee will be able to shop labels like MOTHER, Calvin Klein, Levis, Sunday Riley, and more. Bakers Delight', 18, NOW(), 'Youre off to a beautiful beginning. Labour Day', 70.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5604, NOW(), 'In addition to Anthropologies in-house brands, your giftee will be able to shop labels like MOTHER, Calvin Klein, Levis, Sunday Riley, and more. Bakers Delight', 18, NOW(), 'Youre off to a beautiful beginning. Labour Day', 70.00), 
 (5605, NOW(), 'Many loving and caring thoughts as you recover. Get well soon! Corn Pops', 16, NOW(), 'Areaware Gift Certificate Feast of the Theophany', 11.00),
 (5606, NOW(), 'We appreciate your business and your confidence in us. Hoveround', 17, NOW(), 'Ulta Beauty Gift Certificate Eid Al Fitr Holiday', 45.00),
 (5607, NOW(), 'When God shuts a door, he opens a window. TWG Tea Company', 30, NOW(), 'Please enjoy this less-versatile money. Good Friday', 14.00),
@@ -5922,8 +5623,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5620, NOW(), 'Sorry I missed you. Hope to talk with you soon. Accu-Chek', 12, NOW(), ' Warm wishes on your 30th birthday. Vappu', 96.00),
 (5621, NOW(), 'Hope youll be in the best of health soon. Dom Preignon', 29, NOW(), 'subscription service gift ideas Death Anniversary of U SoSo Tham', 64.00),
 (5622, NOW(), 'I blew it. Please give me another chance. Bell Atlantic', 21, NOW(), 'Next Day Delivery Birthday of the Sultan of Pahang', 90.00),
-(5623, NOW(), 'Every product is independently selected by (obsessive) editors. Things you buy through our links may earnus a commission. Arirang', 25, NOW(), 'Anniversary Certificate Gifts Tuen Ng Festival', 62.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5623, NOW(), 'Every product is independently selected by (obsessive) editors. Things you buy through our links may earnus a commission. Arirang', 25, NOW(), 'Anniversary Certificate Gifts Tuen Ng Festival', 62.00), 
 (5624, NOW(), 'This Christmas, may your family be functional and all your batteries be included Crisco', 22, NOW(), 'Thanks for being there. Mother''s Day', 15.00),
 (5625, NOW(), 'Wish I could turn back the time and make things right Please forgive me! Jared', 25, NOW(), 'Online Gift Certificate Whit Monday', 36.00),
 (5626, NOW(), 'For the ecoconscious person with a KN95 subscription. Apivita', 25, NOW(), 'Belated birthday Whit Monday', 76.00),
@@ -5942,8 +5642,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5639, NOW(), 'I''ll miss celebrating with you this Christmas. Eat a few extra cookies for me!  Ila', 23, NOW(), 'Get ya some sugar! (With a little coffee added in.) Easter Tuesday', 72.00),
 (5640, NOW(), 'My heart is reaching out to you in sympathy and prayer. Brandchannel', 14, NOW(), 'Brooklinen Gift Certificate Tithi of Sri Sri Madhav Dev', 72.00),
 (5641, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Steve Madden', 29, NOW(), 'Watch carefully&dinner is almost here. New Year''s Eve', 83.00),
-(5642, NOW(), 'Just want to add my good wishes to those you''ve already received. ABB Grain Limited', 13, NOW(), 'Hallmark Gold Crown New Year''s Day (in lieu)', 94.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5642, NOW(), 'Just want to add my good wishes to those you''ve already received. ABB Grain Limited', 13, NOW(), 'Hallmark Gold Crown New Year''s Day (in lieu)', 94.00),
 (5643, NOW(), 'Im more thankful than mere words can ever tell Columbia', 16, NOW(), 'Pamper yourself pretty! President''s Day Holiday', 64.00),
 (5644, NOW(), 'Thank you for making me feel so comfortable Banco de la Nacion Argentina', 22, NOW(), 'Williams Sonoma E-Gift Certificate Gawai Dayak', 82.00),
 (5645, NOW(), 'May your new bundle of joy bring happiness in your life and fill a void in your heart. Payless Shoe Source', 11, NOW(), 'May every day find you feeling better! Ji', 18.00),
@@ -5962,8 +5661,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5658, NOW(), 'A boy is all God has with which to make a man. Butterball', 23, NOW(), '[DAD/MOM/GRANDMA] you are my inspiration St. George''s Day', 42.00),
 (5659, NOW(), 'Let them choose between a luxury handbag, a makeup set, or really great jeans. Michelob', 14, NOW(), ' I owe you big time. Black Awareness Day', 27.00),
 (5660, NOW(), 'This comes with all my best thoughts for your recovery. HBO Max', 14, NOW(), 'This calls for shopping! Boxing Day', 44.00),
-(5661, NOW(), 'Get well soon. Feel better. We miss you! HP', 19, NOW(), 'Congratulations! Glad to hear the good news! Prophet''s Birthday', 22.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5661, NOW(), 'Get well soon. Feel better. We miss you! HP', 19, NOW(), 'Congratulations! Glad to hear the good news! Prophet''s Birthday', 22.00), 
 (5662, NOW(), 'The best and most beautiful things in the world cannot be seen or even touched. They must be felt with the heart. Helen Keller 9', 29, NOW(), 'This comes with sincere appreciation. Christmas Day', 68.00),
 (5663, NOW(), 'Happy 13th birthday to the world''s best teenager. Papa John''s', 15, NOW(), 'Rejoice, Christ is risen! Sovereigns Birthday', 89.00),
 (5664, NOW(), 'Best wishes on your birthday for good health and happiness throughout the year. Casas Bahia', 30, NOW(), 'Rejoice, Christ is risen! Birth Anniversary of the 3rd Druk Gyalpo', 81.00),
@@ -5982,8 +5680,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5677, NOW(), 'Its better than me trying to shop for you, right? Aavin', 14, NOW(), 'Spotify E-Gift Certificate Bakrid', 24.00),
 (5678, NOW(), 'I hope all your birthday dreams and wishes come true. BOSE', 18, NOW(), 'Bookshop Gift Certificate All Souls'' Day', 38.00),
 (5679, NOW(), 'Give them some zen with a gift card to Alo Yoga. There, they can shop yoga clothes, accessories and more on their own time. Amstel Light', 19, NOW(), 'For Something Extra Special Eid al-Fitr Holiday', 43.00),
-(5680, NOW(), 'Let them select the location and the company, but you''ll foot the bill for their next great adventure.&nbsp; Domino''s', 20, NOW(), 'Wishing you happiness together. Islamic New Year', 12.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5680, NOW(), 'Let them select the location and the company, but you''ll foot the bill for their next great adventure.&nbsp; Domino''s', 20, NOW(), 'Wishing you happiness together. Islamic New Year', 12.00),
 (5681, NOW(), 'Find a song to get stuck in your head. Fage', 25, NOW(), 'For the Well-Dressed Marathoner All Souls'' Day', 30.00),
 (5682, NOW(), 'There is only one happiness in life: to love and be loved.  George Sand Sony', 23, NOW(), 'BaubleBar Digital Gift Certificate Pongal', 82.00),
 (5683, NOW(), 'Because you''ve always been the one who could pick out great gifts. Lakme', 21, NOW(), 'Hanukkah Certificate Gifts Independence Day', 39.00),
@@ -6001,8 +5698,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5695, NOW(), 'After 10 years, I still feel like we''re newlyweds. J.P. Morgan', 27, NOW(), 'Fresh Direct E-Gift Certificate Labor Day', 67.00),
 (5696, NOW(), 'All of my heart, I send to you. All of my life, I''ll spend with you. I love you! Rock Spa and Salon ', 15, NOW(), 'Happy 13th birthday to the world''s best teenager. King Charles'' Birthday', 28.00),
 (5697, NOW(), 'When the whole world left, you were there with open arms. Thanks for being my friend!! Eight O''Clock Coffee Company', 14, NOW(), ' Wishing you the beauty of spring and the spirit of love this Easter! Ethiopian Good Friday', 98.00),
-(5698, NOW(), 'Enjoy the flowers, I''m sending them just because you''re you. la prairie', 13, NOW(), 'Zola E-Gift Certificate Prophet''s Birthday', 99.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5698, NOW(), 'Enjoy the flowers, I''m sending them just because you''re you. la prairie', 13, NOW(), 'Zola E-Gift Certificate Prophet''s Birthday', 99.00),
 (5699, NOW(), 'You''re a gift in my life. And not the kind Id return for store credit. Merry Christmas! Hand And Stone ', 30, NOW(), 'Happy Belated Birthday! Tithi of Damodar Deva', 89.00),
 (5700, NOW(), 'I wont judge if you spend it all on Cheetos. 24-Hour Fitness Center', 23, NOW(), 'Have an awesome birthday. Eve of Rosh Hashanah', 20.00),
 (5701, NOW(), 'I blew it. Please give me another chance. Anheuser-Busch', 21, NOW(), 'Etsy E-Gift Certificate Africa Day', 55.00),
@@ -6021,8 +5717,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5714, NOW(), 'A warm welcome. Thank you for choosing us! Hugo Boss', 21, NOW(), 'Theres Something Off About LED Bulbs King Charles III''s Coronation', 85.00),
 (5715, NOW(), 'With sincere gratitude for all you have done. Merrill Lynch', 26, NOW(), 'Golde E- Gift Certificate Good Friday', 24.00),
 (5716, NOW(), 'Without you I am nothing, with you I am everything. Thank you to be my everything. Happy Valentines Day! Oakley', 27, NOW(), 'For Something Extra Special New Year''s Eve', 74.00),
-(5717, NOW(), 'Hope your new home is as special as you are. Invisalign', 22, NOW(), 'Wishing you companionship, contentment and love. Shab e-Barat', 90.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5717, NOW(), 'Hope your new home is as special as you are. Invisalign', 22, NOW(), 'Wishing you companionship, contentment and love. Shab e-Barat', 90.00), 
 (5718, NOW(), 'Thanks for thinking of me. Your referral is very much appreciated. Castablast', 30, NOW(), 'funky iPhone accessories National Day', 31.00),
 (5719, NOW(), 'Get something for yourself next time you go to Hallmark. Arnott''s Biscuits Holdings', 13, NOW(), 'How your home has been blessed with a new baby. All Saints'' Day', 50.00),
 (5720, NOW(), 'Doesnt come close to showing you how grateful I really am. Australian Railroad Group', 13, NOW(), 'We are super proud of your accomplishments. Heartiest congratulation on your graduation day. New Year''s Day (in lieu)', 28.00),
@@ -6041,8 +5736,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5733, NOW(), 'Another reason to dress up! (Or dress down!) Softsoap', 20, NOW(), 'Islandwide Courier Delivery Father''s Day', 13.00),
 (5734, NOW(), 'Caps in the air like you just dont care. Amgen', 14, NOW(), 'Get yourself some brain food. (Yes, pizza is brain food.) Blessed Rainy Day', 24.00),
 (5735, NOW(), 'You''re so thoughtful, I got you something to help you keep doing that. AT&T', 23, NOW(), 'Happy Resurrection Day! Chinese New Year', 73.00),
-(5736, NOW(), 'How your home has been blessed with a new baby. Vans', 16, NOW(), 'Sending my best wishes to make you feel better. Get well soon! President''s Day', 86.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5736, NOW(), 'How your home has been blessed with a new baby. Vans', 16, NOW(), 'Sending my best wishes to make you feel better. Get well soon! President''s Day', 86.00),
 (5737, NOW(), 'One of the most glorious messes in the world is the mess created in the living room on Christmas Day. Emu Brewery', 12, NOW(), 'Soooooo thoughtful! Durga Puja', 50.00),
 (5738, NOW(), 'Congratulations on your new home and all of the memories that it will soon house. Astro', 29, NOW(), 'March 1, 2023 Whit Monday', 81.00),
 (5739, NOW(), 'See? It was all worth it! Right?? Elmer''s', 10, NOW(), 'Rebag Digital Gift Certificate King''s Birthday', 82.00),
@@ -6062,8 +5756,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5753, NOW(), 'Hope this makes your sweet home even homier. Orvis', 23, NOW(), 'There are all kinds of good things in store! Independence Day', 77.00),
 (5754, NOW(), 'Happy Anniversary to the love of my life. Hoegaarden', 29, NOW(), 'Get some glamorous looks! Orthodox Easter Day', 76.00),
 (5755, NOW(), 'You take my breath away...today and every day. Avalon', 30, NOW(), 'March 1, 2023 Buddha Day', 24.00),
-(5756, NOW(), 'Simply  and perfectly  designed T-shirts, casual pants, sweaters, and accessories for men and women. Nivea', 23, NOW(), 'For Absolutely Anything Labour Day', 96.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5756, NOW(), 'Simply  and perfectly  designed T-shirts, casual pants, sweaters, and accessories for men and women. Nivea', 23, NOW(), 'For Absolutely Anything Labour Day', 96.00), 
 (5757, NOW(), 'Have fun getting your little cutie all geared up! Country Crock', 27, NOW(), 'Thinking of you in these difficult times Liberation Day', 74.00),
 (5758, NOW(), 'Its wonderful sharing with a good friend like you. Acura', 27, NOW(), 'Holiday Calendar Orthodox Easter Day', 30.00),
 (5759, NOW(), 'So glad to work with you. Consider this a bonus! Babor', 25, NOW(), 'Macys E-Gift Certificate Ratu Sukuna Day', 69.00),
@@ -6081,8 +5774,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5771, NOW(), 'Many loving and caring thoughts as you recover. Get well soon! Anchor', 25, NOW(), 'Hanukkah Certificate Gifts Mardi Gras', 24.00),
 (5772, NOW(), 'May God be with you at this time. BCE', 21, NOW(), 'Play a little. Independence of Cuenca Holiday', 73.00),
 (5773, NOW(), '[NAME] will always be in our hearts and memories. With Sympathy, The [YOUR LAST NAME] Family Daimler', 29, NOW(), 'Nordstrom E-Gift Certificate Independence Day', 77.00),
-(5774, NOW(), 'Thanks for your patience, your loving words, your kindness, your friendship Home Depot', 18, NOW(), 'Dinners on me! Constitution Day', 51.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5774, NOW(), 'Thanks for your patience, your loving words, your kindness, your friendship Home Depot', 18, NOW(), 'Dinners on me! Constitution Day', 51.00),
 (5775, NOW(), 'For the friend who loves going to see their favorite artists and teams play live. Tiffany & Co.', 23, NOW(), 'Corporate Gifts Christmas Day and Family Day', 60.00),
 (5776, NOW(), 'I couldnt log on to your registry because I forget every password ever. Carnation', 27, NOW(), 'I owe you big time. Anzac Day', 62.00),
 (5777, NOW(), 'Housing products for face, body, hair and more, The Body Shop sells something for everyone. They won''t be disappointed with this one. Effigy Press', 26, NOW(), 'Love as powerful as your mothers for you leaves its own mark  to have been loved so deeply .. will give us some protection forever. J.K. Rowling Eid al-Fitr', 60.00),
@@ -6101,8 +5793,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5790, NOW(), 'Santa needed help saving space in his sack. Barbie', 14, NOW(), 'Gift yourself! Lao New Year Holiday', 99.00),
 (5791, NOW(), 'Day and everyday, hope you know how much you''re loved. Under Armour', 29, NOW(), 'Fresh Direct E-Gift Certificate Thanksgiving', 52.00),
 (5792, NOW(), 'Presents are like noses: better to pick them yourself! America Online', 27, NOW(), 'For Taking a Deep Breath Day of Arafa', 45.00),
-(5793, NOW(), 'Congratulations on the birth of you new baby [BOY/GIRL] Aleve', 17, NOW(), 'Thank you with a personal touch Christmas Day', 87.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5793, NOW(), 'Congratulations on the birth of you new baby [BOY/GIRL] Aleve', 17, NOW(), 'Thank you with a personal touch Christmas Day', 87.00),
 (5794, NOW(), 'A birthday is just the first day of another 365-day journey around the sun. Enjoy the trip. Don de Dieu', 16, NOW(), 'Soko Glam Gift Certificate Whit Sunday', 55.00),
 (5795, NOW(), 'Words are inadequate at a time like this. Please accept my heartfelt sympathy. Naturalizer', 21, NOW(), 'May every day find you feeling better! Christmas Festival', 68.00),
 (5796, NOW(), 'Today is for remembering the happy times you''ve known. Herbal Essences', 29, NOW(), 'On your special day, I wish you good luck. I hope this wonderful day will fill up your heart with joy and blessings. Labour Day', 73.00),
@@ -6119,8 +5810,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5807, NOW(), 'Wherever they''re going in 2023, you''ll be part of helping them get there. Avexa Limited', 28, NOW(), 'Coach E-Gift Certificate Easter Monday', 21.00),
 (5808, NOW(), 'If you want to spend part of this on your favorite family member, who am I to stop you? Dinty Moore', 17, NOW(), 'You''re the best! New Year''s Day (in lieu)', 19.00),
 (5809, NOW(), 'Dont spend this one on the kids. Its all for you! Brand Architecture', 29, NOW(), 'Our Place Gift Certificate Assumption Day', 57.00),
-(5810, NOW(), 'I hate to see you feeling blue so here is my get well wish to you. Home Shopping Network', 18, NOW(), 'Zappos E-Gift Certificate Carnival', 56.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5810, NOW(), 'I hate to see you feeling blue so here is my get well wish to you. Home Shopping Network', 18, NOW(), 'Zappos E-Gift Certificate Carnival', 56.00), 
 (5811, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. Advantech', 19, NOW(), 'Wishing you lots of luck and happiness in the year ahead. Feast of St. Francis Xavier (in lieu)', 75.00),
 (5812, NOW(), 'For the person currently subsidizing five different streamers. Babor', 12, NOW(), 'Your kindness meant so much. Mouloud', 77.00),
 (5813, NOW(), 'I hope you have a most happy and prosperous New Year. Beaurepaires', 21, NOW(), 'Housewarming/Open House Commemoration Day of King''s Father', 24.00),
@@ -6139,8 +5829,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5826, NOW(), 'Today is a very special day for sending all my love your way! Gucci', 17, NOW(), 'For Something Floral New Year''s Day', 37.00),
 (5827, NOW(), 'Dont burn your mouth. You''re already hot enough. CIMB', 19, NOW(), 'Kitty Guo Manua Cession Day (in lieu)', 67.00),
 (5828, NOW(), 'May the joy You''re sharing now grow deeper day by day. Bulmers', 12, NOW(), 'Heres to more coffee dates! Good Friday', 98.00),
-(5829, NOW(), 'I blew it. Please give me another chance. Claytons', 25, NOW(), 'HappyDiwali! So Paulo Anniversary', 14.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5829, NOW(), 'I blew it. Please give me another chance. Claytons', 25, NOW(), 'HappyDiwali! So Paulo Anniversary', 14.00), 
 (5830, NOW(), 'Dad, your guiding hand on my shoulder will remain with me forever. Unknown Ethan Allen', 25, NOW(), 'Cause you''re very melodious Labour Day', 27.00),
 (5831, NOW(), U&'Wishing you another wonderful year of happiness and joy. Happy Birthday! Camargo Corr\00c3\00aaa', 23, NOW(), 'Spend it on something you love! King''s Birthday', 18.00),
 (5832, NOW(), 'To describe my mother would be to write about a hurricane in its perfect power. Or the climbing, falling colors of a rainbow. Maya Angelou Holcim', 10, NOW(), 'Lunya Gift Certificate King''s Birthday', 34.00),
@@ -6158,8 +5847,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5844, NOW(), 'When it comes to beauty products, Ulta will 1000% have them covered. They can use their gift card on everything from skincare essentials to makeup sets. Darlie', 27, NOW(), 'Etsy E-Gift Certificate St. Vitus'' Day', 64.00),
 (5845, NOW(), 'You deserve a round of applauseand this, too. Hewlett-Packard', 27, NOW(), 'Apple EGift Certificate Good Friday', 87.00),
 (5846, NOW(), 'This super soft bamboo brand has bedding, loungewear and more that all make perfect gifts they can choose themselves. 24-Hour Fitness Center', 15, NOW(), 'Min 3 Days Booking National Revolution Day', 25.00),
-(5847, NOW(), 'Think of the years as gold bullion...and you''re rich! Acesita', 18, NOW(), 'May your love story be as magical and charming as in fairy tales! Congratulations on the wedding! Boxing Day', 35.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5847, NOW(), 'Think of the years as gold bullion...and you''re rich! Acesita', 18, NOW(), 'May your love story be as magical and charming as in fairy tales! Congratulations on the wedding! Boxing Day', 35.00), 
 (5848, NOW(), 'To happy endings and new beginnings. Congratulations! Albert Heijn', 28, NOW(), 'Sending you Happy Easter Wishes! Easter Saturday', 38.00),
 (5849, NOW(), 'Warm Easter greetings to you and your family. ANT1 Group', 20, NOW(), 'Go get that serotonin rush!  Armed Forces Day', 61.00),
 (5850, NOW(), 'I hope you consider trying to forgive me. Apple Music', 13, NOW(), 'Dont burn your mouth. Youre already hot enough. Nuzul Al-Quran', 77.00),
@@ -6178,8 +5866,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5863, NOW(), 'You bring joy and love to my life. Liebherr', 12, NOW(), 'You both deserve a lifetime of beautiful tomorrows. Orthodox New Year''s Day', 66.00),
 (5864, NOW(), 'With this gift card, they can choose their own luxury shopping adventure. Subway', 12, NOW(), 'Go get that serotonin rush! Republic Day', 86.00),
 (5865, NOW(), 'Best wishes for today and every day in the future. Facebook', 20, NOW(), 'Holiday Calendar All Souls'' Day', 41.00),
-(5866, NOW(), 'Cheering you up with a big smile! BabyGap', 29, NOW(), 'Mid Autumn Festival All Saints'' Day', 42.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5866, NOW(), 'Cheering you up with a big smile! BabyGap', 29, NOW(), 'Mid Autumn Festival All Saints'' Day', 42.00), 
 (5867, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. C&A', 29, NOW(), ' Please accept these flowers and hear the words we are not able to speak May Day', 14.00),
 (5868, NOW(), 'May the future be filled with much happiness. Gucci', 20, NOW(), 'Need a travel buddy? Moshoeshoe I''s Day', 18.00),
 (5869, NOW(), 'Today is for remembering the happy times you''ve known. Corona', 27, NOW(), 'Parachute Digital Gift Certificate Hari Raya Puasa Holiday', 95.00),
@@ -6198,8 +5885,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5882, NOW(), 'Cheering you up with a big smile! Pearl Vision', 18, NOW(), 'So thoughtful of you to think of us. Whit Monday', 53.00),
 (5883, NOW(), 'Congratulations on your new bundle of joy. Crown Royal', 23, NOW(), 'The best for the best Independence Day', 45.00),
 (5884, NOW(), 'I blew it. Please give me another chance. AT&T', 30, NOW(), 'Pottery Barn Gift Certificate National Day for Truth and Reconciliation', 15.00),
-(5885, NOW(), 'Let''s make this Diwali joyous and bright, Let''s celebrate in true sense this Festival of Light! Polar', 23, NOW(), 'Happy nesting! President''s Day', 69.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5885, NOW(), 'Let''s make this Diwali joyous and bright, Let''s celebrate in true sense this Festival of Light! Polar', 23, NOW(), 'Happy nesting! President''s Day', 69.00), 
 (5886, NOW(), 'Congratulations on your wedding day and best wishes for a happy life together! ACE', 26, NOW(), 'Get outta here! Easter Tuesday', 81.00),
 (5887, NOW(), 'You bring joy and love to my life. Aston Martin', 14, NOW(), 'Reformation E-Gift Certificate Enthronement', 19.00),
 (5888, NOW(), 'Our sympathy and warmest thoughts are with you now. ASB', 25, NOW(), 'Congratulations Graduate, you did it! All Souls'' Day', 62.00),
@@ -6219,8 +5905,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5902, NOW(), 'Hoping you two are blessed with many more years together. The Cheesecake Factory', 17, NOW(), 'A friend is forever! Peace Day', 13.00),
 (5903, NOW(), 'It is a rare friendship that feels forever new. Carte Noire', 27, NOW(), 'Sephora Gift Certificate Good Friday', 28.00),
 (5904, NOW(), 'Thank you from the bottom of my heart. Louis Vuitton', 22, NOW(), 'Dinners on me! Father''s Day', 44.00),
-(5905, NOW(), 'Roses are red, violets are blue, I am so happy that I love you! Krispy Kreme', 13, NOW(), 'A little holiday treat from your favorite elf! King''s Birthday', 53.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5905, NOW(), 'Roses are red, violets are blue, I am so happy that I love you! Krispy Kreme', 13, NOW(), 'A little holiday treat from your favorite elf! King''s Birthday', 53.00),
 (5906, NOW(), 'Wishing you the beauty of spring and the spirit of love this Easter! AbeBooks', 10, NOW(), 'ClassPass E-Gift Certificate Saints Peter and Paul''s Day (in lieu)', 25.00),
 (5907, NOW(), 'Now you can get all the gift-card cards you want! Barnes & Noble', 22, NOW(), 'Sending you Happy Easter Wishes! Christmas Eve', 77.00),
 (5908, NOW(), 'For your New York bestie, this egift card for Greenpoints brick-and-mortar-only destination for dinner-party essentials is the perfect combo of a digital and physical gift. 24-Hour Fitness Center', 26, NOW(), 'Virtual Delivery (Email/SMS) Mawlid', 49.00),
@@ -6238,8 +5923,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5920, NOW(), 'So they can treat themselves to some sculpting shapewear or some cozy loungewear. Spa by JW', 14, NOW(), 'Find a song to get stuck in your head. International Women''s Day', 48.00),
 (5921, NOW(), 'Don''t just count your years, make your years count. Happy birthday! George Meredith The North Face', 16, NOW(), 'Thinking of you Armed Forces Day', 57.00),
 (5922, NOW(), 'Just a little something to show my appreciation. Acsa Argentina', 28, NOW(), 'To love! Mawlid', 26.00),
-(5923, NOW(), 'Hoping each new day will find you feeling better. Dove', 18, NOW(), 'Just the beginning of successes for you. Congrats! Immaculate Conception Day', 53.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5923, NOW(), 'Hoping each new day will find you feeling better. Dove', 18, NOW(), 'Just the beginning of successes for you. Congrats! Immaculate Conception Day', 53.00),
 (5924, NOW(), 'Offering my/our sincerest condolences to you and your family Hyflux', 25, NOW(), 'Because this family shops! Ghode Jatra', 23.00),
 (5925, NOW(), 'Rejoice! He is watching over you this Easter! Hillshire Farm', 10, NOW(), 'Accident or Illness Eid-ul-Fitr', 90.00),
 (5926, NOW(), 'Congratulations on your wedding day and best wishes for a happy life together! Nike', 28, NOW(), 'Golde E- Gift Certificate Veterans Day (in lieu)', 48.00),
@@ -6257,8 +5941,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5938, NOW(), 'I hope all your birthday wishes came true. Starbucks', 13, NOW(), 'BaubleBar Digital Gift Certificate Yennayer', 73.00),
 (5939, NOW(), 'For the movie buff whose idea of a perfect Saturday is sneaking into three screenings in a row. Rolex', 28, NOW(), 'Travel money for your trip to happily ever after. So Tom Day', 60.00),
 (5940, NOW(), 'Every time I see you, I fall in love all over again. Air France', 13, NOW(), 'Nordstrom E-Gift Certificate White Sunday', 15.00),
-(5941, NOW(), 'You are my angel sent from Heaven above. Happy Valentine''s Day Microsoft', 25, NOW(), 'Go get that serotonin rush! Labour and Agriculture Day', 47.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5941, NOW(), 'You are my angel sent from Heaven above. Happy Valentine''s Day Microsoft', 25, NOW(), 'Go get that serotonin rush! Labour and Agriculture Day', 47.00),
 (5942, NOW(), 'To the world, you may be one person, but to one person you are the world. BreadTalk Group', 21, NOW(), ' Cool Move! Congratulations! Labour Day', 85.00),
 (5943, NOW(), 'Let me guess&You''re going to see a movie where stuff blows up. Victoria''s Secret', 27, NOW(), 'Theres Something Off About LED Bulbs Ramadan', 16.00),
 (5944, NOW(), 'For the person who spends all their money on their pet anyway. Ajinomoto', 23, NOW(), 'Our friendship is golden. Good Friday', 27.00),
@@ -6277,8 +5960,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5957, NOW(), 'A little holiday treat from your favorite elf! Company Naming', 23, NOW(), 'Youre the best. Pentecost Monday', 84.00),
 (5958, NOW(), 'The stationery obsessive in your life is bound to go wild over Ban.dos stickers and notebooks. Alitalia', 19, NOW(), 'Friends are forever! New Year''s Day', 79.00),
 (5959, NOW(), 'Wishing you a beautiful day and many more happy years. Omega', 28, NOW(), 'Because youre never too old to spend money. National Day for Truth and Reconciliation', 68.00),
-(5960, NOW(), 'Thanks for squeezing me in. I know how busy you are. PANDORA', 30, NOW(), 'Hope youll soon be well Clean Monday', 14.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5960, NOW(), 'Thanks for squeezing me in. I know how busy you are. PANDORA', 30, NOW(), 'Hope youll soon be well Clean Monday', 14.00),
 (5961, NOW(), 'Don''t just count your years, make your years count. Happy birthday! George Meredith Equal', 10, NOW(), 'For the Frequent Flyer General Framework Agreement Day', 62.00),
 (5962, NOW(), 'To happy endings and new beginnings. Congratulations! Annedd''ale', 13, NOW(), 'Mother''s Day End of Ramadan', 91.00),
 (5963, NOW(), 'Life will keep changing but there is one thing that will remain constant till the day you die  your love for your child. Congratulations for finding something so magical. Avia', 21, NOW(), 'Great results come from hard work. Well done! Epiphany', 32.00),
@@ -6297,8 +5979,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5976, NOW(), 'Caps in the air like you just dont care. Aviva', 15, NOW(), 'For Something Floral Christmas (Catholic)', 45.00),
 (5977, NOW(), 'Ihope your birthday was as special as you are. TJ Maxx', 30, NOW(), 'Keep smiling and one day life will get tired of upsetting you! Cheer up! Mahalaya', 18.00),
 (5978, NOW(), 'Reds, whites, and ross delivered straight to their door are perfect for the hostess on your list. Baleno', 16, NOW(), 'everything to know Emancipation Monday', 72.00),
-(5979, NOW(), 'Let me guess&You''re going to see a movie where stuff blows up. Kookmin Bank', 18, NOW(), 'Home sweet new home Mother''s Day', 39.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5979, NOW(), 'Let me guess&You''re going to see a movie where stuff blows up. Kookmin Bank', 18, NOW(), 'Home sweet new home Mother''s Day', 39.00), 
 (5980, NOW(), 'Just the beginning of successes for you. Congrats! Harry Winston', 25, NOW(), 'Soooooo thoughtful! Orthodox Christmas', 32.00),
 (5981, NOW(), 'Wherever they''re going in 2023, you''ll be part of helping them get there. China Eastern', 24, NOW(), 'Uber Gift Certificate Carnival Tuesday', 12.00),
 (5982, NOW(), 'Wishing your family a happy and healthy life together. Fair and Handsome', 28, NOW(), 'Nike Digital Gift Certificate Christmas Eve', 41.00),
@@ -6317,8 +5998,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (5995, NOW(), 'May every year you share find you more in love with each other. Nixon Watches', 18, NOW(), 'JCrew Gift Certificate Ascension Day', 95.00),
 (5996, NOW(), 'As the brand describes it, drinks come true with Winc. So allow your recipient the drink of their dreams with a gift card they''ll definitely appreciate. Altra', 14, NOW(), 'To love! Good Friday', 96.00),
 (5997, NOW(), 'Hope this makes your sweet home even homier. Doc Martin', 26, NOW(), 'You''re the partridge to my pear tree. Mawlid', 99.00),
-(5998, NOW(), 'Our deepest sympathies during your time of loss. Please know that we are here for you. S.T. Dupont', 30, NOW(), 'Get outta here! Botswana Day (in lieu)', 45.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(5998, NOW(), 'Our deepest sympathies during your time of loss. Please know that we are here for you. S.T. Dupont', 30, NOW(), 'Get outta here! Botswana Day (in lieu)', 45.00),
 (5999, NOW(), 'See? It was all worth it! Right?? Geox', 19, NOW(), 'For Tech Savvy Teens Day of the State Worker', 65.00),
 (6000, NOW(), 'Wishing you a Happy Birthday and many more to come. Denny''s', 17, NOW(), 'Happy Resurrection Day! Victory of the Islamic Emirate', 56.00),
 (6001, NOW(), 'Another great beauty buy, Winky Lux has an array of makeup and skincare to shop for the makeover-obsessed giftee in your life. Sephora', 23, NOW(), 'Have a wonderful life together All Saints'' Day', 74.00),
@@ -6337,8 +6017,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6014, NOW(), 'I hope all your birthday wishes came true. IWC Schaffhausen', 30, NOW(), 'Virtual Delivery (Email/SMS) Labour Day', 40.00),
 (6015, NOW(), 'My/Our sympathy and thoughts are with you and your family. Audible', 17, NOW(), 'About Us Carnival Monday', 53.00),
 (6016, NOW(), 'This Christmas, may your family be functional and all your batteries be included Canyon Ranch ', 11, NOW(), 'You''re the best! Mardi Gras', 47.00),
-(6017, NOW(), 'Happy Valentines Day. You are amazing in every way! I love you! Herbal Essences', 24, NOW(), 'Kitty Guo Labour Day', 90.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6017, NOW(), 'Happy Valentines Day. You are amazing in every way! I love you! Herbal Essences', 24, NOW(), 'Kitty Guo Labour Day', 90.00), 
 (6018, NOW(), 'You''re a Hallmark card personified, so I had to get you this. Acne', 17, NOW(), 'Skims EGift Certificate Prince Louis Rwagasore Day', 14.00),
 (6019, NOW(), 'May you enjoy a long and wonderful retirement. TGI Fridays', 27, NOW(), 'Grubhub E-Gift Certificate Eid al-Fitr', 100.00),
 (6020, NOW(), 'Bravo! Your hard work has truly paid off. Schloss Elmau', 29, NOW(), ' I''ll never forget your kindness. Boxing Day', 22.00),
@@ -6357,8 +6036,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6033, NOW(), 'You''re in my thoughts and I thought I''d let you know. Dixie', 10, NOW(), 'Wishing you happiness everyday. Thanksgiving', 14.00),
 (6034, NOW(), 'If &trendy clothes& is their middle name, consider getting them a gift card to H&amp;M. The style finds are limitless. The Ritz Carlton ', 30, NOW(), 'Selamat Hari Raya Aidilfitri! Wishing you a joyous celebration and prosperous days ahead. National Flag Day (bridge day)', 95.00),
 (6035, NOW(), 'Love is something eternal; the aspect may change, but not the essence.  Vincent van Gogh Hoegaarden', 28, NOW(), ' Think of the years as gold bullion...and you''re rich! Christmas Eve', 27.00),
-(6036, NOW(), 'Cheering you up with a big smile! Inspiration', 24, NOW(), 'In loving memory Father''s Day', 35.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6036, NOW(), 'Cheering you up with a big smile! Inspiration', 24, NOW(), 'In loving memory Father''s Day', 35.00),
 (6037, NOW(), 'I miss you, so I am sending you a floral hug! Stuart Weitzman', 29, NOW(), 'Next Day Delivery New Year''s Eve', 40.00),
 (6038, NOW(), 'Wishing you lots of luck and happiness in the year ahead. Acne', 30, NOW(), 'Happy nesting! Lord Buddha''s Parinirvana ', 77.00),
 (6039, NOW(), 'Suitable for Valentine''s Day, Anniversary, Sweetest Day, Just Because... Australian Healthcare Technology Limited', 14, NOW(), 'Enjoy your trip! May Day', 27.00),
@@ -6377,8 +6055,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6052, NOW(), 'Happy birthday! You don''t get older, you get better. Shirley Bassey The Ritz Carlton ', 30, NOW(), 'Get one of those Home Sweet Home plaques. New Year''s Day', 95.00),
 (6053, NOW(), 'Congratulations, and best of luck in your future endeavors. Chow Tai Fook', 23, NOW(), 'Min 3 Days Booking Labour Day (in lieu)', 94.00),
 (6054, NOW(), 'Happy 13th birthday to the world''s best teenager. Audi', 17, NOW(), 'Shopping Martin Luther King Jr. Day', 37.00),
-(6055, NOW(), 'I promise not to grade you on how you spend this. Garmin', 25, NOW(), 'funky iPhone accessories Workers or Labor Day', 57.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6055, NOW(), 'I promise not to grade you on how you spend this. Garmin', 25, NOW(), 'funky iPhone accessories Workers or Labor Day', 57.00),
 (6056, NOW(), 'Dont burn your mouth. You''re already hot enough. Colgate', 26, NOW(), 'For Winter-Proof Boots Day of Arafa', 93.00),
 (6057, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Johnson', 22, NOW(), 'glowing winter skin People Power Revolution', 51.00),
 (6058, NOW(), 'Love is a good reason for a gift card. Blockbuster', 18, NOW(), 'If anything in the world is everlasting, it is my love for you. Happy Valentines day my love. Sinai Liberation Day', 22.00),
@@ -6397,8 +6074,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6071, NOW(), 'You take my breath away...today and every day. Camus', 25, NOW(), 'Your thoughtfulness meant more than words can ever say. Indian Bank Holidays in May 2023', 44.00),
 (6072, NOW(), 'No tape can ever measure, the extent to which a child can become a parents treasure. Congratulations. Claire''s Stores, Inc.', 17, NOW(), 'Material Kitchen Gift Certificate Thanksgiving', 40.00),
 (6073, NOW(), 'You have no item in your shopping cart. Australian Defence Industries', 12, NOW(), 'Personal anniversary Birth Anniversary Of His Majesty the King Holiday', 32.00),
-(6074, NOW(), 'Dont spend this one on the kids. Its all for you! Altoids', 30, NOW(), 'Ah-Shi E-Gift Certificate New Year''s Day', 94.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6074, NOW(), 'Dont spend this one on the kids. Its all for you! Altoids', 30, NOW(), 'Ah-Shi E-Gift Certificate New Year''s Day', 94.00),
 (6075, NOW(), 'Beautiful people like you deserve a beautiful home. Congratulations! Canadian Imperial Bank', 26, NOW(), 'WELCOME to this gift card Birth Anniversary Of Guru Rinpoche', 60.00),
 (6076, NOW(), 'For those looking to expand their Bushwick Birkin collection. Aristocrat Leisure Limited', 11, NOW(), 'Chinese New Year Awal Muharram', 100.00),
 (6077, NOW(), 'Help them turn up the heat in their kitchen with a gift card from Our Place, home of the viral Always Pan. The cookware company also sells plates, bowls, cutlery and more, for new and experienced chefs. CPFL', 28, NOW(), 'Always get the fries Nowrooz', 61.00),
@@ -6417,8 +6093,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6090, NOW(), 'May happiness &amp; love move in with you. Newton''s', 11, NOW(), 'Hope youll soon be well. President Ndadaye''s Day', 39.00),
 (6091, NOW(), 'Get what you love, love what you get. Mini Cooper', 27, NOW(), 'Huckberry E-Gift Certificate New Year''s Day', 78.00),
 (6092, NOW(), 'The worlds a better place because of people like you. Steve Madden', 27, NOW(), 'Don''t sweat shipping delays. Doljatra', 37.00),
-(6093, NOW(), 'You both deserve the very best that life can bring you. Regal Cinemas', 10, NOW(), 'With special thanks and much appreciation. End of Ramadan', 42.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6093, NOW(), 'You both deserve the very best that life can bring you. Regal Cinemas', 10, NOW(), 'With special thanks and much appreciation. End of Ramadan', 42.00), 
 (6094, NOW(), 'Get yourself a double whatever with an extra shot of something. 5 Second', 17, NOW(), 'Hulu E-Gift Certificate Father''s Day', 58.00),
 (6095, NOW(), 'How happy you must be with a new little son/daughter to love. Pedigree', 28, NOW(), 'For Winter-Proof Boots Saint Peter and Saint Paul Day (in lieu)', 63.00),
 (6096, NOW(), 'For the home-improvement obsessive in your life. Caress', 25, NOW(), 'Cheers to you two! Good Friday (Western Church)', 71.00),
@@ -6436,8 +6111,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6108, NOW(), 'The power of a dad in a childs life is unmatched. Justin Ricklefs Antares', 17, NOW(), 'Pamper yourself pretty! Eid ul-Adha', 21.00),
 (6109, NOW(), 'The power of a dad in a childs life is unmatched. Justin Ricklefs The Cheesecake Factory', 24, NOW(), 'the top pick in our buying guide President''s Day', 16.00),
 (6110, NOW(), 'No tape can ever measure, the extent to which a child can become a parents treasure. Congratulations. Netflix', 19, NOW(), 'Retirement Certificate Gifts Coptic Christmas Holiday', 99.00),
-(6111, NOW(), 'Dad, you are my best friend, my guide, and my teacher. You have always been there when I needed you the most. Wishing you a very happy Fathers Day. Yeti', 14, NOW(), 'A little something for you and the little one! V-E Day', 87.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6111, NOW(), 'Dad, you are my best friend, my guide, and my teacher. You have always been there when I needed you the most. Wishing you a very happy Fathers Day. Yeti', 14, NOW(), 'A little something for you and the little one! V-E Day', 87.00), 
 (6112, NOW(), 'How beautiful a day can be when kindness touches it. Colorado', 29, NOW(), 'For a Designer Download Revolution Anniversary Holiday', 34.00),
 (6113, NOW(), 'I hope you consider trying to forgive me. Casio', 22, NOW(), 'For Something Extra Special Ascension Day', 26.00),
 (6114, NOW(), 'A little something for you and the little one! Florena', 22, NOW(), 'How ya doing, friend? Manua Cession Day (in lieu)', 18.00),
@@ -6457,8 +6131,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6128, NOW(), 'Wishing you lots of luck and happiness in the year ahead. Orica', 26, NOW(), 'Thank you Pentecost Sunday', 59.00),
 (6129, NOW(), 'Dont spend this one on the kids. Its all for you! Transurban', 27, NOW(), 'Goldbelly Gift Certificate Easter (Catholic)', 53.00),
 (6130, NOW(), 'To the most amazing woman who I am lucky enough to call my wife, Happy Valentine''s Day. IHOP', 17, NOW(), 'Nordstrom E-Gift Certificate Meritxell Day', 74.00),
-(6131, NOW(), 'I hope that every day you two spend together is as blissful and love-filled as possible. Here''s to one of my all-time favorite couples! Congratulations. Carnini', 22, NOW(), 'Cause youre very melodious. Good Friday', 37.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6131, NOW(), 'I hope that every day you two spend together is as blissful and love-filled as possible. Here''s to one of my all-time favorite couples! Congratulations. Carnini', 22, NOW(), 'Cause youre very melodious. Good Friday', 37.00),
 (6132, NOW(), 'Find a song to get stuck in your head. Old Spice', 15, NOW(), 'A star is born President''s Day', 65.00),
 (6133, NOW(), 'You take my breath away...today and every day. Bonanza', 10, NOW(), 'Hay E-Gift Certificate Armenian Independence Day', 93.00),
 (6134, NOW(), 'May you create countless memories in your new home. Nike', 10, NOW(), 'Indulge, darling. Eritrea Martyrs'' Day', 99.00),
@@ -6479,8 +6152,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6149, NOW(), 'For the person who loves classic leather goods. Carnegie', 14, NOW(), ' I blew it. Please give me another chance. Bank Holiday', 59.00),
 (6150, NOW(), 'Thank you for making me feel so comfortable Hyundai', 22, NOW(), 'Travel and experiential Women''s Day', 65.00),
 (6151, NOW(), 'Get yourself a double whatever with an extra shot of something. 9-5', 25, NOW(), 'Fly by Jing Gift Certificate Ramadan', 37.00),
-(6152, NOW(), 'Ihope your birthday was as special as you are. Prada', 16, NOW(), 'Goodbye time clock! Hello world! Women''s Day', 51.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6152, NOW(), 'Ihope your birthday was as special as you are. Prada', 16, NOW(), 'Goodbye time clock! Hello world! Women''s Day', 51.00),
 (6153, NOW(), 'Thank you for your valued business. Look forward to serving you again. Lululemon', 25, NOW(), 'Happy house warming! Gudi Padwa', 31.00),
 (6154, NOW(), 'May this special day be filled with joy, love and laughter. KBS', 26, NOW(), 'meal delivery kit Manua Cession Day', 69.00),
 (6155, NOW(), 'Because a bottle of wine wouldnt fit in the envelope. Liberty', 27, NOW(), 'Cheers to you two! New Year''s Day', 92.00),
@@ -6500,8 +6172,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6169, NOW(), 'Send me a postcard with a kitten on it. Zara', 18, NOW(), 'For a special friend National Army Day', 69.00),
 (6170, NOW(), 'Bless your new life as husband and wife. Banco do Brasil', 30, NOW(), 'Yay for you! Christmas Day', 75.00),
 (6171, NOW(), 'See? It was all worth it! Right?? Bristol-Myers Squibb', 24, NOW(), 'A little holiday treat from your favorite elf! Holy Thursday', 97.00),
-(6172, NOW(), 'Thoughts of you always bring me a smile. Henkel', 20, NOW(), 'Escape to someplace pretty! Day of respect for cultural diversity', 61.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6172, NOW(), 'Thoughts of you always bring me a smile. Henkel', 20, NOW(), 'Escape to someplace pretty! Day of respect for cultural diversity', 61.00), 
 (6173, NOW(), 'Warm Easter greetings to you and your family. Golden Harvest', 24, NOW(), 'funky iPhone accessories Royal Brunei Armed Forces Day', 72.00),
 (6174, NOW(), 'I''m so lucky to have such a great friend like you... who''d forgive me if I forgot your birthday. Happy Belated Birthday! Detrol', 28, NOW(), 'Get well soon New Year''s Day', 21.00),
 (6175, NOW(), 'Congratulations, and best of luck in your future endeavors. Clarius Group', 14, NOW(), 'For Wine Night Revolution Day', 22.00),
@@ -6520,8 +6191,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6188, NOW(), 'With this gift card, they can download the latest games and add-ons, watch movies, and more from their PlayStation 4.&nbsp; HP', 21, NOW(), 'Fruit and Gourmet Baskets Worker''s Day', 21.00),
 (6189, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Catena', 27, NOW(), 'Lowes Gift Certificate Holi', 10.00),
 (6190, NOW(), 'For the person who takes remote work to whole new level. Altra', 30, NOW(), 'Nike Digital Gift Certificate National Anthem and Flag Day', 83.00),
-(6191, NOW(), 'You take my breath away...today and every day. Baby Ruth', 15, NOW(), 'Easter Certificate Ideas Randol Fawkes Labour Day', 76.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6191, NOW(), 'You take my breath away...today and every day. Baby Ruth', 15, NOW(), 'Easter Certificate Ideas Randol Fawkes Labour Day', 76.00),
 (6192, NOW(), 'The love you share makes this day special. Jil', 16, NOW(), 'Wishing you a wonderful day. Danish Constitution Day', 28.00),
 (6193, NOW(), 'May happiness &amp; love move in with you. MAC Cosmetics', 15, NOW(), 'They say you lose your memory as you grow older. I say forget about the past and live life to the fullest today. Start with cake. Happy birthday. Whit Monday', 84.00),
 (6194, NOW(), 'The 18 Very Best Sunscreens for Your Face Whole Foods Market', 11, NOW(), 'I owe you big time Isra Miraj', 49.00),
@@ -6538,8 +6208,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6205, NOW(), 'I promise not to grade you on how you spend this. Renaissance Indian Wells Resort and Spa', 17, NOW(), 'Joy to the whole mispucha! Bengali New Year', 44.00),
 (6206, NOW(), 'We know that you have a world full of choices, Thank You for selecting us. Red Cross', 20, NOW(), ' May you enjoy a long and wonderful retirement. Chinese National Day Holiday', 54.00),
 (6207, NOW(), 'Take care of yourself and feel better soon. Michael Kors', 22, NOW(), 'Do your thing! New Year''s Day', 11.00),
-(6208, NOW(), 'I am delighted with your success. Congratulations for this achievement! Cummins', 14, NOW(), 'Congratulations on your new bundle of joy! May your world be filled with love. Easter Monday', 97.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6208, NOW(), 'I am delighted with your success. Congratulations for this achievement! Cummins', 14, NOW(), 'Congratulations on your new bundle of joy! May your world be filled with love. Easter Monday', 97.00),
 (6209, NOW(), 'Consider this your permission slip for a mini shopping spree. Acer', 17, NOW(), 'Verishop E-Gift Certificate Thimphu Tshechu Holiday', 16.00),
 (6210, NOW(), 'With sincere gratitude for all you have done. Dole', 27, NOW(), 'Youre the best! New Year''s Day', 23.00),
 (6211, NOW(), 'So you can keep looking better than me. Villa Stephanie ', 19, NOW(), 'For Something Extra Special Whit Sunday', 68.00),
@@ -6559,8 +6228,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6225, NOW(), 'So thoughtful of you to think of us. Accord', 21, NOW(), 'Do your thing! Christmas Day', 83.00),
 (6226, NOW(), 'To happy endings and new beginnings. Congratulations! Belgacom', 24, NOW(), 'Belated birthday All Souls'' Day', 46.00),
 (6227, NOW(), 'Warm, brown elixir of life, we pray to thee. Doubletree', 14, NOW(), 'For the Pet Parent Mahanavami', 99.00),
-(6228, NOW(), U&'Congratulations on finding each other! Your greatest adventure has just begun. Gol Transportes A\00c3\00a9reos', 20, NOW(), 'Your friendship means so much to me. Christmas Day', 33.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6228, NOW(), U&'Congratulations on finding each other! Your greatest adventure has just begun. Gol Transportes A\00c3\00a9reos', 20, NOW(), 'Your friendship means so much to me. Christmas Day', 33.00),
 (6229, NOW(), 'This ones for the beauty-obsessed person on your list who has already tried everything at Sephora. Theyll love diving into everything Ah-Shi, an Indigenous-owned beauty brand, has to offer. Maybelline', 10, NOW(), 'Mejuri Gift Certificate New Year''s Day', 91.00),
 (6230, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! BAE Systems Australia', 17, NOW(), 'Urban Stems Classic Flower Subscription Meeting of the Worlds', 13.00),
 (6231, NOW(), 'Of all the rights of women, the greatest is to be a mother. Lin Yutang Allstate', 20, NOW(), 'Airbnb Gift Certificate New Year''s Day', 98.00),
@@ -6578,8 +6246,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6243, NOW(), 'The love you share makes this day special. Pepsi', 28, NOW(), 'committed bakers Christmas Festival', 46.00),
 (6244, NOW(), 'Its wonderful sharing with a good friend like you. H&M', 12, NOW(), 'Hallmark Gold Crown Memorial Day', 35.00),
 (6245, NOW(), 'You bring joy and love to my life. Chaumet', 27, NOW(), 'Thanks for being there Day of the Virgin of Guadalupe', 52.00),
-(6246, NOW(), 'You make the world a more beautiful place. ArcelorMittal', 14, NOW(), 'You made my day! Constitution Day', 30.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6246, NOW(), 'You make the world a more beautiful place. ArcelorMittal', 14, NOW(), 'You made my day! Constitution Day', 30.00),
 (6247, NOW(), 'You''re so thoughtful, I got you something to help you keep doing that. Netflix', 21, NOW(), 'Saks Fifth Avenue E-Gift Certificate Christmas Day', 20.00),
 (6248, NOW(), 'Cheers on your birthday. One step closer to adult underpants. Product Naming', 25, NOW(), 'J.Crew Gift Certificate Maha Shivaratree', 66.00),
 (6249, NOW(), 'Congratulations on your new bundle of joy. Downy', 17, NOW(), 'Thank you Lialat-al-Qadar', 39.00),
@@ -6599,8 +6266,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6263, NOW(), 'I know  life isnt fair sometimes. Im here and I care. Australian', 27, NOW(), ' You bring joy and love to my life. Independence Day', 38.00),
 (6264, NOW(), 'Sending you good vibes with this gift card! Ben-Gay', 25, NOW(), 'Sorry I forgot your birthday. Can you reschedule it for sometime next week? Eid-ul-Fitr', 67.00),
 (6265, NOW(), 'With friendly thoughts and best wishes for your birthday. Toyota', 24, NOW(), 'Happy Resurrection Day! Chehlum', 80.00),
-(6266, NOW(), 'For anyone who might appreciate some especially colorful new home goods. Bertolli', 24, NOW(), 'So grateful for you Orthodox Easter Monday', 74.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6266, NOW(), 'For anyone who might appreciate some especially colorful new home goods. Bertolli', 24, NOW(), 'So grateful for you Orthodox Easter Monday', 74.00), 
 (6267, NOW(), 'Sending you good vibes with this gift card! Microsoft', 13, NOW(), 'Amazon Gift Certificate Holy Spirit Monday', 64.00),
 (6268, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Cummins', 19, NOW(), 'Thank you with a personal touch Descending Day of Lord Buddha', 33.00),
 (6269, NOW(), 'Consider this your permission slip for a mini shopping spree. Pottery Barn', 30, NOW(), 'For Her Wardrobe Essentials Boxing Day', 75.00),
@@ -6618,8 +6284,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6281, NOW(), 'Congratulations to the new parents for entering into the world of constant squeals, nappy changes and late night meals. Patagonia', 24, NOW(), 'Business Associate/Corporate Gift Certificates Recreation Day', 71.00),
 (6282, NOW(), 'Really, what can''t you find at Target? This is the perfect place to give a gift card from, as the options they can choose from are endless, from technology to clothing, housewares and more. Aerosonde Ltd', 27, NOW(), 'Way to go&shopping! Good Friday', 62.00),
 (6283, NOW(), U&'We are so happy for you and the arrival of your new child. Chlo\00c3\00a9', 14, NOW(), 'Baggu Gift Certificate Christmas Eve', 58.00),
-(6284, NOW(), 'May this Easter warm your heart with peace! Diesel', 19, NOW(), 'Sending good, healthy vibes your way. Proclamation Day', 27.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6284, NOW(), 'May this Easter warm your heart with peace! Diesel', 19, NOW(), 'Sending good, healthy vibes your way. Proclamation Day', 27.00),
 (6285, NOW(), 'Dream big - Reach far - Shine brightly - You''re a star, Congratulations on your Graduation! EnCana', 26, NOW(), 'Hoping each new day will find you feeling better. Thimphu Tshechu', 94.00),
 (6286, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Clinic', 14, NOW(), 'Outdoor Voices E-Gift Certificate Saint Mary''s Day', 92.00),
 (6287, NOW(), 'I hope this comes in handy on your adventure! Banco Safra', 15, NOW(), 'Verishop E-Gift Certificate Sankranti', 74.00),
@@ -6638,8 +6303,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6300, NOW(), 'Trust me, this is better than a home-cooked meal from me. Chevron', 29, NOW(), 'Keep looking fresh and fabulous International Women''s Day', 62.00),
 (6301, NOW(), 'Budding beauty bloggers would flip over a gift card from the makeup and scent emporium. Stri-Dex', 17, NOW(), 'Areaware Gift Certificate Boxing Day', 40.00),
 (6302, NOW(), 'Hope this Mooncake Festival is the beginning of of all that is the brightest for you. Granini', 22, NOW(), 'Studs E-Gift Certificate Pakistan announces five-day holiday for Eid ul-Fitr', 62.00),
-(6303, NOW(), 'Great results come from hard work. Well done! la prairie', 26, NOW(), 'A star is born. Good Friday', 83.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6303, NOW(), 'Great results come from hard work. Well done! la prairie', 26, NOW(), 'A star is born. Good Friday', 83.00),
 (6304, NOW(), 'How your home has been blessed with a new baby. Kixstaart', 24, NOW(), 'Pamper yourself pretty! Immaculate Conception Day', 64.00),
 (6305, NOW(), 'To happy endings and new beginnings. Congratulations! Coopers Brewery', 28, NOW(), 'American Express eGift Certificate Labour Day', 23.00),
 (6306, NOW(), 'The moms and mothers-in-law on your list will love fresh flowers delivered every month. AAdvantage', 16, NOW(), ' You are in my thoughts and prayers Heroes'' Day', 56.00),
@@ -6658,8 +6322,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6319, NOW(), 'Day and everyday, hope you know how much you''re loved. Acne', 18, NOW(), 'The Strategist Coptic Christmas', 29.00),
 (6320, NOW(), 'May the joy you share today grow deeper through the years. Gafisa', 25, NOW(), 'wont break the bank Christmas Day', 60.00),
 (6321, NOW(), 'Sorry I missed you. Hope to talk with you soon. Sennheiser', 13, NOW(), 'ASOS E-Gift Certificate Eid Al Fitr Holiday', 77.00),
-(6322, NOW(), 'I wish I could be there with you. Know that you are with me in my thoughts. Company Naming', 18, NOW(), 'Shopbop E-Gift Certificate Assumption Day', 22.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6322, NOW(), 'I wish I could be there with you. Know that you are with me in my thoughts. Company Naming', 18, NOW(), 'Shopbop E-Gift Certificate Assumption Day', 22.00),
 (6323, NOW(), 'Don''t just count your years, make your years count. Happy birthday! George Meredith Cafe de Coral', 21, NOW(), '"Thank You" Certificate Samples Constitution Day (in lieu)', 60.00),
 (6324, NOW(), 'I know I have [HURT YOU/YOUR FEELINGS] - please accept my sincerest apologies. ADInstruments', 18, NOW(), 'Friends make life more beautiful. Victory of the Islamic Emirate', 47.00),
 (6325, NOW(), 'Many loving and caring thoughts as you recover. Get well soon! Zales', 28, NOW(), 'Buy more clutter! Thats the marriage way. Beginning of Ramadan', 83.00),
@@ -6677,8 +6340,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6337, NOW(), 'May this Easter warm your heart with peace! New Balance', 28, NOW(), 'Congratulations on an outstanding accomplishment. Christmas Day', 49.00),
 (6338, NOW(), 'Adoption is when a child grew in its mommy''s heart instead of her tummy. Congratulations on your new arrival! Converse', 11, NOW(), 'By the time this reaches you I hope youll be well on the road to a speedy recovery. Pentecost Sunday', 30.00),
 (6339, NOW(), 'Hope this helps bring a smile to your day. Discovery Air', 26, NOW(), 'Always get the fries. Ashoura', 58.00),
-(6340, NOW(), 'Now you can buy something when You''re up at 3 a.m. Asiana Airlines', 28, NOW(), 'Wishing you a bright and joyous Easter! Tabaski', 68.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6340, NOW(), 'Now you can buy something when You''re up at 3 a.m. Asiana Airlines', 28, NOW(), 'Wishing you a bright and joyous Easter! Tabaski', 68.00),
 (6341, NOW(), 'Words are so inadequate at a time like this. Hershey''s', 23, NOW(), 'Twitch E-Gift Certificate Epiphany Holiday', 16.00),
 (6342, NOW(), 'I''m so lucky to have such a great friend like you... who''d forgive me if I forgot your birthday. Happy Belated Birthday! Prudential', 28, NOW(), 'Gift Certificate Pharses National Day', 21.00),
 (6343, NOW(), 'Hope your special day is made up of sharing warm and happy memories. Pentium', 17, NOW(), 'Corporate Gifts Novruz Holiday', 48.00),
@@ -6697,8 +6359,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6356, NOW(), 'Thank you for trusting us. We look forward to exceeding your expectations! QMS Medicosmetics', 22, NOW(), 'Retirement Certificate Gifts The Passing of King Bhumibol', 79.00),
 (6357, NOW(), 'May you enjoy a long and wonderful retirement. Dom Perignon', 28, NOW(), 'Hope you''re feeling better Christmas Day', 73.00),
 (6358, NOW(), 'Thank you for your order. Continuing to serve you will be a pleasure. Tory Burch', 20, NOW(), 'To love! National Day', 18.00),
-(6359, NOW(), 'Caps in the air like you just dont care. Rolex', 11, NOW(), 'Now do something nice for YOU. Mawlid al-Nabi', 49.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6359, NOW(), 'Caps in the air like you just dont care. Rolex', 11, NOW(), 'Now do something nice for YOU. Mawlid al-Nabi', 49.00), 
 (6360, NOW(), 'An especially good last-minute gift for the hard-to-shop-for teenager. la prairie', 16, NOW(), 'May your holiday season be bright. Christmas Day', 88.00),
 (6361, NOW(), 'So sorry You''re dealing with so much! Hope this makes things 1% better. Codan Limited', 25, NOW(), 'A star is born New Year''s Day (in lieu)', 86.00),
 (6362, NOW(), 'A diamond is a piece of coal that stuck to the job. Barbie', 21, NOW(), ' To the world''s greatest [DAD/MOM/GRANDMA]. Losar Holiday', 31.00),
@@ -6716,8 +6377,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6374, NOW(), 'Caps in the air like you just dont care. New Balance', 14, NOW(), 'Get outta here! Caricom Day', 85.00),
 (6375, NOW(), 'Sending you good vibes with this gift card! Banana Republic', 23, NOW(), 'The waiting is finally over and you have a bundle of joy to love. New Year''s Day (in lieu)', 37.00),
 (6376, NOW(), 'My/Our sympathy and thoughts are with you and your family. Hong Kong Link', 18, NOW(), 'Have a hippity, hoppity Happy Easter. Eid Milad-un-Nabi', 71.00),
-(6377, NOW(), 'Congratulations on your retirement. Best wishes for a great future. JBL', 11, NOW(), 'everything to know New Year''s Day', 96.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6377, NOW(), 'Congratulations on your retirement. Best wishes for a great future. JBL', 11, NOW(), 'everything to know New Year''s Day', 96.00),
 (6378, NOW(), 'Hope youll be improving with each and every day. Austal Ships', 26, NOW(), 'For Leaning into Luxury Christmas Day', 15.00),
 (6379, NOW(), 'A particularly thoughtful gift for your friend who uses their oven to store shoes. Accenture', 30, NOW(), 'Sincere thanks for your extra efforts. Chehlum', 60.00),
 (6380, NOW(), 'We share in your celebration of the new life you created! Altima', 28, NOW(), 'Relax and enjoy your wonderful new home! Muharram', 40.00),
@@ -6735,8 +6395,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6392, NOW(), 'As the moon shines brighter,And hearts grow lighter,Our sincere Raya wish is forblessings to flourish,And may you have a warm and joyous celebrationSelamat Hari Raya Aidilfitri! Dr. Scholl''s', 13, NOW(), 'Bandier Digital Gift Certificate Eid al-Fitr Holiday', 13.00),
 (6393, NOW(), 'Wherever they''re going in 2023, you''ll be part of helping them get there. Pacific Star Network Limited', 14, NOW(), 'Joy to the whole mispucha! Durga Puja', 58.00),
 (6394, NOW(), 'Santa needed help saving space in his sack. Fendi', 24, NOW(), 'Thank you for the privilege and opportunity to work with you. Independence Day', 34.00),
-(6395, NOW(), 'Sending you good vibes with this gift card! Major League Baseball', 12, NOW(), ' I blew it. Please give me another chance. Hari Raya Aidil Fitri Holiday', 83.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6395, NOW(), 'Sending you good vibes with this gift card! Major League Baseball', 12, NOW(), ' I blew it. Please give me another chance. Hari Raya Aidil Fitri Holiday', 83.00), 
 (6396, NOW(), 'We wish you all the happiness the coming years can hold. Bank of America', 27, NOW(), '57Hours E-Gift Certificate Founding of Asuncin', 57.00),
 (6397, NOW(), 'Caps in the air like you just dont care. Subway', 15, NOW(), 'Souvenirs appreciated. Labour Day', 41.00),
 (6398, NOW(), 'Hope your hospital stay is a short one. Green Giant', 28, NOW(), 'Warmest regards Labour Day', 51.00),
@@ -6755,8 +6414,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6411, NOW(), U&'May the comfort of friends and family be your strength for today and the days ahead. L''Or\00e9al Paris', 25, NOW(), 'Keep looking fresh and fabulous St. Andrew''s Day', 22.00),
 (6412, NOW(), 'Sorry I forgot the most important day of the year... your Birthday! Routan', 30, NOW(), 'Tropical Arrangements Battle of Vertires Day', 43.00),
 (6413, NOW(), 'Im more thankful than mere words can ever tell ABB Grain Limited', 12, NOW(), 'For Absolutely Anything Tuen Ng Festival', 25.00),
-(6414, NOW(), 'With best wishes for a lifetime of happiness together. Carnation', 11, NOW(), 'Words are so inadequate at a time like this. New Year''s Day', 80.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6414, NOW(), 'With best wishes for a lifetime of happiness together. Carnation', 11, NOW(), 'Words are so inadequate at a time like this. New Year''s Day', 80.00), 
 (6415, NOW(), 'You take my breath away...today and every day. Banco de Galicia y Buenos Aires SA', 25, NOW(), 'Cheers to you two! Holy Friday', 93.00),
 (6416, NOW(), 'You have no item in your shopping cart. Alcatel', 24, NOW(), 'So grateful for you. New Year''s Day', 98.00),
 (6417, NOW(), 'Thank you for your encouragement and support always. Fresh Steps', 10, NOW(), '[DAD/MOM/GRANDMA] you are my inspiration. New Year''s Day', 78.00),
@@ -6775,8 +6433,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6430, NOW(), 'Think of the years as gold bullion...and you''re rich! Costco', 13, NOW(), 'Dad, your guiding hand on my shoulder will remain with me forever. Unknown The first weekday after Christmas Day', 99.00),
 (6431, NOW(), 'May God bless you on your graduation day. Hand And Stone ', 16, NOW(), 'May all your days be filled with lasting love. Christmas Eve', 24.00),
 (6432, NOW(), 'Trust methis is better than me shopping for you! Bulgari', 16, NOW(), 'Congratulations! Wishing you a successful journey ahead! Orthodox Good Friday', 99.00),
-(6433, NOW(), 'Our thoughts and prayers are with you during this difficult time. We are sorry for your loss. Hills Hoist', 23, NOW(), 'Chinese New Year Independence Day', 26.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6433, NOW(), 'Our thoughts and prayers are with you during this difficult time. We are sorry for your loss. Hills Hoist', 23, NOW(), 'Chinese New Year Independence Day', 26.00),
 (6434, NOW(), 'For the person who likes their clothing to come with Amazon-fast shipping. Blockbuster', 17, NOW(), 'For Dainty Jewelry Columbus Day', 98.00),
 (6435, NOW(), 'Roses are red, violets are blue, I am so happy that I love you! Old El Paso', 25, NOW(), 'Happy retirement. We''ll miss you! Labour Day', 35.00),
 (6436, NOW(), 'Great results come from hard work. Well done! FedEx Office', 11, NOW(), 'Short and Simple Memorial Day', 54.00),
@@ -6794,8 +6451,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6448, NOW(), 'Not just a year older, but a year better. Fiber One', 15, NOW(), 'Father''s Day Thimphu Tshechu Holiday', 28.00),
 (6449, NOW(), 'Because of you everything is so much nicer Casas Bahia', 24, NOW(), 'excellent last-minute gifts Good Friday', 99.00),
 (6450, NOW(), 'They say the best Christmas gifts come from the heart  but cash and gift cards do wonders too! Happy Holidays! Ananda', 26, NOW(), 'Thinking of you. May you feel better soon. Christmas Holiday', 37.00),
-(6451, NOW(), 'This ones for the beauty-obsessed person on your list who has already tried everything at Sephora. Theyll love diving into everything Ah-Shi, an Indigenous-owned beauty brand, has to offer. Fifth Avenue Show Repair', 10, NOW(), 'Wishing you everything happy for your birthday. Orthodox Easter Monday', 57.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6451, NOW(), 'This ones for the beauty-obsessed person on your list who has already tried everything at Sephora. Theyll love diving into everything Ah-Shi, an Indigenous-owned beauty brand, has to offer. Fifth Avenue Show Repair', 10, NOW(), 'Wishing you everything happy for your birthday. Orthodox Easter Monday', 57.00),
 (6452, NOW(), 'May you create countless memories in your new home. Luxottica Retail', 25, NOW(), 'The Sill Gift Certificate National Flag Day', 36.00),
 (6453, NOW(), 'You deserve all the feel-good you can get. Zara', 23, NOW(), 'Baron Fig Gift Certificate Revolution Day', 71.00),
 (6454, NOW(), 'You always go out of your way to be thoughtful. Nestle', 12, NOW(), 'For Their Fitness Resolutions Hari Raya Aidilfitri Holiday', 96.00),
@@ -6814,8 +6470,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6467, NOW(), 'Wishing you a joyous celebration, Selamat Hari Raya! Renaissance Indian Wells Resort and Spa', 30, NOW(), 'Cheer up! Be happy! Keep smiling! Labour Day', 62.00),
 (6468, NOW(), 'Wishing you a happy and peaceful Eid! Selamat Hari Raya! Aramark', 17, NOW(), 'Jump to Winter Solstice', 68.00),
 (6469, NOW(), 'Happy Birthday! You have to get older, but you dont have to grow up. SiriusXM', 17, NOW(), 'Wishing you a belated birthday. Chung Yeung Festival', 57.00),
-(6470, NOW(), 'Its a big world out there&go explore it! Cheez Whiz', 28, NOW(), 'With heartfelt condolences New Year''s Day (in lieu)', 54.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6470, NOW(), 'Its a big world out there&go explore it! Cheez Whiz', 28, NOW(), 'With heartfelt condolences New Year''s Day (in lieu)', 54.00),
 (6471, NOW(), 'Think of the years as gold bullion...and you''re rich! Centrino', 17, NOW(), 'Ihope your birthday was as special as you are. Carnival Monday', 90.00),
 (6472, NOW(), 'Hope your recovery is a speedy one. We miss you! Bonduelle', 14, NOW(), 'Sending you Happy Easter Wishes! Christmas Day', 59.00),
 (6473, NOW(), 'Just a little something from me to you. Dollar General', 19, NOW(), 'In loving memory Lady of Aparecida', 84.00),
@@ -6834,8 +6489,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6486, NOW(), 'Hope your birthday''s as terrific as you are. Coca-Cola', 23, NOW(), 'Accident or Illness Dassain', 18.00),
 (6487, NOW(), 'With every good wish for your retirement. May this be the start of your best years. 8th Continent Soymilk', 28, NOW(), 'Youre the best. Repentance Day', 17.00),
 (6488, NOW(), 'Just a little something to show my appreciation. Lancer', 30, NOW(), 'Go where no YOU has gone before. Christmas Day', 22.00),
-(6489, NOW(), 'Your thoughtfulness meant more than words can ever say. Old Spice', 26, NOW(), 'Delta Airlines EGift Certificate Kings''s Birthday', 57.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6489, NOW(), 'Your thoughtfulness meant more than words can ever say. Old Spice', 26, NOW(), 'Delta Airlines EGift Certificate Kings''s Birthday', 57.00),
 (6490, NOW(), 'When it rains, it pours but soon, the sun shines again. Better days are ahead. Longchamp', 17, NOW(), 'For the thing that wouldnt fit on Santas sleigh. Royal Plowing Ceremony', 46.00),
 (6491, NOW(), 'It was a pleasure talking with you. I hope we can speak again soon. Braskem', 14, NOW(), 'WELCOME to this gift card. Easter (Catholic)', 75.00),
 (6492, NOW(), 'There are all kinds of good things in store! Aldi', 29, NOW(), 'Aritzia EGift Certificate June Day', 30.00),
@@ -6853,8 +6507,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6504, NOW(), 'Thinking of you. May you feel better soon. Coolpix', 19, NOW(), 'Mytheresa Gift Certificate Easter Monday', 79.00),
 (6505, NOW(), 'Sending you good vibes with this gift card! Radisson', 25, NOW(), 'glowing winter skin Bengali New Year', 83.00),
 (6506, NOW(), 'Another adventure filled year awaits you. Welcome it by celebrating your birthday with pomp and splendor. Wishing you a very happy and fun-filled birthday! Deutsche Post', 20, NOW(), 'L.L.Bean Gift Certificate Losar', 22.00),
-(6507, NOW(), 'May the promise of Easter fill your heart with joy! Preparation H', 12, NOW(), 'Stay caffeinated, my friend. Victory of the Islamic Emirate', 34.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6507, NOW(), 'May the promise of Easter fill your heart with joy! Preparation H', 12, NOW(), 'Stay caffeinated, my friend. Victory of the Islamic Emirate', 34.00), 
 (6508, NOW(), 'May God bless you on your graduation day. Busch', 21, NOW(), 'MoMA Design Store E-Gift Certificate Orthodox Easter Monday', 20.00),
 (6509, NOW(), 'From jewelry to clothing and home decor, the online marketplace surely has something unique that''ll fit the bill for them. Dermalogica', 29, NOW(), 'Jump to Labour Day', 81.00),
 (6510, NOW(), 'Are you a banana? Because I find you a-peel-ing. Happy Valentine''s Day my love. OmniPro', 22, NOW(), 'Zappos E-Gift Certificate Epiphany', 44.00),
@@ -6873,8 +6526,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6523, NOW(), 'I am so grateful for all you do, I can''t thank you enough. American Idol', 10, NOW(), 'For Getting Active Liberation Day', 67.00),
 (6524, NOW(), 'Wishing you a Happy Birthday and many more to come. Kamala', 22, NOW(), 'Get well soon New Year''s Eve', 92.00),
 (6525, NOW(), 'You both deserve a lifetime of beautiful tomorrows. Bossa Nova', 23, NOW(), '57Hours E-Gift Certificate Christmas Day', 23.00),
-(6526, NOW(), 'With friendly thoughts and best wishes for your birthday. Co-op', 17, NOW(), 'Birthday Certificate Gift Flag Day', 88.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6526, NOW(), 'With friendly thoughts and best wishes for your birthday. Co-op', 17, NOW(), 'Birthday Certificate Gift Flag Day', 88.00),
 (6527, NOW(), 'May you create countless memories in your new home. Dillard''s', 11, NOW(), 'For Her Wardrobe Essentials Public Holiday', 46.00),
 (6528, NOW(), 'It was a pleasure to work with you. Baileys', 27, NOW(), 'Reformation E-Gift Certificate Spring Festival Holiday', 10.00),
 (6529, NOW(), 'Best wishes on this wonderful journey, as you build your new lives together. Louis Vuitton', 19, NOW(), 'For Leaning into Luxury Id-Ul-Zuha', 99.00),
@@ -6894,8 +6546,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6543, NOW(), 'There is so little one can say, but my heart goes out to you. Diaper Genie', 17, NOW(), 'ClassPass E-Gift Certificate Eid Al Adha', 10.00),
 (6544, NOW(), 'Beautiful people like you deserve a beautiful home. Congratulations! Marlboro', 26, NOW(), 'Many thanks for all you do. Second Day of Christmas', 98.00),
 (6545, NOW(), 'You''ve stolen my heart. I know it''s in good hands. 7 For all Mankind', 19, NOW(), 'Friends are forever! King''s Birthday', 24.00),
-(6546, NOW(), ' You''ll always be younger than springtime. Happy Birthday! British Rail', 26, NOW(), 'For Taking a Deep Breath Orthodox Easter Day', 37.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6546, NOW(), ' You''ll always be younger than springtime. Happy Birthday! British Rail', 26, NOW(), 'For Taking a Deep Breath Orthodox Easter Day', 37.00), 
 (6547, NOW(), 'Your love and wisdom have always helped guide me. Marcolini', 30, NOW(), 'excellent last-minute gifts All Souls'' Day', 69.00),
 (6548, NOW(), 'I am bad at gifts! (But you know this.) George Weston', 13, NOW(), 'Your business is appreciated. Thank you for choosing us. Liberation Day', 44.00),
 (6549, NOW(), 'You are the best thing that ever happened to me. Happy Valentines day, my happiness. Camus', 23, NOW(), 'Happiness is having a friend like you. Boxing Day', 30.00),
@@ -6914,8 +6565,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6562, NOW(), 'Like a fine wine, you improve with age. Brava', 26, NOW(), 'Kitty Guo Berchtolds Day', 18.00),
 (6563, NOW(), 'For a cute outfit, plus maybe one for the baby. Lane Crawford', 10, NOW(), 'Accident or Illness Mother''s Day', 88.00),
 (6564, NOW(), 'Many thanks for being our customer for years. We value that relationship. Alexander Keith''s Brewery', 18, NOW(), 'our review of Otherland here Independence Day', 72.00),
-(6565, NOW(), 'Happy Valentines Day. You are amazing in every way! I love you! Coach', 24, NOW(), 'ASOS E-Gift Certificate Eid ul-Fitr', 60.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6565, NOW(), 'Happy Valentines Day. You are amazing in every way! I love you! Coach', 24, NOW(), 'ASOS E-Gift Certificate Eid ul-Fitr', 60.00), 
 (6566, NOW(), 'My love for you grows stronger every year. Banco Popular', 18, NOW(), 'Fashion and accessories Maharashtra Day', 86.00),
 (6567, NOW(), 'For the fashionista on your list whom you wouldnt dare shop for, this Danish fashion brand serving up effortless cool-girl style definitely wont disappoint. Facebook', 23, NOW(), 'Don''t tell the others you got this. Labour Day', 68.00),
 (6568, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. Sonos', 18, NOW(), 'Welcome to the neighborhood National Heroes and Heroines Day', 67.00),
@@ -6933,8 +6583,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6580, NOW(), 'Take care of yourself and feel better soon. Halifax', 25, NOW(), 'Go spa yourself! Bonaire Flag Day', 100.00),
 (6581, NOW(), 'Something hot for someone&who has a lot of nice qualities. Banco Nossa Caixa', 13, NOW(), 'Love is a good reason for a gift card. Easter Monday', 30.00),
 (6582, NOW(), 'We are so happy for you and the arrival of your new child. Cookie Time', 14, NOW(), 'Williams Sonoma E-Gift Certificate Labor Day', 78.00),
-(6583, NOW(), 'Congratulations on your new bundle of joy. E.Leclerc', 20, NOW(), 'Just a little something to show my appreciation. Day of National Sovereignty', 96.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6583, NOW(), 'Congratulations on your new bundle of joy. E.Leclerc', 20, NOW(), 'Just a little something to show my appreciation. Day of National Sovereignty', 96.00), 
 (6584, NOW(), 'You take my breath away...today and every day. Bohemia', 25, NOW(), 'Lululemon Gift Certificate Eid Al Adha', 24.00),
 (6585, NOW(), 'You always go out of your way to be thoughtful. Meadow Fresh', 25, NOW(), 'This is between you and your arteries. Thanksgiving', 49.00),
 (6586, NOW(), 'After 10 years, I still feel like we''re newlyweds. la prairie', 16, NOW(), 'Grubhub E-Gift Certificate Martyr''s Day', 74.00),
@@ -6952,8 +6601,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6598, NOW(), 'Hoping you two are blessed with many more years together. Activia', 21, NOW(), 'By the time this reaches you I hope youll be well on the road to a speedy recovery. Europe Day', 37.00),
 (6599, NOW(), 'After 10 years, I still feel like we''re newlyweds. Elements Massage ', 18, NOW(), 'A little late-night shopping with a gift card never hurt anyone (probably). Orthodox Holy Saturday', 39.00),
 (6600, NOW(), 'Congratulations on your retirement. Best wishes for a great future. Kindle', 24, NOW(), 'Belated birthday St. Stephen''s Day', 100.00),
-(6601, NOW(), 'Your love and wisdom have always helped guide me.  Ila', 16, NOW(), 'Bookshop Gift Certificate Victory of the Islamic Emirate', 57.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6601, NOW(), 'Your love and wisdom have always helped guide me.  Ila', 16, NOW(), 'Bookshop Gift Certificate Victory of the Islamic Emirate', 57.00),
 (6602, NOW(), 'Ihope your birthday was as special as you are. BOSE', 21, NOW(), 'Take your homebody out shopping! Labour Day', 36.00),
 (6603, NOW(), 'Your business is appreciated. Thank you for choosing us. Bank One', 14, NOW(), 'With my deepest sympathy New Year''s Holiday (bridge day)', 27.00),
 (6604, NOW(), 'Congratulations, and best of luck in your future endeavors.  Ila', 26, NOW(), 'Bando Gift Certificate Good Friday', 17.00),
@@ -6970,8 +6618,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6615, NOW(), 'A particularly thoughtful gift for your friend who uses their oven to store shoes. DIA', 29, NOW(), 'Stay caffeinated, my friend. Umhlanga reed dance', 12.00),
 (6616, NOW(), 'Santa needed help saving space in his sack. Hulu', 14, NOW(), 'Thank you for the referrals Hari Raya Aidil Fitri', 66.00),
 (6617, NOW(), 'You both deserve the very best that life can bring you. Gerber', 25, NOW(), 'For the New Homeowner Ash Wednesday', 80.00),
-(6618, NOW(), 'You''ve stolen my heart. I know it''s in good hands. Franck Muller', 27, NOW(), 'Its just one day in the year, but you should know that I love you every day and every moment. Take my love on this beautiful occasion! Carnival Monday', 77.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6618, NOW(), 'You''ve stolen my heart. I know it''s in good hands. Franck Muller', 27, NOW(), 'Its just one day in the year, but you should know that I love you every day and every moment. Take my love on this beautiful occasion! Carnival Monday', 77.00),
 (6619, NOW(), 'Have fun getting your little cutie all geared up! Danske Bank', 18, NOW(), 'Coach E-Gift Certificate Mawlid', 14.00),
 (6620, NOW(), 'For anyone who might appreciate some especially colorful new home goods. Audible', 28, NOW(), 'In loving memory King''s Birthday', 32.00),
 (6621, NOW(), 'Hoping you two are blessed with many more years together. Delirium Tremens', 10, NOW(), 'Maude EGift Certificate Labour Day', 32.00),
@@ -6991,8 +6638,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6635, NOW(), 'May this new year bring you good health and good fortune. Razer', 17, NOW(), 'Hope this helps get you that thing that brings the cozy to your new place. October Revolution Day', 33.00),
 (6636, NOW(), 'May God bless you on your graduation day. Bang & Olufsen', 13, NOW(), 'Birthday Certificate Gift Labour Day', 28.00),
 (6637, NOW(), 'I hope all your birthday wishes came true. Coldwell Bank', 30, NOW(), 'Wishing you health and longevity Labour Day Holiday', 58.00),
-(6638, NOW(), 'Send me a postcard with a kitten on it. QMS Medicosmetics', 22, NOW(), 'Watch carefully&dinner is almost here. October Revolution Day', 48.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6638, NOW(), 'Send me a postcard with a kitten on it. QMS Medicosmetics', 22, NOW(), 'Watch carefully&dinner is almost here. October Revolution Day', 48.00), 
 (6639, NOW(), 'Who doesn''t love buttery soft fabric, comfortable workout attire and cool athleisure? We know we do! Columbia', 20, NOW(), 'My love for you grows stronger every year. Labour Day', 82.00),
 (6640, NOW(), 'The worlds a better place because of people like you. Cartier', 16, NOW(), 'The Cheesecake Factory Gift Certificate Saint Peter and Saint Paul', 28.00),
 (6641, NOW(), 'See? It was all worth it! Right?? Michael Kors', 16, NOW(), 'You''re the best! Christmas Day', 12.00),
@@ -7011,8 +6657,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6654, NOW(), 'May God be with you at this time. Baxter', 22, NOW(), 'Need a travel buddy? Christmas Eve', 47.00),
 (6655, NOW(), 'Your love and wisdom have always helped guide me. Clag', 20, NOW(), 'For Getting Active Ascension Day', 84.00),
 (6656, NOW(), 'One of the most glorious messes in the world is the mess created in the living room on Christmas Day. Boppy', 25, NOW(), 'Makes you want to do nice things for me all the time, right? Meeting of the Worlds', 70.00),
-(6657, NOW(), 'Not cooking is the most delicious of all. 9', 12, NOW(), 'Easter Certificate Ideas Christmas Day', 95.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6657, NOW(), 'Not cooking is the most delicious of all. 9', 12, NOW(), 'Easter Certificate Ideas Christmas Day', 95.00),
 (6658, NOW(), 'I wish I could be there with you. Know that you are with me in my thoughts. Ray-Ban', 18, NOW(), ' I would hate for our friendship to be lost. Please forgive me. Carnival', 28.00),
 (6659, NOW(), 'Another year older and another reason to celebrate! Happy Birthday! Advil', 10, NOW(), 'Corporate Gifts Chetrichandra', 100.00),
 (6660, NOW(), 'To happy endings and new beginnings. Congratulations! Burberry', 18, NOW(), 'Online Gift Certificate Jumatul Bidah', 98.00),
@@ -7031,8 +6676,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6673, NOW(), 'Life began with waking up and loving my mother''s face. George Eliot La Chouffe', 17, NOW(), 'Fly by Jing Gift Certificate Good Friday', 13.00),
 (6674, NOW(), 'Hope this makes your sweet home even homier. Maxima', 15, NOW(), 'Williams Sonoma E-Gift Certificate Prophet''s Birthday', 32.00),
 (6675, NOW(), 'For the person who cant stop reading our tech reviews. Betty Crocker', 19, NOW(), 'You''re in my thoughts. Chuquisaca Day', 17.00),
-(6676, NOW(), 'I never know what to get you&but you do! Andritz', 21, NOW(), 'Yay for you! National Salvation Day', 80.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6676, NOW(), 'I never know what to get you&but you do! Andritz', 21, NOW(), 'Yay for you! National Salvation Day', 80.00),
 (6677, NOW(), 'Your business is appreciated. Thank you for choosing us. Lowe''s', 24, NOW(), 'Zola E-Gift Certificate Defender''s Day (in lieu)', 75.00),
 (6678, NOW(), 'Happy birthday, friend. May your day be as beautiful as you. Givenchy', 13, NOW(), 'I figured youd know better than Santa. Ashura', 97.00),
 (6679, NOW(), 'I hope your birthday was all that you hoped for. Polo Ralph Lauren', 24, NOW(), 'Christmas is magical because we''re together. Christmas Day', 38.00),
@@ -7051,8 +6695,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6692, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. Everlast', 24, NOW(), 'Good fathers do three things: they provide, they nurture and they guide. Roland Warren Thanksgiving', 65.00),
 (6693, NOW(), 'Hoping each new day will find you feeling better. Listerine', 10, NOW(), 'Add something great to your playlist! Christmas (Catholic)', 83.00),
 (6694, NOW(), 'No music is so pleasant to my ears as that wordfather. Lydia Maria Child Ality', 16, NOW(), 'Rack up some reward miles! Carnival Monday', 17.00),
-(6695, NOW(), 'Hope your birthday''s as terrific as you are. 8th Continent Soymilk', 22, NOW(), 'Its always shopping time. Day of Arafa', 47.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6695, NOW(), 'Hope your birthday''s as terrific as you are. 8th Continent Soymilk', 22, NOW(), 'Its always shopping time. Day of Arafa', 47.00),
 (6696, NOW(), 'A father is someone you look up to no matter how tall you grow. Unknown Aalberts Industries', 10, NOW(), 'Zola E-Gift Certificate Losar', 34.00),
 (6697, NOW(), 'Because of you everything is so much nicer American Idol', 28, NOW(), 'Delta Airlines EGift Certificate Canadian Remembrance Day (in lieu)', 60.00),
 (6698, NOW(), 'Thinking of you and wishing you a happy day. Fresh''n Fruity', 20, NOW(), 'Happy Valentines day 2022. May you celebrate love not only this one day but throughout the year. Good Friday', 31.00),
@@ -7070,8 +6713,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6710, NOW(), 'Congratulations on your new bundle of joy. CIMB', 27, NOW(), 'Just touching base with you German Community Day', 25.00),
 (6711, NOW(), 'Give the gift of Skims with this special gift card. Now, your recipient can choose whatever their heart desires. Fossil', 30, NOW(), 'New Baby Welcome Gift Public Holiday', 29.00),
 (6712, NOW(), 'May your family be showered with health and prosperity. Wishing you a blessed and joyous Hari Raya! Zespri', 22, NOW(), 'Cheer Up! National Day for Truth and Reconciliation', 14.00),
-(6713, NOW(), 'I am not a camera but Im really good at picturing us together. I wish I could show them to you. Happy valentines day! Timberland', 23, NOW(), 'Yummy for you! Constitution Day', 74.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6713, NOW(), 'I am not a camera but Im really good at picturing us together. I wish I could show them to you. Happy valentines day! Timberland', 23, NOW(), 'Yummy for you! Constitution Day', 74.00),
 (6714, NOW(), 'Hoping the best things in life will always be yours. GoPro', 22, NOW(), 'Goldbelly Gift Certificate Orthodox Easter Monday', 49.00),
 (6715, NOW(), 'For the avid reader who likes to support small businesses. PANDORA', 24, NOW(), 'Your business is appreciated. Thank you for choosing us. Labor Day', 16.00),
 (6716, NOW(), 'Travel money for your trip to happily ever after. Villa Stephanie ', 25, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! Constitutional Day', 74.00),
@@ -7089,8 +6731,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6728, NOW(), 'May your love bring happiness to all your days. ABB', 19, NOW(), 'Madewell E-Gift Certificate Virgin Islands Day', 88.00),
 (6729, NOW(), 'Buying them a gift card for their favorite store? That shows you know them pretty well, in our opinion. Whether they love makeup, shoes, clothes or sporting goodsor all of those thingshopefully these message ideas will help make your gift card feel extra special. Omega', 11, NOW(), 'You''re the best Independence Day', 90.00),
 (6730, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Estee Lauder', 18, NOW(), 'A father is neither an anchor to hold us back nor a sail to take us there, but a guiding light whose love shows us the way. Unknown Anti-Fascist Struggle Day', 71.00),
-(6731, NOW(), 'My/Our sympathy and thoughts are with you and your family. Altronics Australia', 10, NOW(), 'Get outta here! Good Friday', 12.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6731, NOW(), 'My/Our sympathy and thoughts are with you and your family. Altronics Australia', 10, NOW(), 'Get outta here! Good Friday', 12.00), 
 (6732, NOW(), 'College throws a lot at you at once. Hope this helps. Ross Stores', 11, NOW(), 'I blew it. Please give me another chance. Mawlid', 31.00),
 (6733, NOW(), 'May the love and happiness you feel today shine through the years. Bally', 15, NOW(), 'Cool Move! Congratulations! Day of the Virgin of Guadalupe', 88.00),
 (6734, NOW(), 'May God bless you on your graduation day. Barbie', 25, NOW(), 'Get whatever you want! Carnival Tuesday', 86.00),
@@ -7109,8 +6750,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6747, NOW(), 'For the friend who loves going to see their favorite artists and teams play live. Business Week', 10, NOW(), 'Hari Raya Carnival Monday', 45.00),
 (6748, NOW(), 'Heard that you''ve been under the weather. Hope things clear up soon. Subway', 25, NOW(), 'Enjoy the popcorn! Maundy Thursday', 57.00),
 (6749, NOW(), U&'Hope your hospital stay is a short one. Chlo\00c3\00a9', 18, NOW(), 'Valentine''s Day Independence Day', 20.00),
-(6750, NOW(), 'Sincerest thanks for your valued business. Look forward to working with you again soon! Haigh''s chocolates', 17, NOW(), 'our favorite Everlane pieces here Mother''s Day', 47.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6750, NOW(), 'Sincerest thanks for your valued business. Look forward to working with you again soon! Haigh''s chocolates', 17, NOW(), 'our favorite Everlane pieces here Mother''s Day', 47.00),
 (6751, NOW(), 'Your thoughtfulness meant more than words can ever say. Bavaria', 28, NOW(), 'Escape to someplace pretty! Easter (Catholic)', 19.00),
 (6752, NOW(), 'Your thoughtfulness meant more than words can ever say. Ace Radio', 26, NOW(), 'cooling cotton PJs Melbourne Cup Day', 71.00),
 (6753, NOW(), 'Sharing in your happiness and wishing you all the best. BHP Billiton', 30, NOW(), 'Just because youve bean on my mind. Good Friday', 48.00),
@@ -7128,8 +6768,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6765, NOW(), 'Sending you well wishes for your quick recovery and good health. Vair spa ', 21, NOW(), 'Your thoughtfulness is appreciated so much more than words can say. Father''s Day', 99.00),
 (6766, NOW(), 'An especially good last-minute gift for the hard-to-shop-for teenager. Boxster', 16, NOW(), 'Babies are Gods miracles Independence Day', 15.00),
 (6767, NOW(), 'Thanks for squeezing me in. I know how busy you are. Suave', 25, NOW(), 'Welcome to the neighborhood Public Holiday', 95.00),
-(6768, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. ABN Amro', 25, NOW(), 'For Endless Accessorizing Ascension Day', 35.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6768, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. ABN Amro', 25, NOW(), 'For Endless Accessorizing Ascension Day', 35.00),
 (6769, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! Aura', 12, NOW(), 'Do your thing! Mid-Autumn Festival', 41.00),
 (6770, NOW(), 'Give your workout buddy the chance to try something new with a gift card to ClassPass. Borealis', 19, NOW(), 'Hallmark Gold Crown General Prayer Day', 44.00),
 (6771, NOW(), 'Find a song to get stuck in your head. Forbes', 22, NOW(), 'Keep looking fresh and fabulous Labour Day', 36.00),
@@ -7148,8 +6787,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6784, NOW(), 'And so... The adventure begins! Congratulations on your graduation! Bob the Builder', 28, NOW(), 'Please know our loving thoughts embrace you Eid Al Fitr', 66.00),
 (6785, NOW(), 'You are missed! Get well soon and hurry back. Bunnings', 16, NOW(), 'Mother''s Day Eid-Ul-Adha', 18.00),
 (6786, NOW(), 'Gift a year of movies, shows and stories with a one year gift subscription to Disney+. Netflix and chill just got a whole lot more fun. Macy''s', 27, NOW(), 'Kudos to you! Youve earned them. Labour Day', 25.00),
-(6787, NOW(), 'I hope that for every candle on your cake you get a wonderful surprise. Diageo', 20, NOW(), 'Hope your birthday''s as terrific as you are. Republic Day', 53.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6787, NOW(), 'I hope that for every candle on your cake you get a wonderful surprise. Diageo', 20, NOW(), 'Hope your birthday''s as terrific as you are. Republic Day', 53.00), 
 (6788, NOW(), 'So they can upgrade to linen sheets or get a new bathrobe. Kamala', 18, NOW(), 'New hears for your ears! New Year''s Holiday Holiday', 64.00),
 (6789, NOW(), 'Being in love with you makes every morning worth getting up for. 579', 11, NOW(), 'Welcome aboard! Its good to have you with us. National Day', 48.00),
 (6790, NOW(), 'Were wishing everything wonderful to a wonderful couple. Baskin-Robbins', 18, NOW(), 'Rejoice, Christ is risen! Carnival Tuesday', 73.00),
@@ -7167,8 +6805,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6802, NOW(), 'We love Brooklinens linen bedding, as well as its oh-so-soft cotton sheets. Altos Del Plata', 14, NOW(), 'Thinking of you Jhulan Purnima', 47.00),
 (6803, NOW(), 'We wish you all the happiness the coming years can hold. Pyrex', 16, NOW(), 'I hope that every day you two spend together is as blissful and love-filled as possible. Here''s to one of my all-time favorite couples! Congratulations. All Souls'' Day', 86.00),
 (6804, NOW(), 'May you create countless memories in your new home. Rolex', 30, NOW(), 'Amazon E-Gift Certificate Freedom Day', 27.00),
-(6805, NOW(), 'Our love is a journey, with a beginning but no end. We will walk the path together forever. Burt''s Bees', 30, NOW(), 'Three words: Add To Cart Descending Day of Lord Buddha', 54.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6805, NOW(), 'Our love is a journey, with a beginning but no end. We will walk the path together forever. Burt''s Bees', 30, NOW(), 'Three words: Add To Cart Descending Day of Lord Buddha', 54.00),
 (6806, NOW(), 'Your name has been synonymous with success! Congratulations! Under Armour', 29, NOW(), 'Everlane Gift Certificate National Day for Truth and Reconciliation', 77.00),
 (6807, NOW(), 'Great news! You wont have to return this. Aquafina', 29, NOW(), 'Hope youre up and about soon. Portugal Day', 47.00),
 (6808, NOW(), 'The love you share makes this day special. Elements Massage ', 15, NOW(), 'Were glad you joined us. Labour Day', 83.00),
@@ -7187,8 +6824,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6821, NOW(), 'May your sorrow be eased by good memories. Kisses', 28, NOW(), 'Treat yourself. Youve earned it. Good Friday', 29.00),
 (6822, NOW(), 'Just a cheery note to wish you well. Burberry', 14, NOW(), 'Outdoor Voices Gift Certificate Eid-el-Kibr Holiday', 56.00),
 (6823, NOW(), 'Im sending a bunch of happies to say Have a cheerful day! IKEA', 17, NOW(), 'Business anniversary Holy Saturday', 30.00),
-(6824, NOW(), 'May love always live in the home that you share. Apple Music', 21, NOW(), 'Maude EGift Certificate Easter Day', 23.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6824, NOW(), 'May love always live in the home that you share. Apple Music', 21, NOW(), 'Maude EGift Certificate Easter Day', 23.00), 
 (6825, NOW(), 'My father gave me the greatest gift anyone could give another person, he believed in me. Jim Valvano HP', 24, NOW(), 'Wishing you happiness and joy in this new life you share. Armistice Day', 52.00),
 (6826, NOW(), 'Sincerest thanks for your valued business. Look forward to working with you again soon! Fischer', 12, NOW(), 'A star is born. Candlemas', 97.00),
 (6827, NOW(), 'May happiness &amp; love move in with you. UNIQLO', 26, NOW(), 'Please know our loving thoughts embrace you Eid-e-Miladunnabi', 46.00),
@@ -7206,8 +6842,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6839, NOW(), 'We may not have it altogether but together we have it all! Habib''s', 15, NOW(), 'Smiles are the best medicine Naadam Holiday', 53.00),
 (6840, NOW(), 'A father is neither an anchor to hold us back nor a sail to take us there, but a guiding light whose love shows us the way. Unknown Lacoste', 24, NOW(), 'Warmest regards Day of respect for cultural diversity', 30.00),
 (6841, NOW(), 'You''ve stolen my heart. I know it''s in good hands. Santal', 13, NOW(), 'Escape to someplace pretty! Independence Day', 81.00),
-(6842, NOW(), 'May God be with you at this time. Best Buy', 18, NOW(), 'American Express eGift Certificate Labour Day', 95.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6842, NOW(), 'May God be with you at this time. Best Buy', 18, NOW(), 'American Express eGift Certificate Labour Day', 95.00),
 (6843, NOW(), 'Something hot for someone&who has a lot of nice qualities. Rail Infrastructure Corporation', 25, NOW(), 'Ob Fitness Monthly Membership Carnival Tuesday', 61.00),
 (6844, NOW(), 'May your degree unlock many doors to well deserved success. QMS Medicosmetics', 10, NOW(), 'Sending you Happy Easter Wishes! Constitution Day', 92.00),
 (6845, NOW(), 'How do you expect me to remember your birthday, when you never look any older? Harry Rosen', 14, NOW(), 'A father so handsome, a mom so pretty  no wonder your newborn is such a sweetie. Congratulations. Victory Day', 26.00),
@@ -7225,8 +6860,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6857, NOW(), 'At Macys, theyll be able pick out whatever they want in any number of categories  from clothing to beauty products to homewares. Holiday Inn', 16, NOW(), 'Beyond every cloud, there is a rainbow. Prophet''s Birthday', 99.00),
 (6858, NOW(), 'you''ve got all that learning. Heres a little something to go with it! Breville', 18, NOW(), 'Soko Glam Gift Certificate Eid ul-Fitr', 36.00),
 (6859, NOW(), 'I''ll never forgive myself...but I''m hoping you will. I''m sorry. Kellogg''s Nestle', 16, NOW(), 'For Getting Active Gurban Bayrami', 44.00),
-(6860, NOW(), 'Wherever they''re going in 2023, you''ll be part of helping them get there. Spotify', 11, NOW(), 'Happy Belated Birthday! Independence Day', 18.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6860, NOW(), 'Wherever they''re going in 2023, you''ll be part of helping them get there. Spotify', 11, NOW(), 'Happy Belated Birthday! Independence Day', 18.00), 
 (6861, NOW(), 'Congratulations and best wishes for a succesful future. Sisley Paris', 10, NOW(), 'Huckberry E-Gift Certificate King Charles'' Birthday', 88.00),
 (6862, NOW(), U&'Valentines Day is a very special occasion to let you know what an important place you have in my heart. I love you! Happy Valentines Day! Levi\2019s', 16, NOW(), 'For Something Extra Special Christmas Day', 70.00),
 (6863, NOW(), 'Drivers, watch the road! Someone just turned 16! Fila', 27, NOW(), 'Whole Foods EGift Certificate New Year''s Day', 58.00),
@@ -7246,8 +6880,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6877, NOW(), 'I blew it. Please give me another chance. Heungkuk', 26, NOW(), 'Gift Certificate Pharses Abolition Day', 85.00),
 (6878, NOW(), 'May all your days be filled with lasting love. Victoria''s Secret', 22, NOW(), 'Graduation Certificate Ideas Mouloud', 62.00),
 (6879, NOW(), 'May all the dreams You''re dreaming soon turn into dreams come true. Avalanche', 22, NOW(), 'So grateful for you. Christmas Day', 49.00),
-(6880, NOW(), 'May love always live in the home that you share. BOSE', 29, NOW(), 'Mytheresa Gift Certificate King Charles'' Birthday', 48.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6880, NOW(), 'May love always live in the home that you share. BOSE', 29, NOW(), 'Mytheresa Gift Certificate King Charles'' Birthday', 48.00),
 (6881, NOW(), 'For the person who takes remote work to whole new level. Henry Jones IXL', 16, NOW(), 'Belated birthday May Day Revolution', 47.00),
 (6882, NOW(), 'The 18 Very Best Sunscreens for Your Face Clear Channel Communications', 18, NOW(), 'Eater Wine Club Gift Certificate Restoration Day', 88.00),
 (6883, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Cheap Monday', 28, NOW(), 'Some tune-age for you-nage. New Year''s Day (in lieu)', 68.00),
@@ -7267,8 +6900,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6897, NOW(), U&'Congratulations on the birth of you new baby [BOY/GIRL] Am\00c3\00a9rica Latina Log\00c3stica', 29, NOW(), 'Happy house warming! Chung Yeung Festival', 95.00),
 (6898, NOW(), 'You always do the nicest things in just the nicest way. Zara', 20, NOW(), 'Hulu E-Gift Certificate Holy Spirit Monday', 37.00),
 (6899, NOW(), 'Sorry I missed you. Hope to talk with you soon. Cartier', 19, NOW(), 'Yay for you! Gothar Bathou Sun', 17.00),
-(6900, NOW(), 'For your friend who always has a Slow Burn candle on deck. Acura', 28, NOW(), 'meal delivery kit Western Australia Day', 57.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6900, NOW(), 'For your friend who always has a Slow Burn candle on deck. Acura', 28, NOW(), 'meal delivery kit Western Australia Day', 57.00),
 (6901, NOW(), 'Congratulations on your new little someone to love. Babor', 21, NOW(), 'Yay for you! Korit', 31.00),
 (6902, NOW(), 'Thank you for taking the time to meet with me. Pandora', 19, NOW(), 'American Express eGift Certificate International Women''s Day', 37.00),
 (6903, NOW(), 'You take my breath away...today and every day. Eaton', 19, NOW(), 'Kitty Guo Eid Al Adha', 92.00),
@@ -7288,8 +6920,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6917, NOW(), 'You have 12 days of Christmas to spend this. Molson Export', 12, NOW(), 'For Wine Night Truth and Justice Memorial Day', 20.00),
 (6918, NOW(), 'Someone is turning the BIG 3 - 0! Celebrate! Amul', 26, NOW(), 'Theres Something Off About LED Bulbs Boxing Day', 10.00),
 (6919, NOW(), 'A warm welcome. Thank you for choosing us! Skechers', 28, NOW(), 'Friends make life more beautiful Chinese National Day Holiday', 88.00),
-(6920, NOW(), 'You deserve a round of applauseand this, too. Clarins', 12, NOW(), 'Thinking of you Memorial Day', 46.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6920, NOW(), 'You deserve a round of applauseand this, too. Clarins', 12, NOW(), 'Thinking of you Memorial Day', 46.00), 
 (6921, NOW(), 'For a cute outfit, plus maybe one for the baby. Cialis', 29, NOW(), 'BYO red carpet Ching Ming Festival', 22.00),
 (6922, NOW(), 'For the person who loves classic leather goods. Days Inn', 12, NOW(), 'Huckberry E-Gift Certificate Carnival Tuesday', 70.00),
 (6923, NOW(), 'If I had to do it all over again, I wouldn''t. Beats by Dre', 14, NOW(), 'Thanks to the most amazing work buddy! Mary Prince Day', 17.00),
@@ -7307,8 +6938,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6935, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! Samsung', 18, NOW(), 'With Warmest congratulations All Souls'' Day', 48.00),
 (6936, NOW(), 'Gift card? Bacon? It was a really tough decision. Tiffany & Co.', 12, NOW(), 'Golde E- Gift Certificate Ramazan Bayrami', 50.00),
 (6937, NOW(), 'You''re on the right path to a wonderful life. Congratulations! Peugeot', 26, NOW(), 'Wishing you happiness everyday. Emancipation Wednesday', 85.00),
-(6938, NOW(), 'To you, gift wrapping is an art. So heres a little something for art supplies. CDW', 16, NOW(), 'Happy Valentines Day to the truest and most beautiful soul I know. May your day fills with love and laughter. Easter Monday', 14.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6938, NOW(), 'To you, gift wrapping is an art. So heres a little something for art supplies. CDW', 16, NOW(), 'Happy Valentines Day to the truest and most beautiful soul I know. May your day fills with love and laughter. Easter Monday', 14.00),
 (6939, NOW(), 'Hope your birthday''s as terrific as you are. Williams Sonoma', 11, NOW(), 'Play a little International Women''s Day', 30.00),
 (6940, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Keuhne + Nagel', 18, NOW(), 'Take your homebody out shopping! Labour Day', 11.00),
 (6941, NOW(), 'May you enjoy a long and wonderful retirement. Samsung', 22, NOW(), 'Hope this brightens your day! Good Thursday', 43.00),
@@ -7328,8 +6958,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6955, NOW(), 'Hope your new home is as special as you are. Brabus', 21, NOW(), 'Welcome to the neighborhood Maundy Thursday', 85.00),
 (6956, NOW(), 'Please accept these flowers and hear the words we are not able to speak Midea', 27, NOW(), 'Love is a good reason for a gift card. Mother''s Day', 89.00),
 (6957, NOW(), 'Wishing you another wonderful year of happiness and joy. Happy Birthday! National Australia Bank', 25, NOW(), 'Hay E-Gift Certificate Eid Al Fitr Holiday', 20.00),
-(6958, NOW(), 'Help the cord cutter in your life upgrade to Hulu+, which comes with live TV. Compaq', 11, NOW(), 'Sincere thanks for your extra efforts. American Citizenship day', 57.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6958, NOW(), 'Help the cord cutter in your life upgrade to Hulu+, which comes with live TV. Compaq', 11, NOW(), 'Sincere thanks for your extra efforts. American Citizenship day', 57.00),
 (6959, NOW(), 'Dont burn your mouth. You''re already hot enough. Mark''s', 22, NOW(), 'Huckberry E-Gift Certificate Martyrs'' Day', 87.00),
 (6960, NOW(), 'Dont burn your mouth. You''re already hot enough. Crate & Barrel', 11, NOW(), 'Were glad you joined us Father''s Day', 89.00),
 (6961, NOW(), 'Roses are red. Violets are blue. Carnations are sweet. And so are you! Australian', 14, NOW(), 'subscription service gift ideas Lady of Aparecida', 12.00),
@@ -7347,8 +6976,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6973, NOW(), 'You eat food, right? I know you so well. Starbucks', 24, NOW(), 'Valentines Day is a very special occasion to let you know what an important place you have in my heart. I love you! Happy Valentines Day! New Year''s Day', 22.00),
 (6974, NOW(), 'Like a fine wine, you improve with age. Monoprix', 11, NOW(), ' Congratulations Graduate, you did it! Shab e-Barat', 17.00),
 (6975, NOW(), 'With best wishes for a lifetime of happiness together. Belgacom', 15, NOW(), 'Ulta Beauty Gift Certificate New Year''s Day', 60.00),
-(6976, NOW(), 'Don''t just count your years, make your years count. Happy birthday! George Meredith Cindor', 25, NOW(), 'I wish that your career and life, just like the round moon on Mid-Autumn Day, be bright and perfect. Carnival Tuesday', 73.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6976, NOW(), 'Don''t just count your years, make your years count. Happy birthday! George Meredith Cindor', 25, NOW(), 'I wish that your career and life, just like the round moon on Mid-Autumn Day, be bright and perfect. Carnival Tuesday', 73.00),
 (6977, NOW(), 'A little late-night shopping with a gift card never hurt anyone (probably). Oral-B', 19, NOW(), 'everything to know Birth Anniversary Of His Majesty the King Holiday', 31.00),
 (6978, NOW(), 'May your love story be as magical and charming as in fairy tales! Congratulations on the wedding! Bush''s Beans', 10, NOW(), 'Amazon Gift Certificate Independence Day', 42.00),
 (6979, NOW(), 'A warm welcome. Thank you for choosing us! Bisquick', 27, NOW(), 'Personal anniversary Korit', 53.00),
@@ -7366,8 +6994,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (6991, NOW(), 'No tape can ever measure, the extent to which a child can become a parents treasure. Congratulations. Brooks', 29, NOW(), 'My father gave me the greatest gift anyone could give another person, he believed in me. Jim Valvano Late Summer Bank Holiday', 77.00),
 (6992, NOW(), 'Bless your new life as husband and wife. Cemig', 22, NOW(), 'face planters and dumpling lights Eid Al Adha', 90.00),
 (6993, NOW(), 'I hope that every day you two spend together is as blissful and love-filled as possible. Here''s to one of my all-time favorite couples! Congratulations. Ace Hardware', 27, NOW(), 'Do your thing! St. Stephen''s Day', 51.00),
-(6994, NOW(), 'Dream big! (Heres some dream fuel to help.) Always', 12, NOW(), 'Thanks for making this place bearable. Orthodox Easter Monday', 85.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(6994, NOW(), 'Dream big! (Heres some dream fuel to help.) Always', 12, NOW(), 'Thanks for making this place bearable. Orthodox Easter Monday', 85.00),
 (6995, NOW(), 'Our thoughts are with you. Get well soon! Thinking of you. Maybelline', 11, NOW(), 'Rejoice, Christ is risen! Constitutional Day', 21.00),
 (6996, NOW(), 'A gift card to Gorjana is an invitation to pick earrings or rings they''ll never take off. Starbucks', 27, NOW(), 'Pottery Barn Gift Certificate Day of respect for cultural diversity', 17.00),
 (6997, NOW(), 'Its great to see good things happen for someone so deserving. Sony', 22, NOW(), 'Making the impossible into possible is your own style. Congrats for your success! Simchat Torah', 97.00),
@@ -7385,8 +7012,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7009, NOW(), 'Congratulations on your new bundle of joy. Lavipharm', 25, NOW(), 'Min. 3 Days Booking First of Ramazan', 82.00),
 (7010, NOW(), 'May you create countless memories in your new home. Burberry', 16, NOW(), 'Get Well Soon Wishes Kagyed Dance', 89.00),
 (7011, NOW(), 'I may not be with you at all times, but I want you to know that you are never out of my heart. I love you! Baby Bjorn', 12, NOW(), 'Maude EGift Certificate Constitution Day', 64.00),
-(7012, NOW(), 'May your new home be filled with love and laughter, good fortune, the sunshine, and happiness. Congratulations! Name DNA Detection', 13, NOW(), 'Universal Standard Gift Certificate Assumption Day', 35.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7012, NOW(), 'May your new home be filled with love and laughter, good fortune, the sunshine, and happiness. Congratulations! Name DNA Detection', 13, NOW(), 'Universal Standard Gift Certificate Assumption Day', 35.00), 
 (7013, NOW(), 'Dont burn your mouth. You''re already hot enough. Courtyard by Marriott', 10, NOW(), 'Thanks for all your help Maghe Sankranti', 84.00),
 (7014, NOW(), 'The 18 Very Best Sunscreens for Your Face Sephora', 10, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] Idul Fitr', 92.00),
 (7015, NOW(), 'May this Easter warm your heart with peace! Nordstrom', 15, NOW(), 'Je t''aime [FRENCH: "I love you"] Assumption Day', 28.00),
@@ -7404,8 +7030,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7027, NOW(), 'May God bless you and keep you in His loving care. Alitalia', 22, NOW(), 'best things to buy Foundation of Quito Day', 53.00),
 (7028, NOW(), 'Are you a banana? Because I find you a-peel-ing. Happy Valentine''s Day my love. J.Crew', 28, NOW(), 'Nothing can separate friends. Holi', 74.00),
 (7029, NOW(), 'Furniture, tools, smoke detectors, guest bathroom hand towelsnew homeowners have to buy ALL. THE. THINGS. Give them a hand with all that hassle. Just pair it with one of these gift card message ideas for a gesture theyll love you for. Clinique', 13, NOW(), 'Warmest regards Phulpati', 30.00),
-(7030, NOW(), 'Hope your day is sunshine and flowers with happy thoughts to fill the house. ANT1 Group', 25, NOW(), 'Material Kitchen Gift Certificate Good Friday', 93.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7030, NOW(), 'Hope your day is sunshine and flowers with happy thoughts to fill the house. ANT1 Group', 25, NOW(), 'Material Kitchen Gift Certificate Good Friday', 93.00), 
 (7031, NOW(), 'Or go with an Airbnb gift card if theyve already accrued enough airline miles to last a lifetime. Gucci', 19, NOW(), 'Skims EGift Certificate Prophet Mohammed''s Birthday', 69.00),
 (7032, NOW(), 'When God shuts a door, he opens a window. Skechers', 18, NOW(), 'Kudos to you! Youve earned them. Christmas Day', 92.00),
 (7033, NOW(), 'Get something for yourself next time you go to Hallmark. Jelly Belly', 12, NOW(), 'Way to go&shopping! Easter (Catholic)', 34.00),
@@ -7424,8 +7049,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7046, NOW(), 'Best wishes on your birthday for good health and happiness throughout the year. Crazy John''s', 10, NOW(), 'For Endless Accessorizing Mothering Sunday', 11.00),
 (7047, NOW(), 'Selamat Hari Raya Aidilfitri! Wishing you and your family a prosperous and blessing celebration. Oakley', 25, NOW(), 'Thinking of you Easter Sunday', 94.00),
 (7048, NOW(), 'Just want to add my good wishes to those you''ve already received. KFC', 12, NOW(), 'Tropical Arrangements President Ntaryamira Day', 11.00),
-(7049, NOW(), 'Congratulations on your new bundle of joy. The North Face', 25, NOW(), 'For Tech Savvy Teens Public Sector Holiday', 20.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7049, NOW(), 'Congratulations on your new bundle of joy. The North Face', 25, NOW(), 'For Tech Savvy Teens Public Sector Holiday', 20.00), 
 (7050, NOW(), 'So they can upgrade to linen sheets or get a new bathrobe. Sisley', 14, NOW(), 'Travel and experiential Spiritual Baptist Day', 20.00),
 (7051, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Birkenstock', 25, NOW(), 'With Warmest congratulations Constitution Day (in lieu)', 72.00),
 (7052, NOW(), 'Thinking of you. May you feel better soon. Tommy Hilfiger', 10, NOW(), 'Its always shopping time. Eid Milad-un-Nabi', 15.00),
@@ -7445,8 +7069,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7066, NOW(), 'Congratulations and best wishes for a succesful future. Alkane Exploration', 30, NOW(), 'For the Frequent Flyer Lachit Divas', 19.00),
 (7067, NOW(), 'Hope this helps bring a smile to your day. Cadillac', 13, NOW(), '[DAD/MOM/GRANDMA] you are my inspiration Kingdom Day', 13.00),
 (7068, NOW(), 'It was a pleasure to work with you. Buffalo Wild Wings', 22, NOW(), 'To love! Summer Day', 17.00),
-(7069, NOW(), 'Get well soon. Feel better. We miss you! Cadence Capital Limited', 14, NOW(), 'Online Gift Certificate Australia Day', 61.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7069, NOW(), 'Get well soon. Feel better. We miss you! Cadence Capital Limited', 14, NOW(), 'Online Gift Certificate Australia Day', 61.00),
 (7070, NOW(), 'You''ve stolen my heart. I know it''s in good hands. Fashion TV', 17, NOW(), 'Huckberry E-Gift Certificate Provincial governments allowed to add 6 public holidays a year', 90.00),
 (7071, NOW(), 'You''ve stolen my heart. I know it''s in good hands. Next', 18, NOW(), 'Travel and experiential Martin Luther King Jr. Day', 83.00),
 (7072, NOW(), 'Take care of yourself and feel better soon. Tiffany & Co.', 29, NOW(), 'Relax and enjoy your wonderful new home! All Saints'' Day', 68.00),
@@ -7465,8 +7088,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7085, NOW(), 'Hope your surgery [GOES/WENT] well, and that your recovery is quick! Kamala', 15, NOW(), 'American Express eGift Certificate Labour Day (in lieu)', 91.00),
 (7086, NOW(), 'After 10 years, I still feel like we''re newlyweds. PANPURI', 14, NOW(), 'Rest and relaxation are in your future. Eid Sghir Holiday', 74.00),
 (7087, NOW(), 'Santa needed help saving space in his sack. ABC Learning', 20, NOW(), 'Just touching base with you Ash Wednesday', 40.00),
-(7088, NOW(), 'A hug...a kiss...and lots of love for you on [MOTHER''S/FATHER''S/GRANDPARENTS] Day. Butterball', 12, NOW(), 'subscription service gift ideas Ethiopian Easter', 78.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7088, NOW(), 'A hug...a kiss...and lots of love for you on [MOTHER''S/FATHER''S/GRANDPARENTS] Day. Butterball', 12, NOW(), 'subscription service gift ideas Ethiopian Easter', 78.00),
 (7089, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] Aeroplane Jelly', 12, NOW(), 'Thinking of you Good Friday', 53.00),
 (7090, NOW(), 'May your love bring happiness to all your days. Aegean Airlines', 30, NOW(), 'Huckberry E-Gift Certificate Armed Forces Day', 53.00),
 (7091, NOW(), 'Happy Valentines Day to the most beautiful woman I know. Anchor', 29, NOW(), 'Thank you with a business touch Eid Al Adha Holiday', 17.00),
@@ -7486,8 +7108,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7105, NOW(), 'Your wedding day will come and go, but may your love forever grow. Adobe', 23, NOW(), ' Thank you for your business Immaculate Conception Day', 93.00),
 (7106, NOW(), 'Our family wishes you love, joy and peace  today, tomorrow and always. Lenovo', 29, NOW(), 'With my deepest sympathy Public Holiday', 46.00),
 (7107, NOW(), 'If anything in the world is everlasting, it is my love for you. Happy Valentines day my love. Bissell', 17, NOW(), 'Ob Fitness Monthly Membership Boxing Day', 85.00),
-(7108, NOW(), 'After 10 years, I still feel like we''re newlyweds. SiriusXM', 30, NOW(), 'Just a little something from me to you. Eid-e-Ghadir', 39.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7108, NOW(), 'After 10 years, I still feel like we''re newlyweds. SiriusXM', 30, NOW(), 'Just a little something from me to you. Eid-e-Ghadir', 39.00),
 (7109, NOW(), '57Hours will help your recipient plan everything from ski day trips to a 21-day mountaineering expedition in Argentina. Apple Music', 21, NOW(), 'Hallmark Gold Crown Greek Independence Day', 37.00),
 (7110, NOW(), 'Your love and wisdom have always helped guide me. Chorus Call Australia', 11, NOW(), 'Smiles are the best medicine Orthodox Easter Monday', 59.00),
 (7111, NOW(), 'The future belongs to those who believe in the beauty of their dreams. Congratulations! Boomer', 12, NOW(), 'Adulting is hard. Hopefully this helps. New Year''s Day (in lieu)', 39.00),
@@ -7504,8 +7125,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7122, NOW(), 'Airline gift cards are perfect for frequent travelers (and even better for family members who see trips home as opportunities to score more miles on their go-to airline). It''s also easier than booking a trip for them yourself. REI', 27, NOW(), 'Spotify E-Gift Certificate Easter Monday', 54.00),
 (7123, NOW(), 'Happy Anniversary to the love of my life. Fortis', 24, NOW(), 'Friends make life more beautiful Diwali', 43.00),
 (7124, NOW(), 'A beautiful soul deserves beautiful things in life. Congratulations! Burberry', 22, NOW(), 'Urban Outfitters EGift Certificate Public Holiday', 60.00),
-(7125, NOW(), 'Welcome aboard! Its good to have you with us. Lite-Brite', 24, NOW(), 'Wishing you another wonderful year of happiness and joy. Happy Birthday! Korit', 73.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7125, NOW(), 'Welcome aboard! Its good to have you with us. Lite-Brite', 24, NOW(), 'Wishing you another wonderful year of happiness and joy. Happy Birthday! Korit', 73.00), 
 (7126, NOW(), 'You''re a Hallmark card personified, so I had to get you this. Burns, Philp & Company Ltd.', 21, NOW(), 'reusable nylon tote Independence Day', 54.00),
 (7127, NOW(), 'Thoughts of you always bring me a smile. Coolpix', 10, NOW(), 'our favorite Everlane pieces here Assumption Day', 34.00),
 (7128, NOW(), 'Life is the flower for which love is the honey.  Victor Hug Estrella Damm', 15, NOW(), 'Thoughts of you always bring me a smile. Republic Day', 37.00),
@@ -7523,8 +7143,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7140, NOW(), 'A hug...a kiss...and lots of love for you on [MOTHER''S/FATHER''S/GRANDPARENTS] Day. Hefty', 16, NOW(), 'For the thing that wouldnt fit on Santas sleigh. Yaosang 2nd Day', 81.00),
 (7141, NOW(), 'I blew it. Please give me another chance. Brunello Cucinelli', 24, NOW(), 'Smiles are the best medicine Full Moon of Thadingyut Holiday Holiday', 87.00),
 (7142, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Zara', 26, NOW(), 'our review of Otherland here Mawlid', 76.00),
-(7143, NOW(), 'You are my angel sent from Heaven above. Happy Valentine''s Day Delta Electricity', 30, NOW(), 'Airbnb Gift Certificate Hari Raya Puasa Holiday', 80.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7143, NOW(), 'You are my angel sent from Heaven above. Happy Valentine''s Day Delta Electricity', 30, NOW(), 'Airbnb Gift Certificate Hari Raya Puasa Holiday', 80.00), 
 (7144, NOW(), 'A girl is all God has which to make a woman. Banco de la Nacion Argentina', 24, NOW(), 'Apple E-Gift Certificate Korit', 31.00),
 (7145, NOW(), 'Happy Valentines Day to the most special person in my life. Biosilk', 15, NOW(), 'Thinking of you in these difficult times Betico Croes Day', 66.00),
 (7146, NOW(), 'Thank you for your continued business. We look forward to working with you in the future. DZ Bank AG', 30, NOW(), 'Amazon E-Gift Certificate New Year''s Day (in lieu)', 21.00),
@@ -7543,8 +7162,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7159, NOW(), 'A birthday is just the first day of another 365-day journey around the sun. Enjoy the trip. AMC Theatres', 11, NOW(), 'Enjoy the popcorn! Revolution Day', 16.00),
 (7160, NOW(), 'I want you to know that I am here for you at this time of grieving Godiva', 19, NOW(), 'Cheer Up! Lakshmi Puja', 49.00),
 (7161, NOW(), 'Thank you from the bottom of my heart. Free People', 15, NOW(), 'our review of Otherland here New Year''s Day', 10.00),
-(7162, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Li & Fung', 13, NOW(), 'For Wine Night Easter Monday', 47.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7162, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Li & Fung', 13, NOW(), 'For Wine Night Easter Monday', 47.00),
 (7163, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Magna Doodle', 20, NOW(), 'famed exercise dress Birth Anniversary Of His Majesty the King Holiday', 93.00),
 (7164, NOW(), 'If I know what love is, its because of you. Camel', 11, NOW(), 'Cheer Up! Immaculate Conception Day', 75.00),
 (7165, NOW(), 'Your love is the best Christmas gift I could ever receive. Merry Christmas, sweetheart! Blue Cross', 19, NOW(), 'StubHub e-gift card Easter Monday', 94.00),
@@ -7563,8 +7181,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7178, NOW(), 'I miss you, so I am sending you a floral hug! GAS', 24, NOW(), 'Bravo! Youve accomplished great things. Holy Saturday', 58.00),
 (7179, NOW(), 'I''ll miss celebrating with you this Christmas. Eat a few extra cookies for me! Brava', 24, NOW(), 'Whole Foods EGift Certificate Public Holiday', 96.00),
 (7180, NOW(), 'Congratulations and best wishes for a succesful future. Bright', 26, NOW(), 'March 1, 2023 Jhulan Purnima', 96.00),
-(7181, NOW(), 'Were so happy about the arrival of your bundle of joy. Angel Soft', 29, NOW(), 'L.L.Bean Gift Certificate Easter Monday', 43.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7181, NOW(), 'Were so happy about the arrival of your bundle of joy. Angel Soft', 29, NOW(), 'L.L.Bean Gift Certificate Easter Monday', 43.00), 
 (7182, NOW(), 'Selamat Hari Raya Aidilfitri! May this season of forgiveness bring peace to fill your heart and home. Aegon', 14, NOW(), 'Thinking of you and wishing you a happy day. Corpus Christi', 37.00),
 (7183, NOW(), 'A friend is someone you can lean on Walmart', 22, NOW(), 'Ulta Beauty Gift Certificate New Year''s Day', 29.00),
 (7184, NOW(), 'May your memories be a source of comfort at this time. Blog', 13, NOW(), 'Aritzia EGift Certificate Labour Day', 28.00),
@@ -7583,8 +7200,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7197, NOW(), 'It''s still a mystery to me, I haven''t got a clue, how I got so lucky and found you! Zales', 14, NOW(), 'Words are inadequate at a time like this. Please accept my heartfelt sympathy. Defence of the Fatherland Day (bridge day)', 81.00),
 (7198, NOW(), 'May you treasure today forever in your memory. Avenger', 16, NOW(), 'Yay for you! Rosh Hashanah', 51.00),
 (7199, NOW(), 'Words are so inadequate at a time like this. Patagonia', 24, NOW(), 'Please accept my/our deepest sympathy Santa Rosa de Lima', 25.00),
-(7200, NOW(), 'Im so sorry for hurting your feelings - I take back my words! Hope youll forgive me! CPIC', 16, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Labour Day', 83.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7200, NOW(), 'Im so sorry for hurting your feelings - I take back my words! Hope youll forgive me! CPIC', 16, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Labour Day', 83.00),
 (7201, NOW(), 'Hope your new home is as special as you are. David Yurman', 19, NOW(), 'Chinese New Year New Year''s Day', 20.00),
 (7202, NOW(), 'The best and most beautiful things in the world cannot be seen or even touched. They must be felt with the heart. Helen Keller Doritos', 30, NOW(), 'Many loving and caring thoughts as you recover. Get well soon! Day of Goodwill', 92.00),
 (7203, NOW(), 'May this Easter warm your heart with peace! Electrolux', 14, NOW(), 'Baron Fig Gift Certificate Whit Monday', 88.00),
@@ -7602,8 +7218,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7215, NOW(), 'Happy 13th birthday to the world''s best teenager. Guararapes', 16, NOW(), 'Online Gift Certificate Hari Raya Haji', 42.00),
 (7216, NOW(), 'To the most amazing woman who I am lucky enough to call my wife, Happy Valentine''s Day. Filson', 19, NOW(), 'Thank you for your support St. George''s Day', 61.00),
 (7217, NOW(), 'To the world, you may be one person, but to one person you are the world. I Can''t Believe It''s Not Butter', 30, NOW(), 'Chewy E-Gift Certificate Summer Day', 25.00),
-(7218, NOW(), 'Happy 100th birthday. You''re an inspiration to all of us. 5', 15, NOW(), 'Pamper yourself pretty! New Year''s Day', 41.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7218, NOW(), 'Happy 100th birthday. You''re an inspiration to all of us. 5', 15, NOW(), 'Pamper yourself pretty! New Year''s Day', 41.00),
 (7219, NOW(), 'Thank You! Your business means the world to us. Nivea', 27, NOW(), 'Amazon E-Gift Certificate Day of Fraternity and Cohesion', 64.00),
 (7220, NOW(), 'Hope your new home is filled with joy. AirAsia', 13, NOW(), 'By Eidul Adha', 28.00),
 (7221, NOW(), 'Know a person whose entire personality is their pet? They''ll love an excuse to buy their furry best friend another treat. PricewaterhouseCoopers', 16, NOW(), 'I promise not to grade you on how you spend this. National Anthem and Flag Day', 27.00),
@@ -7621,8 +7236,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7233, NOW(), 'Stay strong. It might be stormy now, but it cant rain forever. Rock Spa and Salon ', 14, NOW(), 'Welcome! We look forward to serving you. Christmas Day', 95.00),
 (7234, NOW(), U&'Take care of yourself and feel better soon. Magazine Lu\00c3za', 16, NOW(), 'Time to say buy-buy! Maundy Thursday', 35.00),
 (7235, NOW(), 'If they live in a big city or don''t own a car, they''ll definitely appreciate a Lyft gift card to help them get around town. Take it from us city dwellers. Espirit', 25, NOW(), 'Dad, whenever I am in trouble or in need of guidance, you are the one that I look up to. Thanks for everything. President Ntaryamira Day', 90.00),
-(7236, NOW(), 'The love you share makes this day special. Healtheries', 15, NOW(), 'Please know our loving thoughts embrace you Easter Monday', 24.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7236, NOW(), 'The love you share makes this day special. Healtheries', 15, NOW(), 'Please know our loving thoughts embrace you Easter Monday', 24.00), 
 (7237, NOW(), 'Hope this makes your sweet home even homier. RE/MAX', 14, NOW(), 'ClassPass E-Gift Certificate Republic Day (in lieu)', 16.00),
 (7238, NOW(), 'A friend is someone you can lean on Lime Wood', 15, NOW(), 'Cheers to you two! International Women''s Day', 14.00),
 (7239, NOW(), 'Bless your new life as husband and wife. Amoy Food', 12, NOW(), 'Thank you for your time General Framework Agreement Day', 47.00),
@@ -7642,8 +7256,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7253, NOW(), 'May a river of gold flow into your pockets. Skechers', 24, NOW(), 'Everyone needs a spa day! Eid Al Adha', 35.00),
 (7254, NOW(), 'To happy endings and new beginnings. Congratulations! Cocomat', 28, NOW(), 'what to shop now Guru Gobind Singh Jayanti', 70.00),
 (7255, NOW(), 'Hoping the best things in life will always be yours. Burt''s Bees', 29, NOW(), 'Grubhub E-Gift Certificate Christmas Day', 98.00),
-(7256, NOW(), 'My hero, my helper, my friend, my dad. Happy Fathers Day! Buffalo Wild Wings', 14, NOW(), 'A star is born. Orthodox Easter Monday', 75.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7256, NOW(), 'My hero, my helper, my friend, my dad. Happy Fathers Day! Buffalo Wild Wings', 14, NOW(), 'A star is born. Orthodox Easter Monday', 75.00), 
 (7257, NOW(), 'I promise not to grade you on how you spend this. Co-op', 14, NOW(), 'Father''s Day Idul Adha', 59.00),
 (7258, NOW(), 'An especially good last-minute gift for the hard-to-shop-for teenager. Versace', 12, NOW(), 'Hulu E-Gift Certificate Christmas Eve', 85.00),
 (7259, NOW(), 'Mi Amor, Te amo! [SPANISH: "My love, I love you"] Big Lots', 21, NOW(), 'The Sorel Gift Certificate Christmas Eve', 96.00),
@@ -7661,8 +7274,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7271, NOW(), U&'Congratulations on your wedding day and best wishes for a happy life together! Caf\00c3\00a9 de Colombia', 30, NOW(), 'Because itll be a while before youre makin the big bucks. New Year''s Day (in lieu)', 64.00),
 (7272, NOW(), 'I promise not to grade you on how you spend this. Lockheed Martin', 24, NOW(), 'The more candles, the bigger the wish. New Year''s Day', 81.00),
 (7273, NOW(), 'May you create countless memories in your new home. Viki', 13, NOW(), 'Apple EGift Certificate Boxing Day', 25.00),
-(7274, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Aquafina', 22, NOW(), 'Thinking of you and your family and wishing you all a year that outshines the rest. Eid-el-Kibr Holiday', 46.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7274, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Aquafina', 22, NOW(), 'Thinking of you and your family and wishing you all a year that outshines the rest. Eid-el-Kibr Holiday', 46.00),
 (7275, NOW(), 'Wishing you steady improvement until You''re well again. Patagonia', 18, NOW(), 'JCrew Gift Certificate Whit Monday', 46.00),
 (7276, NOW(), 'Thoughts of you always bring me a smile. Samboy', 23, NOW(), 'Its wonderful sharing with a good friend like you. Whit Monday', 50.00),
 (7277, NOW(), 'Thanks from all of us for  years of your business. We look forward to many more. AB-inBev', 30, NOW(), 'Easter Certificate Ideas Marine Day', 95.00),
@@ -7680,8 +7292,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7289, NOW(), 'Words are so inadequate at a time like this. Tidal', 24, NOW(), 'In loving memory Easter Monday', 74.00),
 (7290, NOW(), 'You were smart enough to do THAT, so you can figure out how to spend THIS. Gallina Blanca', 15, NOW(), 'Hope this makes your sweet home even homier. Id-ul-Fitr Holiday', 11.00),
 (7291, NOW(), 'Life will keep changing but there is one thing that will remain constant till the day you die  your love for your child. Congratulations for finding something so magical. Colgate', 11, NOW(), ' You''re in my thoughts and I thought I''d let you know. YMA Day', 90.00),
-(7292, NOW(), 'Congratulations on your new bundle of joy. Haldiram', 19, NOW(), 'May all your birthday wishes come true! Boxing Day', 67.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7292, NOW(), 'Congratulations on your new bundle of joy. Haldiram', 19, NOW(), 'May all your birthday wishes come true! Boxing Day', 67.00),
 (7293, NOW(), 'A diamond is a piece of coal that stuck to the job. Patagonia', 28, NOW(), 'Your kindness meant so much. Sakewa', 11.00),
 (7294, NOW(), 'I realized when you look at your mother, you are looking at the purest love you will ever know. Mitch Albom Barnes & Noble', 18, NOW(), 'Sign up for promotions New Year''s Day (in lieu)', 47.00),
 (7295, NOW(), 'Now you can buy something when You''re up at 3 a.m. Brookfield Asset Management', 11, NOW(), 'Short and Simple Eid al-Fitr Holiday', 71.00),
@@ -7699,8 +7310,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7307, NOW(), 'Because of you everything is so much nicer Bahama Breeze', 18, NOW(), 'our favorite Everlane pieces here Canada Day (in lieu)', 39.00),
 (7308, NOW(), 'Sending prayers and hearty Christmas greetings to you. May you receive the most special of Gods blessings during this amazing Christmas season! Riesen', 19, NOW(), 'Milk Bar eGift Certificate Boxing Day', 18.00),
 (7309, NOW(), 'Warm Easter greetings to you and your family. Acropolis Rally', 30, NOW(), 'Thank you with a business touch Kings''s Birthday', 89.00),
-(7310, NOW(), 'Some people don''t believe in heroes, but they haven''t met my dad. Unknown Elements Massage ', 16, NOW(), 'A little something for you and the little one! Easter Monday', 85.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7310, NOW(), 'Some people don''t believe in heroes, but they haven''t met my dad. Unknown Elements Massage ', 16, NOW(), 'A little something for you and the little one! Easter Monday', 85.00),
 (7311, NOW(), 'Wish I could turn back the time and make things right Please forgive me! Mandara Spa', 30, NOW(), 'You both share a special love. Good Friday', 46.00),
 (7312, NOW(), 'If I told you to "Get Well Soon," it wouldn''t be soon enough. Get Well Now. Express', 10, NOW(), 'Because this family shops! Ayudha Puja', 24.00),
 (7313, NOW(), 'Thinking of you and wishing you a happy day. Papa John''s', 17, NOW(), 'Personal anniversary Eid Milad-un-Nabi', 89.00),
@@ -7719,8 +7329,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7326, NOW(), 'Good fathers do three things: they provide, they nurture and they guide. Roland Warren Lime Wood', 25, NOW(), 'Congratulations, graduate! Summer Day', 27.00),
 (7327, NOW(), 'The beauty of these roses cannot match the beauty and depth of the love I feel for you. You are always in my heart! ABN Amro', 18, NOW(), 'Cheer Up! Nepali New Year', 72.00),
 (7328, NOW(), 'Merry Christmas and Happy New ! [shoes, jeans, etc.] Transcend', 27, NOW(), 'Make your own food pyramid Independence Day', 90.00),
-(7329, NOW(), 'Sharing in your happiness and wishing you all the best. Nestle', 23, NOW(), 'Hope youll soon be well Louis Riel Day', 53.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7329, NOW(), 'Sharing in your happiness and wishing you all the best. Nestle', 23, NOW(), 'Hope youll soon be well Louis Riel Day', 53.00),
 (7330, NOW(), 'A mother is the one who fills your heart in the first place. Amy Tan Rollerblade', 13, NOW(), 'Fly by Jing Gift Certificate Constitution Day', 88.00),
 (7331, NOW(), 'Sending you well wishes for your quick recovery and good health. SPC Ardmona', 24, NOW(), 'Next Day Delivery National Salvation Day', 39.00),
 (7332, NOW(), 'My love for you grows stronger every year. Netflix', 28, NOW(), 'the top pick in our buying guide Veterans Day', 84.00),
@@ -7739,8 +7348,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7345, NOW(), 'One father is more than a hundred schoolmasters. George Herbert AFLAC', 13, NOW(), 'Get Well Soon Sir Seretse Khama Day', 84.00),
 (7346, NOW(), 'If I know what love is, its because of you. Manolo Blahnik', 13, NOW(), 'The Sorel Gift Certificate Christmas Day', 49.00),
 (7347, NOW(), 'Thank you for being my biggest supporter. I couldn''t do it without you. The North Face', 11, NOW(), 'Hari Raya Christmas Day', 35.00),
-(7348, NOW(), 'Happy Valentine''s Day! Remember not to eat too much candy you''re sweet enough already. Fendi', 19, NOW(), 'Thank you for meeting with me. If you need anything, Im only a phone call away. New Year''s Eve', 34.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7348, NOW(), 'Happy Valentine''s Day! Remember not to eat too much candy you''re sweet enough already. Fendi', 19, NOW(), 'Thank you for meeting with me. If you need anything, Im only a phone call away. New Year''s Eve', 34.00),
 (7349, NOW(), 'Thank you for bringing so much love, joy, and adventure into my life. I love you. Max Mara', 24, NOW(), 'To love! Labour Day', 34.00),
 (7350, NOW(), 'Hope this makes your sweet home even homier. Australia', 23, NOW(), 'Have a holly, jolly Holiday! Boxing Day', 38.00),
 (7351, NOW(), 'After 10 years, I still feel like we''re newlyweds. Wrangler', 29, NOW(), 'Starbucks Digital Gift Certificate Genocide Memorial Day', 21.00),
@@ -7760,8 +7368,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7365, NOW(), 'It was a pleasure to work with you. Busch Gardens', 19, NOW(), 'Cheers to you two! Orthodox Pentecost Monday', 13.00),
 (7366, NOW(), 'For your friend whos been carrying around the same wallet since college. Alumet', 16, NOW(), 'ClassPass E-Gift Certificate Day of Heroes', 98.00),
 (7367, NOW(), 'Hoping each new day will find you feeling better. AIS', 11, NOW(), 'Sign up for promotions Easter Day (Catholic)', 81.00),
-(7368, NOW(), 'Happy Birthday and many happy returns of the day. H&M', 25, NOW(), 'Hallmark Gold Crown National Remembrance Day (in lieu)', 22.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7368, NOW(), 'Happy Birthday and many happy returns of the day. H&M', 25, NOW(), 'Hallmark Gold Crown National Remembrance Day (in lieu)', 22.00),
 (7369, NOW(), 'Best wishes for a little progress and a little encouragement everyday during your recuperation. Apple', 29, NOW(), 'Download those favorite jams and dance. Lui-Ngai-Ni', 13.00),
 (7370, NOW(), 'You dont have to spend this on lingerie. Im just saying if you wanna Chuck E. Cheese', 13, NOW(), 'Rest and relaxation are in your future. Independence Day', 19.00),
 (7371, NOW(), 'Please accept our condolences on the loss of your [MOTHER/FATHER/OTHER RELATION]. Tribute', 19, NOW(), 'Trust me, youll need this Good Friday', 35.00),
@@ -7779,8 +7386,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7383, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Sucrets', 19, NOW(), 'Always get the fries. Public Holiday', 84.00),
 (7384, NOW(), 'There is no velvet so soft as a mothers lap, no rose as lovely as her smile, no path so flowery as that imprinted with her footsteps. Archibald Thompson Name DNA Detection', 30, NOW(), ' You are in my thoughts and prayers All Souls'' Day', 96.00),
 (7385, NOW(), 'Ihope your birthday was as special as you are. National Australia Bank', 16, NOW(), 'Graduation Certificate Ideas Boxing Day', 16.00),
-(7386, NOW(), U&'May the promise of Easter fill your heart with joy! Lane\00c3ge', 23, NOW(), 'Easter Certificate Ideas Shab-e-Qadr', 53.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7386, NOW(), U&'May the promise of Easter fill your heart with joy! Lane\00c3ge', 23, NOW(), 'Easter Certificate Ideas Shab-e-Qadr', 53.00), 
 (7387, NOW(), 'You are my angel sent from Heaven above. Happy Valentine''s Day FrontLine', 27, NOW(), 'Baron Fig Gift Certificate Chinese New Year', 28.00),
 (7388, NOW(), 'Take care of yourself and feel better soon. Raisinets', 14, NOW(), 'Thank you for your time V-E Day', 85.00),
 (7389, NOW(), 'May the promise of Easter fill you with peace and joy! Swiffer', 19, NOW(), 'This is between you and your arteries. St. Patrick''s Day', 34.00),
@@ -7799,8 +7405,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7402, NOW(), 'May you enjoy a long and wonderful retirement. Fonterra', 23, NOW(), 'For Something Floral Holiday Holiday', 55.00),
 (7403, NOW(), 'Every time you see these blooms, remember someone is thinking of you! Caracu', 16, NOW(), 'The gift of music. Youre welcome! Liberation Day', 26.00),
 (7404, NOW(), 'Please accept these flowers and hear the words we are not able to speak Homedics', 26, NOW(), 'May your new home be a special place to live, to love and to grow. Ramadan', 82.00),
-(7405, NOW(), 'Nothing says, I care quite like covering someones grocery delivery. Rock Spa and Salon ', 18, NOW(), 'Wishing you happiness everyday Easter Sunday', 45.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7405, NOW(), 'Nothing says, I care quite like covering someones grocery delivery. Rock Spa and Salon ', 18, NOW(), 'Wishing you happiness everyday Easter Sunday', 45.00), 
 (7406, NOW(), 'Suitable for Valentine''s Day, Anniversary, Sweetest Day, Just Because... Bertolli Olive Oil', 23, NOW(), 'For the Frequent Flyer Holy Saturday', 15.00),
 (7407, NOW(), 'Not once did I ever doubt you''d make it. Burns, Philp & Company Ltd.', 20, NOW(), 'Just touching base with you. New Year''s Day', 70.00),
 (7408, NOW(), 'Warm, brown elixir of life, we pray to thee. Babor', 21, NOW(), 'Evolve Together Digital Gift Certificate Labour and Agriculture Day', 77.00),
@@ -7819,8 +7424,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7421, NOW(), 'My life just wouldn''t be the same without you in it. I love you. Freddie Mac', 25, NOW(), 'You are in my thoughts and prayers Eid Al Adha Holiday', 99.00),
 (7422, NOW(), 'You are the best thing that ever happened to me. Happy Valentines day, my happiness. Jimmy Choo', 16, NOW(), 'Don''t eat the eye cucumbers Good Friday', 59.00),
 (7423, NOW(), 'To another Valentine''s Day spent with the love of my life, and to many more. Disco SA', 17, NOW(), ' Have a holly, jolly Holiday! Djould Souma', 40.00),
-(7424, NOW(), 'Bless your new life as husband and wife. Apple', 29, NOW(), 'Enjoy the popcorn! Guanacaste Day', 72.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7424, NOW(), 'Bless your new life as husband and wife. Apple', 29, NOW(), 'Enjoy the popcorn! Guanacaste Day', 72.00),
 (7425, NOW(), 'Wherever they''re going in 2023, you''ll be part of helping them get there. Aviva', 17, NOW(), 'Youve made our success possible. Thank you! Feast of St. Gennaro', 94.00),
 (7426, NOW(), 'Travel money for your trip to happily ever after. Hills Hoist', 26, NOW(), 'A little something for you and the little one! Eid ul-Adha Day', 86.00),
 (7427, NOW(), U&'Just a cheery note to wish you well. Gol Transportes A\00c3\00a9reos', 30, NOW(), 'Our friendship is golden. Women''s Day', 88.00),
@@ -7839,8 +7443,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7440, NOW(), 'Happy Anniversary to the love of my life. Oakley', 18, NOW(), 'Do your thing! St. Stephen''s Day', 81.00),
 (7441, NOW(), 'Wish you a very happy Diwali, may this festival of light always enlighten the path of success for you! Rover', 20, NOW(), 'Congratulations, graduate! Ash Wednesday', 46.00),
 (7442, NOW(), 'They''ve always wanted a vintage Herms Kelly bag or Cartier tank watch. This gift card will get them a little closer. Fifth Avenue Show Repair', 18, NOW(), 'Because you''re so spa-cial Three King''s Day', 60.00),
-(7443, NOW(), 'Your wedding day will come and go, but may your love forever grow. AkzoNobel', 24, NOW(), 'Get outta here! Boxing Day', 71.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7443, NOW(), 'Your wedding day will come and go, but may your love forever grow. AkzoNobel', 24, NOW(), 'Get outta here! Boxing Day', 71.00),
 (7444, NOW(), 'Sending my best wishes to make you feel better. Get well soon! Alka-Seltzer', 24, NOW(), 'Congratulations Graduate, you did it! National Day', 20.00),
 (7445, NOW(), 'Get well soon. Feel better. We miss you! Mytilineos', 10, NOW(), 'Same Day Delivery (Order Placed By 12pm) Royal Hobart Regatta', 89.00),
 (7446, NOW(), 'You always go out of your way to be thoughtful. Macy''s', 29, NOW(), 'You''re the best Chinese New Year Holiday', 16.00),
@@ -7858,8 +7461,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7458, NOW(), 'Im so sorry for hurting your feelings - I take back my words! Hope youll forgive me! Subway', 18, NOW(), 'For Absolutely Anything Falkland Islands Liberation Day', 51.00),
 (7459, NOW(), 'Cheers on your birthday. One step closer to adult underpants. Lime Wood', 17, NOW(), 'For Dainty Jewelry Coronation day of His Majesty the King', 30.00),
 (7460, NOW(), 'Congratulations on your new bundle of joy. Beetle', 20, NOW(), 'This is a day to remember. New Year''s Day', 40.00),
-(7461, NOW(), 'Because of you everything is so much nicer UNIQLO', 11, NOW(), 'You are always in my heart! Christmas Day', 54.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7461, NOW(), 'Because of you everything is so much nicer UNIQLO', 11, NOW(), 'You are always in my heart! Christmas Day', 54.00),
 (7462, NOW(), 'Im there for you on rough days and spa days. Corvette', 18, NOW(), 'Take care of yourself and feel better soon. New Year''s Day', 59.00),
 (7463, NOW(), 'If I know what love is, it is because of you. Hermann Hesse Gagfah', 15, NOW(), 'With Warmest congratulations. Family Day', 41.00),
 (7464, NOW(), 'This website requires cookies for full functionality. By continuing to use the site, you agree to our use of cookies. Aeroplane Jelly', 15, NOW(), 'Congratulations on 50 golden years! Genocide Memorial Day', 36.00),
@@ -7877,8 +7479,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7476, NOW(), 'Parenthood is one of the best journeys in life. Enjoy the ride. Louis Vuitton', 17, NOW(), 'With Warmest congratulations Boxing Day', 41.00),
 (7477, NOW(), 'You have 12 days of Christmas to spend this. Moulinex', 24, NOW(), 'Skims EGift Certificate Tabaski', 55.00),
 (7478, NOW(), 'Another trip around the sun calls for a trip to your favorite restaurant. A&E', 28, NOW(), 'Saks Fifth Avenue E-Gift Certificate Corpus Christi Holiday (in lieu)', 76.00),
-(7479, NOW(), 'Sending you Christmas cheer that lasts throughout the year! Olive Garden', 16, NOW(), 'Whats a stove, am I right? Anguilla Day (in lieu)', 25.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7479, NOW(), 'Sending you Christmas cheer that lasts throughout the year! Olive Garden', 16, NOW(), 'Whats a stove, am I right? Anguilla Day (in lieu)', 25.00),
 (7480, NOW(), 'To happy endings and new beginnings. Congratulations! Hoka One One', 24, NOW(), 'Because pizza aint free. Ethiopian Good Friday', 85.00),
 (7481, NOW(), 'Words are so inadequate at a time like this. Forever 21', 26, NOW(), 'Congratulations on your big day! Martin Luther King Jr. Day', 95.00),
 (7482, NOW(), 'If I had to do it all over again, I wouldn''t. Carte Noire', 20, NOW(), 'Graduation Certificate Ideas Christmas Day', 78.00),
@@ -7897,8 +7498,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7495, NOW(), 'On your special day, I wish you good luck. I hope this wonderful day will fill up your heart with joy and blessings. Beats by Dre', 20, NOW(), 'face planters and dumpling lights New Year''s Day', 49.00),
 (7496, NOW(), 'Just a little something to show my appreciation. Barrick Gold', 28, NOW(), 'Your business is always appreciated Plurinational State Foundation Day', 52.00),
 (7497, NOW(), 'We do not remember days, we remember moments. L.L. Bean', 15, NOW(), ' We have been praying for you lately, and you are in our thoughts. Maha Shivaratri', 51.00),
-(7498, NOW(), 'To the world you are a mother, but to your family you are the world. Unknown Sephora', 20, NOW(), 'Mother''s Day Orthodox Easter Day', 84.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7498, NOW(), 'To the world you are a mother, but to your family you are the world. Unknown Sephora', 20, NOW(), 'Mother''s Day Orthodox Easter Day', 84.00), 
 (7499, NOW(), 'You can use this next time Im being really annoying. Airtel', 13, NOW(), '"Thank You" Certificate Samples Easter Monday', 27.00),
 (7500, NOW(), 'Mi Amor, Te amo! [SPANISH: "My love, I love you"] American Eagle Outfitters', 12, NOW(), 'Williams Sonoma E-Gift Certificate Day of National Sovereignty', 13.00),
 (7501, NOW(), U&'Another reason to dress up! (Or dress down!) K\00c3\00a4rcher', 11, NOW(), 'Fruit and Gourmet Baskets Lady of Altagracia', 68.00),
@@ -7917,8 +7517,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7514, NOW(), 'Just want to add my good wishes to those you''ve already received. Dial', 21, NOW(), 'Virtual Delivery (Email/SMS) Easter Day', 35.00),
 (7515, NOW(), 'Wishing you a beautiful day and many more happy years. Patagonia', 16, NOW(), 'Amazon Gift Certificate May Day Revolution', 29.00),
 (7516, NOW(), 'Happy Valentines Day to the most special person in my life. Primark', 28, NOW(), 'March 1, 2023 Day of Arafa', 32.00),
-(7517, NOW(), 'For the ecoconscious person with a KN95 subscription. Caterpillar', 28, NOW(), 'Because youre never too old to spend money. Declaration of Independence Day', 56.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7517, NOW(), 'For the ecoconscious person with a KN95 subscription. Caterpillar', 28, NOW(), 'Because youre never too old to spend money. Declaration of Independence Day', 56.00), 
 (7518, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. British Rail', 24, NOW(), 'Hope you''re feeling better Ancestry Day', 31.00),
 (7519, NOW(), 'Your love and wisdom have always helped guide me. Boston Market', 28, NOW(), 'You made my day! White Sunday', 29.00),
 (7520, NOW(), 'Think of the years as gold bullion...and you''re rich! Old Navy', 30, NOW(), 'Don''t tell the others you got this. Lunar New Year', 77.00),
@@ -7938,8 +7537,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7534, NOW(), 'Thank you for making your guests feel right at home. Jabra', 18, NOW(), 'Joy to you and yours this holiday! National Day of Community Service (in lieu)', 74.00),
 (7535, NOW(), 'We are born of love; love is our mother. Rumi All', 21, NOW(), 'Pottery Barn Gift Certificate Women''s Day', 98.00),
 (7536, NOW(), 'Is your birthday wish a gift card? Because Apple', 10, NOW(), 'Next Day Delivery Birthday of the Sultan of Pahang', 87.00),
-(7537, NOW(), 'Some people don''t believe in heroes, but they haven''t met my dad. Unknown Baloise', 27, NOW(), 'read more about MasterClass''s offerings here Independence of Cuenca Holiday', 55.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7537, NOW(), 'Some people don''t believe in heroes, but they haven''t met my dad. Unknown Baloise', 27, NOW(), 'read more about MasterClass''s offerings here Independence of Cuenca Holiday', 55.00),
 (7538, NOW(), 'To happy endings and new beginnings. Congratulations! Lindt', 17, NOW(), 'Happy house warming! Easter Monday', 34.00),
 (7539, NOW(), 'And so... The adventure begins! Congratulations on your graduation! City Telecom', 14, NOW(), 'Our family wishes you love, joy and peace  today, tomorrow and always. Independence Day', 27.00),
 (7540, NOW(), 'Its so nice sharing special moments with a friend like you. 5-Hour Energy', 25, NOW(), 'You + Me = Forever Good Friday', 97.00),
@@ -7958,8 +7556,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7553, NOW(), 'For the person currently subsidizing five different streamers. AutoZone', 26, NOW(), 'Hope youll be in the best of health soon. Revolution Day June 30', 24.00),
 (7554, NOW(), 'May God be with you at this time. Cointreau', 21, NOW(), 'Je t''aime [FRENCH: "I love you"] Christmas Day', 62.00),
 (7555, NOW(), 'After 10 years, I still feel like we''re newlyweds. Harcourts', 16, NOW(), 'For Getting Active Isra''a Wal Miraj', 17.00),
-(7556, NOW(), 'Hope your new home is as special as you are. Corolla', 23, NOW(), 'You + Me = Forever Eid-Ul-Adha', 78.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7556, NOW(), 'Hope your new home is as special as you are. Corolla', 23, NOW(), 'You + Me = Forever Eid-Ul-Adha', 78.00),
 (7557, NOW(), 'May God bless you on your graduation day. JBS S.A.', 24, NOW(), 'Friends make life more beautiful Feast of Our Lady of Victories', 47.00),
 (7558, NOW(), 'You are my angel sent from Heaven above. Happy Valentine''s Day Candy Land', 26, NOW(), 'Remember, youll probably have to share this. Constitution Day', 82.00),
 (7559, NOW(), 'Just so you know, I have faith in you. Youll be okay. You''re stronger than you know. Nike', 26, NOW(), 'Edie Parker E-Gift Certificate New Year''s Holiday', 85.00),
@@ -7978,8 +7575,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7572, NOW(), 'Makes you want to do nice things for me all the time, right? Colryut', 14, NOW(), 'END E-Gift Certificate Worker''s Day', 63.00),
 (7573, NOW(), 'I never know what to get you&but you do! Axis Bank', 19, NOW(), 'Maude EGift Certificate Commemoration Day', 89.00),
 (7574, NOW(), 'Caps in the air like you just dont care. Husky Energy', 29, NOW(), 'Happy nesting! Eid al-Fitr Holiday', 74.00),
-(7575, NOW(), 'This comes with all my best thoughts for your recovery. 7-Eleven', 12, NOW(), 'For Tech Savvy Teens Nauryz Holiday', 50.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7575, NOW(), 'This comes with all my best thoughts for your recovery. 7-Eleven', 12, NOW(), 'For Tech Savvy Teens Nauryz Holiday', 50.00),
 (7576, NOW(), 'You know when You''re in love when you cant fall asleep because reality is finally better than your dreams. Dr. Seuss Bergstein Entertainment', 26, NOW(), 'Enjoy the popcorn! Mother''s Day', 28.00),
 (7577, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Breyer''s', 26, NOW(), 'Wish I could be there to give this to you myselfmiss you! The second day of the Lunar New Year', 11.00),
 (7578, NOW(), 'Take care of yourself and feel better soon. Carlsberg', 26, NOW(), 'Were glad you joined us. Holy Saturday', 72.00),
@@ -7997,8 +7593,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7590, NOW(), 'Our sympathy and warmest thoughts are with you now. Furla', 21, NOW(), 'Zappos E-Gift Certificate Eid Al Fitr Holiday', 23.00),
 (7591, NOW(), 'Many loving and caring thoughts as you recover. Get well soon! Caramello Koala', 16, NOW(), 'Thinking of you Mahabishuba Sankranti', 72.00),
 (7592, NOW(), 'You dont have to spend this on lingerie. Im just saying if you wanna Tooheys Pils', 22, NOW(), 'With heartfelt condolences New Year''s Day', 99.00),
-(7593, NOW(), 'For your friend who always has a Slow Burn candle on deck. TGI Fridays', 15, NOW(), 'With love to you and your family Heroe''s Day', 71.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7593, NOW(), 'For your friend who always has a Slow Burn candle on deck. TGI Fridays', 15, NOW(), 'With love to you and your family Heroe''s Day', 71.00), 
 (7594, NOW(), 'Just want to add my good wishes to those you''ve already received. Itautec', 16, NOW(), 'Congratulations on a well-deserved promotion Easter Monday', 27.00),
 (7595, NOW(), 'Wishing you good life, luck and may all your wishes come true PANPURI', 10, NOW(), 'Spotify E-Gift Certificate Lunar New Year', 92.00),
 (7596, NOW(), 'Your kindness comes as a welcome touch of warmth and caring TGI Fridays', 22, NOW(), 'Thank you with a personal touch Holika Dahan', 89.00),
@@ -8017,8 +7612,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7609, NOW(), 'Bless your new life as husband and wife. Fendi', 28, NOW(), 'Ihope your birthday was as special as you are. Christmas Day', 59.00),
 (7610, NOW(), 'My life just wouldn''t be the same without you in it. I love you. Eddie Bauer', 29, NOW(), 'Fandango Gift Certificate Revolution Day', 29.00),
 (7611, NOW(), 'May your home be filled with Hanukkah light and love. Alcan', 25, NOW(), 'Soooooo thoughtful! Independence Day', 58.00),
-(7612, NOW(), 'Congratulations on your retirement. Best wishes for a great future. Afrin', 14, NOW(), 'No bread, just jams! Prayer Day', 35.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7612, NOW(), 'Congratulations on your retirement. Best wishes for a great future. Afrin', 14, NOW(), 'No bread, just jams! Prayer Day', 35.00), 
 (7613, NOW(), 'Now you can get all the gift-card cards you want! All', 19, NOW(), 'WELCOME to this gift card Sacred Heart', 66.00),
 (7614, NOW(), 'Most people won''t have too much trouble putting Uber credit to good use, whether they''re going out or ordering in. Microsoft', 16, NOW(), 'Wishing you a belated birthday. Eid al-Fitr', 25.00),
 (7615, NOW(), 'Because itll be a while before You''re makin the big bucks. Outback Steakhouse', 26, NOW(), '57Hours E-Gift Certificate Youth National Day', 87.00),
@@ -8037,8 +7631,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7628, NOW(), 'You were smart enough to do THAT, so you can figure out how to spend THIS. Baker''s Choice', 12, NOW(), 'Maude EGift Certificate Labour Day', 47.00),
 (7629, NOW(), 'Hope this makes your sweet home even homier. Australia Asia Airlines', 21, NOW(), 'Get outta here! Malvinas Day', 40.00),
 (7630, NOW(), 'Just a little something to say Im thinking of you. Naming Articles', 21, NOW(), 'wont break the bank Day of Fraternity and Cohesion', 92.00),
-(7631, NOW(), 'Hope your new home is as special as you are. Chipotle', 19, NOW(), 'Apple EGift Certificate Veterans Day', 81.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7631, NOW(), 'Hope your new home is as special as you are. Chipotle', 19, NOW(), 'Apple EGift Certificate Veterans Day', 81.00),
 (7632, NOW(), 'Now you can get all the gift-card cards you want! Hot Wheels', 28, NOW(), 'cooling cotton PJs New Year''s Eve', 53.00),
 (7633, NOW(), 'Congratulations and best wishes for a succesful future. Paulaner', 18, NOW(), 'Thank you for choosing us. Orthodox Good Friday', 51.00),
 (7634, NOW(), 'Great results come from hard work. Well done! Albertsons', 23, NOW(), 'Congratulations, graduate! New Year''s Day', 35.00),
@@ -8056,8 +7649,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7646, NOW(), 'Your thoughtfulness meant more than words can ever say. Cascina Verdesole', 21, NOW(), 'For Endless Accessorizing Women''s Day', 59.00),
 (7647, NOW(), 'I send a kiss inside the petals of each rose... Carroten', 14, NOW(), 'Your name has been synonymous with success! Congratulations! Maundy Thursday', 16.00),
 (7648, NOW(), 'Here''s a toast to you on your 21st birthday! Cheers! Elements Massage ', 28, NOW(), 'committed bakers All Saints'' Day Holiday', 48.00),
-(7649, NOW(), 'Bravo! Your hard work has truly paid off. Olive Garden', 30, NOW(), 'funky iPhone accessories Lunar New Year Holiday', 30.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7649, NOW(), 'Bravo! Your hard work has truly paid off. Olive Garden', 30, NOW(), 'funky iPhone accessories Lunar New Year Holiday', 30.00),
 (7650, NOW(), 'Our sympathy and warmest thoughts are with you now. Cocomat', 19, NOW(), 'Universal retailers Korit', 30.00),
 (7651, NOW(), 'May your new little girl/boy bring you joy and happiness. Claytons', 27, NOW(), 'Sending you Happy Easter Wishes! Sonam Lhosar', 63.00),
 (7652, NOW(), 'I am bad at gifts! (But you know this.) Absolut', 18, NOW(), 'Chinese New Year Good Friday', 92.00),
@@ -8077,8 +7669,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7666, NOW(), 'Rejoice! He is watching over you this Easter! Gucci', 22, NOW(), 'Tonights homework: Spend this Good Friday', 59.00),
 (7667, NOW(), 'Thanks for your patience, your loving words, your kindness, your friendship Nordstrom', 17, NOW(), 'Because pizza aint free Orthodox Christmas', 57.00),
 (7668, NOW(), 'Thinking of you and wishing you a happy day. Aconquija Water', 12, NOW(), 'Amazon E-Gift Certificate Assumption Day', 98.00),
-(7669, NOW(), 'Congratulations on your retirement. Best wishes for a great future. Zara', 15, NOW(), 'Pamper yourself pretty! Spring Bank Holiday', 64.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7669, NOW(), 'Congratulations on your retirement. Best wishes for a great future. Zara', 15, NOW(), 'Pamper yourself pretty! Spring Bank Holiday', 64.00), 
 (7670, NOW(), 'May the future be filled with much happiness. Conair', 30, NOW(), 'We sincerely appreciate your business Public Holiday', 44.00),
 (7671, NOW(), 'Hope your hospital stay is a short one. Jumbo S.A.', 11, NOW(), 'Hari Raya Maulidur Rasul', 57.00),
 (7672, NOW(), 'Wishing you a happy and peaceful Eid! Selamat Hari Raya! Puma', 14, NOW(), 'Happy house warming! Novruz', 29.00),
@@ -8097,8 +7688,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7685, NOW(), 'We do not remember days, we remember moments. Florida Orange Juice', 20, NOW(), 'funky iPhone accessories Anguilla Day (in lieu)', 59.00),
 (7686, NOW(), 'Accept my congratulations from the bottom of my heart. I am proud to be your friend. Congratulations! Banco de Galicia y Buenos Aires SA', 16, NOW(), 'Fresh Direct E-Gift Certificate Orangeman''s Day', 32.00),
 (7687, NOW(), 'A father so handsome, a mom so pretty  no wonder your newborn is such a sweetie. Congratulations. Hugo Boss', 29, NOW(), 'ASOS E-Gift Certificate Following Day of Ramazan', 21.00),
-(7688, NOW(), 'Caps in the air like you just dont care. Old Spice', 24, NOW(), 'Jump to Pentecost Sunday', 90.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7688, NOW(), 'Caps in the air like you just dont care. Old Spice', 24, NOW(), 'Jump to Pentecost Sunday', 90.00), 
 (7689, NOW(), 'Cheering you up with a big smile! Salvatore Ferragamo', 11, NOW(), 'For the Frequent Flyer Assumption Day', 75.00),
 (7690, NOW(), 'Great results come from hard work. Well done! Hyflux', 10, NOW(), 'Lululemon Gift Certificate Abolition Day', 48.00),
 (7691, NOW(), 'Congratulations and best wishes for a succesful future. Burt''s Bees', 14, NOW(), 'Max Bone Gift Certificate Fast of Ninth of Av', 78.00),
@@ -8117,8 +7707,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7704, NOW(), 'I''ll never forgive myself...but I''m hoping you will. I''m sorry. Ananda', 11, NOW(), 'For something naughty or nice. Whichever. New Year''s Day', 66.00),
 (7705, NOW(), 'Enjoy the flowers, I''m sending them just because you''re you. Air France', 16, NOW(), 'Apparently, you mean this much to me. Christmas Day', 78.00),
 (7706, NOW(), 'Were fans of Instagram-friendly cookware brand Our Place, which makes some of our favorite do-it-all pots and pans. Bianchi', 16, NOW(), 'Retirement Certificate Gifts National Day', 12.00),
-(7707, NOW(), 'Words can say so little when someones done so much. 7Up', 24, NOW(), 'Get well soon Anniversary of the Revolution', 28.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7707, NOW(), 'Words can say so little when someones done so much. 7Up', 24, NOW(), 'Get well soon Anniversary of the Revolution', 28.00), 
 (7708, NOW(), 'May God be with you at this time. Dell', 11, NOW(), 'Apple E-Gift Certificate Liberation Day', 16.00),
 (7709, NOW(), 'For your friend whos been carrying around the same wallet since college. Kamala', 19, NOW(), 'Happy Belated Birthday! Shab e-Barat', 58.00),
 (7710, NOW(), 'I hope all your birthday wishes came true. Fuchs', 22, NOW(), 'Were sick without you. Get well soon. Eid Al-Adha Holiday', 10.00),
@@ -8137,8 +7726,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7723, NOW(), 'Hoping this finds you well on the way to recovery. Express', 16, NOW(), 'With heartfelt condolences Easter (Catholic)', 23.00),
 (7724, NOW(), 'For the home-improvement obsessive in your life. Sass & bide', 15, NOW(), 'Get you some yum! Greenery Day', 92.00),
 (7725, NOW(), 'We value your trust and confidence and appreciate your loyalty as a customer Drpers', 25, NOW(), 'Warm Easter greetings to you and your family. Virgin Islands Day', 88.00),
-(7726, NOW(), 'May you create countless memories in your new home. Filippa K', 13, NOW(), 'For Something Extra Special Qaumee Dhuvas', 24.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7726, NOW(), 'May you create countless memories in your new home. Filippa K', 13, NOW(), 'For Something Extra Special Qaumee Dhuvas', 24.00),
 (7727, NOW(), 'Happy Anniversary to the love of my life. Pull-Ups', 22, NOW(), 'For the Pet Parent Independence Day', 81.00),
 (7728, NOW(), 'Thank you for your continued business. We look forward to working with you in the future. Huggies', 17, NOW(), 'For the person who loves classic leather goods. Thingyan Holiday', 70.00),
 (7729, NOW(), 'Thank you for making your guests feel right at home. Pearson', 27, NOW(), 'Virtual Delivery (Email/SMS) Independence Day', 46.00),
@@ -8156,8 +7744,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7741, NOW(), 'I''ll never forgive myself...but I''m hoping you will. I''m sorry. Altoids', 23, NOW(), 'Wishing you happiness together. Labour Day (in lieu)', 43.00),
 (7742, NOW(), 'May the bright and festive glow of the New Year candle warm your days. Hope you have a wonderful time enjoying the New Year and may you be happy in every way. Emerus', 16, NOW(), 'Evolve Together Digital Gift Certificate Boxing Day', 95.00),
 (7743, NOW(), 'Sugar and spice and all that''s nice, that''s what little girls are made of. Congratulations! Red Bull', 30, NOW(), 'You: Great! Me: Grateful! St. Vitus'' Day', 60.00),
-(7744, NOW(), 'Hoping these words of sympathy will comfort you in your time of sorrow. Cenovus Energy', 29, NOW(), 'Shopping spree on me. Incwala Day', 43.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7744, NOW(), 'Hoping these words of sympathy will comfort you in your time of sorrow. Cenovus Energy', 29, NOW(), 'Shopping spree on me. Incwala Day', 43.00),
 (7745, NOW(), 'If you cant tell the difference between Gods of War and Gears of War, you should probably just give your favorite gamer a gift card. Skechers', 20, NOW(), 'Thanks for being there. Eid-el-fitri Sallah', 48.00),
 (7746, NOW(), 'You bring joy and love to my life. Chow Tai Fook', 15, NOW(), 'Huckberry E-Gift Certificate National Day', 89.00),
 (7747, NOW(), 'Congratulations on achieving a milestone. Here''s to a great future. JetBlue', 15, NOW(), 'Mother''s Day New Year''s Day (in lieu)', 45.00),
@@ -8176,8 +7763,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7760, NOW(), 'Help the cord cutter in your life upgrade to Hulu+, which comes with live TV. Brennan''s', 25, NOW(), 'Don''t tell the others you got this. Blessed Rainy Day', 76.00),
 (7761, NOW(), 'Great results come from hard work. Well done! Gree', 17, NOW(), 'GameStop Gift Certificate Easter Monday', 31.00),
 (7762, NOW(), 'Were wishing everything wonderful to a wonderful couple. Gold Medal', 15, NOW(), 'Go spa yourself! Maundy Thursday', 69.00),
-(7763, NOW(), 'Gift card? Bacon? It was a really tough decision. Duracell', 20, NOW(), 'For Leaning into Luxury Al-Mouled Al-Nabawy', 81.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7763, NOW(), 'Gift card? Bacon? It was a really tough decision. Duracell', 20, NOW(), 'For Leaning into Luxury Al-Mouled Al-Nabawy', 81.00),
 (7764, NOW(), 'Here''s a gift card that any friend will appreciate, whether she likes to shop for simple sweaters or luxe party dresses. Peter Lehmann Wines', 21, NOW(), 'Add some stuff to cart Sheikh Mujibur Rahman''s birthday', 34.00),
 (7765, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. Tom Ford', 25, NOW(), 'Thank you for choosing us. HRH King Charles III Coronation', 30.00),
 (7766, NOW(), 'Warm Easter greetings to you and your family. Pandora', 30, NOW(), 'Trust me, youll need this. Chuquisaca Day', 89.00),
@@ -8195,8 +7781,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7778, NOW(), 'Cheering you up with a big smile! Burberry', 22, NOW(), 'The Sill Gift Certificate Anniversary of Installation of the Sultan', 16.00),
 (7779, NOW(), 'We value your trust and confidence and appreciate your loyalty as a customer Sime Darby', 18, NOW(), 'Because youre so spa-cial. Diwali', 53.00),
 (7780, NOW(), 'Great news! You wont have to return this. Boomer', 18, NOW(), 'Christmas is the day that holds all time together. Shushan Purim', 28.00),
-(7781, NOW(), 'It is a rare friendship that feels forever new. Big Rock Brewery', 30, NOW(), 'Kitty Guo Democracy Day', 36.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7781, NOW(), 'It is a rare friendship that feels forever new. Big Rock Brewery', 30, NOW(), 'Kitty Guo Democracy Day', 36.00), 
 (7782, NOW(), 'A new house is a dream come true. Congrats for the same. China Merchants Bank', 12, NOW(), 'When God shuts a door, he opens a window. New Year''s Day', 98.00),
 (7783, NOW(), 'Wishing you a joyous celebration, Selamat Hari Raya! Kronenbourg1664', 17, NOW(), 'For Winter-Proof Boots Sir Chhotu Ram Jayanti', 96.00),
 (7784, NOW(), 'Thank you for making your guests feel right at home. Shout', 13, NOW(), 'Apple EGift Certificate Victory Day', 75.00),
@@ -8215,8 +7800,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7797, NOW(), 'Wishing you all the best in this exciting new stage of your lives with your new baby. Rolex', 27, NOW(), 'Many thanks for all you do. Vinayagar Chathurthi', 78.00),
 (7798, NOW(), 'With best wishes for a lifetime of happiness together. Ausway', 29, NOW(), 'To the darling little newcomer. Orthodox Christmas Eve', 52.00),
 (7799, NOW(), 'Offering my/our sincerest condolences to you and your family KiwiRail', 14, NOW(), 'Huckberry E-Gift Certificate Father''s Day', 23.00),
-(7800, NOW(), 'Mazel tov on your Bar Mitzvah! [Send to a 13 year old Jewish boy] Chopard', 21, NOW(), 'Goldbelly Gift Certificate Summer Day', 63.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7800, NOW(), 'Mazel tov on your Bar Mitzvah! [Send to a 13 year old Jewish boy] Chopard', 21, NOW(), 'Goldbelly Gift Certificate Summer Day', 63.00), 
 (7801, NOW(), 'Thinking of you and wishing you a happy day. HIH Insurance', 14, NOW(), 'Saks Fifth Avenue E-Gift Certificate Corpus Christi', 24.00),
 (7802, NOW(), 'May all the love you''ve come to know continue to grow. Agrale', 29, NOW(), 'Go get that serotonin rush! Peace Day', 53.00),
 (7803, NOW(), 'Thank you for your encouragement and support always. Rolex', 19, NOW(), 'How ya doing, friend? Burmese New Year', 76.00),
@@ -8235,8 +7819,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7816, NOW(), 'For the home-improvement obsessive in your life. Pams', 27, NOW(), 'Thank you for your time Bank Holiday', 17.00),
 (7817, NOW(), 'Your business is appreciated. Thank you for choosing us. Andrade Gutierrez', 13, NOW(), 'May all your birthday wishes come true! Carnival Monday', 48.00),
 (7818, NOW(), 'Wishing you prosperity in business, peace in your life and happiness in your home. Enterprise Rent-A-Car', 24, NOW(), 'Not cooking is the most delicious of all. Beginning of Ramadan (in lieu)', 55.00),
-(7819, NOW(), 'At this important milestone in your life, congratulations and best wishes for your continuing success. Forever 21', 18, NOW(), 'A warm welcome. Thank you for choosing us! All Souls'' Day', 53.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7819, NOW(), 'At this important milestone in your life, congratulations and best wishes for your continuing success. Forever 21', 18, NOW(), 'A warm welcome. Thank you for choosing us! All Souls'' Day', 53.00), 
 (7820, NOW(), 'The heart of a father is the masterpiece of nature. Antoine Francois Prevost Cocomat', 13, NOW(), ' Roses are red. Violets are blue. Carnations are sweet. And so are you! Labour Day', 92.00),
 (7821, NOW(), 'Hope this makes your sweet home even homier. Sephora', 22, NOW(), 'Anything is possible  all you have to do is believe in yourself. Wishing you all the best in what lies ahead and good luck. International Labour Day', 72.00),
 (7822, NOW(), 'Cant wait for your review of this movie. Discover', 17, NOW(), 'Holiday Calendar Whitsunday', 26.00),
@@ -8255,8 +7838,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7835, NOW(), 'A mothers arms are more comforting than anyone elses. Princess Diana John Fairfax Holdings', 30, NOW(), 'Away Gift Certificate Eid al-Fitr Holiday', 38.00),
 (7836, NOW(), 'For the person currently subsidizing five different streamers. Big Rock Brewery', 13, NOW(), 'Warmest regards Labour Day', 63.00),
 (7837, NOW(), 'I blew it. Please give me another chance. Diesel', 27, NOW(), ' I''ll never forget your kindness. Tabaski', 85.00),
-(7838, NOW(), 'A beautiful soul deserves beautiful things in life. Congratulations! Ruth''s Chris Steak House', 24, NOW(), 'Escape to someplace pretty! Ascension Day', 25.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7838, NOW(), 'A beautiful soul deserves beautiful things in life. Congratulations! Ruth''s Chris Steak House', 24, NOW(), 'Escape to someplace pretty! Ascension Day', 25.00),
 (7839, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Hand And Stone ', 22, NOW(), ' After 10 years, I still feel like we''re newlyweds. Whit Monday', 65.00),
 (7840, NOW(), 'A father is someone you look up to no matter how tall you grow. Unknown Longines', 19, NOW(), 'H&M Gift Certificate Mawlid al-Nabi', 72.00),
 (7841, NOW(), 'Thank you for your order. Continuing to serve you will be a pleasure. Austar', 10, NOW(), 'Business Associate/Corporate Gift Certificates Eid Al Adha Holiday', 11.00),
@@ -8275,8 +7857,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7854, NOW(), 'May happiness &amp; love move in with you. Payless Shoe Source', 21, NOW(), 'A baby is a bundle from heaven. Independence Day', 24.00),
 (7855, NOW(), 'Cheer up. Although life may not be easy now, in the end its all worth it. Everything will get better in time. Barclays', 20, NOW(), 'Please accept our deepest sympathy and heartfelt thoughts. New Year''s Day', 22.00),
 (7856, NOW(), 'They''ve always wanted a vintage Herms Kelly bag or Cartier tank watch. This gift card will get them a little closer. Newsletter', 20, NOW(), 'Nordstrom E-Gift Certificate National Heroes'' Day', 11.00),
-(7857, NOW(), 'You get better with every year. Happy 50th birthday! ANT1 Group', 22, NOW(), 'Turning a year older calls for a little splurge, am I right? (Im right.) Shab e-Barat', 46.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7857, NOW(), 'You get better with every year. Happy 50th birthday! ANT1 Group', 22, NOW(), 'Turning a year older calls for a little splurge, am I right? (Im right.) Shab e-Barat', 46.00),
 (7858, NOW(), 'Warm, brown elixir of life, we pray to thee. Bertolli', 28, NOW(), 'For the Archival Fashion Lover Labour Day', 66.00),
 (7859, NOW(), 'Whether they want a Super Puff or TikTok-famous vegan-leather pants, this gift card will help get them there. Clue', 13, NOW(), 'I hope you consider trying to forgive me. New Year''s Day', 25.00),
 (7860, NOW(), 'We do not remember days, we remember moments. Shure', 22, NOW(), 'The more candles, the bigger the wish. Tabaski', 24.00),
@@ -8294,8 +7875,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7872, NOW(), 'Hope your recovery is a speedy one. We miss you! Skechers', 30, NOW(), 'Bando Gift Certificate Janmostav of Srimatna Sankardev', 87.00),
 (7873, NOW(), 'I blew it. Please give me another chance. Avalanche', 26, NOW(), 'This calls for shopping! Women''s Day', 46.00),
 (7874, NOW(), 'For the person currently subsidizing five different streamers. ASOS', 18, NOW(), 'May the fires of passion burn on! Corpus Christi', 68.00),
-(7875, NOW(), 'Not just a year older, but a year better. Kuemmerling', 12, NOW(), 'Amazon Gift Certificate Assumption Day', 63.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7875, NOW(), 'Not just a year older, but a year better. Kuemmerling', 12, NOW(), 'Amazon Gift Certificate Assumption Day', 63.00),
 (7876, NOW(), 'Get yourself some brain food. (Yes, pizza is brain food.) Zara', 15, NOW(), 'Baron Fig Gift Certificate Eid Al Adha Holiday', 40.00),
 (7877, NOW(), 'Just a little something to show my appreciation. David Yurman', 18, NOW(), 'Williams Sonoma E-Gift Certificate New Year''s Day (in lieu)', 65.00),
 (7878, NOW(), 'We know that you have a world full of choices, Thank You for selecting us. Alexander Keith''s Brewery', 18, NOW(), 'Yay for you! Ashoora Eve', 46.00),
@@ -8314,8 +7894,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7891, NOW(), 'I hurt you, but I didnt mean to Please forgive me! Canyon Ranch ', 30, NOW(), 'Christmas is magical because we''re together. Labour Day', 35.00),
 (7892, NOW(), 'You make the world a more beautiful place. Cocoa Puffs', 22, NOW(), 'Birthday Certificate Gift National Day', 20.00),
 (7893, NOW(), 'You''re a Hallmark card personified, so I had to get you this. Coach', 13, NOW(), 'Warm wishes on your 30th birthday. Armistice Day', 55.00),
-(7894, NOW(), 'Roses are red. Violets are blue. Carnations are sweet. And so are you! Clear Channel Communications', 22, NOW(), 'Thinking of you Christmas Day', 75.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7894, NOW(), 'Roses are red. Violets are blue. Carnations are sweet. And so are you! Clear Channel Communications', 22, NOW(), 'Thinking of you Christmas Day', 75.00),
 (7895, NOW(), 'You deserve a round of applauseand this, too. Hacky Sack', 12, NOW(), 'Mother''s Day Eid al-Fitr', 70.00),
 (7896, NOW(), 'Here''s a housewarming gift for the friend getting ready to decorate their next space. BAE Systems Australia', 16, NOW(), 'Soko Glam Gift Certificate Carnival Tuesday', 100.00),
 (7897, NOW(), 'Because a bottle of wine wouldnt fit in the envelope. Nikon', 28, NOW(), 'J.Crew Gift Certificate Easter Sunday', 24.00),
@@ -8334,8 +7913,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7910, NOW(), 'Congratulations on your new bundle of joy. Lululemon', 10, NOW(), 'For the diaper fund Eid al-Fitre', 58.00),
 (7911, NOW(), 'Welcome aboard! Its good to have you with us. Domino''s Pizza', 28, NOW(), 'face planters and dumpling lights New Year''s Day', 84.00),
 (7912, NOW(), 'If they love candles but you''re not sure of what scents they like, they can choose their own at Otherland. Monster.com', 18, NOW(), 'For the New Homeowner Christmas Day', 47.00),
-(7913, NOW(), 'Is your birthday wish a gift card? Because Accent', 19, NOW(), 'For Endless Accessorizing Corpus Christi Holiday (in lieu)', 38.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7913, NOW(), 'Is your birthday wish a gift card? Because Accent', 19, NOW(), 'For Endless Accessorizing Corpus Christi Holiday (in lieu)', 38.00),
 (7914, NOW(), 'May you enjoy a long and wonderful retirement. The Cheesecake Factory', 24, NOW(), 'Williams Sonoma E-Gift Certificate Whit Monday', 34.00),
 (7915, NOW(), 'Happy Anniversary to the love of my life. Bud Light', 26, NOW(), 'Congratulations and best wishes always Carnival Monday', 75.00),
 (7916, NOW(), 'You may be over the hillbut at least you''re still climbing! Chow Tai Fook', 13, NOW(), 'Tonights homework: Spend this Victory Day', 35.00),
@@ -8354,8 +7932,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7929, NOW(), 'I am delighted with your success. Congratulations for this achievement! TJ Maxx', 12, NOW(), ' Je t''aime [FRENCH: "I love you"] Eid Al Fitr', 11.00),
 (7930, NOW(), 'So they can upgrade to linen sheets or get a new bathrobe. Dove', 20, NOW(), 'There''s no place like home! Congratulations. Labour Day', 48.00),
 (7931, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Lipton', 13, NOW(), 'With love to you and your family Children''s Day', 89.00),
-(7932, NOW(), 'If they need any suggestions of what to buy with a Golde gift card, were big fans of the Superwhisk and Turmeric latte blend. Yeti', 23, NOW(), 'For Getting Active New Year''s Day (in lieu)', 93.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7932, NOW(), 'If they need any suggestions of what to buy with a Golde gift card, were big fans of the Superwhisk and Turmeric latte blend. Yeti', 23, NOW(), 'For Getting Active New Year''s Day (in lieu)', 93.00),
 (7933, NOW(), 'For the person who takes remote work to whole new level. Boucheron', 16, NOW(), 'Anniversary Certificate Gifts Martyrs'' Day', 49.00),
 (7934, NOW(), 'Hope youll be in the best of health soon. Oakley', 13, NOW(), 'Wishing you a speedy recovery Virgin Islands Day', 28.00),
 (7935, NOW(), 'Get one of those Home Sweet Home plaques. Elfin Cars', 23, NOW(), ' Hope your day is sunshine and flowers with happy thoughts to fill the house. Ethiopian Christmas', 21.00),
@@ -8374,8 +7951,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7948, NOW(), 'Please accept these flowers and hear the words we are not able to speak Nikon', 30, NOW(), 'Thanks for being there. President''s Day', 23.00),
 (7949, NOW(), 'This is a big deal. Now go spend like a big deal. Komatsu', 27, NOW(), 'Ban.do Gift Certificate Christmas Eve', 61.00),
 (7950, NOW(), 'Warm Easter greetings to you and your family. Propellerhead Software', 17, NOW(), ' After 10 years, I still feel like we''re newlyweds. St. George''s Day (in lieu)', 53.00),
-(7951, NOW(), 'Cheers to you! Cheers to your year ahead! Louis Vuitton', 26, NOW(), 'Soko Glam Gift Certificate Day of Slavonic Alphabet, Bulgarian Enlightenment and Culture', 27.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7951, NOW(), 'Cheers to you! Cheers to your year ahead! Louis Vuitton', 26, NOW(), 'Soko Glam Gift Certificate Day of Slavonic Alphabet, Bulgarian Enlightenment and Culture', 27.00),
 (7952, NOW(), 'I love you just as much as I did on our wedding day. Happy anniversary. Jetstar', 10, NOW(), 'Babies are Gods miracles New Year''s Day (in lieu)', 93.00),
 (7953, NOW(), 'For the home-improvement obsessive in your life. Casas Bahia', 16, NOW(), 'Cheer up. Although life may not be easy now, in the end its all worth it. Everything will get better in time. Carnival Monday', 12.00),
 (7954, NOW(), 'For the person who loves classic leather goods. Head & Shoulders', 14, NOW(), 'Birthday Certificate Gift Labour Day', 70.00),
@@ -8393,8 +7969,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7966, NOW(), 'One father is more than a hundred schoolmasters. George Herbert Outback', 26, NOW(), 'The best is yet to come! All Saints'' Day', 10.00),
 (7967, NOW(), 'After 10 years, I still feel like we''re newlyweds. Adidas', 29, NOW(), 'Another year older and another reason to celebrate! Happy Birthday! Eid Al Fitr', 99.00),
 (7968, NOW(), 'Our family wishes you love, joy and peace  today, tomorrow and always. Courtyard by Marriott', 20, NOW(), 'best things to buy Bank Holiday', 91.00),
-(7969, NOW(), 'For a cute outfit, plus maybe one for the baby. Cheung Kong Holdings', 21, NOW(), 'Lululemon Gift Certificate Ker Puja', 41.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7969, NOW(), 'For a cute outfit, plus maybe one for the baby. Cheung Kong Holdings', 21, NOW(), 'Lululemon Gift Certificate Ker Puja', 41.00), 
 (7970, NOW(), 'Another trip around the sun calls for a trip to your favorite restaurant. Boucheron', 13, NOW(), 'For the diaper fund Christmas Day', 54.00),
 (7971, NOW(), 'Expressing sympathy is always difficult, but all we can say is how sorry we are. Polo Ralph Lauren', 22, NOW(), 'Ganni EGift Certificate Semana Moraznica', 60.00),
 (7972, NOW(), 'Now you can buy something when You''re up at 3 a.m. Kamala', 28, NOW(), 'Time to say buy-buy! National Day', 19.00),
@@ -8413,8 +7988,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (7985, NOW(), 'You eat food, right? I know you so well. Delta', 15, NOW(), 'Apple EGift Certificate New Year''s Day', 76.00),
 (7986, NOW(), 'This Christmas, may your family be functional and all your batteries be included Hollister', 21, NOW(), 'Baggu Gift Certificate Saint Teresa Canonisation Day', 50.00),
 (7987, NOW(), 'See? It was all worth it! Right?? Name DNA Validation', 16, NOW(), 'Mansur Gavriel E-Gift Certificate Emancipation Day (in lieu)', 29.00),
-(7988, NOW(), 'May your degree unlock many doors to well deserved success. Mr. Potato Head', 27, NOW(), 'Wishing you happiness together. Lunar New Year', 91.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(7988, NOW(), 'May your degree unlock many doors to well deserved success. Mr. Potato Head', 27, NOW(), 'Wishing you happiness together. Lunar New Year', 91.00),
 (7989, NOW(), 'Hoping this finds you well on the way to recovery. Daffy Duck', 30, NOW(), 'Jump to Father''s Day', 50.00),
 (7990, NOW(), 'See? It was all worth it! Right?? Campari', 16, NOW(), 'Chinese New Year Blessed Rainy Day', 30.00),
 (7991, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Don de Dieu', 29, NOW(), 'Father''s Day National Anniversary Day', 75.00),
@@ -8433,8 +8007,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8004, NOW(), 'Now you can get all the gift-card cards you want! Regal Cinemas', 27, NOW(), ' Warm Easter greetings to you and your family. Unduvap Full Moon Poya', 23.00),
 (8005, NOW(), 'Congratulations on achieving a milestone. Here''s to a great future. Geniki Bank', 10, NOW(), 'Soooooo thoughtful! Christmas', 48.00),
 (8006, NOW(), 'It may be possible to gild pure gold, but who can make his mother more beautiful? Mahatma Gandhi 8th Continent Soymilk', 16, NOW(), 'Christmas is magical because we''re together. Blessed Rainy Day', 15.00),
-(8007, NOW(), 'Great results come from hard work. Well done! Qantas', 23, NOW(), 'Cool Move! Congratulations! Coronation day of His Majesty the King', 48.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8007, NOW(), 'Great results come from hard work. Well done! Qantas', 23, NOW(), 'Cool Move! Congratulations! Coronation day of His Majesty the King', 48.00),
 (8008, NOW(), 'Is your birthday wish a gift card? Because Enbridge', 17, NOW(), 'Spend it on something you love! Utamaduni Day', 50.00),
 (8009, NOW(), 'May the future be filled with much happiness. Activia', 15, NOW(), 'Hope youre up and about soon. Christmas Day', 61.00),
 (8010, NOW(), 'To happy endings and new beginnings. Congratulations! Mine Site Technologies Pty Ltd', 11, NOW(), 'Kitty Guo New Year''s Day (in lieu)', 31.00),
@@ -8452,8 +8025,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8022, NOW(), ' You''ll always be younger than springtime. Happy Birthday! 24-Hour Fitness Center', 30, NOW(), 'Go get that serotonin rush! Public Holiday', 94.00),
 (8023, NOW(), 'At Macys, theyll be able pick out whatever they want in any number of categories  from clothing to beauty products to homewares. Aegon', 25, NOW(), 'Always get the fries. Botswana Day Holiday', 20.00),
 (8024, NOW(), 'I wont judge if you spend it all on Cheetos. Watsons Water', 13, NOW(), 'Thinking of you Feast of St. Giusto', 27.00),
-(8025, NOW(), 'Congratulations on your new bundle of joy. Bouygues Telecom', 16, NOW(), 'Get well soon Jananeta Irawat Birth Day', 75.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8025, NOW(), 'Congratulations on your new bundle of joy. Bouygues Telecom', 16, NOW(), 'Get well soon Jananeta Irawat Birth Day', 75.00),
 (8026, NOW(), 'Whether theyre looking for a new pair of hoops or an engagement ring, Mejuri has it all. Health2000', 17, NOW(), 'Amazon Gift Certificate Independence Day', 86.00),
 (8027, NOW(), 'Another reason to dress up! (Or dress down!) AmerisourceBergen', 13, NOW(), 'Dinners on me! May Day Revolution (bridge day)', 98.00),
 (8028, NOW(), 'Cheers to you! Cheers to your year ahead! AirElite', 18, NOW(), 'Williams Sonoma E-Gift Certificate Nunavut Day', 82.00),
@@ -8471,8 +8043,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8040, NOW(), 'For the person who spends all their money on their pet anyway. Soft Batch', 29, NOW(), 'Words are inadequate at a time like this. Please accept my heartfelt sympathy. Chuquisaca Day', 72.00),
 (8041, NOW(), 'There is so little one can say, but my heart goes out to you. French''s', 24, NOW(), 'Retirement Certificate Gifts St. Stephen''s Day', 40.00),
 (8042, NOW(), 'Something hot for someone&who has a lot of nice qualities. Fossil', 19, NOW(), 'Etsy E-Gift Certificate Public Holiday', 23.00),
-(8043, NOW(), 'For the person who loves classic leather goods. Cap''n Crunch', 10, NOW(), 'The Cheesecake Factory Gift Certificate King''s Birthday', 91.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8043, NOW(), 'For the person who loves classic leather goods. Cap''n Crunch', 10, NOW(), 'The Cheesecake Factory Gift Certificate King''s Birthday', 91.00),
 (8044, NOW(), 'Warmest greetings on your birthday with every good wish for the coming year. Bose', 13, NOW(), 'Success is having you for a customer. New Year''s Eve', 88.00),
 (8045, NOW(), 'Wishing you lots of luck and happiness in the year ahead. Kappa', 14, NOW(), 'Cheering you up with a big smile! Holy Spirit Monday', 76.00),
 (8046, NOW(), 'So glad to work with you. Consider this a bonus! Alexander Keith''s Brewery', 17, NOW(), 'For Dainty Jewelry New Year''s Day', 93.00),
@@ -8492,8 +8063,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8060, NOW(), 'Take care of yourself and feel better soon. Spa by JW', 16, NOW(), 'For Her Wardrobe Essentials New Year''s Day', 41.00),
 (8061, NOW(), 'Just a note to keep in touch. Lets talk soon. Omega', 15, NOW(), 'Girlfriend Collective Gift Certificate All Souls'' Day', 77.00),
 (8062, NOW(), 'Were so happy about the arrival of your bundle of joy. Victoria''s Secret', 10, NOW(), 'Chinese New Year Ascension Day', 49.00),
-(8063, NOW(), 'Hope this helps get you that thing that brings the cozy to your new place. C&A', 23, NOW(), 'May all your dreams come true. Congrats. Easter Monday', 76.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8063, NOW(), 'Hope this helps get you that thing that brings the cozy to your new place. C&A', 23, NOW(), 'May all your dreams come true. Congrats. Easter Monday', 76.00), 
 (8064, NOW(), 'They already have their personal beauty favorites. With this gift card, they won''t have to use their precious Sephora points on that new lipstick or foundation. Giant Eagle', 21, NOW(), 'A friend is someone you can lean on Flagand Universities'' Day', 31.00),
 (8065, NOW(), 'I was in college once, so I knew just what to get you. Adidas', 22, NOW(), 'March 1, 2023 Boxing Day', 97.00),
 (8066, NOW(), 'Sharing in your happiness and wishing you all the best. Hitejinro', 21, NOW(), 'A friend is forever! Easter', 42.00),
@@ -8511,8 +8081,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8078, NOW(), 'May the joy You''re sharing now grow deeper day by day. 365', 18, NOW(), 'A friend is forever! Martyrs Day', 54.00),
 (8079, NOW(), 'Whether they''re training for a marathon or a 5k, the most active people in your life will love new gear for &quot;Doing Things.&quot; Alexander Keith''s Brewery', 26, NOW(), 'Food and drink Christmas Day', 61.00),
 (8080, NOW(), 'Now you can get all the gift-card cards you want! Canyon Ranch ', 29, NOW(), 'The Strategist Easter Sunday', 61.00),
-(8081, NOW(), 'If I had to do it all over again, I wouldn''t. Carnini', 11, NOW(), 'The best is yet to come! Decoration Day', 22.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8081, NOW(), 'If I had to do it all over again, I wouldn''t. Carnini', 11, NOW(), 'The best is yet to come! Decoration Day', 22.00),
 (8082, NOW(), 'I was in college once, so I knew just what to get you. Incat', 29, NOW(), 'Blockbuster, indie, animation, its your call! Public Holiday', 57.00),
 (8083, NOW(), 'Wishing you a joyous celebration, Selamat Hari Raya! Delta Projects', 18, NOW(), 'Mejuri Gift Certificate Whit Monday', 63.00),
 (8084, NOW(), 'Caps in the air like you just dont care. BlackBerry', 18, NOW(), 'glowing winter skin Flag Day', 31.00),
@@ -8532,8 +8101,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8098, NOW(), 'Just a little something to show my appreciation. Arirang', 26, NOW(), 'Spend it on something you love! Father''s Day', 72.00),
 (8099, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! MFS Limited', 10, NOW(), 'Christmas is magical because we''re together. Labour Day', 93.00),
 (8100, NOW(), 'Will these flowers let me out of the doghouse? I''m sorry. Let''s make up. Bausch & Lomb', 15, NOW(), 'Flowers today Fireworks tonight! Eid Al Adha Holiday', 79.00),
-(8101, NOW(), 'With you it''s Valentine''s Day 365 days a year. Rolex', 22, NOW(), 'I hope you have a most happy and prosperous New Year. Easter (Catholic)', 63.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8101, NOW(), 'With you it''s Valentine''s Day 365 days a year. Rolex', 22, NOW(), 'I hope you have a most happy and prosperous New Year. Easter (Catholic)', 63.00),
 (8102, NOW(), 'With you it''s Valentine''s Day 365 days a year. Cheetos', 10, NOW(), 'the top pick in our buying guide Royal Brunei Armed Forces Day', 22.00),
 (8103, NOW(), 'This Christmas, may your family be functional and all your batteries be included Bosch', 22, NOW(), 'For Endless Accessorizing Easter Monday', 96.00),
 (8104, NOW(), 'Wishing you another wonderful year of happiness and joy. Happy Birthday! Cochlear Limited', 20, NOW(), 'Cheer Up! Father''s Day', 27.00),
@@ -8552,8 +8120,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8117, NOW(), 'Congratulations, and best of luck in your future endeavors. Dilmah', 11, NOW(), 'Macys E-Gift Certificate Christmas Day', 66.00),
 (8118, NOW(), 'There is only one happiness in life: to love and be loved.  George Sand Macy''s', 30, NOW(), 'funky iPhone accessories Constitution Day', 75.00),
 (8119, NOW(), 'You take my breath away...today and every day. Baconator', 22, NOW(), 'Time to say buy-buy! Muharam', 17.00),
-(8120, NOW(), 'Every time you see these blooms, remember someone is thinking of you! Filson', 15, NOW(), 'Nice work, Mom and Dad! Ramzan', 40.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8120, NOW(), 'Every time you see these blooms, remember someone is thinking of you! Filson', 15, NOW(), 'Nice work, Mom and Dad! Ramzan', 40.00),
 (8121, NOW(), 'A father so handsome, a mom so pretty  no wonder your newborn is such a sweetie. Congratulations. Activia', 25, NOW(), 'excellent last-minute gifts Thimphu Tshechu Holiday', 47.00),
 (8122, NOW(), 'Wishing you a joyous celebration, Selamat Hari Raya! Olive Garden', 27, NOW(), 'glowing winter skin Tithi of Damodar Deva', 69.00),
 (8123, NOW(), 'Sending prayers and hearty Christmas greetings to you. May you receive the most special of Gods blessings during this amazing Christmas season! Aji Ichiban', 28, NOW(), 'Blockbuster, indie, animation, its your call! Christmas Day', 52.00),
@@ -8572,8 +8139,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8136, NOW(), 'You deserve all the feel-good you can get. Shiseido', 21, NOW(), 'Sephora Gift Certificate Nigeria Election Holiday', 52.00),
 (8137, NOW(), 'A mother is not a person to lean on, but a person to make leaning unnecessary. Dorothy Canfield Fisher Adecco', 23, NOW(), 'our favorite Everlane pieces here Martin Luther King Jr. Day', 83.00),
 (8138, NOW(), 'An especially good last-minute gift for the hard-to-shop-for teenager. Sole', 23, NOW(), 'Wishing you a special birthday All Saints'' Day', 26.00),
-(8139, NOW(), 'Find a song to get stuck in your head. Genius', 17, NOW(), 'Congratulations and best wishes always. The Sultan of Johor Hol', 94.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8139, NOW(), 'Find a song to get stuck in your head. Genius', 17, NOW(), 'Congratulations and best wishes always. The Sultan of Johor Hol', 94.00), 
 (8140, NOW(), 'Many thanks for your inquiry. Im sure we can meet your needs. Duracell', 25, NOW(), 'May all your dreams come true. Congrats. Good Friday', 24.00),
 (8141, NOW(), 'The 18 Very Best Sunscreens for Your Face Dermalogica', 19, NOW(), 'Warm wishes on your 30th birthday. Picnic Day', 85.00),
 (8142, NOW(), 'Another reason to dress up! (Or dress down!) Aji Ichiban', 20, NOW(), 'Thank you for your time All Souls'' Day', 15.00),
@@ -8592,8 +8158,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8155, NOW(), 'You are in my thoughts. If there is anything I can do, please let me know. Lululemon', 25, NOW(), 'Words are so inadequate at a time like this. All Saints'' Day', 36.00),
 (8156, NOW(), 'Hoping the best things in life will always be yours. Nine West', 20, NOW(), 'Dont worry, I still owe you. Thimphu Tshechu Holiday', 90.00),
 (8157, NOW(), 'Sending you Christmas cheer that lasts throughout the year! Reebok', 26, NOW(), 'Cheering you up with a big smile! Chehlum', 94.00),
-(8158, NOW(), 'Thinking of you. May you feel better soon. Shure', 13, NOW(), 'Enjoy your trip! National Day', 82.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8158, NOW(), 'Thinking of you. May you feel better soon. Shure', 13, NOW(), 'Enjoy your trip! National Day', 82.00),
 (8159, NOW(), 'Wishing your family a happy and healthy life together. Cyrela', 14, NOW(), 'You + Me = Forever Eid al-Fitre', 46.00),
 (8160, NOW(), 'Doesnt come close to showing you how grateful I really am. Ezine', 16, NOW(), 'Rejoice, Christ is risen! Victory Day', 13.00),
 (8161, NOW(), 'One father is more than a hundred schoolmasters. George Herbert Patagonia', 20, NOW(), 'Many thanks for all you do. Narak Chaturdashi', 10.00),
@@ -8611,8 +8176,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8173, NOW(), 'We do not remember days, we remember moments. Banana Republic', 20, NOW(), 'Congratulations on a well-deserved promotion Arbaeen', 91.00),
 (8174, NOW(), 'My heart is reaching out to you in sympathy and prayer. UNIQLO', 27, NOW(), 'Best wishes on this wonderful journey, as you build your new lives together. Vishvakarma Day', 58.00),
 (8175, NOW(), 'I hate fighting, and I''m sorry for my part of this one! Please forgive me. Huggies', 26, NOW(), 'Get you some yum! Mizoram State Day', 47.00),
-(8176, NOW(), 'A father so handsome, a mom so pretty  no wonder your newborn is such a sweetie. Congratulations. Accord', 11, NOW(), 'Congratulations and best wishes always. National Day', 76.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8176, NOW(), 'A father so handsome, a mom so pretty  no wonder your newborn is such a sweetie. Congratulations. Accord', 11, NOW(), 'Congratulations and best wishes always. National Day', 76.00),
 (8177, NOW(), 'We appreciate your business and your confidence in us. Evora', 20, NOW(), 'L.L.Bean Gift Certificate Independence Day', 43.00),
 (8178, NOW(), 'Im there for you on rough days and spa days. Longchamp', 19, NOW(), 'Way to go! Heres some dough! Pesach I', 48.00),
 (8179, NOW(), 'Not cooking is the most delicious of all. Egg Beaters', 30, NOW(), 'Time to say buy-buy! Coming-of-Age Day', 84.00),
@@ -8631,8 +8195,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8192, NOW(), 'You''ve stolen my heart. I know it''s in good hands. BCBG', 12, NOW(), 'Lunya Gift Certificate Assumption Day', 93.00),
 (8193, NOW(), 'Happy Birthday and many happy returns of the day. Furla', 19, NOW(), 'Because you''re BREWtiful Boxing Day', 46.00),
 (8194, NOW(), 'Were so happy about the arrival of your bundle of joy. Amstel Light', 24, NOW(), 'Escape to someplace pretty! Boxing Day', 47.00),
-(8195, NOW(), 'May your love bring happiness to all your days. Louis Vuitton', 16, NOW(), 'Corporate Gifts International Women''s Day', 93.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8195, NOW(), 'May your love bring happiness to all your days. Louis Vuitton', 16, NOW(), 'Corporate Gifts International Women''s Day', 93.00),
 (8196, NOW(), 'Making the impossible into possible is your own style. Congrats for your success! Petco', 19, NOW(), 'May you treasure today forever in your memory. Losar', 16.00),
 (8197, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Clarins', 21, NOW(), 'For the person currently subsidizing five different streamers. Christmas Day', 52.00),
 (8198, NOW(), 'You make the world a more beautiful place. Ahold', 10, NOW(), 'Target Gift Certificate Eid Al Adha', 39.00),
@@ -8650,8 +8213,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8210, NOW(), 'Sending hugs, kisses and this little gift to let you know Im thinking of you! la prairie', 19, NOW(), 'Our Place Gift Certificate Whit Monday', 95.00),
 (8211, NOW(), 'Happy Easter! Happy Spring! Thanks for all the joy you bring! Brioni', 16, NOW(), 'Short and Simple Eid al-Fitr Holiday', 40.00),
 (8212, NOW(), 'Thank you for your order. Continuing to serve you will be a pleasure. Lowe''s', 15, NOW(), 'Please enjoy this less-versatile money. Emancipation Day', 70.00),
-(8213, NOW(), 'May your sorrow be eased by good memories. Crumpler', 29, NOW(), 'The best for the best. Revolution Anniversary Holiday', 84.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8213, NOW(), 'May your sorrow be eased by good memories. Crumpler', 29, NOW(), 'The best for the best. Revolution Anniversary Holiday', 84.00), 
 (8214, NOW(), 'The hard-to-shop-for guy in your life will find everyday wear as well as gear for just about any outdoor activity at Huckberry. EnergyAustralia', 26, NOW(), 'The power of a dad in a childs life is unmatched. Justin Ricklefs Kurban Bajram', 89.00),
 (8215, NOW(), 'Hope this makes your sweet home even homier. Greyhound', 13, NOW(), 'Hoping this finds you well on the way to recovery. Day of National Unity', 61.00),
 (8216, NOW(), 'I hope your birthday was all that you hoped for. Subway', 15, NOW(), 'Netflix EGift Certificate King Charles'' Birthday', 77.00),
@@ -8669,8 +8231,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8228, NOW(), 'Your business is appreciated. Thank you for choosing us. Kelvinator', 14, NOW(), 'This comes with sincere appreciation New Year''s Day (in lieu)', 88.00),
 (8229, NOW(), 'Happy Valentine''s Day! Remember not to eat too much candy you''re sweet enough already. H&M', 12, NOW(), ' Thank you for your support Tabaski', 61.00),
 (8230, NOW(), 'Wishing you a happy and peaceful Eid! Selamat Hari Raya! Jelly Belly', 27, NOW(), 'Nordstrom E-Gift Certificate African Union Day', 93.00),
-(8231, NOW(), 'Makes you want to do nice things for me all the time, right? Massimo Zanetti', 29, NOW(), 'Fellow Digital Gift Certificate Commemoration Day', 82.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8231, NOW(), 'Makes you want to do nice things for me all the time, right? Massimo Zanetti', 29, NOW(), 'Fellow Digital Gift Certificate Commemoration Day', 82.00),
 (8232, NOW(), 'So you can keep looking better than me. Bacardi', 16, NOW(), 'Soooooo thoughtful! Victory Day', 16.00),
 (8233, NOW(), 'Happy Anniversary to the love of my life. I Love Biscuits', 14, NOW(), 'HR-approved love from me to you. St. George''s Caye Day (in lieu)', 100.00),
 (8234, NOW(), 'Get well soon. Feel better. We miss you! Air France', 17, NOW(), 'We sincerely appreciate your business. Immaculate Conception Day', 49.00),
@@ -8689,8 +8250,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8247, NOW(), 'Wish I could turn back the time and make things right Please forgive me! Driza-Bone', 29, NOW(), 'subscription service gift ideas Labour Day', 30.00),
 (8248, NOW(), 'If you want to spend part of this on your favorite family member, who am I to stop you? Sectra', 11, NOW(), 'Macys E-Gift Certificate National Flag Day', 78.00),
 (8249, NOW(), 'May the future be filled with much happiness. Colgate', 15, NOW(), 'With Warmest congratulations. Holy Saturday', 14.00),
-(8250, NOW(), 'Bravo! Your hard work has truly paid off. Vera Wang', 12, NOW(), ' Hope your recovery is a speedy one. We miss you! Good Friday', 40.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8250, NOW(), 'Bravo! Your hard work has truly paid off. Vera Wang', 12, NOW(), ' Hope your recovery is a speedy one. We miss you! Good Friday', 40.00),
 (8251, NOW(), 'I''m so lucky to have such a great friend like you... who''d forgive me if I forgot your birthday. Happy Belated Birthday! Atari', 13, NOW(), 'Apple EGift Certificate Labor Day', 76.00),
 (8252, NOW(), 'Hope your new home is filled with joy. Adidas', 30, NOW(), 'Cheer up. Although life may not be easy now, in the end its all worth it. Everything will get better in time. Hamilton Lavity Stoutt''s Birthday', 69.00),
 (8253, NOW(), 'Sending you Christmas cheer that lasts throughout the year! Bounty', 17, NOW(), 'Max Bone Gift Certificate New Year''s Eve', 52.00),
@@ -8709,8 +8269,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8266, NOW(), 'Congratulations on your new little someone to love. ACE', 17, NOW(), 'Friends make life more beautiful. Christmas Day', 86.00),
 (8267, NOW(), 'The love you share makes this day special. Carlton & United Breweries', 16, NOW(), 'H&M Gift Certificate Pongal', 34.00),
 (8268, NOW(), 'With best wishes for a lifetime of happiness together. Ulta Beauty', 30, NOW(), 'funky iPhone accessories Whit Sunday', 57.00),
-(8269, NOW(), 'My father gave me the greatest gift anyone could give another person, he believed in me. Jim Valvano David''s Bridal', 30, NOW(), ' I know you are going through a lot right now. My thoughts are with you, and know that I am here for you if you need help. New Year''s Day', 94.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8269, NOW(), 'My father gave me the greatest gift anyone could give another person, he believed in me. Jim Valvano David''s Bridal', 30, NOW(), ' I know you are going through a lot right now. My thoughts are with you, and know that I am here for you if you need help. New Year''s Day', 94.00), 
 (8270, NOW(), 'I wish that your career and life, just like the round moon on Mid-Autumn Day, be bright and perfect. Airbus', 21, NOW(), 'Thinking of you Teyongsi Sirijunga Sawan Tongnam', 29.00),
 (8271, NOW(), 'Your name has been synonymous with success! Congratulations! BOSE', 12, NOW(), 'Verishop E-Gift Certificate Christmas Day', 42.00),
 (8272, NOW(), 'How sweet it is to be loved by you! Magnavox', 30, NOW(), 'Get whatever you want! First Sermon Of Lord Buddha', 38.00),
@@ -8730,8 +8289,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8286, NOW(), 'Because of you everything is so much nicer Broadview Home Security', 14, NOW(), 'I owe you big time All Saints'' Day', 84.00),
 (8287, NOW(), 'Please accept our deepest sympathy and heartfelt thoughts.  Bliss spa', 21, NOW(), 'Youre wished a lifetime of love. Yennayer', 62.00),
 (8288, NOW(), 'You have 12 days of Christmas to spend this. Geico', 16, NOW(), 'Hope youll be feeling frisky again in no time. La Paz day', 60.00),
-(8289, NOW(), 'Sending my best wishes to make you feel better. Get well soon! Acsa Argentina', 17, NOW(), 'reusable nylon tote Ramadan', 89.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8289, NOW(), 'Sending my best wishes to make you feel better. Get well soon! Acsa Argentina', 17, NOW(), 'reusable nylon tote Ramadan', 89.00),
 (8290, NOW(), 'Offering my/our sincerest condolences to you and your family Axe', 28, NOW(), 'ClassPass E-Gift Certificate Orthodox Good Friday', 73.00),
 (8291, NOW(), 'You dont have to buy me a thank-you card with this. MagiKLEEN Premium Products', 28, NOW(), 'Happy house warming! Traditional Day of Offering', 82.00),
 (8292, NOW(), 'I hope this comes in handy on your adventure! PANPURI', 17, NOW(), 'Because this family shops! Easter Monday', 65.00),
@@ -8750,8 +8308,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8305, NOW(), 'You were there for me when I needed you the most! Thank you for being my friend! Haldiram', 21, NOW(), 'Anthropologie E-Gift Certificate Christmas Day', 17.00),
 (8306, NOW(), 'Expressing sympathy is always difficult, but all we can say is how sorry we are. ABN Amro', 22, NOW(), 'Brooklinen Gift Certificate Ullortuneq', 96.00),
 (8307, NOW(), 'Are you a banana? Because I find you a-peel-ing. Happy Valentine''s Day my love. Vans', 18, NOW(), 'Corporate Gifts Christmas Day', 27.00),
-(8308, NOW(), 'You deserve all the feel-good you can get. Bare Escentuals', 16, NOW(), 'Health, wealth and endless joy is what I wish for you and your family this year. Coptic Christmas', 24.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8308, NOW(), 'You deserve all the feel-good you can get. Bare Escentuals', 16, NOW(), 'Health, wealth and endless joy is what I wish for you and your family this year. Coptic Christmas', 24.00), 
 (8309, NOW(), 'Keep smiling and one day life will get tired of upsetting you! Cheer up! Miu Miu', 14, NOW(), 'Fashion and accessories Kadooment Day', 22.00),
 (8310, NOW(), 'I am delighted with your success. Congratulations for this achievement! Acindar SA', 20, NOW(), 'Virtual Delivery (Email/SMS) Mother''s Day', 15.00),
 (8311, NOW(), 'A girl is all God has which to make a woman. Monster Energy', 17, NOW(), 'Chinese New Year Ramazan Bayrami', 39.00),
@@ -8770,8 +8327,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8324, NOW(), 'You make the world a more beautiful place. Pantene', 11, NOW(), 'Tune in to a good day. Good Friday', 79.00),
 (8325, NOW(), 'Hope your birthday''s as terrific as you are. Sony', 18, NOW(), 'Smiles are the best medicine. Independent Czechoslovak State Day', 33.00),
 (8326, NOW(), 'Inspired? Create and share by tagging @HallmarkStores. Famous Amos', 10, NOW(), 'Big Night EGift Certificate National Heroes and Heroines Day', 29.00),
-(8327, NOW(), 'Time runs so fast when Im with you. Every second we spend together is so wonderful. May life offers us more time to spend together! Happy valentines day. Nestle Pure Life', 20, NOW(), 'Mansur Gavriel E-Gift Certificate Eid al-Fitr Holiday', 87.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8327, NOW(), 'Time runs so fast when Im with you. Every second we spend together is so wonderful. May life offers us more time to spend together! Happy valentines day. Nestle Pure Life', 20, NOW(), 'Mansur Gavriel E-Gift Certificate Eid al-Fitr Holiday', 87.00),
 (8328, NOW(), 'I hope your birthday was all that you hoped for. CityRail', 19, NOW(), 'Way to go&shopping! Revolution Anniversary Holiday', 37.00),
 (8329, NOW(), 'Trust methis is better than the 60 cats I was going to get you. Friskies', 23, NOW(), 'Accident or Illness Easter Sunday', 38.00),
 (8330, NOW(), 'Go see something as epic as you are! Doritos', 22, NOW(), 'Anthropologie E-Gift Certificate Labour Day', 15.00),
@@ -8790,8 +8346,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8343, NOW(), 'Theres no better housewarming present than a gift card to the MoMa Design Store. Theyll have their choice of unique home goods, furniture, and art. Zalando', 17, NOW(), 'Thinking of you in these difficult times May Bank Holiday', 97.00),
 (8344, NOW(), 'Explorers everywhere will love a gift card from the iconic gear brand, Huckberry. Choose  from an array of pre-loaded virtual gift cards. BNP Paribas', 24, NOW(), 'Thank you for choosing us Meeting of the Worlds', 71.00),
 (8345, NOW(), 'Good fathers do three things: they provide, they nurture and they guide. Roland Warren Acropolis Rally', 22, NOW(), 'Trust me, this is better than a home-cooked meal from me. Meeting of the Worlds', 66.00),
-(8346, NOW(), 'I hope that for every candle on your cake you get a wonderful surprise. ArcelorMittal', 10, NOW(), 'Min. 2 Days Booking Saba Day', 95.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8346, NOW(), 'I hope that for every candle on your cake you get a wonderful surprise. ArcelorMittal', 10, NOW(), 'Min. 2 Days Booking Saba Day', 95.00),
 (8347, NOW(), 'Words can say so little when someones done so much. Luxottica', 12, NOW(), 'Salam Aidilfitri. Maaf zahir dan batin. October Bank Holiday', 21.00),
 (8348, NOW(), 'Im sending a bunch of happies to say Have a cheerful day! EDF Electric', 14, NOW(), 'Hulu E-Gift Certificate Constitution Day (in lieu)', 77.00),
 (8349, NOW(), 'Warm, brown elixir of life, we pray to thee. Tiffany & Co.', 11, NOW(), 'Belated birthday Boxing Day', 25.00),
@@ -8810,8 +8365,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8362, NOW(), 'Hope this Mooncake Festival is the beginning of of all that is the brightest for you. Centrino', 23, NOW(), 'Our friendship is golden. Labour Day', 34.00),
 (8363, NOW(), 'Warm Easter greetings to you and your family. Pampers', 23, NOW(), 'END E-Gift Certificate New Year''s Day', 67.00),
 (8364, NOW(), 'May the future be filled with much happiness. Alinta Gas', 26, NOW(), ' Dream big - Reach far - Shine brightly - You''re a star, Congratulations on your Graduation! State Inauguration Day', 55.00),
-(8365, NOW(), 'Is your birthday wish a gift card? Because AA Insurance', 27, NOW(), ' Bon Voyage! Yawmul Ashura', 12.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8365, NOW(), 'Is your birthday wish a gift card? Because AA Insurance', 27, NOW(), ' Bon Voyage! Yawmul Ashura', 12.00),
 (8366, NOW(), 'Happy Valentines Day. You are amazing in every way! I love you! Choclitos', 24, NOW(), 'Let me guess&youre going to see a movie where stuff blows up. Eid Milad-un-Nabi', 52.00),
 (8367, NOW(), 'May this Easter warm your heart with peace! Pandora', 18, NOW(), 'Success, progress, prosperity, peace, health, wealth, happiness, and love. May all these embrace you upon your move into your new home. Epiphany', 13.00),
 (8368, NOW(), 'You take my breath away...today and every day. Canon', 11, NOW(), 'A star is born Boxing Day', 76.00),
@@ -8830,8 +8384,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8381, NOW(), 'It''s still a mystery to me, I haven''t got a clue, how I got so lucky and found you! Alinta Gas', 18, NOW(), 'Youre wished a lifetime of love. Orthodox Christmas Day', 32.00),
 (8382, NOW(), 'I know I love ya&but I dont always know what to get ya. About Us', 22, NOW(), 'Don''t sweat shipping delays Boxing Day', 97.00),
 (8383, NOW(), 'My love for you grows stronger every year. Ality', 24, NOW(), 'Golde E- Gift Certificate Constitutional Day', 14.00),
-(8384, NOW(), 'Congratulations on the new home! May it bring lot more happiness in coming years. Olive Garden', 19, NOW(), 'face planters and dumpling lights Gothar Bathou Sun', 17.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8384, NOW(), 'Congratulations on the new home! May it bring lot more happiness in coming years. Olive Garden', 19, NOW(), 'face planters and dumpling lights Gothar Bathou Sun', 17.00), 
 (8385, NOW(), 'Wishing your family a happy and healthy life together. Disaronno', 12, NOW(), 'Mother''s Day Unity Day', 82.00),
 (8386, NOW(), 'Im there for you on rough days and spa days. American Eagle Outfitters', 22, NOW(), 'Buy more clutter! Thats the marriage way. Memorial Easter', 99.00),
 (8387, NOW(), 'When the whole world left, you were there with open arms. Thanks for being my friend!! AGL Energy', 12, NOW(), 'Pottery Barn Gift Certificate Eid-ul-Azha Holiday', 52.00),
@@ -8850,8 +8403,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8400, NOW(), 'Congratulations and best wishes for a succesful future. Baker''s Choice', 28, NOW(), 'Jump to New Year''s Day', 95.00),
 (8401, NOW(), 'How your home has been blessed with a new baby. Tory Burch', 15, NOW(), 'Congratulations, graduate! King Charles III''s Coronation', 99.00),
 (8402, NOW(), 'May your new little girl/boy bring you joy and happiness. Nordstrom', 13, NOW(), 'The best is yet to come! National Heroes'' Day', 53.00),
-(8403, NOW(), 'Its wonderful sharing with a good friend like you. CJ', 25, NOW(), 'Tonights homework: Spend this Labour Day', 92.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8403, NOW(), 'Its wonderful sharing with a good friend like you. CJ', 25, NOW(), 'Tonights homework: Spend this Labour Day', 92.00),
 (8404, NOW(), 'Great results come from hard work. Well done! Brush-Ups', 19, NOW(), 'H&M Gift Certificate Melaka Governor''s Birthday', 62.00),
 (8405, NOW(), 'Today is for remembering the happy times you''ve known. Latex Gloves', 10, NOW(), 'Mytheresa Gift Certificate Eid Milad-un-Nabi', 66.00),
 (8406, NOW(), 'May the joy you share today grow deeper through the years. Louis Vuitton', 25, NOW(), 'Congratulations! Keep up the good work. Subha Vijaya Dashami', 93.00),
@@ -8870,8 +8422,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8419, NOW(), 'College throws a lot at you at once. Hope this helps. Havainas', 25, NOW(), 'For the Pet Parent Genocide Memorial Day', 21.00),
 (8420, NOW(), 'Thoughts of you always bring me a smile. Toblerone', 11, NOW(), 'Thank you for the referrals Ethiopian New Year', 18.00),
 (8421, NOW(), 'Happy Anniversary - My love for you grows with each passing year. Autogrill', 25, NOW(), 'Short and Simple Ashoora', 71.00),
-(8422, NOW(), 'You always go out of your way to be thoughtful. Zalando', 21, NOW(), ' Please accept these flowers and hear the words we are not able to speak Gurban Bayrami Holiday', 100.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8422, NOW(), 'You always go out of your way to be thoughtful. Zalando', 21, NOW(), ' Please accept these flowers and hear the words we are not able to speak Gurban Bayrami Holiday', 100.00),
 (8423, NOW(), 'Many thanks for referring  to me. Ill make sure he/she gets VIP service. Denny''s', 27, NOW(), 'Happy nesting! Good Friday', 90.00),
 (8424, NOW(), 'Our thoughts and prayers are with you during this difficult time. We are sorry for your loss. Diesel', 29, NOW(), 'Hope youre up and about soon. New Year''s Day', 66.00),
 (8425, NOW(), 'Without you I am nothing, with you I am everything. Thank you to be my everything. Happy Valentines Day! Colryut', 26, NOW(), ' Thank you for your support Carnival', 80.00),
@@ -8889,8 +8440,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8437, NOW(), 'Happy Valentines Day to the most beautiful woman I know. Hua Xia Bank', 11, NOW(), 'For Winter-Proof Boots Holiday Holiday', 77.00),
 (8438, NOW(), 'Parenthood is one of the best journeys in life. Enjoy the ride. Iced VoVo', 17, NOW(), 'We sincerely appreciate your business. Public Holiday', 90.00),
 (8439, NOW(), 'It was a pleasure to work with you. Bubble O'' Bill', 27, NOW(), 'May your love bring happiness to all your days. White Sunday', 25.00),
-(8440, NOW(), 'I hope you can use this on something you need for your new place! The Ritz Carlton ', 21, NOW(), ' Heard that you''ve been under the weather. Hope things clear up soon. Boxing Day', 96.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8440, NOW(), 'I hope you can use this on something you need for your new place! The Ritz Carlton ', 21, NOW(), ' Heard that you''ve been under the weather. Hope things clear up soon. Boxing Day', 96.00),
 (8441, NOW(), 'So thoughtful of you to think of us. Baxter', 26, NOW(), 'Eater Wine Club Gift Certificate Eid Al-Adha', 76.00),
 (8442, NOW(), 'Supply the gift card, and leave it up to the stylish person on your list to decide what they want from Revolve. Maserati', 21, NOW(), 'Belated birthday Easter Sunday', 60.00),
 (8443, NOW(), 'Happy birthday, friend. May your day be as beautiful as you. AIG', 20, NOW(), 'May God bless you and keep you in His loving care. Canberra Day', 88.00),
@@ -8909,8 +8459,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8456, NOW(), 'Take care of yourself and feel better soon. Prada', 14, NOW(), 'Zola E-Gift Certificate May 8 and June 16 Declared Public Holidays', 44.00),
 (8457, NOW(), 'If I had to do it all over again, I wouldn''t. Monster.com', 21, NOW(), 'Escape to someplace pretty! Eid Al Adha Holiday', 49.00),
 (8458, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Shure', 27, NOW(), 'Success, progress, prosperity, peace, health, wealth, happiness, and love. May all these embrace you upon your move into your new home. Christmas Day', 92.00),
-(8459, NOW(), 'Its hard to tell who is luckier, you or your new baby. Domino''s', 25, NOW(), ' May your degree unlock many doors to well deserved success. Labour Day', 36.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8459, NOW(), 'Its hard to tell who is luckier, you or your new baby. Domino''s', 25, NOW(), ' May your degree unlock many doors to well deserved success. Labour Day', 36.00),
 (8460, NOW(), 'Selamat Hari Raya! May you and your loved ones be blessed with happiness and peace! Perkins Paste', 28, NOW(), 'Warm wishes on your 30th birthday. Whit Monday', 99.00),
 (8461, NOW(), 'Hope your hospital stay is a short one. Mini Cooper', 11, NOW(), 'Netflix EGift Certificate Republic Day', 72.00),
 (8462, NOW(), 'I love you for not only who you are, but for who I am when I am with you Eclipse', 21, NOW(), 'Apparently, you mean this much to me. Maha Shivaratree', 29.00),
@@ -8928,8 +8477,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8474, NOW(), 'Thank You! Your business means the world to us. Gap', 20, NOW(), 'Skims EGift Certificate Immaculate Conception Day', 43.00),
 (8475, NOW(), 'Its a big world out there&go explore it! Clear Channel Communications', 20, NOW(), 'face planters and dumpling lights Women''s Day', 79.00),
 (8476, NOW(), 'Dad, my kids say I am a good father; I know I got it from you. Happy Fathers Day. Sisley Paris', 11, NOW(), 'Ah-Shi E-Gift Certificate Easter Day', 62.00),
-(8477, NOW(), 'Congratulations, and best of luck in your future endeavors. QMS Medicosmetics', 23, NOW(), 'Cheers to you! Cheers to your year ahead! Christmas Day', 88.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8477, NOW(), 'Congratulations, and best of luck in your future endeavors. QMS Medicosmetics', 23, NOW(), 'Cheers to you! Cheers to your year ahead! Christmas Day', 88.00),
 (8478, NOW(), 'How happy you must be with a new little son/daughter to love. Guylian', 15, NOW(), ' When the whole world left, you were there with open arms. Thanks for being my friend!! Boxing Day', 29.00),
 (8479, NOW(), 'Presents are like noses: better to pick them yourself! Hostess', 15, NOW(), 'Lululemon Gift Certificate Mother''s Day', 82.00),
 (8480, NOW(), 'The 18 Very Best Sunscreens for Your Face Aja Malibu', 19, NOW(), 'The Sill Gift Certificate Corpus Christi Holiday (in lieu)', 63.00),
@@ -8947,8 +8495,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8492, NOW(), 'Some people don''t believe in heroes, but they haven''t met my dad. Unknown Lindt', 21, NOW(), 'committed bakers Christmas Day', 39.00),
 (8493, NOW(), 'Happy Anniversary to the love of my life. Under Armour', 14, NOW(), 'Lululemon Gift Certificate Koriteh Holiday', 35.00),
 (8494, NOW(), 'For the person in need of some major TLC, this gift card will let them choose between relaxing bath salts, a massage-oil candle, or a Strategist-approved vibrator. Fossil', 28, NOW(), 'Hulu E-Gift Certificate Orthodox Christmas', 20.00),
-(8495, NOW(), 'Hope this helps bring a smile to your day. Herbal Essences', 24, NOW(), 'excellent last-minute gifts Liberation Day', 89.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8495, NOW(), 'Hope this helps bring a smile to your day. Herbal Essences', 24, NOW(), 'excellent last-minute gifts Liberation Day', 89.00),
 (8496, NOW(), 'So they can upgrade to linen sheets or get a new bathrobe. Life Savers', 27, NOW(), 'Maude EGift Certificate Independence Day', 68.00),
 (8497, NOW(), 'You''re on the right path to a wonderful life. Congratulations! Busscar', 17, NOW(), 'Amazon Gift Certificate Easter Monday', 54.00),
 (8498, NOW(), 'If they live in a big city or don''t own a car, they''ll definitely appreciate a Lyft gift card to help them get around town. Take it from us city dwellers. Airtel', 18, NOW(), 'Hope you''re feeling better King''s Mothers'' Birthday', 24.00),
@@ -8966,8 +8513,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8510, NOW(), 'Especially perfect for anyone moving to a new dorm or apartment, a Target gift card gives them access to everything from home essentials and decor to clothes and pantry staples. Ananda', 27, NOW(), 'Because youre so spa-cial. Imam Ali''s Birthday', 90.00),
 (8511, NOW(), 'Thank you for referring  to our firm. We sincerely appreciate your confidence in us. Easy Jet', 12, NOW(), 'To the darling little newcomer. Good Friday', 69.00),
 (8512, NOW(), 'Hope your hospital stay is a short one. Hankook', 20, NOW(), 'Because youre so spa-cial. Readjustment Movement Day', 25.00),
-(8513, NOW(), 'Our deepest sympathy to you and your family. From all your friends at [BUSINESS NAME] Rock Spa and Salon ', 29, NOW(), 'Netflix EGift Certificate Whit Monday', 25.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8513, NOW(), 'Our deepest sympathy to you and your family. From all your friends at [BUSINESS NAME] Rock Spa and Salon ', 29, NOW(), 'Netflix EGift Certificate Whit Monday', 25.00),
 (8514, NOW(), 'Hope your hospital stay is a short one. Snickers', 22, NOW(), 'Youre off to a beautiful beginning. Indian bank Holidays in February 2023', 65.00),
 (8515, NOW(), 'May your love bring happiness to all your days. Ecco', 11, NOW(), 'Hope your birthday''s as terrific as you are. Constitution Day', 17.00),
 (8516, NOW(), 'We appreciate your business and your confidence in us. Diet Coke', 15, NOW(), 'Happy house warming! Good Friday', 72.00),
@@ -8986,8 +8532,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8529, NOW(), 'Another reason to dress up! (Or dress down!) Lakeport Brewing Company', 12, NOW(), 'For Her Wardrobe Essentials Dongzhi', 24.00),
 (8530, NOW(), 'It was a pleasure talking with you. I hope we can speak again soon. Apple Music', 21, NOW(), 'Home sweet new home. Workers'' Memorial Day', 59.00),
 (8531, NOW(), 'You take my breath away...today and every day. Falabella', 24, NOW(), 'All my best to the birthday [GIRL/BOY]! Independence Day', 13.00),
-(8532, NOW(), 'Selamat Hari Raya Aidilfitri! May this season of forgiveness bring peace to fill your heart and home. Gillette', 23, NOW(), 'Happy Belated Birthday! Ash Wednesday', 59.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8532, NOW(), 'Selamat Hari Raya Aidilfitri! May this season of forgiveness bring peace to fill your heart and home. Gillette', 23, NOW(), 'Happy Belated Birthday! Ash Wednesday', 59.00), 
 (8533, NOW(), 'For the person currently subsidizing five different streamers. Tory Burch', 26, NOW(), 'Some tune-age for you-nage. Armistice Day', 31.00),
 (8534, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Banco de la Nacion Argentina', 13, NOW(), 'Congratulations on your special day Resistance and Liberation Day', 68.00),
 (8535, NOW(), 'You always go out of your way to be thoughtful. Reuters', 15, NOW(), 'You''re the best! Genocide Memorial Day', 19.00),
@@ -9006,8 +8551,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8548, NOW(), 'Doesnt come close to showing you how grateful I really am. Aeroplane Jelly', 22, NOW(), 'Soko Glam Gift Certificate New Year''s Day', 72.00),
 (8549, NOW(), 'Another adventure filled year awaits you. Welcome it by celebrating your birthday with pomp and splendor. Wishing you a very happy and fun-filled birthday! Atari', 28, NOW(), 'Congratulations on an outstanding accomplishment. Ramazan Bayrami', 73.00),
 (8550, NOW(), 'Great results come from hard work. Well done! Sime Darby', 19, NOW(), 'In loving memory Labour Day', 32.00),
-(8551, NOW(), 'You chose each other. Now you get to choose a gift! Colonia', 23, NOW(), 'excellent last-minute gifts New Year''s Day', 30.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8551, NOW(), 'You chose each other. Now you get to choose a gift! Colonia', 23, NOW(), 'excellent last-minute gifts New Year''s Day', 30.00),
 (8552, NOW(), 'Best wishes for a joyous Christmas filled with love, happiness and prosperity! Amul', 16, NOW(), 'Thank you with a personal touch Father''s Day', 41.00),
 (8553, NOW(), 'For the ecoconscious person with a KN95 subscription. Denny''s', 17, NOW(), 'Revolve Gift Certificate Labor Day', 19.00),
 (8554, NOW(), 'See? It was all worth it! Right?? Appliances Online', 13, NOW(), 'Tonights homework: Spend this Thimphu Tshechu Holiday', 48.00),
@@ -9026,8 +8570,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8567, NOW(), 'Its better than me trying to shop for you, right? GAP', 16, NOW(), 'You did it! Congratulations! New Year''s Day', 32.00),
 (8568, NOW(), 'Thank you for making me feel so comfortable Aja Malibu', 14, NOW(), 'Hope all your dreams come true. Congratulations. Vishvakarma Day', 42.00),
 (8569, NOW(), 'For the ecoconscious person with a KN95 subscription. Indesit', 22, NOW(), 'Golde E- Gift Certificate H.M. The Sultan''s Birthday', 20.00),
-(8570, NOW(), 'To happy endings and new beginnings. Congratulations! Pandora', 13, NOW(), 'Shopbop E-Gift Certificate New Year''s Day (in lieu)', 31.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8570, NOW(), 'To happy endings and new beginnings. Congratulations! Pandora', 13, NOW(), 'Shopbop E-Gift Certificate New Year''s Day (in lieu)', 31.00),
 (8571, NOW(), 'For the person whos thoroughly enjoying their New York Times Cooking subscription. Bushmills Irish Whiskey', 28, NOW(), 'For the Frequent Flyer New Year''s Day (in lieu)', 24.00),
 (8572, NOW(), 'Cheers on your birthday. One step closer to adult underpants. Bossa Nova', 26, NOW(), 'Welcome to another miracle in this world! Labour Day', 86.00),
 (8573, NOW(), 'Like a fine wine, you improve with age. Liberty', 11, NOW(), 'H&M Gift Certificate Christmas Day', 31.00),
@@ -9046,8 +8589,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8586, NOW(), 'Gift card? Bacon? It was a really tough decision. Nike', 11, NOW(), 'The power of a dad in a childs life is unmatched. Justin Ricklefs Orthodox Easter Day', 89.00),
 (8587, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! Omega', 25, NOW(), 'Kitty Guo All Saints'' Day', 43.00),
 (8588, NOW(), 'You can use this next time Im being really annoying. Game Boy', 12, NOW(), 'You can use this next time Im being really annoying. Canada Day', 99.00),
-(8589, NOW(), 'I realized when you look at your mother, you are looking at the purest love you will ever know. Mitch Albom Rodenbach', 12, NOW(), 'Making the impossible into possible is your own style. Congrats for your success! Heroe''s Day', 90.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8589, NOW(), 'I realized when you look at your mother, you are looking at the purest love you will ever know. Mitch Albom Rodenbach', 12, NOW(), 'Making the impossible into possible is your own style. Congrats for your success! Heroe''s Day', 90.00),
 (8590, NOW(), 'Gift card? Bacon? It was a really tough decision. Rivers Australia', 12, NOW(), 'Smiles are the best medicine Ching Ming Festival', 70.00),
 (8591, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Brach''s', 10, NOW(), 'Congratulations on your beautiful home Good Friday', 31.00),
 (8592, NOW(), 'Go see something as epic as you are! Jimmy Choo', 28, NOW(), 'For Wine Night The National Holiday of Quebec', 68.00),
@@ -9067,8 +8609,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8606, NOW(), 'Because itll be a while before You''re makin the big bucks. Flextronics', 18, NOW(), 'I thank God every day for making me a part of your life. Happy Valentines Day my better half! Christmas Day', 55.00),
 (8607, NOW(), 'Its wonderful sharing with a good friend like you. Buick', 27, NOW(), 'Your kindness comes as a welcome touch of warmth and caring Thaipusam', 90.00),
 (8608, NOW(), 'Being in love with you makes every morning worth getting up for. Chili''s', 14, NOW(), 'Play a little. Eid Al Adha Holiday', 78.00),
-(8609, NOW(), 'Just a little something from me to you. Huggies', 16, NOW(), 'Mejuri Gift Certificate Whit Sunday', 63.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8609, NOW(), 'Just a little something from me to you. Huggies', 16, NOW(), 'Mejuri Gift Certificate Whit Sunday', 63.00),
 (8610, NOW(), 'Hoping this finds you well on the way to a speedy recovery. Prada', 14, NOW(), 'A Florist 20 website New Year''s Day', 55.00),
 (8611, NOW(), 'Wishing you good fortune and happiness on this amazing Mid-Autumn day! Blue Ribbon', 15, NOW(), 'Wishing you steady improvement until youre well again. Good Friday', 19.00),
 (8612, NOW(), 'We wish you a very Merry Christmas and a Happy New Year! Tommy Hilfiger', 13, NOW(), 'Wishing you a belated birthday All Saints'' Day', 61.00),
@@ -9087,8 +8628,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8625, NOW(), 'May every year you share find you more in love with each other. Airwalk', 26, NOW(), 'Thank you with a personal touch Boxing Day', 66.00),
 (8626, NOW(), 'Hope your surgery [GOES/WENT] well, and that your recovery is quick! Gerber', 12, NOW(), 'Sending good, healthy vibes your way. Boxing Day', 62.00),
 (8627, NOW(), 'Warm Easter greetings to you and your family. Boucheron', 21, NOW(), 'Friends make life more beautiful Victory and Homeland Thanksgiving Day', 99.00),
-(8628, NOW(), 'Hope your birthday''s as terrific as you are. QMS Medicosmetics', 24, NOW(), 'Coach E-Gift Certificate Constitution Day', 87.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8628, NOW(), 'Hope your birthday''s as terrific as you are. QMS Medicosmetics', 24, NOW(), 'Coach E-Gift Certificate Constitution Day', 87.00),
 (8629, NOW(), 'Because of you everything is so much nicer Reebok', 29, NOW(), 'Short and Simple Labour Day', 32.00),
 (8630, NOW(), 'You have 12 days of Christmas to spend this. Oakley', 26, NOW(), 'Big Night EGift Certificate Good Friday', 52.00),
 (8631, NOW(), 'To happy endings and new beginnings. Congratulations! Kamala', 30, NOW(), 'subscription service gift ideas Day of the Family', 66.00),
@@ -9108,8 +8648,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8645, NOW(), 'May the future be filled with much happiness. H&M', 26, NOW(), 'Target Gift Certificate Cheikh Al Maarouf Day', 36.00),
 (8646, NOW(), 'May you and your family enjoy years of happy times in your new home. Longchamp', 16, NOW(), 'Brooklinen E-Gift Certificate Midsummer Eve', 70.00),
 (8647, NOW(), 'Hoping this finds you well on the way to recovery. Chipotle', 24, NOW(), 'Ask for the dessert menu Victoria Day', 15.00),
-(8648, NOW(), 'They can spend it on the latest games and entertainment like movies, TV, music, apps, and more.&nbsp; Fifth Avenue Show Repair', 18, NOW(), 'Play a little. Sonam Lhosar', 49.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8648, NOW(), 'They can spend it on the latest games and entertainment like movies, TV, music, apps, and more.&nbsp; Fifth Avenue Show Repair', 18, NOW(), 'Play a little. Sonam Lhosar', 49.00),
 (8649, NOW(), 'Welcome aboard! Its good to have you with us. Hunter Douglas', 11, NOW(), 'Etsy E-Gift Certificate Labour Day', 41.00),
 (8650, NOW(), 'Drivers, watch the road! Someone just turned 16! Schick', 27, NOW(), 'Kitty Guo Reconciliation Day', 31.00),
 (8651, NOW(), 'May God be with you at this time. Altria', 23, NOW(), 'Gift Certificate Pharses Good Friday', 51.00),
@@ -9129,8 +8668,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8665, NOW(), 'May the joy You''re sharing now grow deeper day by day. Australia', 19, NOW(), 'Corporate Gifts Dongzhi', 84.00),
 (8666, NOW(), 'Hope youll be in the best of health soon. Bunnings', 14, NOW(), 'Trust me, youll need this Family Day', 52.00),
 (8667, NOW(), 'Warm, brown elixir of life, we pray to thee. Barbie', 25, NOW(), ' I just wanted to let you know that I have been thinking about you lately. I am reminded of you as I go through my day and I smile. I hope these flowers make you smile too. Easter Monday', 22.00),
-(8668, NOW(), 'Get yourself some brain food. (Yes, pizza is brain food.) Audi', 21, NOW(), 'Skims EGift Certificate Labour Day', 99.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8668, NOW(), 'Get yourself some brain food. (Yes, pizza is brain food.) Audi', 21, NOW(), 'Skims EGift Certificate Labour Day', 99.00),
 (8669, NOW(), 'Hope your special day is made up of sharing warm and happy memories. Max Mara', 22, NOW(), 'Retirement Certificate Gifts Father''s Day', 26.00),
 (8670, NOW(), 'I''ll miss celebrating with you this Christmas. Eat a few extra cookies for me! Avia', 16, NOW(), 'Valentine''s Day New Year''s Day', 42.00),
 (8671, NOW(), 'Thanks for squeezing me in. I know how busy you are. Joe''s Crab Shack', 30, NOW(), 'glowing winter skin Immaculate Conception Day', 72.00),
@@ -9149,8 +8687,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8684, NOW(), 'For the person who loves classic leather goods. Bahama Breeze', 13, NOW(), 'Lyft Gift Certificate Easter Monday', 53.00),
 (8685, NOW(), 'For the person whose art is tacked to the wall with push pins. LeapFrog', 30, NOW(), 'Please accept my/our deepest sympathy General Framework Agreement Day', 13.00),
 (8686, NOW(), 'Think of the years as gold bullion...and you''re rich! Fuji Film', 17, NOW(), 'I am delighted with your success. Congratulations for this achievement! Anzac Day', 28.00),
-(8687, NOW(), 'Is your birthday wish a gift card? Because Black Label', 13, NOW(), 'Happy Mid-Autumn Festival! Orthodox Holy Saturday', 33.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8687, NOW(), 'Is your birthday wish a gift card? Because Black Label', 13, NOW(), 'Happy Mid-Autumn Festival! Orthodox Holy Saturday', 33.00),
 (8688, NOW(), 'It may be possible to gild pure gold, but who can make his mother more beautiful? Mahatma Gandhi Pepsi', 25, NOW(), 'May your holiday season be bright. Immaculate Conception Day', 89.00),
 (8689, NOW(), 'To my wife, my soul mate, my love, my life. BCI-Banco Credito', 30, NOW(), 'Framebridge E-Gift Certificate Three Kings'' Day', 27.00),
 (8690, NOW(), 'We wish you all the happiness the coming years can hold. Forever 21', 19, NOW(), 'Brooklinen Gift Certificate Dragon Boat Festival', 30.00),
@@ -9169,8 +8706,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8703, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Advanced Auto Parts', 15, NOW(), 'I treasure the times we share. Labour Day', 27.00),
 (8704, NOW(), 'Is your birthday wish a gift card? Because Geico', 12, NOW(), 'Etsy E-Gift Certificate Good Friday', 76.00),
 (8705, NOW(), 'Wishing you a season thats merry and bright with the light of Gods love. LIC', 13, NOW(), 'Home sweet new home Christmas Day', 52.00),
-(8706, NOW(), 'Thinking of you. May you feel better soon. Manolo Blahnik', 20, NOW(), 'Starbucks Digital Gift Certificate Easter Sunday', 100.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8706, NOW(), 'Thinking of you. May you feel better soon. Manolo Blahnik', 20, NOW(), 'Starbucks Digital Gift Certificate Easter Sunday', 100.00),
 (8707, NOW(), U&'We do not remember days, we remember moments. Levi\2019s', 17, NOW(), 'Uber Gift Certificate Independence Day', 90.00),
 (8708, NOW(), 'Just a little thanks for the big way you showed up for me. Eagle Boys', 15, NOW(), 'Smiles are the best medicine. Christmas Day', 48.00),
 (8709, NOW(), 'Santa needed help saving space in his sack. Canyon Ranch ', 21, NOW(), 'Nordstrom E-Gift Certificate Victory Day', 90.00),
@@ -9189,8 +8725,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8722, NOW(), 'Hoping this finds you well on the way to a speedy recovery. De Bortoli Wines', 22, NOW(), 'For Taking a Deep Breath Tabaski', 41.00),
 (8723, NOW(), 'Thank you for your encouragement and support always. Asus', 11, NOW(), 'funky iPhone accessories Africa Liberation Day', 50.00),
 (8724, NOW(), 'You always go out of your way to be thoughtful. Microsoft', 11, NOW(), 'To love! Labour Day', 20.00),
-(8725, NOW(), U&'So thoughtful of you to think of us. TOD\2019s', 24, NOW(), 'Your wedding day will come and go, but may your love forever grow. Easter Monday', 95.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8725, NOW(), U&'So thoughtful of you to think of us. TOD\2019s', 24, NOW(), 'Your wedding day will come and go, but may your love forever grow. Easter Monday', 95.00),
 (8726, NOW(), 'Wishing you a happy and peaceful Eid! Selamat Hari Raya! Banrisul', 16, NOW(), 'Lululemon Gift Certificate New Year''s Day', 11.00),
 (8727, NOW(), 'MOUTH sends delicious small-batch, indie food products to help small businesses grow and make it more convenient for the average person to discover the best new goods.&nbsp; Reload', 16, NOW(), 'Father''s Day Immaculate Conception Day', 44.00),
 (8728, NOW(), 'A boy is all God has with which to make a man. Anthropologie', 10, NOW(), 'Hope your hospital stay is a short one. Orthodox Easter Day', 55.00),
@@ -9208,8 +8743,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8740, NOW(), 'To you, gift wrapping is an art. So heres a little something for art supplies. Farmers', 10, NOW(), 'New Home Housewarming Certificate Gifts Eid-el-Kibr Holiday', 69.00),
 (8741, NOW(), 'Just so you know, I have faith in you. Youll be okay. You''re stronger than you know. Disney+', 24, NOW(), 'Ulta Beauty Gift Certificate Constitution Day', 72.00),
 (8742, NOW(), 'We do not remember days, we remember moments. Vans', 19, NOW(), 'For Leaning into Luxury Thanksgiving', 98.00),
-(8743, NOW(), 'Lately our staff group chat has been buzzing with affordable designer finds in Ends sales bin, so a gift card here should go a long way. Cencosud', 13, NOW(), 'Hoping these words of sympathy will comfort you in your time of sorrow. Christmas Day', 52.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8743, NOW(), 'Lately our staff group chat has been buzzing with affordable designer finds in Ends sales bin, so a gift card here should go a long way. Cencosud', 13, NOW(), 'Hoping these words of sympathy will comfort you in your time of sorrow. Christmas Day', 52.00),
 (8744, NOW(), 'Reaching this milestone wasnt an easy task. But you did it. My heartiest congratulations. Puma', 24, NOW(), 'Escape to someplace pretty! Holy Week Holiday', 29.00),
 (8745, NOW(), 'Happy Anniversary to the love of my life. AXA', 14, NOW(), 'Just the beginning of successes for you. Congrats! New Year''s Day', 58.00),
 (8746, NOW(), 'Travel money for your trip to happily ever after. Chivas', 25, NOW(), 'The best for the best. Epiphany', 43.00),
@@ -9229,8 +8763,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8760, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Fusion', 11, NOW(), 'For the Pet Parent Dragon Boat Festival', 32.00),
 (8761, NOW(), 'Its so nice sharing special moments with a friend like you. Blog', 14, NOW(), 'Areaware Gift Certificate Eid al-Fitr', 90.00),
 (8762, NOW(), 'For the person currently subsidizing five different streamers. Cascadian Farm', 24, NOW(), 'Kudos to you! Youve earned them. New Year''s Day', 85.00),
-(8763, NOW(), 'Hope your surgery [GOES/WENT] well, and that your recovery is quick! 9-5', 28, NOW(), 'Congratulations on an outstanding accomplishment. Good Friday', 62.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8763, NOW(), 'Hope your surgery [GOES/WENT] well, and that your recovery is quick! 9-5', 28, NOW(), 'Congratulations on an outstanding accomplishment. Good Friday', 62.00),
 (8764, NOW(), 'Wishing you steady improvement until You''re well again. Coca-Cola Amatil', 30, NOW(), 'Thank you for your business Labour Day', 92.00),
 (8765, NOW(), 'With sincere gratitude for all you have done. Chopard', 18, NOW(), 'Holiday Calendar The day following the first day of January', 68.00),
 (8766, NOW(), 'So thoughtful of you to think of us. Orval', 13, NOW(), 'Brooklinen Gift Certificate Mother''s Day', 32.00),
@@ -9250,8 +8783,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8780, NOW(), 'May the future be filled with much happiness. Big M', 19, NOW(), 'Wishing you a very warm Birthday. Independence Day', 95.00),
 (8781, NOW(), 'We do not remember days, we remember moments. Elevit', 21, NOW(), 'With Warmest congratulations Al-Hijra', 18.00),
 (8782, NOW(), 'Hoping you two are blessed with many more years together. Nufarm', 18, NOW(), 'Target Gift Certificate Christmas Eve', 22.00),
-(8783, NOW(), 'Give a sweet gift to your loved one with a Milk Bar gift card. They can choose from cakes, cookies, pies and more. Barry''s Tea', 21, NOW(), 'BLK + GRN E-Gift Certificate Whit Monday', 88.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8783, NOW(), 'Give a sweet gift to your loved one with a Milk Bar gift card. They can choose from cakes, cookies, pies and more. Barry''s Tea', 21, NOW(), 'BLK + GRN E-Gift Certificate Whit Monday', 88.00),
 (8784, NOW(), 'For a cute outfit, plus maybe one for the baby. Bed Head', 19, NOW(), 'Big Night EGift Certificate Lao New Year Holiday', 76.00),
 (8785, NOW(), 'To happy endings and new beginnings. Congratulations! Korean Air', 21, NOW(), 'Thank you for the referrals King Charles'' Birthday', 17.00),
 (8786, NOW(), 'Just so you know, I have faith in you. Youll be okay. You''re stronger than you know. China Unicom', 12, NOW(), 'For Something Floral Christmas Day', 52.00),
@@ -9270,8 +8802,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8799, NOW(), 'Its wonderful sharing with a good friend like you. AutoTrader', 19, NOW(), 'JCrew Gift Certificate New Year''s Day', 33.00),
 (8800, NOW(), 'Thank you for being my biggest supporter. I couldn''t do it without you. Luvs', 14, NOW(), 'Just a note to keep in touch. Lets talk soon. Novruz', 54.00),
 (8801, NOW(), 'Dad, you have given me the best things in life: Your time, your care, and your love. I am truly grateful to have you in my life. Happy Father''s Day! Reebok', 21, NOW(), 'The Strategist New Year''s Day', 68.00),
-(8802, NOW(), 'May your sorrow be eased by good memories. Energizer', 20, NOW(), ' I hope you consider trying to forgive me. Ethiopian Christmas', 53.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8802, NOW(), 'May your sorrow be eased by good memories. Energizer', 20, NOW(), ' I hope you consider trying to forgive me. Ethiopian Christmas', 53.00),
 (8803, NOW(), 'We share in your celebration of the new life you created! Dillard''s', 18, NOW(), 'Congratulations on your well-deserved success Father''s Day', 92.00),
 (8804, NOW(), 'Congratulations on your new bundle of joy. Ansell', 18, NOW(), 'Congratulations on your beautiful home Manua Cession Day', 18.00),
 (8805, NOW(), 'Travel money for your trip to happily ever after. Research in Motion', 30, NOW(), 'The Cheesecake Factory Gift Certificate Fasching', 97.00),
@@ -9290,8 +8821,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8818, NOW(), 'Many thanks for being our customer for years. We value that relationship. Carnation', 22, NOW(), 'Thank you for making me feel so comfortable Guru Hargobind Ji''s Birthday', 55.00),
 (8819, NOW(), 'To happy endings and new beginnings. Congratulations! Bugs Bunny', 10, NOW(), 'Time to say buy-buy! Parents'' Day', 89.00),
 (8820, NOW(), 'Offering my/our sincerest condolences to you and your family Folgers', 28, NOW(), 'Best Buy E-Gift Certificate Peace Day', 70.00),
-(8821, NOW(), 'On this joyous occasion, may you be blessed with happiness and your home be graced with warmth and peace! Selamat Hari Raya! Renaissance Indian Wells Resort and Spa', 11, NOW(), 'With Warmest congratulations Australia Day', 98.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8821, NOW(), 'On this joyous occasion, may you be blessed with happiness and your home be graced with warmth and peace! Selamat Hari Raya! Renaissance Indian Wells Resort and Spa', 11, NOW(), 'With Warmest congratulations Australia Day', 98.00),
 (8822, NOW(), 'May your love bring happiness to all your days. Murphy Oil', 22, NOW(), 'Urban Stems Classic Flower Subscription Special King''s Coronation Bank Holiday', 20.00),
 (8823, NOW(), 'Your love is the best Christmas gift I could ever receive. Merry Christmas, sweetheart! Lili Diamonds', 19, NOW(), 'Just a note to keep in touch. Lets talk soon. Anniversary of the Revolution', 83.00),
 (8824, NOW(), 'Enjoy the flowers, I''m sending them just because you''re you. Copacol', 25, NOW(), 'Birthday Certificate Gift Ui Ariki Day', 29.00),
@@ -9308,8 +8838,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8835, NOW(), 'This cosmetics brand is a great place to give a gift card to, with plenty of affordable options to shop for all ages. Etienne Aigner', 23, NOW(), 'Universal Standard Gift Certificate St. Stephen''s Day', 79.00),
 (8836, NOW(), 'May the joy You''re sharing now grow deeper day by day. Monster Energy', 15, NOW(), 'Airbnb Gift Certificate Saint Teresa Canonisation Day', 31.00),
 (8837, NOW(), 'A little holiday treat from your favorite elf! Brahma', 23, NOW(), 'Fandango Gift Certificate National Army Day', 69.00),
-(8838, NOW(), 'Gift cards: Almost as magical as flying reindeer. AMG', 27, NOW(), 'Brooklinen E-Gift Certificate Workers'' Day', 13.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8838, NOW(), 'Gift cards: Almost as magical as flying reindeer. AMG', 27, NOW(), 'Brooklinen E-Gift Certificate Workers'' Day', 13.00),
 (8839, NOW(), 'I was feeling defensive and when I feel defensive, sometimes I say things I don''t mean. Miu Miu', 26, NOW(), 'You''re the partridge to my pear tree. Maulud Nabi', 37.00),
 (8840, NOW(), 'Hoping each new day will find you feeling better. Ananda', 12, NOW(), 'For a special friend Orthodox Easter Monday', 10.00),
 (8841, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. Raoul', 28, NOW(), 'Thank you for choosing us Eid Al Adha', 28.00),
@@ -9328,8 +8857,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8854, NOW(), 'How can I begin to say I''m sorry. I didn''t mean to upset you. I hope that you can forgive me. After Thoughts', 30, NOW(), 'Hanukkah Certificate Gifts Carnival Monday', 38.00),
 (8855, NOW(), 'Thank you for taking the time to meet with me. Mylanta', 22, NOW(), 'Get well soon Peat Cutting Monday', 69.00),
 (8856, NOW(), 'Hope your birthday''s as terrific as you are. De Koninck', 26, NOW(), 'Get well soon Labour Day', 50.00),
-(8857, NOW(), 'Thank you for taking the time to meet with me. Aeropostale', 10, NOW(), 'Edie Parker E-Gift Certificate Boxing Day', 59.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8857, NOW(), 'Thank you for taking the time to meet with me. Aeropostale', 10, NOW(), 'Edie Parker E-Gift Certificate Boxing Day', 59.00),
 (8858, NOW(), 'You get better with every year. Happy 50th birthday! Juicy Couture', 28, NOW(), 'Mytheresa Gift Certificate Children''s Day', 46.00),
 (8859, NOW(), 'For the thing that wouldnt fit on Santas sleigh. Opel', 12, NOW(), 'Three words: Add. To. Cart. Christmas Day', 63.00),
 (8860, NOW(), 'Stay strong. It might be stormy now, but it cant rain forever. Filippa K', 24, NOW(), 'Life will keep changing but there is one thing that will remain constant till the day you die  your love for your child. Congratulations for finding something so magical. August Monday', 50.00),
@@ -9348,8 +8876,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8873, NOW(), 'Please accept these flowers in place of the words I said. I''m truly sorry. Jimmy Choo', 29, NOW(), 'You deserve all the relaxation. New Year''s Day', 60.00),
 (8874, NOW(), 'Congratulations on your new bundle of joy. Corvette', 12, NOW(), 'Don''t sweat shipping delays Three Kings'' Day', 56.00),
 (8875, NOW(), 'Like a fine wine, you improve with age. AMI', 25, NOW(), 'You can through with flying colors. Labour Day', 40.00),
-(8876, NOW(), 'Thank you from the bottom of my heart. AIG', 14, NOW(), 'Play a little Wangala Festival', 80.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8876, NOW(), 'Thank you from the bottom of my heart. AIG', 14, NOW(), 'Play a little Wangala Festival', 80.00),
 (8877, NOW(), 'Get them this gift card, then send them our guide to all the best things to buy at Nike. Oakley', 11, NOW(), 'education and personal development editor Assumption Day', 71.00),
 (8878, NOW(), 'How happy you must be with a new little son/daughter to love. The Yellow Pages', 10, NOW(), 'Get well soon Eid al-Fitr Holiday', 24.00),
 (8879, NOW(), 'So thoughtful of you to think of us. Metal Storm', 23, NOW(), 'Best wishes for your birthday afterwards. Christmas Day', 65.00),
@@ -9368,8 +8895,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8892, NOW(), 'Another reason to dress up! (Or dress down!) CPFL', 19, NOW(), 'END E-Gift Certificate National Foundation Day', 87.00),
 (8893, NOW(), 'May your new home be a special place to live, to love and to grow. Belco', 23, NOW(), 'Aritzia EGift Certificate Royal Brunei Armed Forces Day', 11.00),
 (8894, NOW(), 'A friend is someone you can lean on Russel Stover', 18, NOW(), 'Youre one tough cookie! Get well soon! Easter Monday', 60.00),
-(8895, NOW(), 'May this Easter warm your heart with peace! The North Face', 11, NOW(), 'Grubhub E-Gift Certificate Orthodox Good Friday', 69.00);   
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8895, NOW(), 'May this Easter warm your heart with peace! The North Face', 11, NOW(), 'Grubhub E-Gift Certificate Orthodox Good Friday', 69.00), 
 (8896, NOW(), 'Go see another rom-com (on me this time). Jared', 21, NOW(), 'Way to go&shopping! Eid al-Fitr', 18.00),
 (8897, NOW(), 'I may find my prince, but my dad will alwaysbe my king. Unknown Sea World', 30, NOW(), 'famed exercise dress Orthodox Christmas', 12.00),
 (8898, NOW(), 'We wish you all the happiness the coming years can hold. Intuition', 16, NOW(), 'Rejoice, Christ is risen! Father''s Day', 29.00),
@@ -9387,8 +8913,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8910, NOW(), 'Santa needed help saving space in his sack. Sony', 26, NOW(), 'Cheer Up! Civic Holiday', 62.00),
 (8911, NOW(), 'We appreciate the opportunity to serve you. Please call me whenever I can be of further service. GAP', 16, NOW(), 'Hari Raya Losoong/Namsoong', 11.00),
 (8912, NOW(), 'Happy Valentines Day to the most special person in my life. You are my love, my heart, my joy, and my valentine. Lao Feng Xiang', 21, NOW(), 'Gong Hei Fatt Choy! Triumph of the Revolution', 70.00),
-(8913, NOW(), 'Hoping this finds you well on the way to a speedy recovery. Empire State Building', 19, NOW(), 'Wishing you happiness together. Maundy Thursday', 63.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8913, NOW(), 'Hoping this finds you well on the way to a speedy recovery. Empire State Building', 19, NOW(), 'Wishing you happiness together. Maundy Thursday', 63.00), 
 (8914, NOW(), 'So they dont have to use their parents account to watch The Great British Baking Show or The Watcher. McDonald''s', 25, NOW(), 'Congratulations on your special day. Water Festival Ceremony Holiday', 83.00),
 (8915, NOW(), 'Get one of those Home Sweet Home plaques. Fuji Film', 14, NOW(), 'Congratulations and best wishes always Christmas Day', 49.00),
 (8916, NOW(), 'It is a rare friendship that feels forever new. Kleenex', 25, NOW(), 'Apple E-Gift Certificate Novruz Holiday', 91.00),
@@ -9407,8 +8932,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8929, NOW(), 'You both deserve a lifetime of beautiful tomorrows. Rock Spa and Salon ', 22, NOW(), 'Way to go&shopping! New Year''s Eve', 39.00),
 (8930, NOW(), 'Because You''re never too old to spend money. Maybelline', 18, NOW(), 'Urban Outfitters EGift Certificate Kartar Singh Sarabha Martyrdom Day', 37.00),
 (8931, NOW(), 'Thank you for making me feel so comfortable Perodua', 14, NOW(), 'Telfar E-Gift Certificate Buddha''s Birthday', 78.00),
-(8932, NOW(), 'May you treasure today forever in your memory. Haribo', 24, NOW(), 'Shopbop E-Gift Certificate Ferragosto', 14.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8932, NOW(), 'May you treasure today forever in your memory. Haribo', 24, NOW(), 'Shopbop E-Gift Certificate Ferragosto', 14.00),
 (8933, NOW(), 'No matter the distance between our homes, the distance between our hearts will never change. Audible', 19, NOW(), 'Hay E-Gift Certificate All Saints'' Day', 99.00),
 (8934, NOW(), 'So they can treat themselves to some sculpting shapewear or some cozy loungewear. Cheetos', 11, NOW(), 'Babies are Gods miracles Australia Day', 28.00),
 (8935, NOW(), 'Congratulations on achieving a milestone. Here''s to a great future. Helzberg Diamonds', 14, NOW(), 'Belated birthday Christmas Day', 90.00),
@@ -9427,8 +8951,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8948, NOW(), 'I hope all your birthday wishes came true. Harley-Davidson', 10, NOW(), 'Get something newlywed-y! Sardinia''s Day', 48.00),
 (8949, NOW(), 'Im more thankful than mere words can ever tell Devassa', 26, NOW(), 'Friends are forever! Eid-ul-Fitr', 57.00),
 (8950, NOW(), 'A little holiday treat from your favorite elf! Coventry Health Care', 18, NOW(), 'Easter Certificate Ideas Nowrooz', 38.00),
-(8951, NOW(), 'College throws a lot at you at once. Hope this helps. DBS Bank', 29, NOW(), 'You deserve all the feel-good you can get. Independence Day', 85.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8951, NOW(), 'College throws a lot at you at once. Hope this helps. DBS Bank', 29, NOW(), 'You deserve all the feel-good you can get. Independence Day', 85.00), 
 (8952, NOW(), 'Wishing you a happy and peaceful Eid! Selamat Hari Raya! Nordstrom', 21, NOW(), 'Time for a passport! Nevruz', 37.00),
 (8953, NOW(), 'Your business is sincerely appreciated. We look forward to continuing to serve you. Farmers', 24, NOW(), 'You did it! So I did this. Boxing Day', 45.00),
 (8954, NOW(), 'For anyone who might appreciate some especially colorful new home goods. Carnini', 10, NOW(), 'Always get the fries. Days of History and Commemoration of Ancestors', 79.00),
@@ -9447,8 +8970,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8967, NOW(), 'You bring joy and love to my life. Dom Preignon', 22, NOW(), 'committed bakers New Year''s Day (in lieu)', 29.00),
 (8968, NOW(), 'So thoughtful of you to think of us. The North Face', 17, NOW(), 'Starbucks Digital Gift Certificate Albanian National Youth Day', 27.00),
 (8969, NOW(), 'Get something for yourself next time you go to Hallmark. Max Mara', 17, NOW(), 'Go see another rom-com (on me this time). Eid Al Adha Holiday', 38.00),
-(8970, NOW(), 'Have fun getting your little cutie all geared up! Anta', 12, NOW(), 'LLBean Gift Certificate Epiphany', 45.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8970, NOW(), 'Have fun getting your little cutie all geared up! Anta', 12, NOW(), 'LLBean Gift Certificate Epiphany', 45.00),
 (8971, NOW(), 'Hope your birthday''s as terrific as you are. CorpBanca', 30, NOW(), 'Happy house warming! Carnival Tuesday', 66.00),
 (8972, NOW(), 'For the person whose art is tacked to the wall with push pins. Dog Chow', 30, NOW(), 'May God be with you at this time. Labour Day', 84.00),
 (8973, NOW(), 'Not just a year older, but a year better. Shure', 11, NOW(), 'Brooklinen Gift Certificate National Day', 64.00),
@@ -9467,8 +8989,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (8986, NOW(), 'May this Easter warm your heart with peace! Astro', 21, NOW(), 'Kudos to you! Youve earned them. Ancestors'' Day Holiday', 94.00),
 (8987, NOW(), 'Doesnt come close to showing you how grateful I really am. Birkenstock', 13, NOW(), 'Fashion and accessories Birthday of the Sultan of Kelantan', 19.00),
 (8988, NOW(), 'We do not remember days, we remember moments. Louis Vuitton', 24, NOW(), ' Congratulations and best wishes for a succesful future. Descending Day of Lord Buddha', 14.00),
-(8989, NOW(), 'For the person currently subsidizing five different streamers. Wrangler', 29, NOW(), 'Happy house warming! Independence Day', 93.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(8989, NOW(), 'For the person currently subsidizing five different streamers. Wrangler', 29, NOW(), 'Happy house warming! Independence Day', 93.00), 
 (8990, NOW(), 'Marriage is about finding true love and sharing a common, beautiful dream. Congrats on the find, and here''s to making that dream come to life! Apivita', 13, NOW(), 'For Endless Accessorizing Women''s Day', 30.00),
 (8991, NOW(), 'Makes you want to do nice things for me all the time, right? J.Crew', 25, NOW(), 'How ya doing, friend? Good Friday', 88.00),
 (8992, NOW(), 'Happy Valentines Day to the most special person in my life. Shure', 18, NOW(), 'Amazon E-Gift Certificate Orthodox Easter Monday', 52.00),
@@ -9488,8 +9009,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9006, NOW(), 'Every time I see you, I fall in love all over again. Puffs', 28, NOW(), 'So grateful for you. Eid Al Adha', 37.00),
 (9007, NOW(), 'May a river of gold flow into your pockets. Coors Light', 11, NOW(), 'Target Gift Certificate National Redemption Day', 64.00),
 (9008, NOW(), U&'It is a rare friendship that feels forever new. 85\00b0C', 30, NOW(), 'You did it! Now spend it! Easter Monday', 94.00),
-(9009, NOW(), 'I hate fighting, and I''m sorry for my part of this one! Please forgive me. Birkenstock', 18, NOW(), 'Rest and relaxation are in your future. Independence Day', 52.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9009, NOW(), 'I hate fighting, and I''m sorry for my part of this one! Please forgive me. Birkenstock', 18, NOW(), 'Rest and relaxation are in your future. Independence Day', 52.00), 
 (9010, NOW(), 'Congratulations on the new home! May it bring lot more happiness in coming years. Amul', 18, NOW(), 'Thank you Thanksgiving', 20.00),
 (9011, NOW(), 'Great news! You wont have to return this. Louis Vuitton', 19, NOW(), 'For Their Fitness Resolutions Ghode Jatra', 27.00),
 (9012, NOW(), 'A girl is all God has which to make a woman. Jockey', 10, NOW(), 'New Baby Welcome Gift Somhlolo Day', 19.00),
@@ -9508,8 +9028,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9025, NOW(), 'I can''t thank you enough, so please accept my flowers as a small token of my appreciation. Almond Joy', 18, NOW(), 'Time for a passport! Independence Day', 10.00),
 (9026, NOW(), 'Is your birthday wish a gift card? Because Husky Energy', 24, NOW(), 'Rack up some reward miles! Armenian Independence Day', 56.00),
 (9027, NOW(), 'Its a big world out there&go explore it! Bubble O'' Bill', 15, NOW(), 'Hope this makes your sweet home even homier. Janmashtami', 58.00),
-(9028, NOW(), 'Many thanks for your inquiry. Im sure we can meet your needs. Bank One', 26, NOW(), 'Go see another rom-com (on me this time). Prayer Day', 86.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9028, NOW(), 'Many thanks for your inquiry. Im sure we can meet your needs. Bank One', 26, NOW(), 'Go see another rom-com (on me this time). Prayer Day', 86.00),
 (9029, NOW(), 'Hope this makes your sweet home even homier. Fleet Farm', 27, NOW(), 'You deserve all the nice things. New Year''s Day', 15.00),
 (9030, NOW(), 'Words can say so little when someones done so much. H&M', 18, NOW(), 'Lots of love on your 40th birthday. Labor Day', 10.00),
 (9031, NOW(), 'Hoping this finds you well on the way to recovery. Brasil Foods', 25, NOW(), 'Thinking of you Khordad National Uprising', 25.00),
@@ -9527,8 +9046,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9043, NOW(), 'Don''t just count your years, make your years count. Happy birthday! George Meredith Toblerone', 11, NOW(), 'West Elm E-Gift Certificate All Saints'' Day', 49.00),
 (9044, NOW(), 'We love Brooklinens linen bedding, as well as its oh-so-soft cotton sheets. Accu-Chek', 22, NOW(), 'Christmas Certificate Gifts Assumption Day', 51.00),
 (9045, NOW(), 'For the person who cant stop reading our tech reviews. Abercrombie & Fitch', 10, NOW(), 'Hope its all half off! Traditional Day', 55.00),
-(9046, NOW(), 'May your love story be as magical and charming as in fairy tales! Congratulations on the wedding! Walmart', 15, NOW(), 'Away Gift Certificate New Year''s Day (in lieu)', 71.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9046, NOW(), 'May your love story be as magical and charming as in fairy tales! Congratulations on the wedding! Walmart', 15, NOW(), 'Away Gift Certificate New Year''s Day (in lieu)', 71.00),
 (9047, NOW(), 'For the person who loves classic leather goods. Facebook', 16, NOW(), 'ASOS E-Gift Certificate Feast of St. Petronius', 70.00),
 (9048, NOW(), 'We may not have it altogether but together we have it all! IBENOX', 14, NOW(), ' Here''s a toast to you on your 21st birthday! Cheers! Canada Day (in lieu)', 58.00),
 (9049, NOW(), 'Wish I could be there to give this to you myselfmiss you! McAfee', 22, NOW(), 'Golde E- Gift Certificate Eid Al-Adha Holiday', 98.00),
@@ -9547,8 +9065,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9062, NOW(), 'Because of you everything is so much nicer Cartier', 27, NOW(), 'StubHub e-gift card Eid Al Fitr Holiday', 22.00),
 (9063, NOW(), 'May you enjoy a long and wonderful retirement. Brasil Foods', 12, NOW(), 'With Warmest congratulations Adelaide Cup', 91.00),
 (9064, NOW(), 'Just the beginning of successes for you. Congrats! Barnes & Noble Nook', 21, NOW(), 'Mejuri Gift Certificate Easter Monday', 32.00),
-(9065, NOW(), 'Like a fine wine, you improve with age. Pampers', 11, NOW(), 'Easter Certificate Ideas Labour Day', 41.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9065, NOW(), 'Like a fine wine, you improve with age. Pampers', 11, NOW(), 'Easter Certificate Ideas Labour Day', 41.00), 
 (9066, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Fleet Farm', 14, NOW(), 'Enjoy your trip! Carnival Monday', 27.00),
 (9067, NOW(), 'Drivers, watch the road! Someone just turned 16! ANCA', 10, NOW(), 'foam made from sugar cane Raksha Bandhan', 74.00),
 (9068, NOW(), 'May this special day be filled with joy, love and laughter. Arm & Hammer', 27, NOW(), 'Easter Certificate Ideas Kadooment Day', 98.00),
@@ -9567,8 +9084,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9081, NOW(), 'To happy endings and new beginnings. Congratulations! Froot Loops', 30, NOW(), 'Father''s Day Easter Day', 45.00),
 (9082, NOW(), 'Wishing you the beauty of spring and the spirit of love this Easter! Harley-Davidson', 27, NOW(), 'Get something newlywed-y! Western Australia Day', 99.00),
 (9083, NOW(), 'A little holiday treat from your favorite elf! Fluor', 14, NOW(), 'Milk Bar eGift Certificate San Martin''s Day', 71.00),
-(9084, NOW(), 'Find a song to get stuck in your head. Chaumet', 28, NOW(), 'Our Place Gift Certificate New Year''s Day', 79.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9084, NOW(), 'Find a song to get stuck in your head. Chaumet', 28, NOW(), 'Our Place Gift Certificate New Year''s Day', 79.00), 
 (9085, NOW(), 'Not once did I ever doubt you''d make it. Denny''s', 10, NOW(), 'Fashion and accessories Martin Luther King Jr. Day', 44.00),
 (9086, NOW(), 'Hope your new home is filled with joy. Ducati', 14, NOW(), 'Macys E-Gift Certificate Parashurama Jayanti', 31.00),
 (9087, NOW(), 'Hope your recovery is a speedy one. We miss you! Coppertone', 15, NOW(), ' Graduation is a time to celebrate your achievements, prepare for a future of opportunities and embrace a world of infinite possibilities. Melbourne Cup Day', 57.00),
@@ -9587,8 +9103,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9100, NOW(), 'Just a little something to say Im thinking of you. Alumet', 17, NOW(), 'With Warmest congratulations. Orthodox Good Friday', 79.00),
 (9101, NOW(), 'Doesnt come close to showing you how grateful I really am. IHOP', 19, NOW(), 'Fruit and Gourmet Baskets Eid al-Fitr Holiday', 62.00),
 (9102, NOW(), 'How your home has been blessed with a new baby. Regal Cinemas', 18, NOW(), 'It was a pleasure to work with you. Hijri New Year', 33.00),
-(9103, NOW(), 'Rejoice! He is watching over you this Easter! Radisson', 22, NOW(), 'Pro tip: The grocery store has wine. Lachit Divas', 25.00);           
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9103, NOW(), 'Rejoice! He is watching over you this Easter! Radisson', 22, NOW(), 'Pro tip: The grocery store has wine. Lachit Divas', 25.00), 
 (9104, NOW(), 'In loving memory of [NAME], [HE/SHE] will be missed dearly. TGI Fridays', 24, NOW(), 'Keep looking fresh and fabulous Armed Forces Day', 29.00),
 (9105, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Petronas', 20, NOW(), 'For Absolutely Anything Constitution Day', 60.00),
 (9106, NOW(), 'Rejoice! He is watching over you this Easter! Dunkin''', 19, NOW(), 'May God be with you at this time. St. Stephen''s Day', 32.00),
@@ -9607,8 +9122,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9119, NOW(), 'Sending loads of love your way for a speedy recovery! DaKine', 12, NOW(), 'Happy retirement. We''ll miss you! New Year''s Day', 85.00),
 (9120, NOW(), 'Thank you for your continued business. We look forward to working with you in the future. Research in Motion', 18, NOW(), 'Congratulations on your big day! Easter Monday', 53.00),
 (9121, NOW(), 'When God shuts a door, he opens a window. Cintra', 21, NOW(), 'Your kindness comes as a welcome touch of warmth and caring New Year''s Day', 11.00),
-(9122, NOW(), 'We may not have it altogether but together we have it all! Antarctica', 20, NOW(), 'How sweet it is to be loved by you! Father''s Day', 20.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9122, NOW(), 'We may not have it altogether but together we have it all! Antarctica', 20, NOW(), 'How sweet it is to be loved by you! Father''s Day', 20.00),
 (9123, NOW(), 'Offering my/our sincerest condolences to you and your family Coach', 18, NOW(), 'Pottery Barn Gift Certificate Public Holiday', 40.00),
 (9124, NOW(), 'Get one of those Home Sweet Home plaques. Celia', 21, NOW(), 'StubHub e-gift card Independence Day', 73.00),
 (9125, NOW(), 'You bring joy and love to my life. Fendi', 14, NOW(), 'For a Guest Room Upgrade Good Friday', 42.00),
@@ -9627,8 +9141,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9138, NOW(), 'Congratulations, and best of luck in your future endeavors. Mustang', 21, NOW(), 'Have fun getting your little cutie all geared up! Good Friday', 17.00),
 (9139, NOW(), 'You bring joy and love to my life. La Reserve Geneve', 23, NOW(), 'subscription service gift ideas Mother''s Day', 63.00),
 (9140, NOW(), 'Sending you well wishes for your quick recovery and good health. Texas Roadhouse', 28, NOW(), 'Because pizza aint free Madaraka Day', 94.00),
-(9141, NOW(), 'All of my heart, I send to you. All of my life, I''ll spend with you. I love you! Propellerhead Software', 24, NOW(), 'Tropical Arrangements Independence Day', 41.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9141, NOW(), 'All of my heart, I send to you. All of my life, I''ll spend with you. I love you! Propellerhead Software', 24, NOW(), 'Tropical Arrangements Independence Day', 41.00),
 (9142, NOW(), 'Just a little something to say Im thinking of you. Du Maurier', 14, NOW(), 'Thank you Nowrooz', 40.00),
 (9143, NOW(), 'A father is someone you look up to no matter how tall you grow. Unknown Oracle', 20, NOW(), 'American Express eGift Certificate Public Holiday Holiday', 75.00),
 (9144, NOW(), 'Dont burn your mouth. You''re already hot enough. CC''s', 19, NOW(), 'Ob Fitness Monthly Membership New Year''s Day', 49.00),
@@ -9647,8 +9160,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9157, NOW(), 'For the person whose art is tacked to the wall with push pins. 8th Continent Soymilk', 30, NOW(), 'How ya doing, friend? Victory Day (bridge day)', 33.00),
 (9158, NOW(), 'You dont have to buy me a thank-you card with this. Legrand', 16, NOW(), 'Get something newlywed-y! Discovery of America Day', 95.00),
 (9159, NOW(), 'Your name has been synonymous with success! Congratulations! Home Shopping Network', 16, NOW(), 'You + Me = Forever Cheti Chand', 41.00),
-(9160, NOW(), 'Enjoy the flowers, I''m sending them just because you''re you. Salvatore Ferragamo', 14, NOW(), 'Think of this as edible plastic. All Saints'' Day', 56.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9160, NOW(), 'Enjoy the flowers, I''m sending them just because you''re you. Salvatore Ferragamo', 14, NOW(), 'Think of this as edible plastic. All Saints'' Day', 56.00),
 (9161, NOW(), 'Whether you''re outfitting them for their next hike or an afternoon spent in a ski lodge, you get to ensure they''ll be able to get exactly the make and model of the boot or sweater they want for the trip.&nbsp; PANDORA', 10, NOW(), 'You: Great! Me: Grateful! Holy Week Holiday', 44.00),
 (9162, NOW(), 'Day and everyday, hope you know how much you''re loved. Bang & Olufsen', 14, NOW(), 'It was a pleasure to work with you. Labour Day', 31.00),
 (9163, NOW(), 'See? It was all worth it! Right?? Samby', 17, NOW(), 'Away Gift Certificate Kingdom Day', 34.00),
@@ -9667,8 +9179,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9176, NOW(), '[NAME] will always be in our hearts and memories. With Sympathy, The [YOUR LAST NAME] Family Minimarket', 10, NOW(), 'On this joyous occasion, may you be blessed with happiness and your home be graced with warmth and peace! Selamat Hari Raya! Good Friday', 95.00),
 (9177, NOW(), 'For the person who spends all their money on their pet anyway. Lenovo', 16, NOW(), 'Sign up for promotions Good Friday', 42.00),
 (9178, NOW(), 'Rejoice! He is watching over you this Easter! Lime Wood', 27, NOW(), 'Christmas Certificate Gifts Malvinas Day', 58.00),
-(9179, NOW(), 'May you and your family enjoy years of happy times in your new home. Williams Sonoma', 29, NOW(), 'Fandango Gift Certificate Orthodox Christmas', 81.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9179, NOW(), 'May you and your family enjoy years of happy times in your new home. Williams Sonoma', 29, NOW(), 'Fandango Gift Certificate Orthodox Christmas', 81.00), 
 (9180, NOW(), 'It''s not a special occasion. But you''re a special person. Hoka One One', 30, NOW(), 'Because a bottle of wine wouldnt fit in the envelope. Independence Day', 95.00),
 (9181, NOW(), 'Welcome aboard! Its good to have you with us. La Reserve Geneve', 25, NOW(), 'Just the beginning of successes for you. Congrats! New Year''s Day (in lieu)', 97.00),
 (9182, NOW(), 'Hope your recovery is a speedy one. We miss you! Fujitsu', 20, NOW(), 'Amazon Gift Certificate Idd-ul-Fitr', 44.00),
@@ -9686,8 +9197,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9194, NOW(), 'Wishing you lots of luck and happiness in the year ahead. Burberry', 10, NOW(), 'Because you''re so spa-cial St. Wenceslas Day', 53.00),
 (9195, NOW(), 'May God be with you at this time. Bang & Olufsen', 25, NOW(), 'MoMA Design Store E-Gift Certificate All Saints'' Day Holiday', 32.00),
 (9196, NOW(), 'Hope your birthday''s as terrific as you are. Chemeq', 27, NOW(), 'Chewy E-Gift Certificate Orthodox Easter Day', 100.00),
-(9197, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Applebee''s', 20, NOW(), 'Islandwide Courier Delivery St. Stephen''s Day', 74.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9197, NOW(), 'Eat. Drink. Be Merry. Have a wonderful Christmas! Applebee''s', 20, NOW(), 'Islandwide Courier Delivery St. Stephen''s Day', 74.00),
 (9198, NOW(), 'May your sorrow be eased by good memories. KitchenAid', 27, NOW(), 'Have a wonderful life together Independence Day', 39.00),
 (9199, NOW(), 'Santa needed help saving space in his sack. De Bortoli Wines', 16, NOW(), 'Santa needed help saving space in his sack. Independence Day', 69.00),
 (9200, NOW(), 'Wishing you happiness and joy in this new life you share. Cox Communications', 26, NOW(), 'Eater Wine Club Gift Certificate Good Friday', 99.00),
@@ -9706,8 +9216,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9213, NOW(), 'For the movie buff whose idea of a perfect Saturday is sneaking into three screenings in a row. Grape Nuts', 24, NOW(), 'Get something newlywed-y! Ker Puja', 42.00),
 (9214, NOW(), 'So thoughtful of you to think of us. Beats by Dre', 23, NOW(), 'Wishing you steady improvement until youre well again. Thimphu Drubchen', 52.00),
 (9215, NOW(), 'Drivers, watch the road! Someone just turned 16! Prada', 29, NOW(), 'ASOS E-Gift Certificate Mawlid', 34.00),
-(9216, NOW(), 'Please accept our deepest sympathy and heartfelt thoughts. Citigroup', 13, NOW(), 'Life is like a patchwork of friends. Mawlid', 63.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9216, NOW(), 'Please accept our deepest sympathy and heartfelt thoughts. Citigroup', 13, NOW(), 'Life is like a patchwork of friends. Mawlid', 63.00),
 (9217, NOW(), 'Happy Anniversary to the love of my life. Halls', 25, NOW(), 'Thank you for making me feel so comfortable All Saints'' Day', 28.00),
 (9218, NOW(), 'You can use this next time Im being really annoying. Villa Stephanie ', 10, NOW(), 'Love makes a house a home Bhratridwitiya', 76.00),
 (9219, NOW(), 'May this Easter warm your heart with peace! Banyan Tree Holdings', 17, NOW(), 'Thank you for your time Whit Monday', 19.00),
@@ -9726,8 +9235,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9232, NOW(), 'So thoughtful of you to think of us. CCR', 25, NOW(), 'Maude EGift Certificate Christmas Holiday', 98.00),
 (9233, NOW(), 'For the person who loves classic leather goods. Old Navy', 19, NOW(), 'Zola E-Gift Certificate Eid Al Adaha', 33.00),
 (9234, NOW(), 'For the avid reader who likes to support small businesses. LOCCITANE EN PROVENCE', 29, NOW(), 'Apple E-Gift Certificate Awal Muharram', 31.00),
-(9235, NOW(), 'You make the world a more beautiful place. Free People', 28, NOW(), 'Starbucks Digital Gift Certificate Public Holiday Holiday', 25.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9235, NOW(), 'You make the world a more beautiful place. Free People', 28, NOW(), 'Starbucks Digital Gift Certificate Public Holiday Holiday', 25.00),
 (9236, NOW(), 'Wish you a very happy Diwali, may this festival of light always enlighten the path of success for you! 3 Musketeers', 20, NOW(), 'Were glad youre here. Good Friday', 13.00),
 (9237, NOW(), 'Get well soon. Feel better. We miss you! McAfee', 22, NOW(), 'You made my day! Prophet''s Birthday', 20.00),
 (9238, NOW(), 'Hoping the best things in life will always be yours. KFC', 26, NOW(), 'For Endless Accessorizing Vappu', 77.00),
@@ -9747,8 +9255,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9252, NOW(), 'Send me a postcard with a kitten on it. Tidal', 21, NOW(), 'The Tiffany Gift Certificate Public Holiday', 33.00),
 (9253, NOW(), 'Cheers to you! Cheers to your year ahead! Moretti', 17, NOW(), 'Graduation Certificate Ideas Liberation Day', 71.00),
 (9254, NOW(), 'Great news! You wont have to return this. Bristol-Myers Squibb', 21, NOW(), 'Cheer up! Be happy! Keep smiling! Nevruz', 99.00),
-(9255, NOW(), 'May the joy of this festive season light your life with love, peace and hope. Selamat Hari Raya! American Eagle Outfitters', 13, NOW(), 'March 1, 2023 Christmas Day', 75.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9255, NOW(), 'May the joy of this festive season light your life with love, peace and hope. Selamat Hari Raya! American Eagle Outfitters', 13, NOW(), 'March 1, 2023 Christmas Day', 75.00), 
 (9256, NOW(), 'For the ecoconscious person with a KN95 subscription. Off!', 10, NOW(), 'Love &amp; Anniversary All Saints'' Day', 93.00),
 (9257, NOW(), 'I hope you can use this on something you need for your new place! Big M', 26, NOW(), 'With best wishes for a lifetime of happiness together. Andean New Year', 52.00),
 (9258, NOW(), 'So they dont have to use their parents account to watch The Great British Baking Show or The Watcher. Bank of America', 27, NOW(), 'BLK MKT Vintage Gift Certificate New Year''s Day', 65.00),
@@ -9767,8 +9274,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9271, TIMESTAMP '2023-05-22 03:24:34', 'Mazel tov on your Bat Mitzvah! [Send to a 13 year old Jewish girl] Parle', 16, TIMESTAMP '2023-05-22 03:24:34', 'Enjoy making your new place a home! National Heroes Day', 21.00),
 (9272, NOW(), 'Hope your hospital stay is a short one. Williams Sonoma', 14, NOW(), 'Coach E-Gift Certificate Foundation of Quito Day', 83.00),
 (9273, NOW(), 'Santa needed help saving space in his sack. Converse', 25, NOW(), 'You have no item in your shopping cart. Nowrooz', 85.00),
-(9274, NOW(), 'Day and everyday, hope you know how much you''re loved. Egg Beaters', 12, NOW(), 'You deserve all the feel-good you can get. Republic Day', 16.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9274, NOW(), 'Day and everyday, hope you know how much you''re loved. Egg Beaters', 12, NOW(), 'You deserve all the feel-good you can get. Republic Day', 16.00),
 (9275, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Nordstrom', 19, NOW(), 'Congratulations and best wishes always. St. Stephen''s Day', 44.00),
 (9276, NOW(), 'Sorry I missed you. Hope to talk with you soon. Dove', 14, NOW(), ' May you enjoy a long and wonderful retirement. Christmas Day', 69.00),
 (9277, NOW(), 'For the basics, J.Crew has some of the best quality and style for the price. It also has frequent sales, meaning they may get more value out of their gift card. Ergon', 29, NOW(), 'Happy Mid-Autumn Festival! Eid Al-Adha', 91.00),
@@ -9787,8 +9293,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9290, NOW(), 'May you create countless memories in your new home. Renaissance Indian Wells Resort and Spa', 14, NOW(), 'You made my day! Ashoora', 75.00),
 (9291, NOW(), 'Take care of yourself and feel better soon. Band-Aid', 14, NOW(), 'Words are so inadequate at a time like this. New Year''s Day', 95.00),
 (9292, NOW(), 'Hope your new home is as special as you are. Netflix', 30, NOW(), 'For the Pet Parent Easter Monday', 59.00),
-(9293, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Appliances Online', 30, NOW(), 'wont break the bank New Year''s Day (in lieu)', 82.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9293, NOW(), 'My mother is a walking miracle. Leonardo DiCaprio Appliances Online', 30, NOW(), 'wont break the bank New Year''s Day (in lieu)', 82.00), 
 (9294, NOW(), 'If love is sweet as a flower, then my mother is that sweet flower of love. Stevie Wonder Dell', 24, NOW(), 'Youre off to a beautiful beginning. Labour Day', 38.00),
 (9295, NOW(), 'Just a little something to show my appreciation. Pepperidge Farm', 29, NOW(), ' Hope your birthday''s as terrific as you are. Nowruz Holiday', 80.00),
 (9296, NOW(), 'Thinking of you and wishing you a happy day. Holcim', 19, NOW(), 'cooling cotton PJs Western Australia Day', 97.00),
@@ -9807,8 +9312,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9309, NOW(), 'Hoping the best things in life will always be yours. Corolla', 16, NOW(), 'Nice work, Mom and Dad! King''s Birthday', 24.00),
 (9310, NOW(), 'Wishing you lots of luck and happiness in the year ahead. DKNY', 24, NOW(), 'Friends are forever! Resistance and Liberation Day', 84.00),
 (9311, NOW(), 'For the ecoconscious person with a KN95 subscription. Urban Outfitters', 28, NOW(), 'Fellow Digital Gift Certificate Navruz', 58.00),
-(9312, NOW(), 'Take care of yourself and feel better soon. Omega', 19, NOW(), 'Corporate Gifts Labour Day', 93.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9312, NOW(), 'Take care of yourself and feel better soon. Omega', 19, NOW(), 'Corporate Gifts Labour Day', 93.00), 
 (9313, NOW(), 'Sorry I missed you. Hope to talk with you soon. Nike', 12, NOW(), 'With Warmest congratulations Jananeta Irawat Birth Day', 29.00),
 (9314, NOW(), 'We do not remember days, we remember moments. Ambien', 11, NOW(), 'Cheers on your birthday. One step closer to adult underpants. National Heroes and Heroines Day', 75.00),
 (9315, NOW(), 'Wishing you eight days of peace and happiness! (and lots of potato pancakes!) CNP Assurances', 19, NOW(), 'Watch carefully&dinner is almost here. Eid al-Fitr', 37.00),
@@ -9827,8 +9331,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9328, NOW(), 'Sending you my warm wishes full of love, peace and prosperity on Hari Raya Aidilfitri. Salam Aidilfitri! Bed Bath & Beyond', 14, NOW(), 'I owe you big time. Army Day', 12.00),
 (9329, NOW(), 'May God bless you and keep you in His loving care. Roy Morgan Research', 13, NOW(), 'Edie Parker E-Gift Certificate Vappu', 92.00),
 (9330, NOW(), 'Wishing you good life, luck and may all your wishes come true Candy', 17, NOW(), 'Your achievement is an inspiration King''s Birthday', 14.00),
-(9331, NOW(), 'With sincere gratitude for all you have done. CorpBanca', 23, NOW(), 'GameStop Gift Certificate Independence Day', 33.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9331, NOW(), 'With sincere gratitude for all you have done. CorpBanca', 23, NOW(), 'GameStop Gift Certificate Independence Day', 33.00), 
 (9332, NOW(), 'You have worked hard; now enjoy reaping the benefits! Sephora', 29, NOW(), 'Birthday Certificate Gift International Labour Day', 93.00),
 (9333, NOW(), 'Cheers to you! Cheers to your year ahead! Altoids', 14, NOW(), 'GameStop Gift Certificate August Thursday', 97.00),
 (9334, NOW(), 'You are missed! Get well soon and hurry back. Carroten', 25, NOW(), 'workout wear turned WFH wear Labour Day', 57.00),
@@ -9847,8 +9350,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9347, NOW(), 'Offering my/our sincerest condolences to you and your family Adidas', 15, NOW(), 'Happiness is having a friend like you. Eritrea Independence Day', 20.00),
 (9348, NOW(), 'May this Easter warm your heart with peace! Discovery Air', 14, NOW(), 'Flowers today. Fireworks tonight! Easter Monday', 56.00),
 (9349, NOW(), 'Love is something eternal; the aspect may change, but not the essence.  Vincent van Gogh American Express', 21, NOW(), ' I want you to know that I am here for you at this time of grieving Labour Day', 17.00),
-(9350, NOW(), 'Dont spend this one on the kids. Its all for you! Band-Aid', 19, NOW(), 'One of the most glorious messes in the world is the mess created in the living room on Christmas Day. Independence Day', 70.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9350, NOW(), 'Dont spend this one on the kids. Its all for you! Band-Aid', 19, NOW(), 'One of the most glorious messes in the world is the mess created in the living room on Christmas Day. Independence Day', 70.00),
 (9351, NOW(), 'Our thoughts are with you. Get well soon! Thinking of you. Becker Entertainment', 24, NOW(), 'Success is having you for a customer. Shab-e-Qadr', 89.00),
 (9352, NOW(), 'May the Festival of Lights bring blessings upon you and all your loved ones. Happy Hanukkah! Crest', 28, NOW(), 'Wishing you a special birthday Victory Day', 99.00),
 (9353, NOW(), 'Thanks for thinking of me. Your referral is very much appreciated. PANPURI', 20, NOW(), 'Verishop E-Gift Certificate New Year''s Day', 11.00),
@@ -9867,8 +9369,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9366, NOW(), 'Roses are red, violets are blue, I am so happy that I love you! Nordstrom', 26, NOW(), 'Dad, your guiding hand on my shoulder will remain with me forever. Unknown Ancestry Day', 80.00),
 (9367, NOW(), 'We are simply one soul in two-body; may our love grow stronger with the days passing by. Happy valentines day. Old Navy', 26, NOW(), 'Housewarming/Open House King Charles III''s Coronation', 26.00),
 (9368, NOW(), 'Thoughts of you always bring me a smile. Dorf Clark Industries Limited', 22, NOW(), 'For Getting Active Orthodox Pentecost Monday', 21.00),
-(9369, NOW(), 'Happy 13th birthday to the world''s best teenager. Borders', 29, NOW(), 'Lunya Gift Certificate Mother''s Day', 80.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9369, NOW(), 'Happy 13th birthday to the world''s best teenager. Borders', 29, NOW(), 'Lunya Gift Certificate Mother''s Day', 80.00),
 (9370, NOW(), 'May you create countless memories in your new home. Lavipharm', 29, NOW(), 'Here''s to another year of experience. New Year''s Day', 95.00),
 (9371, NOW(), 'Give your workout buddy the chance to try something new with a gift card to ClassPass. Amtrak', 17, NOW(), 'They say that life is not a waste as long as you have one person that cares for you in the world. Whenever something gets you down, just remember that you have me! Ash Wednesday', 38.00),
 (9372, NOW(), 'Is your birthday wish a gift card? Because Florigene', 22, NOW(), 'Wishing you a wonderful day New Year''s Day', 54.00),
@@ -9887,8 +9388,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9385, NOW(), 'Hope your new home is filled with joy. Chipotle', 27, NOW(), 'Time to say buy-buy! All Saints'' Day', 79.00),
 (9386, NOW(), 'Mother, the ribbons of your love are woven around my heart. Anonymous Massimo Zanetti', 19, NOW(), 'Airbnb Gift Certificate Emancipation Day', 35.00),
 (9387, NOW(), 'Roses are red. Violets are blue. Carnations are sweet. And so are you! Dunkin'' Donuts', 12, NOW(), 'Areaware Gift Certificate Holy Saturday', 82.00),
-(9388, NOW(), 'You eat food, right? I know you so well. PANDORA', 26, NOW(), 'A friend is forever! Dessalines Birthday', 44.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9388, NOW(), 'You eat food, right? I know you so well. PANDORA', 26, NOW(), 'A friend is forever! Dessalines Birthday', 44.00), 
 (9389, NOW(), 'Thank you for your encouragement and support always. A6', 25, NOW(), 'Fellow Digital Gift Certificate New Year''s Day', 88.00),
 (9390, NOW(), 'Because a bottle of wine wouldnt fit in the envelope. Olive Garden', 10, NOW(), 'Don''t eat the eye cucumbers Easter Monday', 19.00),
 (9391, NOW(), 'Hope your hospital stay is a short one. ASM International', 18, NOW(), 'Anthropologie E-Gift Certificate Eid Al Adha', 16.00),
@@ -9906,8 +9406,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9403, NOW(), 'I hope all your birthday wishes came true. Elements Massage ', 21, NOW(), ' Sugar and spice and all that''s nice, that''s what little girls are made of. Congratulations! New Year''s Day', 71.00),
 (9404, NOW(), ' You''ll always be younger than springtime. Happy Birthday! Fresh Steps', 12, NOW(), 'In loving memory Thiruvalluvar Day', 41.00),
 (9405, NOW(), 'For your friend who always has a Slow Burn candle on deck. Listerine', 15, NOW(), 'This calls for shopping! Orthodox Easter Monday', 73.00),
-(9406, NOW(), 'May you create countless memories in your new home. General Mills', 21, NOW(), 'Because pizza aint free. Africa Day', 94.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9406, NOW(), 'May you create countless memories in your new home. General Mills', 21, NOW(), 'Because pizza aint free. Africa Day', 94.00),
 (9407, NOW(), 'Wishing you good fortune and happiness on this amazing Mid-Autumn day! General Motors', 29, NOW(), 'The Sorel Gift Certificate Mother''s Day', 21.00),
 (9408, NOW(), 'Your thoughtfulness is appreciated so much more than words can say. Ocean & Earth', 11, NOW(), 'Zappos E-Gift Certificate New Year''s Holiday', 20.00),
 (9409, NOW(), 'I wish I could be there with you. Know that you are with me in my thoughts. Sonicare', 13, NOW(), 'Happy house warming! Christmas Day', 59.00),
@@ -9926,8 +9425,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9422, NOW(), 'May God bless you on your graduation day. Pedigree', 22, NOW(), 'Congratulations on your well-deserved success. Eid al-Fitr', 37.00),
 (9423, NOW(), 'Is your birthday wish a gift card? Because Boston Market', 19, NOW(), 'Sending good, healthy vibes your way. St. Wenceslas Day', 76.00),
 (9424, NOW(), 'Happy birthday! You don''t get older, you get better. Shirley Bassey Outback Steakhouse', 16, NOW(), ' May you create countless memories in your new home. Dassain', 11.00),
-(9425, NOW(), 'You''re a gift in my life. And not the kind Id return for store credit. Merry Christmas! Discount Tire', 30, NOW(), 'Beautiful people like you deserve a beautiful home. Congratulations! Koriteh', 54.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9425, NOW(), 'You''re a gift in my life. And not the kind Id return for store credit. Merry Christmas! Discount Tire', 30, NOW(), 'Beautiful people like you deserve a beautiful home. Congratulations! Koriteh', 54.00), 
 (9426, NOW(), 'You take my breath away...today and every day. ArcelorMittal', 23, NOW(), ' May your holiday season be bright. Manua Cession Day', 78.00),
 (9427, NOW(), 'May your life be as colourful and shimmering as the lights of Diwali! Afrin', 20, NOW(), 'the top pick in our buying guide Heroes'' Day Holiday', 34.00),
 (9428, NOW(), 'Wishing you a beautiful day and many more happy years. IWC', 11, NOW(), 'Happy house warming! Royal Brunei Armed Forces Day', 85.00),
@@ -9946,8 +9444,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9441, NOW(), 'To happy endings and new beginnings. Congratulations! AutoZone', 22, NOW(), 'It''s always a pleasure working with you. Taranaki Anniversary Day', 93.00),
 (9442, NOW(), 'A little holiday treat from your favorite elf! Dollar General', 29, NOW(), 'Home sweet new home. Labour Day', 47.00),
 (9443, NOW(), 'Because You''re never too old to spend money. Prudential', 21, NOW(), 'Reformation E-Gift Certificate Orthodox Good Friday', 88.00),
-(9444, NOW(), 'Wishing you steady improvement until You''re well again. ASOS', 24, NOW(), 'Gift cards: Almost as magical as flying reindeer. Independence Restoration Day', 50.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9444, NOW(), 'Wishing you steady improvement until You''re well again. ASOS', 24, NOW(), 'Gift cards: Almost as magical as flying reindeer. Independence Restoration Day', 50.00),
 (9445, NOW(), 'With you it''s Valentine''s Day 365 days a year. Pop-Tarts', 11, NOW(), 'Ask for the dessert menu. Prince Louis Rwagasore Day', 17.00),
 (9446, NOW(), 'I hope your birthday was all that you hoped for. Fresca', 18, NOW(), 'May your memories be a source of comfort at this time. Late Summer Bank Holiday', 50.00),
 (9447, NOW(), 'Bravo! Your hard work has truly paid off. Carlton & United Breweries', 24, NOW(), 'For a Designer Download Ramadan', 52.00),
@@ -9965,8 +9462,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9459, NOW(), 'Or go with an Airbnb gift card if theyve already accrued enough airline miles to last a lifetime. Pacifico', 21, NOW(), 'To the world''s greatest [DAD/MOM/GRANDMA] Carnival Monday', 44.00),
 (9460, NOW(), 'If I know what love is, its because of you. Brambles Industries', 25, NOW(), 'For Winter-Proof Boots Ascension Day', 16.00),
 (9461, NOW(), 'Thank you for your valued business. Look forward to serving you again. Lifestyle Clotheslines', 23, NOW(), '&copy; 2023 Blossom Shoppe Khmer New Year Holiday', 88.00),
-(9462, NOW(), 'We may not have it altogether but together we have it all! Please lets start over. Bossa Nova', 15, NOW(), 'Parachute Digital Gift Certificate New Year''s Day', 27.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9462, NOW(), 'We may not have it altogether but together we have it all! Please lets start over. Bossa Nova', 15, NOW(), 'Parachute Digital Gift Certificate New Year''s Day', 27.00),
 (9463, NOW(), 'Congratulations, and best of luck in your future endeavors. Cinemax', 28, NOW(), 'Min 2 Days Booking Sardinia''s Day', 37.00),
 (9464, NOW(), 'Bless your new life as husband and wife. Copesa', 10, NOW(), 'Thank you for taking the time to meet with me. Meskel', 89.00),
 (9465, NOW(), 'Mazel tov on your Bar Mitzvah! [Send to a 13 year old Jewish boy] Burger King', 27, NOW(), 'Anthropologie E-Gift Certificate Ascension Day', 84.00),
@@ -9985,8 +9481,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9478, NOW(), 'Hope youll be in the best of health soon. Denver Hayes', 13, NOW(), 'Happy birthday to the greatest gift I have ever received. I love you! Eid Al Fitr Holiday', 39.00),
 (9479, NOW(), 'Congratulations and best wishes for a succesful future. Elmer''s', 16, NOW(), 'Heartfelt congratulations to a perfect pair! Here''s to a beautiful couple and a lifetime of wonderful memories. New Year''s Day', 70.00),
 (9480, NOW(), 'Our thoughts and prayers are with you during this difficult time. We are sorry for your loss. Bed Head', 25, NOW(), 'Ganni EGift Certificate New Year''s Day', 72.00),
-(9481, NOW(), 'With this gift card, they can choose their own luxury shopping adventure. Leroy Merlin', 23, NOW(), 'Our thoughts are with you. Get well soon! Thinking of you. Tiradentes Day', 12.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9481, NOW(), 'With this gift card, they can choose their own luxury shopping adventure. Leroy Merlin', 23, NOW(), 'Our thoughts are with you. Get well soon! Thinking of you. Tiradentes Day', 12.00),
 (9482, NOW(), 'If I were asked to define motherhood. I would have defined it as love in its purest form. Unconditional love. Revathi Sankaran Baskin-Robbins', 29, NOW(), 'For the New Homeowner Good Friday', 13.00),
 (9483, NOW(), 'Another reason to dress up! (Or dress down!) Cosan', 23, NOW(), 'Graduation Certificate Ideas Father''s Day', 49.00),
 (9484, NOW(), 'Im there for you on rough days and spa days. J.Crew', 30, NOW(), 'For impractical purchases only Labour Day', 67.00),
@@ -10005,8 +9500,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9497, NOW(), 'Because you''ve always been the one who could pick out great gifts. Casino', 14, NOW(), 'Welcome aboard! Its good to have you with us. New Year''s Day', 48.00),
 (9498, NOW(), 'You''re a Hallmark card personified, so I had to get you this. BP', 15, NOW(), 'Get you some yum! Accession Day', 43.00),
 (9499, NOW(), 'Life began with waking up and loving my mother''s face. George Eliot LG', 22, NOW(), 'For a Designer Download Good Friday', 87.00),
-(9500, NOW(), 'Whether theyre looking for a new pair of hoops or an engagement ring, Mejuri has it all. Evenflo', 21, NOW(), 'The Sill Gift Certificate Labour Day', 47.00);         
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9500, NOW(), 'Whether theyre looking for a new pair of hoops or an engagement ring, Mejuri has it all. Evenflo', 21, NOW(), 'The Sill Gift Certificate Labour Day', 47.00), 
 (9501, NOW(), 'After every storm the sun will smile; for every problem there is a solution, and the souls indefeasible duty is to be of good cheer. Corsendonk Pater Noster', 18, NOW(), 'Fellow Digital Gift Certificate Good Friday', 61.00),
 (9502, NOW(), 'May your sorrow be eased by good memories. Applebee''s', 18, NOW(), 'our review of Otherland here Jhulan Purnima', 11.00),
 (9503, NOW(), 'You bring joy and love to my life. Boucheron', 10, NOW(), ' Hoping you two are blessed with many more years together. Whit Sunday', 34.00),
@@ -10025,8 +9519,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9516, NOW(), 'Is your birthday wish a gift card? Because Jeep', 28, NOW(), 'Cheer Up! Easter Monday', 12.00),
 (9517, NOW(), 'May it help in some way to know that friends are sharing the sorrow of your heart. Rock Spa and Salon ', 29, NOW(), 'Eater Wine Club Gift Certificate All Saints'' Day', 33.00),
 (9518, NOW(), 'For the person currently subsidizing five different streamers. Bravox', 11, NOW(), 'Were glad you''re here Day of Slavonic Alphabet, Bulgarian Enlightenment and Culture', 30.00),
-(9519, NOW(), U&'You''re on the right path to a wonderful life. Congratulations! Victoria\2019s Secret', 22, NOW(), 'For your screen room. Liberation day', 25.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9519, NOW(), U&'You''re on the right path to a wonderful life. Congratulations! Victoria\2019s Secret', 22, NOW(), 'For your screen room. Liberation day', 25.00),
 (9520, NOW(), 'Get well soon. Feel better. We miss you! Nike', 26, NOW(), 'Hay E-Gift Certificate Day of Svetitskovloba', 54.00),
 (9521, NOW(), 'I think in a lot of ways unconditional love is a myth. My mom''s the only reason I know it''s a real thing. Conor Oberst Krombacher', 11, NOW(), 'Candles to enjoy life; Decorations to light life; Presents to share success; Fire Crackers to burn evils; Sweets to sweeten success, And worship to thank god! Wish you a joyous and prosperous Diwali! Independence Day', 34.00),
 (9522, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! Fifth Avenue Show Repair', 13, NOW(), 'Wishing you a very warm Birthday. Eid Al-Adha', 99.00),
@@ -10044,8 +9537,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9534, NOW(), 'Our sympathy and warmest thoughts are with you now. Under Armour', 30, NOW(), 'Hallmark Gold Crown Boxing Day', 12.00),
 (9535, NOW(), 'Best wishes for today and every day in the future. JVC', 21, NOW(), 'Away Gift Certificate Nevruz', 21.00),
 (9536, NOW(), 'We are born of love; love is our mother. Rumi Sandman Hotels', 13, NOW(), 'everything to know New Year''s Day', 52.00),
-(9537, NOW(), 'For when you want to get them a Boat and Tote but arent sure what monogram (or ironic phrase) theyd prefer. Always', 25, NOW(), 'A new house is a dream come true. Congrats for the same. Kati Bihu', 36.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9537, NOW(), 'For when you want to get them a Boat and Tote but arent sure what monogram (or ironic phrase) theyd prefer. Always', 25, NOW(), 'A new house is a dream come true. Congrats for the same. Kati Bihu', 36.00),
 (9538, NOW(), 'Caps in the air like you just dont care. Aleve', 11, NOW(), 'Housewarming/Open House Whit Monday', 100.00),
 (9539, NOW(), 'May the future be filled with much happiness. Cardinal Health', 17, NOW(), 'Sharing in your happiness and wishing you all the best. New Year''s Day', 92.00),
 (9540, NOW(), 'For the person whos thoroughly enjoying their New York Times Cooking subscription. Appliances Online', 19, NOW(), 'The Tiffany Gift Certificate El Hijra', 95.00),
@@ -10063,8 +9555,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9552, NOW(), 'The love you share makes this day special. Hillshire Farm', 27, NOW(), 'H&M Gift Certificate Constitution Day', 20.00),
 (9553, NOW(), 'Cheering you up with a big smile! Ruth''s Chris Steak House', 12, NOW(), 'Its always shopping time President''s Day Holiday', 46.00),
 (9554, NOW(), U&'Congratulations to the new parents for entering into the world of constant squeals, nappy changes and late night meals. Lanc\00f4me', 24, NOW(), 'Twitch E-Gift Certificate Thimphu Tshechu Holiday', 27.00),
-(9555, NOW(), 'Trust methis is better than me shopping for you! Dyson', 25, NOW(), 'buy it in a gift card box Tabaski', 23.00);        
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9555, NOW(), 'Trust methis is better than me shopping for you! Dyson', 25, NOW(), 'buy it in a gift card box Tabaski', 23.00), 
 (9556, NOW(), 'I blew it. Please give me another chance. De''Longhi', 23, NOW(), 'Love &amp; Anniversary National Culture and Senior Citizens Day', 29.00),
 (9557, NOW(), 'Your love is all I need to feel complete. Big Rock Brewery', 20, NOW(), 'We would like to extend our heartiest congratulations for having a new beautiful house. We wish you all the best in making your new house a great place in raising a perfect family. Christmas Day', 40.00),
 (9558, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! E-Trade', 28, NOW(), 'Sorry I forgot the most important day of the year... your Birthday! Assumption Day', 47.00),
@@ -10081,8 +9572,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9569, NOW(), 'With this gift card, they can choose their own luxury shopping adventure. Old Navy', 11, NOW(), 'Jump to Constitution Day', 62.00),
 (9570, NOW(), 'Cheers to you! Cheers to your year ahead! Crystal Light', 26, NOW(), 'Mid Autumn Festival Virgin of Los Angeles Day', 68.00),
 (9571, NOW(), 'May this Easter warm your heart with peace! Lincoln', 27, NOW(), 'LLBean Gift Certificate Labour Day (2nd day)', 44.00),
-(9572, NOW(), 'A mother is she who can take the place of all others but whose place no one else can take. Certificateinal Mermillod Dick''s Sporting Goods', 27, NOW(), 'On this special day, all I wish for you is that you find the arms that give you the warmth of love and hugs of strength. Happy valentines day. Feast of Our Lady of Victories', 82.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9572, NOW(), 'A mother is she who can take the place of all others but whose place no one else can take. Certificateinal Mermillod Dick''s Sporting Goods', 27, NOW(), 'On this special day, all I wish for you is that you find the arms that give you the warmth of love and hugs of strength. Happy valentines day. Feast of Our Lady of Victories', 82.00),
 (9573, NOW(), 'Congratulations on your new bundle of joy. ABN Amro', 27, NOW(), 'Corporate Gifts Independence Restoration Day', 57.00),
 (9574, NOW(), 'Its a big world out there&go explore it! Lululemon', 24, NOW(), 'Time to say buy-buy! Gawai Dayak', 64.00),
 (9575, NOW(), 'Will these flowers let me out of the doghouse? I''m sorry. Let''s make up. Absolut', 30, NOW(), 'A little holiday treat from your favorite elf! Easter Monday', 39.00),
@@ -10102,8 +9592,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9589, NOW(), 'Friendship keeps hearts in touch. Thank you for being my friend. Frito-Lay', 12, NOW(), 'Wishing you happiness together Independence Day', 21.00),
 (9590, NOW(), 'I promise not to grade you on how you spend this. Cintra', 11, NOW(), 'Thank you for your time Novruz', 15.00),
 (9591, NOW(), 'We appreciate your business and your confidence in us. Kellogg''s', 29, NOW(), 'Father''s Day Boxing Day', 92.00),
-(9592, NOW(), 'Happy Valentines Day to the most beautiful woman I know. Chanel', 22, NOW(), 'For a Guest Room Upgrade Good Friday', 52.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9592, NOW(), 'Happy Valentines Day to the most beautiful woman I know. Chanel', 22, NOW(), 'For a Guest Room Upgrade Good Friday', 52.00),
 (9593, NOW(), 'Thinking of you. May you feel better soon. Hyatt', 28, NOW(), 'best things to buy Gann-Ngai', 37.00),
 (9594, NOW(), 'My love for you grows stronger every year. Austal Ships', 21, NOW(), 'Edie Parker E-Gift Certificate Independence Restoration Day', 99.00),
 (9595, NOW(), U&'May love always live in the home that you share. Ita\00c3\00ba Unibanco', 30, NOW(), 'Congratulations on your big day! National Day', 16.00),
@@ -10122,8 +9611,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9608, NOW(), 'May happiness &amp; love move in with you. Fortescue Metals Group', 13, NOW(), 'Wishing you a speedy recovery! Independence Day', 10.00),
 (9609, NOW(), 'Please accept these flowers and hear the words we are not able to speak Pandora', 11, NOW(), 'Thank you for your thoughtful hospitality. Incwala Day', 34.00),
 (9610, NOW(), 'Hope this helps bring a smile to your day. Big Rock Brewery', 18, NOW(), 'At this important milestone in your life, congratulations and best wishes for your continuing success. Whit Monday', 64.00),
-(9611, NOW(), 'Hope your hospital stay is a short one. Spotify', 20, NOW(), 'Edie Parker E-Gift Certificate Prithvi Jayanti', 93.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9611, NOW(), 'Hope your hospital stay is a short one. Spotify', 20, NOW(), 'Edie Parker E-Gift Certificate Prithvi Jayanti', 93.00),
 (9612, NOW(), 'Rejoice, Celebrate, and have a very Happy Easter! Elevit', 20, NOW(), 'Revolve Gift Certificate Winter Solstice', 70.00),
 (9613, NOW(), 'Congratulations on your new bundle of joy. Bajaj', 21, NOW(), 'Hope youll soon be well. Corpus Christi', 32.00),
 (9614, NOW(), 'My heart is reaching out to you in sympathy and prayer. ESPA', 19, NOW(), 'Were glad you joined us. Whit Monday', 36.00),
@@ -10143,8 +9631,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9628, NOW(), 'With best wishes for a lifetime of happiness together. Chimei', 15, NOW(), 'Thank you for trusting us. We look forward to exceeding your expectations! Eid Al Adha Holiday', 43.00),
 (9629, NOW(), 'Keep smiling and one day life will get tired of upsetting you! Cheer up! Days Inn', 14, NOW(), 'Thank you Christmas Day', 72.00),
 (9630, NOW(), 'Just the beginning of successes for you. Congrats! Olay', 30, NOW(), 'Cool Move! Congratulations! Labour Day', 70.00),
-(9631, NOW(), 'Think of the years as gold bullion...and you''re rich! Kamala', 29, NOW(), 'Thinking of you and wishing you a happy day. Losoong/Namsoong', 17.00);          
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9631, NOW(), 'Think of the years as gold bullion...and you''re rich! Kamala', 29, NOW(), 'Thinking of you and wishing you a happy day. Losoong/Namsoong', 17.00), 
 (9632, NOW(), 'We wish you all the happiness the coming years can hold. Zalando', 11, NOW(), 'StubHub e-gift card General Prayer Day', 64.00),
 (9633, NOW(), 'Make the world a better place. Make amends. Make peace. Be kind. Take responsibility for your actions. Explain your actions. To apologize and confess our faults and mistakes is healthy... Ansell', 19, NOW(), 'Thinking of you Day of Arafa', 79.00),
 (9634, NOW(), 'And so... The adventure begins! Congratulations on your graduation! Valtrex', 15, NOW(), 'Chinese New Year Boxing Day', 92.00),
@@ -10163,8 +9650,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9647, NOW(), 'Happy 13th birthday to the world''s best teenager. Apple', 19, NOW(), 'May your babys future be brighter than the suns radiant beam, may your little child fulfill all your dreams. Congratulations for your newborn. New Year''s Day', 83.00),
 (9648, NOW(), 'We do not remember days, we remember moments. Aja Malibu', 24, NOW(), 'HR-approved love from me to you. Martisor', 67.00),
 (9649, NOW(), U&'Thinking of you. May you feel better soon. Macy\2019s', 14, NOW(), 'Kitty Guo Public Holiday', 99.00),
-(9650, NOW(), 'Making the impossible into possible is your own style. Congrats for your success! Amana', 13, NOW(), 'Just thought I''d say hello! Good Friday', 13.00);             
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9650, NOW(), 'Making the impossible into possible is your own style. Congrats for your success! Amana', 13, NOW(), 'Just thought I''d say hello! Good Friday', 13.00), 
 (9651, NOW(), 'If you can''t find the right words to write in your message card or unable to fully express your feelings, take a look at Giftr''s collection of card message''s ideas to help you in expressing your feelings. :) Aveo', 21, NOW(), 'Mytheresa Gift Certificate Eid al-Fitr Holiday', 16.00),
 (9652, NOW(), 'For the avid reader who likes to support small businesses. Aguas Cordobesas', 24, NOW(), 'Hay E-Gift Certificate Easter Monday', 59.00),
 (9653, NOW(), 'Cheers on your birthday. One step closer to adult underpants. AAA', 13, NOW(), 'Congratulations! Keep up the good work. Orthodox Easter Day', 59.00),
@@ -10183,8 +9669,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9666, NOW(), 'You bring joy and love to my life. Aston Martin', 16, NOW(), 'Happy nesting! New Year''s Day', 13.00),
 (9667, NOW(), 'After 10 years, I still feel like we''re newlyweds. Citigroup', 27, NOW(), 'Holiday Calendar Mid-Autumn Festival', 51.00),
 (9668, NOW(), 'A father is someone you look up to no matter how tall you grow. Unknown Chipotle', 30, NOW(), 'Happy nesting! Kings''s Birthday', 59.00),
-(9669, NOW(), 'Best wishes for today and every day in the future. Aprilla', 30, NOW(), 'Hope you''re feeling better V.C. Bird Day', 26.00); 
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9669, NOW(), 'Best wishes for today and every day in the future. Aprilla', 30, NOW(), 'Hope you''re feeling better V.C. Bird Day', 26.00),
 (9670, NOW(), 'I hope your birthday was all that you hoped for. Audio-Technica', 27, NOW(), 'West Elm E-Gift Certificate Orthodox Easter Day', 69.00),
 (9671, NOW(), 'Sending hugs, kisses and this little gift to let you know Im thinking of you! Bed Bath & Beyond', 19, NOW(), 'For your screen room Constitution Day Holiday declared in Ghana for January 9th', 71.00),
 (9672, NOW(), 'There is only one happiness in life: to love and be loved.  George Sand Vans', 25, NOW(), 'L.L.Bean Gift Certificate Easter Monday', 96.00),
@@ -10203,8 +9688,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9685, NOW(), U&'You can use this next time Im being really annoying. Crunch \00e2\0080\0098n Munch', 17, NOW(), 'Ob Fitness Monthly Membership Christmas Day', 57.00),
 (9686, NOW(), 'If I know what love is, it is because of you. Hermann Hesse Aracruz Celulose', 13, NOW(), 'Nike Digital Gift Certificate Vincy Mas', 59.00),
 (9687, NOW(), 'Cant wait for your review of this movie. Scrubbing Bubbles', 25, NOW(), 'Min 2 Days Booking New Year''s Day', 90.00),
-(9688, NOW(), 'Not once did I ever doubt you''d make it. Armol All', 16, NOW(), 'Macys E-Gift Certificate Carnival Tuesday', 56.00);      
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9688, NOW(), 'Not once did I ever doubt you''d make it. Armol All', 16, NOW(), 'Macys E-Gift Certificate Carnival Tuesday', 56.00),
 (9689, NOW(), 'A beautiful soul deserves beautiful things in life. Congratulations! AmBev', 11, NOW(), ' It''s always a pleasure working with you. Labour Day', 92.00),
 (9690, NOW(), 'Please accept these flowers in place of the words I said. I''m truly sorry. Pine O Cleen', 24, NOW(), 'Rack up some reward miles! Whit Monday', 47.00),
 (9691, NOW(), 'Just a little something to show my appreciation. Canon', 24, NOW(), 'You deserve all the nice things. Parents'' Day', 93.00),
@@ -10223,8 +9707,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9704, NOW(), 'To the best [DAD/MOM/GRANDMA] in the whole world.. Allplastics', 26, NOW(), 'Twitch E-Gift Certificate Friday after Eid e-Milad-un Nabi', 59.00),
 (9705, NOW(), 'You both deserve a lifetime of beautiful tomorrows. Red Lobster', 23, NOW(), 'Enjoy the popcorn! Day of the State Worker', 74.00),
 (9706, NOW(), 'Parenthood is one of the best journeys in life. Enjoy the ride. Alinta Gas', 11, NOW(), 'Aritzia EGift Certificate Christmas Day', 27.00),
-(9707, NOW(), 'I am the luckiest child in the world because I have the most amazing father in the world. Happy Fathers Day to you, my wonderful father. H&R Block', 13, NOW(), 'Fashion and accessories Republic Day', 81.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9707, NOW(), 'I am the luckiest child in the world because I have the most amazing father in the world. Happy Fathers Day to you, my wonderful father. H&R Block', 13, NOW(), 'Fashion and accessories Republic Day', 81.00),
 (9708, NOW(), 'Like a fine wine, you improve with age. Filson', 17, NOW(), 'Virtual Delivery (Email/SMS) New Year''s Day', 95.00),
 (9709, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Heungkuk', 18, NOW(), 'A Florist 20 website Constitution Day', 11.00),
 (9710, NOW(), 'I was feeling defensive and when I feel defensive, sometimes I say things I don''t mean. Cheez-It', 17, NOW(), 'Coach E-Gift Certificate Easter Monday', 48.00),
@@ -10243,8 +9726,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9723, NOW(), 'I promise not to grade you on how you spend this. 5 Second', 23, NOW(), 'Thanks for being there Western Australia Day', 13.00),
 (9724, NOW(), 'Hoping the best things in life will always be yours. Dove', 13, NOW(), 'Urban Stems Classic Flower Subscription Children''s Day', 95.00),
 (9725, NOW(), 'To the world you are a mother, but to your family you are the world. Unknown Exxon Mobil', 23, NOW(), 'For Absolutely Anything Milad Un Nabi', 15.00),
-(9726, NOW(), 'Get one of those Home Sweet Home plaques. Allplastics', 28, NOW(), 'For Getting Active Anniversary of the Revolution', 56.00);       
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9726, NOW(), 'Get one of those Home Sweet Home plaques. Allplastics', 28, NOW(), 'For Getting Active Anniversary of the Revolution', 56.00),
 (9727, NOW(), 'Wishing you another wonderful year of happiness and joy. Happy Birthday! Dolby Surround', 26, NOW(), 'Lisa Says Gah E-Gift Certificate New Year''s Day', 55.00),
 (9728, NOW(), 'Bless your new life as husband and wife. Crystal Spring Tea', 22, NOW(), '[DAD/MOM/GRANDMA] you are my inspiration Day of Memory', 49.00),
 (9729, NOW(), 'Well done! This is the first. Keep reaching for the stars! Maui Jim', 24, NOW(), 'For Winter-Proof Boots Carnival Tuesday', 50.00),
@@ -10264,8 +9746,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9743, NOW(), 'Dream big! (Heres some dream fuel to help.) Bare Escentuals', 28, NOW(), 'Apple E-Gift Certificate Labour Day', 21.00),
 (9744, NOW(), 'Your love is all I need to feel complete. Tiffany & Co.', 16, NOW(), 'Jump to Independence Day', 82.00),
 (9745, NOW(), 'Congratulations on your new bundle of joy. Victoria''s Secret', 28, NOW(), 'Anniversary Certificate Gifts Good Friday', 25.00),
-(9746, NOW(), 'Wishing you a Happy Birthday and many more to come. Schick', 21, NOW(), 'Hope this brightens your day! Father''s Day', 56.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9746, NOW(), 'Wishing you a Happy Birthday and many more to come. Schick', 21, NOW(), 'Hope this brightens your day! Father''s Day', 56.00),
 (9747, NOW(), 'Congratulations on your new bundle of joy. Citigroup', 29, NOW(), 'Hope you dig your new digs. Labour Day', 16.00),
 (9748, NOW(), 'Let me guess&You''re going to see a movie where stuff blows up. Brasil Telecom', 16, NOW(), 'Happy house warming! Labour Day', 12.00),
 (9749, NOW(), 'You have no item in your shopping cart. Expedia.com', 23, NOW(), 'You deserve all the relaxation. Mawlid', 70.00),
@@ -10285,8 +9766,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9763, NOW(), 'Send me a postcard with a kitten on it. PANPURI', 19, NOW(), 'Making the impossible into possible is your own style. Congrats for your success! Labour Day', 81.00),
 (9764, NOW(), 'Thank you for taking the time to meet with me. BCE', 11, NOW(), 'A star is born Picnic Day', 66.00),
 (9765, NOW(), 'Just a cheery note to wish you well. Orkin', 18, NOW(), 'Yummy for you! Whit Monday', 19.00),
-(9766, NOW(), 'Happy birthday to the greatest gift I have ever received. I love you! Apple', 16, NOW(), 'Beyond every cloud, there is a rainbow. Independence Day', 34.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9766, NOW(), 'Happy birthday to the greatest gift I have ever received. I love you! Apple', 16, NOW(), 'Beyond every cloud, there is a rainbow. Independence Day', 34.00),
 (9767, NOW(), 'Warm, brown elixir of life, we pray to thee. Renaissance Indian Wells Resort and Spa', 23, NOW(), 'Don''t sweat shipping delays. National Anniversary Day', 85.00),
 (9768, NOW(), 'Because of you everything is so much nicer Liberty', 13, NOW(), 'Your friendship means so much to me. Battle of Boyac', 96.00),
 (9769, NOW(), 'Hoping this finds you well on the way to recovery. Canon', 23, NOW(), 'Time to say buy-buy! Christmas Day', 74.00),
@@ -10305,8 +9785,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9782, NOW(), 'Its hard to tell who is luckier, you or your new baby. Folli Follie', 19, NOW(), 'Enjoy the popcorn! New Year''s Eve', 75.00),
 (9783, NOW(), 'There is only one happiness in life: to love and be loved.  George Sand Aja Malibu', 10, NOW(), 'Your business is always appreciated Christmas Day', 66.00),
 (9784, NOW(), 'When God shuts a door, he opens a window. Bosch', 11, NOW(), 'Mansur Gavriel E-Gift Certificate Nowrooz', 34.00),
-(9785, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Carebear', 20, NOW(), 'committed bakers New Year''s Day', 29.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9785, NOW(), 'The 16 Very Best Moisturizers for Mature Skin Carebear', 20, NOW(), 'committed bakers New Year''s Day', 29.00),
 (9786, NOW(), 'Thank you from the bottom of my heart. Gatorade', 17, NOW(), 'Escape to someplace pretty! Tusu Puja', 63.00),
 (9787, NOW(), 'Just a little something from me to you. Australian Securities Exchange', 29, NOW(), 'Enjoy your trip! National Heroes and Heroines Day', 94.00),
 (9788, NOW(), 'Your name has been synonymous with success! Congratulations! Jaeger-Le Coultre', 10, NOW(), 'For Something Extra Special Boxing Day', 82.00),
@@ -10325,8 +9804,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9801, NOW(), 'Roses are red. Violets are blue. Carnations are sweet. And so are you! Indian Oil Corporation', 16, NOW(), 'May the comfort of friends and family be your strength for today and the days ahead. Eid Al Fitr Holiday', 93.00),
 (9802, NOW(), 'Turning a year older calls for a little splurge, am I right? (Im right.) Daikin', 14, NOW(), 'Easter Certificate Ideas St. Olavs Eve', 27.00),
 (9803, NOW(), 'Hope your new home is as special as you are. Louis Vuitton', 21, NOW(), 'Thank you for being so nice. Cheti Chand', 65.00),
-(9804, NOW(), 'This comes with all my best thoughts for your recovery. Boggle', 29, NOW(), 'You''re the best Good Friday', 30.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9804, NOW(), 'This comes with all my best thoughts for your recovery. Boggle', 29, NOW(), 'You''re the best Good Friday', 30.00),
 (9805, NOW(), 'Sending my best wishes to make you feel better. Get well soon! Johnson''s', 25, NOW(), 'You deserve all your favorite things today! Traditional Day of Offering', 72.00),
 (9806, NOW(), 'It is a rare friendship that feels forever new. Amoco', 21, NOW(), 'GameStop Gift Certificate Mother''s Day', 79.00),
 (9807, NOW(), 'So you can keep looking better than me. Castlemaine Perkins', 30, NOW(), 'Always get the fries. New Year''s Day', 32.00),
@@ -10345,8 +9823,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9820, NOW(), 'Hoping each new day will find you feeling better. Bell Atlantic', 30, NOW(), 'You''re the best! Whit Monday', 10.00),
 (9821, NOW(), 'Congratulations on your retirement. Best wishes for a great future. Friesland Bank', 17, NOW(), 'Wishing you a bright and joyous Easter! Father''s Day', 49.00),
 (9822, NOW(), 'Cant wait for your review of this movie. Brambles Industries', 14, NOW(), 'Valentine''s Day Armistice Day', 74.00),
-(9823, NOW(), 'For the person currently subsidizing five different streamers. Comcast', 12, NOW(), 'Verishop E-Gift Certificate Independence Day', 30.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9823, NOW(), 'For the person currently subsidizing five different streamers. Comcast', 12, NOW(), 'Verishop E-Gift Certificate Independence Day', 30.00),
 (9824, NOW(), 'Think of the years as gold bullion...and you''re rich! CHEP', 24, NOW(), 'Dad, whenever I am in trouble or in need of guidance, you are the one that I look up to. Thanks for everything. Discovery of America Day', 26.00),
 (9825, NOW(), 'Your love is all I need to feel complete. Aquafresh', 12, NOW(), 'Get Well Soon Wishes Christmas Day', 85.00),
 (9826, NOW(), 'We appreciate your business and your confidence in us. Don de Dieu', 21, NOW(), 'Anniversary Certificate Gifts Orthodox Good Friday', 42.00),
@@ -10365,8 +9842,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9839, NOW(), 'Your thoughtfulness is appreciated so much more than words can say. Express', 26, NOW(), 'Indulge, darling. Bhai Tika', 70.00),
 (9840, NOW(), 'Wishing you a joyous celebration, Selamat Hari Raya! L.L. Bean', 17, NOW(), 'For Getting Active Midsummer Eve', 57.00),
 (9841, NOW(), 'Hoping each new day will find you feeling better. Fuchs', 28, NOW(), 'Time to say buy-buy! Saint Teresa Canonisation Day', 95.00),
-(9842, NOW(), 'I wish I could be there with you. Know that you are with me in my thoughts. Dom Perignon', 19, NOW(), 'Love &amp; Anniversary Ashura', 100.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9842, NOW(), 'I wish I could be there with you. Know that you are with me in my thoughts. Dom Perignon', 19, NOW(), 'Love &amp; Anniversary Ashura', 100.00),
 (9843, NOW(), 'I wish there was a word more than love itself to convey what I feel for you. Faraaz Kazi Maybelline', 25, NOW(), 'Happy Valentines day, my special one. Your love makes me feel over the moon. Ramazan Bayrami Holiday', 35.00),
 (9844, NOW(), 'Your kindness comes as a welcome touch of warmth and caring Subway', 10, NOW(), 'American Express eGift Certificate New Year''s Day (in lieu)', 28.00),
 (9845, NOW(), 'Your business is appreciated. Thank you for choosing us. Bonox', 23, NOW(), 'Indulge, darling. Christmas Day', 25.00),
@@ -10384,8 +9860,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9857, NOW(), 'Find a song to get stuck in your head. Villa Stephanie ', 30, NOW(), 'Maude EGift Certificate Australia Day', 59.00),
 (9858, NOW(), 'I never know what to get you&but you do! Cat Chow', 19, NOW(), 'Kitty Guo Carnival Tuesday', 68.00),
 (9859, NOW(), 'Housing products for face, body, hair and more, The Body Shop sells something for everyone. They won''t be disappointed with this one. Old Navy', 16, NOW(), 'Happy birthday to the greatest gift I have ever received. I love you! Immaculate Conception Day', 11.00),
-(9860, NOW(), 'For the person whose art is tacked to the wall with push pins. Bombardier', 20, NOW(), 'Personal anniversary New Year''s Day', 34.00);  
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9860, NOW(), 'For the person whose art is tacked to the wall with push pins. Bombardier', 20, NOW(), 'Personal anniversary New Year''s Day', 34.00),
 (9861, NOW(), 'Drivers, watch the road! Someone just turned 16! Lancome', 11, NOW(), 'Baron Fig Gift Certificate National Anthem and Flag Day', 86.00),
 (9862, NOW(), 'We are born of love; love is our mother. Rumi CorningWare', 29, NOW(), ' Happy Silver Wedding Anniversary! After 25 years, you still make my heart skip a beat. Orthodox Palm Sunday', 49.00),
 (9863, NOW(), 'A birthday is just the first day of another 365-day journey around the sun. Enjoy the trip. Boomer', 15, NOW(), 'The Tiffany Gift Certificate National Day (in lieu)', 47.00),
@@ -10403,8 +9878,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9875, NOW(), 'May your babys future be brighter than the suns radiant beam, may your little child fulfill all your dreams. Congratulations for your newborn. Martin Print', 26, NOW(), 'Telfar E-Gift Certificate New Year''s Day (in lieu)', 40.00),
 (9876, NOW(), 'Your name has been synonymous with success! Congratulations! Boucheron', 21, NOW(), 'Hay E-Gift Certificate Independence Day', 64.00),
 (9877, NOW(), 'Roses are red. Violets are blue. Carnations are sweet. And so are you! Manchester United', 11, NOW(), 'A friend is forever! Good Friday', 33.00),
-(9878, NOW(), 'A little something for you and the little one! Audible', 22, NOW(), 'Your kindness meant so much New Year''s Day', 44.00);            
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9878, NOW(), 'A little something for you and the little one! Audible', 22, NOW(), 'Your kindness meant so much New Year''s Day', 44.00),
 (9879, NOW(), 'May the future be filled with much happiness. Bush''s Beans', 25, NOW(), 'Hope you feel better soon Repentance Day', 13.00),
 (9880, NOW(), 'This Christmas, may your family be functional and all your batteries be included Crocs', 17, NOW(), 'Kitty Guo New Year''s Day', 72.00),
 (9881, NOW(), 'A new baby is like the beginning of all things - wonder, hope, a dream of possibilities. Pine-Sol', 26, NOW(), 'The best and most beautiful things in the world cannot be seen or even touched. They must be felt with the heart. Helen Keller Mother''s Day', 30.00),
@@ -10422,8 +9896,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9893, NOW(), 'Thanks for being a couple of role models of marriage. Happy Anniversary. Apple', 15, NOW(), 'Islandwide Courier Delivery Christmas Eve', 74.00),
 (9894, NOW(), 'Heard that you''ve been under the weather. Hope things clear up soon. MAB Corporation', 16, NOW(), 'This is for that one time when that one thing happened. Boxing Day', 96.00),
 (9895, NOW(), 'Wishing you a happy and prosperous Mid-Autumn Festival! Banco Nossa Caixa', 19, NOW(), 'committed bakers First Day of Ramadhan', 82.00),
-(9896, NOW(), 'Dad, whenever I am in trouble or in need of guidance, you are the one that I look up to. Thanks for everything. Disco SA', 18, NOW(), 'Congratulations on your newest family member! New Year''s Day', 59.00);    
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9896, NOW(), 'Dad, whenever I am in trouble or in need of guidance, you are the one that I look up to. Thanks for everything. Disco SA', 18, NOW(), 'Congratulations on your newest family member! New Year''s Day', 59.00),
 (9897, NOW(), 'I hope you consider trying to forgive me. Altima', 18, NOW(), 'Your business is always appreciated Eid Al Adha', 22.00),
 (9898, NOW(), 'We are born of love; love is our mother. Rumi Clarins', 24, NOW(), 'Delta Airlines EGift Certificate Christmas Day', 94.00),
 (9899, NOW(), 'Gift cards: Almost as magical as flying reindeer. Austcorp', 17, NOW(), 'Take the time to really enjoy your childs infancy; after all, they do grow up so fast. Congratulations on your new life. Christmas Day', 21.00),
@@ -10441,8 +9914,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9911, NOW(), 'I miss seeing you, and so I wanted to send you some flowers to let you know I am thinking of you. Nina Ricci', 19, NOW(), 'Mother, the ribbons of your love are woven around my heart. Anonymous Easter Monday', 42.00),
 (9912, NOW(), 'Congratulations on the new home! May it bring lot more happiness in coming years. Eddie Bauer', 10, NOW(), 'Sending you Happy Easter Wishes! Martyrs'' Day', 100.00),
 (9913, NOW(), 'After 10 years, I still feel like we''re newlyweds. Alfa Romeo', 16, NOW(), 'With Warmest congratulations Mawlid', 39.00),
-(9914, NOW(), 'Our sympathy and warmest thoughts are with you now. Lindt', 28, NOW(), 'Cheer Up! Martyrdom Day of Shaheed Udham Singh', 72.00);     
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9914, NOW(), 'Our sympathy and warmest thoughts are with you now. Lindt', 28, NOW(), 'Cheer Up! Martyrdom Day of Shaheed Udham Singh', 72.00),
 (9915, NOW(), 'I hope all your birthday dreams and wishes come true. LIC', 29, NOW(), 'To the world''s greatest [DAD/MOM/GRANDMA] Victory Day', 68.00),
 (9916, NOW(), 'May your degree unlock many doors to well deserved success. Alsa', 26, NOW(), 'Gift card? Bacon? It was a really tough decision. Eid al-Fitr Holiday', 82.00),
 (9917, NOW(), 'Making the impossible into possible is your own style. Congrats for your success! Bose', 22, NOW(), 'Wishing you steady improvement until youre well again. Martyrdom of Imam Ali', 90.00),
@@ -10461,8 +9933,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9930, NOW(), 'May your new little girl/boy bring you joy and happiness. Albertsons', 11, NOW(), 'Trust me, youll need this. Easter Day', 41.00),
 (9931, NOW(), 'Thoughts of you always bring me a smile. Brioni', 18, NOW(), 'Urban Stems Classic Flower Subscription Victory Day', 75.00),
 (9932, NOW(), 'I love you today, as I did from the start. I''ll love you forever, with all of my heart. Happy Anniversary! AAA', 10, NOW(), 'Williams Sonoma E-Gift Certificate Easter Monday', 29.00),
-(9933, NOW(), 'Sending you my warm wishes full of love, peace and prosperity on Hari Raya Aidilfitri. Salam Aidilfitri! Amtrak', 24, NOW(), 'Add some stuff to cart Ash Wednesday', 85.00);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9933, NOW(), 'Sending you my warm wishes full of love, peace and prosperity on Hari Raya Aidilfitri. Salam Aidilfitri! Amtrak', 24, NOW(), 'Add some stuff to cart Ash Wednesday', 85.00),
 (9934, NOW(), 'Thank you for your friendship, your business and the opportunity to serve you. Cafe Coffee Day', 13, NOW(), 'Thank you for your continued business. We look forward to working with you in the future. Khmer New Year', 95.00),
 (9935, NOW(), 'Hope youll be in the best of health soon. Sisley Paris', 18, NOW(), 'committed bakers Israk Mikraj', 71.00),
 (9936, NOW(), 'Please accept our deepest sympathy and heartfelt thoughts.  Ila', 11, NOW(), 'Love &amp; Anniversary Eid Al Adha Holiday', 96.00),
@@ -10480,8 +9951,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9948, NOW(), 'Help the cord cutter in your life upgrade to Hulu+, which comes with live TV. Old Navy', 28, NOW(), 'Christmas Certificate Gifts New Year''s Day', 82.00),
 (9949, NOW(), 'When the whole world left, you were there with open arms. Thanks for being my friend!! Regal Cinemas', 28, NOW(), 'You + Me = Forever Whit Monday', 51.00),
 (9950, NOW(), 'Look what the bunny found in the carrot patch! Happy Easter! Kyobo', 17, NOW(), 'Pamper yourself pretty! Easter Monday', 92.00),
-(9951, NOW(), 'Today is for remembering the happy times you''ve known. Bridgestone', 21, NOW(), 'With heartfelt condolences Whit Monday', 39.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9951, NOW(), 'Today is for remembering the happy times you''ve known. Bridgestone', 21, NOW(), 'With heartfelt condolences Whit Monday', 39.00),
 (9952, NOW(), 'So thoughtful of you to think of us. Nivea', 25, NOW(), 'Youre off to a beautiful beginning. Ascension Day', 96.00),
 (9953, NOW(), 'Trust methis is better than me shopping for you! Baskin-Robbins', 14, NOW(), 'our review of Otherland here Mahalaya', 66.00),
 (9954, NOW(), 'Thank you for your encouragement and support always. Mobil', 15, NOW(), 'Birthday Certificate Gift White Sunday', 25.00),
@@ -10500,8 +9970,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9967, NOW(), 'Caps in the air like you just dont care. Leroy Merlin', 28, NOW(), 'Big Night EGift Certificate Eid Al Adha', 41.00),
 (9968, NOW(), 'Hoping this adds a little extra happy to your holidays. Liberty Mutual', 10, NOW(), 'Thank you with a personal touch Orthodox Easter Day', 49.00),
 (9969, NOW(), 'Mother''s love is the fuel that enables a normal human being to do the impossible. Marion C. Garretty Manolo Blahnik', 27, NOW(), 'Cheer Up! Eid Milad-un-Nabi', 98.00),
-(9970, NOW(), 'Congratulations and best wishes for a succesful future. Black Diamond', 28, NOW(), 'Congratulations and best wishes always Saint Peter and Saint Paul', 89.00);              
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9970, NOW(), 'Congratulations and best wishes for a succesful future. Black Diamond', 28, NOW(), 'Congratulations and best wishes always Saint Peter and Saint Paul', 89.00),
 (9971, NOW(), 'May God bless you on your graduation day. Audi', 24, NOW(), 'Everlane Gift Certificate Day of National Sovereignty', 77.00),
 (9972, NOW(), 'Are you a banana? Because I find you a-peel-ing. Happy Valentine''s Day my love. Gianfranco Ferre', 18, NOW(), 'Smiles are the best medicine Orthodox Easter Monday', 49.00),
 (9973, NOW(), 'Selamat Hari Raya Aidilfitri! Wishing you a joyous celebration and prosperous days ahead. Monster Energy', 16, NOW(), 'Anthropologie E-Gift Certificate Easter Sunday', 29.00),
@@ -10520,8 +9989,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
 (9986, NOW(), 'At Macys, theyll be able pick out whatever they want in any number of categories  from clothing to beauty products to homewares. Colavita', 14, NOW(), 'Girlfriend Collective Gift Certificate Nunavut Day', 99.00),
 (9987, NOW(), 'Love is something eternal; the aspect may change, but not the essence.  Vincent van Gogh Australian Healthcare Technology Limited', 24, NOW(), 'Mother''s Day New Year''s Day', 60.00),
 (9988, NOW(), U&'It was a pleasure to work with you. Piratf\00c3\00b6rlaget', 13, NOW(), 'For Endless Accessorizing International Women''s Day', 68.00),
-(9989, NOW(), 'Is your birthday wish a gift card? Because 9', 24, NOW(), 'Target Gift Certificate St. John''s Day', 94.00);               
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATES" VALUES
+(9989, NOW(), 'Is your birthday wish a gift card? Because 9', 24, NOW(), 'Target Gift Certificate St. John''s Day', 94.00),
 (9990, NOW(), 'Explorers everywhere will love a gift card from the iconic gear brand, Huckberry. Choose  from an array of pre-loaded virtual gift cards. Adidas', 25, NOW(), 'You''re in my thoughts. Constitution Day', 50.00),
 (9991, NOW(), 'Were so happy about the arrival of your bundle of joy. Banco Frances SA', 30, NOW(), 'Don''t just count your years, make your years count. Happy birthday! George Meredith Mother''s Day', 53.00),
 (9992, NOW(), 'They can spend it on the latest games and entertainment like movies, TV, music, apps, and more.&nbsp; Juicy Juice', 25, NOW(), 'May you create countless memories in your new home. April 24 declared a public holiday for Eid-ul-Fitr celebration', 53.00),

@@ -1,0 +1,89 @@
+.header {
+  background: $white-color;
+  @include box(100%, 75px);
+  @include center-justify-content(space-between);
+}
+
+.logo {
+  @include center-justify-content(space-between);
+}
+
+.logo-label {
+  z-index: 5;
+  height: 35px;
+  margin-left: 50px;
+  align-items: center;
+  @include font-height-color(24px, 29px, $black-color);
+}
+
+.menu-bar {
+  margin-left: 10px;
+}
+
+.menu-bar-top,
+.menu-bar-center,
+.menu-bar-bottom {
+  @include box(42px, 5px);
+  display: block;
+  margin-bottom: 5px;
+  background-color: $light-gray-color;
+}
+
+.search {
+  margin-left: 100px;
+  @include center-content();
+}
+
+.categories-input,
+.categories-select {
+  height: 50px;
+  padding: 0 10px;
+  background: $white-color;
+  border: 1px solid $light-gray-color;
+}
+
+.categories-input {
+  width: 30vw;
+}
+
+.categories-select {
+  @include box(150px, 52px);
+}
+
+.categories-option {
+  @include box(150px, 50px);
+}
+
+.categories-nav {
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  background-color: $gainsboro-color;
+  @include box(100%, 140px);
+  @include center-justify-content(center);
+}
+
+.category-card {
+  margin: 0px 50px;
+  text-align: center;
+}
+
+.category {
+  @include box(75px, 75px);
+  background-color: $white-color;
+}
+
+.user {
+  right: 20px;
+  @include center-content();
+}
+
+.login,
+.signup {
+  margin-right: 10px;
+  @include font-color(13px, $icon-color);
+}
+
+.shop-icon {
+  margin-right: 10px;
+  @include font-color(15px, $icon-color);
+}

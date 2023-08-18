@@ -1,0 +1,75 @@
+#certificates-list {
+  flex-wrap: wrap;
+  @include flex-justify(space-between);
+  padding-bottom: 5%;
+}
+
+.certificate-card {
+  width: 248px;
+  margin: 20px;
+  position: relative;
+  box-sizing: border-box;
+  background-color: $white-color;
+  @include flex-direction(column);
+}
+
+.certificate-card h2 {
+  width: 180px;
+  margin-left: 10px;
+  font-family: $card-font;
+  @include multi-row();
+  @include font-height-color(17px, 21px, $black-color);
+}
+
+.certificate-card .medium-image {
+  margin-bottom: 5px;
+  background: #d9d9d9;
+  @include box(248px, 200px);
+}
+
+.certificate-card .certificate-description {
+  width: 125px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  @include multi-row();
+}
+
+.certificate-card p {
+  @include font-color(11px, $black-color);
+}
+
+.certificate-card .price {
+  margin-left: 10px;
+  @include font-color(18px, $black-color);
+}
+
+.expires {
+  height: 24px;
+  margin-right: 10px;
+  @include font-color(9px, $icon-color);
+}
+
+.add-button {
+  cursor: pointer;
+  margin-right: 10px;
+  box-sizing: border-box;
+  background: $white-color;
+  border: 1px solid $black-color;
+  @include box(104px, 25px);
+  @include center-justify-content(center);
+}
+
+.add-label {
+  @include font-height-color(11px, 13px, $black-color);
+}
+
+.certificate-icon {
+  margin-right: 20px;
+  color: $icon-color;
+  @include box(13px, 13px);
+}
+
+.certificate-grp {
+  margin-bottom: 10px;
+  @include flex-justify(space-between);
+}

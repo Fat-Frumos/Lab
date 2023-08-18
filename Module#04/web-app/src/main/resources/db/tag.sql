@@ -200,9 +200,7 @@ VALUES (1, 'Mazda'),
        (196, 'Beach vacation'),
        (197, 'Pottery class'),
        (198, 'Knitting'),
-       (199, 'Renewable energy');
-INSERT INTO "PUBLIC"."TAG"
-VALUES (200, 'Crossfit'),
+       (199, 'Renewable energy'),(200, 'Crossfit'),
        (201, 'Sushi'),
        (202, 'Romantic Getaway'),
        (203, 'Innovative'),
@@ -384,9 +382,7 @@ VALUES (200, 'Crossfit'),
        (379, 'Movie Night'),
        (380, 'New Home'),
        (381, 'Personal development'),
-       (382, '(required)');
-INSERT INTO "PUBLIC"."TAG"
-VALUES (383, 'Skydiving'),
+       (382, '(required)'),(383, 'Skydiving'),
        (384, 'Business coaching'),
        (385, 'Watches'),
        (386, 'Family Day Out'),
