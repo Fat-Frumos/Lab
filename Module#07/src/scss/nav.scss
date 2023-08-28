@@ -67,6 +67,7 @@ svg {
   margin-left: calc(-#{$width} / 2 - 50px);
   margin-top: calc(-#{$height} / 2);
   transition: transform 200ms;
+  pointer-events: none;
 }
 
 .hamburger-1 {

@@ -29,6 +29,22 @@
   background-color: $light-gray-color;
 }
 
+.menu-button {
+  width: 40px;
+  height: 40px;
+  left: 5px;
+  top: 15px;
+  border-radius: 100%;
+  position: absolute;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.menu-button:hover {
+  background-color: $light-gray-color;
+  transition-delay: 0.3s ease-in-out;
+}
+
 .search {
   margin-left: 100px;
   @include center-content();
@@ -77,9 +93,13 @@
   @include center-content();
 }
 
-.login,
+.login {
+  margin-right: 8px;
+  @include font-color(13px, $icon-color);
+}
+
 .signup {
-  margin-right: 10px;
+  margin-right: 20px;
   @include font-color(13px, $icon-color);
 }
 

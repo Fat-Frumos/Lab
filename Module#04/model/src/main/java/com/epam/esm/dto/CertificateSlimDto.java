@@ -75,4 +75,6 @@ public class CertificateSlimDto
     @JsonFormat(timezone = "GMT+03:00",
             pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Timestamp lastUpdateDate;
+
+    private String path;
 }

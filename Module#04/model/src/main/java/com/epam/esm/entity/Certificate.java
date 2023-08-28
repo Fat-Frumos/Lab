@@ -100,6 +100,9 @@ public class Certificate implements Serializable {
     @Column(nullable = false)
     private Integer duration;
 
+    @Column(length = 1024)
+    private String path;
+
     /**
      * The set of tags associated with the certificate.
      * <p>

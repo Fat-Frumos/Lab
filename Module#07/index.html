@@ -13,6 +13,7 @@
 
 <header class="header">
   <div class="logo">
+    <div class="menu-button" onclick="toggleCheckbox()"></div>
     <nav class="menu">
       <input type="checkbox" class="menu-open" name="menu-open" id="menu-open">
       <label class="menu-open-button" for="menu-open">
@@ -33,14 +34,15 @@
   <div class="search">
     <input type="text" class="categories-input" placeholder="Search by item name">
     <select class="categories-select">
-      <option value="0" class="categories-option">All Categories</option>
-      <option value="1" class="categories-option">Cosmetics</option>
-      <option value="2" class="categories-option">Makeup</option>
-      <option value="3" class="categories-option">Course</option>
-      <option value="4" class="categories-option">Travel</option>
-      <option value="5" class="categories-option">Self-care</option>
-      <option value="6" class="categories-option">Culture</option>
-      <option value="7" class="categories-option">Anniversary</option>
+      <option value="" class="categories-option">All Categories</option>
+      <option value="Cosmetics" class="categories-option">Cosmetics</option>
+      <option value="Makeup" class="categories-option">Makeup</option>
+      <option value="Celebration" class="categories-option">Celebration</option>
+      <option value="Travel" class="categories-option">Travel</option>
+      <option value="Self-care" class="categories-option">Self-care</option>
+      <option value="Culture" class="categories-option">Culture</option>
+      <option value="Holiday" class="categories-option">Holiday</option>
+      <option value="Anniversary" class="categories-option">Anniversary</option>
     </select>
   </div>
   <div class="user">
@@ -76,11 +78,20 @@
   </div>
 </div>
 
-<main id="container">
+<main class="container" id="container">
   <div id="certificates-list"></div>
 </main>
-<footer></footer>
-<!-- <script src="./js/fetch.js"></script> -->
-<script src="./js/loop.js"></script>
+<footer>
+  <div class="scroll-top">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
+    </svg>
+  </div>
+  <div class="spinner" id="loading-indicator""></div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/create.js"></script>
+<script src="./js/script.js"></script>
 </body>
 </html>

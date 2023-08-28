@@ -37,6 +37,7 @@ public class Token implements Serializable {
     /**
      * The type of the token (e.g., Bearer).
      */
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     private TokenType tokenType = TokenType.BEARER;
     /**

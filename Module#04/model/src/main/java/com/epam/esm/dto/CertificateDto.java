@@ -90,10 +90,13 @@ public class CertificateDto
             pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Timestamp lastUpdateDate;
 
+    private String path;
+
     /**
      * The set of tags associated with the certificate.
      * Excluded from the toString() and equals() methods.
      */
+    @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<TagDto> tags = new HashSet<>();
@@ -102,6 +105,7 @@ public class CertificateDto
      * The set of orders associated with the certificate.
      * Excluded from the toString() and equals() methods.
      */
+    @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<OrderDto> orderDtos = new HashSet<>();
@@ -115,6 +119,7 @@ public class CertificateDto
             @JsonProperty("duration") Integer duration,
             @JsonProperty("createDate") Timestamp createDate,
             @JsonProperty("lastUpdateDate") Timestamp lastUpdateDate,
+            @JsonProperty("path") String path,
             @JsonProperty("tags") Set<TagDto> tags,
             @JsonProperty("orderDtos") Set<OrderDto> orderDtos) {
         this.id = id;
@@ -124,6 +129,7 @@ public class CertificateDto
         this.duration = duration;
         this.createDate = createDate;
         this.lastUpdateDate = lastUpdateDate;
+        this.path = path;
         this.tags = tags;
         this.orderDtos = orderDtos;
     }

@@ -6,7 +6,7 @@
 .input-expired-date,
 .input-desc {
   margin-left: 10px;
-  margin-top: 5px;
+  margin-top: 3px;
   background: #ffffff;
   box-sizing: border-box;
   @include box(420px, 50px);
@@ -61,7 +61,7 @@ input[type="file"] {
 .input-prefix {
   width: 27px;
   cursor: pointer;
-  margin-top: 40px;
+  margin-top: 33px;
   margin-left: 390px;
   position: absolute;
   color: $icon-color;
@@ -72,6 +72,6 @@ input[type="file"] {
   position: relative;
 }
 
-.add-new-title {
-  padding-left: 20vw;
-}
+// .add-new-title {
+//   padding-left: 20vw;
+// }

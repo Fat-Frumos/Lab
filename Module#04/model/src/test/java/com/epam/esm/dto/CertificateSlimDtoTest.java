@@ -4,7 +4,6 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
-import lombok.EqualsAndHashCode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.Set;
 
 import static java.sql.Timestamp.valueOf;
@@ -53,7 +51,7 @@ class CertificateSlimDtoTest {
     @Test
     @DisplayName("Test CertificateSlimDto validation")
     void testCertificateSlimDtoValidation() {
-        CertificateSlimDto certificate = new CertificateSlimDto(id, name, description, price, duration, createDate, lastUpdateDate);
+        CertificateSlimDto certificate = new CertificateSlimDto(id, name, description, price, duration, createDate, lastUpdateDate, "http");
         Set<ConstraintViolation<CertificateSlimDto>> violations =
                 validator.validate(certificate);
         assertTrue(violations.isEmpty());

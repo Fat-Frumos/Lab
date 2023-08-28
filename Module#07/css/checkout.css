@@ -58,7 +58,7 @@ a {
 
 .add-new-title {
   padding-top: 25px;
-  padding-left: 25vw;
+  padding-left: 20vw;
   box-sizing: border-box;
   width: 100vw;
   height: 72px;
@@ -232,6 +232,7 @@ svg {
   margin-left: calc(-30px / 2 - 50px);
   margin-top: calc(-3px / 2);
   transition: transform 200ms;
+  pointer-events: none;
 }
 
 .hamburger-1 {
@@ -295,6 +296,22 @@ svg {
   background-color: #cdcdcd;
 }
 
+.menu-button {
+  width: 40px;
+  height: 40px;
+  left: 5px;
+  top: 15px;
+  border-radius: 100%;
+  position: absolute;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.menu-button:hover {
+  background-color: #cdcdcd;
+  transition-delay: 0.3s ease-in-out;
+}
+
 .search {
   margin-left: 100px;
   display: flex;
@@ -351,9 +368,14 @@ svg {
   align-items: center;
 }
 
-.login,
+.login {
+  margin-right: 8px;
+  color: #757575;
+  font-size: 13px;
+}
+
 .signup {
-  margin-right: 10px;
+  margin-right: 20px;
   color: #757575;
   font-size: 13px;
 }
