@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="../css/register.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,500,1,0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,500,1,0">
 </head>
+
 <body>
     <header class="header">
         <div class="logo">
@@ -25,23 +28,35 @@
                 <a href="checkout.html" class="material-symbols-outlined menu-item">shopping_cart_checkout</a>
                 <a href="register.html" class="material-symbols-outlined menu-item">person_add</a>
                 <a href="login.html" class="material-symbols-outlined menu-item">login</a>
-                </nav>
+            </nav>
             <div class="logo-label">Logo</div>
         </div>
 
         <div class="search">
             <input type="text" class="categories-input" placeholder="Search by item name">
-            <select class="categories-select">
-                <option value="0" class="categories-option">All Categories</option>
-                <option value="1" class="categories-option">Cosmetics</option>
-                <option value="2" class="categories-option">Makeup</option>
-                <option value="3" class="categories-option">Course</option>
-                <option value="4" class="categories-option">Travel</option>
-                <option value="5" class="categories-option">Self-care</option>
-                <option value="6" class="categories-option">Culture</option>
-                <option value="7" class="categories-option">Anniversary</option>
-            </select>
+            <div class="dropdown">
+                <button onclick="toggleDropbox()" class="drop-button">
+                    <span id="drop-header">All Categories</span>
+                    <span class="material-symbols-search material-symbols-outlined">expand_more</span>
+                </button>
+                <div id="dropdown-search" class="dropdown-content">
+                    <div class="search-icon">
+                        <span class="material-symbols-search material-symbols-outlined">search</span>
+                        <input type="text" placeholder="Search..." id="input-search" onkeydownEnter="category(value)"
+                            onclick="filter(value)">
+                    </div>
+                    <a href="#" onclick="category('Cosmetics')" data-category="Cosmetics">Cosmetics</a>
+                    <a href="#" onclick="category('Makeup')" data-category="Makeup">Makeup</a>
+                    <a href="#" onclick="category('Celebration')" data-category="Celebration">Celebration</a>
+                    <a href="#" onclick="category('Travel')" data-category="Travel">Travel</a>
+                    <a href="#" onclick="category('Self-care')" data-category="Self-care">Self-care</a>
+                    <a href="#" onclick="category('Culture')" data-category="Culture">Culture</a>
+                    <a href="#" onclick="category('Holiday')" data-category="Holiday">Holiday</a>
+                    <a href="#" onclick="category('Anniversary')" data-category="Anniversary">Anniversary</a>
+                </div>
+            </div>
         </div>
+
         <div class="user">
             <a class="material-symbols-outlined shop-icon">favorite</a>
             <a class="material-symbols-outlined shop-icon">shopping_cart</a>
@@ -59,7 +74,7 @@
                     <div class="input_grp">
                         <div class="input_wrap">
                             <label for="lname">Login Name</label>
-                            <input type="text" id="lname" name="login-name" required>
+                            <input type="text" id="lname" name="username" required>
                         </div>
                         <div class="input_wrap">
                             <label for="fname">First Name</label>
@@ -101,4 +116,5 @@
     <footer class="single-page-footer"></footer>
     <script src="../js/index.js"></script>
 </body>
+
 </html>

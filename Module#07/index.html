@@ -33,24 +33,36 @@
 
   <div class="search">
     <input type="text" class="categories-input" placeholder="Search by item name">
-    <select class="categories-select">
-      <option value="" class="categories-option">All Categories</option>
-      <option value="Cosmetics" class="categories-option">Cosmetics</option>
-      <option value="Makeup" class="categories-option">Makeup</option>
-      <option value="Celebration" class="categories-option">Celebration</option>
-      <option value="Travel" class="categories-option">Travel</option>
-      <option value="Self-care" class="categories-option">Self-care</option>
-      <option value="Culture" class="categories-option">Culture</option>
-      <option value="Holiday" class="categories-option">Holiday</option>
-      <option value="Anniversary" class="categories-option">Anniversary</option>
-    </select>
+    <div class="dropdown">
+      <button onclick="toggleDropbox()" class="drop-button">
+        <span id="drop-header">All Categories</span>
+        <span class="material-symbols-search material-symbols-outlined">expand_more</span>
+      </button>
+      <div id="dropdown-search" class="dropdown-content">
+        <div class="search-icon">
+          <span class="material-symbols-search material-symbols-outlined">search</span>
+          <input type="text" placeholder="Search..." id="input-search" onkeydownEnter="category(value)"
+            onclick="filter(value)">
+        </div>
+        <a href="#" onclick="category('Cosmetics')" data-category="Cosmetics">Cosmetics</a>
+        <a href="#" onclick="category('Makeup')" data-category="Makeup">Makeup</a>
+        <a href="#" onclick="category('Celebration')" data-category="Celebration">Celebration</a>
+        <a href="#" onclick="category('Travel')" data-category="Travel">Travel</a>
+        <a href="#" onclick="category('Self-care')" data-category="Self-care">Self-care</a>
+        <a href="#" onclick="category('Culture')" data-category="Culture">Culture</a>
+        <a href="#" onclick="category('Holiday')" data-category="Holiday">Holiday</a>
+        <a href="#" onclick="category('Anniversary')" data-category="Anniversary">Anniversary</a>
+      </div>
+    </div>
+  </div>
+
   </div>
   <div class="user">
     <a class="material-symbols-outlined shop-icon">favorite</a>
     <a class="material-symbols-outlined shop-icon">shopping_cart</a>
-    <a href="login.html" class="login">Login</a>
+    <a href="./pages/login.html" class="login">Login</a>
     <span class="">|&nbsp;&nbsp;</span>
-    <a href="register.html" class="signup">SignUp</a>
+    <a href="/pages/register.html" class="signup">SignUp</a>
   </div>
 </header>
 
@@ -89,9 +101,10 @@
   </div>
   <div class="spinner" id="loading-indicator""></div>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
-<script src="./js/index.js"></script>
-<script src="./js/create.js"></script>
-<script src="./js/script.js"></script>
-</body>
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js">
+</script>
+    <script src="./js/index.js"></script>
+    <script src="./js/create.js"></script>
+    <script src="./js/script.js"></script>
+    </body>
 </html>

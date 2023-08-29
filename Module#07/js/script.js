@@ -1,5 +1,5 @@
 const searchInput = document.querySelector(".categories-input");
-const categoriesSelect = document.querySelector(".categories-select");
+const categoriesSelect = document.querySelector("#drop-header");
 
 let page = 0;
 let loading = false;
@@ -27,19 +27,17 @@ window.addEventListener("beforeunload", () => {
   saveScrollPosition();
 });
 
-searchInput.addEventListener(
-  "input",
+searchInput.addEventListener("input",
   debounce(() => {
-    const query = searchInput.value.trim();
-    const category = categoriesSelect.value;
+    const query = searchInput.value;
+    const category = categoriesSelect.innerHTML;
     filterBy(query, category);
   }, 300)
 );
 
-categoriesSelect.addEventListener("change", () => {
+document.getElementById('input-search').addEventListener('input', function() {
   const query = searchInput.value.trim();
-  const category = categoriesSelect.value;
-  filterBy(query, category);
+  filterBy(query, );
 });
 
 document.querySelector(".scroll-top").addEventListener("click", () => {
@@ -125,7 +123,19 @@ async function loadNextPage() {
   saveScrollPosition();
 }
 
+function filter(category){
+  const query = searchInput.value;
+  filterBy(query, category);
+}
+
 function filterBy(query, category) {
+  if(category === 'All Categories'){
+    category = '';
+  }
+
+  console.log(query)
+  console.log(category)
+
   const cardContainer = document.getElementById("certificates-list");
   const certificates = cardContainer.querySelectorAll(".certificate-card");
   certificates.forEach((certificate) => {

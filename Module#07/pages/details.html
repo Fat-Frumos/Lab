@@ -33,16 +33,27 @@
     </div>
     <div class="search">
       <input type="text" class="categories-input" placeholder="Search by item name">
-      <select class="categories-select">
-        <option value="0" class="categories-option">All Categories</option>
-        <option value="1" class="categories-option">Cosmetics</option>
-        <option value="2" class="categories-option">Makeup</option>
-        <option value="3" class="categories-option">Course</option>
-        <option value="4" class="categories-option">Travel</option>
-        <option value="5" class="categories-option">Self-care</option>
-        <option value="6" class="categories-option">Culture</option>
-        <option value="7" class="categories-option">Anniversary</option>
-      </select>
+      <div class="dropdown">
+        <button onclick="toggleDropbox()" class="drop-button">
+          <span id="drop-header">All Categories</span>
+          <span class="material-symbols-search material-symbols-outlined">expand_more</span>
+        </button>
+        <div id="dropdown-search" class="dropdown-content">
+          <div class="search-icon">
+            <span class="material-symbols-search material-symbols-outlined">search</span>
+            <input type="text" placeholder="Search..." id="input-search" onkeydownEnter="category(value)"
+              onclick="filter(value)">
+          </div>
+          <a href="#" onclick="category('Cosmetics')" data-category="Cosmetics">Cosmetics</a>
+          <a href="#" onclick="category('Makeup')" data-category="Makeup">Makeup</a>
+          <a href="#" onclick="category('Celebration')" data-category="Celebration">Celebration</a>
+          <a href="#" onclick="category('Travel')" data-category="Travel">Travel</a>
+          <a href="#" onclick="category('Self-care')" data-category="Self-care">Self-care</a>
+          <a href="#" onclick="category('Culture')" data-category="Culture">Culture</a>
+          <a href="#" onclick="category('Holiday')" data-category="Holiday">Holiday</a>
+          <a href="#" onclick="category('Anniversary')" data-category="Anniversary">Anniversary</a>
+        </div>
+      </div>
     </div>
     <div class="user">
       <a class="material-symbols-outlined shop-icon">favorite</a>
