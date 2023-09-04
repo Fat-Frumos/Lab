@@ -1,3 +1,6 @@
+UserName, cards, input enter, order
+lighthouse
+
 # External Lab
 ## UI:
 ### HTML & CSS
@@ -28,7 +31,7 @@ https://www.figma.com/file/VxW7bN2LwE1rNTPONhmpEb/Lab?type=design&node-id=6-413&
 #### Generate coupons CSS
 `sass build-coupons.scss:../../css/coupons.css`
 
-#### All
+#### Generate all CSS
 `sass build-login.scss:../../css/login.css && sass build-register.scss:../../css/register.css && sass build-checkout.scss:../../css/checkout.css && sass build-details.scss:../../css/details.css && sass build-newcoupon.scss:../../css/newcoupon.css && sass build-coupons.scss:../../css/coupons.css`
 
 ## Task 2

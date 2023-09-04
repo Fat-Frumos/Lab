@@ -1,8 +1,8 @@
 .menu-open-button, .menu-item {
   left: 0;
-  top: 10px;
+  top: 11px;
   width: 30px;
-  height: 25px;
+  height: 30px;
   position: absolute;
   color: #757575;
   text-align: center;
@@ -223,6 +223,22 @@ button {
   font-size: 22px;
 }
 
+.counter {
+  font-size: 12px;
+  background-color: #ff5722;
+  color: white;
+  border-radius: 50%;
+  padding: 2px;
+  width: 11px;
+  text-align: center;
+  margin-left: 17px;
+  margin-top: -28px;
+  height: 11px;
+  position: absolute;
+  font-family: Roboto, sans-serif;
+  display: none;
+}
+
 svg {
   font-family: "Berlin Sans FB Demi", sans-serif;
 }
@@ -243,9 +259,10 @@ svg {
 }
 
 .menu-item:hover {
+  line-height: 27px;
   background: #808080;
   color: #ffffff;
-  border-radius: 50%;
+  border-radius: 100%;
 }
 .menu-item:nth-child(3) {
   transition-duration: 180ms;
@@ -353,14 +370,40 @@ svg {
   justify-content: space-between;
 }
 
+#user-span {
+  margin-right: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #757575;
+}
+
 .logo-label {
-  z-index: 5;
-  height: 35px;
-  margin-left: 50px;
-  align-items: center;
+  z-index: 2;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  margin-left: 45px;
+  margin-top: -7px;
+  justify-content: center;
+  transition: transform 0.2s ease-out;
+  background: url("logo2.svg") no-repeat center center;
   line-height: 29px;
   color: #000000;
   font-size: 24px;
+}
+
+.menu-open:checked + .logo .logo-name {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.logo-name {
+  z-index: 5;
+  width: 130px;
+  margin-left: -20px;
+  height: 55px;
+  transition: opacity 1s ease;
+  background: url("name.svg") no-repeat center center;
 }
 
 .menu-bar {
@@ -381,7 +424,7 @@ svg {
   width: 40px;
   height: 40px;
   left: 5px;
-  top: 15px;
+  top: 18px;
   border-radius: 100%;
   position: absolute;
   cursor: pointer;
@@ -439,9 +482,62 @@ svg {
 }
 
 .category {
-  width: 75px;
-  height: 75px;
-  background-color: #ffffff;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  margin: auto;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.category:hover .overlay {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+.category:hover span {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 0.5s ease, opacity 0.3s ease;
+}
+.category .overlay {
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  margin: auto;
+  width: 0px;
+  height: 0px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.category span {
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  margin: auto;
+  line-height: 30px;
+  width: 80px;
+  font-size: 14px;
+  padding: 0 auto;
+  border-radius: 3px;
+  background-color: black;
+  height: 30px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.5s ease, opacity 0.7s ease;
 }
 
 .user {
@@ -453,19 +549,27 @@ svg {
 .login {
   margin-right: 8px;
   color: #757575;
-  font-size: 13px;
+  font-size: 17px;
 }
 
 .signup {
   margin-right: 20px;
   color: #757575;
-  font-size: 13px;
+  font-size: 17px;
 }
 
 .shop-icon {
-  margin-right: 10px;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 100%;
   color: #757575;
   font-size: 15px;
+}
+
+.shop-icon:hover {
+  background: #808080;
+  color: #ffffff;
+  transition: 0.3s;
 }
 
 .wrapper {
@@ -532,6 +636,217 @@ svg {
 .form_wrap input[type=email]:focus,
 .form_wrap input[type=password]:focus {
   border-color: #e0e0e0;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  font-size: 16px;
+  right: 5px;
+  color: #999;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.modal-frame {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 50;
+  visibility: hidden;
+}
+
+.modal-body {
+  border-radius: 10px;
+  right: 0;
+  bottom: 0;
+  width: 500px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  margin-left: -250px;
+  height: 400px;
+  margin-top: -200px;
+  top: 50%;
+  z-index: 100;
+}
+
+.message {
+  text-align: center;
+  font-size: 18px;
+}
+
+.modal-inner {
+  transform: scale(0.95);
+  padding: 50px;
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  background: #333;
+  transition: 0.15s ease-in-out;
+}
+
+.modal-frame.active {
+  visibility: visible;
+  height: inherit;
+  display: block;
+}
+
+.modal-frame.active .modal-body {
+  -webkit-animation: popperIn 0.45s;
+  animation: popperIn 0.45s;
+}
+
+@-webkit-keyframes popperIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.06);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes popperIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes popperOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    -webkit-transform: scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.15);
+  }
+}
+@keyframes popperOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.15);
+  }
+}
+.modal-frame.active .modal-inner {
+  opacity: 1;
+  transform: scale(1);
+  transition: 0.15s ease-in-out;
+  transition-delay: 0.13s;
+}
+
+.modal-frame.active .modal-overlay {
+  opacity: 0.5;
+  visibility: visible;
+}
+
+.modal-frame.leave .modal-body {
+  opacity: 0;
+  animation: popperOut 0.5s;
+  transition: 0.3s ease-in-out;
+  transition-delay: 0.2s;
+  transform: scale(0.95);
+}
+
+.modal-frame.leave .modal-inner {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: 0.15s ease-in-out;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border-top: 4px solid #0177A9;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: spin 1s infinite linear;
+  display: none;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-top {
+  display: none;
+  position: fixed;
+  height: 60px;
+  width: 60px;
+  background-color: white;
+  bottom: 40px;
+  right: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.336);
+  transform: scale(0.9);
+  transition: 0.3s ease-in-out transform;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-top svg {
+  width: 50%;
+  color: black;
+  pointer-events: none;
+}
+
+.scroll-top:hover {
+  transform: scale(1);
+}
+
+.scroll-top.show {
+  display: flex;
 }
 
 /*# sourceMappingURL=register.css.map */

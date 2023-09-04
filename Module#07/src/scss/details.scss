@@ -1,5 +1,5 @@
 .details-wrapper {
-  padding-left: 15vw;
+  padding-left: 25vw;
   padding-top: 30px;
 }
 
@@ -16,7 +16,7 @@
 .image {
   margin-bottom: 20px;
   background: #e0e0e0;
-  @include box(50vw, 50vh);
+  @include box(auto, 600px);
 }
 
 .description {
@@ -29,8 +29,9 @@
   margin-left: 30px;
   padding: 10px 20px;
   box-sizing: border-box;
+  width: 320px;
+  min-height: 600px;
   background-color: $white-color;
-  @include box(310px, 50vh);
   @include font-height-color(17px, 22px, $desc-color);
 }
 

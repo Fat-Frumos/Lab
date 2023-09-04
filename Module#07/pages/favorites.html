@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is a favorites page's content.">
+  <title>Favorites</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="../css/coupons.css">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,500,1,0&display=swap">
+</head>
+
+<header class="header">
+  <div class="logo">
+    <div class="menu-button" onclick="toggleCheckbox()"></div>
+    <nav class="menu"></nav>
+    <div class="logo-label" id="logo-label"></div>
+    <div class="logo-name" id="logo-name"></div>
+  </div>
+
+  <div class="search" id="search"></div>
+  <div class="user">
+      <a href="favorites.html" class="material-symbols-outlined shop-icon">favorite
+          <span id="favorite-count" class="counter"></span></a>
+      <a href="checkout.html" class="material-symbols-outlined shop-icon">shopping_cart
+          <span id="cart-count" class="counter"></span></a>
+      <a href="#"><span id="user-span"></span>
+          <a href="login.html" id="login-link" class="login">&nbsp;Login</a>
+          <span class="">|&nbsp;</span>
+          <a href="register.html" class="signup">
+              <span class="">&nbsp;SignUp</span></a>
+  </div>
+</header>
+
+<body>
+  <div class="favorites-container" id="certificates-list">
+  </div>
+  <footer>
+    <div class="scroll-top">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
+      </svg>
+    </div>
+    <div class="spinner" id="loading-indicator"></div>
+  </footer>
+  <script src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+  <script src="../js/props.js"></script>
+  <script src="../js/index.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/createCards.js"></script>
+  <script src="../js/localStorage.js"></script>
+  <script src="../js/favorite.js"></script>
+  <script src="../js/header.js"></script>
+
+  <script>
+    counter();
+    updateLoginLink()
+  </script>
+
+  <script>
+
+
+    window.addEventListener("load", async () => {
+      const ids = getFromLocalStorage("favorites");
+      // const certificates = JSON.parse(localStorage.getItem("certificates"));
+      const loaded = await fetchCertificates(page);
+      console.log(loaded)
+      ids.forEach(id => { console.log(id) })
+      loaded.forEach(certificate => {
+        console.log(certificate.id)
+      });
+      // const favoriteCertificates = certificates.filter(certificate => ids.includes(certificate.id));
+
+      createCards(loaded);
+
+    })
+
+    async function fetchCertificates(page) {
+      try {
+        const response = await fetch(
+          `https://gift-store.onrender.com/api/certificates?page=${page}&size=25`
+        );
+        const data = await response.json();
+        const newCertificates = data._embedded.certificateDtoList;
+        if (Array.isArray(newCertificates)) {
+          return newCertificates;
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+  </script>
+</body>
+
+</html>

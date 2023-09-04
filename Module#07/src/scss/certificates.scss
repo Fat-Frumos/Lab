@@ -1,6 +1,7 @@
 img {
   transform: scale(1);
   transition: .6s ease-out;
+  cursor: pointer;
 }
 
 img:hover {
@@ -75,8 +76,10 @@ img:hover {
 }
 
 .certificate-icon {
+  z-index: 5;
   margin-right: 20px;
   color: $icon-color;
+  cursor: pointer;
   @include box(13px, 13px);
 }
 

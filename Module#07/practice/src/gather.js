@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Create a gather function that accepts a string argument and returns another function.
@@ -16,24 +16,23 @@
  *      gather('e')('l')('o')('l')('!')('h').order(5)(0)(1)(3)(2)(4).get()  ➞ 'hello'
  */
 
- function gather(str) {
-  const arr = [];
+function gather(str) {
+  const arr = [str];
   const ordered = [];
 
-  function build(str) {
+  const build = (str) => {
     arr.push(str);
     return build;
-  }
+  };
 
-  build.order = function (order) {
-    ordered.push(order);
+  build.order = (...order) => {
+    ordered.push(...order);
     return build.order;
   };
 
-  build.order.get = function () {
-    return ordered.map((order) => arr[order]).join('');
-  };
-  return build(str);
+  build.order.get = () => ordered.map((order) => arr[order]).join('');
+
+  return build;
 }
 
 module.exports = gather;

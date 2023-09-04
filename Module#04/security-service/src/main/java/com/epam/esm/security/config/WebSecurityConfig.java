@@ -73,13 +73,14 @@ public class WebSecurityConfig {
             final HttpSecurity http) throws Exception {
 
         return http
+                .csrf().disable()
                 .cors().configurationSource(corsConfigurationSource())
                 .and().headers().frameOptions().sameOrigin()
                 .and().authorizeHttpRequests(authorize ->
                         authorize.requestMatchers(PathRequest.toH2Console()).permitAll()
                                 .requestMatchers(POST, "/signup", "/logout", "/login").permitAll()
-                                .requestMatchers(GET, "/certificates/**").permitAll()
-                                .requestMatchers(GET, "/tags/**", "/orders/**", "/token/**").hasAnyAuthority(USER, ADMIN)
+                                .requestMatchers(GET, "/certificates/**", "/tags/**").permitAll()
+                                .requestMatchers(GET, "/orders/**", "/token/**").hasAnyAuthority(USER, ADMIN)
                                 .requestMatchers(POST, "/orders/**").hasAnyAuthority(USER, ADMIN)
                                 .requestMatchers(POST, "/users/**").hasAnyAuthority(ADMIN)
                                 .requestMatchers("/**").hasAuthority(ADMIN)
@@ -105,7 +106,7 @@ public class WebSecurityConfig {
      */
     private CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://192.168.31.177:5500", "http://127.0.0.1:5500", "http://127.0.0.1:8080"));
+        configuration.setAllowedOrigins(Arrays.asList("http://192.168.31.177:5500", "http://127.0.0.1:5500", "http://127.0.0.1:8080", "http://127.0.0.1:4200", "https://gift-store-certificate.netlify.app"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
         configuration.setAllowCredentials(true);

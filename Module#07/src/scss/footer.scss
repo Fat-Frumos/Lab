@@ -5,11 +5,12 @@
   border-radius: 100%;
   position: absolute;
   top: 0;
-  bottom: 10px;
+  bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
   animation: spin 1s infinite linear;
+  display: none;
 }
 
 @keyframes spin {

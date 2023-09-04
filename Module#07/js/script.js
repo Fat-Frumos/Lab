@@ -1,4 +1,3 @@
-const searchInput = document.querySelector(".categories-input");
 const categoriesSelect = document.querySelector("#drop-header");
 
 let page = 0;
@@ -19,25 +18,14 @@ const throttledScrollHandler = _.throttle(() => {
 window.addEventListener("scroll", throttledScrollHandler);
 
 window.addEventListener("load", () => {
+  updateLoginLink();
+  counter();
   restoreScrollPosition();
-  createCards(restoreCertificatesFromLocalStorage());
 });
 
 window.addEventListener("beforeunload", () => {
+
   saveScrollPosition();
-});
-
-searchInput.addEventListener("input",
-  debounce(() => {
-    const query = searchInput.value;
-    const category = categoriesSelect.innerHTML;
-    filterBy(query, category);
-  }, 300)
-);
-
-document.getElementById('input-search').addEventListener('input', function() {
-  const query = searchInput.value.trim();
-  filterBy(query, );
 });
 
 document.querySelector(".scroll-top").addEventListener("click", () => {
@@ -45,6 +33,7 @@ document.querySelector(".scroll-top").addEventListener("click", () => {
 });
 
 loadNextPage();
+
 
 async function fetchCertificates(page) {
   try {
@@ -59,14 +48,6 @@ async function fetchCertificates(page) {
   } catch (error) {
     console.error("Error fetching data:", error);
   }
-}
-
-function debounce(func, wait) {
-  let timeout;
-  return function (...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), wait);
-  };
 }
 
 function saveScrollPosition() {
@@ -85,30 +66,6 @@ function sortCertificatesByCreationDate(certificates) {
   certificates.sort((a, b) => new Date(b.createDate) - new Date(a.createDate));
 }
 
-function saveCertificatesToLocalStorage(certificates) {
-  let restored = restoreCertificatesFromLocalStorage();
-  if (restored.length === 0) {
-    restored = certificates;
-  }
-  const checked = checkDuplicate(restored, certificates);
-  sortCertificatesByCreationDate(checked);
-  localStorage.setItem("certificates", JSON.stringify(checked));
-}
-
-function restoreCertificatesFromLocalStorage() {
-  const savedCertificates = localStorage.getItem("certificates");
-  if (savedCertificates) {
-    return JSON.parse(savedCertificates);
-  } else {
-    return [];
-  }
-}
-
-function checkDuplicate(restored, loaded) {
-  const existed = new Set(restored.map((cert) => cert.id));
-  return loaded.filter((cert) => !existed.has(cert.id));
-}
-
 async function loadNextPage() {
   if (loading) return;
   loading = true;
@@ -121,32 +78,4 @@ async function loadNextPage() {
   page++;
   loading = false;
   saveScrollPosition();
-}
-
-function filter(category){
-  const query = searchInput.value;
-  filterBy(query, category);
-}
-
-function filterBy(query, category) {
-  if(category === 'All Categories'){
-    category = '';
-  }
-
-  console.log(query)
-  console.log(category)
-
-  const cardContainer = document.getElementById("certificates-list");
-  const certificates = cardContainer.querySelectorAll(".certificate-card");
-  certificates.forEach((certificate) => {
-    const dataTags = certificate.getAttribute("data-tags").split(", ");
-    const found = dataTags.some((tag) => tag.toLowerCase() === category.toLowerCase());
-
-    const name = certificate.querySelector(".certificate-name").textContent.toLowerCase();
-    const description = certificate.querySelector(".certificate-description").textContent.toLowerCase();
-    const queryMatch = name.includes(query.toLowerCase()) || description.includes(query.toLowerCase());
-    certificate.style.display =
-      (category === "" || found) && (query === "" || queryMatch)
-        ? "block" : "none";
-  });
 }

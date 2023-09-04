@@ -3,9 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is a Details of page's content">
   <title>Details</title>
+  <link rel="manifest" href="../manifest.json">
   <link rel="stylesheet" href="../css/details.css">
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,500,1,0">
@@ -15,93 +19,121 @@
   <header class="header">
     <div class="logo">
       <div class="menu-button" onclick="toggleCheckbox()"></div>
-      <nav class="menu">
-        <input type="checkbox" class="menu-open" name="menu-open" id="menu-open">
-        <label class="menu-open-button" for="menu-open">
-          <span class="hamburger hamburger-1"></span>
-          <span class="hamburger hamburger-2"></span>
-          <span class="hamburger hamburger-3"></span>
-        </label>
-        <a href="../index.html" class="material-symbols-outlined menu-item">home</a>
-        <a href="details.html" class="material-symbols-outlined menu-item">playlist_add_check</a>
-        <a href="addnew.html" class="material-symbols-outlined menu-item">add_to_drive</a>
-        <a href="checkout.html" class="material-symbols-outlined menu-item">shopping_cart_checkout</a>
-        <a href="register.html" class="material-symbols-outlined menu-item">person_add</a>
-        <a href="login.html" class="material-symbols-outlined menu-item">login</a>
-      </nav>
-      <div class="logo-label">Logo</div>
-    </div>
-    <div class="search">
-      <input type="text" class="categories-input" placeholder="Search by item name">
-      <div class="dropdown">
-        <button onclick="toggleDropbox()" class="drop-button">
-          <span id="drop-header">All Categories</span>
-          <span class="material-symbols-search material-symbols-outlined">expand_more</span>
-        </button>
-        <div id="dropdown-search" class="dropdown-content">
-          <div class="search-icon">
-            <span class="material-symbols-search material-symbols-outlined">search</span>
-            <input type="text" placeholder="Search..." id="input-search" onkeydownEnter="category(value)"
-              onclick="filter(value)">
-          </div>
-          <a href="#" onclick="category('Cosmetics')" data-category="Cosmetics">Cosmetics</a>
-          <a href="#" onclick="category('Makeup')" data-category="Makeup">Makeup</a>
-          <a href="#" onclick="category('Celebration')" data-category="Celebration">Celebration</a>
-          <a href="#" onclick="category('Travel')" data-category="Travel">Travel</a>
-          <a href="#" onclick="category('Self-care')" data-category="Self-care">Self-care</a>
-          <a href="#" onclick="category('Culture')" data-category="Culture">Culture</a>
-          <a href="#" onclick="category('Holiday')" data-category="Holiday">Holiday</a>
-          <a href="#" onclick="category('Anniversary')" data-category="Anniversary">Anniversary</a>
-        </div>
-      </div>
-    </div>
-    <div class="user">
-      <a class="material-symbols-outlined shop-icon">favorite</a>
-      <a class="material-symbols-outlined shop-icon">shopping_cart</a>
-      <a href="login.html" class="login">Login</a>
-      <span class="">|&nbsp;&nbsp;</span>
-      <a href="register.html" class="signup">SignUp</a>
-    </div>
-  </header>
-  <div class="details-wrapper">
-    <div class="details-group">
-      <div class="image"></div>
-      <div class="item-details">
-        <div class="more-description">
-          <h3>Coupon Name</h3>
-          <p>
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Suspendisse rhoncus elementum
-            augue, at cursus purus efficitur sit
-            amet. Nullam et leo et sem consequat
-            molestie quis quis ipsum
-          </p>
-          <div class="time-left">Time Left To Buy</div>
-          <div class="time">12 days 14 hours</div>
-          <div class="cart">
-            <div class="price">$235</div>
-            <a href="checkout.html" class="add-to-cart">Add to Cart
-              <span class="material-symbols-outlined add-icon">shopping_cart</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      <nav class="menu"></nav>
+      <div class="logo-label" id="logo-label"></div>
+      <div class="logo-name" id="logo-name"></div>
     </div>
 
-    <div class="item-title">Item Detailed Description</div>
-    <div class="description">
-      <p>
-        Vivamus ac efficitur massa. Nulla a turpis aliquam, ultricies ex eu, iaculis sapien. Suspendisse sed augue
-        blandit, finibus eros id, egestas tortor. Nam finibus semper metus non eleifend. Nunc placerat vulputate elit.
-        Nunccursus malesuada accumsan. In vitae nibh id massa venenatis commodo vel vel ipsum. Donec tincidunt vehicula
-        turpis,
-        at dictum massa vehicula ac. Mauris eget sapien sed est faucibus lacinia. Nullam dictum a neque in interdum.
-        Nullam eleifend ut magna sit amet egestas.
-      </p>
+    <div class="search" id="search"></div>
+    <div class="user">
+        <a href="favorites.html" class="material-symbols-outlined shop-icon">favorite
+            <span id="favorite-count" class="counter"></span></a>
+        <a href="checkout.html" class="material-symbols-outlined shop-icon">shopping_cart
+            <span id="cart-count" class="counter"></span></a>
+        <a href="#"><span id="user-span"></span>
+            <a href="login.html" id="login-link" class="login">&nbsp;Login</a>
+            <span class="">|&nbsp;</span>
+            <a href="register.html" class="signup">
+                <span class="">&nbsp;SignUp</span></a>
     </div>
-  </div>
+  </header>
+  <div id="certificates-container"></div>
   <footer class="single-page-footer"></footer>
+  <script src="../js/props.js"></script>
   <script src="../js/index.js"></script>
+  <script src="../js/localStorage.js"></script>
+  <script src="../js/favorite.js"></script>
+  <script src="../js/header.js"></script>
+  <script>
+    counter();
+    updateLoginLink();
+
+    window.addEventListener("load", async () => {
+      const storedCertificate = localStorage.getItem('certificate');
+      if (storedCertificate) {
+        const certificate = JSON.parse(storedCertificate);
+        console.log(certificate);
+        createCertificate(certificate);
+      }
+    })
+
+    function createCertificate(certificate) {
+      const container = document.getElementById("certificates-container");
+      const detailsWrapper = document.createElement("div");
+      detailsWrapper.className = "details-wrapper";
+
+      const detailsGroup = document.createElement("div");
+      detailsGroup.className = "details-group";
+
+      const image = document.createElement("img");
+
+      image.className = "image";
+      image.src = certificate.path.replace('/300/', '/600/');
+      detailsGroup.appendChild(image);
+
+      const itemDetails = document.createElement("div");
+      itemDetails.className = "item-details";
+
+      const moreDescription = document.createElement("div");
+      moreDescription.className = "more-description";
+
+      const h3 = document.createElement("h3");
+      h3.textContent = certificate.name;
+      moreDescription.appendChild(h3);
+
+      const p = document.createElement("p");
+      p.textContent = certificate.description;
+      moreDescription.appendChild(p);
+
+      const timeLeft = document.createElement("div");
+      timeLeft.className = "time-left";
+      timeLeft.textContent = "Time Left To Buy";
+      moreDescription.appendChild(timeLeft);
+
+      const time = document.createElement("div");
+      time.className = "time";
+      time.textContent = `${certificate.duration} ${certificate.duration > 1 ? "days" : "day"}`;
+      moreDescription.appendChild(time);
+
+      const cart = document.createElement("div");
+      cart.className = "cart";
+
+      const price = document.createElement("div");
+      price.className = "price";
+      price.textContent = `$${certificate.price}`;
+      cart.appendChild(price);
+
+      const addToCart = document.createElement("a");
+      addToCart.className = "add-to-cart";
+      addToCart.href = "checkout.html";
+      addToCart.textContent = "Add to Cart";
+
+      const addIcon = document.createElement("span");
+      addIcon.className = "material-symbols-outlined add-icon";
+      addIcon.textContent = "shopping_cart";
+      addToCart.appendChild(addIcon);
+
+      cart.appendChild(addToCart);
+
+      moreDescription.appendChild(cart);
+
+      itemDetails.appendChild(moreDescription);
+      detailsGroup.appendChild(itemDetails);
+      detailsWrapper.appendChild(detailsGroup);
+
+      const itemTitle = document.createElement("div");
+      itemTitle.className = "item-title";
+      itemTitle.textContent = "Item Detailed Description";
+      detailsWrapper.appendChild(itemTitle);
+
+      const description = document.createElement("div");
+      description.className = "description";
+      description.innerHTML = certificate.description;
+      detailsWrapper.appendChild(description);
+
+      container.appendChild(detailsWrapper);
+    }
+  </script>
 </body>
+
 </html>
