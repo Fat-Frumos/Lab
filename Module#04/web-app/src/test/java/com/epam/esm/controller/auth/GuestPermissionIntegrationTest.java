@@ -33,6 +33,7 @@ class GuestPermissionIntegrationTest {
     private final Long id = 1100L;
     private final String guest = "ROLE_GUEST";
     private final String forbidden = "{\"statusCode\":\"FORBIDDEN\",\"errorMessage\":\"Access Denied\"}";
+    private final String unauthorized = "{\"statusCode\":\"UNAUTHORIZED\",\"errorMessage\":\"Unauthorized\"}";
 
     @BeforeEach
     void logoutBeforeTest() {
@@ -69,7 +70,7 @@ class GuestPermissionIntegrationTest {
         List<MockHttpServletRequestBuilder> httpRequests = getCrudHttpRequests(host);
         for (int i = 1; i < httpRequests.size(); i++) {
             mockMvc.perform(httpRequests.get(i)).andExpect(status().is4xxClientError())
-                    .andExpect(content().json(forbidden));
+                    .andExpect(content().json(unauthorized));
         }
     }
 
@@ -80,7 +81,7 @@ class GuestPermissionIntegrationTest {
         List<MockHttpServletRequestBuilder> httpRequests = getCrudHttpRequests(host);
         for (int i = 1; i < httpRequests.size(); i++) {
             mockMvc.perform(httpRequests.get(i)).andExpect(status().is4xxClientError())
-                    .andExpect(content().json(forbidden));
+                    .andExpect(content().json(unauthorized));
         }
     }
 

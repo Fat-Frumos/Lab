@@ -9,7 +9,7 @@ async function login(username, password) {
   loginForm.style.display = "none";
   spinner.style.display = "block";
   try {
-    const response = await fetch("https://gift-store.onrender.com/api/login", {
+    const response = await fetch(`${host}/login`, {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers,

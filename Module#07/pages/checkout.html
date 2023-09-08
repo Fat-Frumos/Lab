@@ -18,86 +18,35 @@
     <div class="logo">
       <div class="menu-button" onclick="toggleCheckbox()"></div>
       <nav class="menu"></nav>
-      <div class="logo-label" id="logo-label"></div>
+      <a href="/" class="logo-label" id="logo-label"></a>
       <div class="logo-name" id="logo-name"></div>
     </div>
-
     <div class="search" id="search"></div>
-    <div class="user">
-        <a href="favorites.html" class="material-symbols-outlined shop-icon">favorite
-            <span id="favorite-count" class="counter"></span></a>
-        <a href="checkout.html" class="material-symbols-outlined shop-icon">shopping_cart
-            <span id="cart-count" class="counter"></span></a>
-        <a href="#"><span id="user-span"></span>
-            <a href="login.html" id="login-link" class="login">&nbsp;Login</a>
-            <span class="">|&nbsp;</span>
-            <a href="register.html" class="signup">
-                <span class="">&nbsp;SignUp</span></a>
-    </div>
+    <div class="user"></div>
   </header>
   <div class="add-new-title">Checkout</div>
-  <form class="form-wrapper" action="https://gift-store.onrender.com/api/orders" method="post">
-    <div class="checkout-wrapper">
-      <div class="item-coupon">
-        <div class="image-small"></div>
-        <article>
-          <h3 class="coupon-name">Coupon Name</h3>
-          <p class="coupon-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et
-            dolore magna aliqua.</p>
-        </article>
-        <div class="coupon-price">$200</div>
-      </div>
-
-      <div class="item-coupon">
-        <div class="image-small"></div>
-        <article>
-          <h3 class="coupon-name">Coupon Name</h3>
-          <p class="coupon-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et
-            dolore magna aliqua.</p>
-        </article>
-        <div class="coupon-price">$120</div>
-      </div>
-
-      <div class="item-coupon">
-        <div class="image-small"></div>
-        <article>
-          <h3 class="coupon-name">Coupon Name</h3>
-          <p class="coupon-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et
-            dolore magna aliqua.</p>
-        </article>
-        <div class="coupon-price">$40</div>
-      </div>
-      <hr class="divider">
-      <div class="checkout-confirm">
-        <div class="checkout-grp">
-          <div class="coupon-total-price">Total</div>
-          <div class="coupon-total-price">$360</div>
-        </div>
-        <div class="checkout-grp">
-          <button class="button-back submit_btn">
-            <span class="button-label">Back</span>
-          </button>
-          <button class="button-save submit_btn">
-            <span class="button-label">Checkout</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </form>
+  <main class="favorites-container container" id="container">
+    <div id="certificates-list"></div>
+    <di class="form-wrapper">
+      <div class="checkout-wrapper"></div>
+    </di>
+  </main>
   <footer class="single-page-footer"></footer>
   <script src="../js/props.js"></script>
+  <script src="../js/createMenu.js"></script>
+  <script>
+    createUser(userLinks, "");
+    createLink(menuItems, "");
+  </script>
   <script src="../js/index.js"></script>
+  <script src="../js/createMenu.js"></script>
   <script src="../js/localStorage.js"></script>
   <script src="../js/favorite.js"></script>
   <script src="../js/header.js"></script>
-
+  <script src="../js/checkout.js"></script>
   <script>
     counter();
     updateLoginLink()
   </script>
 </body>
-
 </html>

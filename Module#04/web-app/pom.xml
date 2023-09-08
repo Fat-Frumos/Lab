@@ -8,7 +8,7 @@
         <artifactId>certificate</artifactId>
         <version>1.0.0</version>
     </parent>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <artifactId>web-app</artifactId>
     <version>1.0.0</version>
     <name>web-app</name>
@@ -105,20 +105,6 @@
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.7.0.1746</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.2</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <server>maven-tomcat-war-deployment-server</server>
-                    <update>true</update>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -19,25 +19,13 @@
     <div class="logo">
       <div class="menu-button" onclick="toggleCheckbox()"></div>
       <nav class="menu"></nav>
-      <div class="logo-label" id="logo-label"></div>
+      <a href="/" class="logo-label" id="logo-label"></a>
       <div class="logo-name" id="logo-name"></div>
     </div>
-
     <div class="search" id="search"></div>
-    <div class="user">
-        <a href="favorites.html" class="material-symbols-outlined shop-icon">favorite
-            <span id="favorite-count" class="counter"></span></a>
-        <a href="checkout.html" class="material-symbols-outlined shop-icon">shopping_cart
-            <span id="cart-count" class="counter"></span></a>
-        <a href="#"><span id="user-span"></span>
-            <a href="login.html" id="login-link" class="login">&nbsp;Login</a>
-            <span class="">|&nbsp;</span>
-            <a href="register.html" class="signup">
-                <span class="">&nbsp;SignUp</span></a>
-    </div>
+    <div class="user"></div>
   </header>
-  
-  <form id="login-form" class="main-wrapper" action="https://gift-store.onrender.com/api/login" method="post">
+  <form id="login-form" class="main-wrapper" action="<%= host %>/login" method="post">
     <div class="circle">
       <div class="logo-avatar">Logo</div>
     </div>
@@ -47,7 +35,7 @@
       <span class="login-label">Login</span>
     </button>
   </form>
-  
+
   <div class="spinner" id="loading-indicator"></div>
 
   <div class="modal-frame">
@@ -64,6 +52,11 @@
 
   <footer class="single-page-footer"></footer>
   <script src="../js/props.js"></script>
+  <script src="../js/createMenu.js"></script>
+  <script>
+    createUser(userLinks, '');
+    createLink(menuItems, '');
+  </script>
   <script src="../js/header.js"></script>
   <script src="../js/index.js"></script>
   <script src="../js/login.js"></script>

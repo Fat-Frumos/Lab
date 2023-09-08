@@ -43,7 +43,9 @@ creating the project's artifacts, and verifying their correctness.
 
 `mvn install tomcat7:deploy -X`
 
-`mvn tomcat7:run  -DskipTests`
+`java -jar -Dspring.profiles.active=prod web-app-1.0.0.jar --thin.dryrun`
+
+`mvn tomcat7:run -DskipTests`
 
 `mvn test jacoco:report`
 
@@ -244,3 +246,5 @@ Users should be stored in a database with some basic information and a password.
 
 (Optional task) It's allowed to use Spring Data. 
  - Requirement for this task - all repository (and existing ones) should be migrated to Spring Data.
+
+ 

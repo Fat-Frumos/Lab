@@ -24,7 +24,6 @@ window.addEventListener("load", () => {
 });
 
 window.addEventListener("beforeunload", () => {
-
   saveScrollPosition();
 });
 
@@ -32,13 +31,10 @@ document.querySelector(".scroll-top").addEventListener("click", () => {
   window.scrollTo(0, 0);
 });
 
-loadNextPage();
-
-
 async function fetchCertificates(page) {
   try {
     const response = await fetch(
-      `https://gift-store.onrender.com/api/certificates?page=${page}&size=25`
+      `${host}/certificates?page=${page}&size=25`
     );
     const data = await response.json();
     const newCertificates = data._embedded.certificateDtoList;
@@ -72,10 +68,15 @@ async function loadNextPage() {
   const spinner = document.getElementById("loading-indicator");
   spinner.style.display = "block";
   const loaded = await fetchCertificates(page);
-  saveCertificatesToLocalStorage(loaded);
-  createCards(loaded);
+  if(JSON.stringify(loaded).length !==0){
+    saveCertificatesToLocalStorage(loaded);
+    createCards(loaded);
+  }
+  
   spinner.style.display = "none";
   page++;
   loading = false;
   saveScrollPosition();
 }
+
+loadNextPage();

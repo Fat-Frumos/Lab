@@ -5,6 +5,19 @@ lighthouse
 ## UI:
 ### HTML & CSS
 
+## Task 3 Angular
+#### Init
+ng --version
+ng new store
+
+#### Build source profiler prod
+npm run build -- --prod
+
+### Remote Deploy
+https://gift-store.onrender.com/api/
+switch host in index.js
+
+
 ### Figma
 https://www.figma.com/file/VxW7bN2LwE1rNTPONhmpEb/Lab?type=design&node-id=6-413&mode=design&t=4etM9aREBil1JpqO-0
 

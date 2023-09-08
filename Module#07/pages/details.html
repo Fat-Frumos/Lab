@@ -20,26 +20,20 @@
     <div class="logo">
       <div class="menu-button" onclick="toggleCheckbox()"></div>
       <nav class="menu"></nav>
-      <div class="logo-label" id="logo-label"></div>
+      <a href="/" class="logo-label" id="logo-label"></a>
       <div class="logo-name" id="logo-name"></div>
     </div>
-
     <div class="search" id="search"></div>
-    <div class="user">
-        <a href="favorites.html" class="material-symbols-outlined shop-icon">favorite
-            <span id="favorite-count" class="counter"></span></a>
-        <a href="checkout.html" class="material-symbols-outlined shop-icon">shopping_cart
-            <span id="cart-count" class="counter"></span></a>
-        <a href="#"><span id="user-span"></span>
-            <a href="login.html" id="login-link" class="login">&nbsp;Login</a>
-            <span class="">|&nbsp;</span>
-            <a href="register.html" class="signup">
-                <span class="">&nbsp;SignUp</span></a>
-    </div>
+    <div class="user"></div>
   </header>
   <div id="certificates-container"></div>
   <footer class="single-page-footer"></footer>
+  <script src="../js/createMenu.js"></script>
   <script src="../js/props.js"></script>
+  <script>
+    createUser(userLinks, '');
+    createLink(menuItems, '');
+  </script>
   <script src="../js/index.js"></script>
   <script src="../js/localStorage.js"></script>
   <script src="../js/favorite.js"></script>
@@ -49,91 +43,13 @@
     updateLoginLink();
 
     window.addEventListener("load", async () => {
-      const storedCertificate = localStorage.getItem('certificate');
-      if (storedCertificate) {
-        const certificate = JSON.parse(storedCertificate);
-        console.log(certificate);
-        createCertificate(certificate);
+      const certificate = localStorage.getItem('certificate');
+      if (certificate) {
+        createDetails(JSON.parse(certificate));
       }
     })
-
-    function createCertificate(certificate) {
-      const container = document.getElementById("certificates-container");
-      const detailsWrapper = document.createElement("div");
-      detailsWrapper.className = "details-wrapper";
-
-      const detailsGroup = document.createElement("div");
-      detailsGroup.className = "details-group";
-
-      const image = document.createElement("img");
-
-      image.className = "image";
-      image.src = certificate.path.replace('/300/', '/600/');
-      detailsGroup.appendChild(image);
-
-      const itemDetails = document.createElement("div");
-      itemDetails.className = "item-details";
-
-      const moreDescription = document.createElement("div");
-      moreDescription.className = "more-description";
-
-      const h3 = document.createElement("h3");
-      h3.textContent = certificate.name;
-      moreDescription.appendChild(h3);
-
-      const p = document.createElement("p");
-      p.textContent = certificate.description;
-      moreDescription.appendChild(p);
-
-      const timeLeft = document.createElement("div");
-      timeLeft.className = "time-left";
-      timeLeft.textContent = "Time Left To Buy";
-      moreDescription.appendChild(timeLeft);
-
-      const time = document.createElement("div");
-      time.className = "time";
-      time.textContent = `${certificate.duration} ${certificate.duration > 1 ? "days" : "day"}`;
-      moreDescription.appendChild(time);
-
-      const cart = document.createElement("div");
-      cart.className = "cart";
-
-      const price = document.createElement("div");
-      price.className = "price";
-      price.textContent = `$${certificate.price}`;
-      cart.appendChild(price);
-
-      const addToCart = document.createElement("a");
-      addToCart.className = "add-to-cart";
-      addToCart.href = "checkout.html";
-      addToCart.textContent = "Add to Cart";
-
-      const addIcon = document.createElement("span");
-      addIcon.className = "material-symbols-outlined add-icon";
-      addIcon.textContent = "shopping_cart";
-      addToCart.appendChild(addIcon);
-
-      cart.appendChild(addToCart);
-
-      moreDescription.appendChild(cart);
-
-      itemDetails.appendChild(moreDescription);
-      detailsGroup.appendChild(itemDetails);
-      detailsWrapper.appendChild(detailsGroup);
-
-      const itemTitle = document.createElement("div");
-      itemTitle.className = "item-title";
-      itemTitle.textContent = "Item Detailed Description";
-      detailsWrapper.appendChild(itemTitle);
-
-      const description = document.createElement("div");
-      description.className = "description";
-      description.innerHTML = certificate.description;
-      detailsWrapper.appendChild(description);
-
-      container.appendChild(detailsWrapper);
-    }
   </script>
+  <script src="../js/details.js"></script>
 </body>
 
 </html>

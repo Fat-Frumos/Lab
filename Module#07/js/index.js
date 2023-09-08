@@ -1,3 +1,10 @@
+// const host = "http://localhost:8080/api";
+const host = "https://gift-store.onrender.com/api";
+function goBack() {
+  window.history.back();
+  document.getElementById("menu-open").checked = false;
+}
+
 function showDetails(certificate) {
   localStorage.removeItem("certificate");
   localStorage.setItem("certificate", JSON.stringify(certificate));

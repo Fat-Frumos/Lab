@@ -2,104 +2,98 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="theme-color">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This is a Details of page's content">
-    <title>Add new</title>
-    <link rel="manifest" href="../manifest.json">
-    <link rel="stylesheet" href="../css/newcoupon.css">
-    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,500,1,0">
+  <meta charset="UTF-8">
+  <meta name="theme-color">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is a Details of page's content">
+  <title>Add new</title>
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../css/newcoupon.css">
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,500,1,0">
 </head>
 
 <body class="white-theme">
-    <header class="header">
-        <div class="logo">
-            <div class="menu-button" onclick="toggleCheckbox()"></div>
-            <nav class="menu"></nav>
-            <div class="logo-label" id="logo-label"></div>
-            <div class="logo-name" id="logo-name"></div>
+  <header class="header">
+    <div class="logo">
+      <div class="menu-button" onclick="toggleCheckbox()"></div>
+      <nav class="menu"></nav>
+      <a href="/" class="logo-label" id="logo-label"></a>
+      <div class="logo-name" id="logo-name"></div>
+    </div>
+    <div class="search" id="search"></div>
+    <div class="user"></div>
+  </header>
+  <div class="add-new-title">Add new Coupon</div>
+  <form action=${host}+"/signup" method="post">
+    <div class="add-new-wrapper">
+      <div class="column">
+        <div class="row-grp">
+          <label class="input-label" for="company">Company</label>
+          <input type="text" id="company" class="input-company" name="company" required>
+          <label class="input-label" for="category">
+            <span class="material-symbols-outlined input-prefix">expand_more</span>
+            Category</label>
+          <select id="category" class="select-category">
+            <option value="0" class="categories-option">Category Name</option>
+            <option value="1" class="categories-option">Cosmetics</option>
+            <option value="2" class="categories-option">Makeup</option>
+            <option value="3" class="categories-option">Course</option>
+            <option value="4" class="categories-option">Travel</option>
+            <option value="5" class="categories-option">Self-care</option>
+            <option value="6" class="categories-option">Culture</option>
+            <option value="7" class="categories-option">Anniversary</option>
+          </select>
+          <label class="input-label" for="expired-date">
+            <span class="material-symbols-outlined input-prefix">event</span>
+            Valid to</label>
+          <input type="date" id="expired-date" class="input-expired-date" value="2020-12-12" name="expired-date"
+            required>
+          <label class="input-label" for="price">Price</label>
+          <input type="text" id="price" class="input-price" name="price" required>
+          <label class="input-label" for="images">Images</label>
+          <label class="custom-file-upload">
+            <input id="images" type="file" name="image">
+            <span class="material-symbols-outlined">photo_library</span>
+          </label>
         </div>
+        <div class="row-grp">
+          <label class="input-label" for="item-name">Item Name</label>
+          <input type="text" id="item-name" class="input-itemname" name="item-name" required>
+          <label class="input-label" for="long-desc">Long Description</label>
+          <textarea id="long-desc" class="input-desc" name="long-desc" required></textarea>
+          <label class="input-label" for="short-desc">Short Description</label>
+          <textarea id="short-desc" class="input-desc" name="short-desc" required></textarea>
+          <div class="confirm">
+            <button class="button-back submit_btn" type="reset" onclick="goBack()">
+              <span class="button-label">Back</span>
+            </button>
+            <button class="button-save submit_btn">
+              <span class="button-label">Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <footer class="single-page-footer"></footer>
+  <script src="../js/props.js"></script>
+  <script src="../js/createMenu.js"></script>
+  <script>
+    createUser(userLinks, '');
+    createLink(menuItems, '');
+  </script>
+  <script src="../js/index.js"></script>
+  <script src="../js/localStorage.js"></script>
+  <script src="../js/favorite.js"></script>
+  <script src="../js/header.js"></script>
 
-        <div class="search" id="search"></div>
-        <div class="user">
-            <a href="favorites.html" class="material-symbols-outlined shop-icon">favorite
-                <span id="favorite-count" class="counter"></span></a>
-            <a href="checkout.html" class="material-symbols-outlined shop-icon">shopping_cart
-                <span id="cart-count" class="counter"></span></a>
-            <a href="#"><span id="user-span"></span>
-                <a href="login.html" id="login-link" class="login">&nbsp;Login</a>
-                <span class="">|&nbsp;</span>
-                <a href="register.html" class="signup">
-                    <span class="">&nbsp;SignUp</span></a>
-        </div>
-    </header>
-    <div class="add-new-title">Add new Coupon</div>
-    <form action="https://gift-store.onrender.com/api/signup" method="post">
-        <div class="add-new-wrapper">
-            <div class="column">
-                <div class="row-grp">
-                    <label class="input-label" for="company">Company</label>
-                    <input type="text" id="company" class="input-company" name="company" required>
-                    <label class="input-label" for="category">
-                        <span class="material-symbols-outlined input-prefix">expand_more</span>
-                        Category</label>
-                    <select id="category" class="select-category">
-                        <option value="0" class="categories-option">Category Name</option>
-                        <option value="1" class="categories-option">Cosmetics</option>
-                        <option value="2" class="categories-option">Makeup</option>
-                        <option value="3" class="categories-option">Course</option>
-                        <option value="4" class="categories-option">Travel</option>
-                        <option value="5" class="categories-option">Self-care</option>
-                        <option value="6" class="categories-option">Culture</option>
-                        <option value="7" class="categories-option">Anniversary</option>
-                    </select>
-                    <label class="input-label" for="expired-date">
-                        <span class="material-symbols-outlined input-prefix">event</span>
-                        Valid to</label>
-                    <input type="date" id="expired-date" class="input-expired-date" value="2020-12-12"
-                        name="expired-date" required>
-                    <label class="input-label" for="price">Price</label>
-                    <input type="text" id="price" class="input-price" name="price" required>
-                    <label class="input-label" for="images">Images</label>
-                    <label class="custom-file-upload">
-                        <input id="images" type="file" name="image">
-                        <span class="material-symbols-outlined">photo_library</span>
-                    </label>
-                </div>
-                <div class="row-grp">
-                    <label class="input-label" for="item-name">Item Name</label>
-                    <input type="text" id="item-name" class="input-itemname" name="item-name" required>
-                    <label class="input-label" for="long-desc">Long Description</label>
-                    <textarea id="long-desc" class="input-desc" name="long-desc" required></textarea>
-                    <label class="input-label" for="short-desc">Short Description</label>
-                    <textarea id="short-desc" class="input-desc" name="short-desc" required></textarea>
-                    <div class="confirm">
-                        <button class="button-back submit_btn">
-                            <span class="button-label">Back</span>
-                        </button>
-                        <button class="button-save submit_btn">
-                            <span class="button-label">Save</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    <footer class="single-page-footer"></footer>
-    <script src="../js/props.js"></script>
-    <script src="../js/index.js"></script>
-    <script src="../js/localStorage.js"></script>
-    <script src="../js/favorite.js"></script>
-    <script src="../js/header.js"></script>
-
-    <script>
-        counter();
-        updateLoginLink()
-    </script>
+  <script>
+    counter();
+    updateLoginLink()
+  </script>
 </body>
 
 </html>

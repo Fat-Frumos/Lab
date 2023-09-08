@@ -35,7 +35,8 @@ function createPrice(mainPrice, id) {
   price.textContent = mainPrice;
   group.appendChild(price);
   const addButton = document.createElement("button");
-  addButton.className = "add-button";
+  addButton.className = "add-button favorite";
+  addButton.id = "add-button-" + id;
   addButton.value = "";
   addButton.type = "";
   const addLabel = document.createElement("p");
@@ -65,8 +66,7 @@ function createDescription(desc, lastUpdate) {
 function createCards(certificates) {
   const certificatesList = document.getElementById("certificates-list");
   certificates.forEach((certificate) => {
-    const card = document.createElement("form");
-    // card.action = "";
+    const card = document.createElement("div");
     card.className = "certificate-card";
     const params = new Map();
     const tags = certificate.tags.map((tag) => tag.name).join(", ");
@@ -86,11 +86,22 @@ function createCards(certificates) {
 
 function updateFavoriteIcons() {
   const username = localStorage.getItem("user");
-  const userFavorites = getFromLocalStorage(`favorites_${username}`) || [];
+  const userFavorites = getFromLocalStorage(`favorite_${username}`) || [];
   userFavorites.forEach((id) => {
     const icon = document.getElementById(id);
     if (icon) {
       icon.innerText = "heart_plus";
+    }
+  });
+
+  const buttons = getFromLocalStorage(`cart_${username}`) || [];
+
+  buttons.forEach((id) => {
+    const button = document.getElementById("add-button-" + id);
+    if (button) {
+      const classes = button.classList;
+      classes.remove(classes[classes.length - 1]);
+      classes.add("heart_plus");
     }
   });
 }

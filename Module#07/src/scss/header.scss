@@ -9,7 +9,6 @@
 }
 
 #user-span {
-  margin-right: 8px;
   font-size: 17px;
   font-weight: 700;
   color: #757575;
@@ -28,7 +27,7 @@
   @include font-height-color(24px, 29px, $black-color);
 }
 
-.menu-open:checked + .logo .logo-name {
+.menu-open:checked + .logo-name {
   opacity: 0;
   transition: opacity 0.5s ease;
 }

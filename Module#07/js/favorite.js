@@ -1,41 +1,67 @@
 function addToFavorite(id) {
+  add(id, "favorite");
+}
+
+function add(id, name) {
+  let text = "";
   const username = localStorage.getItem("user");
-  const userFavorites = getFromLocalStorage(`favorites_${username}`) || [];
-  if (!userFavorites.includes(id)) {
-    userFavorites.push(id);
-    saveFavorites(username, userFavorites);
-    document.getElementById(id).innerText = "heart_plus";
+  const storage = getFromLocalStorage(`${name}_${username}`) || [];
+  if (!storage.includes(id)) {
+    storage.push(id);
+    text = save(username, storage, name);
   } else {
-    removeToFavorite(username, userFavorites, id);
+    text = remove(username, storage, name, id);
+  }
+
+  if (name === "favorite") {
+    document.getElementById(id).innerText = text;
+  }
+
+  if (name === "cart") {
+    const classes = document.getElementById("add-button-" + id).classList;
+    classes.remove(classes[classes.length - 1]);
+    classes.add(text);
   }
   counter();
 }
 
+function save(username, storage, name) {
+  localStorage.setItem(`${name}_${username}`, JSON.stringify(storage));
+  return "heart_plus";
+}
+
+function remove(username, favorites, name, id) {
+  const index = favorites.indexOf(id);
+  if (index !== -1) {
+    favorites.splice(index, 1);
+    save(username, favorites, name);
+    return "favorite";
+  }
+}
+
+function addToCarts(id) {
+  add(id, "cart");
+}
 
 function counter() {
   const username = localStorage.getItem("user");
   if (username !== null) {
     const name = username.charAt(0).toUpperCase() + username.slice(1);
-    document.getElementById("user-span").textContent = name ? `${name} |` : "";
+    document.getElementById("user-span").innerHTML = name
+      ? `${name}&nbsp;&nbsp;|`
+      : "";
   }
+  count(username, "favorite");
+  count(username, "cart");
+}
 
-  const userFavorites = getFromLocalStorage(`favorites_${username}`) || [];
-  const favoriteCounter = document.getElementById("favorite-count");
-
-  const carts = localStorage.getItem("carts") || [];
-  const cartCounter = document.getElementById("cart-count");
-
-  if (userFavorites == 0) {
-    favoriteCounter.style.display = "none";
+function count(username, prefix) {
+  const storage = getFromLocalStorage(`${prefix}_${username}`) || [];
+  const counter = document.getElementById(`${prefix}-count`);
+  if (storage == 0) {
+    counter.style.display = "none";
   } else {
-    favoriteCounter.style.display = "block";
-    favoriteCounter.textContent = userFavorites.length;
-  }
-
-  if (carts == 0) {
-    cartCounter.style.display = "none";
-  } else {
-    cartCounter.style.display = "block";
-    cartCounter.textContent = carts.length;
+    counter.style.display = "block";
+    counter.textContent = storage.length;
   }
 }

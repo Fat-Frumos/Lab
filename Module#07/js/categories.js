@@ -10,14 +10,12 @@ categories.forEach((category) => {
   };
 
   const props = new Map();
-
   const card = create("div", "class", "category-card", "");
   const element = create("div", "class", "category", "");
-
+  
   props.set("image", image);
   props.set("overlay", create("div", "class", "overlay", ""));
   props.set("text", create("span", "class", "text", category.name));
-
   props.forEach((value) => element.appendChild(value));
 
   element.addEventListener("click", () => searchByTags(category.tag));

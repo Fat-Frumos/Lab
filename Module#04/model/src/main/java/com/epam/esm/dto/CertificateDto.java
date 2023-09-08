@@ -96,7 +96,6 @@ public class CertificateDto
      * The set of tags associated with the certificate.
      * Excluded from the toString() and equals() methods.
      */
-    @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<TagDto> tags = new HashSet<>();
@@ -105,7 +104,6 @@ public class CertificateDto
      * The set of orders associated with the certificate.
      * Excluded from the toString() and equals() methods.
      */
-    @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<OrderDto> orderDtos = new HashSet<>();

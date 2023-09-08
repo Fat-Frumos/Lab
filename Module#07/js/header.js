@@ -1,24 +1,5 @@
-const categoryNames = [
-  "Cosmetics",
-  "Makeup",
-  "Celebration",
-  "Travel",
-  "Self-care",
-  "Culture",
-  "Holiday",
-  "Anniversary",
-];
-
-const categories = [
-  { name: "Travel", tag: "Travel" },
-  { name: "Celebration", tag: "Celebration" },
-  { name: "Cosmetics", tag: "Cosmetics" },
-  { name: "Holiday", tag: "Holiday" },
-  { name: "Makeup", tag: "Makeup" },
-];
-
 async function searchByTags(name) {
-  const url = `https://gift-store.onrender.com/api/certificates/search?tagNames=${name}`;
+  const url = `${host}/certificates/search?tagNames=${name}`;
   const spinner = document.getElementById("loading-indicator");
   spinner.style.display = "block";
   document.getElementById("drop-header").innerText = name;
@@ -36,50 +17,8 @@ async function searchByTags(name) {
   spinner.style.display = "none";
 }
 
-const menu = document.querySelector(".menu");
-
-const input = create("input", "class", "menu-open", "");
-input.setAttribute("id", "menu-open");
-input.setAttribute("type", "checkbox");
-input.setAttribute("name", "menu-open");
-
-const label = create("label", "class", "menu-open-button", "");
-label.setAttribute("for", "menu-open");
-
-for (let i = 1; i <= 3; i++) {
-  label.appendChild(create("span", "class", `hamburger hamburger-${i}`, ""));
-}
-
-menu.appendChild(input);
-menu.appendChild(label);
-
-menuItems.forEach((item) => {
-  menu.appendChild(
-    createLink(
-      "a",
-      "class",
-      "material-symbols-outlined menu-item",
-      item.text,
-      item.href
-    )
-  );
-});
-
 function toggleDropbox() {
   document.getElementById("dropdown-search").classList.toggle("show");
-}
-
-function create(element, attr, value, text) {
-  const child = document.createElement(element);
-  child.setAttribute(attr, value);
-  child.textContent = text;
-  return child;
-}
-
-function createLink(element, attr, value, text, href) {
-  const child = create(element, attr, value, text);
-  child.setAttribute("href", href);
-  return child;
 }
 
 function debounce(func, wait) {
@@ -112,6 +51,7 @@ const dropButton = create("button", "class", "drop-button", "");
 dropButton.addEventListener("click", toggleDropbox);
 
 const header = create("span", "id", "drop-header", "All Categories");
+
 const expandIcon = create(
   "span",
   "class",
@@ -170,7 +110,7 @@ searchCategory.addEventListener("keydown", function (event) {
 });
 
 searchCategory.addEventListener("input", function () {
-  filterBy(inputCategory.value.trim());
+  filter(inputCategory.value.trim());
 });
 
 function category(header) {
@@ -188,34 +128,35 @@ function filter(category) {
 }
 
 function filterBy(query, category) {
-  document
-    .getElementById("certificates-list")
-    .querySelectorAll(".certificate-card")
-    .forEach((certificate) => {
-      let found = false;
-      if (category !== undefined) {
-        found = certificate
-          .getAttribute("data-tags")
-          .split(", ")
-          .some((tag) => tag.toLowerCase().includes(category.toLowerCase()));
-      }
+  if (certificatesList) {
+    certificatesList
+      .querySelectorAll(".certificate-card")
+      .forEach((certificate) => {
+        let found = false;
+        if (category !== undefined) {
+          found = certificate
+            .getAttribute("data-tags")
+            .split(", ")
+            .some((tag) => tag.toLowerCase().includes(category.toLowerCase()));
+        }
 
-      if (category === "All Categories") {
-        category = "";
-      }
+        if (category === "All Categories") {
+          category = "";
+        }
 
-      const name = certificate
-        .querySelector(".certificate-name")
-        .textContent.toLowerCase();
-      const description = certificate
-        .querySelector(".certificate-description")
-        .textContent.toLowerCase();
-      const queryMatch =
-        name.includes(query.toLowerCase()) ||
-        description.includes(query.toLowerCase());
-      certificate.style.display =
-        (category === "" || found) && (query === "" || queryMatch)
-          ? "block"
-          : "none";
-    });
+        const name = certificate
+          .querySelector(".certificate-name")
+          .textContent.toLowerCase();
+        const description = certificate
+          .querySelector(".certificate-description")
+          .textContent.toLowerCase();
+        const queryMatch =
+          name.includes(query.toLowerCase()) ||
+          description.includes(query.toLowerCase());
+        certificate.style.display =
+          (category === "" || found) && (query === "" || queryMatch)
+            ? "block"
+            : "none";
+      });
+  }
 }

@@ -54,25 +54,24 @@ a {
 }
 
 .drop-button {
-  background-color: #6fcf97;
+  background-color: $secondary-color;
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
   cursor: pointer;
-  width: 182px;
-  height: 52px;
+  @include box(182px, 52px);
 }
 
 .drop-button:hover,
 .drop-button:focus {
-  background-color: #67bd46;
+  background-color: $secondary-hover-color;
 }
 
 .dropdown-content a {
   box-sizing: border-box;
   width: 180px;
-  color: black;
+  color: $black-color;
   padding: 12px 0 10px 10px;
   text-decoration: none;
   display: block;
@@ -84,7 +83,7 @@ a {
   font-size: 16px;
   padding: 14px 0 10px 10px;
   border: none;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $light-gray-color;
   width: 178px;
 }
 
@@ -102,21 +101,21 @@ a {
 }
 
 #input-search:focus {
-  outline: 3px solid #ddd;
+  outline: 3px solid $light-gray-color;
 }
 
 .dropdown-content {
+  z-index: 6;
+  width: 180px;
   display: none;
   position: absolute;
-  background-color: #f6f6f6;
-  width: 180px;
-  border: 1px solid #ddd;
-  z-index: 1;
+  background-color: $silver-color;
+  border: 1px solid $light-gray-color;
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
   width: 180px;
+  background-color: $gainsboro-color;
 }
 
 .show {

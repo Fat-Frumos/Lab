@@ -29,6 +29,7 @@ const certificatesList = document.getElementById('certificates-list');
     addButton.value = '';
     const addToCartText = document.createElement('p');
     addToCartText.className = 'add-to-cart-text';
+    addToCartText.className = 'button-cart-text';
     addToCartText.textContent = 'Add to Cart';
 
     certificateGrp1.appendChild(h2);
