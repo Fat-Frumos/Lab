@@ -9,6 +9,7 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -17,10 +18,9 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.springframework.http.HttpMethod.GET;
@@ -73,12 +73,12 @@ public class WebSecurityConfig {
             final HttpSecurity http) throws Exception {
 
         return http
-                .csrf().disable()
-                .cors().configurationSource(corsConfigurationSource())
-                .and().headers().frameOptions().sameOrigin()
-                .and().authorizeHttpRequests(authorize ->
+                .csrf(CsrfConfigurer::disable)
+                .cors(customizer -> customizer.configurationSource(request -> corsConfigurationSource()))
+                .securityContext(customizer -> customizer.requireExplicitSave(false))
+                .authorizeHttpRequests(authorize ->
                         authorize.requestMatchers(PathRequest.toH2Console()).permitAll()
-                                .requestMatchers(POST, "/signup", "/logout", "/login").permitAll()
+                                .requestMatchers(POST, "/signup", "/logout", "/login", "/upload").permitAll()
                                 .requestMatchers(GET, "/tags/**", "/certificates/**").permitAll()
                                 .requestMatchers(GET, "/orders/**", "/token/**").hasAnyAuthority(USER, ADMIN)
                                 .requestMatchers(POST, "/orders/**").hasAnyAuthority(USER, ADMIN)
@@ -104,21 +104,21 @@ public class WebSecurityConfig {
      *
      * @return The CORS configuration source.
      */
-    private CorsConfigurationSource corsConfigurationSource() {
+    private CorsConfiguration corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList(
                 "http://192.168.31.177:5500",
                 "http://127.0.0.1:5500",
+                "http://localhost:5500",
                 "http://127.0.0.1:8080",
                 "http://127.0.0.1:4200",
                 "https://gift-store.onrender.com",
                 "https://gift-store-certificate.netlify.app"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+        configuration.setAllowedMethods(Collections.singletonList("*"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
         configuration.setAllowCredentials(true);
+        configuration.setMaxAge(360000L);
         configuration.setExposedHeaders(List.of("Authorization"));
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
+        return configuration;
     }
 }

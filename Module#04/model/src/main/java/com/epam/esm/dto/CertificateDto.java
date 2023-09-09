@@ -10,9 +10,10 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import org.springframework.hateoas.RepresentationModel;
 
@@ -24,8 +25,10 @@ import java.util.Set;
 /**
  * Data Transfer Object (DTO) class representing a certificate.
  */
-@Data
+@Getter
+@Setter
 @Builder
+@ToString
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class CertificateDto
@@ -51,6 +54,9 @@ public class CertificateDto
      */
     @Size(min = 1, max = 1024)
     private String description;
+    @Size(min = 1, max = 512)
+    private String shortDescription;
+    private String company;
 
     /**
      * The price of the certificate.
@@ -113,6 +119,8 @@ public class CertificateDto
             @JsonProperty("id") Long id,
             @JsonProperty("name") String name,
             @JsonProperty("description") String description,
+            @JsonProperty("shortDescription") String shortDescription,
+            @JsonProperty("company") String company,
             @JsonProperty("price") BigDecimal price,
             @JsonProperty("duration") Integer duration,
             @JsonProperty("createDate") Timestamp createDate,
@@ -123,6 +131,8 @@ public class CertificateDto
         this.id = id;
         this.name = name;
         this.description = description;
+        this.shortDescription = shortDescription;
+        this.company = company;
         this.price = price;
         this.duration = duration;
         this.createDate = createDate;

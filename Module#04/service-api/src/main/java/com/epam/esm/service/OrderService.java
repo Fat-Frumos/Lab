@@ -37,7 +37,7 @@ public interface OrderService {
      * Get all orders of a user.
      *
      * @param userId   the user ID
-     * @param pageable
+     * @param pageable the number of the page
      * @return the page of order DTOs
      */
     List<OrderDto> getAllByUserId(Long userId, Pageable pageable);
@@ -79,11 +79,11 @@ public interface OrderService {
     /**
      * Save an order.
      *
-     * @param userId the user IS
+     * @param username the user username
      * @param ids    the certificate IDs
      * @return the saved order DTO
      */
-    OrderDto save(Long userId, Set<Long> ids);
+    OrderDto save(String username, Set<Long> ids);
 
     /**
      * Get an order by ID.

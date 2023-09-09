@@ -41,8 +41,9 @@
 
 .modal-inner {
   transform: scale(0.95);
-  padding: 50px;
   opacity: 0;
+  padding: 150px;
+  line-height: 35px;
   transition: 0.2s ease-in-out;
 }
 

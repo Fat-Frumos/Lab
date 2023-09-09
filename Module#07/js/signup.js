@@ -43,5 +43,5 @@ submitButton.addEventListener("click", async (event) => {
 const cancelButton = document.getElementById("cancel-button");
 cancelButton.addEventListener("click", () => {
   form.reset();
-  redirect(200, "/");
+  redirect(100, "/");
 });

@@ -42,7 +42,7 @@ svg {
     line-height: 27px;
     background: $gray-color;
     color: $white-color;
-    border-radius: 100%;
+    border-radius: 75px;
   }
 
   @for $i from 1 through $menu-items {

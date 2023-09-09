@@ -1,5 +1,6 @@
-UserName, cards, input enter, order
-lighthouse
+TODO: image resize XS, M, XL(200,300,600)
+TODO: get by like from server
+TODO: modal response showMessage() instead console
 
 # External Lab
 ## UI:

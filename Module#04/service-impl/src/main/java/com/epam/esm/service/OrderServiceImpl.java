@@ -57,16 +57,16 @@ public class OrderServiceImpl implements OrderService {
      * <p>
      * Saves an order.
      *
-     * @param userId the user ID
+     * @param username the user ID
      * @return the saved order DTO
      */
     @Override
     @Transactional(rollbackFor = Exception.class,
             isolation = Isolation.READ_COMMITTED)
     public OrderDto save(
-            final Long userId,
+            final String username,
             final Set<Long> ids) {
-        User user = userDao.getById(userId).orElseThrow(() ->
+        User user = userDao.findByUsername(username).orElseThrow(() ->
                 new UserNotFoundException("UserNotFoundException"));
         List<Certificate> certificates =
                 certificateDao.findAllByIds(ids);

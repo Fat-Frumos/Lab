@@ -19,7 +19,7 @@
   width: 55px;
   height: 55px;
   display: flex;
-  margin-left: 45px;
+  margin-left: 50px;
   margin-top: -7px;
   justify-content: center;
   transition: transform 0.2s ease-out;
@@ -27,15 +27,15 @@
   @include font-height-color(24px, 29px, $black-color);
 }
 
-.menu-open:checked + .logo-name {
+.menu-open:checked ~ #logo-name {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 
 .logo-name {
-  z-index: 5;
+  // z-index: 5;
   width: 130px;
-  margin-left: -20px;
+  margin-left: -15px;
   height: 55px;
   transition: opacity 1s ease;
   background: url("name.svg") no-repeat center center;
@@ -57,7 +57,7 @@
 .menu-button {
   width: 40px;
   height: 40px;
-  left: 5px;
+  left: 11px;
   top: 18px;
   border-radius: 100%;
   position: absolute;

@@ -19,10 +19,10 @@ $card-font: "Roboto", sans-serif;
 
 $pi: 3.14;
 $menu-items: 6;
-$distance: 44px;
+$distance: 42px;
 $logo-width: 450px;
 $logo-height: 350px;
-$open-distance: 50px;
+$open-distance: 25px;
 $opening-angle: $pi * 2;
 $hamburger-spacing: 8px;
 $register-wrapper: 940px;
@@ -30,7 +30,7 @@ $register-wrapper: 940px;
 %nav-icon {
   left: 0;
   top: 11px;
-  width: 30px;
+  width: 42px;
   height: 30px;
   position: absolute;
   color: $icon-color;

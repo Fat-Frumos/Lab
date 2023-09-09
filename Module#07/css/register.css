@@ -1,7 +1,7 @@
 .menu-open-button, .menu-item {
   left: 0;
   top: 11px;
-  width: 30px;
+  width: 42px;
   height: 30px;
   position: absolute;
   color: #757575;
@@ -27,7 +27,12 @@ body {
   background-color: #ffffff;
 }
 
-body, h1, h2, p, ul, li {
+body,
+h1,
+h2,
+p,
+ul,
+li {
   margin: 0;
   padding: 0;
   box-sizing: content-box;
@@ -262,7 +267,7 @@ svg {
   line-height: 27px;
   background: #808080;
   color: #ffffff;
-  border-radius: 100%;
+  border-radius: 75px;
 }
 .menu-item:nth-child(3) {
   transition-duration: 180ms;
@@ -295,27 +300,27 @@ svg {
 }
 .menu-open:checked ~ .menu-item:nth-child(3) {
   transition-duration: 190ms;
-  transform: translate3d(44px, 0, 0);
+  transform: translate3d(42px, 0, 0);
 }
 .menu-open:checked ~ .menu-item:nth-child(4) {
   transition-duration: 290ms;
-  transform: translate3d(88px, 0, 0);
+  transform: translate3d(84px, 0, 0);
 }
 .menu-open:checked ~ .menu-item:nth-child(5) {
   transition-duration: 390ms;
-  transform: translate3d(132px, 0, 0);
+  transform: translate3d(126px, 0, 0);
 }
 .menu-open:checked ~ .menu-item:nth-child(6) {
   transition-duration: 490ms;
-  transform: translate3d(176px, 0, 0);
+  transform: translate3d(168px, 0, 0);
 }
 .menu-open:checked ~ .menu-item:nth-child(7) {
   transition-duration: 590ms;
-  transform: translate3d(220px, 0, 0);
+  transform: translate3d(210px, 0, 0);
 }
 .menu-open:checked ~ .menu-item:nth-child(8) {
   transition-duration: 690ms;
-  transform: translate3d(264px, 0, 0);
+  transform: translate3d(252px, 0, 0);
 }
 
 .hamburger {
@@ -381,7 +386,7 @@ svg {
   width: 55px;
   height: 55px;
   display: flex;
-  margin-left: 45px;
+  margin-left: 50px;
   margin-top: -7px;
   justify-content: center;
   transition: transform 0.2s ease-out;
@@ -391,15 +396,14 @@ svg {
   font-size: 24px;
 }
 
-.menu-open:checked + .logo-name {
+.menu-open:checked ~ #logo-name {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 
 .logo-name {
-  z-index: 5;
   width: 130px;
-  margin-left: -20px;
+  margin-left: -15px;
   height: 55px;
   transition: opacity 1s ease;
   background: url("name.svg") no-repeat center center;
@@ -422,7 +426,7 @@ svg {
 .menu-button {
   width: 40px;
   height: 40px;
-  left: 5px;
+  left: 11px;
   top: 18px;
   border-radius: 100%;
   position: absolute;
@@ -680,8 +684,9 @@ svg {
 
 .modal-inner {
   transform: scale(0.95);
-  padding: 50px;
   opacity: 0;
+  padding: 150px;
+  line-height: 35px;
   transition: 0.2s ease-in-out;
 }
 

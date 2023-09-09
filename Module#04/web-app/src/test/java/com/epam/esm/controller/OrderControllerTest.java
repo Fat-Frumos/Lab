@@ -62,8 +62,8 @@ class OrderControllerTest {
     @Test
     @DisplayName("Create Order: Given valid user ID and certificate IDs, when create order, then return HTTP status 201")
     void testCreateOrderShouldReturnHttpStatusCreated() throws Exception {
-        when(orderService.save(eq(id), anySet())).thenReturn(orderDto);
-        mockMvc.perform(post("/orders/{userId}", id)
+        when(orderService.save(eq(admin), anySet())).thenReturn(orderDto);
+        mockMvc.perform(post("/orders/{username}", admin)
                         .param("certificateIds", String.valueOf(id))
                         .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
                 .andExpect(status().isCreated());

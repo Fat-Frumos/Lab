@@ -1,6 +1,5 @@
 const loginForm = document.getElementById("login-form");
 const spinner = document.getElementById("loading-indicator");
-
 const headers = {
   "Content-Type": "application/json",
 };

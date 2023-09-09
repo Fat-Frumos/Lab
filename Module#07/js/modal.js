@@ -34,10 +34,10 @@ document.addEventListener("keyup", function (event) {
 });
 
 function redirect(delay, url) {
-    if (delay) {
-      setTimeout(() => {
-        closeModal();
-        window.location.href = url;
-      }, delay);
-    }
+  if (delay) {
+    setTimeout(() => {
+      closeModal();
+      window.location.href = url;
+    }, delay);
   }
+}

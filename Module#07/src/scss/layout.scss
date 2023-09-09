@@ -1,8 +1,8 @@
 @font-face {
-  font-family: 'Berlin Sans FB Demi';
-  src: url('./css/fonts/BRLNSDB.woff') format('truetype');
+  font-family: "Berlin Sans FB Demi";
+  src: url("./css/fonts/BRLNSDB.woff") format("truetype");
   font-weight: bold;
- }
+}
 
 body {
   font-style: $font-style;
@@ -15,7 +15,12 @@ body {
   background-color: $white-color;
 }
 
-body, h1, h2, p, ul, li {
+body,
+h1,
+h2,
+p,
+ul,
+li {
   margin: 0;
   padding: 0;
   box-sizing: content-box;
@@ -26,12 +31,11 @@ body, h1, h2, p, ul, li {
   @include center-justify-content(center);
 }
 
-footer {  
+footer {
   position: sticky;
   @include box(100%, 8%);
   bottom: 10px;
   background-color: $white-color;
-
 }
 
 .single-page-footer {

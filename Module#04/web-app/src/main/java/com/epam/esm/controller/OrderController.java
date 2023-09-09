@@ -59,13 +59,13 @@ public class OrderController {
      * @param certificateIds the ID of the certificate
      * @return the created order DTO
      */
-    @PostMapping("/{userId}")
+    @PostMapping("/{username}")
     @ResponseStatus(CREATED)
     public EntityModel<OrderDto> create(
-            @PathVariable final Long userId,
+            @PathVariable final String username,
             @RequestParam final Set<Long> certificateIds) {
         return assembler.toModel(
-                orderService.save(userId, certificateIds));
+                orderService.save(username, certificateIds));
     }
 
     /**

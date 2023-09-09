@@ -25,13 +25,25 @@
     <div class="user"></div>
   </header>
   <div class="add-new-title">Checkout</div>
+  <div class="modal-frame">
+    <div class="modal-body">
+      <div class="modal-inner">
+        <button id="close" class="close"><span class="material-symbols-outlined">
+            close
+          </span></button>
+        <div id="message" class="message"></div>
+      </div>
+    </div>
+    <div class="modal-overlay"></div>
+  </div>
   <main class="favorites-container container" id="container">
-    <div id="certificates-list"></div>
-    <di class="form-wrapper">
+    <div class="form-wrapper">
       <div class="checkout-wrapper"></div>
-    </di>
+    </div>
   </main>
-  <footer class="single-page-footer"></footer>
+  <footer class="single-page-footer">
+    <div class="spinner" id="loading-indicator"></div>
+  </footer>
   <script src="../js/props.js"></script>
   <script src="../js/createMenu.js"></script>
   <script>
@@ -43,10 +55,12 @@
   <script src="../js/localStorage.js"></script>
   <script src="../js/favorite.js"></script>
   <script src="../js/header.js"></script>
+  <script src="../js/modal.js"></script>
   <script src="../js/checkout.js"></script>
   <script>
     counter();
-    updateLoginLink()
+    updateLoginLink();
   </script>
 </body>
+
 </html>

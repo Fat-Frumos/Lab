@@ -138,9 +138,9 @@ class OrderServiceImplTest {
     @Test
     @DisplayName("Call the save method and verify that it throws a UserNotFoundException return an empty Optional")
     void testSaveThrowsUserNotFoundException() {
-        when(userDao.getById(id)).thenReturn(Optional.empty());
+        when(userDao.findByUsername(user.getUsername())).thenReturn(Optional.empty());
         Set<Long> ids = new HashSet<>(Arrays.asList(1L, 2L));
-        assertThrows(UserNotFoundException.class, () -> orderService.save(userId, ids));
+        assertThrows(UserNotFoundException.class, () -> orderService.save(user.getUsername(), ids));
     }
 
     @Test
@@ -456,11 +456,11 @@ class OrderServiceImplTest {
                 .cost(order.getCost())
                 .user(order.getUser())
                 .build();
-        when(userDao.getById(userId)).thenReturn(Optional.of(user));
+        when(userDao.findByUsername(user.getUsername())).thenReturn(Optional.of(user));
         when(certificateDao.findAllByIds(ids)).thenReturn(certificates);
         when(orderDao.save(order)).thenReturn(savedOrder);
         when(orderMapper.toDto(savedOrder)).thenReturn(expectedOrderDto);
-        OrderDto result = orderService.save(userId, ids);
+        OrderDto result = orderService.save(user.getUsername(), ids);
         assertEquals(expectedOrderDto, result);
         verify(orderDao).save(order);
         assertNotNull(result);

@@ -79,6 +79,8 @@ public class Certificate implements Serializable {
      */
     @Column(nullable = false, length = 1024)
     private String description;
+    private String shortDescription;
+    private String company;
 
     /**
      * The creation date of the certificate.
