@@ -9,7 +9,7 @@ TODO: modal response showMessage() instead console
 ## Task 3 Angular
 #### Init
 ng --version
-ng new store
+ng new angular
 
 #### Build source profiler prod
 npm run build -- --prod

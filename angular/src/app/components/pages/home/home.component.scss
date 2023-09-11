@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+
+body {
+  font-style: $font-style;
+  font-family: $card-font;
+  font-weight: $font-weight;
+  background-color: $silver-color;
+}
+
+.white-theme {
+  background-color: $white-color;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}

@@ -79,7 +79,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(authorize ->
                         authorize.requestMatchers(PathRequest.toH2Console()).permitAll()
                                 .requestMatchers(POST, "/signup", "/logout", "/login", "/upload").permitAll()
-                                .requestMatchers(GET, "/tags/**", "/certificates/**").permitAll()
+                                .requestMatchers(GET, "/tags/**", "/certificates/**", "/upload/**").permitAll()
                                 .requestMatchers(GET, "/orders/**", "/token/**").hasAnyAuthority(USER, ADMIN)
                                 .requestMatchers(POST, "/orders/**").hasAnyAuthority(USER, ADMIN)
                                 .requestMatchers(POST, "/users/**").hasAnyAuthority(ADMIN)

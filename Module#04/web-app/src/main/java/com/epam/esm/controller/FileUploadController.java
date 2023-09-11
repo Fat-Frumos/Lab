@@ -1,8 +1,14 @@
 package com.epam.esm.controller;
 
 import com.epam.esm.handler.ResponseMessage;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +23,28 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.CONFLICT;
 import static org.springframework.http.HttpStatus.OK;
 
+@Slf4j
 @RestController
 @CrossOrigin(origins = {"http://192.168.31.177:5500", "http://localhost:5500", "https://gift-store-certificate.netlify.app", "https://gift-store.onrender.com"})
 public class FileUploadController {
 
     @Value("${upload-dir}")
     private String dir;
+
+    @GetMapping("/upload/{filename}")
+    public ResponseEntity<Resource> getImage(
+            @PathVariable String filename) {
+        try {
+            Resource resource = new UrlResource(
+                    Paths.get(dir).resolve(filename).toUri());
+            return resource.exists() && resource.isReadable()
+                    ? ResponseEntity.ok(resource)
+                    : ResponseEntity.notFound().build();
+        } catch (IOException e) {
+            log.error(e.getMessage());
+            return ResponseEntity.notFound().build();
+        }
+    }
 
     @PostMapping("/upload")
     public ResponseMessage uploadFile(

@@ -1,5 +1,5 @@
-const host = "https://gift-store.onrender.com/api";
-// const host = "http://localhost:8080/api";
+// const host = "https://gift-store.onrender.com/api";
+const host = "http://localhost:8080/api";
 const certificatesList = document.getElementById('certificates-list');
 const username = localStorage.getItem("user");
 

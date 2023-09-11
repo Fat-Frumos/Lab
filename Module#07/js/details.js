@@ -2,7 +2,8 @@ function createDetails(certificate) {
     const container = document.getElementById("certificates-container");
     const detailsWrapper = create("div", "class", "details-wrapper", "");
     const detailsGroup = create("div", "class", "details-group", "");
-    const image = createImageChild("img", "class", "image", certificate.path.replace('/300/', '/600/'), "");
+    const src = (certificate.path) ? certificate.path.replace('/300/', '/600/') : certificate.path;
+    const image = createImageChild("img", "class", "image", src, "");
     const itemDetails = create("div", "class", "item-details", "");
     const moreDescription = create("div", "class", "more-description", "");
     const h3 = createText("h3", certificate.name);
