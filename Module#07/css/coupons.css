@@ -11,11 +11,19 @@
   transition: transform ease-out 200ms;
 }
 
-@font-face {
-  font-family: "Berlin Sans FB Demi";
-  src: url("./css/fonts/BRLNSDB.woff") format("truetype");
-  font-weight: bold;
+.menu-open-button, .menu-item {
+  left: 0;
+  top: 11px;
+  width: 42px;
+  height: 30px;
+  position: absolute;
+  color: #757575;
+  text-align: center;
+  background: #ffffff;
+  transform: translate3d(0, 0, 0);
+  transition: transform ease-out 200ms;
 }
+
 body {
   font-style: normal;
   font-family: "Roboto", sans-serif;
@@ -498,6 +506,19 @@ svg {
   background: #808080;
   color: #ffffff;
   transition: 0.3s;
+}
+
+.menu-item, .menu-open-button {
+  left: 0;
+  top: 11px;
+  width: 42px;
+  height: 30px;
+  position: absolute;
+  color: #757575;
+  text-align: center;
+  background: #ffffff;
+  transform: translate3d(0, 0, 0);
+  transition: transform ease-out 200ms;
 }
 
 img {

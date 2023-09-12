@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {FavoriteService} from "../../../services/favorite.service";
-import {Certificate} from "../../model/Certificate";
+import {Certificate} from "../../../model/Certificate";
 
 @Component({
     selector: 'app-price',

@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@import '../../../shared/variables';
 
 .header {
   background: $white-color;
@@ -15,7 +15,7 @@
   margin-left: 83px;
   height: 66px;
   transition: opacity 0.3s ease-in;
-  background: url("../../../styles/name.svg") no-repeat center center;
+  background: url("../../../shared/name.svg") no-repeat center center;
 }
 
 .logo-label {
@@ -29,7 +29,7 @@
   margin-top: -61px;
   justify-content: center;
   transition: transform 0.2s ease-out;
-  background: url("../../../styles/logo2.svg") no-repeat center center;
+  background: url("../../../shared/logo2.svg") no-repeat center center;
   @include font-height-color(24px, 29px, $black-color);
 }
 
@@ -46,13 +46,10 @@
 }
 
 .menu {
-  $width: 650px;
-  $height: 50px;
   position: absolute;
   left: 60px;
   padding-top: 20px;
-  width: $width;
-  height: $height;
+  height: 50px;
   box-sizing: border-box;
   font-size: 20px;
   text-align: left;
@@ -64,7 +61,8 @@
   &:hover {
     background: $gray-color;
     color: $white-color;
-    border-radius: 75px;
+    z-index: 12;
+    border-radius: 15px;
   }
 
   @for $i from 1 through $menu-items {
@@ -76,10 +74,14 @@
 
 .symbol-item {
   text-decoration: none;
+  height: 40px;
+  margin-top: -2px;
+  background: $white-color;
   z-index: 10;
   @extend %nav-icon;
 
   &:hover {
+    background: none;
     color: $white-color;
     border-radius: 75px;
   }

@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@import '../../../shared/variables';
 
 body {
   font-style: $font-style;
@@ -9,9 +9,4 @@ body {
 
 .white-theme {
   background-color: $white-color;
-}
-
-a {
-  text-decoration: none;
-  cursor: pointer;
 }

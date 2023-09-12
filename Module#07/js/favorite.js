@@ -4,7 +4,6 @@ function addToFavorite(id) {
 
 function add(id, name) {
   let text = "";
-  // const username = localStorage.getItem("user");
   const storage = getFromLocalStorage(`${name}_${username}`) || [];
   if (!storage.includes(id)) {
     storage.push(id);

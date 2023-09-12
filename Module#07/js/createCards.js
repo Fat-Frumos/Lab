@@ -3,7 +3,7 @@ function createImage(certificate) {
   div.className = "medium-image";
   const image = document.createElement("img");
   image.src = certificate.path;
-  image.setAttribute("onclick", `showDetails(${JSON.stringify(certificate)})`);
+  image.setAttribute("onclick", `showDetails(${JSON.stringify(certificate)}, './pages/')`);
   image.alt = "medium";
   image.width = 300;
   image.height = 300;
@@ -28,6 +28,7 @@ function createGroup(name, id) {
 }
 
 function createPrice(mainPrice, id) {
+  // console.log(id)
   const group = document.createElement("div");
   group.className = "certificate-grp";
   const price = document.createElement("p");
@@ -74,7 +75,7 @@ function createCards(certificates) {
     params.set("image", createImage(certificate));
     params.set("name", createGroup(`${certificate.name}`, `${certificate.id}`));
     params.set("desc", createDescription(`${certificate.description}`, `${certificate.duration}`));
-    params.set("price", createPrice(`$${certificate.price}`, `${certificate.id}`));
+    params.set("price", createPrice(`$${certificate.price}`, `${JSON.stringify(certificate.id)}`));
 
     for (const element of params.values()) {
       card.appendChild(element);

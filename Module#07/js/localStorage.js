@@ -1,8 +1,8 @@
 function saveCertificatesToLocalStorage(certificates) {
   const saved = getCertificatesFromLocalStorage() || [];
   const unique = removeDuplicate(saved, certificates);
-  sortCertificatesByCreationDate(unique);
   localStorage.setItem("certificates", JSON.stringify(unique));
+  sortCertificatesByCreationDate(unique);  
 }
 
 function removeDuplicate(saved, certificates) {
@@ -10,6 +10,10 @@ function removeDuplicate(saved, certificates) {
   .filter((a, b, self) => b === self
   .findIndex((c) => c.id === a.id)
   );
+}
+
+function sortCertificatesByCreationDate(certificates) {
+  certificates.sort((a, b) => new Date(b.createDate) - new Date(a.createDate));
 }
 
 function getCertificatesFromLocalStorage() {

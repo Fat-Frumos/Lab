@@ -1,26 +1,36 @@
 let totalAmount = 0;
-const spinner = document.getElementById("loading-indicator");
-const cartsIds = localStorage.getItem(`cart_${username}`);
 const items = getFromLocalStorage("certificates") || [];
-console.log(cartsIds);
-const coupons = items.filter((item) => cartsIds.includes(item.id));
-const container = document.querySelector(".checkout-wrapper");
-if (coupons.length) {
-  createFavorives(coupons);
-  createBottom();
-} else {
-  showMessage("Cart empty Redirecting to main page", "gray");
-  redirect(2000, "../index.html");
+let cartsIds = localStorage.getItem(`cart_${username}`);
+
+if (cartsIds !== "") {
+  let coupons = items.filter((item) => JSON.parse(cartsIds).includes(item.id));
+  if (coupons.length) {
+    createFavorives(coupons);
+    createBottom();
+  } else {
+    showMessage("Cart empty Redirecting to main page", "gray");
+    redirect(2000, "../index.html");
+  }
+  console.log(cartsIds);
+  console.log(coupons);
 }
 
 function createFavorives(coupons) {
+  const container = document.querySelector(".checkout-wrapper");
   coupons.forEach((coupon) => {
     const couponItem = create("div", "class", "item-coupon", "");
+    couponItem.setAttribute(
+      "onclick",
+      `showDetails(${JSON.stringify(coupon)}, '')`
+    );
     const image = document.createElement("img");
     image.className = "image-small";
-    image.src = coupon.path.replace("/300/", "/600/");
+    if (coupon.path.includes("/300/")) {
+      image.src = coupon.path.replace("/300/", "/600/");
+    } else {
+      image.src = coupon.path;
+    }
     image.alt = coupon.alt;
-
     const article = document.createElement("article");
     const header = create("h3", "class", "coupon-name", coupon.name);
     const desc = create("p", "class", "coupon-desc", coupon.description);
@@ -83,12 +93,15 @@ function createBottom() {
 }
 
 function sendOrders(username, certificateIds) {
-  spinner.style.display = "block";
-  container.style.display = "none";
   const url = `${host}/orders/${username}?certificateIds=${certificateIds}`;
   const accessToken = localStorage.getItem("accessToken");
   console.log(url);
   console.log(accessToken);
+ const wrapper = document.getElementById("container");
+ const spinner = document.getElementById("loading-indicator");
+ wrapper.style.display = "none";
+ spinner.style.display = "block";
+ 
   const requestBody = {
     method: "POST",
     headers: {
@@ -103,18 +116,22 @@ function sendOrders(username, certificateIds) {
   fetch(url, requestBody)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Failed to send orders.");
+        if (response.status === 401) {
+          throw new Error(`Failed to send orders: Unauthorized user`);
+        } else {
+          throw new Error("Failed to send orders" + response.status);
+        }
       }
       return response.json();
     })
     .then((data) => {
-      alert("Orders sent successfully");
+      showMessage("Orders sent successfully", "green");
       localStorage.setItem(`cart_${username}`, []);
-      window.location.href = "/";
+      redirect(1000, "/");
     })
     .catch((error) => {
-      console.error("Error sending orders:", error);
+      showMessage(error.message, "red");
     });
   spinner.style.display = "none";
-  container.style.display = "block";
+  wrapper.style.display = "flex";
 }

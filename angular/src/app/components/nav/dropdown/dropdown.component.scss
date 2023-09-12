@@ -1,42 +1,4 @@
-@import 'variables';
-
-body {
-  font-style: $font-style;
-  font-family: $card-font;
-  font-weight: $font-weight;
-  background-color: $silver-color;
-}
-
-.white-theme {
-  background-color: $white-color;
-}
-
-body,
-h1,
-h2,
-p,
-ul,
-li {
-  margin: 0;
-  padding: 0;
-  box-sizing: content-box;
-}
-
-#container {
-  padding: 0 7%;
-  @include center-justify-content(center);
-}
-
-footer {
-  position: sticky;
-  @include box(100%, 8%);
-  bottom: 10px;
-  background-color: $white-color;
-}
-
-.single-page-footer {
-  bottom: 0;
-}
+@import '../../../shared/variables';
 
 a {
   text-decoration: none;

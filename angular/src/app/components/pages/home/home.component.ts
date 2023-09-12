@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {LocalStorageService} from "../../../services/local-storage.service";
+import {Certificate} from "../../../model/Certificate";
 
 @Component({
   selector: 'app-home',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  certificateData: Certificate[];
+
+  constructor(private storage: LocalStorageService) {
+    this.certificateData = this.storage.getCertificatesFromLocalStorage();
+  }
 }

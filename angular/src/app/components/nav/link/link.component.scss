@@ -1,0 +1,24 @@
+@import '../../../shared/variables';
+
+.login {
+  margin-right: 8px;
+  @include font-color(17px, $icon-color);
+}
+
+.signup {
+  margin-right: 20px;
+  @include font-color(17px, $icon-color);
+}
+
+.shop-icon {
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 100%;
+  @include font-color(20px, $icon-color);
+}
+
+.shop-icon:hover {
+  background: $gray-color;
+  color: $white-color;
+  transition: 0.3s;
+}

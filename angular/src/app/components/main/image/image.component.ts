@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Certificate} from "../../model/Certificate";
+import {Certificate} from "../../../model/Certificate";
 
 @Component({
     selector: 'app-image',

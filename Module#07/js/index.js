@@ -1,5 +1,5 @@
-// const host = "https://gift-store.onrender.com/api";
-const host = "http://localhost:8080/api";
+const host = "https://gift-store.onrender.com/api";
+// const host = "http://localhost:8080/api";
 const certificatesList = document.getElementById('certificates-list');
 const username = localStorage.getItem("user");
 
@@ -7,10 +7,10 @@ function goBack() {
   window.history.back();
 }
 
-function showDetails(certificate) {
+function showDetails(certificate, path) {
   localStorage.removeItem("certificate");
   localStorage.setItem("certificate", JSON.stringify(certificate));
-  window.location.href = "./pages/details.html";
+  window.location.href = path + "details.html";
 }
 
 function toggleCheckbox() {

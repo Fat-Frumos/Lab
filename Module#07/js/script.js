@@ -1,11 +1,13 @@
 const categoriesSelect = document.querySelector("#drop-header");
+const spinner = document.getElementById("loading-indicator");
 
 let page = 0;
 let loading = false;
 
 const throttledScrollHandler = _.throttle(() => {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
-    loadNextPage();
+    saveScrollPosition();
+    load();
   }
   const scrollButton = document.querySelector(".scroll-top");
   if (this.scrollY > 300) {
@@ -18,9 +20,9 @@ const throttledScrollHandler = _.throttle(() => {
 window.addEventListener("scroll", throttledScrollHandler);
 
 window.addEventListener("load", () => {
+  loadNextPage();
   updateLoginLink();
   counter();
-  restoreScrollPosition();
 });
 
 window.addEventListener("beforeunload", () => {
@@ -33,16 +35,14 @@ document.querySelector(".scroll-top").addEventListener("click", () => {
 
 async function fetchCertificates(page) {
   try {
-    const response = await fetch(
-      `${host}/certificates?page=${page}&size=25`
-    );
+    const response = await fetch(`${host}/certificates?page=${page}&size=25`);
     const data = await response.json();
     const newCertificates = data._embedded.certificateDtoList;
     if (Array.isArray(newCertificates)) {
       return newCertificates;
     }
   } catch (error) {
-    console.error("Error fetching data:", error);
+    return [];
   }
 }
 
@@ -53,30 +53,51 @@ function saveScrollPosition() {
 function restoreScrollPosition() {
   const savedScrollPosition = localStorage.getItem("scrollPosition");
   if (savedScrollPosition) {
-    const scrollY = parseInt(savedScrollPosition, 10);
-    window.scrollTo(0, scrollY);
+    window.scrollTo(0, parseInt(savedScrollPosition));
   }
 }
 
-function sortCertificatesByCreationDate(certificates) {
-  certificates.sort((a, b) => new Date(b.createDate) - new Date(a.createDate));
+function loadNextPage() {
+  const saved = getCertificatesFromLocalStorage() || [];
+  if (saved.length !== 0) {
+    createCards(saved);
+    spinner.style.display = "none";
+  } else {
+    load();
+  }
+
+  const certificatesList = document.getElementsByClassName("certificate-card");
+  const savedScrollPosition = localStorage.getItem("scrollPosition");
+  const timer = parseInt(savedScrollPosition)/80;
+  console.log(saved.length);
+  const intervalId = setInterval(() => {
+    if (certificatesList.length === saved.length) {
+      clearInterval(intervalId);
+      restoreScrollPosition();
+      console.log(certificatesList.length);
+      console.log(timer)
+      spinner.style.display = "none";
+    } 
+  }, timer);
 }
 
-async function loadNextPage() {
+async function load() {
   if (loading) return;
   loading = true;
-  const spinner = document.getElementById("loading-indicator");
+
   spinner.style.display = "block";
+
+  const saved = getCertificatesFromLocalStorage() || [];
+
+  page = saved.length / 25;
   const loaded = await fetchCertificates(page);
-  if(JSON.stringify(loaded).length !==0){
+  if (JSON.stringify(loaded).length !== 0) {
     saveCertificatesToLocalStorage(loaded);
-    createCards(loaded);
+    loadNextPage();
+    spinner.style.display = "none";
   }
-  
-  spinner.style.display = "none";
+
   page++;
   loading = false;
-  saveScrollPosition();
+  spinner.style.display = "none";
 }
-
-loadNextPage();

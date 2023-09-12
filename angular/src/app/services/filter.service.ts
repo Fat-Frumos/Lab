@@ -1,31 +1,46 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Input} from '@angular/core';
+import {Certificate} from "../model/Certificate";
+import {LocalStorageService} from "./local-storage.service";
+import {Tag} from "../model/Tag";
+import {Category} from "../interfaces/Category";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class FilterService {
-    public toggleDropbox() {
-        const dropdown = document.getElementById("dropdown-search");
-        if (dropdown) {
-            dropdown.classList.toggle("show");
-        }
-    }
 
-    public filter(_category: string) {
-        // const query = this.inputCategory!.value;
-        // this.filterBy(query, category);
-    }
+  @Input()
+  certificates: Certificate[];
 
-    public category(header: string) {
-        if (header === '') {
-            header = 'All Categories';
-        }
-        document.getElementById('drop-header')!.innerText = header;
-        this.toggleDropbox();
-        this.filter(header);
-    }
+  @Input()
+  category: Category;
 
-    public filterBy(_query: string, _category: string) {
-        //TODO
-    }
+  @Input()
+  filtered: Certificate[];
+
+  constructor(private storage: LocalStorageService) {
+    this.category = { name: '', tag: '' } as Category;
+    this.filtered = [];
+    this.certificates = this.storage.getCertificatesFromLocalStorage()
+  }
+
+  public filter(): void {
+
+    console.log("Service: filterBy " + this.category.name + " " + this.category.tag);
+
+    this.filtered = this.certificates.filter((certificate: Certificate) => {
+
+      const matchesCategory = this.category.tag === 'All Categories'
+        || Array.from(certificate.tags)
+          .some((tag: Tag) => tag.name === this.category.tag);
+
+      const matchesQuery =
+        certificate.name.toLowerCase()
+          .includes(this.category.name.toLowerCase())
+        || certificate.description.toLowerCase()
+          .includes(this.category.name.toLowerCase());
+
+      return matchesCategory && matchesQuery;
+    });
+  }
 }

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Certificate} from "../components/model/Certificate";
+import {Certificate} from "../model/Certificate";
 
 @Injectable({
     providedIn: 'root'

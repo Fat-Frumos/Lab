@@ -22,6 +22,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Deploy
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Run `ng deploy` to deploy the project to [Netlify](https://gift-store-angular.netlify.app/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/361d7b48-e216-4c7b-906f-ed4db4d6ba10/deploy-status)](https://app.netlify.com/sites/gift-store-angular/deploys)
