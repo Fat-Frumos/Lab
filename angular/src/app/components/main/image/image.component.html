@@ -1,4 +1,7 @@
 <div class="medium-image">
-    <img [src]="certificate.path" (click)="showDetails(certificate)"
-         alt="medium" width="300" height="300">
+  <img 
+    [ngSrc]="certificate.path" 
+    (click)="showDetails(certificate, './pages/')" 
+    alt="medium" priority="true"
+    width="300" height="300">
 </div>

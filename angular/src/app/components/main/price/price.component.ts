@@ -1,33 +1,21 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {FavoriteService} from "../../../services/favorite.service";
-import {Certificate} from "../../../model/Certificate";
 
 @Component({
-    selector: 'app-price',
-    templateUrl: './price.component.html',
-    styleUrls: ['./price.component.scss']
+  selector: 'app-price',
+  templateUrl: './price.component.html',
+  styleUrls: ['./price.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PriceComponent {
-    @Input() id: string;
-    @Input() mainPrice: number;
 
-    constructor(private favorite: FavoriteService) {
-        this.id = '';
-        this.mainPrice = 0;
-    }
+  @Input() id!: string;
+  @Input() mainPrice!: number;
 
-    get buttonText(): string {
-        return `Add to Cart - ${this.id}`;
-    }
+  constructor(private favorite: FavoriteService) {
+  }
 
-    public addToCarts(id: string) {
-        this.favorite.add(id, "cart");
-    }
-}
-
-export function createPrice(certificate: Certificate, favorite: FavoriteService): PriceComponent {
-    const component = new PriceComponent(favorite);
-    component.id = certificate.id;
-    component.mainPrice = certificate.price;
-    return component;
+  public addToCarts(id: string) {
+    this.favorite.add(id, "cart");
+  }
 }

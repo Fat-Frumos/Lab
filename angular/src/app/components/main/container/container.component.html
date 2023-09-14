@@ -1,0 +1,8 @@
+<div id="certificates-list">
+  <app-card
+    class="certificate-card"
+    *ngFor="let certificate of certificates$"
+    [tags]="certificate.tags"
+    [certificate]="certificate">
+  </app-card>
+</div>

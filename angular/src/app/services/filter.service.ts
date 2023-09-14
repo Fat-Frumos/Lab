@@ -1,46 +1,33 @@
 import {Injectable, Input} from '@angular/core';
+import {LocalStorageService} from './local-storage.service';
+import {ICriteria} from "../interfaces/ICriteria";
 import {Certificate} from "../model/Certificate";
-import {LocalStorageService} from "./local-storage.service";
-import {Tag} from "../model/Tag";
-import {Category} from "../interfaces/Category";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FilterService {
 
-  @Input()
-  certificates: Certificate[];
+  @Input() criteria: ICriteria;
 
-  @Input()
-  category: Category;
-
-  @Input()
-  filtered: Certificate[];
 
   constructor(private storage: LocalStorageService) {
-    this.category = { name: '', tag: '' } as Category;
-    this.filtered = [];
-    this.certificates = this.storage.getCertificatesFromLocalStorage()
+    this.criteria = {name: '', tag: ''} as ICriteria;
   }
 
   public filter(): void {
+    this.filterCertificates(this.storage.getCertificatesFromLocalStorage());
+  }
 
-    console.log("Service: filterBy " + this.category.name + " " + this.category.tag);
-
-    this.filtered = this.certificates.filter((certificate: Certificate) => {
-
-      const matchesCategory = this.category.tag === 'All Categories'
-        || Array.from(certificate.tags)
-          .some((tag: Tag) => tag.name === this.category.tag);
-
-      const matchesQuery =
-        certificate.name.toLowerCase()
-          .includes(this.category.name.toLowerCase())
-        || certificate.description.toLowerCase()
-          .includes(this.category.name.toLowerCase());
-
-      return matchesCategory && matchesQuery;
+  filterCertificates(items: Certificate[]): Certificate[] {
+    return items.filter((certificate: Certificate) => {
+      const nameMatch = this.criteria.name
+        ? certificate.name.toLowerCase().includes(this.criteria.name.toLowerCase())
+        : true;
+      const tagMatch = this.criteria.tag
+        ? Array.from(certificate.tags).some(tag => tag.name === this.criteria.tag)
+        : true;
+      return nameMatch && tagMatch;
     });
   }
 }

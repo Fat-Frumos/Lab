@@ -1,15 +1,25 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
-import {MenuItem} from "../../../interfaces/MenuItem";
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
+import {IMenuItem} from "../../../interfaces/IMenuItem";
 
 @Component({
   selector: 'app-menu-button',
   templateUrl: './menu-button.component.html',
-  styleUrls: ['./menu-button.component.scss']
+  styleUrls: ['./menu-button.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MenuButtonComponent {
-  @ViewChild('menuOpenCheckbox') menuOpenCheckbox!: ElementRef;
-  @ViewChild('logoLabel') logoLabel!: ElementRef;
-  @ViewChild('logoName') logoName!: ElementRef;
+
+  @ViewChild('menuOpenCheckbox')
+  menuOpenCheckbox!: ElementRef;
+  @ViewChild('logoLabel')
+  logoLabel!: ElementRef;
+  @ViewChild('logoName')
+  logoName!: ElementRef;
 
   public checkbox!: HTMLInputElement;
   public logo!: HTMLElement;
@@ -19,7 +29,7 @@ export class MenuButtonComponent {
     return './pages/';
   }
 
-  public menuItems: MenuItem[] = [
+  public menuItems: IMenuItem[] = [
     {text: "home", href: "../index.html"},
     {text: "playlist_add_check", href: "details.html"},
     {text: "add_to_drive", href: "add-new.html"},

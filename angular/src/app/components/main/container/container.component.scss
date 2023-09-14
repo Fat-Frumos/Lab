@@ -1,0 +1,15 @@
+@import '../../../shared/variables';
+
+#certificates-list {
+  flex-wrap: wrap;
+  @include flex-justify(space-between);
+  padding: 0 8% 5% 8%;
+}
+
+.certificate-card {
+  width: 248px;
+  margin: 20px;
+  position: relative;
+  background-color: $white-color;
+  @include flex-direction(column);
+}

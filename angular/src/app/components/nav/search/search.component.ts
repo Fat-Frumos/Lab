@@ -1,35 +1,29 @@
 import {
-    Component,
-    EventEmitter,
-    OnInit,
-    Output,
-    ViewChild, ViewContainerRef
+  Component,
+  EventEmitter,
+  Output,
+  ViewEncapsulation
 } from '@angular/core';
 import {FilterService} from "../../../services/filter.service";
 
 @Component({
-    selector: 'app-nav-search',
-    templateUrl: './search.component.html',
-    styleUrls: ['./search.component.scss']
+  selector: 'app-nav-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
-export class SearchComponent implements OnInit{
-    @Output() searchQueryChange: EventEmitter<string>;
+export class SearchComponent {
+  @Output()
+  searchQueryChange: EventEmitter<string>;
 
-    @ViewChild('searchInput', {read: ViewContainerRef})
-    searchInput!: ViewContainerRef;
+  constructor(private service: FilterService) {
+    this.searchQueryChange = new EventEmitter<string>()
+  }
 
-    constructor(private service: FilterService) {
-        this.searchQueryChange = new EventEmitter<string>()
-    }
-
-    onInputChange(event: Event): void {
-        console.log(this.searchInput)
-        const query = (event.target as HTMLInputElement).value;
-        this.service.category.name = query;
-        this.service.filter();
-        this.searchQueryChange.emit(query);
-    }
-
-    ngOnInit(): void {
-    }
+  onInputChange(event: Event): void {
+    const query = (event.target as HTMLInputElement).value;
+    this.service.criteria.name = query;
+    this.service.filter();
+    this.searchQueryChange.emit(query);
+  }
 }

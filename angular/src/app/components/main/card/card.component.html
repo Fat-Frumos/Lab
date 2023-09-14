@@ -1,4 +1,15 @@
-<app-image></app-image>
-<app-group></app-group>
-<app-price></app-price>
-<app-description></app-description>
+<app-image
+  [certificate]="certificate">
+</app-image>
+<app-name
+  [name]="certificate.name"
+  [id]="certificate.id">
+</app-name>
+<app-description
+  [description]="certificate.description"
+  [duration]="certificate.duration">
+</app-description>
+<app-price
+  [mainPrice]="certificate.price"
+  [id]="certificate.id">
+</app-price>

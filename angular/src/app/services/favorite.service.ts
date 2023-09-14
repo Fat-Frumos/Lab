@@ -1,40 +1,44 @@
-import {Injectable} from '@angular/core';
-import {LocalStorageService} from './local-storage.service';
-import {Cart} from "../model/Cart";
-import {Favorite} from "../interfaces/Favorite";
+import { Injectable } from '@angular/core';
+import { LocalStorageService } from './local-storage.service';
+import { Cart } from '../model/Cart';
+import { IFavorite } from '../interfaces/IFavorite';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class FavoriteService implements Favorite {
-  constructor(private storage: LocalStorageService) {
-  }
+export class FavoriteService implements IFavorite {
+  constructor(private storage: LocalStorageService) {}
 
   public updateFavoriteIcons(): void {
-    const username = localStorage.getItem("user");
-    const userFavorites = this.storage.getFromLocalStorage(`favorite_${username}`) || [];
+    const username = localStorage.getItem('user');
+    const userFavorites =
+      this.storage.getFromLocalStorage(`favorite_${username}`) || [];
     userFavorites.forEach((id: number) => {
       const icon = document.getElementById(String(id));
       if (icon) {
-        icon.innerText = "heart_plus";
+        icon.innerText = 'heart_plus';
       }
     });
 
-    const carts: Cart[] = this.storage.getFromLocalStorage(`cart_${username}`) || [];
+    const carts: Cart[] =
+      this.storage.getFromLocalStorage(`cart_${username}`) || [];
     carts.forEach((cart: Cart): void => {
-      const button = document.getElementById("add-button-" + cart.certificate.id);
+      const button = document.getElementById(
+        'add-button-' + cart.certificate.id
+      );
       if (button) {
         const classes = button.classList;
         classes.remove(classes[classes.length - 1]);
-        classes.add("heart_plus");
+        classes.add('heart_plus');
       }
-    })
+    });
   }
 
   public add(id: string, name: string) {
     let text: string;
-    const username = localStorage.getItem("user") ?? '';
-    const storage = this.storage.getFromLocalStorage(`${name}_${username}`) || [];
+    const username = localStorage.getItem('user') ?? '';
+    const storage =
+      this.storage.getFromLocalStorage(`${name}_${username}`) || [];
     if (!storage.includes(id)) {
       storage.push(id);
       text = this.save(username, storage, name);
@@ -49,8 +53,8 @@ export class FavoriteService implements Favorite {
       }
     }
 
-    if (name === "cart") {
-      let htmlElement = document.getElementById("add-button-" + id);
+    if (name === 'cart') {
+      let htmlElement = document.getElementById('add-button-' + id);
       if (htmlElement) {
         const classes = htmlElement.classList;
         classes.remove(classes[classes.length - 1]);
@@ -65,7 +69,12 @@ export class FavoriteService implements Favorite {
     return 'heart_plus';
   }
 
-  private remove(username: string, favorites: string[], name: string, id: string): string {
+  private remove(
+    username: string,
+    favorites: string[],
+    name: string,
+    id: string
+  ): string {
     const index = favorites.indexOf(id);
     if (index !== -1) {
       favorites.splice(index, 1);
@@ -75,7 +84,7 @@ export class FavoriteService implements Favorite {
     return ''; //TODO
   }
 
-  private counter(): void {
+  public counter(): void {
     const username = localStorage.getItem('user');
     if (username !== null) {
       const name = username.charAt(0).toUpperCase() + username.slice(1);
@@ -89,7 +98,8 @@ export class FavoriteService implements Favorite {
   }
 
   private count(username: string | null, prefix: string): void {
-    const storage = this.storage.getFromLocalStorage(`${prefix}_${username}`) || [];
+    const storage =
+      this.storage.getFromLocalStorage(`${prefix}_${username}`) || [];
     const counter = document.getElementById(`${prefix}-count`);
     if (storage.length === 0) {
       if (counter) {

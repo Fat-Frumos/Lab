@@ -5,6 +5,7 @@ body {
   font-family: $card-font;
   font-weight: $font-weight;
   background-color: $silver-color;
+  scroll-behavior: smooth;
 }
 
 .white-theme {

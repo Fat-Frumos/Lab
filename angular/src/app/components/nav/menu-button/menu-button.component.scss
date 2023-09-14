@@ -1,18 +1,12 @@
 @import '../../../shared/variables';
 
-.header {
-  background: $white-color;
-  @include box(100%, 75px);
-  @include center-justify-content(space-between);
-}
-
 .logo {
   @include center-justify-content(space-between);
 }
 
 .logo-name {
   width: 145px;
-  margin-left: 83px;
+  margin-left: 86px;
   height: 66px;
   transition: opacity 0.3s ease-in;
   background: url("../../../shared/name.svg") no-repeat center center;
@@ -20,11 +14,11 @@
 
 .logo-label {
   position: absolute;
-  z-index: 12;
-  width: 51px;
-  height: 42px;
+  z-index: 15;
+  width: 44px;
+  height: 44px;
   display: flex;
-  margin-left: 44px;
+  margin-left: 56px;
   border-radius: 20px;
   margin-top: -61px;
   justify-content: center;
@@ -57,12 +51,14 @@
 
 .menu-item {
   @extend %nav-icon;
+  top: 18px;
 
   &:hover {
     background: $gray-color;
     color: $white-color;
     z-index: 12;
     border-radius: 15px;
+
   }
 
   @for $i from 1 through $menu-items {
@@ -74,8 +70,6 @@
 
 .symbol-item {
   text-decoration: none;
-  height: 40px;
-  margin-top: -2px;
   background: $white-color;
   z-index: 10;
   @extend %nav-icon;
@@ -109,7 +103,7 @@
   width: 40px;
   height: 40px;
   left: 11px;
-  top: 23px;
+  top: 15px;
   border-radius: 100%;
   position: absolute;
   cursor: pointer;
@@ -135,7 +129,7 @@
   background: $icon-color;
   display: block;
   position: absolute;
-  top: 66%;
+  top: 40%;
   left: 50%;
   margin-left: calc(-#{$width} / 2 - 50px);
   margin-top: calc(-#{$height} / 2);

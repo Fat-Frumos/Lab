@@ -1,14 +1,15 @@
-import {Component} from '@angular/core';
-import {Link} from "../../../interfaces/Link";
+import {Component, ViewEncapsulation} from '@angular/core';
+import {ILink} from "../../../interfaces/ILink";
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class UserComponent {
 
-  public userLinks: Link[] = [
+  public userLinks: ILink[] = [
     {
       a: {
         name: "a",
@@ -48,7 +49,13 @@ export class UserComponent {
       span: {name: "span", id: "", class: "", text: ""},
     },
     {
-      a: {name: "a", href: "register.html", id: "", class: "signup", text: "SignUp"},
+      a: {
+        name: "a",
+        href: "register.html",
+        id: "",
+        class: "signup",
+        text: "SignUp"
+      },
       span: {name: "span", id: "", class: "", text: ""},
     },
   ];

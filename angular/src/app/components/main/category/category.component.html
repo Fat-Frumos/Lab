@@ -1,0 +1,13 @@
+<div class="categories-nav">
+  <div class="category-card" *ngFor="let category of categories">
+    <div class="category">
+      <img [ngSrc]="category.url"
+           [alt]="category.name"
+           priority="auto"
+           width="200"
+           height="150">
+      <div class="overlay"></div>
+      <span class="text">{{ category.name }}</span>
+    </div>
+  </div>
+</div>
