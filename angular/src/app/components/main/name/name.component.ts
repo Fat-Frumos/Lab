@@ -1,5 +1,6 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {FavoriteService} from "../../../services/favorite.service";
+import {Certificate} from "../../../model/Certificate";
+import {LocalStorageService} from "../../../services/local-storage.service";
 
 @Component({
   selector: 'app-name',
@@ -9,15 +10,13 @@ import {FavoriteService} from "../../../services/favorite.service";
 })
 export class NameComponent {
 
-  @Input() id: string;
-  @Input() name: string;
+  @Input() certificate: Certificate = {} as Certificate;
 
-  constructor(private favorite: FavoriteService) {
-    this.id = '';
-    this.name = '';
+  constructor(private storageService: LocalStorageService) {
   }
 
-  public addToFavorite(id: string) {
-    this.favorite.add(id, "favorite");
+  public addToFavorite() {
+    this.certificate.favorite = !this.certificate.favorite;
+    this.storageService.updateCertificateInLocalStorage(this.certificate);
   }
 }

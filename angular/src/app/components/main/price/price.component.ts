@@ -1,5 +1,6 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {FavoriteService} from "../../../services/favorite.service";
+import {Certificate} from "../../../model/Certificate";
+import {LocalStorageService} from "../../../services/local-storage.service";
 
 @Component({
   selector: 'app-price',
@@ -8,14 +9,13 @@ import {FavoriteService} from "../../../services/favorite.service";
   encapsulation: ViewEncapsulation.None
 })
 export class PriceComponent {
+  @Input() certificate: Certificate = {} as Certificate;
 
-  @Input() id!: string;
-  @Input() mainPrice!: number;
-
-  constructor(private favorite: FavoriteService) {
+  constructor(private storageService: LocalStorageService) {
   }
 
-  public addToCarts(id: string) {
-    this.favorite.add(id, "cart");
+  public addToCarts() {
+    this.certificate.checkout = !this.certificate.checkout;
+    this.storageService.updateCertificateInLocalStorage(this.certificate);
   }
 }

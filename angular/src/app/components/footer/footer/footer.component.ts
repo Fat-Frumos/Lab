@@ -22,7 +22,6 @@ export class FooterComponent {
       ) {
         this.scroll.saveScrollPosition();
       }
-
       const scrollButton = document.querySelector('.scroll-top');
       if (scrollButton) {
         if (window.scrollY > 300) {

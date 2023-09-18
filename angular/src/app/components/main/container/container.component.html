@@ -1,8 +1,13 @@
-<div id="certificates-list">
+<div id="certificates-list" *ngIf="service.certificates$ as certificates;
+else loader">
   <app-card
     class="certificate-card"
-    *ngFor="let certificate of certificates$"
+    *ngFor="let certificate of certificates | searchBy: criteria"
     [tags]="certificate.tags"
     [certificate]="certificate">
   </app-card>
 </div>
+
+<ng-template #loader>
+  <app-spinner></app-spinner>
+</ng-template>

@@ -4,7 +4,7 @@ import {
   Output,
   ViewEncapsulation
 } from '@angular/core';
-import {FilterService} from "../../../services/filter.service";
+import {CertificateService} from "../../../services/certificate.service";
 
 @Component({
   selector: 'app-nav-search',
@@ -16,14 +16,13 @@ export class SearchComponent {
   @Output()
   searchQueryChange: EventEmitter<string>;
 
-  constructor(private service: FilterService) {
+  constructor(private service: CertificateService) {
     this.searchQueryChange = new EventEmitter<string>()
   }
 
-  onInputChange(event: Event): void {
-    const query = (event.target as HTMLInputElement).value;
-    this.service.criteria.name = query;
+  onInputChange(text: string): void {
+    this.service.criteria.name = text;
     this.service.filter();
-    this.searchQueryChange.emit(query);
+    this.searchQueryChange.emit(text);
   }
 }

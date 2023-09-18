@@ -2,18 +2,22 @@
 {
   "compileOnSave": false,
   "files": [
-    "src/polyfills.ts"
+    "src/polyfills.ts",
+    "src/test.ts"
   ],
   "include": [
     "src/**/*.ts",
+    "src/test.ts",
     "src/polyfills.ts"
   ],
   "exclude": [
     "node_modules"
   ],
   "compilerOptions": {
+    "types": ["jasmine"],
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
+    "rootDir": "./",
     "paths": {
       "@app/*": [
         "app/*"

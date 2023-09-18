@@ -22,3 +22,18 @@
   color: $white-color;
   transition: 0.3s;
 }
+
+.counter {
+  font-size: 11px;
+  background-color: $counter-color;
+  color: white;
+  border-radius: 50%;
+  padding: 2px;
+  width: 13px;
+  text-align: center;
+  margin-left: 17px;
+  margin-top: -28px;
+  height: 11px;
+  position: absolute;
+  font-family: Roboto, sans-serif;
+}

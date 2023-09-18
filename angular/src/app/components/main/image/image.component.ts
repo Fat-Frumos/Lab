@@ -8,11 +8,11 @@ import { Certificate } from '../../../model/Certificate';
   encapsulation: ViewEncapsulation.None,
 })
 export class ImageComponent {
-  @Input() certificate!: Certificate;
+  @Input() certificate: Certificate = {} as Certificate;
 
-  showDetails(certificate: Certificate, path: string): void {
+  showDetails(path: string): void {
     localStorage.removeItem('certificate');
-    localStorage.setItem('certificate', JSON.stringify(certificate));
-    window.location.href = `${path}details.html`;
+    localStorage.setItem('certificate', JSON.stringify(this.certificate));
+    window.location.href = `${path}details`;
   }
 }

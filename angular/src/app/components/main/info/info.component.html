@@ -1,0 +1,19 @@
+<div class="item-details">
+  <div class="more-description">
+    <h3>{{ certificate.name }}</h3>
+    <p>{{ certificate.description }}</p>
+    <div class="time-left">Time Left To Buy</div>
+    <div
+      class="time">{{ certificate.duration }} {{ certificate.duration > 1 ? 'days' : 'day' }}</div>
+    <div class="cart">
+      <div class="price">$ {{ certificate.price }}</div>
+      <a [routerLink]="['/checkout']" class="add-to-cart"
+         (click)="addToCart(certificate)">
+        {{ isAddedToCart(certificate) ? 'Go to Cart' : 'Add to Cart' }}
+        <span class="material-symbols-outlined add-icon">
+              {{ isAddedToCart(certificate) ? 'remove_shopping_cart' : 'shopping_cart' }}
+            </span>
+      </a>
+    </div>
+  </div>
+</div>

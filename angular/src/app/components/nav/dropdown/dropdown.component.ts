@@ -5,7 +5,7 @@ import {
   Output,
   ViewEncapsulation
 } from '@angular/core';
-import {FilterService} from "../../../services/filter.service";
+import {CertificateService} from "../../../services/certificate.service";
 
 @Component({
   selector: 'app-nav-dropdown',
@@ -20,7 +20,7 @@ export class DropdownComponent {
   @Output() categoryClick: EventEmitter<string>;
   @Output() searchInputChange: EventEmitter<string>;
 
-  constructor(private service: FilterService) {
+  constructor(private service: CertificateService) {
     this.category = 'All Categories';
     this.dropdownToggle = new EventEmitter<void>()
     this.categoryClick = new EventEmitter<string>();

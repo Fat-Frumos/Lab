@@ -1,6 +1,10 @@
 <div class="certificate-group">
-  <p class="price">${{ mainPrice }}</p>
-  <button class="add-button favorite" [id]="'add-button-' + id" (click)="addToCarts(id)">
+  <p class="price">${{ certificate.price }}</p>
+  <button
+    (click)="addToCarts()"
+    [class]="certificate.checkout
+    ? 'add-button heart_plus'
+    : 'add-button favorite'">
     <p class="add-to-cart-text">Add to Cart</p>
   </button>
 </div>

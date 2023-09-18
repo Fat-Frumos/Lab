@@ -7,8 +7,7 @@ import { SearchComponent } from '../../components/nav/search/search.component';
 import { CheckoutComponent } from '../../components/pages/checkout/checkout.component';
 import { DropdownComponent } from '../../components/nav/dropdown/dropdown.component';
 import { LinkComponent } from '../../components/nav/link/link.component';
-import { NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
-import { CategoryComponent } from '../../components/main/category/category.component';
+import {NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,9 +19,8 @@ import { CategoryComponent } from '../../components/main/category/category.compo
     CheckoutComponent,
     DropdownComponent,
     LinkComponent,
-    CategoryComponent,
   ],
-  imports: [NgForOf, NgIf, NgOptimizedImage],
+  imports: [NgForOf, NgIf, NgOptimizedImage, NgClass],
   exports: [
     HeaderComponent,
     MenuButtonComponent,
@@ -32,7 +30,6 @@ import { CategoryComponent } from '../../components/main/category/category.compo
     CheckoutComponent,
     DropdownComponent,
     LinkComponent,
-    CategoryComponent,
   ],
 })
 export class HeaderModule {}

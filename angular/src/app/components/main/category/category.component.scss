@@ -1,6 +1,22 @@
 @import '../../../shared/variables';
 
+.arrows {
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  color: $icon-color;
+  background: $silver-color;
+  &:hover {
+    background: $light-gray-color;
+    transition: transform 0.5s ease, background 0.5s ease;
+  }
+}
+
 .categories-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   flex-wrap: wrap;
   margin-bottom: 10px;
   background-color: $gainsboro-color;
@@ -11,9 +27,11 @@
 .category-card {
   margin: 0 50px;
   text-align: center;
+  transition: all 0.5s ease;
 }
 
 .category {
+  transition: all ease 1s;
   background-size: cover;
   background-position: center center;
   position: relative;

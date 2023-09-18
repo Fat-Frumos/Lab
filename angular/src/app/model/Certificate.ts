@@ -10,6 +10,8 @@ export interface Certificate {
   duration: number;
   createDate: Date;
   lastUpdate: Date;
+  favorite: boolean;
+  checkout: boolean;
   path: string;
   tags: Set<Tag>;
 }
