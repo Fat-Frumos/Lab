@@ -1,13 +1,24 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from "./components/pages/home/home.component";
-import {CheckoutComponent} from "./components/pages/checkout/checkout.component";
-import {DetailsComponent} from "./components/pages/details/details.component";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'checkout', component: CheckoutComponent},
-  {path: 'details', component: DetailsComponent},
+  {path: '', redirectTo: 'backoffice', pathMatch: 'full'},
+  // {
+  //   path: 'backoffice/login',
+  //   loadChildren: () => import('./content/login/login.module')
+  //   .then(module => module.LoginModule)
+  // },
+  // {
+  //   path: 'backoffice/signup',
+  //   loadChildren: () => import('./content/signup/signup.module')
+  //   .then(module => module.SignupModule)
+  // },
+  {
+    path: '',
+    loadChildren: () => import('./content/backoffice/backoffice.module')
+    .then(module => module.BackofficeModule)
+  },
+  // {path: '**', redirectTo: 'backoffice'},
 ];
 
 @NgModule({
@@ -16,3 +27,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
 }
+

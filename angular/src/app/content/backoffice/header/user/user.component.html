@@ -1,0 +1,6 @@
+<div class="user">
+  <app-exchange></app-exchange>
+  <ng-container *ngFor="let link of userLinks">
+    <app-user-link [link]="link"></app-user-link>
+  </ng-container>
+</div>

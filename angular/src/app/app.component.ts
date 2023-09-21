@@ -7,7 +7,4 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-  // public host = "http://localhost:8080/api";
-  public host: string = 'https://gift-store.onrender.com/api';
-  public username = localStorage.getItem('user');
 }

@@ -1,0 +1,11 @@
+<div class="checkbox-dropdown"
+     [ngClass]="{'open': isOpen, '': !isOpen}"
+     (click)="toggleOpen()">
+  <div class="select-category">
+    <div class="options">
+      <label class="tags-box" *ngFor="let tag of tags">
+        <input type="checkbox" name="tags" [value]="tag"> {{tag}}
+      </label>
+    </div>
+  </div>
+</div>

@@ -2,22 +2,26 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {Certificate} from '../model/Certificate';
 import {Category} from "../interfaces/Category";
 import {Tag} from "../model/Tag";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStorageService {
+  private favorites$: BehaviorSubject<Certificate[]>;
+  public cardCounter: EventEmitter<number> = new EventEmitter<number>();
+  public favoriteCounter: EventEmitter<number> = new EventEmitter<number>();
 
-  cardCounter: EventEmitter<number> = new EventEmitter<number>();
-  favoriteCounter: EventEmitter<number> = new EventEmitter<number>();
-
-  public getFromLocalStorage(key: string): any[] {
-    const favoritesJSON = localStorage.getItem(key);
-    return favoritesJSON ? JSON.parse(favoritesJSON) : [];
+  get favoriteCertificates$() {
+    return this.favorites$.asObservable();
   }
 
-  public saveCertificatesToLocalStorage(certificates: Certificate[]): void {
-    const saved: Certificate[] = this.getCertificatesFromLocalStorage() || [];
+  constructor() {
+    this.favorites$ = new BehaviorSubject<Certificate[]>(this.getFavoriteCertificates());
+  }
+
+  public saveCertificates(certificates: Certificate[]): void {
+    const saved: Certificate[] = this.getCertificates() || [];
     const unique: Certificate[] = this.removeDuplicate(saved, certificates);
     this.sortCertificatesByCreationDate(unique);
     localStorage.setItem('certificates', JSON.stringify(unique));
@@ -31,7 +35,7 @@ export class LocalStorageService {
     );
   }
 
-  public getCertificatesFromLocalStorage(): Certificate[] {
+  public getCertificates(): Certificate[] {
     const certificates = localStorage.getItem('certificates');
     return certificates ? JSON.parse(certificates) : [];
   }
@@ -43,11 +47,11 @@ export class LocalStorageService {
   }
 
   public getCertificatesSize(): number {
-    return this.getCertificatesFromLocalStorage().length;
+    return this.getCertificates().length;
   }
 
-  public updateCertificateInLocalStorage(updated: Certificate): void {
-    const saved: Certificate[] = this.getCertificatesFromLocalStorage();
+  public updateCertificate(updated: Certificate): void {
+    const saved: Certificate[] = this.getCertificates();
     const index: number = saved.findIndex((certificate: Certificate): boolean =>
       certificate.id === updated.id);
     if (index !== -1) {
@@ -58,14 +62,35 @@ export class LocalStorageService {
       this.cardCounter.emit(cardCounter);
       this.favoriteCounter.emit(favoriteCounter);
     }
+    this.favorites$.next(this.getFavoriteCertificates());
   }
 
-  saveTagsToLocalStorage(tags: Tag[]): void {
+  public saveCertificate(certificate: Certificate): void {
+    localStorage.removeItem('certificate');
+    localStorage.setItem('certificate', JSON.stringify(certificate));
+  }
+
+  public saveTagsToLocalStorage(tags: Tag[]): void {
     localStorage.setItem('tags', JSON.stringify(tags));
   }
 
   public getTagsFromLocalStorage(): Category[] {
     const tags = localStorage.getItem('tags');
     return tags ? JSON.parse(tags) : [];
+  }
+
+  public getCheckoutIds(): string[] {
+    return this.getCheckoutCertificates()
+    .map((certificate) => certificate.id);
+  }
+
+  public getCheckoutCertificates(): Certificate[] {
+    return this.getCertificates()
+    .filter(certificate => certificate.checkout);
+  }
+
+  public getFavoriteCertificates(): Certificate[] {
+    return this.getCertificates()
+    .filter(certificate => certificate.favorite);
   }
 }

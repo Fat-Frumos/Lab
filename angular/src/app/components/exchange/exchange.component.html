@@ -1,0 +1,23 @@
+<div class="exchange"
+     (mouseenter)="pre.showIcon(); post.showIcon();"
+     (mouseleave)="pre.hideIcon(); post.hideIcon();"
+     *appExchangeRates="let rate from rates autoplay mode
+     interval ms; controller as ctrl;">
+
+  <div class="material-symbols-outlined arrows arrow-left"
+       appHidden
+       #pre="hiddenControl"
+       (click)="ctrl.prev()">
+    arrow_left
+  </div>
+  <div class="exchange-price"
+       (click)="ctrl.next()">
+    {{rate.currency}}
+  </div>
+  <div class="material-symbols-outlined arrows arrow-right"
+       appHidden
+       #post="hiddenControl"
+       (click)="ctrl.next()">
+    arrow_right
+  </div>
+</div>

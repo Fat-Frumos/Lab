@@ -1,0 +1,44 @@
+@import '../../shared/variables';
+
+.form-wrapper {
+  @include center-justify-content(center);
+}
+
+.checkout-wrapper {
+  @include flex-direction(column);
+}
+
+.item-coupon {
+  margin: 5px 10%;
+  padding: 5px;
+  flex-direction: row;
+  cursor: pointer;
+  @include center-content();
+}
+
+.item-coupon:hover {
+  background-color: $silver-color;
+}
+
+.separator {
+  @include box(869px, 0);
+  border: 1px solid #d3d3d3;
+}
+
+.coupon-description {
+  top: 50px;
+  left: 550px;
+  width: 504px;
+}
+
+h3 {
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  @include font-color(20px, $black-color);
+}
+
+article {
+  width: 40vw;
+}
+

@@ -3,6 +3,7 @@ import {ICriteria} from "../interfaces/ICriteria";
 import {Certificate} from "../model/Certificate";
 import {LocalStorageService} from "./local-storage.service";
 import {FilterPipe} from "../pipe/filter.pipe";
+import {Location} from '@angular/common';
 import {Subject, Subscription, takeUntil} from "rxjs";
 import {LoadService} from "./load.service";
 
@@ -20,6 +21,7 @@ export class CertificateService implements OnDestroy {
   constructor(
     private loadService: LoadService,
     private filterPipe: FilterPipe,
+    private location: Location,
     private storage: LocalStorageService) {
     this.criteria = {name: '', tag: ''} as ICriteria;
   }
@@ -31,7 +33,7 @@ export class CertificateService implements OnDestroy {
 
   public filter(): void {
     this.certificates$ = this.filterPipe.transform(
-      this.storage.getCertificatesFromLocalStorage(), this.criteria);
+      this.storage.getCertificates(), this.criteria);
     console.log(this.certificates$)
   }
 
@@ -50,12 +52,11 @@ export class CertificateService implements OnDestroy {
       .subscribe({
         next: (certificates: any): void => {
           if (Array.isArray(certificates)) {
-            this.storage.saveCertificatesToLocalStorage(certificates);
-            this.certificates$ = this.storage.getCertificatesFromLocalStorage();
+            this.storage.saveCertificates(certificates);
+            this.certificates$ = this.storage.getCertificates();
             this.loading = false;
           }
           console.log("Saved: " + this.certificates$.length);
-
           spinner.style.display = 'none';
         },
         error: (error) => {
@@ -69,17 +70,26 @@ export class CertificateService implements OnDestroy {
     }
   }
 
-  goBack() {
-    window.history.back();
+  findByTagName(name: string) {
+    this.loadService.getCertificatesByTags(100, name)
+    .pipe(takeUntil(this.unSubscribers$))
+    .subscribe({
+      next: (certificates: any): void => {
+        if (Array.isArray(certificates)) {
+          this.storage.saveCertificates(certificates);
+          this.certificates$ = certificates;
+          console.log('Certificates loading completed.' + name);
+        }
+      }
+    })
   }
 
-  // public updateLoginLink() { // TODO
-  //   const loginLink = document
-  //   .getElementById('login-link');
-  //   if (loginLink) {
-  //     loginLink.textContent =
-  //       localStorage.getItem('userLoggedIn') ===
-  //       'true' ? 'Logout' : 'Login';
-  //   }
-  // }
+  goBack() {
+    this.location.back();
+  }
+
+  sendOrders() {
+    const cartsIds = this.storage.getCheckoutIds();
+    console.log("TODO:" + cartsIds)
+  }
 }

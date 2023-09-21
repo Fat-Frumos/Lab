@@ -1,0 +1,15 @@
+<img class="image-small"
+     [ngSrc]="coupon.path.includes('/300/')
+     ? coupon.path.replace('/300/',
+     '/600/') : coupon.path"
+     width="108"
+     height="108"
+     [alt]="">
+<article>
+  <h3 class="coupon-name">{{ coupon.name }}</h3>
+  <p class="coupon-desc">{{ coupon.description }}</p>
+</article>
+<div class="coupon-price">
+  {{ coupon.price | exchange: rates[index].value | currency:
+  rates[index].currency: 'symbol-narrow' }}
+</div>

@@ -1,32 +1,42 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Certificate} from "../model/Certificate";
+import {LocalStorageService} from "./local-storage.service";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private carts$: Certificate[] = [];
 
-  addToCart(certificate: Certificate) {
-    this.carts$.push(certificate);
+  constructor(
+    private router: Router,
+    private storage: LocalStorageService
+  ) {
   }
 
-  removeFromCart(certificate: Certificate): void {
-    const index = this.carts$.findIndex(item => item.id === certificate.id);
-    if (index !== -1) {
-      this.carts$.splice(index, 1);
-    }
+  addCart(certificate: Certificate): void {
+    certificate.checkout = !certificate.checkout;
+    this.storage.updateCertificate(certificate);
+    this.storage.saveCertificate(certificate);
+    const message = certificate.checkout
+      ? ("add to Cart")
+      : ("remove from Cart");
+    console.log(message);
   }
 
-  isAddedToCart(certificate: Certificate) {
-    return this.carts$.some(item => item.id === certificate.id);
+  showDetails(certificate: Certificate): void {
+    this.storage.saveCertificate(certificate);
+    this.navigate(`product/${certificate.id}/details`);
   }
 
-  addCart(certificate: Certificate) {
-    if (this.isAddedToCart(certificate)) {
-      this.removeFromCart(certificate);
-    } else {
-      this.addToCart(certificate);
-    }
+  public navigate(path: string): void {
+    this.router.navigate([path]).then((success): void => {
+      let message: string = success
+        ? `Navigation to ${path} was successful`
+        : `Navigation to ${path} failed`;
+      console.log(message);
+    }).catch((error) => {
+      console.error('Error during navigation:', error);
+    });
   }
 }

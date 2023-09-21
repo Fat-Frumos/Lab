@@ -1,0 +1,99 @@
+@import '../../shared/variables';
+
+.wrapper {
+  margin-top: 15vh;
+  flex-direction: column;
+  @include center-justify-content(flex-start);
+}
+
+.title {
+  padding: 25px;
+  box-sizing: border-box;
+  background-color: #bdbdbd;
+  @include box($register-wrapper, 72px);
+  @include font-color(22px, $white-color);
+}
+
+.registration_form {
+  padding: 0 25px;
+  box-sizing: border-box;
+  width: $register-wrapper;
+  background-color: #fafafa;
+}
+
+.form_wrap {
+  margin-top: 15px;
+}
+
+.form_wrap .input_wrap {
+  margin-bottom: 15px;
+}
+
+.form_wrap .input_wrap label {
+  display: block;
+  margin-bottom: 3px;
+  color: $gray-color;
+}
+
+.form_wrap .input_grp {
+  @include flex-justify(space-between);
+}
+
+.form_wrap .input_grp input[type="text"],
+.form_wrap .input_grp input[type="email"],
+.form_wrap .input_grp input[type="password"] {
+  width: calc((#{$register-wrapper} / 2) - 60px);
+}
+
+.form_wrap input[type="text"],
+.form_wrap input[type="email"],
+.form_wrap input[type="password"] {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #9597a6;
+  padding: 10px;
+  outline: none;
+}
+
+.form_wrap input[type="text"]:focus,
+.form_wrap input[type="email"]:focus,
+.form_wrap input[type="password"]:focus {
+  border-color: $gainsboro-color;
+}
+
+.submit_btn {
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-right: 3px;
+  box-sizing: border-box;
+  width: 200px;
+  height: 42px;
+  background: #6fcf97;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.submit_btn[value="Sign Up"] {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 17px;
+}
+
+.submit_btn[value=Cancel] {
+  height: 42px;
+  font-weight: 700;
+  background: #ffffff;
+  border: 1px solid #dedede;
+  color: #808080;
+  font-size: 17px;
+}
+
+.submit_btn:hover {
+  transition-delay: 0s;
+  transform: translateZ(10px) scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.submit_btn:not(:hover) {
+  transition-delay: 0.3s, 0.1s;
+}

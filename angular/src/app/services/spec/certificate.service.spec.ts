@@ -7,7 +7,6 @@ import {LocalStorageService} from "../local-storage.service";
 describe('CertificateService', () => {
   let service: CertificateService;
   let filterPipe: FilterPipe;
-  let localStorageService: LocalStorageService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -19,7 +18,6 @@ describe('CertificateService', () => {
     });
     service = TestBed.inject(CertificateService);
     filterPipe = TestBed.inject(FilterPipe);
-    localStorageService = TestBed.inject(LocalStorageService);
   });
 
   it('should be created', () => {
@@ -43,7 +41,6 @@ describe('CertificateService', () => {
       tags: new Set([{id: 1, name: 'test'}])
     }];
     const mockCriteria = {name: 'test', tag: 'test'};
-    spyOn(localStorageService, 'getCertificatesFromLocalStorage').and.returnValue(mockCertificates);
     spyOn(filterPipe, 'transform').and.callThrough();
 
     service.criteria = mockCriteria;

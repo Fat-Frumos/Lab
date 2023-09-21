@@ -1,12 +1,10 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/7.1.1/workbox-sw.js');
-
 const CACHE_NAME = 'my-cache-v1';
 const urlsToCache = [
   '/',
   '/src/index.html',
   '/src/favicon.ico',
+  'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,500,1,0&display=swap',
 ];
-
 
 self.addEventListener('fetch', event => {
   event.respondWith(

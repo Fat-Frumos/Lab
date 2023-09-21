@@ -1,0 +1,53 @@
+<div class="add-new-title">Add new Coupon</div>
+<form id="new-coupon" enctype="multipart/form-data">
+  <div id="add-new-wrapper" class="add-new-wrapper">
+    <div class="column">
+      <div class="row-grp">
+        <label class="input-label" for="company">Company</label>
+        <input type="text" id="company" class="input-company" name="company"
+               required>
+        <label class="input-label">
+          <span
+            class="material-symbols-outlined input-prefix">expand_more</span>
+          Category</label>
+        <app-dropdown-category></app-dropdown-category>
+
+        <label class="input-label" for="expired-date">
+          <span class="material-symbols-outlined input-prefix">event</span>
+          Valid to</label>
+        <input type="date" id="expired-date" class="input-expired-date"
+               value="2023-12-12" name="expired" required>
+        <label class="input-label" for="price">Price</label>
+        <input type="number" id="price" class="input-price" name="price"
+               required>
+        <label class="input-label" for="images">Images</label>
+        <label class="custom-file-upload">
+          <input id="images" type="file" name="file" accept="images/*">
+          <span class="material-symbols-outlined">photo_library</span>
+        </label>
+      </div>
+
+      <div class="row-grp">
+        <label class="input-label" for="item-name">Item Name</label>
+        <input type="text" id="item-name" class="input-itemname" name="name"
+               required>
+        <label class="input-label" for="long-desc">Long Description</label>
+        <textarea id="long-desc" class="input-desc" name="description"
+                  required></textarea>
+        <label class="input-label" for="short-desc">Short Description</label>
+        <textarea id="short-desc" class="input-desc"
+                  name="shortDescription"></textarea>
+        <div class="confirm">
+          <button class="button-back submit_btn" type="reset"
+                  (click)="goBack()">
+            <span class="button-label">Back</span>
+          </button>
+          <button type="button" class="button-save submit_btn"
+                  (click)="saveCertificates()">
+            <span class="button-label">Save</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

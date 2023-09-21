@@ -1,0 +1,143 @@
+@import '../../shared/variables';
+
+.input-itemname,
+.input-company,
+.input-image,
+.select-category,
+.input-price,
+.input-expired-date,
+.input-desc {
+  margin-left: 10px;
+  margin-top: 3px;
+  background: #ffffff;
+  box-sizing: border-box;
+  @include box(420px, 50px);
+  border: 1px solid #dedede;
+}
+
+.input-desc {
+  @include box(420px, 135px);
+  box-sizing: border-box;
+}
+
+.add-new-wrapper {
+  @include center-justify-content(center);
+}
+
+.add-new-title {
+  padding-top: 25px;
+  padding-left: 20vw;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 72px;
+  background-color: #bdbdbd;
+  color: #ffffff;
+  font-size: 22px;
+}
+
+.row-grp {
+  @include flex-direction(column);
+  justify-content: flex-start;
+}
+
+.column {
+  @include flex-direction(row);
+}
+
+.input-label {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-category,
+.custom-file-upload {
+  margin: 10px;
+  cursor: pointer;
+  padding: 13px 10px;
+  box-sizing: border-box;
+  @include box(420px, 50px);
+  border: 1px solid #dedede;
+}
+
+.custom-category span,
+.custom-file-upload span {
+  float: right;
+  color: $icon-color;
+  background-color: $white-color;
+}
+
+.input-prefix {
+  width: 27px;
+  cursor: pointer;
+  margin-top: 33px;
+  margin-left: 390px;
+  position: absolute;
+  color: $icon-color;
+  background-color: $white-color;
+}
+
+.date-input {
+  position: relative;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.submit_btn {
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-right: 3px;
+  box-sizing: border-box;
+  width: 200px;
+  height: 42px;
+  background: #6fcf97;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.submit_btn:hover {
+  transition-delay: 0s;
+  transform: translateZ(10px) scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.button-save {
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 12px;
+  width: 200px;
+  height: 43px;
+  background: #6fcf97;
+}
+
+.button-back {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 12px;
+  background: #ffffff;
+  width: 200px;
+  height: 43px;
+  border: 1px solid #dedede;
+}
+
+.button-back .button-label {
+  font-weight: 700;
+  color: #808080;
+  font-size: 17px;
+}
+
+.button-save .button-label {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 17px;
+}
+
