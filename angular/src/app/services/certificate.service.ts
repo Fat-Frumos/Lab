@@ -3,9 +3,11 @@ import {ICriteria} from "../interfaces/ICriteria";
 import {Certificate} from "../model/Certificate";
 import {LocalStorageService} from "./local-storage.service";
 import {FilterPipe} from "../pipe/filter.pipe";
-import {Location} from '@angular/common';
 import {Subject, Subscription, takeUntil} from "rxjs";
 import {LoadService} from "./load.service";
+import {User} from "../model/User";
+import {IMessage} from "../interfaces/IMessage";
+import {FormGroup,} from "@angular/forms";
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +23,6 @@ export class CertificateService implements OnDestroy {
   constructor(
     private loadService: LoadService,
     private filterPipe: FilterPipe,
-    private location: Location,
     private storage: LocalStorageService) {
     this.criteria = {name: '', tag: ''} as ICriteria;
   }
@@ -84,12 +85,32 @@ export class CertificateService implements OnDestroy {
     })
   }
 
-  goBack() {
-    this.location.back();
+  sendOrders() {
+    const user: User = this.storage.getUser();
+    let path: IMessage = this.loadService.sendOrders(user);
+    this.loadService.showMessage(`Order send by ${user.username}`)
+    this.loadService.redirect(path);
   }
 
-  sendOrders() {
-    const cartsIds = this.storage.getCheckoutIds();
-    console.log("TODO:" + cartsIds)
+
+  async saveCertificate(form: FormGroup) {
+    if (form) {
+      console.log(form);
+      // this.loadService.saveImage(form.get('file'));
+      this.loadService.saveForm(form)
+      .then((message: IMessage) => {
+        console.log(message.name);
+        this.loadService.redirect(message);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    } else {
+      this.loadService.showMessage('Invalid form data');
+    }
+  }
+
+  goBack() {
+    this.loadService.back();
   }
 }

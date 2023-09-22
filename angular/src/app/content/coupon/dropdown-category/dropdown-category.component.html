@@ -4,7 +4,7 @@
   <div class="select-category">
     <div class="options">
       <label class="tags-box" *ngFor="let tag of tags">
-        <input type="checkbox" name="tags" [value]="tag"> {{tag}}
+        <input type="checkbox" [value]="tag" (change)="toggleTag(tag)" [checked]="value.includes(tag)"> {{tag}}
       </label>
     </div>
   </div>

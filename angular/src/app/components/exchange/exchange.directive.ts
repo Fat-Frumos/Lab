@@ -6,6 +6,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import {ExchangeService} from "./exchange.service";
+import {IRate} from "../../interfaces/IRate";
 
 @Directive({
   selector: '[appExchangeRates]'
@@ -13,7 +14,7 @@ import {ExchangeService} from "./exchange.service";
 export class ExchangeDirective implements OnInit {
 
   @Input('appExchangeRatesFrom')
-  public rates!: { value: number, currency: string }[];
+  public rates!: IRate[];
 
   @Input('appExchangeRatesInterval')
   public ms: number = 3000;

@@ -1,16 +1,10 @@
 <mat-card>
   <mat-card-header>
-    <app-image
-      [src]="coupon.path"
-      [width]="100"
-      [height]="100">
-    </app-image>
     <mat-card-content>
-      <mat-card-title fxLayout="h2">{{coupon.name}}</mat-card-title>
-      <mat-card-subtitle>{{coupon.description}}</mat-card-subtitle>
-      <mat-card-actions fxLayout="row"  fxLayoutGap="8px" fxLayoutAlign="space-evenly stretch">
-        <button mat-raised-button color="primary" (click)="save()">Save</button>
-        <button mat-raised-button color="primary" (click)="close()">Close</button>
+      <h3>
+        <mat-card-title>{{message.name}}</mat-card-title>
+      </h3>
+      <mat-card-actions  fxLayout="row"  fxLayoutGap="8px" fxLayoutAlign="space-evenly stretch">
       </mat-card-actions>
     </mat-card-content>
   </mat-card-header>

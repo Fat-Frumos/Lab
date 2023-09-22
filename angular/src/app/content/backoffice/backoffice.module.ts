@@ -7,8 +7,6 @@ import {LogoComponent} from "./header/logo/logo.component";
 import {SearchComponent} from "./header/search/search.component";
 import {DropdownComponent} from "./header/dropdown/dropdown.component";
 import {LinkComponent} from "./header/link/link.component";
-import {ExchangeComponent} from "../../components/exchange/exchange.component";
-import {ExchangeDirective} from "../../components/exchange/exchange.directive";
 import {
   CommonModule,
   CurrencyPipe,
@@ -22,6 +20,12 @@ import {FooterModule} from "./footer/footer.module";
 import {MainModule} from "../main/main.module";
 import {LoginModule} from "../login/login.module";
 import {SignupModule} from "../signup/signup.module";
+import {ProductsModule} from "../main/products/products.module";
+import {
+  DropdownCategoryComponent
+} from "../coupon/dropdown-category/dropdown-category.component";
+import {CouponComponent} from "../coupon/coupon.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -32,9 +36,9 @@ import {SignupModule} from "../signup/signup.module";
     SearchComponent,
     DropdownComponent,
     LinkComponent,
-    ExchangeComponent,
-    ExchangeDirective,
     BackofficeComponent,
+    DropdownCategoryComponent,
+    CouponComponent
   ],
   exports: [
     HeaderComponent,
@@ -50,7 +54,9 @@ import {SignupModule} from "../signup/signup.module";
     FooterModule,
     MainModule,
     LoginModule,
-    SignupModule
+    SignupModule,
+    ProductsModule,
+    ReactiveFormsModule
   ]
 })
 export class BackofficeModule {

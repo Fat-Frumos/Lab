@@ -3,6 +3,7 @@ import {Certificate} from "../../../../../model/Certificate";
 import {LocalStorageService} from "../../../../../services/local-storage.service";
 import {ModalService} from "../../../../../components/modal/modal.service";
 import {ExchangeService} from "../../../../../components/exchange/exchange.service";
+import {IRate} from "../../../../../interfaces/IRate";
 
 @Component({
   selector: 'app-price',
@@ -12,7 +13,7 @@ import {ExchangeService} from "../../../../../components/exchange/exchange.servi
 })
 export class PriceComponent implements OnInit {
   @Input() certificate: Certificate = {} as Certificate;
-  rates!: { value: number, currency: string }[];
+  rates!: IRate[];
   index!: number;
 
   constructor(
@@ -33,7 +34,7 @@ export class PriceComponent implements OnInit {
     this.modalService.open({
       component: ItemComponent,
       context: {
-        coupon: {...this.certificate},
+        coupon: {name: this.certificate.name},
         save: () => this.modalService.close(),
         close: () => this.modalService.close()
       }

@@ -26,4 +26,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 Run `ng deploy` to deploy the project to [Netlify](https://gift-store-angular.netlify.app/)
 
+## Start
+
+Run `npm start` to start the project
+
+[environment: base url] (https://gift-store.onrender.com/api)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/361d7b48-e216-4c7b-906f-ed4db4d6ba10/deploy-status)](https://app.netlify.com/sites/gift-store-angular/deploys)

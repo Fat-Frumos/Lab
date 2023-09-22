@@ -5,25 +5,25 @@ import {CouponComponent} from "../coupon/coupon.component";
 import {DetailsComponent} from "../details/details.component";
 import {CheckoutComponent} from "../checkout/checkout.component";
 import {FavoriteComponent} from "../favorite/favorite.component";
-import {MainComponent} from "../main/main.component";
-import {LoginComponent} from "../login/login.component";
-import {SignupComponent} from "../signup/signup.component";
 
 const routes: Routes = [
   {
     path: '', component: BackofficeComponent,
     children: [
-      {path: '', component: MainComponent},
+      {
+        path: '',
+        loadChildren: () => import('../main/main.module')
+        .then(module => module.MainModule)
+      },
       {path: 'coupon', component: CouponComponent},
       {path: 'details', component: DetailsComponent},
       {path: 'checkout', component: CheckoutComponent},
       {path: 'favorite', component: FavoriteComponent},
       {path: 'product/:id/details', component: DetailsComponent},
-      {path: 'signup', component: SignupComponent},
-      {path: 'login', component: LoginComponent},
-      //   loadChildren: () => import('../login/login.module')
-      //   .then(module => module.LoginModule)
-      // },
+      {path: 'signup', loadChildren: () => import('../signup/signup.module')
+        .then(module => module.SignupModule)},
+      {path: 'login',  loadChildren: () => import('../login/login.module')
+        .then(module => module.LoginModule)},
     ]
   }];
 

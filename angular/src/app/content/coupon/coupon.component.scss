@@ -1,6 +1,6 @@
 @import '../../shared/variables';
 
-.input-itemname,
+.input-item-name,
 .input-company,
 .input-image,
 .select-category,
@@ -41,6 +41,9 @@
 }
 
 .column {
+  padding-right: 10px;
+  padding-bottom: 10px;
+  background-color: $white-color;
   @include flex-direction(row);
 }
 
@@ -62,6 +65,7 @@ input[type="file"] {
   box-sizing: border-box;
   @include box(420px, 50px);
   border: 1px solid #dedede;
+  background-color: $white-color;
 }
 
 .custom-category span,

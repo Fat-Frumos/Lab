@@ -3,6 +3,7 @@ import {ExchangeService} from "../../components/exchange/exchange.service";
 import {Certificate} from "../../model/Certificate";
 import {LocalStorageService} from "../../services/local-storage.service";
 import {Router} from "@angular/router";
+import {IRate} from "../../interfaces/IRate";
 
 @Component({
   selector: 'app-checkout',
@@ -11,7 +12,7 @@ import {Router} from "@angular/router";
   encapsulation: ViewEncapsulation.None
 })
 export class CheckoutComponent {
-  rates!: { value: number, currency: string }[];
+  rates!: IRate[];
   index!: number;
   coupons: Certificate[];
 

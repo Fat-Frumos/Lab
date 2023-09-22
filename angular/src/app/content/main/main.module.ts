@@ -1,41 +1,26 @@
-import { NgModule } from '@angular/core';
-import { NameComponent } from './products/card/name/name.component';
-import { PriceComponent } from './products/card/price/price.component';
-import { DescriptionComponent } from './products/card/description/description.component';
-import { CardComponent } from './products/card/card.component';
-import {CurrencyPipe, NgForOf, NgOptimizedImage} from '@angular/common';
-import {ExchangePipe} from "../../components/exchange/exchange.pipe";
+import {NgModule} from '@angular/core';
+import {CurrencyPipe, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {ImageModule} from "../../components/image/image.module";
 import {CategoryComponent} from "./category/category.component";
-import {CarouselDirective} from "../../directive/carousel.directive";
-import {HiddenDirective} from "../../directive/hidden.directive";
+import {ProductsComponent} from "./products/products.component";
+import {ProductsModule} from "./products/products.module";
 
 @NgModule({
   declarations: [
-    NameComponent,
-    PriceComponent,
-    DescriptionComponent,
-    CardComponent,
-    CategoryComponent,
-    ExchangePipe,
-    CarouselDirective,
-    HiddenDirective,
+    ProductsComponent,
+    CategoryComponent
   ],
   imports: [
     NgOptimizedImage,
     NgForOf,
     CurrencyPipe,
     ImageModule,
-
+    ProductsModule,
+    NgIf,
   ],
   exports: [
-    NameComponent,
-    PriceComponent,
-    DescriptionComponent,
-    CardComponent,
-    CategoryComponent,
-    ExchangePipe,
-    HiddenDirective,
-  ],
+    ProductsComponent,
+    CategoryComponent
+  ]
 })
 export class MainModule {}

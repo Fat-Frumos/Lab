@@ -18,4 +18,19 @@ export class ModalService {
   public get modalSequence$(): Observable<any> {
     return this.#control$.asObservable();
   }
+
+  show(message: string) {
+    let title = !message ? 'empty' : message;
+    (async (): Promise<void> => {
+      const {ItemComponent} = await import('../../components/item/item.component');
+      this.open({
+        component: ItemComponent,
+        context: {
+          message: {name: title},
+          save: () => this.close(),
+          close: () => this.close(),
+        },
+      });
+    })();
+  }
 }

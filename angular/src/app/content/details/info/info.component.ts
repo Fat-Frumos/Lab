@@ -2,6 +2,7 @@ import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Certificate} from "../../../model/Certificate";
 import {CartService} from "../../../services/cart.service";
 import {ExchangeService} from "../../../components/exchange/exchange.service";
+import {IRate} from "../../../interfaces/IRate";
 
 @Component({
   selector: 'app-info',
@@ -13,7 +14,7 @@ export class InfoComponent implements OnInit {
 
   @Input() certificate!: Certificate;
   index!: number;
-  rates!: { value: number, currency: string }[];
+  rates!: IRate[];
 
   constructor(
     private cartService: CartService,

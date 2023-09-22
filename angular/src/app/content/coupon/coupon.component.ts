@@ -1,5 +1,5 @@
-import {Component, ViewEncapsulation} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Component, Input, ViewEncapsulation} from '@angular/core';
+import {FormBuilder, Validators} from "@angular/forms";
 import {CertificateService} from "../../services/certificate.service";
 
 @Component({
@@ -9,31 +9,25 @@ import {CertificateService} from "../../services/certificate.service";
   encapsulation: ViewEncapsulation.None,
 })
 export class CouponComponent {
-  form!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-  private readonly service: CertificateService) {
+  @Input()
+  form = this.formBuilder.group({
+    name: ['', Validators.required],
+    description: ['', Validators.required],
+    company: ['', Validators.required],
+    shortDescription: [''],
+    price: ['', [Validators.required, Validators.min(0)]],
+    expired: ['', Validators.required],
+    file: [null, Validators.required],
+    tags: this.formBuilder.array([])
+  });
+
+  constructor(
+    private formBuilder: FormBuilder,
+    public readonly service: CertificateService) {
   }
 
-  ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
-      company: ['', Validators.required],
-      shortDescription: [''],
-      price: ['', [Validators.required, Validators.min(0)]],
-      expired: ['', Validators.required],
-      file: [null, Validators.required],
-      tags: this.formBuilder.array([]),
-    });
-  }
-
-  saveCertificates() {
-    const formData = this.form.value;
-    console.log("TODO" + formData) //TODO
-  }
-
-  goBack (){
-    this.service.goBack();
+  public saveCertificate(): void {
+    this.service.saveCertificate(this.form); //TODO
   }
 }

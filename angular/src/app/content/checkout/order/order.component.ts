@@ -1,6 +1,7 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {Certificate} from "../../../model/Certificate";
 import {ExchangeService} from "../../../components/exchange/exchange.service";
+import {IRate} from "../../../interfaces/IRate";
 
 @Component({
   selector: 'app-order',
@@ -10,7 +11,7 @@ import {ExchangeService} from "../../../components/exchange/exchange.service";
 })
 export class OrderComponent {
   @Input() coupon!: Certificate;
-  rates!: { value: number, currency: string }[];
+  rates!: IRate[];
   index!: number;
 
   constructor(

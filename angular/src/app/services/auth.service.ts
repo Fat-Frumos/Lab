@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {User} from "../model/User";
+import {LocalStorageService} from "./local-storage.service";
+import {NavigateService} from "./navigate.service";
 
 @Injectable({
   providedIn: 'root'
@@ -8,20 +10,23 @@ import {User} from "../model/User";
 export class AuthService {
   private subject: BehaviorSubject<User | null>;
   public currentUser$: Observable<User | null>;
-  private TOKEN_KEY: string = 'user';
 
-  constructor() {
+  constructor(
+    private navigator: NavigateService,
+    private storage: LocalStorageService
+  ) {
     this.subject = new BehaviorSubject<User | null>(null);
     this.currentUser$ = this.subject.asObservable();
+
   }
 
-  getUser(): string {
-    return localStorage.getItem(this.TOKEN_KEY) ?? '';
+  getUser(): User {
+    return this.storage.getUser();
   }
 
   setUser(user: User): void {
     if (user) {
-      localStorage.setItem(this.TOKEN_KEY, JSON.stringify(user));
+      this.storage.saveUser(user)
       this.subject.next(user);
     } else {
       this.logout();
@@ -29,7 +34,15 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem(this.TOKEN_KEY);
+    this.storage.removeUser();
     this.subject.next(null);
+  }
+
+  redirect(href: string) {
+    this.navigator.redirect(href);
+  }
+
+  goBack() {
+    this.navigator.back();
   }
 }

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
+import {IRate} from "../../interfaces/IRate";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExchangeService {
-  private rateSource = new BehaviorSubject<{ value: number, currency: string }[]>([]);
+  private rateSource = new BehaviorSubject<IRate[]>([]);
   private indexSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   currentRates = this.rateSource.asObservable();
 
@@ -15,7 +16,7 @@ export class ExchangeService {
   updateIndex(newIndex: number): void {
     this.indexSubject.next(newIndex);
   }
-  changeRates(rates: { value: number, currency: string }[]) {
+  changeRates(rates: IRate[]) {
     this.rateSource.next(rates);
   }
 }

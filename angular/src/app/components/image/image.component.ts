@@ -22,6 +22,9 @@ export class ImageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!this.src) {
+      this.src = '../shared/logo2.svg';
+    }
     if (this.src.includes('300/')) {
       if (this.width > 300) {
         this.src = this.src.replace('300', String(600))

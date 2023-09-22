@@ -7,23 +7,19 @@ import {
 } from '@angular/common/http';
 import {catchError, EMPTY, filter, map, Observable} from 'rxjs';
 import {BASE_URL_TOKEN} from "../config";
-import {AuthService} from "./auth.service";
 
 @Injectable()
 export class LoadInterceptor implements HttpInterceptor {
 
   constructor(
-    @Inject(BASE_URL_TOKEN) private baseUrl: string,
-    private authService: AuthService
+    @Inject(BASE_URL_TOKEN) private baseUrl: string
   ) {
   }
 
   public intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token: string = '';
-    console.log("TODO: " + this.authService.getUser()); //TODO
     let headers: HttpHeaders = request.headers
     .append('Content-Type', 'application/json')
-    .append('Authorization', `Bearer ${token}`);
+    .append('Authorization', `Bearer `);
 
     const jsonReq = request.clone({
       url: `${this.baseUrl}${request.url}`,
@@ -32,6 +28,7 @@ export class LoadInterceptor implements HttpInterceptor {
     return next.handle(jsonReq).pipe(
       filter(this.isHttpResponse),
       map((response: HttpResponse<any>) => {
+        console.log(response);
         return response.clone({body: response.body?.data})
       }),
       catchError(() => {

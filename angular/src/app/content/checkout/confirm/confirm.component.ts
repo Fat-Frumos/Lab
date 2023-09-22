@@ -1,6 +1,7 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {ExchangeService} from "../../../components/exchange/exchange.service";
 import {CertificateService} from "../../../services/certificate.service";
+import {IRate} from "../../../interfaces/IRate";
 
 @Component({
   selector: 'app-confirm',
@@ -10,7 +11,7 @@ import {CertificateService} from "../../../services/certificate.service";
 })
 export class ConfirmComponent {
   @Input() total!: number;
-  rates!: { value: number, currency: string }[];
+  rates!: IRate[];
   index!: number;
 
   constructor(

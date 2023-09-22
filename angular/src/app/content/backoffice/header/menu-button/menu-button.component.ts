@@ -5,7 +5,7 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import {IMenuItem} from "../../../../interfaces/IMenuItem";
+import {IMessage} from "../../../../interfaces/IMessage";
 
 @Component({
   selector: 'app-menu-button',
@@ -26,13 +26,13 @@ export class MenuButtonComponent implements AfterViewInit {
   public logo!: HTMLElement;
   public name!: HTMLElement;
 
-  public menuItems: IMenuItem[] = [
-    {text: "home", href: "/"},
-    {text: "playlist_add_check", href: "details"},
-    {text: "add_to_drive", href: "coupon"},
-    {text: "shopping_cart_checkout", href: "checkout"},
-    {text: "person_add", href: "signup"},
-    {text: "login", href: "login"},
+  public menuItems: IMessage[] = [
+    {name: "home", href: "/"},
+    {name: "playlist_add_check", href: "details"},
+    {name: "add_to_drive", href: "coupon"},
+    {name: "shopping_cart_checkout", href: "checkout"},
+    {name: "person_add", href: "signup"},
+    {name: "login", href: "login"},
   ];
 
   ngAfterViewInit() {

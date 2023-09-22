@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {LoadService} from "../../../services/load.service";
-import {User} from "../../../model/User";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {User} from "../../../model/User";
 
 @Component({
   selector: 'app-login-form',
@@ -10,40 +10,34 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   encapsulation: ViewEncapsulation.None
 })
 export class LoginFormComponent implements OnInit {
-  user: User = {
-    username: '',
-    password: '',
-    access_token: '',
-    refresh_token: '',
-    expired_at: ''
-  };
 
   loginForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private load: LoadService) {
+    private service: LoadService) {
   }
 
   onSubmit(): void {
     if (this.loginForm.invalid) {
-      return;
+      return this.service.showMessage("Invalid form data. Please check your inputs.");
     }
 
-    this.user = {
+    const user: User = {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password,
       access_token: '',
       refresh_token: '',
       expired_at: '',
+      certificates: []
     };
 
-    this.load.loginUser(this.user).subscribe({
+    this.service.loginUser(user).subscribe({
       next: (response: any) => {
-        console.log(response); //TODO modal
+        this.service.redirect({ name: response.username, href: '/' });
       },
       error: (error: any) => {
-        console.log(error) //TODO modal
+        alert(error.toString());
       }
     });
   }

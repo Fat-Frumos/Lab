@@ -3,14 +3,16 @@ import {Certificate} from '../model/Certificate';
 import {Category} from "../interfaces/Category";
 import {Tag} from "../model/Tag";
 import {BehaviorSubject} from "rxjs";
+import {User} from "../model/User";
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStorageService {
-  private favorites$: BehaviorSubject<Certificate[]>;
-  public cardCounter: EventEmitter<number> = new EventEmitter<number>();
   public favoriteCounter: EventEmitter<number> = new EventEmitter<number>();
+  public cardCounter: EventEmitter<number> = new EventEmitter<number>();
+  private favorites$: BehaviorSubject<Certificate[]>;
+  private TOKEN_KEY: string = 'user';
 
   get favoriteCertificates$() {
     return this.favorites$.asObservable();
@@ -79,11 +81,6 @@ export class LocalStorageService {
     return tags ? JSON.parse(tags) : [];
   }
 
-  public getCheckoutIds(): string[] {
-    return this.getCheckoutCertificates()
-    .map((certificate) => certificate.id);
-  }
-
   public getCheckoutCertificates(): Certificate[] {
     return this.getCertificates()
     .filter(certificate => certificate.checkout);
@@ -92,5 +89,18 @@ export class LocalStorageService {
   public getFavoriteCertificates(): Certificate[] {
     return this.getCertificates()
     .filter(certificate => certificate.favorite);
+  }
+
+  saveUser(user: User) {
+    localStorage.setItem(this.TOKEN_KEY, JSON.stringify(user));
+  }
+
+  getUser(): User {
+    const user = localStorage.getItem(this.TOKEN_KEY);
+    return user ? JSON.parse(user) : '';
+  }
+
+  removeUser() {
+    localStorage.removeItem(this.TOKEN_KEY);
   }
 }

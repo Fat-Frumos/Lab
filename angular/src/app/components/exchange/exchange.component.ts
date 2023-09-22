@@ -1,5 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {ExchangeService} from "./exchange.service";
+import {IRate} from "../../interfaces/IRate";
 
 @Component({
   selector: 'app-exchange',
@@ -9,10 +10,10 @@ import {ExchangeService} from "./exchange.service";
 })
 export class ExchangeComponent {
 
-  public rates: { value: number, currency: string }[] = [
+  public rates: IRate[] = [
     {value: 1.00, currency: 'USD'},
     {value: 0.85, currency: 'EUR'},
-    {value: 36.0, currency: 'UAH'}
+    {value: 38.0, currency: 'UAH'}
   ];
 
   public mode: 'off' | 'on' = 'off';
