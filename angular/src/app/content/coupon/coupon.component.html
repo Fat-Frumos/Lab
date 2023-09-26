@@ -1,6 +1,7 @@
 <form id="new-coupon" enctype="multipart/form-data"
       [formGroup]="form"
       (ngSubmit)="saveCertificate()">
+<div class="add-new-title">New Coupon</div>
   <div id="add-new-wrapper" class="add-new-wrapper">
     <div class="column">
       <div class="row-grp">
@@ -10,7 +11,7 @@
         <label class="input-label">
           <span
             class="material-symbols-outlined input-prefix">expand_more</span>
-          Category</label>
+          ICategory</label>
         <app-dropdown-category></app-dropdown-category>
 <!--        formControlName="tags"-->
 
@@ -40,14 +41,7 @@
         <textarea id="short-desc" class="input-desc"
                   formControlName="shortDescription"></textarea>
         <div class="confirm">
-          <button class="button-back submit_btn" type="reset"
-                  (click)="service.goBack()">
-            <span class="button-label">Back</span>
-          </button>
-          <button type="submit" class="button-save submit_btn">
-<!--                  [disabled]="!form.valid">-->
-            <span class="button-label">Save</span>
-          </button>
+        <app-buttons [prev]="'Back'" [next]="'Save'" (prevClick)="service.goBack()"></app-buttons>
         </div>
       </div>
     </div>

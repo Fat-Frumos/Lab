@@ -1,7 +1,7 @@
 <div class="medium-image">
   <app-image
     [src]="certificate.path"
-    (action)="service.showDetails(certificate)"
+    [routerLink]="['/product', certificate.id, 'details']"
     [width]="300"
     [height]="300">
   </app-image>

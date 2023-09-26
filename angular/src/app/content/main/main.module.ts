@@ -1,26 +1,21 @@
 import {NgModule} from '@angular/core';
-import {CurrencyPipe, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
-import {ImageModule} from "../../components/image/image.module";
-import {CategoryComponent} from "./category/category.component";
-import {ProductsComponent} from "./products/products.component";
 import {ProductsModule} from "./products/products.module";
+import {CategoryModule} from "./category/category.module";
+import {MainRoutingModule} from "./main-routing.module";
+import {MainComponent} from "./main.component";
+import {SpinnerModule} from "../../components/spinner/spinner.module";
 
 @NgModule({
   declarations: [
-    ProductsComponent,
-    CategoryComponent
+    MainComponent,
   ],
   imports: [
-    NgOptimizedImage,
-    NgForOf,
-    CurrencyPipe,
-    ImageModule,
     ProductsModule,
-    NgIf,
+    CategoryModule,
+    SpinnerModule,
+    MainRoutingModule
   ],
-  exports: [
-    ProductsComponent,
-    CategoryComponent
-  ]
+  exports: [MainComponent],
 })
-export class MainModule {}
+export class MainModule {
+}

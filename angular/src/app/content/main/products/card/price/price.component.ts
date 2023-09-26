@@ -1,7 +1,6 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {Certificate} from "../../../../../model/Certificate";
+import {ICertificate} from "../../../../../model/entity/ICertificate";
 import {LocalStorageService} from "../../../../../services/local-storage.service";
-import {ModalService} from "../../../../../components/modal/modal.service";
 import {ExchangeService} from "../../../../../components/exchange/exchange.service";
 import {IRate} from "../../../../../interfaces/IRate";
 
@@ -12,13 +11,12 @@ import {IRate} from "../../../../../interfaces/IRate";
   encapsulation: ViewEncapsulation.None
 })
 export class PriceComponent implements OnInit {
-  @Input() certificate: Certificate = {} as Certificate;
+  @Input() certificate: ICertificate = {} as ICertificate;
   rates!: IRate[];
   index!: number;
 
   constructor(
     public readonly exchange: ExchangeService,
-    private readonly modalService: ModalService,
     private readonly storageService: LocalStorageService) {
   }
 
@@ -28,16 +26,7 @@ export class PriceComponent implements OnInit {
   }
 
   public async addToCart(): Promise<void> {
-    const {ItemComponent} = await import('../../../../../components/item/item.component');
     this.certificate.checkout = !this.certificate.checkout;
     this.storageService.updateCertificate(this.certificate);
-    this.modalService.open({
-      component: ItemComponent,
-      context: {
-        coupon: {name: this.certificate.name},
-        save: () => this.modalService.close(),
-        close: () => this.modalService.close()
-      }
-    });
   }
 }

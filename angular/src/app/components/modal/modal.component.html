@@ -2,12 +2,12 @@
      [ngClass]="{'active': isOpen, 'leave': !isOpen}"
      (click)="close()">
   <div class="modal-body">
-    <div class="modal-inner">
-      <button id="close" class="close">
+    <button id="close" class="close">
         <span class="material-symbols-outlined">
           close
         </span>
-      </button>
+    </button>
+    <div class="modal-inner">
       <div id="message" class="message" #modalContent>
       </div>
     </div>

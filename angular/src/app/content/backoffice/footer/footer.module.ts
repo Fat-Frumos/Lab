@@ -1,20 +1,24 @@
 import { NgModule } from '@angular/core';
 import {ChevronComponent} from "./chevron/chevron.component";
 import {FooterComponent} from "./footer.component";
-import {SpinnerComponent} from "./spinner/spinner.component";
+import {NgClass} from "@angular/common";
+import {ScrollDirective} from "../../../directive/scroll.directive";
+import {CardModule} from "../../main/products/card/card.module";
 
 
 @NgModule({
   declarations: [
     ChevronComponent,
     FooterComponent,
-    SpinnerComponent,
+    ScrollDirective
   ],
   exports: [
-    SpinnerComponent,
     ChevronComponent,
     FooterComponent,
   ],
-  imports: []
+  imports: [
+    NgClass,
+    CardModule
+  ]
 })
 export class FooterModule { }

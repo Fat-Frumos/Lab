@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {Certificate} from "../../../model/Certificate";
-import {CartService} from "../../../services/cart.service";
+import {ICertificate} from "../../../model/entity/ICertificate";
+import {CardService} from "../../../services/card.service";
 import {ExchangeService} from "../../../components/exchange/exchange.service";
 import {IRate} from "../../../interfaces/IRate";
 
@@ -12,12 +12,12 @@ import {IRate} from "../../../interfaces/IRate";
 })
 export class InfoComponent implements OnInit {
 
-  @Input() certificate!: Certificate;
+  @Input() certificate!: ICertificate;
   index!: number;
   rates!: IRate[];
 
   constructor(
-    private cartService: CartService,
+    private cardService: CardService,
     public readonly exchange: ExchangeService
   ) {
   }
@@ -27,11 +27,7 @@ export class InfoComponent implements OnInit {
     this.exchange.index$.subscribe(index => this.index = index)
   }
 
-  addToCart(certificate: Certificate): void {
-    this.cartService.addCart(certificate);
-  }
-
-  goToCart() {
-    this.cartService.navigate('/checkout');
+  addToCart(certificate: ICertificate): void {
+    this.cardService.addCart(certificate);
   }
 }

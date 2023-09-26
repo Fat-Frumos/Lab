@@ -1,7 +1,7 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {Tag} from '../../../../model/Tag';
-import {Certificate} from '../../../../model/Certificate';
-import {CartService} from "../../../../services/cart.service";
+import {ITag} from '../../../../model/entity/ITag';
+import {ICertificate} from '../../../../model/entity/ICertificate';
+import {CardService} from "../../../../services/card.service";
 
 @Component({
   selector: 'app-card',
@@ -10,11 +10,11 @@ import {CartService} from "../../../../services/cart.service";
   encapsulation: ViewEncapsulation.None,
 })
 export class CardComponent {
-  @Input() tags!: Set<Tag>;
-  @Input() certificate!: Certificate;
+  @Input() tags!: Set<ITag>;
+  @Input() certificate!: ICertificate;
 
   constructor(
-    public readonly service: CartService
+    public readonly service: CardService
   ) {
   }
 }

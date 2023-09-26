@@ -27,12 +27,12 @@ export class MenuButtonComponent implements AfterViewInit {
   public name!: HTMLElement;
 
   public menuItems: IMessage[] = [
-    {name: "home", href: "/"},
-    {name: "playlist_add_check", href: "details"},
-    {name: "add_to_drive", href: "coupon"},
-    {name: "shopping_cart_checkout", href: "checkout"},
-    {name: "person_add", href: "signup"},
-    {name: "login", href: "login"},
+    {name: "home", href: "/", color: ''},
+    {name: "playlist_add_check", href: "details", color: ''},
+    {name: "add_to_drive", href: "coupon", color: ''},
+    {name: "shopping_cart_checkout", href: "checkout", color: ''},
+    {name: "person_add", href: "signup", color: ''},
+    {name: "login", href: "login", color: ''},
   ];
 
   ngAfterViewInit() {

@@ -1,6 +1,6 @@
 import {Component, OnDestroy, ViewEncapsulation} from '@angular/core';
-import {Certificate} from "../../model/Certificate";
-import {Observable, Subscription} from "rxjs";
+import {ICertificate} from "../../model/entity/ICertificate";
+import {Subscription} from "rxjs";
 import {LocalStorageService} from "../../services/local-storage.service";
 
 @Component({
@@ -10,11 +10,12 @@ import {LocalStorageService} from "../../services/local-storage.service";
   encapsulation: ViewEncapsulation.None,
 })
 export class FavoriteComponent implements OnDestroy {
-  certificates$!: Observable<Certificate[]>;
+  certificates$!: ICertificate[];
   private subscription!: Subscription;
 
   constructor(private storage: LocalStorageService) {
-    this.certificates$ = this.storage.favoriteCertificates$;
+    this.certificates$ = this.storage.getFavoriteCertificates();
+    console.log(this.certificates$)
   }
 
   ngOnDestroy() {

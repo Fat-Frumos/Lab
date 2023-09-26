@@ -4,7 +4,7 @@
      *appExchangeRates="let rate from rates autoplay mode
      interval ms; controller as ctrl;">
 
-  <div class="material-symbols-outlined arrows arrow-left"
+  <div class="material-symbols-outlined arrow-left"
        appHidden
        #pre="hiddenControl"
        (click)="ctrl.prev()">
@@ -14,7 +14,7 @@
        (click)="ctrl.next()">
     {{rate.currency}}
   </div>
-  <div class="material-symbols-outlined arrows arrow-right"
+  <div class="material-symbols-outlined arrow-right"
        appHidden
        #post="hiddenControl"
        (click)="ctrl.next()">

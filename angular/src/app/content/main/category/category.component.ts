@@ -4,10 +4,9 @@ import {
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
-import {Category} from '../../../interfaces/Category';
+import {ICategory} from '../../../interfaces/ICategory';
 import {CertificateService} from "../../../services/certificate.service";
 import {LocalStorageService} from "../../../services/local-storage.service";
-import {LoadService} from "../../../services/load.service";
 import {Subject, Subscription, takeUntil} from "rxjs";
 
 @Component({
@@ -21,14 +20,12 @@ export class CategoryComponent implements OnInit, OnDestroy, AfterViewInit {
   public size: number = 5;
   public index: number = 0;
   public ms: number = 5000;
-  public tags$: Category[] = [];
-  public categories: Category[] = [];
+  public tags$: ICategory[] = [];
+  public categories: ICategory[] = [];
   subscription!: Subscription;
   unSubscribers$: Subject<any> = new Subject();
-  private imageCache: { [key: string]: string } = {};
 
   constructor(
-    private loadService: LoadService,
     private storage: LocalStorageService,
     private service: CertificateService,
   ) {
@@ -40,7 +37,6 @@ export class CategoryComponent implements OnInit, OnDestroy, AfterViewInit {
       this.loadTags();
     }
     this.tags$ = this.categories.slice(0, this.size);
-    this.preloadImages();
   }
 
   ngAfterViewInit(): void {
@@ -69,23 +65,8 @@ export class CategoryComponent implements OnInit, OnDestroy, AfterViewInit {
     this.tags$.unshift(this.categories[this.index]);
   }
 
-  private preloadImages(): void {
-    this.categories.forEach((category) => {
-      if (!this.imageCache[category.url]) {
-        const img = new Image();
-        img.src = category.url;
-        img.onload = () => {
-          this.imageCache[category.url] = category.url;
-        };
-        img.onerror = () => {
-          console.error(`Error loading image: ${category.url}`);
-        };
-      }
-    });
-  }
-
   loadTags(): void {
-    this.subscription = this.loadService.getTags()
+    this.subscription = this.service.load.getTags()
     .pipe(takeUntil(this.unSubscribers$))
     .subscribe({
       next: (tags: any): void => {
@@ -96,7 +77,7 @@ export class CategoryComponent implements OnInit, OnDestroy, AfterViewInit {
         }
       },
       error: (error): void => console.error('Error loading tags:', error),
-      complete: (): void => console.log('Tag loading completed.'),
+      complete: (): void => console.log('ITag loading completed.'),
     });
   }
 }

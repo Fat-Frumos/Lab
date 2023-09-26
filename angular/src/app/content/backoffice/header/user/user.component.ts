@@ -45,7 +45,7 @@ export class UserComponent {
       span: {name: "span", id: "", class: "", text: ""},
     },
     {
-      a: {name: "a", href: "/", id: "", class: "login", text: "|"},
+      a: {name: "a", href: "/", id: "splitter", class: "login", text: "|"},
       span: {name: "span", id: "", class: "", text: ""},
     },
     {

@@ -1,4 +1,4 @@
-import {Component, NgModule} from '@angular/core';
+import {Component, NgModule, ViewEncapsulation} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
@@ -9,7 +9,8 @@ import {IMessage} from "../../interfaces/IMessage";
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.scss']
+  styleUrls: ['./item.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ItemComponent {
 

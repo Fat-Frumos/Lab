@@ -1,4 +1,4 @@
-import { HostListener, Injectable } from '@angular/core';
+import {HostListener, Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -6,11 +6,12 @@ import { HostListener, Injectable } from '@angular/core';
 export class ScrollService {
   @HostListener('window:beforeunload')
   onBeforeUnload() {
-    this.saveScrollPosition();
+   this.saveScrollPosition();
   }
 
   saveScrollPosition() {
-    localStorage.setItem('scrollPosition', window.scrollY.toString());
+    localStorage.setItem('scrollPosition', (window.scrollY).toString() );
+    console.log("saved Position " + window.scrollY.toString())
   }
 
   restorePosition(): void {

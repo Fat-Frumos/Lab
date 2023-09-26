@@ -1,4 +1,4 @@
-export interface Guest {
+export interface IGuest {
   name: string;
   description: string;
   username: string;

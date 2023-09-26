@@ -6,4 +6,6 @@ import {Component, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./chevron.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ChevronComponent {}
+export class ChevronComponent {
+  isVisible!: boolean;
+}

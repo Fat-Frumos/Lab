@@ -1,4 +1,4 @@
-@import '../../../../shared/variables';
+@import '../../../../../assets/css/variables';
 
 .logo {
   @include center-justify-content(space-between);
@@ -9,7 +9,36 @@
   margin-left: 86px;
   height: 66px;
   transition: opacity 0.3s ease-in;
-  background: url("../../../../shared/name.svg") no-repeat center center;
+  background: url("../../../../../assets/images/name.svg") no-repeat center center;
+
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes drawPath {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+#animatedGroup {
+  animation: fadeIn 2s linear 1s forwards;
+}
+
+#animatedGroup path {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawPath 2s linear forwards;
 }
 
 .logo-label {
@@ -23,16 +52,8 @@
   margin-top: -61px;
   justify-content: center;
   transition: transform 0.2s ease-out;
-  background: url("../../../../shared/logo2.svg") no-repeat center center;
+  background: url("../../../../../assets/images/logo2.svg") no-repeat center center;
   @include font-height-color(24px, 29px, $black-color);
-}
-
-.material-symbols-search {
-  position: absolute;
-  top: 50%;
-  right: 14px;
-  transform: translateY(-50%);
-  pointer-events: none;
 }
 
 .menu-open {
@@ -72,6 +93,7 @@
   text-decoration: none;
   background: $white-color;
   z-index: 10;
+  transition: transform 0.3s ease;
   @extend %nav-icon;
 
   &:hover {

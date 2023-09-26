@@ -1,30 +1,29 @@
 import {Injectable, Input, OnDestroy} from '@angular/core';
 import {ICriteria} from "../interfaces/ICriteria";
-import {Certificate} from "../model/Certificate";
+import {ICertificate} from "../model/entity/ICertificate";
 import {LocalStorageService} from "./local-storage.service";
 import {FilterPipe} from "../pipe/filter.pipe";
 import {Subject, Subscription, takeUntil} from "rxjs";
 import {LoadService} from "./load.service";
-import {User} from "../model/User";
-import {IMessage} from "../interfaces/IMessage";
+import {IUser} from "../model/entity/IUser";
 import {FormGroup,} from "@angular/forms";
+import {SpinnerService} from "../components/spinner/spinner.service";
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class CertificateService implements OnDestroy {
 
   @Input() criteria: ICriteria;
-  certificates$: Certificate[] = [];
+  certificates$: ICertificate[];
   loading: boolean = false;
   subscription!: Subscription;
   unSubscribers$: Subject<any> = new Subject();
 
   constructor(
-    private loadService: LoadService,
     private filterPipe: FilterPipe,
+    public readonly load: LoadService,
     private storage: LocalStorageService) {
     this.criteria = {name: '', tag: ''} as ICriteria;
+    this.certificates$ = this.storage.getCertificates();
   }
 
   ngOnDestroy(): void {
@@ -35,20 +34,19 @@ export class CertificateService implements OnDestroy {
   public filter(): void {
     this.certificates$ = this.filterPipe.transform(
       this.storage.getCertificates(), this.criteria);
-    console.log(this.certificates$)
   }
 
-  loadMoreCertificates(page: number, size: number): void {
-    const spinner = document.getElementById('loading-indicator');
-    if (!this.loading && spinner) {
-      spinner.style.display = 'block';
+  loadMoreCertificates(page: number, size: number): number {
+    let p = page;
+    if (!this.loading) {
+      SpinnerService.toggle()
       this.loading = true;
       const len: number = this.storage.getCertificatesSize();
       if (len !== 0) {
-        page = len / 25;
+        p = len / 25;
       }
-      this.subscription = this.loadService
-      .getCertificates(page, size)
+      this.subscription = this.load
+      .getCertificates(p, size)
       .pipe(takeUntil(this.unSubscribers$))
       .subscribe({
         next: (certificates: any): void => {
@@ -57,22 +55,23 @@ export class CertificateService implements OnDestroy {
             this.certificates$ = this.storage.getCertificates();
             this.loading = false;
           }
-          console.log("Saved: " + this.certificates$.length);
-          spinner.style.display = 'none';
+          console.log("Saved: " + certificates.length);
         },
         error: (error) => {
           console.error('Error loading certificates:', error);
           this.loading = false;
         },
         complete: () => {
-          console.log('Certificates loading completed.');
+          console.log(`Certificates loading completed. Total: ${this.certificates$.length}`);
+          p++;
         },
       });
     }
+    return p
   }
 
   findByTagName(name: string) {
-    this.loadService.getCertificatesByTags(100, name)
+    this.load.getCertificatesByTags(100, name)
     .pipe(takeUntil(this.unSubscribers$))
     .subscribe({
       next: (certificates: any): void => {
@@ -86,31 +85,33 @@ export class CertificateService implements OnDestroy {
   }
 
   sendOrders() {
-    const user: User = this.storage.getUser();
-    let path: IMessage = this.loadService.sendOrders(user);
-    this.loadService.showMessage(`Order send by ${user.username}`)
-    this.loadService.redirect(path);
+    const user: IUser = this.storage.getUser();
+    SpinnerService.toggle()
+    this.load.sendOrders(user, (statusCode: number) => {
+      if (statusCode === 201) {
+        this.load.showByText(20103, user.username);
+      } else {
+        this.load.showByText(statusCode, `Failed to send orders by ${user.username}`);
+      }
+    });
   }
 
-
   async saveCertificate(form: FormGroup) {
-    if (form) {
+    if (form.value) {
       console.log(form);
-      // this.loadService.saveImage(form.get('file'));
-      this.loadService.saveForm(form)
-      .then((message: IMessage) => {
-        console.log(message.name);
-        this.loadService.redirect(message);
-      })
-      .catch((error) => {
-        console.error(error);
+      // this.loadService.saveImage(form.get('file')); //TODO image
+      this.load.saveForm(form)
+      .then((code: number) => {
+        this.load.showByStatus(code);
+      }).catch((error) => {
+        this.load.showByStatus(error.status);
       });
     } else {
-      this.loadService.showMessage('Invalid form data');
+      this.load.showByStatus(40002);
     }
   }
 
   goBack() {
-    this.loadService.back();
+    this.load.back();
   }
 }

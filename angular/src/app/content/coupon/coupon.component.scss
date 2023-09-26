@@ -1,4 +1,9 @@
-@import '../../shared/variables';
+@import '../../../assets/css/variables';
+
+#new-coupon{
+  flex-direction: column;
+  @include center-justify-content(flex-start);
+}
 
 .input-item-name,
 .input-company,
@@ -26,13 +31,13 @@
 
 .add-new-title {
   padding-top: 25px;
-  padding-left: 20vw;
+  padding-left: 20px;
   box-sizing: border-box;
-  width: 100vw;
   height: 72px;
   background-color: #bdbdbd;
-  color: #ffffff;
   font-size: 22px;
+  @include box(880px, 72px);
+  @include font-color(22px, $white-color);
 }
 
 .row-grp {
@@ -87,61 +92,5 @@ input[type="file"] {
 
 .date-input {
   position: relative;
-}
-
-button {
-  border: none;
-  cursor: pointer;
-  background-color: #ffffff;
-}
-
-.submit_btn {
-  border: none;
-  cursor: pointer;
-  margin-left: 20px;
-  margin-right: 3px;
-  box-sizing: border-box;
-  width: 200px;
-  height: 42px;
-  background: #6fcf97;
-  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
-}
-
-.submit_btn:hover {
-  transition-delay: 0s;
-  transform: translateZ(10px) scale(1.05);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.button-save {
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-left: 12px;
-  width: 200px;
-  height: 43px;
-  background: #6fcf97;
-}
-
-.button-back {
-  cursor: pointer;
-  margin-top: 10px;
-  margin-left: 12px;
-  background: #ffffff;
-  width: 200px;
-  height: 43px;
-  border: 1px solid #dedede;
-}
-
-.button-back .button-label {
-  font-weight: 700;
-  color: #808080;
-  font-size: 17px;
-}
-
-.button-save .button-label {
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 17px;
 }
 

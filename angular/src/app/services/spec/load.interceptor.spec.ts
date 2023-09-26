@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LoadInterceptor } from '../load.interceptor';
+import { LoadInterceptor } from '../../shared/service/load.interceptor';
 
 describe('TokenInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({

@@ -3,7 +3,7 @@
      *ngIf="certificates$ as certificates;">
     <app-card
             class="certificate-card"
-            *ngFor="let certificate of certificates | async"
+            *ngFor="let certificate of certificates"
             [certificate]="certificate">
     </app-card>
 </div>

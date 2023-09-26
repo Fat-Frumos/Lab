@@ -1,5 +1,5 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {Certificate} from "../../../model/Certificate";
+import {ICertificate} from "../../../model/entity/ICertificate";
 import {ExchangeService} from "../../../components/exchange/exchange.service";
 import {IRate} from "../../../interfaces/IRate";
 
@@ -10,7 +10,7 @@ import {IRate} from "../../../interfaces/IRate";
   encapsulation: ViewEncapsulation.None
 })
 export class OrderComponent {
-  @Input() coupon!: Certificate;
+  @Input() coupon!: ICertificate;
   rates!: IRate[];
   index!: number;
 

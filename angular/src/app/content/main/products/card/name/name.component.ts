@@ -1,5 +1,5 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {Certificate} from "../../../../../model/Certificate";
+import {ICertificate} from "../../../../../model/entity/ICertificate";
 import {LocalStorageService} from "../../../../../services/local-storage.service";
 
 @Component({
@@ -10,7 +10,7 @@ import {LocalStorageService} from "../../../../../services/local-storage.service
 })
 export class NameComponent {
 
-  @Input() certificate: Certificate = {} as Certificate;
+  @Input() certificate: ICertificate = {} as ICertificate;
 
   constructor(private storageService: LocalStorageService) {
   }

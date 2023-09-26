@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="title">Register</div>
   <div class="registration_form">
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form_wrap">
         <div class="input_grp">
           <div class="input_wrap">
@@ -37,11 +37,7 @@
           <div class="input_wrap">
           </div>
           <div class="input_wrap">
-            <input id="cancel-button" type="button" value="Cancel"
-                   class="submit_btn"
-                   (click)="onCancel()">
-            <input id="signup-button" type="submit" value="Sign Up"
-                   class="submit_btn">
+            <app-buttons [prev]="'Cancel'" [next]="'Sign Up'" (prevClick)="onCancel()"></app-buttons>
           </div>
         </div>
       </div>

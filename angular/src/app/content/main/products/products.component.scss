@@ -1,4 +1,4 @@
-@import '../../../shared/variables';
+@import '../../../../assets/css/variables';
 
 #certificates-list {
   flex-wrap: wrap;
@@ -7,6 +7,7 @@
 }
 
 .certificate-card {
+  cursor: pointer;
   width: 248px;
   margin: 20px;
   position: relative;

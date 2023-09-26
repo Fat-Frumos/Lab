@@ -4,7 +4,7 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
-import {Category} from "../interfaces/Category";
+import {ICategory} from "../interfaces/ICategory";
 
 @Directive({
   selector: '[appCarousel]',
@@ -12,7 +12,7 @@ import {Category} from "../interfaces/Category";
 export class CarouselDirective {
 
   @Input('appCarouselFrom')
-  public categories: Category[] = [];
+  public categories: ICategory[] = [];
   @Input('appCarousel') context: any;
 
   constructor(

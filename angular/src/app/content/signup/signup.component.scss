@@ -1,4 +1,4 @@
-@import '../../shared/variables';
+@import '../../../assets/css/variables';
 
 .wrapper {
   margin-top: 15vh;
@@ -59,41 +59,4 @@
 .form_wrap input[type="email"]:focus,
 .form_wrap input[type="password"]:focus {
   border-color: $gainsboro-color;
-}
-
-.submit_btn {
-  border: none;
-  cursor: pointer;
-  margin-left: 20px;
-  margin-right: 3px;
-  box-sizing: border-box;
-  width: 200px;
-  height: 42px;
-  background: #6fcf97;
-  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
-}
-
-.submit_btn[value="Sign Up"] {
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 17px;
-}
-
-.submit_btn[value=Cancel] {
-  height: 42px;
-  font-weight: 700;
-  background: #ffffff;
-  border: 1px solid #dedede;
-  color: #808080;
-  font-size: 17px;
-}
-
-.submit_btn:hover {
-  transition-delay: 0s;
-  transform: translateZ(10px) scale(1.05);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.submit_btn:not(:hover) {
-  transition-delay: 0.3s, 0.1s;
 }

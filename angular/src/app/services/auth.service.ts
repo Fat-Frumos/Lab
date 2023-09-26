@@ -1,48 +1,50 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {User} from "../model/User";
+import {BehaviorSubject} from "rxjs";
+import {IUser} from "../model/entity/IUser";
 import {LocalStorageService} from "./local-storage.service";
-import {NavigateService} from "./navigate.service";
+import {LoginState} from "../model/enum/LoginState";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private subject: BehaviorSubject<User | null>;
-  public currentUser$: Observable<User | null>;
+  private subject: BehaviorSubject<IUser | null>;
+  loginState: BehaviorSubject<LoginState>;
 
   constructor(
-    private navigator: NavigateService,
-    private storage: LocalStorageService
+    private readonly storage: LocalStorageService
   ) {
-    this.subject = new BehaviorSubject<User | null>(null);
-    this.currentUser$ = this.subject.asObservable();
-
+    this.loginState = new BehaviorSubject<LoginState>(LoginState.LOGGED_OUT);
+    this.subject = new BehaviorSubject<IUser | null>(null);
+    let user: IUser = this.getUser();
+    if (user) {
+      this.loginState.next(user.state);
+    }
   }
 
-  getUser(): User {
+  public getUser(): IUser {
     return this.storage.getUser();
   }
 
-  setUser(user: User): void {
+  public setUser(user: IUser): void {
     if (user) {
-      this.storage.saveUser(user)
-      this.subject.next(user);
+      this.login(user);
     } else {
       this.logout();
     }
   }
 
-  logout(): void {
+  private login(user: IUser) {
+    user.state = LoginState.LOGGED_IN;
+    this.subject.next(user);
+    this.storage.saveUser(user)
+    this.loginState.next(user.state);
+  }
+
+  private logout(): void {
     this.storage.removeUser();
     this.subject.next(null);
-  }
-
-  redirect(href: string) {
-    this.navigator.redirect(href);
-  }
-
-  goBack() {
-    this.navigator.back();
+    this.loginState.next(LoginState.LOGGED_OUT);
+    console.log(this.loginState.value);
   }
 }

@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {LoadService} from "../../../services/load.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../../model/User";
+import {IUser} from "../../../model/entity/IUser";
+import {LoginState} from "../../../model/enum/LoginState";
 
 @Component({
   selector: 'app-login-form',
@@ -20,24 +21,25 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.loginForm.invalid) {
-      return this.service.showMessage("Invalid form data. Please check your inputs.");
+      return this.service.showByStatus(40001);
     }
-
-    const user: User = {
+    const user: IUser = {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password,
       access_token: '',
       refresh_token: '',
       expired_at: '',
-      certificates: []
+      certificates: [],
+      state: LoginState.GUEST
     };
 
-    this.service.loginUser(user).subscribe({
+    this.service.loginUser(user)
+    .subscribe({
       next: (response: any) => {
-        this.service.redirect({ name: response.username, href: '/' });
+        this.service.showByText(20101, response.username);
       },
       error: (error: any) => {
-        alert(error.toString());
+        this.service.showByStatus(error.toString());
       }
     });
   }

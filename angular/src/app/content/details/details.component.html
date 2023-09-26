@@ -2,7 +2,7 @@
   <div class="details-group">
     <app-image
       [src]="certificate.path"
-      (action)="checkout()"
+      [routerLink]="['/checkout']"
       [width]="600"
       [height]="600">
     </app-image>

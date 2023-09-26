@@ -1,9 +1,9 @@
 import {FilterPipe} from './filter.pipe';
-import {Certificate} from "../model/Certificate";
+import {ICertificate} from "../model/entity/ICertificate";
 
 describe('FilterPipe', () => {
   let pipe: FilterPipe;
-  let mockCertificates: Certificate[];
+  let mockCertificates: ICertificate[];
 
   beforeEach(() => {
     pipe = new FilterPipe();

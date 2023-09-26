@@ -1,49 +1,39 @@
 import {EventEmitter, Injectable} from '@angular/core';
-import {Certificate} from '../model/Certificate';
-import {Category} from "../interfaces/Category";
-import {Tag} from "../model/Tag";
-import {BehaviorSubject} from "rxjs";
-import {User} from "../model/User";
+import {ICertificate} from '../model/entity/ICertificate';
+import {ICategory} from "../interfaces/ICategory";
+import {ITag} from "../model/entity/ITag";
+import {IUser} from "../model/entity/IUser";
+import {User} from "../model/user";
+import {Certificate} from "../model/certificate";
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class LocalStorageService {
   public favoriteCounter: EventEmitter<number> = new EventEmitter<number>();
   public cardCounter: EventEmitter<number> = new EventEmitter<number>();
-  private favorites$: BehaviorSubject<Certificate[]>;
   private TOKEN_KEY: string = 'user';
+  private TOKEN: string = this.TOKEN_KEY + '_certificates';
 
-  get favoriteCertificates$() {
-    return this.favorites$.asObservable();
-  }
-
-  constructor() {
-    this.favorites$ = new BehaviorSubject<Certificate[]>(this.getFavoriteCertificates());
-  }
-
-  public saveCertificates(certificates: Certificate[]): void {
-    const saved: Certificate[] = this.getCertificates() || [];
-    const unique: Certificate[] = this.removeDuplicate(saved, certificates);
+  public saveCertificates(certificates: ICertificate[]): void {  // TODO orders cards
+    const saved: ICertificate[] = this.getCertificates() || [];
+    const unique: ICertificate[] = this.removeDuplicate(saved, certificates);
     this.sortCertificatesByCreationDate(unique);
-    localStorage.setItem('certificates', JSON.stringify(unique));
-    console.log(unique.length);
+    localStorage.setItem(this.TOKEN, JSON.stringify(unique));
   }
 
-  private removeDuplicate(saved: Certificate[], loaded: Certificate[]): Certificate[] {
+  private removeDuplicate(saved: ICertificate[], loaded: ICertificate[]): ICertificate[] {
     return [...saved, ...loaded]
-    .filter((a: Certificate, index: number, items: Certificate[]): boolean =>
-      index === items.findIndex((b: Certificate): boolean => b.id === a.id)
+    .filter((a: ICertificate, index: number, items: ICertificate[]): boolean =>
+      index === items.findIndex((b: ICertificate): boolean => b.id === a.id)
     );
   }
 
-  public getCertificates(): Certificate[] {
-    const certificates = localStorage.getItem('certificates');
+  public getCertificates(): ICertificate[] { //TODO 25 limit on the same page
+    const certificates = localStorage.getItem(this.TOKEN);
     return certificates ? JSON.parse(certificates) : [];
   }
 
-  private sortCertificatesByCreationDate(certificates: Certificate[]): void {
-    certificates.sort((a: Certificate, b: Certificate) =>
+  private sortCertificatesByCreationDate(certificates: ICertificate[]): void {
+    certificates.sort((a: ICertificate, b: ICertificate) =>
       new Date(b.createDate).getTime() - new Date(a.createDate).getTime()
     );
   }
@@ -52,55 +42,59 @@ export class LocalStorageService {
     return this.getCertificates().length;
   }
 
-  public updateCertificate(updated: Certificate): void {
-    const saved: Certificate[] = this.getCertificates();
-    const index: number = saved.findIndex((certificate: Certificate): boolean =>
+  public updateCertificate(updated: ICertificate): void {
+    const saved: ICertificate[] = this.getCertificates();
+    const index: number = saved.findIndex((certificate: ICertificate): boolean =>
       certificate.id === updated.id);
     if (index !== -1) {
       saved[index] = updated;
-      localStorage.setItem('certificates', JSON.stringify(saved));
+      localStorage.setItem(this.TOKEN, JSON.stringify(saved));
       const cardCounter = saved.filter(card => card.checkout).length;
       const favoriteCounter = saved.filter(favorite => favorite.favorite).length;
       this.cardCounter.emit(cardCounter);
       this.favoriteCounter.emit(favoriteCounter);
     }
-    this.favorites$.next(this.getFavoriteCertificates());
   }
 
-  public saveCertificate(certificate: Certificate): void {
-    localStorage.removeItem('certificate');
-    localStorage.setItem('certificate', JSON.stringify(certificate));
-  }
-
-  public saveTagsToLocalStorage(tags: Tag[]): void {
+  public saveTagsToLocalStorage(tags: ITag[]): void {
     localStorage.setItem('tags', JSON.stringify(tags));
   }
 
-  public getTagsFromLocalStorage(): Category[] {
+  public getTagsFromLocalStorage(): ICategory[] {
     const tags = localStorage.getItem('tags');
     return tags ? JSON.parse(tags) : [];
   }
 
-  public getCheckoutCertificates(): Certificate[] {
+  public getCheckoutCertificates(): ICertificate[] {
     return this.getCertificates()
     .filter(certificate => certificate.checkout);
   }
 
-  public getFavoriteCertificates(): Certificate[] {
+  public getFavoriteCertificates(): ICertificate[] {
     return this.getCertificates()
     .filter(certificate => certificate.favorite);
   }
 
-  saveUser(user: User) {
+  saveUser(user: IUser) {
+    this.TOKEN_KEY = user.username;
     localStorage.setItem(this.TOKEN_KEY, JSON.stringify(user));
+    console.log(this.TOKEN_KEY);
   }
 
-  getUser(): User {
+  getUser(): IUser {
     const user = localStorage.getItem(this.TOKEN_KEY);
-    return user ? JSON.parse(user) : '';
+    return user ? JSON.parse(user) : new User();
   }
 
   removeUser() {
     localStorage.removeItem(this.TOKEN_KEY);
+    this.TOKEN_KEY = 'user';
+    console.log(this.TOKEN_KEY);
+  }
+
+  getCertificateById(id: string): ICertificate {
+    const certificate = this.getCertificates()
+    .find((item) => item.id.toString() === id);
+    return !certificate ? new Certificate() : certificate;
   }
 }

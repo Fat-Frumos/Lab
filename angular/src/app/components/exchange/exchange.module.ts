@@ -1,10 +1,25 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {ExchangePipe} from "./exchange.pipe";
+import {ExchangeComponent} from "./exchange.component";
+import {ExchangeDirective} from "./exchange.directive";
+import {HiddenDirective} from "../../directive/hidden.directive";
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
+  declarations: [
+    ExchangePipe,
+    ExchangeComponent,
+    ExchangeDirective,
+    HiddenDirective,
+  ],
+  exports: [
+    ExchangeComponent,
+    ExchangePipe,
+    HiddenDirective,
+  ],
+  providers: [
+    ExchangePipe,
+    HiddenDirective,
   ]
 })
-export class ExchangeModule { }
+export class ExchangeModule {
+}

@@ -3,19 +3,20 @@ import {
   ChangeDetectorRef,
   Component, HostListener,
   OnDestroy,
-  OnInit
+  OnInit, ViewEncapsulation
 } from '@angular/core';
 import {Subject} from "rxjs";
 import {ICriteria} from "../../../interfaces/ICriteria";
 import {ScrollService} from "../../../services/scroll.service";
 import {LocalStorageService} from "../../../services/local-storage.service";
 import {CertificateService} from "../../../services/certificate.service";
-import {Certificate} from "../../../model/Certificate";
+import {ICertificate} from "../../../model/entity/ICertificate";
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ProductsComponent implements OnInit, OnDestroy, AfterViewInit {
   page: number = 0;
@@ -35,16 +36,17 @@ export class ProductsComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     console.log("After View Init")
     this.cdr.detectChanges();
+    // this.scroll.restorePosition()
   }
 
   ngOnInit(): void {
-    const saved: Certificate[] = this.storage.getCertificates();
+    const saved: ICertificate[] = this.storage.getCertificates();
     if (saved.length !== 0) {
       this.service.certificates$ = saved;
     } else {
       this.service.loadMoreCertificates(this.page, this.size);
     }
-    console.log("saved certificates in Storage : " + this.service.certificates$.length);
+    console.log("Saved certificates in Storage : " + this.service.certificates$.length);
   }
 
   ngOnDestroy(): void {

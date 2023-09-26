@@ -4,20 +4,23 @@
     <p>{{ certificate.description }}</p>
     <div class="time-left">Time Left To Buy</div>
     <div
-      class="time">{{ certificate.duration }} {{ certificate.duration > 1 ? 'days' : 'day' }}</div>
+            class="time">{{ certificate.duration }} {{ certificate.duration > 1 ? 'days' : 'day' }}</div>
     <div class="cart">
       <p class="price">
         {{ certificate.price | exchange: rates[index].value | currency:
-        rates[index].currency: 'symbol-narrow' }}
+          rates[index].currency: 'symbol-narrow' }}
       </p>
-      <a [routerLink]="['/checkout']" class="add-to-cart"
-         (click)="goToCart()">
-        {{ certificate.checkout ? 'Go to Cart' : 'Add to Cart' }}
+      <div class="link-card">
+        <a [routerLink]="['/checkout']" class="add-to-cart"
+           (click)="!certificate.checkout && addToCart(certificate)">
+          {{ certificate.checkout ? 'Go to Cart' : 'Add to Cart' }}
+        </a>
+
         <span class="material-symbols-outlined add-icon"
               (click)="addToCart(certificate)">
               {{ certificate.checkout ? 'remove_shopping_cart' : 'shopping_cart' }}
-            </span>
-      </a>
+      </span>
+      </div>
     </div>
   </div>
 </div>

@@ -1,10 +1,28 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  EventEmitter, Input,
+  Output,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'app-buttons',
   templateUrl: './buttons.component.html',
-  styleUrls: ['./buttons.component.scss']
+  styleUrls: ['./buttons.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ButtonsComponent {
- //TODO confirm
+
+  @Input() prev: string = 'Prev';
+  @Input() next: string = 'Next';
+  @Output() prevClick = new EventEmitter<void>();
+  @Output() nextClick = new EventEmitter<void>();
+
+  sendClick() {
+    this.nextClick.emit();
+  }
+
+  backClick() {
+    this.prevClick.emit();
+  }
 }

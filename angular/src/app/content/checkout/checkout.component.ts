@@ -1,6 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {ExchangeService} from "../../components/exchange/exchange.service";
-import {Certificate} from "../../model/Certificate";
+import {ICertificate} from "../../model/entity/ICertificate";
 import {LocalStorageService} from "../../services/local-storage.service";
 import {Router} from "@angular/router";
 import {IRate} from "../../interfaces/IRate";
@@ -14,7 +14,7 @@ import {IRate} from "../../interfaces/IRate";
 export class CheckoutComponent {
   rates!: IRate[];
   index!: number;
-  coupons: Certificate[];
+  coupons: ICertificate[];
 
   constructor(
     private router: Router,
@@ -34,10 +34,14 @@ export class CheckoutComponent {
     return this.coupons.reduce((total, coupon) => total + coupon.price, 0);
   }
 
-  showDetails(coupon: Certificate) {
+  showDetails(coupon: ICertificate) {
     localStorage.setItem('certificate', JSON.stringify(coupon));
-    let promise = this.router.navigate([`/product/${coupon.id}/details`]);
-    console.log(promise)
-    console.log(coupon)
+    this.router.navigate([`/product/${coupon.id}/details`])
+    .then(() => {
+      console.log('Navigation was successful');
+    })
+    .catch(error => {
+      console.error('Navigation failed:', error);
+    });
   }
 }

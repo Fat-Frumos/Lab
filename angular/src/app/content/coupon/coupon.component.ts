@@ -1,5 +1,5 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CertificateService} from "../../services/certificate.service";
 
 @Component({
@@ -11,7 +11,7 @@ import {CertificateService} from "../../services/certificate.service";
 export class CouponComponent {
 
   @Input()
-  form = this.formBuilder.group({
+  form: FormGroup = this.formBuilder.group({
     name: ['', Validators.required],
     description: ['', Validators.required],
     company: ['', Validators.required],
@@ -28,6 +28,7 @@ export class CouponComponent {
   }
 
   public saveCertificate(): void {
-    this.service.saveCertificate(this.form); //TODO
+    this.service.saveCertificate(this.form);
+    //TODO validator + promise + image + date
   }
 }

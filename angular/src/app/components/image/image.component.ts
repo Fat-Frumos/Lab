@@ -1,6 +1,7 @@
 import {
-  Component, EventEmitter,
-  Input, OnInit, Output,
+  AfterViewInit,
+  Component, ElementRef, EventEmitter,
+  Input, OnInit, Output, ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 
@@ -10,12 +11,31 @@ import {
   styleUrls: ['./image.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ImageComponent implements OnInit {
+export class ImageComponent implements OnInit, AfterViewInit {
+
   @Input() src: string = '';
   @Input() width: number = 0;
   @Input() height: number = 0;
   @Output() action: EventEmitter<void> = new EventEmitter<void>();
+  @ViewChild('imageElement', {static: false}) imageElement!: ElementRef;
+  private imageCache: { [key: string]: string } = {};
 
+  onImageLoad() {
+    if (this.imageCache[this.src]) {
+      this.action.emit();
+    } else {
+      const img = new Image();
+      img.src = this.src;
+      img.onload = () => {
+        this.imageCache[this.src] = this.src;
+        this.action.emit();
+        console.log(`Image cache: ${this.src}`);
+      };
+      img.onerror = () => {
+        console.error(`Error loading image: ${this.src}`);
+      };
+    }
+  }
 
   onImageClick() {
     this.action.emit();
@@ -23,7 +43,7 @@ export class ImageComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.src) {
-      this.src = '../shared/logo2.svg';
+      this.src = '../assets/images/logo2.svg';
     }
     if (this.src.includes('300/')) {
       if (this.width > 300) {
@@ -31,6 +51,12 @@ export class ImageComponent implements OnInit {
       } else if (this.width < 300) {
         this.src = this.src.replace('300', String(200))
       }
+    }
+  }
+
+  ngAfterViewInit(): void {
+    if (this.imageElement?.nativeElement.complete) {
+      this.onImageLoad();
     }
   }
 }

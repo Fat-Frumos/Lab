@@ -1,6 +1,6 @@
-import { Tag } from './Tag';
+import { ITag } from './ITag';
 
-export interface Certificate {
+export interface ICertificate {
   id: string;
   name: string;
   description: string;
@@ -13,5 +13,5 @@ export interface Certificate {
   favorite: boolean;
   checkout: boolean;
   path: string;
-  tags: Set<Tag>;
+  tags: Set<ITag>;
 }

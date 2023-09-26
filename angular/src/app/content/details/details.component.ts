@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Certificate} from "../../model/Certificate";
+import {ICertificate} from "../../model/entity/ICertificate";
+import {CardService} from "../../services/card.service";
 
 @Component({
   selector: 'app-details',
@@ -9,23 +10,19 @@ import {Certificate} from "../../model/Certificate";
   encapsulation: ViewEncapsulation.None,
 })
 export class DetailsComponent implements OnInit {
-  itemId!: string;
-  certificate!: Certificate;
+  public itemId!: string;
+  certificate: ICertificate;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private readonly service: CardService,
+    private activatedRoute: ActivatedRoute) {
+    this.certificate = this.activatedRoute.snapshot.data['product'];
   }
 
   ngOnInit(): void {
-    let certificate = localStorage.getItem('certificate');
-    if (certificate) {
-      this.certificate = JSON.parse(certificate);
-    }
-    this.route.params.subscribe((params) => {
-      this.itemId = params['id'];
-    });
-  }
-
-  checkout() {
-    window.location.href = `checkout`;
+    this.activatedRoute.params.subscribe(({id}) => this.itemId = id);
+    const certificate: ICertificate = this.service.getById(this.itemId);
+    this.certificate.favorite = certificate.favorite;
+    this.certificate.checkout = certificate.checkout;
   }
 }

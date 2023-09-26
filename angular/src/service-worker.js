@@ -1,6 +1,7 @@
 const CACHE_NAME = 'my-cache-v1';
 const urlsToCache = [
   '/',
+  '/vendor.js',
   '/src/index.html',
   '/src/favicon.ico',
   'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,500,1,0&display=swap',

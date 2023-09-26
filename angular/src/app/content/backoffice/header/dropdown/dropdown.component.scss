@@ -1,4 +1,4 @@
-@import '../../../../shared/variables';
+@import '../../../../../assets/css/variables';
 
 a {
   text-decoration: none;
@@ -30,6 +30,11 @@ a {
   background-color: $secondary-hover-color;
 }
 
+.drop-button:hover .material-symbols-outlined {
+  transform: rotateZ(180deg);
+  transition: transform 0.3s ease;
+}
+
 .dropdown-content a {
   box-sizing: border-box;
   width: 180px;
@@ -56,9 +61,9 @@ a {
 
 .material-symbols-search {
   position: absolute;
-  top: 50%;
+  top: 27%;
   right: 14px;
-  transform: translateY(-50%);
+  transition: transform 0.3s ease;
   pointer-events: none;
 }
 

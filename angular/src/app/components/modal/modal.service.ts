@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Observable, Subject} from "rxjs";
 import {IModalData} from "../../interfaces/IModalData";
+import {IMessage} from "../../interfaces/IMessage";
+import {SpinnerService} from "../spinner/spinner.service";
 
 @Injectable()
 export class ModalService {
@@ -9,6 +11,7 @@ export class ModalService {
 
   public open(data: IModalData | null): void {
     this.#control$.next(data);
+    SpinnerService.visibility.next(false);
   }
 
   public close(): void {
@@ -19,14 +22,13 @@ export class ModalService {
     return this.#control$.asObservable();
   }
 
-  show(message: string) {
-    let title = !message ? 'empty' : message;
+  showMessage(message: IMessage) {
     (async (): Promise<void> => {
       const {ItemComponent} = await import('../../components/item/item.component');
       this.open({
         component: ItemComponent,
         context: {
-          message: {name: title},
+          message: message,
           save: () => this.close(),
           close: () => this.close(),
         },

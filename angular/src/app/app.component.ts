@@ -7,4 +7,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
+  // constructor(private router: Router) {
+  //   this.router.events.subscribe((value) => console.log(value));
+  // }
 }

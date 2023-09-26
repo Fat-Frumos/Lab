@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {Certificate} from "../model/Certificate";
+import {ICertificate} from "../model/entity/ICertificate";
 import {ICriteria} from "../interfaces/ICriteria";
 
 @Pipe({
@@ -7,11 +7,11 @@ import {ICriteria} from "../interfaces/ICriteria";
 })
 export class FilterPipe implements PipeTransform {
 
-  public transform(certificates: Certificate[], criteria: ICriteria): Certificate[] {
+  public transform(certificates: ICertificate[], criteria: ICriteria): ICertificate[] {
     if (!criteria) {
       return certificates;
     } else {
-      return certificates.filter((certificate: Certificate) => {
+      return certificates.filter((certificate: ICertificate) => {
         const descMatch = criteria.name
           ? certificate.description.toLowerCase()
           .includes(criteria.name.toLowerCase())
