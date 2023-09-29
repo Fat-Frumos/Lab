@@ -1,8 +1,12 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {LoadService} from "../../../services/load.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup} from "@angular/forms";
 import {IUser} from "../../../model/entity/IUser";
 import {LoginState} from "../../../model/enum/LoginState";
+import {
+  minLength,
+  userMatch
+} from "../../../directive/form-validator.directive";
 
 @Component({
   selector: 'app-login-form',
@@ -12,14 +16,15 @@ import {LoginState} from "../../../model/enum/LoginState";
 })
 export class LoginFormComponent implements OnInit {
 
-  loginForm!: FormGroup;
+  public loginForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private service: LoadService) {
+    this.service.loginState(LoginState.LOGGED_OUT);
   }
 
-  onSubmit(): void {
+  login(): void {
     if (this.loginForm.invalid) {
       return this.service.showByStatus(40001);
     }
@@ -30,24 +35,23 @@ export class LoginFormComponent implements OnInit {
       refresh_token: '',
       expired_at: '',
       certificates: [],
-      state: LoginState.GUEST
+      state: LoginState.LOGGED_OUT
     };
 
-    this.service.loginUser(user)
-    .subscribe({
+    this.service.loginUser(user).subscribe({
       next: (response: any) => {
         this.service.showByText(20101, response.username);
       },
       error: (error: any) => {
-        this.service.showByStatus(error.toString());
+        this.service.showByStatus(error.statusCode);
       }
     });
   }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      username: ['', minLength, userMatch.bind(this)],
+      password: ['', minLength]
     });
   }
 }

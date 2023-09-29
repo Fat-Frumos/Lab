@@ -1,12 +1,8 @@
 import {Component, ViewEncapsulation} from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  ValidationErrors,
-  Validators
-} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LoadService} from "../../services/load.service";
+import {passwordMatch, required, userMatch}
+  from "../../directive/form-validator.directive";
 
 @Component({
   selector: 'app-signup',
@@ -16,41 +12,39 @@ import {LoadService} from "../../services/load.service";
 })
 export class SignupComponent {
 
-  form!: FormGroup;
+  public signupForm!: FormGroup;
 
   constructor(
     private readonly loadService: LoadService,
     private formBuilder: FormBuilder) {
-    this.form = this.formBuilder.group({
-      username: ['', Validators.required],
-      firstName: ['', Validators.required],
-      password: ['', Validators.required],
-      repeatPassword: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      address: ['', Validators.required]
-    }, {validators: this.passwordMatchValidator});
-  }
-
-  onSubmit() {
-    if (!this.form.valid) {
-      this.loadService.showByStatus(40001)
-    } else {
-      this.loadService.signup(this.form.value).subscribe({
-        next: (response: any) => this.loadService.showByStatus(response.status),
-        error: (error: any) => this.loadService.showByStatus(error.status)
-      });
-    }
-  }
-
-  passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
-    const password = control.get('password');
-    const repeatPassword = control.get('repeatPassword');
-    return password && repeatPassword && password.value !== repeatPassword.value
-      ? {passwordMismatch: true}
-      : null;
+    this.signupForm = this.formBuilder.group({
+      username: ['', required, userMatch.bind(this)],
+      firstName: ['', required, userMatch.bind(this)],
+      password: this.formBuilder.group({
+        password: ['', required],
+        repeatPassword: ['', required],
+      }, {validators: passwordMatch}),
+      email: ['', [required, Validators.email]],
+      address: ['', required]
+    });
   }
 
   onCancel() {
     this.loadService.back();
+  }
+
+  public signup() {
+    console.log(this.signupForm)
+    const password = this.signupForm
+    .get('password.password')?.value;
+    if (!this.signupForm || !password) {
+      this.loadService.showByStatus(40001)
+    } else {
+      this.signupForm.value.password = password;
+      this.loadService.signup(this.signupForm.value).subscribe({
+        next: (response: any) => this.loadService.showByStatus(response.status),
+        // error: (error: any) => this.loadService.showByStatus(error.status)
+      });
+    }
   }
 }

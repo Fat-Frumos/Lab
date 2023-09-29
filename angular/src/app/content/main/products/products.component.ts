@@ -1,16 +1,23 @@
 import {
   AfterViewInit,
   ChangeDetectorRef,
-  Component, HostListener,
+  Component,
+  HostListener,
   OnDestroy,
-  OnInit, ViewEncapsulation
+  OnInit,
+  ViewEncapsulation
 } from '@angular/core';
-import {Subject} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {ICriteria} from "../../../interfaces/ICriteria";
 import {ScrollService} from "../../../services/scroll.service";
 import {LocalStorageService} from "../../../services/local-storage.service";
-import {CertificateService} from "../../../services/certificate.service";
 import {ICertificate} from "../../../model/entity/ICertificate";
+import {IState} from "../../../store/reducers";
+import {Store} from "@ngrx/store";
+import {
+  getCertificatesPending
+} from "../../../store/actions/certificate.action";
+import {CertificateService} from "../../../services/certificate.service";
 
 @Component({
   selector: 'app-products',
@@ -24,11 +31,14 @@ export class ProductsComponent implements OnInit, OnDestroy, AfterViewInit {
   loading: boolean = false;
   unSubscribers$: Subject<any> = new Subject();
   criteria: ICriteria = {name: '', tag: ''};
+  // public certificates$: Observable<ICertificate[]> = this.store.select('certificates', 'items');
+  public loading$: Observable<boolean> = this.store.select('certificates', 'loading');
 
   constructor(
     private scroll: ScrollService,
     private storage: LocalStorageService,
     public service: CertificateService,
+    public store: Store<IState>,
     private cdr: ChangeDetectorRef
   ) {
   }
@@ -40,6 +50,7 @@ export class ProductsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.store.dispatch(getCertificatesPending())
     const saved: ICertificate[] = this.storage.getCertificates();
     if (saved.length !== 0) {
       this.service.certificates$ = saved;
@@ -58,7 +69,7 @@ export class ProductsComponent implements OnInit, OnDestroy, AfterViewInit {
   @HostListener('window:scroll', ['$event'])
   onScroll(): void {
     if (
-      !this.loading &&
+      !this.loading && //TODO Observable store reducer
       window.innerHeight + window.scrollY >= document.body.offsetHeight - 80
     ) {
       this.service.loadMoreCertificates(this.page, this.size);

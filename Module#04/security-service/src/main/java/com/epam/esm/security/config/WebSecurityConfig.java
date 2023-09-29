@@ -113,6 +113,7 @@ public class WebSecurityConfig {
                 "http://127.0.0.1:8080",
                 "http://127.0.0.1:4200",
                 "https://gift-store.onrender.com",
+                "https://gift-store-angular.netlify.app",
                 "https://gift-store-certificate.netlify.app"));
         configuration.setAllowedMethods(Collections.singletonList("*"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));

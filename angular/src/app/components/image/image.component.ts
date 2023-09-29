@@ -21,20 +21,15 @@ export class ImageComponent implements OnInit, AfterViewInit {
   private imageCache: { [key: string]: string } = {};
 
   onImageLoad() {
-    if (this.imageCache[this.src]) {
-      this.action.emit();
-    } else {
-      const img = new Image();
+    if (!this.imageCache[this.src]) {
+      const img: HTMLImageElement = new Image();
       img.src = this.src;
-      img.onload = () => {
-        this.imageCache[this.src] = this.src;
-        this.action.emit();
-        console.log(`Image cache: ${this.src}`);
-      };
+      img.onload = () => this.imageCache[this.src] = this.src;
       img.onerror = () => {
         console.error(`Error loading image: ${this.src}`);
       };
     }
+    this.action.emit();
   }
 
   onImageClick() {

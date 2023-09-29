@@ -3,6 +3,7 @@ import {ExchangePipe} from "./exchange.pipe";
 import {ExchangeComponent} from "./exchange.component";
 import {ExchangeDirective} from "./exchange.directive";
 import {HiddenDirective} from "../../directive/hidden.directive";
+import {AsyncPipe, NgIf, NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -15,6 +16,11 @@ import {HiddenDirective} from "../../directive/hidden.directive";
     ExchangeComponent,
     ExchangePipe,
     HiddenDirective,
+  ],
+  imports: [
+    NgOptimizedImage,
+    AsyncPipe,
+    NgIf
   ],
   providers: [
     ExchangePipe,

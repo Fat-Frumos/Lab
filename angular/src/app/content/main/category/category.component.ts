@@ -1,9 +1,4 @@
-import {
-  AfterViewInit,
-  Component, OnDestroy,
-  OnInit,
-  ViewEncapsulation
-} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {ICategory} from '../../../interfaces/ICategory';
 import {CertificateService} from "../../../services/certificate.service";
 import {LocalStorageService} from "../../../services/local-storage.service";
@@ -15,7 +10,7 @@ import {Subject, Subscription, takeUntil} from "rxjs";
   styleUrls: ['./category.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class CategoryComponent implements OnInit, OnDestroy, AfterViewInit {
+export class CategoryComponent implements OnInit, OnDestroy {
 
   public size: number = 5;
   public index: number = 0;
@@ -39,19 +34,13 @@ export class CategoryComponent implements OnInit, OnDestroy, AfterViewInit {
     this.tags$ = this.categories.slice(0, this.size);
   }
 
-  ngAfterViewInit(): void {
-    console.log("After Init saved tags slice in Storage: " + this.tags$.length);
-  }
-
   ngOnDestroy(): void {
     this.unSubscribers$.next(null);
     this.unSubscribers$.complete();
   }
 
   search(name: string) {
-    this.service.criteria.tag = name;
     this.service.findByTagName(name);
-    this.service.filter();
   }
 
   public next(): void {

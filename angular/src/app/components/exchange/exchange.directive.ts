@@ -40,7 +40,6 @@ export class ExchangeDirective implements OnInit {
     private readonly vcr: ViewContainerRef,
     private readonly service: ExchangeService,
   ) {
-
   }
   public next(): void {
     this.resetInterval();
@@ -63,15 +62,18 @@ export class ExchangeDirective implements OnInit {
   }
 
   ngOnInit(): void {
-    this.context = {
-      $implicit: this.rates[this.index],
-      controller: {
-        next: () => this.next(),
-        prev: () => this.prev(),
+    this.service.getExchangeRates().subscribe(rates => {
+      this.rates = rates;
+      this.context = {
+        $implicit: this.rates[this.index],
+        controller: {
+          next: () => this.next(),
+          prev: () => this.prev(),
+        }
       }
-    }
-    this.vcr.createEmbeddedView(this.tpl, this.context);
-    this.resetInterval();
+      this.vcr.createEmbeddedView(this.tpl, this.context);
+      this.resetInterval();
+    });
   }
 
   private initInterval(): this {

@@ -6,3 +6,6 @@ export const BASE_URL_TOKEN: InjectionToken<any> = new InjectionToken('BASE_URL_
 
 export const srcUrl: string = environment.srcUrl;
 export const SRC_URL_TOKEN: InjectionToken<any> = new InjectionToken('SRC_URL_TOKEN');
+
+export const nbuUrl: string = environment.nbuUrl;
+export const NBU_URL_TOKEN: InjectionToken<any> = new InjectionToken('NBU_URL');

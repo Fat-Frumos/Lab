@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ICertificate} from "../../model/entity/ICertificate";
-import {CardService} from "../../services/card.service";
+import {CertificateService} from "../../services/certificate.service";
+import {Certificate} from "../../model/certificate";
 
 @Component({
   selector: 'app-details',
@@ -14,9 +15,12 @@ export class DetailsComponent implements OnInit {
   certificate: ICertificate;
 
   constructor(
-    private readonly service: CardService,
+    private readonly service: CertificateService,
     private activatedRoute: ActivatedRoute) {
-    this.certificate = this.activatedRoute.snapshot.data['product'];
+    const product = localStorage.getItem('product');
+    this.certificate = product ? JSON.parse(product) : new Certificate();
+    const certificate = this.activatedRoute.snapshot.data['product'];
+    console.log(certificate)//TODO details activatedRoute
   }
 
   ngOnInit(): void {

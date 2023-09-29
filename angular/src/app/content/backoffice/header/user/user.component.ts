@@ -1,5 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {ILink} from "../../../../interfaces/ILink";
+import {AuthService} from "../../../../services/auth.service";
 
 @Component({
   selector: 'app-user',
@@ -8,6 +9,10 @@ import {ILink} from "../../../../interfaces/ILink";
   encapsulation: ViewEncapsulation.None
 })
 export class UserComponent {
+  isLoggedIn: boolean = false;
+  constructor(public readonly service: AuthService) {
+    this.isLoggedIn = this.service.isLoggedIn();
+  }
 
   public userLinks: ILink[] = [
     {
@@ -31,8 +36,8 @@ export class UserComponent {
       span: {name: "span", id: "cart-count", class: "counter", text: ""},
     },
     {
-      a: {name: "a", href: "login", id: "", class: "login", text: ""},
-      span: {name: "span", id: "user-span", class: "", text: ""},
+      a: {name: "a", href: "/", id: "splitter", class: "login", text: "|"},
+      span: {name: "span", id: "", class: "", text: ""},
     },
     {
       a: {
@@ -40,7 +45,7 @@ export class UserComponent {
         href: "login",
         id: "login-link",
         class: "login",
-        text: "Login",
+        text: this.isLoggedIn ? "Logout" : "Login",
       },
       span: {name: "span", id: "", class: "", text: ""},
     },

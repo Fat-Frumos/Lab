@@ -1,8 +1,12 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {ICertificate} from "../../../model/entity/ICertificate";
-import {CardService} from "../../../services/card.service";
 import {ExchangeService} from "../../../components/exchange/exchange.service";
 import {IRate} from "../../../interfaces/IRate";
+import {Store} from "@ngrx/store";
+import {IState} from "../../../store/reducers";
+import {addProductToCart} from "../../../store/actions/cart";
+import {ICartProduct} from "../../../interfaces/ICartProduct";
+import {CertificateService} from "../../../services/certificate.service";
 
 @Component({
   selector: 'app-info',
@@ -17,8 +21,9 @@ export class InfoComponent implements OnInit {
   rates!: IRate[];
 
   constructor(
-    private cardService: CardService,
-    public readonly exchange: ExchangeService
+    private store: Store<IState>,
+    public readonly exchange: ExchangeService,
+    public readonly service: CertificateService,
   ) {
   }
 
@@ -28,6 +33,8 @@ export class InfoComponent implements OnInit {
   }
 
   addToCart(certificate: ICertificate): void {
-    this.cardService.addCart(certificate);
+    const product: ICartProduct = {...certificate, count: 1}; //TODO store
+    this.store.dispatch(addProductToCart({product}));
+    this.service.addCart(certificate);
   }
 }

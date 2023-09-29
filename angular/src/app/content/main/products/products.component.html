@@ -1,7 +1,7 @@
 <div id="certificates-list">
   <app-card
     class="certificate-card"
-    *ngFor="let certificate of service.certificates$ | searchBy: criteria"
+    *ngFor="let certificate of (service.certificates$) | searchBy: criteria"
     [tags]="certificate.tags"
     [certificate]="certificate">
   </app-card>

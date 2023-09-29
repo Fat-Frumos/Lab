@@ -26,6 +26,14 @@ export class AuthService {
     return this.storage.getUser();
   }
 
+  isLoggedIn() {
+    return this.storage.getUser().state === LoginState.LOGGED_IN;
+  }
+
+  getUsername() {
+    return this.storage.getUsername();
+  }
+
   public setUser(user: IUser): void {
     if (user) {
       this.login(user);
@@ -35,14 +43,13 @@ export class AuthService {
   }
 
   private login(user: IUser) {
-    user.state = LoginState.LOGGED_IN;
     this.subject.next(user);
     this.storage.saveUser(user)
     this.loginState.next(user.state);
   }
 
   private logout(): void {
-    this.storage.removeUser();
+    // this.storage.removeUser();  //TODO
     this.subject.next(null);
     this.loginState.next(LoginState.LOGGED_OUT);
     console.log(this.loginState.value);

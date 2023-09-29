@@ -4,6 +4,10 @@ import {ICertificate} from "../../model/entity/ICertificate";
 import {LocalStorageService} from "../../services/local-storage.service";
 import {Router} from "@angular/router";
 import {IRate} from "../../interfaces/IRate";
+import {IState} from "../../store/reducers";
+import {Store} from "@ngrx/store";
+import {selectProductInCard} from "../../store/reducers/cart.reducer";
+import {ICartProduct} from "../../interfaces/ICartProduct";
 
 @Component({
   selector: 'app-checkout',
@@ -14,20 +18,29 @@ import {IRate} from "../../interfaces/IRate";
 export class CheckoutComponent {
   rates!: IRate[];
   index!: number;
-  coupons: ICertificate[];
+  coupons!: ICertificate[];
+  products$!: ICartProduct[];
 
   constructor(
     private router: Router,
     public readonly exchange: ExchangeService,
-    public readonly storage: LocalStorageService
+    public readonly storage: LocalStorageService,
+    public readonly store: Store<IState>
   ) {
+    this.store.select(selectProductInCard)
+    .subscribe((data: ICartProduct[]) => this.products$ = data);
     this.coupons = this.storage.getCheckoutCertificates();
+    console.log(this.products$)
     console.log(this.coupons)
   }
 
   ngOnInit() {
     this.exchange.currentRates.subscribe(rates => this.rates = rates);
     this.exchange.index$.subscribe(index => this.index = index)
+  }
+
+  public trackByFn(_index: number, item: ICertificate): string {
+    return item.id;
   }
 
   get totalAmount(): number {

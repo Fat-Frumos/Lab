@@ -1,6 +1,11 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from "@angular/forms";
 import {CertificateService} from "../../services/certificate.service";
+import {userMatch} from "../../directive/form-validator.directive";
 
 @Component({
   selector: 'app-coupon',
@@ -11,24 +16,30 @@ import {CertificateService} from "../../services/certificate.service";
 export class CouponComponent {
 
   @Input()
-  form: FormGroup = this.formBuilder.group({
-    name: ['', Validators.required],
-    description: ['', Validators.required],
-    company: ['', Validators.required],
-    shortDescription: [''],
-    price: ['', [Validators.required, Validators.min(0)]],
-    expired: ['', Validators.required],
-    file: [null, Validators.required],
-    tags: this.formBuilder.array([])
-  });
+  form: FormGroup;
+
+  tags: string[] = ['Cosmetics', 'Makeup', 'Travel', 'Celebration', 'Culture', 'Holiday'];
 
   constructor(
     private formBuilder: FormBuilder,
     public readonly service: CertificateService) {
+
+    this.form = this.formBuilder.group({
+      name: ['', Validators.required],
+      description: ['', Validators.required],
+      company: ['', Validators.required],
+      shortDescription: [''],
+      price: ['', [Validators.required, Validators.min(0)]],
+      expired: ['', Validators.required],
+      file: [null, Validators.required],
+      tags: this.formBuilder.array(
+        this.tags.map((tag) => this.formBuilder
+        .control(tag, [userMatch.bind(this)])))
+    });
   }
 
   public saveCertificate(): void {
-    this.service.saveCertificate(this.form);
+    this.service.saveCertificate(this.form);  //validators invalid
     //TODO validator + promise + image + date
   }
 }

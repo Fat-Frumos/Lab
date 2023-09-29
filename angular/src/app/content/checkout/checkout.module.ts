@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {OrderComponent} from "./order/order.component";
 import {ImageModule} from "../../components/image/image.module";
 import {ExchangeModule} from "../../components/exchange/exchange.module";
-import {CurrencyPipe, NgForOf} from "@angular/common";
+import {CurrencyPipe, NgForOf, NgIf} from "@angular/common";
 import {ConfirmComponent} from "./confirm/confirm.component";
 import {CheckoutComponent} from "./checkout.component";
 import {CheckoutRoutingModule} from "./checkout-routing-module";
@@ -24,7 +24,8 @@ import {ButtonsModule} from "../../components/buttons/buttons.module";
     ExchangeModule,
     CurrencyPipe,
     NgForOf,
-    ButtonsModule
+    ButtonsModule,
+    NgIf
   ]
 })
 export class CheckoutModule {

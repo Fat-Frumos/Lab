@@ -1,5 +1,10 @@
 @import '../../../assets/css/variables';
 
+.booking-wrapper{
+  background-color: white;
+  margin: 0 12% 10px 12%;
+}
+
 .form-wrapper {
   @include center-justify-content(center);
 }
@@ -9,16 +14,13 @@
 }
 
 .item-coupon {
-  margin: 5px 10%;
-  padding: 5px;
+  padding: 10px;
   flex-direction: row;
   cursor: pointer;
   @include center-content();
+  background-color: white;
 }
 
-.item-coupon:hover {
-  background-color: $silver-color;
-}
 
 .separator {
   @include box(869px, 0);

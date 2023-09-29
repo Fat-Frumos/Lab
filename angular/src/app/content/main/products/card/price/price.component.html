@@ -1,7 +1,7 @@
 <div class="certificate-group">
-  <p class="price">
-    {{ certificate.price | exchange: rates[index].value | currency:
-    rates[index].currency: 'symbol-narrow' }}
+  <p class="price" *ngIf="rates && rates[index]">
+    {{ certificate.price | exchange: rates[index].value
+    | currency: rates[index].currency: 'symbol-narrow'}}
   </p>
   <button
     (click)="addToCart()"

@@ -60,6 +60,7 @@ export class LoadService {
 
   loginState(state: LoginState) {
     this.authService.loginState.next(state);
+    console.log(this.authService.loginState.value);
   }
 
   public sendOrders(user: IUser, callback: (statusCode: number) => void): void {
@@ -67,11 +68,13 @@ export class LoadService {
     const url = `${this.baseUrl}/orders/${user.username}?certificateIds=${ids}`;
     const requestBody = {
       method: "POST",
-      headers: {"Content-Type": "application/json", Authorization: `Bearer ${user.access_token}`,},
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.access_token}`,
+      },
       body: JSON.stringify({certificateIds: ids.join(","),}),
     };
-
-    fetch(url, requestBody)
+    fetch(url, requestBody) //TODO http
     .then((response) => {
       callback(response.status);
     })
@@ -173,15 +176,13 @@ export class LoadService {
   }
 
   signup(formData: any): Observable<any> {
+    console.log(formData.toString())
     return from(import('../components/item/item.component')).pipe(
       mergeMap(() => {
         return this.http.post(`/signup`, formData).pipe(
           tap((response: any) =>
             this.showByText(20101, `${response.username} ${formData.firstName}`)
-          ),
-          catchError(error => {
-            return throwError(() => this.showByStatus(error.status));
-          })
+          )
         );
       })
     );
@@ -202,10 +203,13 @@ export class LoadService {
 
     const imageFile = form.get('file')?.value;
     let path: string = imageFile ? `${this.baseUrl}/upload/${imageFile.name}` : '';
-
-    // const selectedTags = formData.tags //TODO
-    // .filter((tag: { selected: boolean; value: string }) => tag.selected)
-    // .map((checkbox: { selected: boolean; value: string }) => ({name: checkbox.value}));
+    //TODO selectedTags
+    const selectedTags = form.get('tags')?.value
+    .filter((tag: { selected: boolean; value: string }) => tag.selected)
+    .map((checkbox: {
+      selected: boolean;
+      value: string
+    }) => ({name: checkbox.value}));
 
     return {
       name: form.get('name')?.value,
@@ -215,7 +219,7 @@ export class LoadService {
       shortDescription: form.get('shortDescription')?.value,
       duration: durationInDays,
       path: path,
-      tags: [],
+      tags: selectedTags,
     };
   }
 

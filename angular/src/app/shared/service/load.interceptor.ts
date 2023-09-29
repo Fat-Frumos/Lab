@@ -7,15 +7,18 @@ import {
   HttpRequest,
   HttpResponse
 } from '@angular/common/http';
-import {filter, map, Observable} from 'rxjs';
+import {catchError, EMPTY, filter, map, Observable} from 'rxjs';
 import {BASE_URL_TOKEN} from "../../config";
 import {SpinnerService} from "../../components/spinner/spinner.service";
+import {LoadService} from "../../services/load.service";
+import {LoginState} from "../../model/enum/LoginState";
 
 @Injectable()
 export class LoadInterceptor implements HttpInterceptor {
 
   constructor(
-    @Inject(BASE_URL_TOKEN) private baseUrl: string,
+    private readonly service: LoadService,
+    @Inject(BASE_URL_TOKEN) private baseUrl: string
   ) {
   }
 
@@ -32,13 +35,13 @@ export class LoadInterceptor implements HttpInterceptor {
       map((response: HttpResponse<any>) => {
         SpinnerService.toggle();
         return response.clone({body: response.body?.data})
+      }),
+      catchError((error) => {
+        this.service.loginState(LoginState.LOGIN_FAILED);
+        this.service.showByStatus(error.status);
+        SpinnerService.toggle();
+        return EMPTY;
       })
-      // catchError((error) => {
-      //   this.service.showByStatus(error.status);
-      //   this.service.loginState(LoginState.LOGIN_FAILED);
-      //   SpinnerService.toggle();
-      //   return EMPTY;
-      // })
     );
   }
 

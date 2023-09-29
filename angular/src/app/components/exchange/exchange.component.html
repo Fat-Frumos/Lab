@@ -1,22 +1,18 @@
 <div class="exchange"
-     (mouseenter)="pre.showIcon(); post.showIcon();"
-     (mouseleave)="pre.hideIcon(); post.hideIcon();"
-     *appExchangeRates="let rate from rates autoplay mode
+     *appExchangeRates="let rate from rates$ autoplay mode
      interval ms; controller as ctrl;">
 
   <div class="material-symbols-outlined arrow-left"
        appHidden
-       #pre="hiddenControl"
        (click)="ctrl.prev()">
     arrow_left
   </div>
   <div class="exchange-price"
        (click)="ctrl.next()">
-    {{rate.currency}}
+    <img [ngSrc]="rate.src" alt="" [width]="40" [height]="30"/>
   </div>
   <div class="material-symbols-outlined arrow-right"
        appHidden
-       #post="hiddenControl"
        (click)="ctrl.next()">
     arrow_right
   </div>

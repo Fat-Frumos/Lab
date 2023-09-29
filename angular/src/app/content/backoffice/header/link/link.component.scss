@@ -1,7 +1,7 @@
 @import '../../../../../assets/css/variables';
 
 .login {
-  margin-right: 8px;
+  margin-right: 3px;
   @include font-color(17px, $icon-color);
 }
 
@@ -31,8 +31,8 @@
   padding: 2px;
   width: 13px;
   text-align: center;
-  margin-left: 17px;
-  margin-top: -28px;
+  margin-left: 15px;
+  margin-top: -23px;
   height: 11px;
   position: absolute;
   font-family: Roboto, sans-serif;

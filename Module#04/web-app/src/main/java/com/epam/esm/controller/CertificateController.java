@@ -41,7 +41,13 @@ import static org.springframework.http.HttpStatus.NO_CONTENT;
  */
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://192.168.31.177:5500", "http://localhost:5500", "https://gift-store-certificate.netlify.app", "https://gift-store.onrender.com"})
+@CrossOrigin(origins = {
+	"http://192.168.31.177:5500", 
+	"http://localhost:5500", 
+	"http://localhost:4200", 
+	"https://gift-store-angular.netlify.app/", 
+	"https://gift-store-certificate.netlify.app", 
+	"https://gift-store.onrender.com"})
 @RequestMapping(value = "/certificates")
 public class CertificateController {
     /**

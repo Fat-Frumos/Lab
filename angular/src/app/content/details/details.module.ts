@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {InfoComponent} from "./info/info.component";
 import {ExchangeModule} from "../../components/exchange/exchange.module";
-import {CurrencyPipe} from "@angular/common";
+import {CurrencyPipe, NgClass, NgForOf, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {DetailsComponent} from "./details.component";
 import {ImageModule} from "../../components/image/image.module";
@@ -20,7 +20,10 @@ import {DetailsRoutingModule} from "./details-routing-module";
     ExchangeModule,
     CurrencyPipe,
     RouterLink,
-    ImageModule
+    ImageModule,
+    NgIf,
+    NgForOf,
+    NgClass
   ]
 })
 export class DetailsModule {

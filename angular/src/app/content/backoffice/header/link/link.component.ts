@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {ILink} from "../../../../interfaces/ILink";
 import {LocalStorageService} from "../../../../services/local-storage.service";
+import {ICertificate} from "../../../../model/entity/ICertificate";
 
 @Component({
   selector: 'app-user-link',
@@ -14,28 +15,21 @@ export class LinkComponent implements OnInit {
   cardCounter!: number;
   favoriteCounter !: number;
 
-  constructor(private storage: LocalStorageService) {
-    const certificates = this.storage.getCertificates();
-    this.cardCounter = certificates.filter(cert => cert.checkout).length;
-    this.favoriteCounter = certificates.filter(cert => cert.favorite).length;
+  constructor(private readonly storage: LocalStorageService) {
+    const certificates: ICertificate[] =
+      this.storage.getCertificates();
+    this.cardCounter = certificates.filter(
+      cert => cert.checkout).length;
+    this.favoriteCounter = certificates.filter(
+      cert => cert.favorite).length;
   }
 
   ngOnInit(): void {
-    this.storage.cardCounter.subscribe((value) => {
-      this.cardCounter = value;
-    });
-    this.storage.favoriteCounter.subscribe((value) => {
-      this.favoriteCounter = value;
-    });
-    this.updateLoginLink()
-  }
-  public updateLoginLink() {
-    const loginLink = document
-    .getElementById('login-link');
-    if (loginLink) {
-      loginLink.textContent =
-        localStorage.getItem('userLoggedIn') ===
-        'true' ? 'Logout' : 'Login';
-    }
+    this.storage.cardCounter
+    .subscribe((value) =>
+      this.cardCounter = value);
+    this.storage.favoriteCounter
+    .subscribe((value) =>
+      this.favoriteCounter = value);
   }
 }

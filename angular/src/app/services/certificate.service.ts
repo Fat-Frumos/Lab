@@ -3,11 +3,12 @@ import {ICriteria} from "../interfaces/ICriteria";
 import {ICertificate} from "../model/entity/ICertificate";
 import {LocalStorageService} from "./local-storage.service";
 import {FilterPipe} from "../pipe/filter.pipe";
-import {Subject, Subscription, takeUntil} from "rxjs";
+import {Observable, of, Subject, Subscription, takeUntil} from "rxjs";
 import {LoadService} from "./load.service";
 import {IUser} from "../model/entity/IUser";
 import {FormGroup,} from "@angular/forms";
 import {SpinnerService} from "../components/spinner/spinner.service";
+import {ITag} from "../model/entity/ITag";
 
 @Injectable()
 export class CertificateService implements OnDestroy {
@@ -34,6 +35,7 @@ export class CertificateService implements OnDestroy {
   public filter(): void {
     this.certificates$ = this.filterPipe.transform(
       this.storage.getCertificates(), this.criteria);
+    console.log(this.certificates$)
   }
 
   loadMoreCertificates(page: number, size: number): number {
@@ -67,10 +69,11 @@ export class CertificateService implements OnDestroy {
         },
       });
     }
-    return p
+    return p;
   }
 
   findByTagName(name: string) {
+    this.criteria.tag = name;
     this.load.getCertificatesByTags(100, name)
     .pipe(takeUntil(this.unSubscribers$))
     .subscribe({
@@ -82,6 +85,8 @@ export class CertificateService implements OnDestroy {
         }
       }
     })
+    this.filter();
+    // alert(this.certificates$.length)
   }
 
   sendOrders() {
@@ -99,7 +104,7 @@ export class CertificateService implements OnDestroy {
   async saveCertificate(form: FormGroup) {
     if (form.value) {
       console.log(form);
-      // this.loadService.saveImage(form.get('file')); //TODO image
+      this.load.saveImage(form.get('file')); //TODO image valid
       this.load.saveForm(form)
       .then((code: number) => {
         this.load.showByStatus(code);
@@ -113,5 +118,29 @@ export class CertificateService implements OnDestroy {
 
   goBack() {
     this.load.back();
+  }
+
+  getCertificates(): Observable<ICertificate[]> {
+    return of(this.certificates$);
+  }
+
+  addCart(certificate: ICertificate): void {
+    certificate.checkout = !certificate.checkout;
+    this.storage.updateCertificate(certificate);
+    const message =
+      certificate.checkout
+        ? ("add to Cart")
+        : ("remove from Cart");
+    console.log(message);
+  }
+
+  getById(id: string): ICertificate {
+    return this.storage.getCertificateById(id);
+  }
+
+  countCertificatesByTag(name: string): number {
+    return [...this.storage.getCertificates()]
+    .filter((certificate: ICertificate) => [...certificate.tags]
+    .some((tag: ITag) => tag.name === name)).length;
   }
 }

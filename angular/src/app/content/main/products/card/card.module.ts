@@ -6,7 +6,7 @@ import {DescriptionComponent} from "./description/description.component";
 import {CarouselDirective} from "../../../../directive/carousel.directive";
 import {FilterPipe} from "../../../../pipe/filter.pipe";
 import {ImageModule} from "../../../../components/image/image.module";
-import {CurrencyPipe} from "@angular/common";
+import {AsyncPipe, CurrencyPipe, NgIf} from "@angular/common";
 import {ExchangeModule} from "../../../../components/exchange/exchange.module";
 import {RouterLink} from "@angular/router";
 
@@ -24,6 +24,8 @@ import {RouterLink} from "@angular/router";
     CurrencyPipe,
     ExchangeModule,
     RouterLink,
+    AsyncPipe,
+    NgIf,
   ],
   exports: [
     FilterPipe,

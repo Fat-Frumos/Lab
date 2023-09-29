@@ -3,6 +3,7 @@ import {LoginRoutingModule} from "./login-routing-module";
 import {LoginComponent} from "./login.component";
 import {LoginFormComponent} from "./login-form/login-form.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import {JsonPipe, NgIf} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -11,6 +12,8 @@ import {ReactiveFormsModule} from "@angular/forms";
   imports: [
     LoginRoutingModule,
     ReactiveFormsModule,
+    NgIf,
+    JsonPipe
   ]
 })
 export class LoginModule {

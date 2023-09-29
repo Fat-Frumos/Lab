@@ -15,6 +15,7 @@ export class ButtonsComponent {
 
   @Input() prev: string = 'Prev';
   @Input() next: string = 'Next';
+  @Input() disable: boolean = false;
   @Output() prevClick = new EventEmitter<void>();
   @Output() nextClick = new EventEmitter<void>();
 

@@ -3,9 +3,18 @@ import {
   ElementRef,
   forwardRef,
   HostListener,
+  Input,
   ViewEncapsulation
 } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {
+  ControlValueAccessor,
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  NG_VALUE_ACCESSOR,
+} from "@angular/forms";
+import {userMatch} from "../../../directive/form-validator.directive";
 
 @Component({
   selector: 'app-dropdown-category',
@@ -20,17 +29,27 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
     }
   ],
 })
-export class DropdownCategoryComponent implements ControlValueAccessor {
+export class DropdownCategoryComponent
+  implements ControlValueAccessor {
+
+  @Input()
+  tagsForm!: FormGroup;
+  internalValue: string[] = [];
   isOpen: boolean = false;
-  tags: string[] = ['Cosmetics', 'Makeup', 'Course', 'Travel', 'Celebration', 'Culture', 'Holiday'];
-  value: string[] = [];
-  onChange = (_: any) => {
+  newTag: string = '';
+
+  constructor(
+    private elementRef: ElementRef,
+    private formBuilder: FormBuilder) {
+  }
+
+  onChange = (_: any): void => {
   };
-  onTouched = () => {
+  onTouched = (): void => {
   };
 
   writeValue(value: string[]): void {
-    this.value = value || [];
+    this.internalValue = value || [];
   }
 
   registerOnChange(fn: any): void {
@@ -41,14 +60,15 @@ export class DropdownCategoryComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
+  @HostListener('click')
   toggleTag(tag: string): void {
-    const index = this.value.indexOf(tag);
+    const index = this.internalValue.indexOf(tag);
     if (index >= 0) {
-      this.value.splice(index, 1);
+      this.internalValue.splice(index, 1);
     } else {
-      this.value.push(tag);
+      this.internalValue.push(tag);
     }
-    this.onChange(this.value);
+    this.onChange(this.internalValue);
     this.onTouched();
   }
 
@@ -56,16 +76,35 @@ export class DropdownCategoryComponent implements ControlValueAccessor {
     this.isOpen = !this.isOpen;
   }
 
-  constructor(private elementRef: ElementRef) {
+  public getControls(control: FormGroup, path: string): FormControl[] {
+    return (control.get(path) as FormArray)
+      .controls as FormControl[];
+  }
+
+  public addTag(): void {
+    if (this.newTag.trim() !== '' && /^[A-Za-z]+$/.test(this.newTag)) {
+      const tagsArray: FormArray
+        = this.tagsForm.get('tags') as FormArray;
+      (this.tagsForm.get('tags') as FormArray)
+      .insert(0, this.formBuilder.control(this.newTag, userMatch));
+      this.newTag = '';
+      this.onChange(tagsArray.value);
+    }
+  }
+
+  removeTag(index: number): void {
+    this.onChange(this.internalValue);
+    (this.tagsForm.get('tags') as FormArray)
+    .removeAt(index);
   }
 
   @HostListener('window:keyup', ['$event'])
   @HostListener('document:click', ['$event'])
-  onEvent(event: KeyboardEvent | Event) {
+  onEvent(event: KeyboardEvent | Event): void {
     if (event instanceof KeyboardEvent && event.key === 'Escape') {
       this.isOpen = false;
     } else if (event instanceof Event) {
-      const target = event.target as HTMLElement;
+      const target: HTMLElement = event.target as HTMLElement;
       if (this.isOpen && !this.elementRef.nativeElement.contains(target)) {
         this.isOpen = false;
       }

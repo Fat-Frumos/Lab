@@ -44,7 +44,6 @@ describe('CertificateService', () => {
     spyOn(filterPipe, 'transform').and.callThrough();
 
     service.criteria = mockCriteria;
-    service.filter();
 
     expect(filterPipe.transform).toHaveBeenCalledWith(mockCertificates, mockCriteria);
     expect(service.certificates$).toEqual(mockCertificates);

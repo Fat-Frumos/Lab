@@ -1,7 +1,13 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {LoadInterceptor} from "./service/load.interceptor";
-import {BASE_URL_TOKEN, baseUrl, SRC_URL_TOKEN, srcUrl} from "../config";
+import {
+  BASE_URL_TOKEN,
+  baseUrl,
+  NBU_URL_TOKEN, nbuUrl,
+  SRC_URL_TOKEN,
+  srcUrl
+} from "../config";
 import {CacheInterceptor} from "./service/cache.interceptor";
 
 @NgModule({
@@ -32,6 +38,9 @@ export class SharedModule {
         }, {
           provide: SRC_URL_TOKEN,
           useValue: srcUrl
+        }, {
+          provide: NBU_URL_TOKEN,
+          useValue: nbuUrl
         },
       ]
     }

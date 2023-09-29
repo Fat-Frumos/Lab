@@ -1,7 +1,7 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {ITag} from '../../../../model/entity/ITag';
 import {ICertificate} from '../../../../model/entity/ICertificate';
-import {CardService} from "../../../../services/card.service";
+import {CertificateService} from "../../../../services/certificate.service";
 
 @Component({
   selector: 'app-card',
@@ -14,7 +14,7 @@ export class CardComponent {
   @Input() certificate!: ICertificate;
 
   constructor(
-    public readonly service: CardService
+    public readonly service: CertificateService
   ) {
   }
 }

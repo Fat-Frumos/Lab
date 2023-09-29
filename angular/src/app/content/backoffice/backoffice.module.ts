@@ -13,13 +13,15 @@ import {SpinnerModule} from "../../components/spinner/spinner.module";
 import {CertificateService} from "../../services/certificate.service";
 import {PreloadService} from "../../shared/service/preload.service";
 import {LocalStorageService} from "../../services/local-storage.service";
-import {CardService} from "../../services/card.service";
 import {DisplayDirective} from "../../directive/display.directive";
+import {FormValidatorDirective} from "../../directive/form-validator.directive";
+import {ExchangeService} from "../../components/exchange/exchange.service";
 
 @NgModule({
   declarations: [
     BackofficeComponent,
-    DisplayDirective
+    DisplayDirective,
+    FormValidatorDirective
   ],
   imports: [
     BackofficeRoutingModule,
@@ -37,8 +39,11 @@ import {DisplayDirective} from "../../directive/display.directive";
     CertificateService,
     PreloadService,
     LocalStorageService,
-    CardService
-  ]
+    ExchangeService,
+  ],
+  exports: [
+    FormValidatorDirective
+  ],
 })
 export class BackofficeModule {
 }

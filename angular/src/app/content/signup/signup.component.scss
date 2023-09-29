@@ -1,5 +1,15 @@
 @import '../../../assets/css/variables';
 
+.validate.ng-invalid.ng-touched {
+  border: 1px solid red;
+  border-radius: 2px;
+}
+
+input.ng-valid.ng-touched {
+  border: 1px solid green;
+  border-radius: 2px;
+}
+
 .wrapper {
   margin-top: 15vh;
   flex-direction: column;
