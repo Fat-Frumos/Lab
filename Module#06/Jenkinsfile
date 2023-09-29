@@ -1,0 +1,210 @@
+pipeline {
+    agent any
+    stages {
+        
+        stage ('Initialize') {
+            steps {
+                bat '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
+            }
+        }
+        
+        stage('Clone repo') {
+            steps {
+                git branch: 'module#3', credentialsId: '337c23bd-e9ce-4b42-973a-9011487bd289', url: 'https://github.com/Fat-Frumos/Lab.git'
+            }
+        }
+
+        stage('Maven Build') {
+            steps {
+                dir('Module#04') {
+                    bat 'mvn clean install -e'
+                    echo "Maven Package Goal Executed Successfully!";
+                }
+            }
+        }
+        
+        stage('Model') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f model/pom.xml -Dsonar.password=root -Dsonar.login=admin'
+                    }
+                }
+            }
+        } 
+        
+        stage('Service-api') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f service-api/pom.xml -Dsonar.password=root -Dsonar.login=admin'
+                    }
+                }
+            }
+        }
+        
+        stage('Service-impl') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f service-impl/pom.xml -Dsonar.password=root -Dsonar.login=admin'
+                    }
+                }
+            }
+        }         
+        
+        stage('Repository-api') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f repository-api/pom.xml -Dsonar.password=root -Dsonar.login=admin'
+                    }
+                }
+            }
+        }
+        
+        stage('Repository-impl') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f repository-impl/pom.xml -Dsonar.password=root -Dsonar.login=admin'
+                    }
+                }
+            }
+        }
+        
+        stage('Spring-jpa') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f repository-spring-jpa/pom.xml -Dsonar.password=root -Dsonar.login=admin'
+                    }
+                }
+            }
+        }
+        
+        stage('Security-service') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f security-service/pom.xml -Dsonar.password=root -Dsonar.login=admin'
+                    }
+                }
+            }
+        }  
+        
+        stage('Web-app') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f web-app/pom.xml -Dsonar.password=root -Dsonar.login=admin'
+                    }
+                }
+            }
+        }       
+        
+        stage('certificate') {
+            steps {
+                dir('Module#04') {
+                    withSonarQubeEnv('Sonar-Server-10.1'){
+                    bat 'mvn clean install sonar:sonar -B -f pom.xml -Dsonar.password=root -Dsonar.login=admin -Dsonar.host.url=http://192.168.31.136:9000'
+                    }
+                }
+            }
+        }
+
+    stage('SonarQube analysis') {
+        steps {
+            withSonarQubeEnv('Sonar-Server-10.1') {
+                dir('Module#04') {
+                    bat 'mvn clean install sonar:sonar -Dsonar.password=root -Dsonar.login=admin'
+                }
+            }
+        }
+    }
+        
+    stage("Jacoco report") {
+        steps {
+            jacoco()
+        }
+    }
+
+    stage('Quality gate') {
+        steps {
+            waitForQualityGate abortPipeline: false, credentialsId: 'WIN7'
+        }
+    }
+
+    stage('Deploy Tomcat') {
+        steps {
+            dir('Module#04') {
+                dir('web-app') {
+                    bat 'mvn tomcat7:deploy -Dtomcat.url="http://192.168.31.177:8080/manager/text" -Dtomcat.username="war-deployer" -Dtomcat.password="maven-tomcat"'
+                    echo "Deployed Successfully"
+                    }
+                }
+            }
+        }
+    }
+}
+        
+// stage('SonarQube analysis') {
+//     steps {
+//         dir('Module#04') {
+//             script {
+//                 home = tool 'SonarQube-4.8.0'
+//             }
+//             withSonarQubeEnv('Sonar-Server-10.1') {
+//                 bat "\"${home}/bin/sonar-scanner\" -Dsonar.password=root -Dsonar.login=admin " +
+//                         "-Dsonar.host.url=http://192.168.31.177:9000 " +
+//                         "-Dsonar.projectKey=com.epam.esm:certificate:key " +
+//                         "-Dsonar.projectName=certificate " +
+//                         "-Dsonar.java.binaries=target/classes " +
+//                         "-Dsonar.exclusions=vendor/**,resources/**,**/*.java"
+//             }
+            
+//             sleep(5)
+//             timeout(time: 5, unit: 'MINUTES') {
+//                 script {
+//                     def qg = waitForQualityGate()
+//                     if (qg.status != 'OK') {
+//                         error "Pipeline aborted due to a quality gate failure: ${qg.status}"
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// stage ("SonarQube analysis") {
+//     steps {
+//         withSonarQubeEnv('Sonar-Server-10.1') {
+//             timeout(time: 5, unit: 'MINUTES') {
+//                 script {
+//                     dir('Module#04') {
+//                         // def sonarTaskId = 'AYnVCsBNguh2E9_gnGK3'
+//                         // def sonarServerUrl = 'Sonar-Server-10.1'
+//                         // def webhookSecret = 'sqa_0eb4a87cb7ad29e2b1ab4e060c1e00b1f751bfad'
+//                         // echo "Running SonarQube analysis"
+//                         // def webhookResponse = bat(script: "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar -Dsonar.password=root -Dsonar.login=admin", returnStatus: true)
+//                         // echo "Finished running SonarQube analysis"
+
+//                         // echo "Webhook Response: ${webhookResponse}"
+
+//                         // if (webhookResponse != 0) {
+//                         //     error("Webhook verification failed: ${webhookResponse}")
+//                         // }
+
+//                         bat 'mvn clean install sonar:sonar -DskipTests -Dsonar.password=root -Dsonar.login=admin'
+//                         def qg = waitForQualityGate()
+//                         if (qg.status != 'OK') {
+//                             error "Pipeline aborted due to a quality gate failure: ${qg.status}"
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }

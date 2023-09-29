@@ -1,10 +1,10 @@
 package com.epam.esm.security.service;
 
+import com.epam.esm.entity.SecurityUser;
 import com.epam.esm.entity.User;
 import com.epam.esm.security.auth.AuthenticationRequest;
 import com.epam.esm.security.auth.AuthenticationResponse;
 import com.epam.esm.security.auth.RegisterRequest;
-import com.epam.esm.security.auth.SecurityUser;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.transaction.annotation.Transactional;
@@ -74,7 +74,7 @@ public interface AuthService {
      * @return the updated user object
      */
     @Transactional
-    SecurityUser saveUserWithRole(
+    User saveUserWithRole(
             RegisterRequest request);
 
     /**

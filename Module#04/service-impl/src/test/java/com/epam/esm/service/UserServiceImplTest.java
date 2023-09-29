@@ -155,23 +155,25 @@ class UserServiceImplTest {
     }
 
     @ParameterizedTest
-    @DisplayName("Given an ID and a username, when getById method is called and a user is found, then the user entity with the specified username is returned")
+    @DisplayName("Given an ID and an order, when getUserByIdWithOrder method is called and a user is found, then the user entity with the specified order is returned")
     @CsvSource({
-            "1, Olivia, Noah, Olivia-Noah@gmail.com",
-            "2, Emma, Liam, Emma-Liam@gmail.com",
-            "3, Charlotte, Oliver, Charlotte-Oliver@gmail.com",
-            "4, Amelia, Elijah, Amelia-Elijah@gmail.com",
-            "5, Ava, Leo, Ava-Leo@gmail.com"
+            "1, Olivia, Noah, Olivia-Noah@gmail.com, 10, Java, description, 10, 30",
+            "2, Emma, Liam, Emma-Liam@gmail.com, 20, Certificate, description, 20, 45",
+            "3, Charlotte, Oliver, Charlotte-Oliver@gmail.com, 30, Spring, description, 30, 60",
+            "4, Amelia, Elijah, Amelia-Elijah@gmail.com, 40, SQL, description, 40, 75",
+            "5, Ava, Leo, Ava-Leo@gmail.com, 50, Programming, description, 50, 90"
     })
-    void testGetById(Long userId, String firstName, String lastName, String email) {
-        String username = firstName + lastName;
-        User expectedUser = User.builder().id(userId).username(username).email(email).build();
+    void testGetUserByIdWithOrder(Long userId, String firstName, String lastName, String email,
+                                  long certificateId, String name, String description,
+                                  BigDecimal price, int duration) {
+        Certificate certificate = Certificate.builder().id(certificateId).name(name).description(description).duration(duration).build();
+        Order order = Order.builder().id(certificateId).cost(price).certificates(Collections.singleton(certificate)).build();
+        User expectedUser = getUser(userId, firstName + lastName, description, email, order);
         when(userDao.getById(userId)).thenReturn(Optional.of(expectedUser));
-        when(mapper.toDto(expectedUser)).thenReturn(UserDto.builder().id(userId).username(username).email(email).build());
-        UserDto actualUser = userService.getById(userId, username);
-        assertEquals(expectedUser.getId(), actualUser.getId());
-        assertEquals(expectedUser.getUsername(), actualUser.getUsername());
-        assertEquals(expectedUser.getEmail(), actualUser.getEmail());
+        when(mapper.toDto(expectedUser)).thenReturn(UserDto.builder().id(userId).username(firstName + lastName).email(email).build());
+        UserDto actualUserDto = userService.getById(userId);
+        assertEquals(expectedUser.getId(), actualUserDto.getId());
+        assertEquals(expectedUser.getEmail(), actualUserDto.getEmail());
         verify(userDao).getById(userId);
         verify(mapper).toDto(expectedUser);
         verifyNoMoreInteractions(userDao, mapper);

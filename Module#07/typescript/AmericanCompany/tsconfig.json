@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "lib": [
+      "es2017",
+      "dom",
+      "es5",
+      "es6"
+    ],
+    "moduleResolution": "node",
+    "module": "es2015",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "target": "es2015",
+    "outDir": "./dist",
+    "sourceMap": true
+  },
+  "include": ["**/*"],
+  "exclude": ["test/**/*.test.ts"],
+  "files": ["app.ts"]
+}

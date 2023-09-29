@@ -4,7 +4,6 @@ import com.epam.esm.entity.Token;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.TokenNotFoundException;
 import com.epam.esm.repository.TokenRepository;
-import com.epam.esm.security.auth.SecurityUser;
 import com.epam.esm.security.exception.InvalidJwtAuthenticationException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -16,7 +15,6 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -36,7 +34,6 @@ import static com.epam.esm.entity.TokenType.BEARER;
 /**
  * Service class that provides various JWT token operations.
  */
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class JwtTokenProvider {
@@ -199,7 +196,7 @@ public class JwtTokenProvider {
                  | ExpiredJwtException
                  | UnsupportedJwtException
                  | IllegalArgumentException e) {
-            throw new InvalidJwtAuthenticationException("The claims extracted from the token is failed");
+            throw new InvalidJwtAuthenticationException(e.getMessage());
         }
     }
 
@@ -246,7 +243,6 @@ public class JwtTokenProvider {
      */
     @Transactional
     public Token save(final Token token) {
-        log.info("save: " + token);
         return tokenRepository.save(token);
     }
 
@@ -259,7 +255,7 @@ public class JwtTokenProvider {
      */
     @Transactional
     public Token updateUserTokens(
-            final SecurityUser user,
+            final User user,
             final String accessToken) {
         Token token = getToken(user, accessToken);
         return save(token);
@@ -290,10 +286,10 @@ public class JwtTokenProvider {
      * @return The created token.
      */
     public Token getToken(
-            final SecurityUser user,
+            final User user,
             final String accessToken) {
         return Token.builder()
-                .user(user.getUser())
+                .user(user)
                 .expired(false)
                 .revoked(false)
                 .tokenType(BEARER)

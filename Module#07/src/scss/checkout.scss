@@ -1,0 +1,77 @@
+.image-small {
+  margin-right: 20px;
+  background: #e0e0e0;
+  @include box(108px, 108px);
+}
+
+.separator {
+  @include box(869px, 0);
+  border: 1px solid #d3d3d3;
+}
+
+.coupon-description {
+  top: 50px;
+  left: 550px;
+  width: 504px;
+}
+
+.checkout-wrapper {
+  width: 80%;
+  @include flex-direction(column);
+}
+
+.item-coupon {
+  margin-top: 20px;
+  flex-direction: row;
+  cursor: pointer;
+  @include center-content();
+}
+
+.item-coupon:hover{
+  background-color: $silver-color;
+}
+
+.form-wrapper {
+  @include center-justify-content(center);
+}
+
+h3 {
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  @include font-color(20px, $black-color);
+}
+
+article {
+  width: 40vw;
+}
+
+.coupon-desc {
+  color: $gray-color;
+}
+
+.coupon-price {
+  margin-left: 20px;
+}
+
+.coupon-total-price {
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.checkout-confirm {
+  gap: 10px;
+  align-items: flex-end;
+  @include flex-direction(column);
+}
+
+.checkout-grp {
+  @include flex-direction(row);
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  margin: 10px 0;
+  border-top: 1px solid #d3d3d3;
+}

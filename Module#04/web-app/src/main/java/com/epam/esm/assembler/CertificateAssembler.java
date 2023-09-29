@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.stream.StreamSupport;
 
-import static java.util.stream.Collectors.toList;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
@@ -33,7 +32,7 @@ public class CertificateAssembler
     @NonNull
     @Override
     public EntityModel<CertificateDto> toModel(
-            @NonNull final CertificateDto dto) {
+            final CertificateDto dto) {
         return EntityModel.of(dto,
                 linkTo(methodOn(CertificateController.class)
                         .getCertificateById(dto.getId())).withSelfRel(),
@@ -70,7 +69,7 @@ public class CertificateAssembler
         return CollectionModel.of(StreamSupport
                         .stream(entities.spliterator(), false)
                         .map(this::toModel)
-                        .collect(toList()),
+                        .toList(),
                 linkTo(methodOn(CertificateController.class)
                         .getAll(PageRequest.of(0, 25,
                                 Sort.by(Sort.Direction.ASC, "id"))))

@@ -1,0 +1,65 @@
+button {
+  border: none;
+  cursor: pointer;
+  background-color: $white-color;
+}
+
+.submit_btn {
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-right: 3px;
+  box-sizing: border-box;
+  @include box(200px, 42px);
+  background: $secondary-color;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.submit_btn[value="Sign Up"] {
+  font-weight: 700;
+  @include font-color(17px, $white-color);
+}
+
+.submit_btn[value="Cancel"] {
+  height: 42px;
+  font-weight: 700;
+  background: #ffffff;
+  border: 1px solid #dedede;
+  @include font-color(17px, $gray-color);
+}
+
+.submit_btn:hover {
+  @include hover();
+}
+
+.submit_btn:not(:hover) {
+  @include unhover();
+}
+
+.button-save {
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 12px;
+  @include box(200px, 43px);
+  background: $secondary-color;
+}
+
+.button-back {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 12px;
+  background: $white-color;
+  @include box(200px, 43px);
+  border: 1px solid #dedede;
+}
+
+.button-back .button-label {
+  font-weight: 700;
+  @include font-color(17px, $gray-color);
+}
+
+.button-save .button-label {
+  font-weight: 700;
+  @include font-color(17px, $white-color);
+}

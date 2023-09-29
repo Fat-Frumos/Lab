@@ -24,7 +24,6 @@ import static com.epam.esm.dao.Queries.DELETE_CT_BY_TAG_ID;
 import static com.epam.esm.dao.Queries.DELETE_TAG;
 import static com.epam.esm.dao.Queries.ID;
 import static com.epam.esm.dao.Queries.NAME;
-import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
 /**
@@ -112,7 +111,7 @@ public class TagDaoImpl implements TagDao {
                         .map(order -> order.getDirection().equals(Sort.Direction.ASC)
                                 ? builder.asc(root.get(order.getProperty()))
                                 : builder.desc(root.get(order.getProperty())))
-                        .collect(toList());
+                        .toList();
                 query.orderBy(orders);
             }
 

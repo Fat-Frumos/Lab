@@ -10,48 +10,48 @@ INSERT INTO gift_certificate_tag (gift_certificate_id, tag_id) VALUES
 (4, 10),
 (4, 9),
 (5, 10),
-(5, 12),
+(5, 50),
 (5, 11),
 (6, 13),
 (7, 14),
-(8, 15),
+(8, 25),
 (8, 17),
 (8, 16),
-(9, 19),
-(9, 20),
+(9, 5),
+(9, 25),
 (9, 18),
 (10, 21),
-(11, 22),
-(11, 24),
+(11, 2),
+(11, 21),
 (11, 23),
 (12, 25),
 (13, 26),
-(13, 28),
+(13, 2),
 (13, 27),
 (14, 29),
 (15, 31),
 (15, 30),
 (15, 1),
 (16, 32),
-(16, 27),
+(16, 2),
 (16, 33),
 (17, 34),
 (18, 35),
-(19, 36),
-(19, 37),
+(19, 21),
+(19, 5),
 (19, 38),
-(20, 39),
+(20, 9),
 (20, 40),
 (21, 42),
-(21, 41),
-(22, 43),
+(21, 21),
+(22, 5),
 (23, 44),
 (24, 46),
 (24, 47),
 (24, 45),
 (25, 50),
 (25, 48),
-(25, 49),
+(25, 9),
 (26, 51),
 (27, 52),
 (28, 53),
@@ -82,7 +82,7 @@ INSERT INTO gift_certificate_tag (gift_certificate_id, tag_id) VALUES
 (38, 77),
 (39, 79),
 (39, 78),
-(39, 11),
+(39, 1),
 (40, 80),
 (41, 81),
 (41, 82),
@@ -120,9 +120,9 @@ INSERT INTO gift_certificate_tag (gift_certificate_id, tag_id) VALUES
 (55, 37),
 (55, 44),
 (56, 103),
-(56, 104),
+(56, 1),
 (56, 105),
-(57, 107),
+(57, 1),
 (57, 106),
 (58, 108),
 (58, 109),
@@ -371,8 +371,7 @@ INSERT INTO gift_certificate_tag (gift_certificate_id, tag_id) VALUES
 (181, 182),
 (181, 245),
 (182, 84),
-(182, 125);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+(182, 125), 
                                                 (182, 246),
                                                 (183, 90),
                                                 (183, 212),
@@ -718,8 +717,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (350, 26),
                                                 (351, 331),
                                                 (351, 205),
-                                                (352, 332);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (352, 332), 
                                                 (352, 230),
                                                 (352, 333),
                                                 (353, 267),
@@ -1065,8 +1063,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (514, 229),
                                                 (514, 182),
                                                 (514, 41),
-                                                (515, 14);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (515, 14), 
                                                 (516, 150),
                                                 (516, 254),
                                                 (516, 129),
@@ -1413,8 +1410,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (687, 183),
                                                 (688, 173),
                                                 (689, 198),
-                                                (690, 183);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (690, 183), 
                                                 (690, 330),
                                                 (691, 181),
                                                 (692, 374),
@@ -1760,8 +1756,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (858, 263),
                                                 (858, 236),
                                                 (859, 268),
-                                                (859, 76);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (859, 76), 
                                                 (859, 411),
                                                 (860, 68),
                                                 (860, 320),
@@ -2102,8 +2097,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (1027, 165),
                                                 (1028, 238),
                                                 (1029, 73),
-                                                (1029, 317);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (1029, 317), 
                                                 (1030, 231),
                                                 (1031, 359),
                                                 (1031, 94),
@@ -2422,8 +2416,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (1189, 350),
                                                 (1189, 166),
                                                 (1190, 321),
-                                                (1190, 110);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (1190, 110), 
                                                 (1191, 339),
                                                 (1191, 161),
                                                 (1191, 219),
@@ -2742,8 +2735,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (1341, 120),
                                                 (1342, 102),
                                                 (1342, 38),
-                                                (1342, 334);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (1342, 334), 
                                                 (1343, 114),
                                                 (1343, 313),
                                                 (1344, 430),
@@ -3062,8 +3054,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (1502, 273),
                                                 (1503, 117),
                                                 (1504, 183),
-                                                (1504, 28);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (1504, 28), 
                                                 (1504, 200),
                                                 (1505, 199),
                                                 (1505, 173),
@@ -3382,8 +3373,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (1667, 23),
                                                 (1667, 219),
                                                 (1668, 231),
-                                                (1668, 24);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (1668, 24), 
                                                 (1669, 415),
                                                 (1670, 81),
                                                 (1670, 37),
@@ -3702,8 +3692,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (1830, 159),
                                                 (1831, 132),
                                                 (1832, 266),
-                                                (1833, 399);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (1833, 399), 
                                                 (1834, 151),
                                                 (1835, 58),
                                                 (1836, 71),
@@ -4021,8 +4010,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (1989, 187),
                                                 (1989, 307),
                                                 (1990, 185),
-                                                (1990, 83);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (1990, 83), 
                                                 (1991, 133),
                                                 (1992, 334),
                                                 (1993, 191),
@@ -4342,8 +4330,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (2149, 77),
                                                 (2150, 180),
                                                 (2151, 53),
-                                                (2151, 4);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (2151, 4), 
                                                 (2151, 107),
                                                 (2152, 213),
                                                 (2152, 370),
@@ -4661,8 +4648,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (2309, 144),
                                                 (2310, 146),
                                                 (2311, 304),
-                                                (2311, 372);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (2311, 372), 
                                                 (2311, 377),
                                                 (2312, 429),
                                                 (2312, 349),
@@ -4981,8 +4967,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (2471, 140),
                                                 (2471, 155),
                                                 (2472, 372),
-                                                (2472, 137);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (2472, 137), 
                                                 (2473, 183),
                                                 (2474, 87),
                                                 (2475, 101),
@@ -5301,8 +5286,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (2628, 119),
                                                 (2628, 18),
                                                 (2629, 104),
-                                                (2629, 222);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (2629, 222), 
                                                 (2629, 228),
                                                 (2630, 25),
                                                 (2630, 97),
@@ -5621,8 +5605,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (2778, 250),
                                                 (2779, 182),
                                                 (2779, 395),
-                                                (2779, 426);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (2779, 426), 
                                                 (2780, 86),
                                                 (2780, 378),
                                                 (2781, 110),
@@ -5942,8 +5925,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (2937, 303),
                                                 (2938, 419),
                                                 (2938, 279),
-                                                (2939, 429);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (2939, 429), 
                                                 (2939, 11),
                                                 (2940, 224),
                                                 (2940, 52),
@@ -6262,8 +6244,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (3088, 56),
                                                 (3088, 154),
                                                 (3089, 156),
-                                                (3089, 52);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (3089, 52), 
                                                 (3089, 155),
                                                 (3090, 297),
                                                 (3090, 40),
@@ -6583,8 +6564,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (3251, 145),
                                                 (3252, 21),
                                                 (3252, 37),
-                                                (3253, 417);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (3253, 417), 
                                                 (3254, 337),
                                                 (3254, 164),
                                                 (3254, 140),
@@ -6902,8 +6882,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (3405, 357),
                                                 (3406, 211),
                                                 (3407, 278),
-                                                (3407, 143);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (3407, 143), 
                                                 (3408, 34),
                                                 (3409, 296),
                                                 (3409, 45),
@@ -7224,8 +7203,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (3569, 205),
                                                 (3570, 318),
                                                 (3570, 106),
-                                                (3571, 4);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (3571, 4), 
                                                 (3571, 6),
                                                 (3571, 154),
                                                 (3572, 52),
@@ -7543,8 +7521,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (3729, 185),
                                                 (3730, 31),
                                                 (3730, 106),
-                                                (3731, 248);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (3731, 248), 
                                                 (3731, 377),
                                                 (3732, 21),
                                                 (3732, 217),
@@ -7862,8 +7839,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (3896, 383),
                                                 (3896, 167),
                                                 (3896, 177),
-                                                (3897, 428);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (3897, 428), 
                                                 (3897, 66),
                                                 (3898, 419),
                                                 (3899, 154),
@@ -8182,8 +8158,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (4074, 12),
                                                 (4074, 340),
                                                 (4074, 348),
-                                                (4075, 286);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (4075, 286), 
                                                 (4076, 44),
                                                 (4077, 104),
                                                 (4077, 243),
@@ -8503,8 +8478,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (4234, 106),
                                                 (4235, 58),
                                                 (4235, 432),
-                                                (4235, 274);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (4235, 274), 
                                                 (4236, 163),
                                                 (4236, 191),
                                                 (4236, 307),
@@ -8823,8 +8797,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (4402, 58),
                                                 (4402, 165),
                                                 (4403, 101),
-                                                (4403, 343);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (4403, 343), 
                                                 (4403, 213),
                                                 (4404, 249),
                                                 (4404, 87),
@@ -9142,8 +9115,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (4562, 7),
                                                 (4562, 311),
                                                 (4562, 124),
-                                                (4563, 293);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (4563, 293), 
                                                 (4563, 209),
                                                 (4564, 284),
                                                 (4564, 64),
@@ -9461,8 +9433,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (4727, 193),
                                                 (4728, 269),
                                                 (4728, 360),
-                                                (4729, 424);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (4729, 424), 
                                                 (4730, 45),
                                                 (4731, 422),
                                                 (4732, 21),
@@ -9781,8 +9752,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (4892, 47),
                                                 (4893, 407),
                                                 (4894, 249),
-                                                (4894, 89);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (4894, 89), 
                                                 (4894, 175),
                                                 (4895, 253),
                                                 (4895, 78),
@@ -10101,8 +10071,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (5055, 372),
                                                 (5056, 214),
                                                 (5056, 406),
-                                                (5057, 204);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (5057, 204), 
                                                 (5057, 137),
                                                 (5058, 327),
                                                 (5058, 154),
@@ -10421,8 +10390,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (5209, 427),
                                                 (5209, 262),
                                                 (5210, 119),
-                                                (5210, 395);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (5210, 395), 
                                                 (5211, 183),
                                                 (5211, 176),
                                                 (5211, 271),
@@ -10741,8 +10709,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (5363, 120),
                                                 (5364, 11),
                                                 (5365, 160),
-                                                (5365, 98);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (5365, 98), 
                                                 (5366, 420),
                                                 (5367, 17),
                                                 (5367, 377),
@@ -11061,8 +11028,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (5526, 44),
                                                 (5526, 380),
                                                 (5527, 207),
-                                                (5528, 154);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (5528, 154), 
                                                 (5528, 432),
                                                 (5528, 67),
                                                 (5529, 181),
@@ -11382,8 +11348,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (5693, 36),
                                                 (5693, 262),
                                                 (5694, 291),
-                                                (5694, 38);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (5694, 38), 
                                                 (5695, 81),
                                                 (5696, 83),
                                                 (5697, 416),
@@ -11702,8 +11667,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (5848, 132),
                                                 (5849, 182),
                                                 (5849, 69),
-                                                (5850, 1);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (5850, 1), 
                                                 (5850, 17),
                                                 (5850, 357),
                                                 (5851, 57),
@@ -12022,8 +11986,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (6014, 386),
                                                 (6015, 318),
                                                 (6015, 7),
-                                                (6015, 39);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (6015, 39), 
                                                 (6016, 87),
                                                 (6016, 33),
                                                 (6017, 263),
@@ -12341,8 +12304,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (6179, 72),
                                                 (6179, 119),
                                                 (6179, 151),
-                                                (6180, 71);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (6180, 71), 
                                                 (6180, 418),
                                                 (6181, 138),
                                                 (6181, 420),
@@ -12661,8 +12623,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (6328, 286),
                                                 (6328, 258),
                                                 (6329, 194),
-                                                (6329, 22);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (6329, 22), 
                                                 (6330, 25),
                                                 (6330, 258),
                                                 (6330, 394),
@@ -12982,8 +12943,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (6496, 37),
                                                 (6496, 185),
                                                 (6496, 255),
-                                                (6497, 28);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (6497, 28), 
                                                 (6497, 295),
                                                 (6497, 198),
                                                 (6498, 349),
@@ -13302,8 +13262,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (6659, 170),
                                                 (6659, 316),
                                                 (6660, 131),
-                                                (6660, 194);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (6660, 194), 
                                                 (6661, 19),
                                                 (6661, 232),
                                                 (6661, 192),
@@ -13622,8 +13581,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (6819, 204),
                                                 (6820, 304),
                                                 (6820, 158),
-                                                (6821, 64);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (6821, 64), 
                                                 (6822, 37),
                                                 (6823, 2),
                                                 (6823, 130),
@@ -13942,8 +13900,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (6974, 124),
                                                 (6975, 4),
                                                 (6975, 98),
-                                                (6976, 299);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (6976, 299), 
                                                 (6976, 54),
                                                 (6977, 149),
                                                 (6978, 369),
@@ -14262,8 +14219,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (7135, 369),
                                                 (7136, 217),
                                                 (7136, 4),
-                                                (7136, 225);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (7136, 225), 
                                                 (7137, 21),
                                                 (7137, 388),
                                                 (7137, 418),
@@ -14582,8 +14538,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (7295, 395),
                                                 (7296, 180),
                                                 (7296, 250),
-                                                (7297, 106);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (7297, 106), 
                                                 (7298, 256),
                                                 (7298, 141),
                                                 (7298, 401),
@@ -14902,8 +14857,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (7454, 376),
                                                 (7455, 245),
                                                 (7456, 45),
-                                                (7457, 101);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (7457, 101), 
                                                 (7457, 106),
                                                 (7458, 318),
                                                 (7459, 101),
@@ -15222,8 +15176,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (7622, 110),
                                                 (7622, 179),
                                                 (7623, 292),
-                                                (7623, 147);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (7623, 147), 
                                                 (7624, 263),
                                                 (7624, 262),
                                                 (7625, 319),
@@ -15544,8 +15497,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (7786, 318),
                                                 (7787, 287),
                                                 (7787, 355),
-                                                (7787, 147);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (7787, 147), 
                                                 (7788, 267),
                                                 (7788, 37),
                                                 (7788, 77),
@@ -15864,8 +15816,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (7947, 128),
                                                 (7947, 380),
                                                 (7948, 406),
-                                                (7949, 102);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (7949, 102), 
                                                 (7949, 432),
                                                 (7949, 297),
                                                 (7950, 61),
@@ -16183,8 +16134,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (8086, 353),
                                                 (8087, 89),
                                                 (8087, 190),
-                                                (8087, 133);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (8087, 133), 
                                                 (8088, 11),
                                                 (8088, 29),
                                                 (8089, 165),
@@ -16502,8 +16452,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (8249, 292),
                                                 (8250, 296),
                                                 (8250, 364),
-                                                (8250, 132);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (8250, 132), 
                                                 (8251, 422),
                                                 (8252, 321),
                                                 (8252, 125),
@@ -16821,8 +16770,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (8403, 361),
                                                 (8404, 211),
                                                 (8405, 198),
-                                                (8405, 228);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (8405, 228), 
                                                 (8406, 353),
                                                 (8406, 215),
                                                 (8406, 327),
@@ -17140,8 +17088,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (8562, 42),
                                                 (8562, 403),
                                                 (8563, 281),
-                                                (8563, 380);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (8563, 380), 
                                                 (8563, 255),
                                                 (8564, 200),
                                                 (8564, 161),
@@ -17460,8 +17407,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (8718, 66),
                                                 (8719, 116),
                                                 (8719, 8),
-                                                (8720, 183);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (8720, 183), 
                                                 (8721, 216),
                                                 (8721, 158),
                                                 (8721, 125),
@@ -17781,8 +17727,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (8877, 379),
                                                 (8878, 306),
                                                 (8878, 153),
-                                                (8879, 348);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (8879, 348), 
                                                 (8879, 40),
                                                 (8879, 189),
                                                 (8880, 359),
@@ -18100,8 +18045,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (9034, 58),
                                                 (9035, 162),
                                                 (9035, 320),
-                                                (9035, 108);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (9035, 108), 
                                                 (9036, 299),
                                                 (9036, 67),
                                                 (9037, 194),
@@ -18419,8 +18363,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (9196, 37),
                                                 (9197, 173),
                                                 (9198, 125),
-                                                (9199, 196);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (9199, 196), 
                                                 (9199, 153),
                                                 (9199, 314),
                                                 (9200, 249),
@@ -18740,8 +18683,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (9357, 208),
                                                 (9358, 207),
                                                 (9359, 251),
-                                                (9360, 62);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (9360, 62), 
                                                 (9360, 74),
                                                 (9361, 307),
                                                 (9362, 373),
@@ -19060,8 +19002,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (9527, 58),
                                                 (9527, 365),
                                                 (9528, 132),
-                                                (9529, 37);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (9529, 37), 
                                                 (9529, 271),
                                                 (9529, 219),
                                                 (9530, 183),
@@ -19380,8 +19321,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (9693, 272),
                                                 (9693, 228),
                                                 (9694, 21),
-                                                (9694, 42);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (9694, 42), 
                                                 (9695, 69),
                                                 (9696, 428),
                                                 (9697, 72),
@@ -19700,8 +19640,7 @@ INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
                                                 (9852, 183),
                                                 (9852, 240),
                                                 (9853, 11),
-                                                (9854, 9);
-INSERT INTO "PUBLIC"."GIFT_CERTIFICATE_TAG" VALUES
+                                                (9854, 9), 
                                                 (9855, 215),
                                                 (9855, 9),
                                                 (9855, 405),

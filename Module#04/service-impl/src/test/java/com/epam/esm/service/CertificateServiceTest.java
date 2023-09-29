@@ -13,6 +13,7 @@ import com.epam.esm.exception.CertificateAlreadyExistsException;
 import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.mapper.CertificateMapper;
 import com.epam.esm.mapper.TagMapper;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -136,6 +137,19 @@ class CertificateServiceTest {
                 .tags(new HashSet<>()).build());
     }
 
+    @Test
+    @DisplayName("Given an order ID, when create a CertificateService instance with the mocked certificateDao, then return an empty Optional")
+    void testGetByIdThrowsCertificateNotFoundException() {
+        CertificateDao certificateDao = mock(CertificateDao.class);
+        when(certificateDao.getById(id)).thenReturn(Optional.empty());
+        try {
+            service.getById(1L);
+            Assertions.fail("Expected CertificateNotFoundException to be thrown");
+        } catch (CertificateNotFoundException e) {
+            assertEquals("Certificate not found with id: 1", e.getMessage());
+        }
+    }
+
     @ParameterizedTest
     @CsvSource({
             "1, Java, description, 10, 30",
@@ -149,10 +163,9 @@ class CertificateServiceTest {
         Certificate post = getCertificate(id, name, description, price, duration);
         when(certificateDao.findAllByOrderId(id))
                 .thenReturn(new HashSet<>(Collections.singleton(post)));
-        List<CertificateDto> actualCertificates =
-                service.getByOrderId(id);
-        assertEquals(certificateMapper
-                .toDtoList(expectedCertificates), actualCertificates);
+        List<CertificateDto> actualCertificates = service.getByOrderId(id);
+        assertEquals(certificateMapper.toDtoList(
+                expectedCertificates), actualCertificates);
     }
 
     @ParameterizedTest
@@ -173,10 +186,10 @@ class CertificateServiceTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"1, Winter", "2, Summer", "3, Spring", "4, Autumn"})
+    @CsvSource({"1, 20", "2, 40", "3, 60", "4, 80"})
     @DisplayName("Given a pageable object, when findAllWithPageable is called, then return the paginated result")
-    void testGetAll(int page, String name) {
-        Pageable pageable = PageRequest.of(page, 10);
+    void testGetAll(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
         when(certificateDao.getAllBy(pageable)).thenReturn(expectedCertificates);
         List<CertificateDto> actualCertificates = service.getCertificates(pageable);
         assertEquals(certificateMapper.toDtoList(expectedCertificates), actualCertificates);
@@ -184,11 +197,7 @@ class CertificateServiceTest {
     }
 
     @ParameterizedTest(name = "Test #{index} - Certificate ID: {0}")
-    @CsvSource({
-            "1",
-            "2",
-            "3",
-            "4"})
+    @CsvSource({"1", "2", "3", "4"})
     @DisplayName("Given a valid certificate ID, when findTagsByCertificateId is called, then return the tags associated with the certificate")
     void testFindTagsByCertificate(Long certificateId) {
         Set<Tag> expectedTags = new HashSet<>(tags);
@@ -250,9 +259,9 @@ class CertificateServiceTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"0, Winter, 1, 25", "1, Summer, 2, 50", "2, Spring, 3, 75", "3, Autumn, 4, 100"})
+    @CsvSource({"Winter, 1, 25", "Summer, 2, 50", "Spring, 3, 75", "Autumn, 4, 100"})
     @DisplayName("Given no tags, when getAllCertificatesWithoutTags is called, then return all certificates without tags")
-    void testGetAllCertificatesWithoutTags(int id, String tagName, int page, int size) {
+    void testGetAllCertificatesWithoutTags(String tagName, int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.ASC, tagName));
         when(certificateDao.getAllBy(pageable)).thenReturn(certificates);
         when(certificateMapper.toCertificateSlimDto(certificates)).thenReturn(slimDtos);

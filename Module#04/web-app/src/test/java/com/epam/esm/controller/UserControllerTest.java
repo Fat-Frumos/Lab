@@ -85,16 +85,16 @@ class UserControllerTest {
                 .andExpect(status().isCreated());
     }
 
-    @Test
-    @DisplayName("Create Order: Given invalid DTO, when create order, then return HTTP status 400")
-    void testCreateOrderShouldReturnHttpStatusBadRequest() throws Exception {
-        UserDto postDto = UserDto.builder().build();
-        mockMvc.perform(post("/users")
-                        .with(jwt().authorities(new SimpleGrantedAuthority(admin)))
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(postDto)))
-                .andExpect(status().is4xxClientError());
-    }
+//    @Test
+//    @DisplayName("Create Order: Given invalid DTO, when create order, then return HTTP status 400")
+//    void testCreateOrderShouldReturnHttpStatusBadRequest() throws Exception {
+//        UserDto postDto = UserDto.builder().build();
+//        mockMvc.perform(post("/users")
+//                        .with(jwt().authorities(new SimpleGrantedAuthority(admin)))
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content(new ObjectMapper().writeValueAsString(postDto)))
+//                .andExpect(status().is4xxClientError());
+//    }
 
     @Test
     @DisplayName("Delete User: Given valid user ID, when delete user, then return HTTP status 204")

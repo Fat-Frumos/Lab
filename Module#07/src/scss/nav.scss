@@ -1,0 +1,110 @@
+.counter {
+  font-size: 11px;
+  background-color: $counter-color;
+  color: white;
+  border-radius: 50%;
+  padding: 2px;
+  width: 13px;
+  text-align: center;
+  margin-left: 17px;
+  margin-top: -28px;
+  height: 11px;
+  position: absolute;
+  font-family: Roboto, sans-serif;
+  display: none;
+}
+
+svg {
+  font-family: "Berlin Sans FB Demi", sans-serif;
+}
+
+.menu-open {
+  display: none;
+}
+
+.menu {
+  $width: 650px;
+  $height: 50px;
+  position: absolute;
+  left: 60px;
+  padding-top: 20px;
+  width: $width;
+  height: $height;
+  box-sizing: border-box;
+  font-size: 20px;
+  text-align: left;
+}
+
+.menu-item {
+  @extend %nav-icon;
+
+  &:hover {
+    line-height: 27px;
+    background: $gray-color;
+    color: $white-color;
+    border-radius: 75px;
+  }
+
+  @for $i from 1 through $menu-items {
+    &:nth-child(#{$i + 2}) {
+      transition-duration: 180ms;
+    }
+  }
+}
+
+.menu-open-button {
+  @extend %nav-icon;
+  z-index: 2;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 400ms;
+  cursor: pointer;
+}
+
+.menu-open:checked ~ .menu-item {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  @for $i from 1 through $menu-items {
+    &:nth-child(#{$i + 2}) {
+      transition-duration: 90ms + (100ms * $i);
+      transform: translate3d($distance * $i, 0, 0);
+    }
+  }
+}
+
+.hamburger {
+  box-sizing: content-box;
+  $width: 30px;
+  $height: 3px;
+  width: $width;
+  height: $height;
+  background: $icon-color;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: calc(-#{$width} / 2 - 50px);
+  margin-top: calc(-#{$height} / 2);
+  transition: transform 200ms;
+  pointer-events: none;
+}
+
+.hamburger-1 {
+  transform: translate3d(0, -$hamburger-spacing, 0);
+}
+.hamburger-2 {
+  transform: translate3d(0, 0, 0);
+}
+.hamburger-3 {
+  transform: translate3d(0, $hamburger-spacing, 0);
+}
+
+.menu-open:checked + .menu-open-button {
+  .hamburger-1 {
+    transform: translate3d(0, 0, 0) rotate(45deg);
+  }
+  .hamburger-2 {
+    transform: translate3d(0, 0, 0) scale(0.1, 1);
+  }
+  .hamburger-3 {
+    transform: translate3d(0, 0, 0) rotate(-45deg);
+  }
+}

@@ -1,6 +1,7 @@
 package com.epam.esm.dao;
 
 import com.epam.esm.entity.Certificate;
+import com.epam.esm.entity.Criteria;
 import com.epam.esm.entity.Tag;
 import jakarta.persistence.EntityGraph;
 import jakarta.persistence.EntityManager;
@@ -12,6 +13,11 @@ import jakarta.persistence.Subgraph;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Join;
+import jakarta.persistence.criteria.JoinType;
+import jakarta.persistence.criteria.Path;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,6 +28,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -35,6 +44,7 @@ import java.util.Set;
 import static com.epam.esm.dao.Queries.DELETE_CERTIFICATE;
 import static com.epam.esm.dao.Queries.DELETE_CERTIFICATE_TAG;
 import static com.epam.esm.dao.Queries.DELETE_ORDER_CERTIFICATE;
+import static com.epam.esm.dao.Queries.FETCH_GRAPH;
 import static com.epam.esm.dao.Queries.ID;
 import static com.epam.esm.dao.Queries.ORDERS;
 import static com.epam.esm.dao.Queries.SELECT_CERTIFICATES_BY_ORDER_ID;
@@ -46,6 +56,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyCollection;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyMap;
 import static org.mockito.ArgumentMatchers.anySet;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -80,9 +92,15 @@ class CertificateDaoTest {
     @Mock
     private TypedQuery<Long> query;
     @Mock
+    private CriteriaBuilder criteriaBuilder;
+    @Mock
+    private Root<Certificate> root;
+    @Mock
+    private Join<Object, Object> tagJoin;
+    @Mock
     private CriteriaQuery<Certificate> criteriaQuery;
     @Mock
-    private CriteriaBuilder criteriaBuilder;
+    private Path<Object> tagNamePath;
     private CertificateDao certificateDao;
     private final Long id = 1L;
     private final Certificate certificate = Certificate.builder().id(id).build();
@@ -98,6 +116,69 @@ class CertificateDaoTest {
         when(entityManager.createEntityGraph(Certificate.class)).thenReturn(graph);
         when(entityManager.createQuery(anyString(), eq(Tag.class))).thenReturn(tagTypedQuery);
         when(tagTypedQuery.setParameter(anyString(), any())).thenReturn(tagTypedQuery);
+//        when(criteriaBuilder.createQuery(Certificate.class)).thenReturn(criteriaQuery);
+        when(entityManager.getCriteriaBuilder()).thenReturn(criteriaBuilder);
+        when(criteriaQuery.from(Certificate.class)).thenReturn(root);
+        when(factory.createEntityManager()).thenReturn(entityManager);
+    }
+
+//    @Test
+//    @DisplayName("Given criteria and pageable, when findByCriteria is called, then it should return a list of certificates based on the criteria and pagination parameters")
+//    void testFindByCriteria() {
+//
+//        Criteria criteria = Criteria.builder().build();
+//        criteria.setTagNames(Arrays.asList("Tag1", "Tag2"));
+//        criteria.setName("CertificateName");
+//        criteria.setDescription("Description");
+//        Pageable pageable = PageRequest.of(0, 10, Sort.by("name").ascending());
+//
+//        List<Certificate> certificates = new ArrayList<>();
+//        certificates.add(new Certificate());
+//        certificates.add(new Certificate());
+//
+//        when(entityManager.getCriteriaBuilder()).thenReturn(criteriaBuilder);
+//        when(criteriaBuilder.createQuery(Certificate.class)).thenReturn(criteriaQuery);
+//        when(criteriaQuery.from(Certificate.class)).thenReturn(root);
+//        when(root.join("tags", JoinType.INNER)).thenReturn(tagJoin);
+//        when(tagJoin.get("name")).thenReturn(tagNamePath);
+//        List<Predicate> predicates = new ArrayList<>();
+//
+//        when(criteriaQuery.select(root)).thenReturn(criteriaQuery);
+//        when(criteriaQuery.where(any(Predicate.class))).thenReturn(criteriaQuery);
+//        when(criteriaBuilder.and(predicates.toArray(new Predicate[0]))).thenReturn(any(Predicate.class));
+//        when(entityManager.createQuery(criteriaQuery)).thenReturn(typedQuery);
+//        when(typedQuery.setFirstResult(anyInt())).thenReturn(typedQuery);
+//        when(typedQuery.setMaxResults(anyInt())).thenReturn(typedQuery);
+//        when(typedQuery.getResultList()).thenReturn(certificates);
+//
+//        when(entityManager.createEntityGraph(Certificate.class)).thenReturn(graph);
+//        List<Certificate> result = certificateDao.findByCriteria(criteria, pageable);
+//        assertEquals(2, result.size());
+//    }
+
+    @Test
+    @DisplayName("Given a pageable request, when getAllBy is called, then it should return a list of certificates based on the pagination parameters")
+    void testGetAllBy() {
+        int pageSize = 10;
+        int pageNumber = 0;
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        List<Long> certificateIds = new ArrayList<>();
+        certificateIds.add(1L);
+        certificateIds.add(2L);
+        when(entityManager.createQuery(anyString(), eq(Long.class))).thenReturn(query);
+        when(query.setHint(eq(FETCH_GRAPH), any(EntityGraph.class))).thenReturn(query);
+        when(query.setFirstResult(anyInt())).thenReturn(query);
+        when(query.setMaxResults(anyInt())).thenReturn(query);
+        when(query.getResultList()).thenReturn(certificateIds);
+
+        when(entityManager.createQuery(anyString(), eq(Certificate.class))).thenReturn(typedQuery);
+        when(typedQuery.setHint(eq(FETCH_GRAPH), any(EntityGraph.class))).thenReturn(typedQuery);
+        when(typedQuery.setParameter(anyString(), any())).thenReturn(typedQuery);
+        when(typedQuery.getResultList()).thenReturn(Arrays.asList(certificate, certificate));
+        List<Certificate> result = certificateDao.getAllBy(pageable);
+        assertEquals(2, result.size());
+        assertEquals(certificate, result.get(0));
+        assertEquals(certificate, result.get(1));
     }
 
     @Test

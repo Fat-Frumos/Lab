@@ -19,12 +19,11 @@ public interface OrderService {
     /**
      * Get a specific order of a user.
      *
-     * @param username the name of user
-     * @param userId   the user
-     * @param orderId  the order ID
+     * @param userId  the user
+     * @param orderId the order ID
      * @return the order DTO
      */
-    OrderDto getUserOrder(String username, Long userId, Long orderId);
+    OrderDto getUserOrder(Long userId, Long orderId);
 
     /**
      * Get the most used tags by a user.
@@ -37,12 +36,11 @@ public interface OrderService {
     /**
      * Get all orders of a user.
      *
-     * @param username the name of user
      * @param userId   the user ID
-     * @param pageable the pageable information
+     * @param pageable the number of the page
      * @return the page of order DTOs
      */
-    List<OrderDto> getAllByUserId(String username, Long userId, Pageable pageable);
+    List<OrderDto> getAllByUserId(Long userId, Pageable pageable);
 
     /**
      * Create an order for a user with the specified certificate IDs.
@@ -51,7 +49,7 @@ public interface OrderService {
      * @param certificateIds the set of certificate IDs
      * @return the created order DTO
      */
-    OrderDto createOrder(String username, Long userId, Set<Long> certificateIds);
+    OrderDto createOrder(Long userId, Set<Long> certificateIds);
 
     /**
      * Get paginated user orders.
@@ -79,25 +77,24 @@ public interface OrderService {
     List<Certificate> findCertificateById(Set<Long> ids);
 
     /**
-     * Retrieves an {@link OrderDto} based on the specified ID.
+     * Save an order.
      *
-     * @param id The ID of the order to retrieve.
-     * @return The {@link OrderDto} with the specified ID.
+     * @param username the user username
+     * @param ids    the certificate IDs
+     * @return the saved order DTO
+     */
+    OrderDto save(String username, Set<Long> ids);
+
+    /**
+     * Get an order by ID.
+     *
+     * @param id the order ID
+     * @return the order DTO
      */
     OrderDto getById(Long id);
 
-    /**
-     * Updates an {@link OrderDto} with the provided data.
-     *
-     * @param dto The {@link OrderDto} containing the updated information.
-     * @return The updated {@link OrderDto}.
-     */
     OrderDto update(OrderDto dto);
 
-    /**
-     * Deletes an {@link OrderDto} based on the specified ID.
-     *
-     * @param id The ID of the order to delete.
-     */
     void delete(Long id);
+
 }

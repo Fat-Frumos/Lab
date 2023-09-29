@@ -1,0 +1,167 @@
+.close {
+  position: absolute;
+  top: 10px;
+  font-size: 16px;
+  right: 5px;
+  color: #999;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.modal-frame {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 50;
+  visibility: hidden;
+}
+
+.modal-body {
+  border-radius: 10px;
+  right: 0;
+  bottom: 0;
+  width: 500px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  margin-left: -250px;
+  height: 400px;
+  margin-top: -200px;
+  top: 50%;
+  z-index: 100;
+}
+
+.message {
+  text-align: center;
+  font-size: 18px;
+}
+
+.modal-inner {
+  transform: scale(0.95);
+  opacity: 0;
+  padding: 150px;
+  line-height: 35px;
+  transition: 0.2s ease-in-out;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  background: #333;
+  transition: 0.15s ease-in-out;
+}
+
+.modal-frame.active {
+  visibility: visible;
+  height: inherit;
+  display: block;
+}
+
+.modal-frame.active .modal-body {
+  -webkit-animation: popperIn 0.45s;
+  animation: popperIn 0.45s;
+}
+
+@-webkit-keyframes popperIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.06);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes popperIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes popperOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  40% {
+    -webkit-transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.15);
+  }
+}
+
+@keyframes popperOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  40% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.15);
+  }
+}
+
+.modal-frame.active .modal-inner {
+  opacity: 1;
+  transform: scale(1);
+  transition: 0.15s ease-in-out;
+  transition-delay: 0.13s;
+}
+
+.modal-frame.active .modal-overlay {
+  opacity: 0.5;
+  visibility: visible;
+}
+
+.modal-frame.leave .modal-body {
+  opacity: 0;
+  animation: popperOut 0.5s;
+  transition: 0.3s ease-in-out;
+  transition-delay: 0.2s;
+  transform: scale(0.95);
+}
+
+.modal-frame.leave .modal-inner {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: 0.15s ease-in-out;
+}

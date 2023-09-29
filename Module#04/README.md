@@ -39,6 +39,19 @@ Maven will perform the necessary build tasks, such as compiling the code,
 creating the project's artifacts, and verifying their correctness. 
 `mvn verify -e`
 
+`mvn sonar:sonar`
+
+`mvn install tomcat7:deploy -X`
+
+`java -jar -Dspring.profiles.active=prod web-app-1.0.0.jar --thin.dryrun`
+
+`mvn tomcat7:run -DskipTests`
+
+`mvn test jacoco:report`
+
+`mvn dependency:resolve -U`
+
+`java -jar jenkins.war --httpPort=8082`
 
 ### Business requirements
 
@@ -233,3 +246,5 @@ Users should be stored in a database with some basic information and a password.
 
 (Optional task) It's allowed to use Spring Data. 
  - Requirement for this task - all repository (and existing ones) should be migrated to Spring Data.
+
+ 

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is a Details of page's content">
+  <title>Add new</title>
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../css/newcoupon.css">
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,500,1,0">
+
+  <style>
+    #new-coupon {
+      padding: 20px;
+    }
+
+    .options {
+      display: none;
+      position: absolute;
+      background: #ffffff;
+      box-sizing: border-box;
+      width: 420px;
+      height: 320px;
+      border: 1px solid #dedede;
+      overflow-y: auto;
+      z-index: 1;
+    }
+
+    .tags-box {
+      padding: 5px;
+      height: 35px;
+      display: block;
+      cursor: pointer;
+
+    }
+
+    .checkbox-dropdown.open .options {
+      display: block;
+    }
+  </style>
+</head>
+
+
+<body class="white-theme">
+  <header class="header">
+    <div class="logo">
+      <div class="menu-button" onclick="toggleCheckbox()"></div>
+      <nav class="menu"></nav>
+      <a href="/" class="logo-label" id="logo-label"></a>
+      <div class="logo-name" id="logo-name"></div>
+    </div>
+    <div class="search" id="search"></div>
+    <div class="user"></div>
+  </header>
+  <div class="add-new-title">Add new Coupon</div>
+  <form id="new-coupon" enctype="multipart/form-data">
+    <div id="add-new-wrapper" class="add-new-wrapper">
+      <div class="column">
+        <div class="row-grp">
+          <label class="input-label" for="company">Company</label>
+          <input type="text" id="company" class="input-company" name="company" required>
+          <label class="input-label" for="category">
+            <span class="material-symbols-outlined input-prefix">expand_more</span>
+            Category</label>
+          <div class="checkbox-dropdown">
+            <div class="select-category">
+              <div class="options">
+                <label class="tags-box"><input type="checkbox" name="tags" value="Cosmetics"> Cosmetics</label>
+                <label class="tags-box"><input type="checkbox" name="tags" value="Makeup"> Makeup</label>
+                <label class="tags-box"><input type="checkbox" name="tags" value="Course"> Course</label>
+                <label class="tags-box"><input type="checkbox" name="tags" value="Travel"> Travel</label>
+                <label class="tags-box"><input type="checkbox" name="tags" value="Self-care"> Self-care</label>
+                <label class="tags-box"><input type="checkbox" name="tags" value="Culture"> Culture</label>
+                <label class="tags-box"><input type="checkbox" name="tags" value="Anniversary"> Anniversary</label>
+              </div>
+            </div>
+          </div>
+          <label class="input-label" for="expired-date">
+            <span class="material-symbols-outlined input-prefix">event</span>
+            Valid to</label>
+          <input type="date" id="expired-date" class="input-expired-date" value="2023-12-12" name="expired" required>
+          <label class="input-label" for="price">Price</label>
+          <input type="number" id="price" class="input-price" name="price" required>
+          <label class="input-label" for="images">Images</label>
+          <label class="custom-file-upload">
+            <input id="images" type="file" name="file" accept="images/*">
+            <span class="material-symbols-outlined">photo_library</span>
+          </label>
+        </div>
+        <div class="row-grp">
+          <label class="input-label" for="item-name">Item Name</label>
+          <input type="text" id="item-name" class="input-itemname" name="name" required>
+          <label class="input-label" for="long-desc">Long Description</label>
+          <textarea id="long-desc" class="input-desc" name="description" required></textarea>
+          <label class="input-label" for="short-desc">Short Description</label>
+          <textarea id="short-desc" class="input-desc" name="shortDescription"></textarea>
+          <div class="confirm">
+            <button class="button-back submit_btn" type="reset" onclick="goBack()">
+              <span class="button-label">Back</span>
+            </button>
+            <button type="button" class="button-save submit_btn" onclick="saveCertificates()">
+              <span class="button-label">Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="modal-frame">
+    <div class="modal-body">
+      <div class="modal-inner">
+        <button id="close" class="close"><span class="material-symbols-outlined">
+            close
+          </span></button>
+        <div id="message" class="message"></div>
+      </div>
+    </div>
+    <div class="modal-overlay"></div>
+  </div>
+  <div class="spinner" id="loading-indicator"></div>
+  <footer class="single-page-footer"></footer>
+  <script src="../js/props.js"></script>
+  <script src="../js/createMenu.js"></script>
+  <script>
+    createUser(userLinks, '');
+    createLink(menuItems, '');
+  </script>
+  <script src="../js/localStorage.js"></script>
+  <script src="../js/favorite.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/index.js"></script>
+  <script src="../js/modal.js"></script>
+  <script src="../js/addnew.js"></script>
+</body>
+
+</html>

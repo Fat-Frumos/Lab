@@ -13,8 +13,6 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -55,16 +53,13 @@ public class UserController {
      * Get a user by ID.
      *
      * @param id the user ID
-     * @param username the user username
      * @return the user DTO
      */
     @GetMapping("/{id}")
-//    @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
     public EntityModel<UserDto> getUser(
-            final @AuthenticationPrincipal(expression = "username") String username,
             @PathVariable final Long id) {
         return assembler.toModel(
-                userService.getById(id, username));
+                userService.getById(id));
     }
 
     /**
@@ -102,7 +97,6 @@ public class UserController {
      * @return the updated user DTO
      */
     @PatchMapping(value = "/{id}")
-    @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
     public EntityModel<UserDto> update(
             @Valid @PathVariable final Long id,
             @Valid @RequestBody final UserSlimDto dto) {
@@ -117,7 +111,6 @@ public class UserController {
      * @return the HTTP response status
      */
     @DeleteMapping(value = "/{id}")
-    @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
     public ResponseEntity<HttpStatus> delete(
             @PathVariable final Long id) {
         userService.delete(id);

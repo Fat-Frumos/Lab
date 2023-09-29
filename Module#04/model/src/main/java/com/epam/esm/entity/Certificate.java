@@ -19,9 +19,10 @@ import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -42,7 +43,8 @@ import java.util.Set;
  * A certificate can have multiple tags,
  * and it can be associated with multiple orders
  */
-@Data
+@Getter
+@Setter
 @Entity
 @Builder
 @NoArgsConstructor
@@ -82,6 +84,8 @@ public class Certificate implements Serializable {
     @Column(nullable = false, length = 1024)
     @Size(min = 2, max = 1024, message = "Description is required, maximum 512 characters")
     private String description;
+    private String shortDescription;
+    private String company;
 
     /**
      * The creation date of the certificate.
@@ -102,6 +106,9 @@ public class Certificate implements Serializable {
      */
     @Column(nullable = false)
     private Integer duration;
+
+    @Column(length = 1024)
+    private String path;
 
     /**
      * The set of tags associated with the certificate.

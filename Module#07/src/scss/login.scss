@@ -1,0 +1,75 @@
+.main-wrapper {
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #c9c9c9;
+  @include box($logo-width, $logo-height);
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  transform: translate(55%, -50%);
+  @include box(220px, 220px);
+}
+
+.logo-avatar {
+  font-weight: 700;
+  transform: translate(20%, 100%);
+  @include font-color(59px, $white-color);
+}
+
+.logo-button {
+  @include box(342px, 50px);
+  transition: transform 0.5s ease-out, box-shadow 0.5s ease-out,
+  background-color 0.5s ease-out, color 0.5s ease-out;
+}
+
+.logo-button:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.signup-button {
+  transform: translate(13%, -175%);
+  background: #ffffff;
+  border: 1px solid #dedede;
+}
+
+.password-button {
+  transform: translate(13%, -150%);
+  background: #ffffff;
+  border: 1px solid #dedede;
+}
+
+.login-button {
+  box-sizing: content-box;
+  transform: translate(13%, -125%);
+  background: $secondary-color;
+  border: 1px solid $secondary-color;
+  font-family: $card-font;
+  color: $white-color;
+}
+
+.login-label {
+  @include box(64px, 33px);
+  @include font-color(23px, $white-color);
+}
+
+.signup-button::placeholder,
+.password-button::placeholder {
+  text-align: center;
+  @include font-color(23px, $gray-color);
+}
+
+.signup-button,
+.password-button {
+  padding-left: 10px;
+}
+
+html {
+  background: #f1f1f1;
+  font-family: Roboto, Verdana, sans-serif;
+  color: #666;
+}

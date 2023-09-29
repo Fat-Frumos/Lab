@@ -1,6 +1,7 @@
 package com.epam.esm.security.service;
 
 import com.epam.esm.entity.Role;
+import com.epam.esm.entity.SecurityUser;
 import com.epam.esm.entity.Token;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.UserAlreadyExistsException;
@@ -9,7 +10,6 @@ import com.epam.esm.repository.UserRepository;
 import com.epam.esm.security.auth.AuthenticationRequest;
 import com.epam.esm.security.auth.AuthenticationResponse;
 import com.epam.esm.security.auth.RegisterRequest;
-import com.epam.esm.security.auth.SecurityUser;
 import com.epam.esm.security.exception.InvalidJwtAuthenticationException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -19,7 +19,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -63,8 +62,10 @@ public class AuthenticationService implements AuthService {
                     "User already exists with name "
                             + request.getUsername());
         }
-        SecurityUser user = saveUserWithRole(request);
-        log.info("signup service: " + user.getUsername());
+        SecurityUser user = SecurityUser.builder()
+                .user(saveUserWithRole(request))
+                .build();
+        log.info("signup service: " + user);
         return getAuthenticationResponse(user);
     }
 
@@ -115,13 +116,10 @@ public class AuthenticationService implements AuthService {
             String refreshToken = authorizationHeader.substring(7);
             String username = provider.getUsername(refreshToken);
             if (username != null) {
-                User user = userRepository.findByUsername(username)
-                        .orElseThrow(() -> new UserNotFoundException(
-                                format("User not found :%s", username)));
-                SecurityUser securityUser = SecurityUser.builder().user(user).build();
-                if (provider.isTokenValid(refreshToken, securityUser)) {
-                    String accessToken = provider.generateToken(securityUser);
-                    Token token = provider.updateUserTokens(securityUser, accessToken);
+                SecurityUser user = findUser(username);
+                if (provider.isTokenValid(refreshToken, user)) {
+                    String accessToken = provider.generateToken(user);
+                    Token token = provider.updateUserTokens(user.getUser(), accessToken);
                     return AuthenticationResponse.builder()
                             .username(username)
                             .accessToken(token.getAccessToken())
@@ -185,9 +183,10 @@ public class AuthenticationService implements AuthService {
      */
     @Transactional
     public SecurityUser findUser(final String username) {
-        return SecurityUser.builder().user(userRepository.findByUsername(username)
+        User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException(
-                        format("User not found: %s", username)))).build();
+                        format("User not found: %s", username)));
+        return SecurityUser.builder().user(user).build();
     }
 
     /**
@@ -197,7 +196,7 @@ public class AuthenticationService implements AuthService {
      * @return The saved User object.
      */
     @Transactional
-    public SecurityUser saveUserWithRole(
+    public User saveUserWithRole(
             final RegisterRequest request) {
         User user = User.builder()
                 .password(encoder.encode(request.getPassword()))
@@ -206,7 +205,7 @@ public class AuthenticationService implements AuthService {
                 .role(getRole())
                 .build();
         log.info("saveUserWithRole: " + user);
-        return SecurityUser.builder().user(userRepository.save(user)).build();
+        return userRepository.save(user);
     }
 
     /**
@@ -243,7 +242,7 @@ public class AuthenticationService implements AuthService {
     public AuthenticationResponse getAuthenticationResponse(
             final SecurityUser user) {
         String jwtToken = provider.generateToken(user);
-        Token token = provider.updateUserTokens(user, jwtToken);
+        Token token = provider.updateUserTokens(user.getUser(), jwtToken);
         return getAuthenticationResponse(user, jwtToken,
                 token.getAccessTokenTTL());
     }
@@ -256,7 +255,7 @@ public class AuthenticationService implements AuthService {
      * @return the authentication response containing the user, access token, and expiration time
      */
     public AuthenticationResponse getAuthenticationResponse(
-            final UserDetails user, final String accessToken) {
+            final SecurityUser user, final String accessToken) {
         return getAuthenticationResponse(
                 user, accessToken,
                 provider.getExpiration());
@@ -270,8 +269,8 @@ public class AuthenticationService implements AuthService {
      * @param accessToken The access token expiration time.
      * @return The AuthenticationResponse object.
      */
-    private AuthenticationResponse getAuthenticationResponse(
-            final UserDetails user,
+    public AuthenticationResponse getAuthenticationResponse(
+            final SecurityUser user,
             final String jwtToken,
             final Long accessToken) {
         return AuthenticationResponse.builder()

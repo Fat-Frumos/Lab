@@ -1,0 +1,59 @@
+.spinner {
+  width: 60px;
+  height: 60px;
+  border-top: 4px solid #0177A9;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: spin 1s infinite linear;
+  display: none;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-top {
+  display: none;
+  position: fixed;
+  height: 60px;
+  width: 60px;
+  background-color: white;
+  bottom: 40px;
+  right: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.336);
+  transform: scale(0.9);
+  transition: 0.3s ease-in-out transform;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-top svg {
+  width: 50%;
+  color: black;
+  pointer-events: none;
+}
+
+.scroll-top:hover {
+  transform: scale(1);
+}
+
+.scroll-top.show {
+  display: flex;
+}

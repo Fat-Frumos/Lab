@@ -2,16 +2,17 @@ package com.epam.esm;
 
 import com.epam.esm.entity.Role;
 import com.epam.esm.entity.RoleType;
+import com.epam.esm.entity.SecurityUser;
 import com.epam.esm.entity.Token;
 import com.epam.esm.entity.User;
 import com.epam.esm.repository.TokenRepository;
 import com.epam.esm.repository.UserRepository;
-import com.epam.esm.security.auth.SecurityUser;
 import com.epam.esm.security.exception.InvalidJwtAuthenticationException;
 import com.epam.esm.security.service.JwtTokenProvider;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -33,6 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -63,12 +65,15 @@ class JwtTokenProviderTest {
     @BeforeEach
     void init() {
         request = new MockHttpServletRequest();
+
         user = User.builder()
                 .username(username)
                 .email("bob@i.ua")
                 .password(invalidToken)
                 .role(Role.builder().permission(RoleType.USER).build())
                 .build();
+
+        securityUser = SecurityUser.builder().user(user).build();
 
         jwtToken = Jwts.builder()
                 .setSubject(username)
@@ -77,8 +82,18 @@ class JwtTokenProviderTest {
                 .signWith(Keys.hmacShaKeyFor(Decoders.BASE64.decode(secretKey)),
                         SignatureAlgorithm.HS256)
                 .compact();
+    }
 
-        securityUser = SecurityUser.builder().user(user).build();
+    @Test
+    void testGetUsernameTokenNotFoundException() {
+        String token = "JWT strings must contain exactly 2 period characters. Found: 1";
+        Function<Claims, String> mockClaimsFunction = claims -> {
+            throw new MalformedJwtException("");
+        };
+        Exception exception = assertThrows(Exception.class,
+                () -> jwtTokenProvider.getClaim(token, mockClaimsFunction));
+        assertEquals(InvalidJwtAuthenticationException.class, exception.getClass());
+        assertEquals(String.format("%s", token), exception.getMessage());
     }
 
     @Test
@@ -247,7 +262,7 @@ class JwtTokenProviderTest {
 
         tokenRepository.saveAll(Arrays.asList(token1, token2));
 
-        jwtTokenProvider.updateUserTokens(SecurityUser.builder().user(save).build(), invalidToken);
+        jwtTokenProvider.updateUserTokens(save, invalidToken);
 
         List<Token> tokens = tokenRepository.findAll();
         assertEquals(3, tokens.size());
@@ -358,7 +373,7 @@ class JwtTokenProviderTest {
     @Test
     void updateUserTokensShouldSaveNewToken() {
 
-        Token savedToken = jwtTokenProvider.updateUserTokens(securityUser, jwtToken);
+        Token savedToken = jwtTokenProvider.updateUserTokens(user, jwtToken);
         Token expectedToken = tokenRepository.findById(savedToken.getId()).orElse(null);
         assertNotNull(expectedToken);
         assertEquals(expectedToken.getId(), savedToken.getId());

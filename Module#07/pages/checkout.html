@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../css/checkout.css">
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,500,1,0">
+</head>
+
+<body class="white-theme">
+  <header class="header">
+    <div class="logo">
+      <div class="menu-button" onclick="toggleCheckbox()"></div>
+      <nav class="menu"></nav>
+      <a href="/" class="logo-label" id="logo-label"></a>
+      <div class="logo-name" id="logo-name"></div>
+    </div>
+    <div class="search" id="search"></div>
+    <div class="user"></div>
+  </header>
+  <div class="add-new-title">Checkout</div>
+  <div class="modal-frame">
+    <div class="modal-body">
+      <div class="modal-inner">
+        <button id="close" class="close"><span class="material-symbols-outlined">
+            close
+          </span></button>
+        <div id="message" class="message"></div>
+      </div>
+    </div>
+    <div class="modal-overlay"></div>
+  </div>
+  <main class="favorites-container container" id="container">
+    <div class="form-wrapper">
+      <div class="checkout-wrapper"></div>
+    </div>
+  </main>
+  <div class="spinner" id="loading-indicator"></div>
+  <footer class="single-page-footer">
+  </footer>
+  <script src="../js/props.js"></script>
+  <script src="../js/createMenu.js"></script>
+  <script>
+    createUser(userLinks, "");
+    createLink(menuItems, "");
+  </script>
+  <script src="../js/index.js"></script>
+  <script src="../js/createMenu.js"></script>
+  <script src="../js/localStorage.js"></script>
+  <script src="../js/favorite.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/modal.js"></script>
+  <script src="../js/checkout.js"></script>
+  <script>
+    counter();
+    updateLoginLink();
+  </script>
+</body>
+
+</html>

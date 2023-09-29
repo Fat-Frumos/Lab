@@ -6,7 +6,6 @@ import com.epam.esm.entity.Tag;
 import com.epam.esm.service.OrderService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -14,8 +13,7 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -36,15 +34,19 @@ import static org.springframework.http.HttpStatus.NO_CONTENT;
 /**
  * Controller class for handling order-related operations.
  * <p>
- * This class is annotated with {@link RestController}
- * to indicate that it is a Spring MVC controller,
- * and {@link RequestMapping} with a value of "/orders"
- * to map requests to this controller.
+ * This class is annotated with {@link RestController} to indicate that it is a Spring MVC controller,
+ * and {@link RequestMapping} with a value of "/orders" to map requests to this controller.
  */
-@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/orders")
+@CrossOrigin(origins = {
+        "http://192.168.31.177:5500",
+        "http://localhost:5500",
+        "http://localhost:4200",
+        "https://gift-store-angular.netlify.app/",
+        "https://gift-store-certificate.netlify.app",
+        "https://gift-store.onrender.com"})
 public class OrderController {
     /**
      * The tag service for performing tag-related operations.
@@ -61,18 +63,15 @@ public class OrderController {
      *
      * @param userId         the ID of the user
      * @param certificateIds the ID of the certificate
-     * @param username       the username obtained from the authenticated principal
      * @return the created order DTO
      */
-    @PostMapping("/{userId}")
+    @PostMapping("/{username}")
     @ResponseStatus(CREATED)
     public EntityModel<OrderDto> create(
-            final @AuthenticationPrincipal(expression = "username") String username,
-            @PathVariable final Long userId,
+            @PathVariable final String username,
             @RequestParam final Set<Long> certificateIds) {
-        log.info("Authentication Principal " + username);
-        return assembler.toModel(orderService
-                .createOrder(username, userId, certificateIds));
+        return assembler.toModel(
+                orderService.save(username, certificateIds));
     }
 
     /**
@@ -80,17 +79,15 @@ public class OrderController {
      *
      * @param userId   the ID of the user.
      * @param pageable the pagination information.
-     * @param username the username obtained from the authenticated principal
      * @return a collection of order resources.
      */
     @GetMapping("/users/{userId}")
     public CollectionModel<EntityModel<OrderDto>> getAllOrdersByUserId(
-            @AuthenticationPrincipal(expression = "username") final String username,
             @PathVariable final Long userId,
             @PageableDefault(size = 25, sort = {"id"},
                     direction = Sort.Direction.ASC) final Pageable pageable) {
         return assembler.toCollectionModel(
-                orderService.getAllByUserId(username, userId, pageable));
+                orderService.getAllByUserId(userId, pageable));
     }
 
     /**
@@ -133,37 +130,32 @@ public class OrderController {
         Optional<Tag> mostUsedTag =
                 orderService.getMostUsedTags(userId);
         return mostUsedTag.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound()
-                        .build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     /**
      * Retrieves the details of an order for a specific user.
      *
-     * @param orderId  the ID of the order
-     * @param userId   the ID of the user
-     * @param username the username obtained from the authenticated principal
+     * @param orderId the ID of the order
+     * @param userId  the ID of the user
      * @return the EntityModel containing the order details
      */
     @GetMapping("/{orderId}/users/{userId}")
     public EntityModel<OrderDto> getOrderDetails(
-            final @AuthenticationPrincipal(expression = "username") String username,
             final @PathVariable Long orderId,
             final @PathVariable Long userId) {
-        return assembler.toModel(orderService
-                .getUserOrder(username, orderId, userId));
+        return assembler.toModel(
+                orderService.getUserOrder(orderId, userId));
     }
 
     /**
-     * Updates an existing order with
-     * the given ID using the provided order DTO.
+     * Updates an existing order with the given ID using the provided order DTO.
      *
      * @param id  the ID of the order to be updated
      * @param dto the updated order DTO
      * @return the updated order as an EntityModel
      */
     @PatchMapping(value = "/{id}")
-    @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
     public EntityModel<OrderDto> update(
             @Valid @PathVariable final Long id,
             @Valid @RequestBody final OrderDto dto) {
@@ -179,7 +171,6 @@ public class OrderController {
      * @return a ResponseEntity with HTTP status NO_CONTENT
      */
     @DeleteMapping(value = "/{id}")
-    @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
     public ResponseEntity<HttpStatus> delete(
             @PathVariable final Long id) {
         orderService.delete(id);

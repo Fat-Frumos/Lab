@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.hateoas.RepresentationModel;
 
@@ -31,6 +32,7 @@ import java.util.Set;
  */
 @Data
 @Builder
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class OrderDto extends RepresentationModel<OrderDto> {
     /**
@@ -61,7 +63,7 @@ public class OrderDto extends RepresentationModel<OrderDto> {
      */
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set<PostCertificateDto> certificateDtos;
+    private Set<CertificateDto> certificateDtos;
 
     @JsonCreator
     public OrderDto(
@@ -69,7 +71,7 @@ public class OrderDto extends RepresentationModel<OrderDto> {
             @JsonProperty("user") UserSlimDto user,
             @JsonProperty("cost") BigDecimal cost,
             @JsonProperty("orderDate") Timestamp orderDate,
-            @JsonProperty("certificateDtos") Set<PostCertificateDto> certificateDtos) {
+            @JsonProperty("certificateDtos") Set<CertificateDto> certificateDtos) {
         this.id = id;
         this.cost = cost;
         this.user = user;

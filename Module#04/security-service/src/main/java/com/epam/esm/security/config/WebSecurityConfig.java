@@ -5,11 +5,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -18,11 +18,13 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+
+import static org.springframework.http.HttpMethod.GET;
+import static org.springframework.http.HttpMethod.POST;
 
 /**
  * Configuration class for web security.
@@ -34,8 +36,6 @@ import java.util.Collections;
 public class WebSecurityConfig {
     private static final String USER = "ROLE_USER";
     private static final String ADMIN = "ROLE_ADMIN";
-    private static final String[] GET = {"/tags/**", "/orders/**", "/users/**"};
-    private static final String[] POST = {"/orders/**", "/users/**", "/login", "/token/**", "/logout"};
     /**
      * Handler for logging out the user.
      */
@@ -71,16 +71,18 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(
             final HttpSecurity http) throws Exception {
+
         return http
-                .csrf().disable()
-                .cors().configurationSource(corsConfigurationSource())
-                .and().headers().frameOptions().sameOrigin()
-                .and().authorizeHttpRequests(authorize ->
+                .csrf(CsrfConfigurer::disable)
+                .cors(customizer -> customizer.configurationSource(request -> corsConfigurationSource()))
+                .securityContext(customizer -> customizer.requireExplicitSave(false))
+                .authorizeHttpRequests(authorize ->
                         authorize.requestMatchers(PathRequest.toH2Console()).permitAll()
-                                .requestMatchers(HttpMethod.POST, "/signup", "/login").permitAll()
-                                .requestMatchers(HttpMethod.GET, "/certificates/**").permitAll()
-                                .requestMatchers(HttpMethod.GET, GET).hasAnyAuthority(USER, ADMIN)
-                                .requestMatchers(HttpMethod.POST, POST).hasAnyAuthority(USER, ADMIN)
+                                .requestMatchers(POST, "/signup", "/logout", "/login", "/upload").permitAll()
+                                .requestMatchers(GET, "/tags/**", "/certificates/**", "/upload/**").permitAll()
+                                .requestMatchers(GET, "/orders/**", "/token/**").hasAnyAuthority(USER, ADMIN)
+                                .requestMatchers(POST, "/orders/**").hasAnyAuthority(USER, ADMIN)
+                                .requestMatchers(POST, "/users/**").hasAnyAuthority(ADMIN)
                                 .requestMatchers("/**").hasAuthority(ADMIN)
                                 .anyRequest()
                                 .authenticated())
@@ -102,14 +104,22 @@ public class WebSecurityConfig {
      *
      * @return The CORS configuration source.
      */
-    private CorsConfigurationSource corsConfigurationSource() {
+    private CorsConfiguration corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Collections.singletonList("http://localhost:8080/api"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+        configuration.setAllowedOrigins(Arrays.asList(
+                "http://192.168.31.177:5500",
+                "http://127.0.0.1:5500",
+                "http://localhost:5500",
+                "http://127.0.0.1:8080",
+                "http://127.0.0.1:4200",
+                "https://gift-store.onrender.com",
+                "https://gift-store-angular.netlify.app",
+                "https://gift-store-certificate.netlify.app"));
+        configuration.setAllowedMethods(Collections.singletonList("*"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
         configuration.setAllowCredentials(true);
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
+        configuration.setMaxAge(360000L);
+        configuration.setExposedHeaders(List.of("Authorization"));
+        return configuration;
     }
 }

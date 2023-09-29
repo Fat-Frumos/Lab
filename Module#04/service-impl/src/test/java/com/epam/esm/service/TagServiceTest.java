@@ -4,6 +4,7 @@ import com.epam.esm.dao.TagDao;
 import com.epam.esm.dao.TagDaoImpl;
 import com.epam.esm.dto.TagDto;
 import com.epam.esm.entity.Tag;
+import com.epam.esm.exception.TagAlreadyExistsException;
 import com.epam.esm.exception.TagNotFoundException;
 import com.epam.esm.mapper.TagMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -85,6 +86,15 @@ class TagServiceTest {
                 Arguments.of("Summer"),
                 Arguments.of("Autumn")
         );
+    }
+
+
+    @Test
+    @DisplayName("Test creating TagAlreadyExistsException with message")
+    void testCreateTagAlreadyExistsExceptionWithMessage() {
+        String message = "Tag already exists";
+        TagAlreadyExistsException exception = new TagAlreadyExistsException(message);
+        assertEquals(message, exception.getMessage());
     }
 
     @Test
@@ -215,7 +225,8 @@ class TagServiceTest {
     }
 
     @Test
-    void testGetByIdThrowsTagNotFoundException_whenTagDoesNotExist() {
+    @DisplayName("Given a non-existing tag, when getById is called, then TagNotFoundException should be thrown")
+    void testGetByIdThrowsTagNotFoundExceptionWhenTagDoesNotExist() {
         when(tagDao.getById(id)).thenReturn(Optional.empty());
         assertThrows(TagNotFoundException.class, () -> tagService.getById(id));
         verify(tagDao).getById(id);
@@ -223,7 +234,6 @@ class TagServiceTest {
 
     @DisplayName("getByName() method should return the tag with the given name")
     @CsvSource({"1, Winter", "2, Summer", "3, Spring", "4, Autumn"})
-
     @ParameterizedTest
     void getByNameShouldReturnTag(final Long tagId, final String name) {
         final Tag tag = Tag.builder().id(tagId).name(name).build();

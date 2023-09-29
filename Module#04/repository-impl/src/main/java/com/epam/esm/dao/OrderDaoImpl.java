@@ -147,8 +147,7 @@ public class OrderDaoImpl implements OrderDao {
                         .getReference(User.class, order.getUser().getId()));
                 order.setCertificates(order.getCertificates()
                         .stream()
-                        .map(certificate -> entityManager.getReference(
-                                Certificate.class, certificate.getId()))
+                        .map(certificate -> entityManager.find(Certificate.class, certificate.getId()))
                         .collect(Collectors.toSet()));
                 entityManager.persist(order);
                 transaction.commit();

@@ -7,7 +7,6 @@ package com.epam.esm.exception;
  * It extends the RuntimeException class.
  */
 public class RoleNotFoundException extends RuntimeException {
-
     /**
      * Constructs a new RoleNotFoundException with the specified error message.
      *

@@ -1,12 +1,12 @@
 package com.epam.esm;
 
+import com.epam.esm.entity.SecurityUser;
 import com.epam.esm.entity.User;
 import com.epam.esm.exception.UserNotFoundException;
 import com.epam.esm.repository.UserRepository;
 import com.epam.esm.security.auth.AuthenticationRequest;
 import com.epam.esm.security.auth.AuthenticationResponse;
 import com.epam.esm.security.auth.RegisterRequest;
-import com.epam.esm.security.auth.SecurityUser;
 import com.epam.esm.security.exception.InvalidJwtAuthenticationException;
 import com.epam.esm.security.service.AuthenticationService;
 import com.epam.esm.security.service.JwtTokenProvider;
@@ -40,7 +40,7 @@ import static org.mockito.Mockito.when;
 
 @DataJpaTest
 @Import({AuthenticationService.class, JwtTokenProvider.class})
-class AuthenticationServiceTest {
+class AuthenticationServiceDataJpaTest {
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -65,8 +65,8 @@ class AuthenticationServiceTest {
         service = new AuthenticationService(encoder, jwtTokenProvider, authenticationManager, userRepository);
         Mockito.when(encoder.encode(anyString())).thenReturn("encodedPassword");
         user = User.builder().email(email).password(password).username(username).build();
-        securityUser = SecurityUser.builder().user(user).build();
         userRepository.save(user);
+        securityUser = SecurityUser.builder().user(user).build();
     }
 
     @AfterEach
@@ -76,9 +76,9 @@ class AuthenticationServiceTest {
 
     @Test
     void findUserWhenUserExistsReturnsUser() {
-        userRepository.save(user);
+        User save = userRepository.save(user);
         SecurityUser foundUser = service.findUser(username);
-        assertEquals(foundUser.getUser(), user);
+        assertEquals(foundUser.getUser(), save);
     }
 
     @Test
@@ -89,9 +89,8 @@ class AuthenticationServiceTest {
 
     @Test
     void testAuthenticateSuccess() {
-        AuthenticationRequest authenticationRequest = new AuthenticationRequest();
-        authenticationRequest.setUsername(username);
-        authenticationRequest.setPassword(password);
+        AuthenticationRequest authenticationRequest =
+                AuthenticationRequest.builder().username(username).password(password).build();
         AuthenticationResponse authenticationResponse = service.authenticate(authenticationRequest);
         assertNotNull(authenticationResponse);
         assertNotNull(authenticationResponse.getAccessToken());
@@ -116,11 +115,12 @@ class AuthenticationServiceTest {
     @DisplayName("Given a RegisterRequest, when saveUserWithRole is called, then return a User with the expected values")
     void testSaveUserWithRole() {
         RegisterRequest request = new RegisterRequest(bob, email, password);
-        AuthenticationService authService = new AuthenticationService(encoder, jwtTokenProvider, null, userRepository);
-        SecurityUser user = authService.saveUserWithRole(request);
+        AuthenticationService authService =
+                new AuthenticationService(encoder, jwtTokenProvider, null, userRepository);
+        User user = authService.saveUserWithRole(request);
         assertEquals(bob, user.getUsername());
         assertEquals("encodedPassword", user.getPassword());
-        assertEquals(email, user.getUser().getEmail());
+        assertEquals(email, user.getEmail());
     }
 
     @Test

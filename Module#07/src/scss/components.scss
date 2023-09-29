@@ -1,0 +1,8 @@
+.add-new-title {
+  padding-top: 25px;
+  padding-left: 20vw;
+  box-sizing: border-box;
+  @include box(100vw, 72px);
+  background-color: #bdbdbd;
+  @include font-color(22px, $white-color);
+}

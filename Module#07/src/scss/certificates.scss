@@ -1,0 +1,112 @@
+@import 'variables';
+
+img {
+  transform: scale(1);
+  transition: 0.6s ease-out;
+  cursor: pointer;
+}
+
+img:hover {
+  transform: scale(1.3);
+  transition: 0.6s ease-in-out;
+}
+
+#certificates-list {
+  flex-wrap: wrap;
+  @include flex-justify(space-between);
+  padding-bottom: 5%;
+}
+
+.certificate-card {
+  width: 248px;
+  margin: 20px;
+  position: relative;
+  box-sizing: border-box;
+  background-color: $white-color;
+  @include flex-direction(column);
+}
+
+.certificate-card h2 {
+  width: 180px;
+  margin-left: 10px;
+  font-family: $card-font;
+  @include multi-row();
+  @include font-height-color(17px, 21px, $black-color);
+}
+
+.certificate-card .medium-image {
+  margin-bottom: 5px;
+  background: $light-gray-color;
+  overflow: hidden;
+  @include box(248px, 200px);
+}
+
+.certificate-card .certificate-description {
+  width: 125px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  @include multi-row();
+}
+
+.certificate-card p {
+  @include font-color(11px, $black-color);
+}
+
+.certificate-card .price {
+  margin-left: 10px;
+  @include font-color(18px, $black-color);
+}
+
+.expires {
+  height: 24px;
+  margin-right: 10px;
+  @include font-color(9px, $icon-color);
+}
+
+.add-button {
+  cursor: pointer;
+  margin-right: 10px;
+  box-sizing: border-box;
+  background: $white-color;
+  border: 1px solid $black-color;
+  @include box(104px, 25px);
+  @include center-justify-content(center);
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.add-button:hover {
+  @include hover();
+  border: 0;
+}
+
+.add-button:not(:hover) {
+  @include unhover();
+}
+
+.heart_plus {
+  background: $secondary-color;
+  color: $white-color;
+  border: 0;
+}
+
+.favorite {
+  background: $white-color;
+  color: $black-color;
+}
+
+.add-label {
+  @include font-height-color(11px, 13px, $black-color);
+}
+
+.certificate-icon {
+  z-index: 5;
+  margin-right: 20px;
+  color: $icon-color;
+  cursor: pointer;
+  @include box(13px, 13px);
+}
+
+.certificate-grp {
+  margin-bottom: 10px;
+  @include flex-justify(space-between);
+}
