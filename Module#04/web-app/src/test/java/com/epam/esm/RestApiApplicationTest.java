@@ -45,6 +45,6 @@ class RestApiApplicationTest {
 
     @Test
     void main() {
-         assertDoesNotThrow(() -> RestApiApplication.main(new String[]{}));
+        assertDoesNotThrow(() -> RestApiApplication.main(new String[]{}));
     }
 }

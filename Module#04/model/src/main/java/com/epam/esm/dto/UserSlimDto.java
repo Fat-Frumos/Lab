@@ -36,6 +36,7 @@ public class UserSlimDto extends RepresentationModel<UserSlimDto> {
      * It cannot be blank (null).
      */
     @Size(min = 1, max = 128)
+    @NotNull(message = "Email cannot be blank")
     private String email;
     /**
      * Represents a user's password.

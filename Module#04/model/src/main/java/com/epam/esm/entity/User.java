@@ -16,6 +16,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -23,7 +25,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 
 import java.io.Serializable;
@@ -35,9 +36,9 @@ import java.util.Set;
  * <p>
  * Implements UserDetails interface for Spring Security integration.
  */
-@Slf4j
-@Getter
+
 @Setter
+@Getter
 @Entity
 @Builder
 @Validated
@@ -91,19 +92,25 @@ public class User implements Serializable {
     /**
      * The username of the user.
      */
+    @NotNull
     @Column(name = "username", nullable = false, unique = true)
+    @Size(min = 2, max = 255, message = "Name is required, maximum 225 characters")
     private String username;
 
     /**
      * The email address of the user.
      */
+    @NotNull
     @Column(name = "email", nullable = false)
     @Email(message = "{invalid.email}")
+    @Size(min = 2, max = 128, message = "Email is required, maximum 225 characters")
     private String email;
 
     /**
      * The password of the user.
      */
+    @NotNull
+    @Size(min = 2, max = 128, message = "Password is required, maximum 225 characters")
     @Column(name = "password", nullable = false)
     private String password;
 

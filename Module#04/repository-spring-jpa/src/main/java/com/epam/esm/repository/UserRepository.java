@@ -25,7 +25,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
      * @param name the username to search for
      * @return an optional User entity
      */
-    @EntityGraph(attributePaths = {"role", "role.authorities", "orders"})
+    @EntityGraph(attributePaths = {"orders", "orders.certificates", "orders.certificates.tags", "role", "role.authorities"})
     Optional<User> findByUsername(String name);
 
     /**

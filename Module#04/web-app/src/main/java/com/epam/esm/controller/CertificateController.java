@@ -123,6 +123,7 @@ public class CertificateController {
      * @return the EntityModel representation of the updated certificate
      */
     @PatchMapping(value = "/{id}")
+    @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
     public EntityModel<CertificateDto> update(
             @Valid @PathVariable final Long id,
             @Valid @RequestBody final PatchCertificateDto dto) {
@@ -176,7 +177,6 @@ public class CertificateController {
      * @return the CollectionModel representation of the certificates
      */
     @GetMapping(value = "/users/{userId}")
-    @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
     public CollectionModel<EntityModel<CertificateDto>> getUserCertificates(
             @PathVariable final Long userId) {
         return assembler.toCollectionModel(

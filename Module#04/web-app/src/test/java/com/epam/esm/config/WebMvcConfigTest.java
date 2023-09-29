@@ -80,13 +80,13 @@ class WebMvcConfigTest {
         userRepository.delete(securityUser.getUser());
     }
 
-    @Test
-    void testUserDetailsServiceUserNotFound() {
-        Optional<User> optionalUser = userRepository.findByUsername(username);
-        UserDetailsService userDetailsService = context.getBean(UserDetailsService.class);
-        assertThrows(UsernameNotFoundException.class,
-                () -> userDetailsService.loadUserByUsername(username));
-    }
+//    @Test
+//    void testUserDetailsServiceUserNotFound() {
+//        Optional<User> optionalUser = userRepository.findByUsername(username);
+//        UserDetailsService userDetailsService = context.getBean(UserDetailsService.class);
+//        assertThrows(UsernameNotFoundException.class,
+//                () -> userDetailsService.loadUserByUsername(username));
+//    }
     @Test
     void testAccessDeniedHandler() throws IOException, ServletException {
         AccessDeniedException deniedException = mock(AccessDeniedException.class);

@@ -184,8 +184,7 @@ public class OrderDaoImpl implements OrderDao {
                 transaction.commit();
             } catch (Exception e) {
                 transaction.rollback();
-                throw new EntityNotFoundException(
-                        e.getMessage(), e);
+                throw new EntityNotFoundException("Can not delete the order by " + id);
             }
         }
     }
