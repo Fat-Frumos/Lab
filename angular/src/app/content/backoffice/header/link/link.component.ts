@@ -15,13 +15,15 @@ export class LinkComponent implements OnInit {
   cardCounter!: number;
   favoriteCounter !: number;
 
-  constructor(private readonly storage: LocalStorageService) {
-    const certificates: ICertificate[] =
-      this.storage.getCertificates();
-    this.cardCounter = certificates.filter(
-      cert => cert.checkout).length;
-    this.favoriteCounter = certificates.filter(
-      cert => cert.favorite).length;
+  constructor(
+    private readonly storage: LocalStorageService) {
+    const certificates: ICertificate[] = this.storage.getCertificates();
+    this.cardCounter = certificates
+    .filter(cert => cert.checkout)
+    .map(cert => cert.count)
+    .reduce((acc, value) => acc + value, 0);
+    this.favoriteCounter = certificates
+    .filter(cert => cert.favorite).length;
   }
 
   ngOnInit(): void {

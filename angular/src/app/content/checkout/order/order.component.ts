@@ -1,7 +1,13 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {ICertificate} from "../../../model/entity/ICertificate";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation
+} from '@angular/core';
 import {ExchangeService} from "../../../components/exchange/exchange.service";
 import {IRate} from "../../../interfaces/IRate";
+import {ICertificate} from "../../../model/entity/ICertificate";
 
 @Component({
   selector: 'app-order',
@@ -10,9 +16,13 @@ import {IRate} from "../../../interfaces/IRate";
   encapsulation: ViewEncapsulation.None
 })
 export class OrderComponent {
+
   @Input() coupon!: ICertificate;
   rates!: IRate[];
   index!: number;
+  @Output() public remove = new EventEmitter();
+  @Output() public increment = new EventEmitter();
+  @Output() public decrement = new EventEmitter();
 
   constructor(
     public readonly exchange: ExchangeService) {

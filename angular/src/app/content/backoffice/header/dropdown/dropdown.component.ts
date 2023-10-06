@@ -28,13 +28,13 @@ export class DropdownComponent {
   }
 
   onCategoryClick(classList: DOMTokenList, query: string): void {
-    this.service.criteria.tag = query
+    const tag = query
       ? query[0].toUpperCase()
       + query.toLowerCase().slice(1)
       : query;
     this.category = (query === '') ? 'All Categories' : query;
     this.categoryClick.emit(query);
-    this.service.filter();
+    this.service.filter(tag);
     classList.toggle("show");
     this.dropdownToggle.emit();
   }

@@ -18,13 +18,14 @@ export class NavigateService {
   }
 
   redirect(path: string) {
-      this.router.navigate([path]).then((success): void => {
-        let message: string = success
-          ? `Navigation to ${path} was successful`
-          : `Navigation to ${path} failed`;
-        console.log(message);
-      }).catch((error) => {
-        console.error('Error during navigation:', error);
-      });
-    }
+    this.router.navigate([path]).then((success): void => {
+      let message: string = success
+        ? `Navigation to ${path} was successful`
+        : `Navigation to ${path} failed`;
+      console.log(message);
+      location.reload(); //TODO
+    }).catch((error) => {
+      console.error('Error during navigation:', error);
+    });
+  }
 }

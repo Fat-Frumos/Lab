@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, isDevMode} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -12,6 +12,9 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment.prod";
 import {EffectsModule} from "@ngrx/effects";
 import {effects} from "./store/effects";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import {CheckoutModule} from "./content/checkout/checkout.module";
+import {ItemModule} from "./components/item/item.component";
 
 @NgModule({
   declarations: [
@@ -35,7 +38,13 @@ import {effects} from "./store/effects";
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot(effects)
+    EffectsModule.forRoot(effects),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
+    CheckoutModule,
+    ItemModule
   ],
   bootstrap: [AppComponent]
 })

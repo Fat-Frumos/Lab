@@ -1,5 +1,5 @@
 import {Inject, Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {
   catchError,
   from,
@@ -16,12 +16,14 @@ import {BASE_URL_TOKEN, SRC_URL_TOKEN} from "../config";
 import {AuthService} from "./auth.service";
 import {IUser} from "../model/entity/IUser";
 import {IMessage} from "../interfaces/IMessage";
-import {FormGroup} from "@angular/forms";
+import {FormArray, FormGroup} from "@angular/forms";
 import {SpinnerService} from "../components/spinner/spinner.service";
 import {LoginState} from "../model/enum/LoginState";
 import {ModalService} from "../components/modal/modal.service";
 import {NavigateService} from "./navigate.service";
 import {StatusCode} from "../model/enum/HttpStatusCode";
+import {IOrder} from "../interfaces/IOrder";
+import {IInvoice} from "../interfaces/IInvoice";
 
 @Injectable({
   providedIn: 'root',
@@ -49,9 +51,10 @@ export class LoadService {
 
   showMessage(message: IMessage) {
     this.modalService.showMessage(message);
-    if (message.href !== '') {
-      this.navigator.redirect(message.href)
-    }
+    const delay: number = 1500;
+    setTimeout(() => {
+      this.navigator.redirect(message.href);  //TODO
+    }, delay);
   }
 
   back(): void {
@@ -60,23 +63,31 @@ export class LoadService {
 
   loginState(state: LoginState) {
     this.authService.loginState.next(state);
-    console.log(this.authService.loginState.value);
   }
 
-  public sendOrders(user: IUser, callback: (statusCode: number) => void): void {
-    const ids = user.certificates.map((certificate) => certificate.id);
-    const url = `${this.baseUrl}/orders/${user.username}?certificateIds=${ids}`;
+  public sendOrders(total: number, user: IUser, callback: (statusCode: number) => void): void {
+    const ids: string[] = user.certificates.map((certificate) => certificate.id);
+    const counters: number[] = user.certificates.map((certificate) => certificate.count);
+    const url = `${this.baseUrl}/orders/${user.username}?certificateIds=${ids.join(",")}&counters=${counters.join(",")}`;
+    const invoice: IInvoice = {counters: counters, ids: ids, totalPrice: total};
     const requestBody = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${user.access_token}`,
-      },
-      body: JSON.stringify({certificateIds: ids.join(","),}),
+      }
     };
-    fetch(url, requestBody) //TODO http
+    fetch(url, requestBody)
     .then((response) => {
       callback(response.status);
+      let certificates = user.certificates;
+      certificates.forEach(cert => {
+        cert.count = 1;
+        cert.checkout = false
+      });
+      this.authService.saveCertificates(certificates)
+      user.invoices.push(invoice);
+      this.authService.saveUser(user);
     })
     .catch((error) => {
       callback(error.status);
@@ -84,37 +95,61 @@ export class LoadService {
   }
 
   async saveForm(form: FormGroup): Promise<number> {
-    const certificateData = this.extractFormData(form);
-    console.log(certificateData);
-
+    console.log(form.value)
     const accessToken = this.authService.getUser().access_token;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'application/json',
-    });
 
-    const options: RequestInit = {
-      method: 'POST',
-      headers: headers.keys().reduce((record: Record<string, string>, key: string) => {
-        record[key] = headers.get(key)!;
-        return record;
-      }, {} as Record<string, string>),
-      body: JSON.stringify(certificateData),
+    const expirationDate = new Date(form.get('expired')?.value);
+    const currentDate = new Date();
+    const duration = Math.ceil(Math.abs(expirationDate.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24));
+
+    const selectedTags = [];
+    const tagsControl = <FormArray>form.get('tags');
+    for (let tagControl of tagsControl.controls) {
+      if (tagControl.value.selected) {
+        selectedTags.push({name: tagControl.value.name});
+      }
+    }
+    let path;
+    const fileControl = form.get('file');
+    if (fileControl && fileControl.value) {
+      const imageName = fileControl.value.split(/(\\|\/)/g).pop();
+      path = imageName ? `${this.baseUrl}/upload/${imageName}` : '';
+      console.log(path)
+    }
+
+
+    const requestBody = {
+      "name": form.value.name,
+      "description": form.value.description,
+      "price": form.value.price,
+      "duration": duration,
+      "tags": selectedTags,
+      "path": path
     };
 
-    let statusCode: number;
-    try {
-      const response = await fetch(`${this.baseUrl}/certificates`, options);
-      if (response.ok) {
-        const jsonData = await response.json();
-        localStorage.setItem('certificate', JSON.stringify(jsonData));
-      }
-      statusCode = response.status;
-    } catch (error) {
-      console.error(error)
-      statusCode = 500;
+
+    console.log(requestBody)
+
+    const response = await fetch(`${this.baseUrl}/certificates`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestBody)
+    });
+
+    console.log(response.status);
+
+    if (response.ok) {
+      const jsonData = await response.json();
+      console.log(jsonData)
+      localStorage.setItem('product', JSON.stringify(jsonData));
+    } else {
+      const message = await response.text();
+      throw new Error(`HTTP error! status: ${response.status}, message: ${message}`);
     }
-    return statusCode;
+    return response.status;
   }
 
 
@@ -134,10 +169,10 @@ export class LoadService {
     }
   }
 
-  getCertificates(page: number, size: number): Observable<ICertificate[]> {
+  getCertificates(page: number): Observable<ICertificate[]> {
     SpinnerService.toggle();
     return this.http
-    .get<any>(`/certificates?page=${page}&size=${size}`)
+    .get<any>(`/certificates?page=${page.toFixed()}`)
     .pipe(map((data: any) => data._embedded.certificateDtoList
       .map(this.mapper))
     );
@@ -160,6 +195,7 @@ export class LoadService {
   loginUser(user: IUser): Observable<any> {
     return this.http.post(`/login`, user).pipe(
       tap((response: any): void => {
+        user.id = response.id;
         user.access_token = response.access_token;
         user.refresh_token = response.refresh_token;
         user.expired_at = response.expired_at;
@@ -188,42 +224,8 @@ export class LoadService {
     );
   }
 
-  private extractFormData(form: FormGroup): any {
-    const expirationDate = form.get('expired')?.value;
-    const currentDate = new Date();
-    const selectedDate = new Date(expirationDate);
-    let durationInDays: number = 31; //TODO less more default
-    if (!isNaN(selectedDate.getTime())) {
-      durationInDays = Math.floor((currentDate.getTime() - selectedDate.getTime()) / (24 * 60 * 60 * 1000));
-      console.log('Duration in days:', durationInDays);
-    } else {
-      this.showByStatus(405);
-      return;
-    }
-
-    const imageFile = form.get('file')?.value;
-    let path: string = imageFile ? `${this.baseUrl}/upload/${imageFile.name}` : '';
-    //TODO selectedTags
-    const selectedTags = form.get('tags')?.value
-    .filter((tag: { selected: boolean; value: string }) => tag.selected)
-    .map((checkbox: {
-      selected: boolean;
-      value: string
-    }) => ({name: checkbox.value}));
-
-    return {
-      name: form.get('name')?.value,
-      description: form.get('description')?.value,
-      company: form.get('company')?.value,
-      price: parseFloat(form.get('price')?.value),
-      shortDescription: form.get('shortDescription')?.value,
-      duration: durationInDays,
-      path: path,
-      tags: selectedTags,
-    };
-  }
-
   private mapper(data: any): ICertificate {
+    console.log(data)
     return {
       id: data.id,
       name: data.name,
@@ -238,6 +240,7 @@ export class LoadService {
       checkout: false,
       path: data.path,
       tags: data.tags.map((tag: any): ITag => ({id: tag.id, name: tag.name})),
+      count: 1
     };
   }
 
@@ -247,5 +250,24 @@ export class LoadService {
       tag: data.name,
       url: `${this.srcUrl}/200x150/?${data.name}`,
     };
+  }
+
+  getOrders(): Observable<IOrder[]> {
+    const user = this.authService.getUser();
+    const url = `${this.baseUrl}/orders/users/${user.id}`;
+    const headers = new Headers({
+      Authorization: `Bearer ${user.access_token}`,
+      'Content-Type': 'application/json',
+    });
+    return from(
+      fetch(url, {method: 'GET', headers: headers}).then(response => {
+        if (!response.ok) {
+          throw new Error(`Request failed with status: ${response.status}`);
+        }
+        return response.json();
+      })
+    ).pipe(
+      map(data => data._embedded.orderDtoList as IOrder[])
+    );
   }
 }

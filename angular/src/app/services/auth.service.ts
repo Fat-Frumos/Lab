@@ -3,19 +3,20 @@ import {BehaviorSubject} from "rxjs";
 import {IUser} from "../model/entity/IUser";
 import {LocalStorageService} from "./local-storage.service";
 import {LoginState} from "../model/enum/LoginState";
+import {ICertificate} from "../model/entity/ICertificate";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private subject: BehaviorSubject<IUser | null>;
+  private currentUser: BehaviorSubject<IUser | null>;
   loginState: BehaviorSubject<LoginState>;
 
   constructor(
     private readonly storage: LocalStorageService
   ) {
     this.loginState = new BehaviorSubject<LoginState>(LoginState.LOGGED_OUT);
-    this.subject = new BehaviorSubject<IUser | null>(null);
+    this.currentUser = new BehaviorSubject<IUser | null>(null);
     let user: IUser = this.getUser();
     if (user) {
       this.loginState.next(user.state);
@@ -43,15 +44,27 @@ export class AuthService {
   }
 
   private login(user: IUser) {
-    this.subject.next(user);
+    this.currentUser.next(user);
     this.storage.saveUser(user)
     this.loginState.next(user.state);
   }
 
-  private logout(): void {
-    // this.storage.removeUser();  //TODO
-    this.subject.next(null);
+  public logout(): void {
+    this.currentUser.next(null);
     this.loginState.next(LoginState.LOGGED_OUT);
+    const user = this.getUser();
+    user.state = LoginState.LOGGED_OUT;
+    this.storage.saveUser(user)
     console.log(this.loginState.value);
+    console.log(this.isLoggedIn())
+  }
+
+  saveUser(user: IUser) {
+    console.log(user)
+    this.storage.saveUser(user);
+  }
+
+  saveCertificates(certificates: ICertificate[]) {
+    certificates.forEach(cert => this.storage.updateCertificate(cert))
   }
 }

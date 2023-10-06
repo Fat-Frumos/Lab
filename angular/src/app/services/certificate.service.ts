@@ -9,17 +9,21 @@ import {IUser} from "../model/entity/IUser";
 import {FormGroup,} from "@angular/forms";
 import {SpinnerService} from "../components/spinner/spinner.service";
 import {ITag} from "../model/entity/ITag";
+import {Store} from "@ngrx/store";
+import {IState} from "../store/reducers";
 
 @Injectable()
 export class CertificateService implements OnDestroy {
 
-  @Input() criteria: ICriteria;
-  certificates$: ICertificate[];
+  @Input()
+  criteria: ICriteria;
   loading: boolean = false;
+  certificates$!: ICertificate[];
   subscription!: Subscription;
   unSubscribers$: Subject<any> = new Subject();
 
   constructor(
+    public store: Store<IState>,
     private filterPipe: FilterPipe,
     public readonly load: LoadService,
     private storage: LocalStorageService) {
@@ -32,13 +36,14 @@ export class CertificateService implements OnDestroy {
     this.unSubscribers$.complete();
   }
 
-  public filter(): void {
+  public filter(tag: string): void {
+    this.criteria.tag = tag;
     this.certificates$ = this.filterPipe.transform(
       this.storage.getCertificates(), this.criteria);
     console.log(this.certificates$)
   }
 
-  loadMoreCertificates(page: number, size: number): number {
+  loadMoreCertificates(page: number): number {
     let p = page;
     if (!this.loading) {
       SpinnerService.toggle()
@@ -48,7 +53,7 @@ export class CertificateService implements OnDestroy {
         p = len / 25;
       }
       this.subscription = this.load
-      .getCertificates(p, size)
+      .getCertificates(p)
       .pipe(takeUntil(this.unSubscribers$))
       .subscribe({
         next: (certificates: any): void => {
@@ -73,7 +78,6 @@ export class CertificateService implements OnDestroy {
   }
 
   findByTagName(name: string) {
-    this.criteria.tag = name;
     this.load.getCertificatesByTags(100, name)
     .pipe(takeUntil(this.unSubscribers$))
     .subscribe({
@@ -85,14 +89,14 @@ export class CertificateService implements OnDestroy {
         }
       }
     })
-    this.filter();
-    // alert(this.certificates$.length)
+    this.filter(name);
   }
 
-  sendOrders() {
+  sendOrders(total: number) {
     const user: IUser = this.storage.getUser();
-    SpinnerService.toggle()
-    this.load.sendOrders(user, (statusCode: number) => {
+    user.certificates = this.storage.getCheckoutCertificates();
+    SpinnerService.toggle();
+    this.load.sendOrders(total, user, (statusCode: number) => {
       if (statusCode === 201) {
         this.load.showByText(20103, user.username);
       } else {
@@ -103,16 +107,17 @@ export class CertificateService implements OnDestroy {
 
   async saveCertificate(form: FormGroup) {
     if (form.value) {
-      console.log(form);
-      this.load.saveImage(form.get('file')); //TODO image valid
+      this.load.saveImage(form.get('file')); //TODO image valid + path name
       this.load.saveForm(form)
       .then((code: number) => {
         this.load.showByStatus(code);
       }).catch((error) => {
-        this.load.showByStatus(error.status);
-      });
+        console.log(error)
+        // this.load.showByStatus(error.status);
+      })
     } else {
-      this.load.showByStatus(40002);
+      console.log("not valid")
+      // this.load.showByStatus(40002);
     }
   }
 
@@ -121,6 +126,9 @@ export class CertificateService implements OnDestroy {
   }
 
   getCertificates(): Observable<ICertificate[]> {
+    if (this.certificates$.length == 0) {
+      this.loadMoreCertificates(0);
+    }
     return of(this.certificates$);
   }
 
@@ -142,5 +150,18 @@ export class CertificateService implements OnDestroy {
     return [...this.storage.getCertificates()]
     .filter((certificate: ICertificate) => [...certificate.tags]
     .some((tag: ITag) => tag.name === name)).length;
+  }
+
+  public trackByFn(_index: number, item: ICertificate): string {
+    return item.id;
+  }
+
+  getCheckoutCertificates(): ICertificate[] {
+    return this.storage.getCertificates()
+    .filter(certificate => certificate.checkout);
+  }
+
+  updateCard(certificate: ICertificate) {
+    this.storage.updateCertificate(certificate);
   }
 }

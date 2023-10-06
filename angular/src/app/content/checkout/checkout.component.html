@@ -1,17 +1,21 @@
-<div class="form-wrapper">
-  <div class="checkout-wrapper">
-    <div class="booking-wrapper"
-      *ngFor="let coupon of coupons; trackBy: trackByFn">
-      <app-order
-        class="item-coupon"
-        [coupon]="coupon"
-        (click)="showDetails(coupon)">
-      </app-order>
-      <ul class="tags">
-        <li  *ngFor="let tag of coupon.tags;">
-          <a href="#" class="tag">{{tag.name}}</a></li>
-      </ul>
+<div class="checkout-container">
+  <div class="title">Checkout</div>
+  <div class="form-wrapper">
+    <div class="checkout-wrapper">
+      <div class="booking-wrapper"
+           *ngFor="let coupon of checkout$;
+         trackBy: service.trackByFn">
+        <app-order
+          class="item-coupon"
+          [coupon]="coupon"
+          (increment)="increment(coupon)"
+          (decrement)="decrement(coupon)"
+          (remove)="remove(coupon)"
+        >
+        </app-order>
+      </div>
+      <app-confirm [total]="totalAmount"></app-confirm>
     </div>
-    <app-confirm [total]="totalAmount"></app-confirm>
   </div>
 </div>
+

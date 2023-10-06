@@ -21,7 +21,6 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private service: LoadService) {
-    this.service.loginState(LoginState.LOGGED_OUT);
   }
 
   login(): void {
@@ -29,13 +28,15 @@ export class LoginFormComponent implements OnInit {
       return this.service.showByStatus(40001);
     }
     const user: IUser = {
+      id: 0,
       username: this.loginForm.value.username,
       password: this.loginForm.value.password,
       access_token: '',
       refresh_token: '',
       expired_at: '',
       certificates: [],
-      state: LoginState.LOGGED_OUT
+      state: LoginState.LOGGED_OUT,
+      invoices: []
     };
 
     this.service.loginUser(user).subscribe({
@@ -49,6 +50,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.service.loginState(LoginState.LOGGED_OUT);
     this.loginForm = this.formBuilder.group({
       username: ['', minLength, userMatch.bind(this)],
       password: ['', minLength]

@@ -1,8 +1,11 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LoadService} from "../../services/load.service";
-import {passwordMatch, required, userMatch}
-  from "../../directive/form-validator.directive";
+import {
+  passwordMatch,
+  required,
+  userMatch
+} from "../../directive/form-validator.directive";
 
 @Component({
   selector: 'app-signup',

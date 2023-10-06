@@ -26,6 +26,7 @@ describe('CertificateService', () => {
 
   it('should filter certificates', () => {
     const mockCertificates = [{
+      count: 1,
       id: '1',
       name: 'test',
       description: 'test',

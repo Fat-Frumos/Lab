@@ -1,13 +1,9 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {ExchangeService} from "../../components/exchange/exchange.service";
 import {ICertificate} from "../../model/entity/ICertificate";
-import {LocalStorageService} from "../../services/local-storage.service";
 import {Router} from "@angular/router";
 import {IRate} from "../../interfaces/IRate";
-import {IState} from "../../store/reducers";
-import {Store} from "@ngrx/store";
-import {selectProductInCard} from "../../store/reducers/cart.reducer";
-import {ICartProduct} from "../../interfaces/ICartProduct";
+import {CertificateService} from "../../services/certificate.service";
 
 @Component({
   selector: 'app-checkout',
@@ -18,20 +14,14 @@ import {ICartProduct} from "../../interfaces/ICartProduct";
 export class CheckoutComponent {
   rates!: IRate[];
   index!: number;
-  coupons!: ICertificate[];
-  products$!: ICartProduct[];
+  checkout$!: ICertificate[];
 
   constructor(
     private router: Router,
     public readonly exchange: ExchangeService,
-    public readonly storage: LocalStorageService,
-    public readonly store: Store<IState>
+    public readonly service: CertificateService,
   ) {
-    this.store.select(selectProductInCard)
-    .subscribe((data: ICartProduct[]) => this.products$ = data);
-    this.coupons = this.storage.getCheckoutCertificates();
-    console.log(this.products$)
-    console.log(this.coupons)
+    this.checkout$ = this.service.getCheckoutCertificates();
   }
 
   ngOnInit() {
@@ -39,12 +29,8 @@ export class CheckoutComponent {
     this.exchange.index$.subscribe(index => this.index = index)
   }
 
-  public trackByFn(_index: number, item: ICertificate): string {
-    return item.id;
-  }
-
   get totalAmount(): number {
-    return this.coupons.reduce((total, coupon) => total + coupon.price, 0);
+    return this.checkout$.reduce((total, coupon) => total + coupon.price * coupon.count, 0);
   }
 
   showDetails(coupon: ICertificate) {
@@ -56,5 +42,25 @@ export class CheckoutComponent {
     .catch(error => {
       console.error('Navigation failed:', error);
     });
+  }
+
+  public increment(product: ICertificate) {
+    product.count++;
+    this.service.updateCard(product);
+  }
+
+  public decrement(product: ICertificate) {
+    if (product.count == 1) {
+      this.remove(product);
+    } else {
+      product.count--;
+      this.service.updateCard(product);
+    }
+  }
+
+  public remove(product: ICertificate) {
+    product.checkout = false;
+    this.service.updateCard(product);
+    this.checkout$ = this.service.getCheckoutCertificates();
   }
 }

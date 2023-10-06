@@ -15,4 +15,5 @@ export class Certificate implements ICertificate {
   price!: number;
   shortDescription!: string;
   tags: Set<ITag> = new Set<ITag>();
+  count: number = 1;
 }

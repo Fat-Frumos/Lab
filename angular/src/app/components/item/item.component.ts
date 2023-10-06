@@ -21,6 +21,9 @@ export class ItemComponent {
 
 @NgModule({
   declarations: [ItemComponent],
+  exports: [
+    ItemComponent
+  ],
   imports: [CommonModule, MatCardModule, MatButtonModule, FlexLayoutModule, ImageModule]
 })
 export class ItemModule {

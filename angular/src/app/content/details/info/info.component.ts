@@ -4,8 +4,7 @@ import {ExchangeService} from "../../../components/exchange/exchange.service";
 import {IRate} from "../../../interfaces/IRate";
 import {Store} from "@ngrx/store";
 import {IState} from "../../../store/reducers";
-import {addProductToCart} from "../../../store/actions/cart";
-import {ICartProduct} from "../../../interfaces/ICartProduct";
+import {addProductToCart} from "../../../store/actions/cart.action";
 import {CertificateService} from "../../../services/certificate.service";
 
 @Component({
@@ -32,9 +31,9 @@ export class InfoComponent implements OnInit {
     this.exchange.index$.subscribe(index => this.index = index)
   }
 
-  addToCart(certificate: ICertificate): void {
-    const product: ICartProduct = {...certificate, count: 1}; //TODO store
+  addToCart(): void {
+    const product: ICertificate = {...this.certificate};
     this.store.dispatch(addProductToCart({product}));
-    this.service.addCart(certificate);
+    this.service.addCart(this.certificate);
   }
 }

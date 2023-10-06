@@ -22,7 +22,7 @@ export class SearchComponent {
 
   onInputChange(text: string): void {
     this.service.criteria.name = text;
-    this.service.filter();
+    this.service.filter('');
     this.searchQueryChange.emit(text);
   }
 }

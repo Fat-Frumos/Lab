@@ -9,7 +9,6 @@ export class ExchangeService {
   private indexSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public currentRates = this.rateSource.asObservable();
 
-
   constructor(  @Inject(NBU_URL_TOKEN) private nbuUrl: string) {
   }
 
