@@ -80,10 +80,11 @@ public interface OrderService {
      * Save an order.
      *
      * @param username the user username
-     * @param ids    the certificate IDs
+     * @param ids      the certificate IDs
+     * @param counters Set<Long> counters
      * @return the saved order DTO
      */
-    OrderDto save(String username, Set<Long> ids);
+    OrderDto save(String username, Set<Long> ids, List<Long> counters);
 
     /**
      * Get an order by ID.

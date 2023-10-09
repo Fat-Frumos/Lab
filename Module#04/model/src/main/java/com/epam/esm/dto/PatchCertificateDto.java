@@ -37,7 +37,7 @@ public class PatchCertificateDto
      * The duration of the certificate.
      */
     @Min(value = 0, message = "Duration must be a positive number or zero.")
-    @Max(value = 365, message = "Duration must be less than or equal to 365.")
+    @Max(value = 720, message = "Duration must be less than or equal to 720.")
     private int duration;
 
     /**

@@ -5,18 +5,32 @@ import {ITag} from "../model/entity/ITag";
 import {IUser} from "../model/entity/IUser";
 import {User} from "../model/user";
 import {Certificate} from "../model/certificate";
+import {IState} from "../store/reducers";
+import {Store} from "@ngrx/store";
+import {saveCertificatesSuccess} from "../store/actions/certificate.action";
 
 @Injectable()
 export class LocalStorageService {
+
+  constructor(private store: Store<IState>) {
+  }
+
   public favoriteCounter: EventEmitter<number> = new EventEmitter<number>();
   public cardCounter: EventEmitter<number> = new EventEmitter<number>();
   private TOKEN_USER: string = 'user';
   private TOKEN: string = '_certificates';
 
+  public counter():number{
+    let cardCounter = 0;
+    this.cardCounter.subscribe((value) => cardCounter = value);
+    return cardCounter;
+  }
+
   public saveCertificates(certificates: ICertificate[]): void {// TODO remove orders cards
     const saved: ICertificate[] = this.getCertificates() || [];
     const unique: ICertificate[] = this.removeDuplicate(saved, certificates);
     this.sortCertificatesByCreationDate(unique);
+    this.store.dispatch(saveCertificatesSuccess({certificates}));
     localStorage.setItem(this.getToken(), JSON.stringify(unique));
   }
 
@@ -27,7 +41,7 @@ export class LocalStorageService {
     );
   }
 
-  public getCertificates(): ICertificate[] { //TODO 25 limit on the same page
+  public getCertificates(): ICertificate[] {
     let certificates = localStorage.getItem(this.getToken());
     if (!certificates) {
       certificates = localStorage.getItem('user' + this.TOKEN) //TODO
@@ -54,7 +68,8 @@ export class LocalStorageService {
       saved[index] = updated;
       localStorage.setItem(this.getToken(), JSON.stringify(saved));
       const cardCounter = saved
-      .filter(card => card.checkout).length;
+      .filter(card => card.checkout)
+      .reduce((sum, card) => sum + card.count, 0);
       const favoriteCounter = saved
       .filter(favorite => favorite.favorite).length;
       this.cardCounter.emit(cardCounter);
@@ -62,14 +77,14 @@ export class LocalStorageService {
     }
   }
 
-  public getCheckoutCertificates(): ICertificate[] {
-    return this.getCertificates()
-    .filter(certificate => certificate.checkout);
-  }
-
   public getFavoriteCertificates(): ICertificate[] {
     return this.getCertificates()
     .filter(certificate => certificate.favorite);
+  }
+
+  public getCheckoutCertificates(): ICertificate[] {
+    return this.getCertificates()
+    .filter(certificate => certificate.checkout);
   }
 
   getCertificateById(id: string): ICertificate {
@@ -90,7 +105,7 @@ export class LocalStorageService {
   saveUser(user: IUser) {
     localStorage.setItem(this.TOKEN_USER, JSON.stringify(user));
     this.TOKEN_USER = this.getUsername();
-    console.log(this.TOKEN_USER);
+    console.log(this.getUser());
   }
 
   getUser(): IUser {

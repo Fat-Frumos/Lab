@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.ArgumentMatchers.anySet;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
@@ -62,9 +63,10 @@ class OrderControllerTest {
     @Test
     @DisplayName("Create Order: Given valid user ID and certificate IDs, when create order, then return HTTP status 201")
     void testCreateOrderShouldReturnHttpStatusCreated() throws Exception {
-        when(orderService.save(eq(admin), anySet())).thenReturn(orderDto);
+        when(orderService.save(eq(admin), anySet(), anyList())).thenReturn(orderDto);
         mockMvc.perform(post("/orders/{username}", admin)
                         .param("certificateIds", String.valueOf(id))
+                        .param("counters", String.valueOf(id))
                         .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
                 .andExpect(status().isCreated());
     }

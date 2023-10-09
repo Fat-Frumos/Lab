@@ -1,4 +1,4 @@
-#tags {
+#hash-tags {
   border-radius: 10px;
   box-shadow: 1px 1px 4px #CCC inset;
   padding: 10px;
@@ -6,7 +6,7 @@
   margin: auto;
 }
 
-#tag-typer {
+#hash-tag-typer {
   outline: none;
   border: none;
   padding: 6px;
@@ -15,7 +15,7 @@
   font-size: 14px;
 }
 
-.tag {
+.hash-tag {
   display: inline-block;
   background: #F95;
   color: #FFF;
@@ -28,7 +28,7 @@
   transform-origin: 0 50%;
 }
 
-.tag:before {
+.hash-tag:before {
   content: "";
   position: absolute;
   width: 0;
@@ -41,7 +41,7 @@
   top: 0;
 }
 
-.tag:after {
+.hash-tag:after {
   content: "";
   width: 5px;
   height: 5px;
@@ -53,7 +53,7 @@
   box-shadow: inset 1px 1px 0 #CCC;
 }
 
-.tag .close {
+.hash-tag .close {
   position: absolute;
   left: -4px;
   top: 6px;
@@ -66,10 +66,9 @@
   color: white;
 }
 
-.tag:hover .close {
+.hash-tag:hover .close {
   visibility: visible;
 }
-
 
 .colors {
   list-style: none;

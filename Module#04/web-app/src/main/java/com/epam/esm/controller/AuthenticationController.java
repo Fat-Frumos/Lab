@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Controller class for handling authentication-related requests.
- * <p>
  * This class is responsible for handling registration and authentication requests.
  */
 @RestController

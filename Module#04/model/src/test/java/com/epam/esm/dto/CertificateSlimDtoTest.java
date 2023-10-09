@@ -39,7 +39,7 @@ class CertificateSlimDtoTest {
         name = "Name";
         description = "Description";
         price = BigDecimal.valueOf(9999.99);
-        duration = 365;
+        duration = 720;
         createDate = valueOf(LocalDateTime.now());
         lastUpdateDate = valueOf(LocalDateTime.now());
         certificate = CertificateSlimDto.builder()
@@ -75,7 +75,7 @@ class CertificateSlimDtoTest {
         violations = validator.validate(certificate);
         assertEquals(1, violations.size());
         validator.validate(certificate).forEach(violation -> assertEquals(
-                "Duration must be less than or equal to 365.", violation.getMessage()));
+                "Duration must be less than or equal to 720.", violation.getMessage()));
     }
 
     @Test
@@ -150,9 +150,9 @@ class CertificateSlimDtoTest {
     @DisplayName("Given an invalid duration, when CertificateSlimDto is validated, then a validation error is generated with the correct message")
     void testInvalidDuration() {
         CertificateSlimDto certificate =
-                getDto(id, name, description, price, 366, createDate, lastUpdateDate);
+                getDto(id, name, description, price, 721, createDate, lastUpdateDate);
         validator.validate(certificate).forEach(violation -> assertEquals(
-                "Duration must be less than or equal to 365.", violation.getMessage()));
+                "Duration must be less than or equal to 720.", violation.getMessage()));
     }
 
     @Test

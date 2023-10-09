@@ -1,5 +1,6 @@
 package com.epam.esm.dao;
 
+import com.epam.esm.entity.Invoice;
 import com.epam.esm.entity.Order;
 import com.epam.esm.entity.Tag;
 import com.epam.esm.entity.User;
@@ -59,4 +60,6 @@ public interface OrderDao extends Dao<Order> {
      * @return the updated order
      */
     Order update(Order order);
+
+    Invoice saveInvoice(Invoice invoice);
 }

@@ -1,9 +1,9 @@
 import {createAction, props} from "@ngrx/store";
-import {ICartProduct} from "../../interfaces/ICartProduct";
+import {ICertificate} from "../../model/entity/ICertificate";
 
 export const addProductToCart = createAction(
   '[Cart] Add product to cart',
-  props<{ product: ICartProduct }>()
+  props<{ product: ICertificate }>()
 );
 
 export const removeFromProductToCart = createAction(

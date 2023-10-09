@@ -3,7 +3,7 @@
     <option name="ACTIVE_PROFILES" value="prod" />
     <module name="web-app" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="com.epam.esm.RestApiApplication" />
-    <option name="VM_PARAMETERS" value="-Dspring.datasource.username=cinema_6con_user -Dspring.datasource.password=gt1LzMdbctIFPmxo9rChG4BGySVdjTB6" />
+    <option name="VM_PARAMETERS" value="-Dspring.datasource.username=admin -Dspring.datasource.password=KuvTJNHx6eapfdIpX03nFOZwjvVHA0nN" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="com.epam.esm.*" />

@@ -19,8 +19,6 @@ export class DetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute) {
     const product = localStorage.getItem('product');
     this.certificate = product ? JSON.parse(product) : new Certificate();
-    const certificate = this.activatedRoute.snapshot.data['product'];
-    console.log(certificate)//TODO details activatedRoute
   }
 
   ngOnInit(): void {

@@ -17,6 +17,8 @@ const routes: Routes = [
       {path: 'product/:id/details', resolve: {product: CardResolverService},
         loadChildren: () => import('../details/details.module')
         .then(module => module.DetailsModule)},
+      {path: 'invoice',  loadChildren: () => import('../checkout/bill/bill.module')
+        .then(module => module.BillModule)},
       {path: 'checkout', loadChildren: () => import('../checkout/checkout.module')
         .then(module => module.CheckoutModule), canActivate: [AuthGuard]},
       {path: 'favorite', loadChildren: () => import('../favorite/favorite.module')
@@ -25,6 +27,8 @@ const routes: Routes = [
         .then(module => module.SignupModule)},
       {path: 'login',  loadChildren: () => import('../login/login.module')
         .then(module => module.LoginModule)},
+      {path: 'logout',  loadChildren: () => import('../logout/logout.module')
+        .then(module => module.LogoutModule)},
     ]
   }];
 

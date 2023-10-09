@@ -156,7 +156,7 @@ public class CertificateDaoImpl implements CertificateDao {
     }
 
     /**
-     * Saves a certificate
+     * <p>Saves a certificate</p>
      * <p>
      * This method saves the specified certificate to the database.
      * </p>
@@ -180,7 +180,7 @@ public class CertificateDaoImpl implements CertificateDao {
                 if (transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException("Can not saves a certificate");
+                throw new PersistenceException(e.getMessage());
             }
         }
     }
@@ -223,7 +223,7 @@ public class CertificateDaoImpl implements CertificateDao {
                 if (transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException("Removes the certificate with the specified ID");
+                throw new PersistenceException(e.getMessage(), e);
             }
         }
     }
@@ -283,7 +283,7 @@ public class CertificateDaoImpl implements CertificateDao {
                 if (transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException("Can not updates a certificate");
+                throw new PersistenceException(e.getMessage());
             }
         }
     }

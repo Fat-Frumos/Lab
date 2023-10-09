@@ -13,12 +13,12 @@
       </p>
       <div class="link-card">
         <a [routerLink]="['/checkout']" class="add-to-cart"
-           (click)="!certificate.checkout && addToCart(certificate)">
+           (click)="!certificate.checkout && addToCart()">
           {{ certificate.checkout ? 'Go to Cart' : 'Add to Cart' }}
         </a>
 
         <span class="material-symbols-outlined add-icon"
-              (click)="addToCart(certificate)">
+              (click)="addToCart()">
               {{ certificate.checkout ? 'remove_shopping_cart' : 'shopping_cart' }}
       </span>
       </div>
@@ -26,9 +26,12 @@
     <div class="container">
       <ul class="tags" *ngFor="let tag of certificate.tags; let i = index"
           [ngClass]="{'red': i % 3 === 0, 'green': i % 3 === 1, 'blue': i % 3 === 2}">
-        <li (click)="service.findByTagName(tag.name)"
-        ><a href="#">{{tag.name}}
-          <span>{{service.countCertificatesByTag(tag.name)}}
+        <li>
+          <a [routerLink]="['/']"
+             (click)="service.findByTagName(tag.name)"
+          >
+            {{tag.name}}
+            <span>{{service.countCertificatesByTag(tag.name)}}
         </span></a>
         </li>
       </ul>

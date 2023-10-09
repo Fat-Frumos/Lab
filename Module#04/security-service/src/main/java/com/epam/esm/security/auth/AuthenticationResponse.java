@@ -19,6 +19,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthenticationResponse {
+    private Long id;
     private String username;
     @JsonProperty("access_token")
     private String accessToken;

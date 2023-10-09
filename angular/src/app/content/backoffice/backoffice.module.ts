@@ -16,6 +16,7 @@ import {LocalStorageService} from "../../services/local-storage.service";
 import {DisplayDirective} from "../../directive/display.directive";
 import {FormValidatorDirective} from "../../directive/form-validator.directive";
 import {ExchangeService} from "../../components/exchange/exchange.service";
+import {BillModule} from "../checkout/bill/bill.module";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {ExchangeService} from "../../components/exchange/exchange.service";
     LoginModule,
     SignupModule,
     HeaderModule,
+    BillModule,
     ReactiveFormsModule,
     HttpClientModule,
     SpinnerModule

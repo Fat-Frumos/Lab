@@ -72,10 +72,10 @@ public class CertificateDto
     /**
      * The duration of the certificate in days.
      * Minimum value: 0.
-     * Maximum value: 365.
+     * Maximum value: 720.
      */
     @Min(value = 0, message = "Duration must be a positive number or zero.")
-    @Max(value = 365, message = "Duration must be less than or equal to 365.")
+    @Max(value = 720, message = "Duration must be less than or equal to 720.")
     private int duration;
 
     /**
@@ -132,7 +132,7 @@ public class CertificateDto
         this.name = name;
         this.description = description;
         this.shortDescription = shortDescription;
-        this.company = company;
+        this.company = "Graviton";
         this.price = price;
         this.duration = duration;
         this.createDate = createDate;

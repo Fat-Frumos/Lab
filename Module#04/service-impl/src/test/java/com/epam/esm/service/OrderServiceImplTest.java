@@ -7,6 +7,7 @@ import com.epam.esm.dto.CertificateDto;
 import com.epam.esm.dto.OrderDto;
 import com.epam.esm.dto.UserSlimDto;
 import com.epam.esm.entity.Certificate;
+import com.epam.esm.entity.Invoice;
 import com.epam.esm.entity.Order;
 import com.epam.esm.entity.Tag;
 import com.epam.esm.entity.User;
@@ -45,6 +46,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -140,7 +142,7 @@ class OrderServiceImplTest {
     void testSaveThrowsUserNotFoundException() {
         when(userDao.findByUsername(user.getUsername())).thenReturn(Optional.empty());
         Set<Long> ids = new HashSet<>(Arrays.asList(1L, 2L));
-        assertThrows(UserNotFoundException.class, () -> orderService.save(user.getUsername(), ids));
+        assertThrows(UserNotFoundException.class, () -> orderService.save(user.getUsername(), ids, new ArrayList<>(ids)));
     }
 
     @Test
@@ -437,32 +439,40 @@ class OrderServiceImplTest {
     }
 
     @Test
-    @DisplayName("Save Order")
     void saveOrderTest() {
         Set<Long> ids = new HashSet<>(Arrays.asList(1L, 2L));
         Certificate certificate1 = new Certificate();
         certificate1.setId(1L);
-        certificate1.setPrice(new BigDecimal("10.0"));
+        certificate1.setPrice(new BigDecimal("50.0"));
         List<Certificate> certificates = Arrays.asList(certificate1, certificate2);
+
+        BigDecimal totalPrice = BigDecimal.valueOf(90);
+
         Order order = Order.builder()
                 .certificates(new HashSet<>(certificates))
-                .cost(new BigDecimal("30.0"))
+                .cost(totalPrice)
                 .user(user)
                 .build();
+
+        Invoice invoice = new Invoice();
+        order.setInvoices(Collections.singletonList(invoice));
+
         Order savedOrder = Order.builder()
                 .id(1L)
                 .orderDate(order.getOrderDate())
                 .certificates(order.getCertificates())
                 .cost(order.getCost())
                 .user(order.getUser())
+                .invoices(Collections.singletonList(invoice))
                 .build();
+
         when(userDao.findByUsername(user.getUsername())).thenReturn(Optional.of(user));
         when(certificateDao.findAllByIds(ids)).thenReturn(certificates);
-        when(orderDao.save(order)).thenReturn(savedOrder);
+        doReturn(savedOrder).when(orderDao).save(any(Order.class));
         when(orderMapper.toDto(savedOrder)).thenReturn(expectedOrderDto);
-        OrderDto result = orderService.save(user.getUsername(), ids);
+        OrderDto result = orderService.save(user.getUsername(), ids, new ArrayList<>(ids));
         assertEquals(expectedOrderDto, result);
-        verify(orderDao).save(order);
+        verify(orderDao).save(any(Order.class));
         assertNotNull(result);
     }
 

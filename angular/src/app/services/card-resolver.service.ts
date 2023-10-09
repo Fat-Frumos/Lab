@@ -23,7 +23,7 @@ export const CardResolverService: ResolveFn<ICertificate | null> = (
           console.log('Navigation has finished');
         });
       }
-      localStorage.setItem('product', JSON.stringify(product)); //TODO details
+      localStorage.setItem('product', JSON.stringify(product));
       return product;
     }),
     catchError(() => {

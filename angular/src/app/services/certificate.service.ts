@@ -5,24 +5,30 @@ import {LocalStorageService} from "./local-storage.service";
 import {FilterPipe} from "../pipe/filter.pipe";
 import {Observable, of, Subject, Subscription, takeUntil} from "rxjs";
 import {LoadService} from "./load.service";
-import {IUser} from "../model/entity/IUser";
-import {FormGroup,} from "@angular/forms";
 import {SpinnerService} from "../components/spinner/spinner.service";
 import {ITag} from "../model/entity/ITag";
+import {Store} from "@ngrx/store";
+import {IState} from "../store/reducers";
+import {FormGroup} from "@angular/forms";
+import {ModalService} from "../components/modal/modal.service";
 
 @Injectable()
 export class CertificateService implements OnDestroy {
 
-  @Input() criteria: ICriteria;
-  certificates$: ICertificate[];
+  @Input()
+  criteria: ICriteria;
   loading: boolean = false;
+  certificates$!: ICertificate[];
   subscription!: Subscription;
   unSubscribers$: Subject<any> = new Subject();
 
   constructor(
+    public store: Store<IState>,
     private filterPipe: FilterPipe,
     public readonly load: LoadService,
-    private storage: LocalStorageService) {
+    public readonly modal: ModalService,
+    private storage: LocalStorageService
+  ) {
     this.criteria = {name: '', tag: ''} as ICriteria;
     this.certificates$ = this.storage.getCertificates();
   }
@@ -32,13 +38,17 @@ export class CertificateService implements OnDestroy {
     this.unSubscribers$.complete();
   }
 
-  public filter(): void {
+  public filter(tag: string): void {
+    this.criteria.tag = tag;
     this.certificates$ = this.filterPipe.transform(
       this.storage.getCertificates(), this.criteria);
-    console.log(this.certificates$)
   }
 
-  loadMoreCertificates(page: number, size: number): number {
+  public trackByFn(_index: number, item: ICertificate): string {
+    return item.id;
+  }
+
+  loadMoreCertificates(page: number): number {
     let p = page;
     if (!this.loading) {
       SpinnerService.toggle()
@@ -48,7 +58,7 @@ export class CertificateService implements OnDestroy {
         p = len / 25;
       }
       this.subscription = this.load
-      .getCertificates(p, size)
+      .getCertificates(p)
       .pipe(takeUntil(this.unSubscribers$))
       .subscribe({
         next: (certificates: any): void => {
@@ -73,7 +83,6 @@ export class CertificateService implements OnDestroy {
   }
 
   findByTagName(name: string) {
-    this.criteria.tag = name;
     this.load.getCertificatesByTags(100, name)
     .pipe(takeUntil(this.unSubscribers$))
     .subscribe({
@@ -85,34 +94,22 @@ export class CertificateService implements OnDestroy {
         }
       }
     })
-    this.filter();
-    // alert(this.certificates$.length)
+    this.filter(name);
   }
 
-  sendOrders() {
-    const user: IUser = this.storage.getUser();
-    SpinnerService.toggle()
-    this.load.sendOrders(user, (statusCode: number) => {
-      if (statusCode === 201) {
-        this.load.showByText(20103, user.username);
-      } else {
-        this.load.showByText(statusCode, `Failed to send orders by ${user.username}`);
-      }
-    });
-  }
-
-  async saveCertificate(form: FormGroup) {
+  saveCertificate(form: FormGroup) {
     if (form.value) {
-      console.log(form);
-      this.load.saveImage(form.get('file')); //TODO image valid
+      const fileControl = form.get('file');
+      if (form.valid && fileControl) {
+        this.load.saveImage(fileControl);
+      }
       this.load.saveForm(form)
-      .then((code: number) => {
-        this.load.showByStatus(code);
-      }).catch((error) => {
-        this.load.showByStatus(error.status);
-      });
+      .then((response: Response) =>
+        this.modal.showResponse(response))
+      .catch((error): void =>
+        this.modal.showByStatus(error.status))
     } else {
-      this.load.showByStatus(40002);
+      this.modal.showByStatus(40002);
     }
   }
 
@@ -121,11 +118,15 @@ export class CertificateService implements OnDestroy {
   }
 
   getCertificates(): Observable<ICertificate[]> {
+    if (this.certificates$.length == 0) {
+      this.loadMoreCertificates(0);
+    }
     return of(this.certificates$);
   }
 
   addCart(certificate: ICertificate): void {
     certificate.checkout = !certificate.checkout;
+    certificate.count = 1;
     this.storage.updateCertificate(certificate);
     const message =
       certificate.checkout
@@ -142,5 +143,14 @@ export class CertificateService implements OnDestroy {
     return [...this.storage.getCertificates()]
     .filter((certificate: ICertificate) => [...certificate.tags]
     .some((tag: ITag) => tag.name === name)).length;
+  }
+
+  getCheckoutCertificates(): ICertificate[] {
+    return this.storage.getCertificates()
+    .filter(certificate => certificate.checkout);
+  }
+
+  updateCard(certificate: ICertificate) {
+    this.storage.updateCertificate(certificate);
   }
 }

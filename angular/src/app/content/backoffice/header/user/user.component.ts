@@ -1,6 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {ILink} from "../../../../interfaces/ILink";
-import {AuthService} from "../../../../services/auth.service";
+import {UserService} from "../../../../services/user.service";
 
 @Component({
   selector: 'app-user',
@@ -9,9 +9,7 @@ import {AuthService} from "../../../../services/auth.service";
   encapsulation: ViewEncapsulation.None
 })
 export class UserComponent {
-  isLoggedIn: boolean = false;
-  constructor(public readonly service: AuthService) {
-    this.isLoggedIn = this.service.isLoggedIn();
+  constructor(public readonly service: UserService) {
   }
 
   public userLinks: ILink[] = [
@@ -42,10 +40,10 @@ export class UserComponent {
     {
       a: {
         name: "a",
-        href: "login",
+        href: this.service.isLoggedIn() ? "logout" : "login",
         id: "login-link",
         class: "login",
-        text: this.isLoggedIn ? "Logout" : "Login",
+        text: this.service.isLoggedIn() ? "Logout" : "Login",
       },
       span: {name: "span", id: "", class: "", text: ""},
     },

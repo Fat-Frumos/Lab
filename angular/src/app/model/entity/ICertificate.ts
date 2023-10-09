@@ -14,4 +14,5 @@ export interface ICertificate {
   checkout: boolean;
   path: string;
   tags: Set<ITag>;
+  count: number;
 }

@@ -1,5 +1,4 @@
 import {createEntityAdapter, EntityAdapter, EntityState} from "@ngrx/entity";
-import {ICartProduct} from "../../interfaces/ICartProduct";
 import {
   Action,
   createFeatureSelector,
@@ -12,41 +11,73 @@ import {
   decrementProductInCart,
   incrementProductInCart,
   removeFromProductToCart
-} from "../actions/cart";
+} from "../actions/cart.action";
 import {ActionReducer} from "@ngrx/store/src/models";
+import {IUser} from "../../model/entity/IUser";
+import {ICertificate} from "../../model/entity/ICertificate";
 
-export const cartAdapter: EntityAdapter<ICartProduct> = createEntityAdapter({
-  selectId: (product: ICartProduct) => product.id
+export const cartAdapter: EntityAdapter<ICertificate> = createEntityAdapter({
+  selectId: (product: ICertificate) => product.id
 })
 
-const initialState: EntityState<ICartProduct> = cartAdapter.getInitialState();
+const initialState: EntityState<ICertificate> = cartAdapter.getInitialState();
 
-const reducer: ActionReducer<EntityState<ICartProduct>> = createReducer(initialState,
-  on(addProductToCart, (state: EntityState<ICartProduct>, {product}) => {
-    const entity: ICartProduct = state.entities[product.id] as ICartProduct;
+const reducer: ActionReducer<EntityState<ICertificate>> = createReducer(initialState,
+  on(addProductToCart, (state: EntityState<ICertificate>, {product}) => {
+    const entity: ICertificate = state.entities[product.id] as ICertificate;
     return cartAdapter.upsertOne({
       ...product,
       count: entity ? ++entity.count : 1
     }, state);
   }),
-  on(removeFromProductToCart, (state: EntityState<ICartProduct>, {id}) => {
+  on(removeFromProductToCart, (state: EntityState<ICertificate>, {id}) => {
     return cartAdapter.removeOne(id, state);
   }),
-  on(incrementProductInCart, (state: EntityState<ICartProduct>, {id}) => {
-    const entity: ICartProduct = state.entities[id] as ICartProduct;
+  on(incrementProductInCart, (state: EntityState<ICertificate>, {id}) => {
+    const entity: ICertificate = state.entities[id] as ICertificate;
     return cartAdapter.updateOne({id, changes: {count: ++entity.count}}, state);
   }),
-  on(decrementProductInCart, (state: EntityState<ICartProduct>, {id}) => {
-    const entity: ICartProduct = state.entities[id] as ICartProduct;
+  on(decrementProductInCart, (state: EntityState<ICertificate>, {id}) => {
+    const entity: ICertificate = state.entities[id] as ICertificate;
     return cartAdapter.updateOne({id, changes: {count: --entity.count}}, state);
   }),
 )
 
-export function cartReducer(state: EntityState<ICartProduct> | undefined, action: Action): EntityState<ICartProduct> {
+export function cartReducer(
+  state: EntityState<ICertificate> | undefined, action: Action):
+  EntityState<ICertificate> {
   return reducer(state, action);
 }
 
 export const {selectAll} = cartAdapter.getSelectors();
-export const selectCart = createFeatureSelector<EntityState<ICartProduct>>('cart');
-export const selectProductInCard = createSelector(selectCart, selectAll);
+export const selectCartState = createFeatureSelector<EntityState<ICertificate>>('cart');
+export const selectUserState = createFeatureSelector<IUser>('user');
+export const selectCartProducts = createSelector(selectCartState, selectAll);
 
+
+export const cartProducts = createSelector(
+  selectCartProducts,
+  selectUserState,
+  (products, _user) => {
+    return products.map((product) => {
+      return {...product, price: product.price * product.count};
+    });
+  }
+);
+
+export const totalProductsCount = createSelector(
+  selectCartProducts,
+  (products) => products.reduce((total, product) => total + product.count, 0)
+);
+
+export const cartProductsWithBonuses = createSelector(
+  selectUserState,
+  (user) => (productsState: EntityState<ICertificate>) => {
+    const certificateIds = productsState.ids as string[];
+    const certificates = certificateIds.map((id) => productsState.entities[id]);
+
+    return certificates.map((certificate) => ({
+      ...certificate, price: certificate!.price * user.bonuses
+    }));
+  }
+);

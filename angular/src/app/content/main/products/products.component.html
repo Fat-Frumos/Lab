@@ -1,6 +1,6 @@
 <div id="certificates-list">
   <app-card
-    class="certificate-card"
+    class="certificate-card item"
     *ngFor="let certificate of (service.certificates$) | searchBy: criteria"
     [tags]="certificate.tags"
     [certificate]="certificate">

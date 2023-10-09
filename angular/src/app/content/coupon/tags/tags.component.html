@@ -6,14 +6,14 @@
 <!--  </ul>-->
 <!--</div>-->
 
-<div id="tags">
-  <span class="tag" *ngFor="let tag of tags"
+<div id="hash-tags">
+  <span class="hash-tag" *ngFor="let tag of tags"
         [style.background-color]="selectedColor">
     <span class="close"
           (click)="removeTag(tag)">&times;
     </span>{{ tag }}
   </span>
-  <input id="tag-typer" type="text"
+  <input id="hash-tag-typer" type="text"
          placeholder="Add tag..."
          (keydown.enter)="addTag()"
          [(ngModel)]="newTag"/>

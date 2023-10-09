@@ -1,7 +1,7 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {ExchangeService} from "../../../components/exchange/exchange.service";
-import {CertificateService} from "../../../services/certificate.service";
 import {IRate} from "../../../interfaces/IRate";
+import {LoadService} from "../../../services/load.service";
 
 @Component({
   selector: 'app-confirm',
@@ -15,7 +15,7 @@ export class ConfirmComponent {
   index!: number;
 
   constructor(
-    public readonly service: CertificateService,
+    public readonly service: LoadService,
     public readonly exchange: ExchangeService) {
   }
 

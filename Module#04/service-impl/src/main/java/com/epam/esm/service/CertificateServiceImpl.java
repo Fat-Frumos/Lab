@@ -204,7 +204,8 @@ public class CertificateServiceImpl implements CertificateService {
      * of {@link CertificateDto} associated with the user
      */
     @Override
-    public Page<CertificateDto> getCertificatesByUserId(final Long id) {
+    public Page<CertificateDto> getCertificatesByUserId(
+            final Long id) {
         List<CertificateDto> dtos = mapper.toDtoList(
                 certificateDao.getCertificatesByUserId(id));
         return new PageImpl<>(dtos, Pageable.unpaged(), dtos.size());

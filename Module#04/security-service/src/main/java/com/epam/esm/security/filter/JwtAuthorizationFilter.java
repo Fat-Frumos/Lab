@@ -6,6 +6,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
@@ -23,6 +24,7 @@ import java.io.IOException;
  * <p>
  * This filter is responsible for handling JWT authorization for each incoming request.
  */
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
@@ -51,26 +53,27 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             final @NonNull HttpServletResponse response,
             final @NonNull FilterChain filterChain)
             throws ServletException, IOException {
-        String authHeader = request.getHeader("Authorization");
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            String jwt = authHeader.substring(7);
-            SecurityContext securityContext = SecurityContextHolder.getContext();
-            UserDetails userDetails = userDetailsService
-                    .loadUserByUsername(provider.getUsername(jwt));
-            boolean isValid = provider.findByToken(jwt)
-                    .map(token -> !token.isExpired()
-                            && !token.isRevoked())
-                    .orElse(false);
-            if (isValid && provider.isTokenValid(jwt, userDetails)) {
-                UsernamePasswordAuthenticationToken authToken =
-                        new UsernamePasswordAuthenticationToken(
-                                userDetails, null,
-                                userDetails.getAuthorities());
-                authToken.setDetails(new WebAuthenticationDetailsSource()
-                        .buildDetails(request));
-                securityContext.setAuthentication(authToken);
+            String authHeader = request.getHeader("Authorization");
+            if (authHeader != null && authHeader.startsWith("Bearer ")) {
+                String jwt = authHeader.substring(7);
+                SecurityContext securityContext = SecurityContextHolder.getContext();
+                UserDetails userDetails = userDetailsService
+                        .loadUserByUsername(provider.getUsername(jwt));
+                boolean isValid = provider.findByToken(jwt)
+                        .map(token -> !token.isExpired()
+                                && !token.isRevoked())
+                        .orElse(false);
+                if (isValid && provider.isTokenValid(jwt, userDetails)) {
+                    UsernamePasswordAuthenticationToken authToken =
+                            new UsernamePasswordAuthenticationToken(
+                                    userDetails, null,
+                                    userDetails.getAuthorities());
+                    log.info("security Context: " + securityContext);
+                    authToken.setDetails(new WebAuthenticationDetailsSource()
+                            .buildDetails(request));
+                    securityContext.setAuthentication(authToken);
+                }
             }
-        }
         filterChain.doFilter(request, response);
     }
 }

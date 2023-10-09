@@ -3,25 +3,6 @@
 .st1{fill:#234789;}
 .st2{fill:#62BC47;}
 
-input.ng-invalid.ng-touched.logo-button {
-  border: 1px solid red;
-  border-radius: 2px;
-}
-
-input.ng-valid.ng-touched.logo-button {
-  border: 1px solid green;
-  border-radius: 2px;
-}
-
-input.ng-invalid.ng-touched.logo-button:focus {
-  border-radius: 2px;
-  outline: 1px solid red;
-}
-
-input.ng-valid.ng-touched.logo-button:focus {
-  outline: 1px solid green;
-}
-
 #submit-button:disabled,
 .login-button:hover:disabled {
   color: $white-color;

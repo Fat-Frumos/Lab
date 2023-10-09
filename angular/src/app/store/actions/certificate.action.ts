@@ -13,3 +13,8 @@ export const getCertificatesSuccess = createAction(
 export const getCertificatesError = createAction(
   '[Certificates] Get certificates error',
 );
+
+export const saveCertificatesSuccess = createAction(
+  '[Certificates] Save Certificates Success',
+  props<{ certificates: ICertificate[] }>()
+);

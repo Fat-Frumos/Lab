@@ -1,11 +1,12 @@
 import {IMessage} from "../../interfaces/IMessage";
 
 export class StatusCode {
-  static Ok = 200;
+  static Ok = 201;
   static CreatedUser = 20101;
   static CreatedOrder = 20103;
   static BadRequestUser = 40001;
   static BadRequestCoupon = 40002;
+  static BadRequestOrder = 400;
   static Unauthorized = 401;
   static NotAllowed = 405;
   static InternalServerError = 500;
@@ -27,7 +28,7 @@ export class StatusCode {
       case StatusCode.CreatedOrder:
         return {
           name: `Order sent by name ${text} has been registered`,
-          href: '/',
+          href: '/invoice',
           color: 'green',
         };
       case StatusCode.BadRequestUser:
@@ -39,6 +40,12 @@ export class StatusCode {
       case StatusCode.BadRequestCoupon:
         return {
           name: 'Invalid form data coupon. Please check your inputs',
+          href: '',
+          color: 'red',
+        };
+        case StatusCode.BadRequestOrder:
+        return {
+          name: 'Invalid data invoice. Please check your inputs',
           href: '',
           color: 'red',
         };
@@ -62,9 +69,9 @@ export class StatusCode {
         };
       default:
         return {
-          name: `An ${code} status code was received`,
-          href: '/',
-          color: 'red',
+          name: ``,
+          href: '',
+          color: '',
         };
     }
   }

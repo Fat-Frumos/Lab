@@ -14,3 +14,9 @@
   background-color: $white-color;
   @include flex-direction(column);
 }
+
+.viewport {
+  height: 75vh;
+  border: 1px solid #ccc;
+  overflow-y: auto;
+}

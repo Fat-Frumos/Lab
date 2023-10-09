@@ -145,7 +145,7 @@ public class TagDaoImpl implements TagDao {
                 if (transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException("Can not saves a tag");
+                throw new PersistenceException(e.getMessage());
             }
         }
     }
@@ -195,7 +195,7 @@ public class TagDaoImpl implements TagDao {
                 if (transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw new PersistenceException("Can not deletes a tag by its ID: " + id);
+                throw new PersistenceException(e.getMessage(), e);
             }
         }
     }

@@ -55,6 +55,8 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class UserDaoImplTest {
+    @Mock
+    private CriteriaQuery<Role> roleCriteriaQuery;
     private UserDaoImpl userDao;
     @Mock
     private EntityManagerFactory factory;
@@ -79,6 +81,10 @@ class UserDaoImplTest {
     @Mock
     private EntityGraph<User> graph;
     @Mock
+    TypedQuery<Role> roleQuery;
+    @Mock
+    Root<Role> roleRoot;
+    @Mock
     private Query deleteOrderQuery;
     @Mock
     private Query deleteTokenQuery;
@@ -96,24 +102,24 @@ class UserDaoImplTest {
         when(factory.createEntityManager()).thenReturn(entityManager);
     }
 
-//    @Test
-//    @DisplayName("Given an ID, when delete method is called, then the user with the given ID is deleted from the database")
-//    void testDeleteUserById() {
-//        when(entityManager.getTransaction()).thenReturn(transaction);
-//        when(entityManager.createNativeQuery(DELETE_ORDER)).thenReturn(deleteOrderQuery);
-//        when(deleteOrderQuery.setParameter("id", id)).thenReturn(deleteOrderQuery);
-//        when(entityManager.createNativeQuery(DELETE_TOKEN)).thenReturn(deleteTokenQuery);
-//        when(deleteTokenQuery.setParameter("id", id)).thenReturn(deleteTokenQuery);
-//        when(entityManager.createNativeQuery(DELETE_USER)).thenReturn(deleteUserQuery);
-//        when(deleteUserQuery.setParameter("id", id)).thenReturn(deleteUserQuery);
-//        userDao.delete(id);
-//        verify(transaction).begin();
-//        verify(deleteOrderQuery).executeUpdate();
-//        verify(deleteTokenQuery).executeUpdate();
-//        verify(deleteUserQuery).executeUpdate();
-//        verify(transaction).commit();
-//        verify(entityManager).close();
-//    }
+    @Test
+    @DisplayName("Given an ID, when delete method is called, then the user with the given ID is deleted from the database")
+    void testDeleteUserById() {
+        when(entityManager.getTransaction()).thenReturn(transaction);
+        when(entityManager.createNativeQuery(DELETE_ORDER)).thenReturn(deleteOrderQuery);
+        when(deleteOrderQuery.setParameter("id", id)).thenReturn(deleteOrderQuery);
+        when(entityManager.createNativeQuery(DELETE_TOKEN)).thenReturn(deleteTokenQuery);
+        when(deleteTokenQuery.setParameter("id", id)).thenReturn(deleteTokenQuery);
+        when(entityManager.createNativeQuery(DELETE_USER)).thenReturn(deleteUserQuery);
+        when(deleteUserQuery.setParameter("id", id)).thenReturn(deleteUserQuery);
+        userDao.delete(id);
+        verify(transaction).begin();
+        verify(deleteOrderQuery).executeUpdate();
+        verify(deleteTokenQuery).executeUpdate();
+        verify(deleteUserQuery).executeUpdate();
+        verify(transaction).commit();
+        verify(entityManager).close();
+    }
 
     @Test
     @DisplayName("Given an ID, when delete method is called and an error occurs, then a PersistenceException is thrown")
@@ -277,47 +283,54 @@ class UserDaoImplTest {
         verify(entityManager).find(User.class, 1L);
     }
 
-//    @Test
-//    @DisplayName("Test that update method updates user and role correctly")
-//    void testUpdateUserAndRoleCorrectly() {
-//        when(entityManager.getTransaction()).thenReturn(transaction);
-//        Role role = Role.builder().permission(RoleType.ADMIN).build();
-//        user.setRole(role);
-//        when(criteriaUpdate.from(User.class)).thenReturn(root);
-//        when(criteriaBuilder.createCriteriaUpdate(User.class)).thenReturn(criteriaUpdate);
-//        when(entityManager.getCriteriaBuilder()).thenReturn(criteriaBuilder);
-//        when(entityManager.createEntityGraph(User.class)).thenReturn(graph);
-//        when(entityManager.createQuery(criteriaUpdate)).thenReturn(typedQuery);
-//        when(entityManager.find(User.class, 1L)).thenAnswer(invocation -> user);
-//        when(typedQuery.setHint(FETCH_GRAPH, graph)).thenReturn(typedQuery);
-//        doNothing().when(orderGraph).addAttributeNodes(CERTIFICATES);
-//        doNothing().when(certificateGraph).addAttributeNodes("tags");
-//        doNothing().when(roleGraph).addAttributeNodes("authorities");
-//        doReturn(orderGraph).when(graph).addSubgraph("orders");
-//        doReturn(roleGraph).when(graph).addSubgraph("role");
-//        doReturn(certificateGraph).when(orderGraph).addSubgraph(CERTIFICATES);
-//        User updatedUser = userDao.update(user);
-//        assertNotNull(updatedUser);
-//        assertEquals(id, updatedUser.getId());
-//        assertEquals(user.getUsername(), updatedUser.getUsername());
-//        assertEquals(user.getEmail(), updatedUser.getEmail());
-//        assertEquals(user.getPassword(), updatedUser.getPassword());
-//        verify(factory).createEntityManager();
-//        verify(entityManager).getTransaction();
-//        verify(transaction).begin();
-//        verify(criteriaBuilder).createCriteriaUpdate(User.class);
-//        verify(criteriaUpdate).from(User.class);
-//        verify(criteriaUpdate).set(root.get("username"), user.getUsername());
-//        verify(criteriaUpdate).set(root.get("email"), user.getEmail());
-//        verify(criteriaUpdate).set(root.get("password"), user.getPassword());
-//        verify(criteriaUpdate).where(criteriaBuilder.equal(root.get("id"), user.getId()));
-//        verify(entityManager).createEntityGraph(User.class);
-//        verify(entityManager).createQuery(criteriaUpdate);
-//        verify(typedQuery).setHint(FETCH_GRAPH, graph);
-//        verify(typedQuery).executeUpdate();
-//        verify(entityManager).find(User.class, id);
-//        verify(transaction).commit();
-//    }
+    @Test
+    @DisplayName("Test that update method updates user and role correctly")
+    void testUpdateUserAndRoleCorrectly() {
+        when(entityManager.getTransaction()).thenReturn(transaction);
+        Role role = Role.builder().permission(RoleType.ADMIN).build();
+        user.setRole(role);
+        Role existingRole = Role.builder().id(2L).permission(RoleType.ADMIN).build();
+        when(roleCriteriaQuery.from(Role.class)).thenReturn(roleRoot);
+        when(criteriaUpdate.from(User.class)).thenReturn(root);
+        when(criteriaBuilder.createCriteriaUpdate(User.class)).thenReturn(criteriaUpdate);
+        when(criteriaBuilder.createQuery(Role.class)).thenReturn(roleCriteriaQuery);
+        when(entityManager.getCriteriaBuilder()).thenReturn(criteriaBuilder);
+        when(entityManager.createEntityGraph(User.class)).thenReturn(graph);
+        when(entityManager.createQuery(roleCriteriaQuery)).thenReturn(roleQuery);
+        when(entityManager.createQuery(criteriaUpdate)).thenReturn(typedQuery);
+        when(entityManager.find(User.class, 1L)).thenAnswer(invocation -> user);
+        when(typedQuery.setHint(FETCH_GRAPH, graph)).thenReturn(typedQuery);
+        when(roleQuery.setMaxResults(1)).thenReturn(roleQuery);
+        when(roleQuery.getResultList()).thenReturn(Collections.singletonList(existingRole));
+        doNothing().when(orderGraph).addAttributeNodes(CERTIFICATES);
+        doNothing().when(certificateGraph).addAttributeNodes("tags");
+        doNothing().when(roleGraph).addAttributeNodes("authorities");
+        doReturn(orderGraph).when(graph).addSubgraph("orders");
+        doReturn(roleGraph).when(graph).addSubgraph("role");
+        doReturn(certificateGraph).when(orderGraph).addSubgraph(CERTIFICATES);
+
+        User updatedUser = userDao.update(user);
+        assertNotNull(updatedUser);
+        assertEquals(id, updatedUser.getId());
+        assertEquals(user.getUsername(), updatedUser.getUsername());
+        assertEquals(user.getEmail(), updatedUser.getEmail());
+        assertEquals(user.getPassword(), updatedUser.getPassword());
+        verify(factory).createEntityManager();
+        verify(entityManager).getTransaction();
+        verify(transaction).begin();
+        verify(criteriaBuilder).createCriteriaUpdate(User.class);
+        verify(criteriaUpdate).from(User.class);
+        verify(criteriaUpdate).set(root.get("username"), user.getUsername());
+        verify(criteriaUpdate).set(root.get("email"), user.getEmail());
+        verify(criteriaUpdate).set(root.get("password"), user.getPassword());
+        verify(criteriaUpdate).where(criteriaBuilder.equal(root.get("id"), user.getId()));
+        verify(entityManager).createEntityGraph(User.class);
+        verify(entityManager).createQuery(criteriaUpdate);
+        verify(typedQuery).setHint(FETCH_GRAPH, graph);
+        verify(typedQuery).executeUpdate();
+        verify(entityManager).find(User.class, id);
+        verify(transaction).commit();
+    }
 
     @Test
     @DisplayName("Test that given an ID, getById method returns an Optional containing the user entity")

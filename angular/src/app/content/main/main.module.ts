@@ -4,6 +4,10 @@ import {CategoryModule} from "./category/category.module";
 import {MainRoutingModule} from "./main-routing.module";
 import {MainComponent} from "./main.component";
 import {SpinnerModule} from "../../components/spinner/spinner.module";
+import {
+  CdkFixedSizeVirtualScroll,
+  CdkVirtualScrollViewport
+} from "@angular/cdk/scrolling";
 
 @NgModule({
   declarations: [
@@ -13,7 +17,9 @@ import {SpinnerModule} from "../../components/spinner/spinner.module";
     ProductsModule,
     CategoryModule,
     SpinnerModule,
-    MainRoutingModule
+    MainRoutingModule,
+    CdkVirtualScrollViewport,
+    CdkFixedSizeVirtualScroll
   ],
   exports: [MainComponent],
 })

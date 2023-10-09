@@ -1,6 +1,7 @@
 package com.epam.esm.dao;
 
 import com.epam.esm.entity.Certificate;
+import com.epam.esm.entity.Invoice;
 import com.epam.esm.entity.Order;
 import com.epam.esm.entity.Tag;
 import com.epam.esm.entity.User;
@@ -20,6 +21,7 @@ import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Hibernate;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -27,6 +29,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static com.epam.esm.dao.Queries.CERTIFICATES;
@@ -42,6 +45,7 @@ import static com.epam.esm.dao.Queries.USER;
  * Implementation of the {@link OrderDao} interface
  * for managing orders in the data access layer.
  */
+@Slf4j
 @Repository
 @RequiredArgsConstructor
 public class OrderDaoImpl implements OrderDao {
@@ -137,14 +141,11 @@ public class OrderDaoImpl implements OrderDao {
      */
     @Override
     public Order save(final Order order) {
-        try (EntityManager entityManager =
-                     factory.createEntityManager()) {
-            EntityTransaction transaction =
-                    entityManager.getTransaction();
+        try (EntityManager entityManager = factory.createEntityManager()) {
+            EntityTransaction transaction = entityManager.getTransaction();
             try {
                 transaction.begin();
-                order.setUser(entityManager
-                        .getReference(User.class, order.getUser().getId()));
+                order.setUser(entityManager.getReference(User.class, order.getUser().getId()));
                 order.setCertificates(order.getCertificates()
                         .stream()
                         .map(certificate -> entityManager.find(Certificate.class, certificate.getId()))
@@ -184,7 +185,8 @@ public class OrderDaoImpl implements OrderDao {
                 transaction.commit();
             } catch (Exception e) {
                 transaction.rollback();
-                throw new EntityNotFoundException("Can not delete the order by " + id);
+                throw new EntityNotFoundException(
+                        e.getMessage(), e);
             }
         }
     }
@@ -353,6 +355,28 @@ public class OrderDaoImpl implements OrderDao {
             entityManager.getTransaction().commit();
             entityManager.refresh(mergedOrder);
             return mergedOrder;
+        }
+    }
+
+    @Override
+    public Invoice saveInvoice(Invoice invoice) {
+        try (EntityManager entityManager = factory.createEntityManager()) {
+            EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+
+            User managedUser = entityManager.merge(invoice.getOrder().getUser());
+            invoice.getOrder().setUser(managedUser);
+            Set<Certificate> managedCertificates = invoice.getOrder().getCertificates().stream()
+                    .map(entityManager::merge)
+                    .collect(Collectors.toSet());
+            invoice.getOrder().setCertificates(managedCertificates);
+            Order managedOrder = entityManager.merge(invoice.getOrder());
+            invoice.setOrder(managedOrder);
+            entityManager.persist(invoice);
+            transaction.commit();
+            return invoice;
+        } catch (Exception e) {
+            throw new PersistenceException(e);
         }
     }
 }

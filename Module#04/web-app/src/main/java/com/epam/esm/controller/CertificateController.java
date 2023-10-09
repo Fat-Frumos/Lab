@@ -42,12 +42,15 @@ import static org.springframework.http.HttpStatus.NO_CONTENT;
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin(origins = {
-	"http://192.168.31.177:5500", 
-	"http://localhost:5500", 
-	"http://localhost:4200", 
-	"https://gift-store-angular.netlify.app/", 
-	"https://gift-store-certificate.netlify.app", 
-	"https://gift-store.onrender.com"})
+        "http://192.168.31.177:4200",
+        "http://localhost:5500",
+        "http://localhost:4200",
+        "http://127.0.0.1:5500",
+        "http://127.0.0.1:8080",
+        "http://127.0.0.1:4200",
+        "https://gift-store-angular.netlify.app",
+        "https://gift-store-certificate.netlify.app",
+        "https://gift-store.onrender.com"})
 @RequestMapping(value = "/certificates")
 public class CertificateController {
     /**
@@ -123,7 +126,6 @@ public class CertificateController {
      * @return the EntityModel representation of the updated certificate
      */
     @PatchMapping(value = "/{id}")
-    @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
     public EntityModel<CertificateDto> update(
             @Valid @PathVariable final Long id,
             @Valid @RequestBody final PatchCertificateDto dto) {
@@ -177,6 +179,7 @@ public class CertificateController {
      * @return the CollectionModel representation of the certificates
      */
     @GetMapping(value = "/users/{userId}")
+    @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
     public CollectionModel<EntityModel<CertificateDto>> getUserCertificates(
             @PathVariable final Long userId) {
         return assembler.toCollectionModel(
