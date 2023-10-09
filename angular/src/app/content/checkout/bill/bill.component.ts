@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {IOrder} from "../../../interfaces/IOrder";
-import {LoadService} from "../../../services/load.service";
 import {IRate} from "../../../interfaces/IRate";
 import {ExchangeService} from "../../../components/exchange/exchange.service";
+import {OrderService} from "../../../services/order.service";
 
 @Component({
   selector: 'app-booking',
@@ -17,7 +17,7 @@ export class BillComponent implements OnInit {
   index!: number;
 
   constructor(
-    public readonly service: LoadService,
+    public readonly service: OrderService,
     public readonly exchange: ExchangeService,
   ) {
   }

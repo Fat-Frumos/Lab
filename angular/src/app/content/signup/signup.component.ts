@@ -18,8 +18,9 @@ export class SignupComponent {
   public signupForm!: FormGroup;
 
   constructor(
-    private readonly loadService: LoadService,
-    private formBuilder: FormBuilder) {
+    private readonly load: LoadService,
+    private formBuilder: FormBuilder
+  ) {
     this.signupForm = this.formBuilder.group({
       username: ['', required, userMatch.bind(this)],
       firstName: ['', required, userMatch.bind(this)],
@@ -33,7 +34,7 @@ export class SignupComponent {
   }
 
   onCancel() {
-    this.loadService.back();
+    this.load.back();
   }
 
   public signup() {
@@ -41,12 +42,12 @@ export class SignupComponent {
     const password = this.signupForm
     .get('password.password')?.value;
     if (!this.signupForm || !password) {
-      this.loadService.showByStatus(40001)
+      this.load.modal.showByStatus(40001)
     } else {
       this.signupForm.value.password = password;
-      this.loadService.signup(this.signupForm.value).subscribe({
-        next: (response: any) => this.loadService.showByStatus(response.status),
-        // error: (error: any) => this.loadService.showByStatus(error.status)
+      this.load.signup(this.signupForm.value).subscribe({
+        next: (response: any) => this.load.modal.showByStatus(response.status),
+        // error: (error: any) => this.load.showByStatus(error.status)
       });
     }
   }

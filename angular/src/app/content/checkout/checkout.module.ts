@@ -8,7 +8,6 @@ import {CheckoutComponent} from "./checkout.component";
 import {CheckoutRoutingModule} from "./checkout-routing-module";
 import {ButtonsModule} from "../../components/buttons/buttons.module";
 
-
 @NgModule({
   declarations: [
     CheckoutComponent,

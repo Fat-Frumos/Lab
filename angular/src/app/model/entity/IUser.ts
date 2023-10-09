@@ -12,4 +12,5 @@ export interface IUser {
   certificates: ICertificate[];
   state: LoginState;
   invoices: IInvoice[];
+  bonuses: number
 }

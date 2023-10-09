@@ -8,7 +8,7 @@ import {ICertificate} from "../model/entity/ICertificate";
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class UserService {
   private currentUser: BehaviorSubject<IUser | null>;
   loginState: BehaviorSubject<LoginState>;
 
@@ -23,48 +23,42 @@ export class AuthService {
     }
   }
 
-  public getUser(): IUser {
-    return this.storage.getUser();
-  }
-
   isLoggedIn() {
     return this.storage.getUser().state === LoginState.LOGGED_IN;
   }
 
-  getUsername() {
+  public login(user: IUser): void {
+    user.state = LoginState.LOGGED_IN;
+    this.loginState.next(user.state);
+    this.currentUser.next(user);
+    this.saveUser(user);
+  }
+
+  public logout(user: IUser): void {
+    this.currentUser.next(null);
+    user.state = LoginState.LOGGED_OUT;
+    this.loginState.next(user.state);
+    this.saveUser(user);
+  }
+
+  public getUsername(): string {
     return this.storage.getUsername();
   }
 
-  public setUser(user: IUser): void {
-    if (user) {
-      this.login(user);
-    } else {
-      this.logout();
-    }
+  public getUser(): IUser {
+    return this.storage.getUser();
   }
 
-  private login(user: IUser) {
-    this.currentUser.next(user);
-    this.storage.saveUser(user)
-    this.loginState.next(user.state);
-  }
-
-  public logout(): void {
-    this.currentUser.next(null);
-    this.loginState.next(LoginState.LOGGED_OUT);
-    const user = this.getUser();
-    user.state = LoginState.LOGGED_OUT;
-    this.storage.saveUser(user)
-    console.log(this.loginState.value);
-    console.log(this.isLoggedIn())
-  }
-
-  saveUser(user: IUser) {
-    console.log(user)
+  public saveUser(user: IUser): void {
     this.storage.saveUser(user);
   }
 
-  saveCertificates(certificates: ICertificate[]) {
-    certificates.forEach(cert => this.storage.updateCertificate(cert))
+  public updateCertificates(certificates: ICertificate[]): void {
+    certificates.forEach((cert: ICertificate) =>
+      this.storage.updateCertificate(cert));
+  }
+
+  getCheckouts(): ICertificate[] {
+    return this.storage.getCheckoutCertificates();
   }
 }

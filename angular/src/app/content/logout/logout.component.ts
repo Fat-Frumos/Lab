@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AuthService} from "../../services/auth.service";
+import {UserService} from "../../services/user.service";
 import {NavigateService} from "../../services/navigate.service";
 
 @Component({
@@ -10,10 +10,10 @@ import {NavigateService} from "../../services/navigate.service";
 export class LogoutComponent {
 
   constructor(
-    private readonly auth: AuthService,
+    private readonly auth: UserService,
     private readonly navigator: NavigateService
   ) {
-    this.auth.logout();
+    this.auth.logout(auth.getUser());
     this.navigator.redirect("/")
   }
 }

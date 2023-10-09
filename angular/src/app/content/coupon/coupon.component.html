@@ -41,16 +41,20 @@
           type="number" id="price"
           class="input-price validate"
           autocomplete="on">
-        <label class="input-label" for="images">
-          Images</label>
-        <label class="custom-file-upload">
-          <input
-            formControlName="file"
-            id="images" type="file"
-            accept="images/*">
-          <span class="material-symbols-outlined">
-            photo_library</span>
-        </label>
+          <label class="input-label" for="images">
+            Images
+          </label>
+          <label class="custom-file-upload">
+            <input
+              formControlName="file"
+              id="images"
+              type="file"
+              accept="images/*"
+              (change)="onFileChange($event)">
+            <span class="material-symbols-outlined">
+              photo_library
+            </span>
+          </label>
       </div>
 
       <div class="row-grp">
@@ -85,6 +89,6 @@
       </div>
     </div>
   </div>
-<!--  <app-tags></app-tags>-->
+  <app-tags></app-tags>
 </form>
 <!--[disable]="form.invalid || form.pending"-->

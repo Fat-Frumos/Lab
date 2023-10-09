@@ -13,4 +13,5 @@ export class User implements IUser {
   state: LoginState = LoginState.GUEST;
   username: string = 'user';
   invoices: IInvoice[] = [];
+  bonuses: number = 0.8;
 }

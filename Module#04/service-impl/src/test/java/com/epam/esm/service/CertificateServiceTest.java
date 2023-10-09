@@ -43,9 +43,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -370,8 +368,8 @@ class CertificateServiceTest {
         List<Certificate> certificates = Collections.singletonList(certificate);
         List<CertificateDto> expectedDtos = Collections.singletonList(certificateDto);
         when(certificateDao.getCertificatesByUserId(anyLong())).thenReturn(certificates);
-        when(certificateMapper.toDtoList(anyList())).thenReturn(expectedDtos);
-        Page<CertificateDto> actualCertificates = service.getCertificatesByUserId(anyLong());
+        when(certificateMapper.toDtoList(Collections.singletonList(certificate))).thenReturn(expectedDtos);
+        Page<CertificateDto> actualCertificates = service.getCertificatesByUserId(id);
         assertThat(actualCertificates).isNotNull().isInstanceOf(PageImpl.class);
         assertEquals(expectedDtos, actualCertificates.getContent());
     }

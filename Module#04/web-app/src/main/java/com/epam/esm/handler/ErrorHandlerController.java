@@ -5,8 +5,6 @@ import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.exception.ResourceNotFoundException;
 import com.epam.esm.exception.TagAlreadyExistsException;
 import com.epam.esm.exception.TagNotFoundException;
-import com.epam.esm.exception.UnauthorizedAccessException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,32 +18,13 @@ import static org.springframework.http.HttpStatus.CONFLICT;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.METHOD_NOT_ALLOWED;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
-import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 
 /**
  * Controller advice for handling exceptions
  * and generating appropriate error responses.
  */
-@Slf4j
 @RestControllerAdvice
 public class ErrorHandlerController extends ResponseEntityExceptionHandler {
-
-    /**
-     * Exception handler method for handling {@link UnauthorizedAccessException}.
-     * It returns a {@link ResponseEntity} with an error response body and the HTTP status code UNAUTHORIZED.
-     *
-     * @param e the {@link UnauthorizedAccessException} to be handled
-     * @return a {@link ResponseEntity} with the error response body and HTTP status code UNAUTHORIZED
-     */
-    @ResponseStatus(UNAUTHORIZED)
-    @ExceptionHandler(UnauthorizedAccessException.class)
-    public ResponseEntity<Object> handleUnauthorizedAccessException(
-            final UnauthorizedAccessException e) {
-        log.error(e.getMessage());
-        return buildErrorResponse(
-                "Unauthorized Access",
-                UNAUTHORIZED);
-    }
 
     /**
      * Handles DataIntegrityViolationException
@@ -58,9 +37,8 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<Object> conflict(
             final DataIntegrityViolationException exception) {
-        log.error(exception.getMessage());
         return buildErrorResponse(
-                "Data integrity violation",
+                exception.getMessage(),
                 CONFLICT
         );
     }
@@ -76,9 +54,8 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<Object> handleNoSuchElementFoundException(
             final ResourceNotFoundException exception) {
-        log.error(exception.getMessage());
         return buildErrorResponse(
-                "No Such Element Found",
+                exception.getMessage(),
                 NOT_FOUND
         );
     }
@@ -95,9 +72,8 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
             TagNotFoundException.class})
     public ResponseEntity<Object> handleEntityNotFoundException(
             final RuntimeException exception) {
-        log.error(exception.getMessage());
         return buildErrorResponse(
-                "Element Not Found",
+                exception.getMessage(),
                 NOT_FOUND
         );
     }
@@ -115,9 +91,8 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
             TagAlreadyExistsException.class})
     public ResponseEntity<Object> handleEntityIsExistsException(
             final RuntimeException exception) {
-        log.error(exception.getMessage());
         return buildErrorResponse(
-                "Bad request",
+                exception.getMessage(),
                 BAD_REQUEST
         );
     }
@@ -133,9 +108,8 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
     @ExceptionHandler({Exception.class, IllegalStateException.class})
     public ResponseEntity<Object> handleException(
             final Exception exception) {
-        log.error(exception.getMessage());
         return buildErrorResponse(
-                "Something's not right",
+                exception.getMessage(),
                 INTERNAL_SERVER_ERROR
         );
     }
@@ -152,9 +126,8 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<Object> handleAllUncaughtException(
             final RuntimeException exception) {
-        log.error(exception.getMessage());
         return buildErrorResponse(
-                "Method not allowed",
+                exception.getMessage(),
                 METHOD_NOT_ALLOWED
         );
     }

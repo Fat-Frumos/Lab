@@ -2,7 +2,6 @@ package com.epam.esm.security.config;
 
 import com.epam.esm.security.filter.JwtAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -77,9 +76,9 @@ public class WebSecurityConfig {
                 .cors(customizer -> customizer.configurationSource(request -> corsConfigurationSource()))
                 .securityContext(customizer -> customizer.requireExplicitSave(false))
                 .authorizeHttpRequests(authorize ->
-                        authorize.requestMatchers(PathRequest.toH2Console()).permitAll()
-                                .requestMatchers(POST, "/signup", "/logout", "/login", "/upload").permitAll()
-                                .requestMatchers(GET, "/tags/**", "/certificates/**", "/upload/**").permitAll()
+                        authorize.requestMatchers("/upload/**").permitAll()
+                                .requestMatchers(POST, "/signup", "/logout", "/login", "/upload/*").permitAll()
+                                .requestMatchers(GET, "/tags/**", "/certificates/**").permitAll()
                                 .requestMatchers(GET, "/orders/**", "/token/**").hasAnyAuthority(USER, ADMIN)
                                 .requestMatchers(POST, "/orders/**").hasAnyAuthority(USER, ADMIN)
                                 .requestMatchers(POST, "/users/**").hasAnyAuthority(ADMIN)
@@ -107,9 +106,10 @@ public class WebSecurityConfig {
     private CorsConfiguration corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList(
-                "http://192.168.31.177:5500",
-                "http://127.0.0.1:5500",
+                "http://192.168.31.177:4200",
                 "http://localhost:5500",
+                "http://localhost:4200",
+                "http://127.0.0.1:5500",
                 "http://127.0.0.1:8080",
                 "http://127.0.0.1:4200",
                 "https://gift-store.onrender.com",

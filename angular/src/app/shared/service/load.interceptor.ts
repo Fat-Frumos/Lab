@@ -17,7 +17,7 @@ import {LoginState} from "../../model/enum/LoginState";
 export class LoadInterceptor implements HttpInterceptor {
 
   constructor(
-    private readonly service: LoadService,
+    private readonly load: LoadService,
     @Inject(BASE_URL_TOKEN) private baseUrl: string
   ) {
   }
@@ -37,8 +37,8 @@ export class LoadInterceptor implements HttpInterceptor {
         return response.clone({body: response.body?.data})
       }),
       catchError((error) => {
-        this.service.loginState(LoginState.LOGIN_FAILED);
-        this.service.showByStatus(error.status);
+        this.load.loginState(LoginState.LOGIN_FAILED);
+        this.load.modal.showByStatus(error.status);
         SpinnerService.toggle();
         return EMPTY;
       })

@@ -18,6 +18,7 @@ import {CertificateService} from "../../../services/certificate.service";
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductsComponent implements OnInit, OnDestroy, AfterViewInit {
   page: number = 0;
@@ -33,9 +34,7 @@ export class ProductsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log("After View Init")
     this.cdr.detectChanges();
-    // this.scroll.restorePosition()
   }
 
   ngOnInit(): void {

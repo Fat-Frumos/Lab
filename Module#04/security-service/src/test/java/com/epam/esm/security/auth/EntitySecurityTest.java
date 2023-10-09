@@ -137,6 +137,7 @@ class EntitySecurityTest {
     void testAllArgsConstructorAuthentication() {
         Timestamp timestamp = Timestamp.valueOf("2023-08-10 21:39:46.123");
         AuthenticationResponse response = new AuthenticationResponse(
+                0L,
                 "user",
                 "accessToken",
                 "refreshToken",

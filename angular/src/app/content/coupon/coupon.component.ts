@@ -31,13 +31,22 @@ export class CouponComponent {
       shortDescription: [''],
       price: ['', Validators.required],
       expired: new FormControl('2024-02-24'),
-      file: [],
+      file: [''],
       tags: this.formBuilder.array(this.tags.map((tag) => this.formBuilder.control(tag)))
     });
   }
 
+  onFileChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target && target.files && target.files.length > 0) {
+      const file = target.files[0];
+      this.form.get('file')?.setValue(file);
+    }
+  }
+
   public saveCertificate(): void {
     this.service.saveCertificate(this.form);
-    //TODO validator + promise + image + date
+    //TODO validator + promise + image
+    //TODO response from server by last modified  + date > 365
   }
 }

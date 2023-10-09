@@ -27,7 +27,6 @@ import java.util.Collections;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -48,31 +47,31 @@ class UserControllerTest {
     @MockBean
     private UserService userService;
     Long userId = 1L;
-    String username = "alice";
-    UserDto userDto = UserDto.builder().id(userId).username(username).email("Admin@i.ua").role(RoleDto.builder().permission(RoleType.USER).build()).build();
-    UserSlimDto postDto = UserSlimDto.builder().id(userId).password("admin").email("Admin@i.ua").username(username).role(RoleDto.builder().permission(RoleType.USER).build()).build();
+    UserDto userDto = UserDto.builder().id(userId).username("Admin").email("Admin@i.ua").role(RoleDto.builder().permission(RoleType.USER).build()).build();
+    UserSlimDto postDto = UserSlimDto.builder().id(userId).password("admin").email("Admin@i.ua").username("Admin").role(RoleDto.builder().permission(RoleType.USER).build()).build();
 
-//    @Test
-//    @DisplayName("Given existing user ID, when getUser, then return the user")
-//    void getUser() throws Exception {
-//        UserDto userDto = UserDto.builder().id(userId).username(username).build();
-//        when(userService.getById(userId)).thenReturn(userDto);
-//        mockMvc.perform(get("/users/{id}", userId).with(jwt().authorities(new SimpleGrantedAuthority("ADMIN"))))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.id").value(userId))
-//                .andExpect(jsonPath("$.username").value(username));
-//    }
+    @Test
+    @DisplayName("Given existing user ID, when getUser, then return the user")
+    void getUser() throws Exception {
+
+        when(userService.getById(1L)).thenReturn(userDto);
+        mockMvc.perform(get("/users/1")
+                        .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.username").value("Admin"));
+    }
 
     @Test
     @DisplayName("Given pageable information, when getUsers, then return the collection of users")
     void getUsers() throws Exception {
         Page<UserDto> page = new PageImpl<>(Collections.singletonList(userDto));
         when(userService.getAll(any(Pageable.class))).thenReturn(page);
-        mockMvc.perform(get("/users").with(user(username))
+        mockMvc.perform(get("/users")
                         .with(jwt().authorities(new SimpleGrantedAuthority(admin))))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$._embedded.userDtoList[0].id").value(1))
-                .andExpect(jsonPath("$._embedded.userDtoList[0].username").value(username));
+                .andExpect(jsonPath("$._embedded.userDtoList[0].username").value("Admin"));
     }
 
     @Test

@@ -139,8 +139,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
             final UserRepository userRepository) {
         return username -> SecurityUser.builder()
                 .user(userRepository.findByUsername(username)
-                        .orElseThrow(() -> new UsernameNotFoundException(
-                                String.format("User not found with name %s", username))))
+                .orElseThrow(() -> new UsernameNotFoundException(
+                        String.format("User not found with name %s", username))))
                 .build();
     }
 

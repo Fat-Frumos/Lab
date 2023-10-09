@@ -3,10 +3,11 @@ import {BillRoutingModule} from "./bill-routing.module";
 import {CurrencyPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
 import {BillComponent} from "./bill.component";
 import {ExchangeModule} from "../../../components/exchange/exchange.module";
+import {OrderService} from "../../../services/order.service";
 
 @NgModule({
   declarations: [
-    BillComponent
+    BillComponent,
   ],
   imports: [
     BillRoutingModule,
@@ -14,8 +15,11 @@ import {ExchangeModule} from "../../../components/exchange/exchange.module";
     DatePipe,
     CurrencyPipe,
     ExchangeModule,
+
     NgIf
-  ]
+  ],
+  providers: [
+    OrderService]
 })
 export class BillModule {
 }

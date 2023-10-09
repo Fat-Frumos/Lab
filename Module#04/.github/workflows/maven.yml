@@ -19,5 +19,8 @@ jobs:
           java-version: 17
           distribution: 'zulu'
           cache: maven
+      - name: cd
+        run: cd .\zero\Module#04
+
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn clean package -DskipTests

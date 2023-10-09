@@ -5,6 +5,7 @@ import com.epam.esm.dao.OrderDao;
 import com.epam.esm.dao.UserDao;
 import com.epam.esm.dto.OrderDto;
 import com.epam.esm.entity.Certificate;
+import com.epam.esm.entity.Invoice;
 import com.epam.esm.entity.Order;
 import com.epam.esm.entity.Tag;
 import com.epam.esm.entity.User;
@@ -12,7 +13,9 @@ import com.epam.esm.exception.CertificateNotFoundException;
 import com.epam.esm.exception.OrderNotFoundException;
 import com.epam.esm.exception.UserNotFoundException;
 import com.epam.esm.mapper.OrderMapper;
+import jakarta.persistence.PersistenceException;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +30,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.IntStream;
 
 /**
  * Implementation of the OrderService interface.
@@ -58,27 +62,58 @@ public class OrderServiceImpl implements OrderService {
      * Saves an order.
      *
      * @param username the user ID
+     * @param counters Set<Long> counters
      * @return the saved order DTO
      */
     @Override
-    @Transactional(rollbackFor = Exception.class,
-            isolation = Isolation.READ_COMMITTED)
-    public OrderDto save(
-            final String username,
-            final Set<Long> ids) {
+    @Transactional(rollbackFor = Exception.class, isolation = Isolation.READ_COMMITTED)
+    public OrderDto save(final String username, final Set<Long> ids, final List<Long> counters) {
         User user = userDao.findByUsername(username).orElseThrow(() ->
                 new UserNotFoundException("UserNotFoundException"));
-        List<Certificate> certificates =
-                certificateDao.findAllByIds(ids);
+        List<Certificate> certificates = certificateDao.findAllByIds(ids);
+
+        BigDecimal totalPrice = calculateTotalCost(certificates, counters);
+
         Order order = Order.builder()
                 .certificates(new HashSet<>(certificates))
-                .cost(certificates.stream()
-                        .map(Certificate::getPrice)
-                        .reduce(BigDecimal.ZERO, BigDecimal::add))
+                .cost(totalPrice)
                 .user(user)
                 .build();
-        return orderMapper.toDto(
-                orderDao.save(order));
+
+        if (certificates.size() != counters.size()) {
+            throw new IllegalArgumentException("Certificate and counter counts do not match.");
+        }
+
+//        List<Invoice> invoices = IntStream
+//                .range(0, certificates.size())
+//                .mapToObj(i -> orderDao.saveInvoice(
+//                        createInvoice(order, certificates.get(i), counters.get(i))))
+//                .toList();
+//
+//        order.setInvoices(invoices);
+
+        try {
+            return orderMapper.toDto(orderDao.save(order));
+        } catch (PersistenceException e) {
+            throw new ServiceException("Failed to save the order", e);
+        }
+    }
+
+    private Invoice createInvoice(Order order, Certificate certificate, Long counter) {
+        Invoice invoice = new Invoice();
+        invoice.setOrder(order);
+        invoice.setCertificate(certificate);
+        invoice.setCounter(counter);
+        return invoice;
+    }
+
+
+    private BigDecimal calculateTotalCost(List<Certificate> certificates, List<Long> counters) {
+        return IntStream.range(0, certificates.size())
+                .mapToObj(i -> certificates.get(i).getPrice().multiply(
+                        BigDecimal.valueOf(counters.stream().skip(i).findFirst().orElse(0L))))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
     }
 
     /**

@@ -4,18 +4,18 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 import {inject} from "@angular/core";
-import {AuthService} from "../../services/auth.service";
+import {UserService} from "../../services/user.service";
 import {map, take} from "rxjs";
 import {LoginState} from "../../model/enum/LoginState";
 
 export const AuthGuard: CanActivateFn = (
   _route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot) => {
-  const url = state.url;
-  return inject(AuthService).loginState.pipe(
+  const url: string = state.url;
+  return inject(UserService).loginState.pipe(
     take(1),
-    map((state) => {
-      let condition = url === '/login' || url === '/signup';
+    map((state: LoginState): boolean => {
+      let condition: boolean = url === '/login' || url === '/signup';
       if ((state !== LoginState.LOGGED_IN) && condition) {
         return true;
       }

@@ -54,6 +54,7 @@ export const selectCartState = createFeatureSelector<EntityState<ICertificate>>(
 export const selectUserState = createFeatureSelector<IUser>('user');
 export const selectCartProducts = createSelector(selectCartState, selectAll);
 
+
 export const cartProducts = createSelector(
   selectCartProducts,
   selectUserState,
@@ -67,4 +68,16 @@ export const cartProducts = createSelector(
 export const totalProductsCount = createSelector(
   selectCartProducts,
   (products) => products.reduce((total, product) => total + product.count, 0)
+);
+
+export const cartProductsWithBonuses = createSelector(
+  selectUserState,
+  (user) => (productsState: EntityState<ICertificate>) => {
+    const certificateIds = productsState.ids as string[];
+    const certificates = certificateIds.map((id) => productsState.entities[id]);
+
+    return certificates.map((certificate) => ({
+      ...certificate, price: certificate!.price * user.bonuses
+    }));
+  }
 );

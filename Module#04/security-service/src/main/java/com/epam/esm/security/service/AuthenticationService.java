@@ -274,6 +274,7 @@ public class AuthenticationService implements AuthService {
             final String jwtToken,
             final Long accessToken) {
         return AuthenticationResponse.builder()
+                .id(user.getUser().getId())
                 .username(user.getUsername())
                 .expiresAt(Timestamp.from(now()
                         .plusMillis(accessToken)))
